@@ -2,6 +2,7 @@
 .tools/
 
 # FPGA vendor build products and caches
+.Xil/
 **/impl/
 **/output/
 **/.cache/
@@ -9,6 +10,7 @@
 **/db/
 **/incremental_db/
 **/simulation/
+output_files/
 *.fs
 *.bit
 *.bin
@@ -19,10 +21,17 @@
 *.vg
 *.vho
 *.smsg
+*.jou
+*.str
+*.dcp
+*.mcs
+*.qws
+*.qdf
 
 # Simulation products
 *.vcd
 *.fst
+*.fsdb
 *.ghw
 *.wlf
 *.vvp
@@ -31,7 +40,7 @@ transcript
 work/
 obj_dir/
 
-# Python and editor files
+# Python, local configuration, and editor files
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -40,6 +49,7 @@ __pycache__/
 venv/
 .vscode/
 .idea/
+*.swp
 .env
 .env.*
 代码/docs/local/
@@ -50,7 +60,7 @@ Thumbs.db
 Desktop.ini
 .DS_Store
 
-# Generated collaboration bundles / duplicate archives
+# Generated collaboration bundles and duplicate archives
 准备/团队AI协作共享包.zip
 准备/团队AI协作共享包/
 准备/选题.7z
