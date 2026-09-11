@@ -1,0 +1,96 @@
+name: RTL 冒烟测试
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - "feature/**"
+      - "fix/**"
+      - "docs/**"
+  pull_request:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rtl-smoke-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  rtl-sim:
+    name: 原型 RTL 自检仿真
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 Icarus Verilog
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends iverilog
+
+      - name: 编译并运行原型自检 testbench
+        run: |
+          set -euo pipefail
+          workdir="$(mktemp -d)"
+          cd "$workdir"
+          iverilog -g2012 -Wall -o tb_proto.vvp \
+            "$GITHUB_WORKSPACE/tb/tb_electronic_piano.v" \
+            "$GITHUB_WORKSPACE/rtl/electronic_piano_top.v" \
+            "$GITHUB_WORKSPACE/rtl/key_debounce.v" \
+            "$GITHUB_WORKSPACE/rtl/tone_generator.v"
+          # Icarus 的 vvp 即使触发 $error 也返回 0，因此必须解析输出而不是只看退出码。
+          output="$(vvp tb_proto.vvp 2>&1)"
+          printf '%s\n' "$output"
+          if printf '%s' "$output" | grep -q "ERROR:"; then
+            echo "::error::原型自检仿真报告了错误"
+            exit 1
+          fi
+          if ! printf '%s' "$output" | grep -q "\$finish called"; then
+            echo "::error::仿真未正常执行到 \$finish，可能提前退出"
+            exit 1
+          fi
+          echo "原型自检仿真 PASS"
+
+  script-syntax:
+    name: 文档生成脚本语法检查
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 检查准备目录下的 Python 脚本语法
+        run: |
+          python3 - <<'PY'
+          import ast
+          import pathlib
+          import sys
+
+          root = pathlib.Path("准备/脚本")
+          files = sorted(root.glob("*.py"))
+          if not files:
+              print("未找到 Python 脚本，检查路径是否变更")
+              sys.exit(1)
+          failed = []
+          for path in files:
+              try:
+                  ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+              except SyntaxError as exc:
+                  failed.append(f"{path}:{exc.lineno}: {exc.msg}")
+          if failed:
+              print("\n".join(failed))
+              sys.exit(1)
+          print(f"语法检查通过，共 {len(files)} 个文件")
+          PY

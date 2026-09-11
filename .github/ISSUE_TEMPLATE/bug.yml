@@ -1,0 +1,67 @@
+name: 缺陷
+description: 报告仿真、RTL、约束或硬件异常
+title: "[缺陷] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        先按定位顺序缩小范围：电源与时钟、复位、引脚约束、协议时序、数据格式、算法结果。
+  - type: dropdown
+    id: stage
+    attributes:
+      label: 发现阶段
+      options:
+        - 静态检查或 lint
+        - 模块仿真
+        - Python 模型比较
+        - 综合
+        - 布局布线与时序
+        - 上板实测
+    validations:
+      required: true
+  - type: input
+    id: owner
+    attributes:
+      label: 相关岗位
+      placeholder: M2
+    validations:
+      required: true
+  - type: textarea
+    id: symptom
+    attributes:
+      label: 现象
+      description: 实际观察到的结果，包含具体数值、错误计数或波形特征
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期结果
+      description: 依据哪份规范、模型或数据手册
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤
+      description: 给出可重复执行的命令、测试用例和所用提交号
+    validations:
+      required: true
+  - type: input
+    id: resources
+    attributes:
+      label: 涉及硬件
+      description: 板卡与其他设备编号，纯仿真问题写无
+      placeholder: BD-01 与 LA-01
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: 安全影响
+      description: 是否存在发热、过流、电平不匹配或损坏风险
+      placeholder: 无 / 存在，已断开电源
+    validations:
+      required: true

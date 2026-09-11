@@ -1,0 +1,76 @@
+name: 任务
+description: 新建开发或验证任务
+title: "[任务] "
+labels:
+  - task
+body:
+  - type: markdown
+    attributes:
+      value: |
+        任务编号在 `代码/docs/任务看板.md` 中保持唯一，例如 T016。
+  - type: input
+    id: task_id
+    attributes:
+      label: 任务编号
+      description: 对应任务看板中的编号
+      placeholder: T016
+    validations:
+      required: true
+  - type: dropdown
+    id: owner
+    attributes:
+      label: 主负责人
+      options:
+        - M1 音频算法与竞赛交付
+        - M2 FPGA技术与系统集成
+        - M3 实体硬件与上板验证
+        - 三人共同
+    validations:
+      required: true
+  - type: input
+    id: reviewer
+    attributes:
+      label: 复核人
+      description: 不得与主负责人相同
+      placeholder: M2
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: 任务目标
+      description: 一句话说明要达成的结果
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: 授权修改目录
+      description: 只填写明确的目录，跨目录需另行说明并取得授权
+      placeholder: 代码/rtl/audio/、代码/model/
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 验收条件
+      description: 可执行、可判定的条件，并写明目标验证等级
+      placeholder: 400 Hz 至 500 Hz 范围内频率误差小于 0.1%，逐样本比较通过，等级 L3
+    validations:
+      required: true
+  - type: textarea
+    id: interface_impact
+    attributes:
+      label: 是否影响公共接口
+      description: 若影响公共事件、PCM、时钟、复位、位宽、采样率、顶层端口或引脚，先提交提案再开工
+      placeholder: 不影响 / 影响，提案 Dxxx
+    validations:
+      required: true
+  - type: input
+    id: resources
+    attributes:
+      label: 需要的板卡与仪器
+      description: 板卡写 BD-01 或 BD-02，分析仪写 LA-01 或 LA-02，纯电脑任务写无
+      placeholder: BD-02 与 LA-02，预计 3 小时
+    validations:
+      required: true
