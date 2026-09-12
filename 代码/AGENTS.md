@@ -50,3 +50,38 @@
 - 接口和参数与 `代码/docs/模块接口规范.md` 一致。
 - 更新任务状态和 `代码/docs/验证记录.md`。
 - 涉及时钟、复位、CDC、FIFO 或引脚时，完成对应专项检查。
+
+## 脚本编写约定（PowerShell）
+
+**本机默认 `pwsh` 是 Windows PowerShell 5.1 Desktop，不是 PowerShell 7。**
+它把无 BOM 的 UTF-8 源文件按 ANSI（GBK）解码，且把原生程序的 stderr
+当作致命错误。这两点会让脚本静默失效或直接报语法错误。
+
+实际发生过的事故：`check_repo.ps1` 含 10 处中文路径字面量，
+在 PS 5.1 下 `.\代码\` 被解码成 `.\浠ｇ爜\`，引号失配导致整个脚本
+无法解析——即此前所有合并检查实际从未执行。
+
+因此 `.ps1` 脚本必须遵守：
+
+1. **脚本源文件保持纯 ASCII。** 注释、字符串、提示信息一律用英文。
+   需要输出中文时，从数据文件读取，不要写进脚本源码。
+2. **需要中文路径时，用码点构造**，不要写字面量：
+
+   ```powershell
+   $codeDir = [char]0x4EE3 + [char]0x7801   # 代码
+   . ".\$codeDir\scripts\enter_fpga_env.ps1"
+   ```
+
+3. **调用原生程序时把 `$ErrorActionPreference` 临时降为 `Continue`。**
+   `iverilog`、`git` 等把警告写到 stderr，PS 5.1 会据此抛出
+   `NativeCommandError` 并中断脚本。判断成功应以产物或退出码为准，
+   不要以"有没有 stderr 输出"为准。
+4. **非 ASCII 路径传给原生 exe 会被截断。** 例如把
+   `D:\...\嵌赛FPGA\...` 作为参数传给 `iverilog`，PowerShell 可能只
+   传出 `D:`。编译这类工具前先把源文件复制到 ASCII 临时目录，
+   见 `scripts/run_t019_sim.ps1` 的做法。
+5. **不要依赖 BOM 修复。** 环境可能拒绝写入 BOM；纯 ASCII 是唯一
+   在两种 PowerShell 下都可靠的做法。
+
+Python 脚本不受此限，可正常使用中文，但文件读写需显式指定
+`encoding="utf-8"`，并用 `python -X utf8` 运行。

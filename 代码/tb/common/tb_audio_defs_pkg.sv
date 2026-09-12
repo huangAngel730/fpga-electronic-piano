@@ -115,6 +115,72 @@ module tb_audio_defs_pkg;
                       div_ratio);
         end
 
+        // ---------------------------------------------------------------------
+        $display("\n[3c] phase_step_for 通用性：不同目标频率必须得到不同结果");
+        // ---------------------------------------------------------------------
+        // 回归用例：曾出现 tick_phase_step 内部写死 48 kHz，
+        // 导致用它计算 BCLK 步进时返回错误值。此处固化该缺陷的检查。
+        check_int("50 MHz/48 kHz 与 50 MHz/3.072 MHz 步进不同",
+                  phase_step_for(50_000_000, SAMPLE_RATE_HZ)
+                    != phase_step_for(50_000_000, I2S_BCLK_HZ),
+                  1);
+        check_int("目标频率减半时步进减半",
+                  phase_step_for(50_000_000, SAMPLE_RATE_HZ / 2),
+                  phase_step_for(50_000_000, SAMPLE_RATE_HZ) / 2);
+
+        // ---------------------------------------------------------------------
+        $display("\n[3b] 板载 50 MHz 实际参数（2026-09-12 确认）");
+        // ---------------------------------------------------------------------
+        // 板载晶振 50 MHz。50 MHz 不能被 48 kHz 整除，故 step 不是 2 的幂。
+        // 本组检查确保 RTL 中硬编码的常量与函数计算、与 Python 分析一致。
+        check_int("BOARD_CLK_HZ", BOARD_CLK_HZ, 50_000_000);
+        check_int("函数计算 50 MHz -> step",
+                  tick_phase_step(50_000_000), 32'd4123169);
+        check_int("BOARD_TICK_PHASE_STEP 与函数一致",
+                  BOARD_TICK_PHASE_STEP, tick_phase_step(50_000_000));
+        // 确认 50 MHz 下 step 确实不是 2 的幂（说明存在抖动，需文档说明）
+        check_int("50 MHz step 不是 2 的幂",
+                  (BOARD_TICK_PHASE_STEP & (BOARD_TICK_PHASE_STEP - 1)) != 0,
+                  1);
+        // 长期平均频率误差应在 1 ppm 内
+        begin
+            longint unsigned actual_num;
+            longint unsigned target_num;
+            longint unsigned diff_ppm;
+            actual_num = longint'(BOARD_TICK_PHASE_STEP) * BOARD_CLK_HZ;
+            target_num = (longint'(1) << TICK_ACC_BITS) * SAMPLE_RATE_HZ;
+            diff_ppm = ((actual_num > target_num ? actual_num - target_num
+                                                 : target_num - actual_num)
+                        * 1_000_000) / target_num;
+            check_int("50 MHz 长期频率误差(ppm) < 1", diff_ppm < 1, 1);
+        end
+
+        // I2S BCLK 参数：确认不能用整数分频
+        check_int("I2S_BCLK_HZ", I2S_BCLK_HZ, 3_072_000);
+        check_int("BCLK 函数计算 step",
+                  phase_step_for(50_000_000, I2S_BCLK_HZ), 32'd263882791);
+        check_int("I2S_BCLK_PHASE_STEP 与函数一致",
+                  I2S_BCLK_PHASE_STEP,
+                  phase_step_for(50_000_000, I2S_BCLK_HZ));
+        // 回归：tick_phase_step 包装必须仍等价于 48 kHz 目标
+        check_int("tick_phase_step 包装与 phase_step_for 一致",
+                  tick_phase_step(50_000_000),
+                  phase_step_for(50_000_000, SAMPLE_RATE_HZ));
+        // 关键反例：50 MHz 整除 3.072 MHz 会得到错误音高，此处固化该结论
+        check_int("50e6/3.072e6 不是整数",
+                  50_000_000 % I2S_BCLK_HZ != 0, 1);
+        begin
+            longint unsigned bclk_actual;
+            longint unsigned bclk_target;
+            longint unsigned bclk_ppm;
+            bclk_actual = longint'(I2S_BCLK_PHASE_STEP) * BOARD_CLK_HZ;
+            bclk_target = (longint'(1) << TICK_ACC_BITS) * I2S_BCLK_HZ;
+            bclk_ppm = ((bclk_actual > bclk_target ? bclk_actual - bclk_target
+                                                   : bclk_target - bclk_actual)
+                        * 1_000_000) / bclk_target;
+            check_int("BCLK 误差(ppm) < 1", bclk_ppm < 1, 1);
+        end
+
         // 非整除频率：检查长期平均频率误差
         $display("  -- 非整除频率的长期频率 --");
         begin

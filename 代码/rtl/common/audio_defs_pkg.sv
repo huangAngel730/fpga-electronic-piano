@@ -29,20 +29,65 @@ package audio_defs_pkg;
     // -------------------------------------------------------------------------
     localparam int unsigned TICK_ACC_BITS = 32;
 
-    // 相位步进计算函数：step = round(2^ACC_BITS * FS / FCLK)
+    // 相位步进计算函数：step = round(2^ACC_BITS * TARGET_HZ / FCLK_HZ)
     //
-    // 当 FCLK 可被 FS 整除时（例如 98.304 MHz），结果为精确整数，
-    // 相位累加器退化为整数分频器，无量化误差、无间隔抖动。
-    function automatic logic [TICK_ACC_BITS-1:0] tick_phase_step(
-        input int unsigned fclk_hz
+    // 当 FCLK 可被 TARGET_HZ 整除时（例如 24.576 MHz 对 48 kHz），
+    // 结果为精确整数，相位累加器退化为整数分频器，无量化误差、无间隔抖动。
+    // 当不能整除时（例如板载的 50 MHz），仍能给出最接近的长期平均频率，
+    // 代价是间隔存在 +-1 个时钟周期的抖动。
+    //
+    // 注意 TARGET_HZ 必须显式传入，不要依赖默认值：
+    // I2S 的 BCLK（3.072 MHz）也用它计算步进，
+    // 若函数内部写死 48 kHz 会得到完全错误的结果。
+    function automatic logic [TICK_ACC_BITS-1:0] phase_step_for(
+        input int unsigned fclk_hz,
+        input int unsigned target_hz
     );
         longint unsigned full_scale;
         longint unsigned numer;
         full_scale = 64'h1 << TICK_ACC_BITS;
-        numer = full_scale * SAMPLE_RATE_HZ;
+        numer = full_scale * target_hz;
         // 四舍五入：(numer + fclk/2) / fclk
         return (numer + (fclk_hz >> 1)) / fclk_hz;
     endfunction
+
+    // 48 kHz sample_tick 专用包装，便于调用处保持简洁。
+    function automatic logic [TICK_ACC_BITS-1:0] tick_phase_step(
+        input int unsigned fclk_hz
+    );
+        return phase_step_for(fclk_hz, SAMPLE_RATE_HZ);
+    endfunction
+
+    // -------------------------------------------------------------------------
+    // 板载实际参数（2026-09-12 确认）
+    //
+    // 板载晶振 50 MHz，见 代码/docs/板级硬件事实.md 3.3 节。
+    // 50 MHz 不能被 48 kHz 整除，故 PHASE_STEP 不是 2 的幂：
+    //   step = round(2^32 * 48000 / 50000000) = 4123169 (0x003EEA21)
+    //   实际平均采样率 = 48000.004608 Hz，误差 +0.096 ppm
+    //   tick 间隔在 1041 与 1042 个时钟之间交替，峰峰抖动 20 ns
+    //
+    // 该抖动可接受：sample_tick 在本项目中是"处理节拍"而非 DAC 时钟，
+    // 音频输出的采样率由 I2S 的 BCLK/LRCLK 保证。
+    // 详见 代码/scripts/analyze_clock_50m.py。
+    // -------------------------------------------------------------------------
+    localparam int unsigned BOARD_CLK_HZ       = 50_000_000;
+    localparam logic [TICK_ACC_BITS-1:0]
+                            BOARD_TICK_PHASE_STEP = 32'd4_123_169;
+
+    // I2S 位时钟目标频率（接口规范 2.4 节）
+    localparam int unsigned I2S_BCLK_HZ = 3_072_000;
+
+    // I2S BCLK 的相位步进。
+    //
+    // 【关键】BCLK 不能用 50 MHz 整数分频产生：
+    //   50e6 / 3.072e6 = 16.276042，非整数；
+    //   除以 16 得 3.125 MHz，误差 +17253 ppm，音高偏高约 0.29 半音，
+    //   人耳可直接察觉，故必须用相位累加。
+    //   step = round(2^32 * 3.072e6 / 50e6) = 263882791 (0x0FBA8827)
+    //   实际 BCLK = 3.072000004 MHz，误差 +0.0013 ppm
+    localparam logic [TICK_ACC_BITS-1:0]
+                            I2S_BCLK_PHASE_STEP   = 32'd263_882_791;
 
     // -------------------------------------------------------------------------
     // 统一演奏事件（接口规范 3.1 节）

@@ -21,3 +21,8 @@
 *.otf   binary
 *.woff  binary
 *.woff2 binary
+
+# 第三方原始文件：保持逐字节原样，不做换行符转换，也不参与空白检查。
+# 这些文件来自厂商，必须与来源一致以便校验哈希；修改其空白会破坏比对。
+代码/constraints/tang_mega_60k_reference.cst  -text -whitespace
+准备/选题/**  -text -whitespace

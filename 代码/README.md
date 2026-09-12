@@ -28,3 +28,27 @@
 
 `check_repo.ps1` 检查目录入口、Python 脚本、DOCX 结构、禁止提交文件和早期原型冒烟测试。它只证明当前环境可执行的静态检查与 L2 原型仿真，不代表正式工程已综合或上板。
 
+> **已知问题（2026-09-12）**：`check_repo.ps1` 在当前环境**无法运行**。
+> 它含 10 处中文路径字面量，而本机 `pwsh` 实为 Windows PowerShell 5.1，
+> 会把无 BOM 的 UTF-8 源文件按 ANSI 解码，导致语法错误。
+> 修复前请勿把它作为合并门禁。详见 `AGENTS.md` 的"脚本编写约定"。
+
+## 模块仿真
+
+```powershell
+# T019 时钟、复位与 sample_tick 一键回归（3 个 testbench，全部 PASS 时退出码 0）
+.\代码\scripts\run_t019_sim.ps1
+```
+
+该脚本只依赖仓库内源码，会先把源文件复制到 ASCII 临时目录再编译，
+以规避 PowerShell 5.1 向原生程序传递非 ASCII 路径时的截断问题。
+
+## 硬件事实核查
+
+板载晶振频率、引脚分配等板级事实常只存在于厂商原理图 PDF 中，
+无法直接复制文本。`代码/scripts/tools/` 提供逐级深入的提取脚本，
+用法与实战记录见 `代码/scripts/tools/README.md`。
+
+本项目已确认的板级事实记录在 `代码/docs/板级硬件事实.md`，
+引脚参考表见 `代码/constraints/tang_mega_60k_reference.cst`。
+
