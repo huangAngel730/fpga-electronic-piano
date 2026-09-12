@@ -41,10 +41,10 @@ jobs:
           workdir="$(mktemp -d)"
           cd "$workdir"
           iverilog -g2012 -Wall -o tb_proto.vvp \
-            "$GITHUB_WORKSPACE/tb/tb_electronic_piano.v" \
-            "$GITHUB_WORKSPACE/rtl/electronic_piano_top.v" \
-            "$GITHUB_WORKSPACE/rtl/key_debounce.v" \
-            "$GITHUB_WORKSPACE/rtl/tone_generator.v"
+            "$GITHUB_WORKSPACE/legacy-prototype/tb/tb_electronic_piano.v" \
+            "$GITHUB_WORKSPACE/legacy-prototype/rtl/electronic_piano_top.v" \
+            "$GITHUB_WORKSPACE/legacy-prototype/rtl/key_debounce.v" \
+            "$GITHUB_WORKSPACE/legacy-prototype/rtl/tone_generator.v"
           # Icarus 的 vvp 即使触发 $error 也返回 0，因此必须解析输出而不是只看退出码。
           output="$(vvp tb_proto.vvp 2>&1)"
           printf '%s\n' "$output"

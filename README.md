@@ -36,7 +36,7 @@ FPGA内的DDS、波表、ADSR、复音、混音和数字效果算法按软件工
 
 ## 已有八键原型
 
-仓库根目录下的 `rtl/`、`tb/`、`constraints/` 和 `docs/` 来自项目早期的厂商无关Verilog电子琴原型，当前功能包括：
+`legacy-prototype/` 下的 `rtl/`、`tb/` 和 `docs/` 来自项目早期的厂商无关Verilog电子琴原型，当前功能包括：
 
 - C4至C5八个低有效琴键
 - 两级输入同步和按键去抖
@@ -56,7 +56,7 @@ FPGA内的DDS、波表、ADSR、复音、混音和数字效果算法按软件工
 - `代码/model/`：Python黄金参考模型。
 - `代码/scripts/`：环境、构建、烧录和自动测试脚本。
 - `.github/`：合并请求模板、问题单模板和RTL冒烟工作流。
-- `rtl/`、`tb/`、`docs/`、`constraints/`：2026-09 早期八键原型及其自检仿真，已冻结，仅作历史参考。正式开发一律进 `代码/`，每个旧目录内的 `README.md` 有说明。
+- `legacy-prototype/`：2026-09 早期八键原型及其自检仿真，已冻结，仅作历史参考。正式开发一律进 `代码/`，说明见 `legacy-prototype/README.md`。
 
 ## 团队和AI协作
 
@@ -89,10 +89,10 @@ FPGA内的DDS、波表、ADSR、复音、混音和数字效果算法按软件工
 
 ## 原型仿真
 
-已有原型顶层为 `electronic_piano_top`，自检Testbench位于 `tb/tb_electronic_piano.v`。运行方法见 `代码/docs/开发环境.md`。在正式复用前，应先按照当前环境运行仿真并确认PASS；不能仅依据远程仓库说明将其视为已经在Tang Mega 60K上验证。
+已有原型顶层为 `electronic_piano_top`，自检Testbench位于 `legacy-prototype/tb/tb_electronic_piano.v`。运行方法见 `legacy-prototype/README.md`，工具链激活见 `代码/docs/开发环境.md`。在正式复用前，应先按照当前环境运行仿真并确认PASS；不能仅依据远程仓库说明将其视为已经在Tang Mega 60K上验证。
 
 `.github/workflows/rtl-smoke.yml` 会在推送和合并请求时自动编译并运行该原型仿真。
 
 ## 电气安全
 
-不要将8欧无源扬声器直接连接FPGA引脚。数字音频应经板载音频链路或I2S DAC转换后，再连接有源音箱或功放输入。5 V信号接入3.3 V FPGA GPIO前必须确认分压或电平转换。详见 `docs/hardware.md`。
+不要将8欧无源扬声器直接连接FPGA引脚。数字音频应经板载音频链路或I2S DAC转换后，再连接有源音箱或功放输入。5 V信号接入3.3 V FPGA GPIO前必须确认分压或电平转换。早期原型的蜂鸣器接法见 `legacy-prototype/docs/hardware.md`，那是历史参考；正式音频链路以 `代码/docs/` 为准。
