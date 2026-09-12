@@ -23,8 +23,20 @@
 ```powershell
 . .\代码\scripts\enter_fpga_env.ps1
 .\代码\scripts\check_fpga_env.ps1
+.\代码\scripts\setup_git_ssh.ps1   # 每个克隆执行一次
 .\代码\scripts\check_repo.ps1
 ```
+
+`setup_git_ssh.ps1` 让 git 改用 Windows 原生 OpenSSH 客户端。Git for Windows 自带的
+ssh 是 Cygwin 版本，启动时要创建命名管道，在受限环境下会直接崩溃：
+
+```
+ssh.exe: *** fatal error - couldn't create signal pipe, Win32 error 5
+fatal: Could not read from remote repository.
+```
+
+改用 `C:\WINDOWS\System32\OpenSSH\ssh.exe` 即可正常 fetch/push。
+该设置写入 `.git/config`，**不随仓库分发**，所以每人克隆后执行一次。
 
 `check_repo.ps1` 检查目录入口、Python 脚本、DOCX 结构、禁止提交文件和早期原型冒烟测试。它只证明当前环境可执行的静态检查与 L2 原型仿真，不代表正式工程已综合或上板。
 

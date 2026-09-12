@@ -82,6 +82,18 @@
    见 `scripts/run_t019_sim.ps1` 的做法。
 5. **不要依赖 BOM 修复。** 环境可能拒绝写入 BOM；纯 ASCII 是唯一
    在两种 PowerShell 下都可靠的做法。
+6. **git 必须改用 Windows 原生 OpenSSH。** Git for Windows 自带的
+   `C:\Program Files\Git\usr\bin\ssh.exe` 是 Cygwin 程序，启动时要建
+   命名管道，受限环境下会崩：
+
+   ```
+   ssh.exe: *** fatal error - couldn't create signal pipe, Win32 error 5
+   ```
+
+   对策是切到 `C:\WINDOWS\System32\OpenSSH\ssh.exe`（原生实现，不用
+   命名管道）。执行 `.\代码\scripts\setup_git_ssh.ps1` 即可写入
+   `core.sshCommand`。该配置在 `.git/config` 里，**不随仓库分发**，
+   每个新克隆都要跑一次。
 
 Python 脚本不受此限，可正常使用中文，但文件读写需显式指定
 `encoding="utf-8"`，并用 `python -X utf8` 运行。
