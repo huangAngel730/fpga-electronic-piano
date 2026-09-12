@@ -1,10 +1,11 @@
 // -----------------------------------------------------------------------------
 // audio_timing.sdc
-// 音频链路时序约束。对应任务 T019，接口规范 v1.0 第 2 节。
+// 音频链路时序约束。对应任务 T019 与 T005，接口规范 v1.1 第 2、5 节。
 //
-// 依据：代码/docs/模块接口规范.md 2.1 至 2.4 节
+// 依据：代码/docs/模块接口规范.md 2.1 至 2.5 节
 //      分析：代码/scripts/analyze_clock_50m.py
-//      板卡：代码/docs/板级硬件事实.md 3.3 节
+//      板卡：代码/docs/板级硬件事实.md 3.3、3.7 节
+//      器件：代码/docs/PT8211_V1.7_E_数据手册.pdf（16 位 LSBJ DAC）
 // -----------------------------------------------------------------------------
 
 // -----------------------------------------------------------------------------
@@ -42,12 +43,50 @@ create_clock -name sys_clk -period 20.000 [get_ports sys_clk]
 //   LRCLK 由同一累加器加 6 位计数器产生，天然保证 64:1 整数关系。
 //
 // 【抖动说明】相位累加的 BCLK 周期不均匀，存在 +-1 个 sys_clk 周期
-//   （20 ns）的抖动。对 PCM5102 一类 I2S DAC，BCLK 抖动会直接调制
+//   （20 ns）的抖动。对 PT8211 一类 I2S/LSBJ DAC，BCLK 抖动会直接调制
 //   输出采样时刻，需在音频验收时评估 THD+N。若实测指标不达标，
 //   备选方案是用 PLL 产生 98.304 MHz 后整数 32 分频，可获得无抖动 BCLK。
 //
-// BCLK 为内部生成时钟。实现确定后此处改用 create_generated_clock 描述。
+// BCLK 为内部生成时钟，实现已于 T005 落地（rtl/audio_out/i2s_tx.sv）。
+//
+// 【约束方式说明】BCLK/LRCLK 不是从专用时钟资源分频得到的，而是由
+//   sys_clk 下的普通寄存器经时钟使能 bclk_ce 翻转产生。对这类信号，
+//   用 create_generated_clock -divide_by N 描述是错的：它假定存在一个
+//   与源时钟有整数分频关系的物理时钟网络，而 50e6/3.072e6 = 16.276042
+//   并非整数，且该寄存器输出并未走时钟树。
+//
+//   正确做法是用 set_output_delay -clock <虚拟时钟> 约束数据输出路径，
+//   虚拟时钟表达"片外接收器件看到的时钟"。PT8211 实际看到的是 FPGA
+//   引脚上带抖动的 BCLK，因此虚拟时钟周期取名义值 325.520833 ns，
+//   再用 set_clock_uncertainty 把 +-20 ns 的相位累加抖动算进去。
+//
+//   这样约束的意义是：报告 IO 时序时按片外 DAC 的真实时钟关系计算，
+//   而不是按 sys_clk 的 20 ns 错误地宽松化。
 // -----------------------------------------------------------------------------
+
+// 片外 DAC 视角的 BCLK 虚拟时钟：3.072 MHz
+create_clock -name i2s_bclk_virt -period 325.520833
+// 片外 DAC 视角的 LRCLK 虚拟时钟：48 kHz
+create_clock -name i2s_lrclk_virt -period 20833.333333
+
+// BCLK 抖动上限 +-20 ns 计入不确定度，避免按理想 3.072 MHz 报虚假收敛。
+set_clock_uncertainty -setup 20.000 [get_clocks i2s_bclk_virt]
+set_clock_uncertainty -hold   5.000 [get_clocks i2s_bclk_virt]
+set_clock_uncertainty -setup 20.000 [get_clocks i2s_lrclk_virt]
+set_clock_uncertainty -hold   5.000 [get_clocks i2s_lrclk_virt]
+
+// PT8211 手册（V1.7，Timing Characteristics）要求：
+//   tH（数据保持）>= 25 ns，tR / tF <= 20 ns，Fbck <= 18.4 MHz。
+// 实现上 BCLK 在 clk 下降沿更新、DIN 在 clk 上升沿更新，两者相差
+// 半个 sys_clk 周期（10 ns），使 BCLK 两个边沿都落在 DIN 稳定窗口中央。
+// 下面的输出延迟按引脚与走线确定后再用布局布线报告校正。
+// TODO(引脚确定后)：替换占位数值并补齐 get_ports 的实际端口名。
+set_output_delay -clock i2s_bclk_virt  -max 5.000 [get_ports i2s_bclk]
+set_output_delay -clock i2s_bclk_virt  -min 0.000 [get_ports i2s_bclk]
+set_output_delay -clock i2s_bclk_virt  -max 5.000 [get_ports i2s_din]
+set_output_delay -clock i2s_bclk_virt  -min 0.000 [get_ports i2s_din]
+set_output_delay -clock i2s_lrclk_virt -max 5.000 [get_ports i2s_lrclk]
+set_output_delay -clock i2s_lrclk_virt -min 0.000 [get_ports i2s_lrclk]
 
 // -----------------------------------------------------------------------------
 // 三 异步输入
@@ -68,13 +107,19 @@ create_clock -name sys_clk -period 20.000 [get_ports sys_clk]
 //   [x] 板载晶振频率核实 -> 50 MHz
 //   [x] sys_clk 的 create_clock 周期 -> 20.000 ns
 //   [x] 确认不倍频到 98.304 MHz（精度反而更差）
+//   [x] 确认 BCLK 必须用相位累加（整数分频误差 +17253 ppm 不可用）
+//   [x] BCLK / LRCLK 相位累加器实现落地（T005，rtl/audio_out/i2s_tx.sv）
+//   [x] 用虚拟时钟描述片外 DAC 视角的 BCLK / LRCLK（见第二节）
 //
 // 待完成：
-//   [ ] BCLK / LRCLK 相位累加器实现后，补充 create_generated_clock
-//   [ ] 引脚约束（CST）确定后，补充输入输出延迟
+//   [ ] 引脚约束（CST）确定后，把上面的 set_output_delay 占位值
+//       换成按实际走线计算的数值，并核对 i2s_bclk / i2s_lrclk / i2s_din
+//       三个端口名与顶层一致
 //   [ ] 首次综合后，检查时序报告是否收敛
 //   [ ] 上板实测 BCLK 频率与 I2S 波形，验证 DAC 输出 THD+N
+//       （PT8211 手册 THD 典型值 0.13% 约 -57.7 dB，是整条音频链的上限；
+//        评估算法优化收益前先确认瓶颈不在此处）
 //
-// 注意：以上未完成项中，只有第一项影响本文件的语法完整性；
-//       其余不影响约束本身的正确性，但影响时序收敛判定的充分性。
+// 注意：以上未完成项均不影响约束本身的语法正确性，但影响时序收敛
+//       判定的充分性。在引脚确定前，第二节的 set_output_delay 仅是占位。
 // -----------------------------------------------------------------------------

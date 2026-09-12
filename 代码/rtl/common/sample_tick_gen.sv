@@ -26,8 +26,13 @@
 module sample_tick_gen #(
     // 相位累加器位宽
     parameter int unsigned ACC_BITS = 32,
-    // 每个 sys_clk 周期的相位步进，由顶层按实际频率计算后传入
-    parameter logic [ACC_BITS-1:0] PHASE_STEP = 32'd2097152
+    // 每个 sys_clk 周期的相位步进，由顶层按实际频率计算后传入。
+    // 默认值对应本板 50 MHz 晶振、48 kHz 采样率：
+    //   round(2^32 * 48000 / 50000000) = 4123169 = 0x003EEA21
+    //   实际平均采样率 48000.004608 Hz，误差 +0.0960 ppm
+    // 该值必须与 audio_defs_pkg::BOARD_TICK_PHASE_STEP 一致，
+    // 顶层例化时应显式传入，不要依赖默认值。
+    parameter logic [ACC_BITS-1:0] PHASE_STEP = 32'd4_123_169
 ) (
     input  logic                    clk,        // sys_clk
     input  logic                    rst_n,      // 本域同步后的复位，低有效
