@@ -1,0 +1,23 @@
+# 换行符规则：仓库内统一存 LF，工作区也检出 LF。
+# 目的：消除 Windows 与 Linux 之间的整文件差异，并去掉 "LF will be replaced by CRLF" 提示。
+# 规则说明见 代码/docs/Git协作规范.md。不要用其他方式单独改某个文件的换行符。
+* text=auto eol=lf
+
+# 二进制文件不做换行符转换，也不参与文本 diff
+*.docx  binary
+*.doc   binary
+*.xlsx  binary
+*.pptx  binary
+*.pdf   binary
+*.zip   binary
+*.7z    binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.bmp   binary
+*.gif   binary
+*.ico   binary
+*.ttf   binary
+*.otf   binary
+*.woff  binary
+*.woff2 binary
