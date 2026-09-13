@@ -50,11 +50,30 @@ $ErrorActionPreference = 'Stop'
 $codeCjk = [char]0x4EE3 + [char]0x7801
 $prepCjk = [char]0x51C6 + [char]0x5907
 
-$repo = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+# $PSScriptRoot is always an absolute path, including under "powershell -File".
+# $MyInvocation.MyCommand.Path is NOT: under -File it can be the same relative
+# path the caller typed, so two Split-Path calls then stop one level short.
+# That bug already bit once (the script reported the repo as <root>\<code>).
+if (-not $PSScriptRoot) {
+    throw 'cannot determine script directory; run this with -File, not by pasting'
+}
+$repo = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 Set-Location -LiteralPath $repo
 
 Write-Host "repo: $repo"
 Write-Host ''
+
+# --- Guard: we really are at the repository root -----------------------------
+# The first version of this script walked up one level too few and cheerfully
+# reported "<root>\<code>" as the repo. Fail loudly instead of skipping.
+if (-not (Test-Path -LiteralPath (Join-Path $repo '.git'))) {
+    throw "not a repository root (no .git): $repo"
+}
+foreach ($d in @($codeCjk, $prepCjk)) {
+    if (-not (Test-Path -LiteralPath (Join-Path $repo $d))) {
+        throw "expected top-level directory not found: $d (under $repo)"
+    }
+}
 
 # --- Guard: a clean (or at least rename-only) tree ---------------------------
 # Untracked build products are tolerated; tracked modifications are not,
