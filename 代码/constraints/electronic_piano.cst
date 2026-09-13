@@ -80,8 +80,12 @@ IO_PORT "uart_tx"   IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8 BANK_VCCIO=3.3;
 //      IO_LOC  "key[0]" AB13;  IO_PORT "key[0]" IO_TYPE=LVCMOS15 PULL_MODE=UP BANK_VCCIO=1.5;
 //      IO_LOC  "key[1]" Y12;   IO_PORT "key[1]" IO_TYPE=LVCMOS15 PULL_MODE=UP BANK_VCCIO=1.5;
 //
-// 3. 板载 8 路 LED（P19/R19/T21/U21/P16/R17/R18/T18，LVCMOS33 / 3.3 V）
-//    —— 与 PMOD0 / SDRAM1 复用同一组脚，占用前须确认不与 PMOD 功能冲突。
+// 3. CST 的 LEDs[0..7]（P19/R19/T21/U21/P16/R17/R18/T18，LVCMOS33 / 3.3 V）
+//    —— 【重要】这 8 个不是板载 LED，而是官方示例为 PMOD0 八根信号起的
+//    顶层别名；31005 实际网络是 PMOD0_IO0..IO7，且与 SDRAM1_D[0..7] 复用同一组脚。
+//    底板没有 8 颗可供 RTL 直接点亮的离散用户 LED，点亮电平取决于插在
+//    PMOD0 上的外部模块，不能从核心板或底板推断。
+//    来源：Tang_Mega_60K_30354_NEO_31005 引脚事实表 r48-r55 及用户核对截图。
 //    本工程状态指示方案未定，暂不写入。
 //
 // 4. DDR3 / HDMI / 以太网 / SDRAM / 摄像头 / SD 卡 / CH569 —— 本工程不使用。

@@ -107,6 +107,15 @@ try {
         (Join-Path $codeDir "rtl\board\electronic_piano_top.sv"),
         (Join-Path $codeDir "tb\board\tb_electronic_piano_top.sv"),
         (Join-Path $codeDir (Join-Path "scripts" "run_t007_sim.ps1")),
+        # External board-documentation digests kept read-only under
+        # docs/reference. The directory name is ASCII, but the digests carry a
+        # CJK suffix; build it from code points (see the header note).
+        (Join-Path $codeDir "docs\reference\README.md"),
+        (Join-Path $codeDir (Join-Path "docs\reference" ("BOARD_CONTEXT_{0}.md" -f `
+            [string]([char]0x5916 + [char]0x90E8 + [char]0x6574 + [char]0x7406 + [char]0x7A3F)))),
+        (Join-Path $codeDir (Join-Path "docs\reference" ("DOC_INDEX_{0}.md" -f `
+            [string]([char]0x5916 + [char]0x90E8 + [char]0x6574 + [char]0x7406 + [char]0x7A3F)))),
+        (Join-Path $codeDir (Join-Path "scripts" "verify_reference_digests.py")),
         "legacy-prototype\AGENTS.md",
         "legacy-prototype\README.md"
     )
@@ -377,7 +386,7 @@ try {
     #      checked ratios, never absolute frequency.
     #   2. The test tone phase step divided by CLK_HZ instead of the sample
     #      rate, making the output a 0.42 Hz sine that decoded as silence.
-    # See 验证记录.md V0029.
+    # See the verification log (docs, V0029).
     # ---------------------------------------------------------------------
     $t007Script = Join-Path $codeDir (Join-Path "scripts" "run_t007_sim.ps1")
     if (Test-Path -LiteralPath $t007Script) {
@@ -399,6 +408,40 @@ try {
         Add-CheckResult "T007 top-level simulation" $t007Passed $t007Detail
     } else {
         Add-CheckResult "T007 top-level simulation" $false "run_t007_sim.ps1 not found"
+    }
+
+    # ---------------------------------------------------------------------
+    # 10. External reference digests stay annotated and intact
+    #
+    # docs/reference/ holds board documentation written by someone else.
+    # Two things must hold or the directory silently loses its meaning:
+    #   a. Each digest still carries the provenance banner. Without it a
+    #      reader cannot tell that the file is an external digest rather than
+    #      this project's own board fact source, and would treat its
+    #      "PBG484A is confirmed" wording as settled while D018 keeps that
+    #      spelling undecided.
+    #   b. The digest bodies are not edited. The Python helper re-derives the
+    #      body and asserts it did not shrink relative to the source file.
+    #
+    # The heavy lifting lives in verify_reference_digests.py: comparing CJK
+    # text from PowerShell 5.1 is a trap (BOM-less UTF-8 is decoded as ANSI),
+    # and Python also reports the true on-disk size, which Get-Content can
+    # serve stale.
+    # ---------------------------------------------------------------------
+    $refVerifier = Join-Path $codeDir (Join-Path "scripts" "verify_reference_digests.py")
+    if (Test-Path -LiteralPath $refVerifier) {
+        $prevEap = $ErrorActionPreference
+        $ErrorActionPreference = "Continue"
+        $refOut = & python -X utf8 $refVerifier 2>&1
+        $refCode = $LASTEXITCODE
+        $ErrorActionPreference = $prevEap
+        $refTail = (($refOut | Where-Object { $_ -match '\S' } |
+                     Select-Object -Last 4) -join " | ")
+        Add-CheckResult "Reference digests annotated" ($refCode -eq 0) `
+            "exit=$refCode $refTail"
+    } else {
+        Add-CheckResult "Reference digests annotated" $false `
+            "verify_reference_digests.py not found"
     }
 } finally {
     Pop-Location
