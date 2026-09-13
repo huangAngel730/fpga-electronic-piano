@@ -1,6 +1,7 @@
 # Build the electronic_piano Gowin project from the command line.
 #
 # Usage:  .\build_electronic_piano.ps1 [-Flow synth|pnr|bitstream]
+#         .\build_electronic_piano.ps1 -Flow pnr -SynthOnly   # see below
 #
 # Why a script instead of GUI steps: the project rules require every build to
 # be reproducible from the command line (see code/AGENTS.md, build toolchain).
@@ -13,70 +14,59 @@
 #     character with "?" and then reports "project file ... does not exist".
 #     A path like D:/.../<CJK>/build/x.gprj becomes D:/.../???/build/x.gprj.
 #
-# THE ASCII PATH PROBLEM AND ITS SOLUTION
-# ---------------------------------------
-# The repository lives under a CJK path (D:\17\<CJK>\<CJK>\<CJK>), and the
-# directory that holds the project is itself CJK-named ("code" in Chinese).
-# Two directory junctions give the tools a pure ASCII view of the same files:
+# HISTORY: two directory junctions used to give the tools an ASCII view of a
+# CJK repository. That is gone. The repository, every directory inside it, and
+# the paths handed to the toolchain are now genuinely ASCII, so no mirror is
+# needed. This script now derives everything from its own location.
 #
-#   D:\17\project_17\fpga_gowin       -> <repo root>
-#   D:\17\project_17\fpga_gowin\code  -> <repo root>\<code dir>
+# The Verilog language option matters: the sources are SystemVerilog, and the
+# synthesizer defaults to Verilog 2001, which produces
 #
-# so gw_sh sees D:/17/project_17/fpga_gowin/code/build/electronic_piano.gprj.
-# Nothing is copied: the junctions point at the real files, so a build always
-# uses exactly the sources in the repository.
+#     ERROR (EX3863): Syntax error near 'unsigned'
+#     ERROR (EX2656): Verilog 2001 keyword 'unsigned' used in incorrect context
+#     ERROR (EX3444): 'package' is an unknown type
 #
-# Create them once, from an elevated shell:
-#   cmd /c mklink /J "D:\17\project_17\fpga_gowin"      "<repo root>"
-#   cmd /c mklink /J "D:\17\project_17\fpga_gowin\code" "<repo root>\<code dir>"
-#
-# The script verifies the junctions exist and fails with that hint if not.
+# The correct switch is -vlog_std sysv, taken from the vendor's own option
+# table at IDE\data\config\synthesisoptions.xml (entry SYN17). The plausible
+# sounding alternatives (-verilog_language, -verilog_std, sysv2017) are not
+# recognised and are silently ignored, which is why this is written out in the
+# project file rather than passed ad hoc.
 
 param(
     [ValidateSet('synth', 'pnr', 'bitstream')]
-    [string]$Flow = 'synth',
-    [string]$AsciiRoot = 'D:\17\project_17\fpga_gowin'
+    [string]$Flow = 'synth'
 )
 
 $ErrorActionPreference = 'Continue'
 
 # --- Paths ------------------------------------------------------------------
-# The "code" directory is U+4EE3 U+7801; it is built from code points so this
-# file stays pure ASCII while still resolving the real directory name.
-$codeDir  = [char]0x4EE3 + [char]0x7801
-# $PSScriptRoot is <repo>/<code>/scripts, so the repo root is two levels up.
+# Top-level directory names are ASCII since the rename (code, prep).
+$codeDir = 'code'
+# $PSScriptRoot is <repo>/code/scripts, so the repo root is two levels up.
 $repoRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
+$project = Join-Path $repoRoot "$codeDir\build\electronic_piano.gprj"
 
-$projectRel = "$codeDir\build\electronic_piano.gprj"
-
-# Verify the ASCII mirror before doing any work: a missing junction is the
-# single most likely reason for a confusing "project does not exist" later.
-$asciiProject = Join-Path $AsciiRoot "code\build\electronic_piano.gprj"
-if (-not (Test-Path $AsciiRoot)) {
-    Write-Host "ERROR: ASCII mirror not found: $AsciiRoot"
-    Write-Host '       Create it from an elevated shell:'
-    Write-Host "         cmd /c mklink /J `"$AsciiRoot`" `"$repoRoot`""
-    Write-Host "         cmd /c mklink /J `"$AsciiRoot\code`" `"$repoRoot\$codeDir`""
-    exit 1
-}
-if (-not (Test-Path $asciiProject)) {
-    Write-Host "ERROR: project not reachable through the ASCII mirror:"
-    Write-Host "       $asciiProject"
-    Write-Host "       The 'code' junction is probably missing:"
-    Write-Host "         cmd /c mklink /J `"$AsciiRoot\code`" `"$repoRoot\$codeDir`""
+if (-not (Test-Path -LiteralPath $project)) {
+    Write-Host "ERROR: project file not found: $project"
     exit 1
 }
 
-$badChars = $asciiProject.ToCharArray() | Where-Object { [int]$_ -gt 127 }
+# Guard the property this script now depends on. If someone clones the
+# repository into a path containing CJK characters, gw_sh fails later with a
+# misleading "does not exist" message; say so here instead.
+$badChars = $project.ToCharArray() | Where-Object { [int]$_ -gt 127 }
 if ($badChars) {
-    Write-Host "ERROR: project path is not pure ASCII: $asciiProject"
+    Write-Host "ERROR: project path is not pure ASCII: $project"
+    Write-Host '       gw_sh replaces non-ASCII characters with "?" and then'
+    Write-Host '       reports the project as missing. Move the repository to an'
+    Write-Host '       all-ASCII path; see code/docs/ (development environment).'
     exit 1
 }
 
 Write-Host '=== electronic_piano build ==='
-Write-Host "repo        : $repoRoot"
-Write-Host "ascii mirror: $AsciiRoot"
-Write-Host "flow        : $Flow"
+Write-Host "repo   : $repoRoot"
+Write-Host "project: $project"
+Write-Host "flow   : $Flow"
 Write-Host ''
 
 # --- Locate the Gowin toolchain ---------------------------------------------
@@ -85,11 +75,12 @@ if (-not $gowinHome) {
     $gowinHome = 'D:\Gowin\Gowin_V1.9.11.03_Education\Gowin_V1.9.11.03_Education_x64'
 }
 $gwSh = Join-Path $gowinHome 'IDE\bin\gw_sh.exe'
-if (-not (Test-Path $gwSh)) {
+if (-not (Test-Path -LiteralPath $gwSh)) {
     Write-Host "ERROR: gw_sh.exe not found at $gwSh"
+    Write-Host '       Set GOWIN_HOME if the toolchain lives elsewhere.'
     exit 1
 }
-Write-Host "tool        : $gwSh"
+Write-Host "tool   : $gwSh"
 Write-Host ''
 
 # --- Run the flow -----------------------------------------------------------
@@ -102,33 +93,39 @@ Write-Host ''
 #
 # Paths inside the Tcl script use forward slashes and are wrapped in braces:
 # a backslash would start a Tcl escape sequence and corrupt the path.
-$gprjFwd = ($asciiProject -replace '\\', '/')
+$gprjFwd = ($project -replace '\\', '/')
+$script = @(
+    "open_project {$gprjFwd}"
+    'set_option -vlog_std sysv'
+)
 switch ($Flow) {
-    'synth'     { $tcl = "open_project {$gprjFwd}`nrun syn`n" }
-    'pnr'       { $tcl = "open_project {$gprjFwd}`nrun pnr`n" }
-    'bitstream' { $tcl = "open_project {$gprjFwd}`nrun all`n" }
+    'synth'     { $script += 'run syn' }
+    'pnr'       { $script += 'run pnr' }
+    'bitstream' { $script += 'run all' }
 }
 
-$tclFile = Join-Path $AsciiRoot "code\build\run_$Flow.tcl"
-Set-Content -Path $tclFile -Value $tcl -Encoding ASCII
+$tclFile = Join-Path $repoRoot "$codeDir\build\run_$Flow.tcl"
+# Write with an explicit UTF-8 encoding and no BOM: gw_sh's Tcl reads the file
+# as bytes, and a BOM would become part of the first command.
+[IO.File]::WriteAllLines($tclFile, $script, [Text.UTF8Encoding]::new($false))
 
 Write-Host "running $Flow ..."
+Write-Host "  tcl: $tclFile"
 & $gwSh $tclFile 2>&1 | ForEach-Object { Write-Host "  $_" }
 $rc = $LASTEXITCODE
 Write-Host ''
 Write-Host "gw_sh exit code: $rc"
 
 # --- Collect outputs --------------------------------------------------------
-# gw_sh writes impl/ next to the project file, i.e. through the junction and
-# therefore into the real repository at <repo>/<code>/build/impl.
+# gw_sh writes impl/ next to the project file.
 $impl = Join-Path $repoRoot "$codeDir\build\impl"
-if (Test-Path $impl) {
+if (Test-Path -LiteralPath $impl) {
     Write-Host ''
     Write-Host 'outputs:'
     Get-ChildItem $impl -Recurse -File -ErrorAction SilentlyContinue |
         Where-Object { $_.Extension -in '.fs', '.rpt', '.log', '.json', '.bin', '.txt' } |
         Sort-Object FullName |
-        ForEach-Object { Write-Host ("  {0,-58} {1,10} B" -f $_.Name, $_.Length) }
+        ForEach-Object { Write-Host ('  {0,-58} {1,10} B' -f $_.Name, $_.Length) }
 }
 
 exit $rc

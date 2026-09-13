@@ -13,7 +13,7 @@ import hashlib
 import sys
 
 REPO = Path(__file__).resolve().parents[2]
-REF = REPO / "代码" / "docs" / "reference"
+REF = REPO / "code" / "docs" / "reference"
 
 BANNER = "【本仓库入库说明"
 

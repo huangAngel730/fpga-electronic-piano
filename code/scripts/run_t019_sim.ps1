@@ -11,10 +11,12 @@
 #      libraries; calling it without loading the environment fails with
 #      0xC0000139 (entry point not found).
 #   2. Sources are staged into an ASCII-only temp directory before compiling.
-#      The repository path contains non-ASCII characters, and PowerShell
-#      truncates non-ASCII characters when passing arguments to native exes
-#      (observed: "D:\17\..." becomes "D:"). Relative paths also contain
-#      non-ASCII ("代码"), so staging is required.
+#      This was originally required because the repository path contained
+#      non-ASCII characters and PowerShell truncates non-ASCII characters when
+#      passing arguments to native exes (observed: "D:\17\..." becomes "D:").
+#      The repository is now at an ASCII path, so the staging is no longer
+#      strictly necessary, but it is kept: it also isolates each run's build
+#      products and costs nothing.
 #   3. This file is deliberately kept ASCII-only. Windows PowerShell 5.1 reads
 #      UTF-8 files without a BOM as ANSI, which corrupts non-ASCII comments and
 #      can break parsing.
@@ -41,12 +43,12 @@ foreach ($tool in @($iverilog, $vvp)) {
 
 # Test list: module sources + testbench.
 #
-# Paths are expressed as segments and joined at runtime so that this script
-# contains no non-ASCII literals. Windows PowerShell 5.1 reads BOM-less UTF-8
-# files as ANSI, which corrupts non-ASCII string literals in the script source
-# itself. Keeping the source ASCII-only avoids that entirely.
-$segRtl = [char]0x4EE3 + [char]0x7801 + "\rtl"   # code\rtl
-$segTb  = [char]0x4EE3 + [char]0x7801 + "\tb"    # code\tb
+# Top-level directory names are ASCII since the rename (the old CJK "code"
+# directory is now plain "code"), so they are plain literals. This source file
+# must still stay pure ASCII: Windows PowerShell 5.1 reads BOM-less UTF-8 files
+# as ANSI, which corrupts non-ASCII string literals in the script source.
+$segRtl = "code\rtl"
+$segTb  = "code\tb"
 
 $tests = @(
     @{

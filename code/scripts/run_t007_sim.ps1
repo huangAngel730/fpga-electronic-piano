@@ -48,10 +48,10 @@ foreach ($tool in @($iverilog, $vvp, $envBat)) {
     }
 }
 
-# Paths are expressed as segments and joined at runtime so that this script
-# contains no non-ASCII literals.
-$segRtl = [char]0x4EE3 + [char]0x7801 + "\rtl"   # code\rtl
-$segTb  = [char]0x4EE3 + [char]0x7801 + "\tb"    # code\tb
+# Top-level directory names are ASCII since the rename (the old CJK "code"
+# directory is now plain "code").
+$segRtl = "code\rtl"
+$segTb  = "code\tb"
 
 $tests = @(
     @{

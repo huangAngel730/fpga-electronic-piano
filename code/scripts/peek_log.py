@@ -9,7 +9,7 @@ from pathlib import Path
 import sys
 
 REPO = Path(__file__).resolve().parents[2]
-LOG = REPO / "代码" / "docs" / "验证记录.md"
+LOG = REPO / "code" / "docs" / "验证记录.md"
 
 
 def main() -> int:

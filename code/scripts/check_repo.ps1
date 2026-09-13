@@ -19,10 +19,19 @@ $ErrorActionPreference = "Stop"
 
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path
 
-# --- Chinese path fragments, built from code points (see header note) -------
-# Do NOT write these words as literals anywhere in this file.
-$codeDir   = [string]([char]0x4EE3 + [char]0x7801)                       # code
-$prepDir   = [string]([char]0x51C6 + [char]0x5907)                       # preparation
+# --- Directory and file names ------------------------------------------------
+# The two TOP-LEVEL directory names are ASCII since the rename:
+#   old CJK "code" dir -> code     old CJK "prep" dir -> prep
+# They are written as plain literals now. Building them from code points was a
+# workaround for Windows PowerShell 5.1 decoding this file as GBK, which only
+# applied while the names were non-ASCII and had to appear in a pure-ASCII
+# source file.
+#
+# The names below this level are still Chinese and still built from code
+# points, because those directories were NOT renamed. Do not write those words
+# as literals anywhere in this file.
+$codeDir   = "code"
+$prepDir   = "prep"
 $docDir    = [string]([char]0x6587 + [char]0x6863)                       # documents
 $scriptDir = [string]([char]0x811A + [char]0x672C)                       # scripts
 $entryDoc  = [string]([char]0x534F + [char]0x4F5C + [char]0x5165 + [char]0x53E3) + ".md"

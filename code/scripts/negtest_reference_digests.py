@@ -16,9 +16,9 @@ import sys
 import tempfile
 
 REPO = Path(__file__).resolve().parents[2]
-REF = REPO / "代码" / "docs" / "reference"
-VERIFIER = REPO / "代码" / "scripts" / "verify_reference_digests.py"
-CHECK = REPO / "代码" / "scripts" / "check_repo.ps1"
+REF = REPO / "code" / "docs" / "reference"
+VERIFIER = REPO / "code" / "scripts" / "verify_reference_digests.py"
+CHECK = REPO / "code" / "scripts" / "check_repo.ps1"
 
 TARGET = REF / "DOC_INDEX_外部整理稿.md"
 

@@ -11,7 +11,7 @@ import hashlib
 import sys
 
 REPO = Path(__file__).resolve().parents[2]
-REF = REPO / "代码" / "docs" / "reference"
+REF = REPO / "code" / "docs" / "reference"
 
 SRC_SHA = "EB24C3A069F1B31FF27E89DC5563F260ADD176C98FB1F4303E6AD24C53A06B0F"
 IDX_SHA = "F2EBFAE62927DBDC7445E99290D26022F9C1CB95023A1B7380B40F54C2B02DE8"

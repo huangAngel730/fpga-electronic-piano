@@ -12,7 +12,7 @@ from pathlib import Path
 import sys
 
 REPO = Path(__file__).resolve().parents[2]
-LOG = REPO / "代码" / "docs" / "验证记录.md"
+LOG = REPO / "code" / "docs" / "验证记录.md"
 
 V0030 = (
     "| V0030 | 2026-09-13 | 板级资料 / 外部整理稿入库 | "
