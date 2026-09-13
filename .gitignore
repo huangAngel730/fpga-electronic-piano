@@ -28,6 +28,12 @@ output_files/
 *.qws
 *.qdf
 
+# Gowin project user state.
+# The .gprj itself IS tracked: it names the device, the source files and the
+# constraints, so it is project source rather than a build product. The .user
+# file only stores per-machine window layout and last-opened state.
+*.gprj.user
+
 # Simulation products
 *.vcd
 *.fst
@@ -53,7 +59,7 @@ venv/
 *.swp
 .env
 .env.*
-代码/docs/local/
+code/docs/local/
 ~$*.docx
 
 # OS files
@@ -62,6 +68,6 @@ Desktop.ini
 .DS_Store
 
 # 已废弃的共享包和原始赛题压缩包不入库
-准备/团队AI协作共享包.zip
-准备/团队AI协作共享包/
-准备/选题.7z
+prep/团队AI协作共享包.zip
+prep/团队AI协作共享包/
+prep/选题.7z
