@@ -80,13 +80,22 @@ set_clock_uncertainty -hold   5.000 [get_clocks i2s_lrclk_virt]
 // 实现上 BCLK 在 clk 下降沿更新、DIN 在 clk 上升沿更新，两者相差
 // 半个 sys_clk 周期（10 ns），使 BCLK 两个边沿都落在 DIN 稳定窗口中央。
 // 下面的输出延迟按引脚与走线确定后再用布局布线报告校正。
-// TODO(引脚确定后)：替换占位数值并补齐 get_ports 的实际端口名。
+// 引脚已于 2026-09-12 确定（依据 constraints/README.md 与官方 .cst）：
+//   i2s_bclk = Y17 / i2s_lrck = AB17 / i2s_din = AA16，全部 LVCMOS33 / 3.3 V / Bank 7。
+// 端口名已与 constraints/README.md 的"本项目已确认用到的引脚"表一致。
+// set_output_delay 的数值仍为占位：实际值须用首次布局布线报告的引脚走线延迟校正，
+// 在有实测依据前不得写成"已收敛"。
 set_output_delay -clock i2s_bclk_virt  -max 5.000 [get_ports i2s_bclk]
 set_output_delay -clock i2s_bclk_virt  -min 0.000 [get_ports i2s_bclk]
 set_output_delay -clock i2s_bclk_virt  -max 5.000 [get_ports i2s_din]
 set_output_delay -clock i2s_bclk_virt  -min 0.000 [get_ports i2s_din]
-set_output_delay -clock i2s_lrclk_virt -max 5.000 [get_ports i2s_lrclk]
-set_output_delay -clock i2s_lrclk_virt -min 0.000 [get_ports i2s_lrclk]
+set_output_delay -clock i2s_lrclk_virt -max 5.000 [get_ports i2s_lrck]
+set_output_delay -clock i2s_lrclk_virt -min 0.000 [get_ports i2s_lrck]
+
+// 功放使能 pa_en = AB16（LVCMOS33 / 3.3 V / Bank 7），低有效：0=开，1=关。
+// 它不是同步数据信号，无需输出延迟约束，但复位期间必须驱动为 1，
+// 否则上电瞬间扬声器被误开启，可能产生爆音（见 README.md 接线警告三）。
+// 该要求在顶层实现中保证，不由 SDC 表达。
 
 // -----------------------------------------------------------------------------
 // 三 异步输入
@@ -95,9 +104,18 @@ set_output_delay -clock i2s_lrclk_virt -min 0.000 [get_ports i2s_lrclk]
 // 其同步处理在 rtl/input/ 内实现，由 M3 负责。
 // 相关引脚需要设置输入延迟约束，待引脚确定后补充。
 //
-// 外部 rst_n 为异步复位（引脚 AA13），已在 reset_sync 中做同步释放处理。
-// 注意：官方 .cst 中 sys_rst_n 的电平标准为 LVCMOS15 / BANK_VCCIO=1.5，
+// 外部 rst_n 为异步复位（引脚 AA13，LVCMOS15 / BANK_VCCIO=1.5）。
+// 已在 reset_sync 中做同步释放处理。
+//
+// 【重要】AA13 的真名是 EX_KEY.0，是 Bank 9 的**用户按键**，低有效，
+// 需内部上拉至 1.5 V。官方例程把它取别名为 sys_rst_n 只是示例工程的
+// 自定义端口名，与芯片的 RECONFIG（N12）、CPU_RESET（F4）无关。
+// 本项目沿用该别名，实现时必须清楚它是按键而非专用复位脚。
+// 依据：引脚事实表 + constraints/README.md 接线警告二。
+//
+// 注意：sys_rst_n 的电平标准为 LVCMOS15 / BANK_VCCIO=1.5，
 //       与 sys_clk 的 LVCMOS33 / 3.3 V 不同，接线时必须核对。
+//       （sys_clk V22 与 sys_rst_n AA13 同属 Bank 7/Bank 9 的不同电压域）
 // -----------------------------------------------------------------------------
 
 // -----------------------------------------------------------------------------
@@ -110,16 +128,21 @@ set_output_delay -clock i2s_lrclk_virt -min 0.000 [get_ports i2s_lrclk]
 //   [x] 确认 BCLK 必须用相位累加（整数分频误差 +17253 ppm 不可用）
 //   [x] BCLK / LRCLK 相位累加器实现落地（T005，rtl/audio_out/i2s_tx.sv）
 //   [x] 用虚拟时钟描述片外 DAC 视角的 BCLK / LRCLK（见第二节）
+//   [x] 音频输出引脚确定（i2s_bclk=Y17 / i2s_lrck=AB17 / i2s_din=AA16 /
+//       pa_en=AB16，全 LVCMOS33 / 3.3 V / Bank 7），端口名已与
+//       constraints/README.md 核对一致
 //
 // 待完成：
-//   [ ] 引脚约束（CST）确定后，把上面的 set_output_delay 占位值
-//       换成按实际走线计算的数值，并核对 i2s_bclk / i2s_lrclk / i2s_din
-//       三个端口名与顶层一致
+//   [ ] set_output_delay 的数值仍为占位，须用首次布局布线报告的
+//       引脚走线延迟校正（三个端口名已核对一致，见第二节）
 //   [ ] 首次综合后，检查时序报告是否收敛
 //   [ ] 上板实测 BCLK 频率与 I2S 波形，验证 DAC 输出 THD+N
 //       （PT8211 手册 THD 典型值 0.13% 约 -57.7 dB，是整条音频链的上限；
 //        评估算法优化收益前先确认瓶颈不在此处）
+//   [ ] MIDI 接收引脚未定（板载 V14 状态冲突，禁止采用），
+//       定案后补充输入延迟约束。选路见 constraints/README.md。
 //
 // 注意：以上未完成项均不影响约束本身的语法正确性，但影响时序收敛
-//       判定的充分性。在引脚确定前，第二节的 set_output_delay 仅是占位。
+//       判定的充分性。端口名与引脚已确定，但第二节 set_output_delay
+//       的数值仍是占位，须经布局布线报告校正后才可用于收敛判定。
 // -----------------------------------------------------------------------------
