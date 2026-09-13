@@ -100,6 +100,7 @@ try {
         (Join-Path $codeDir "README.md"),
         (Join-Path $codeDir (Join-Path "docs" "README.md")),
         (Join-Path $codeDir (Join-Path "docs" $entryDoc)),
+        (Join-Path $codeDir "constraints\electronic_piano.cst"),
         "legacy-prototype\AGENTS.md",
         "legacy-prototype\README.md"
     )
@@ -163,7 +164,93 @@ try {
         ($pythonFailed.Count -eq 0) ($pythonFailed -join "; ")
 
     # ---------------------------------------------------------------------
-    # 5. DOCX structure
+    # 5. Pin constraints match the official reference
+    #
+    # electronic_piano.cst is excerpted from the official Sipeed reference CST.
+    # A wrong pin here is only caught after a wasted board session, so verify
+    # every pin/IO_TYPE/PULL_MODE/BANK_VCCIO against the reference on each run.
+    # Names differ on purpose (HP_BCK -> i2s_bclk), so the mapping is explicit.
+    # ---------------------------------------------------------------------
+    $projCst = Join-Path $codeDir "constraints\electronic_piano.cst"
+    $refCst = Join-Path $codeDir "constraints\tang_mega_60k_reference.cst"
+    if ((Test-Path -LiteralPath $projCst) -and (Test-Path -LiteralPath $refCst)) {
+        # local name, official name, pin
+        $pinMap = @(
+            @("sys_clk",   "sys_clk",   "V22"),
+            @("sys_rst_n", "sys_rst_n", "AA13"),
+            @("i2s_bclk",  "HP_BCK",    "Y17"),
+            @("i2s_lrck",  "HP_WS",     "AB17"),
+            @("i2s_din",   "HP_DIN",    "AA16"),
+            @("pa_en",     "PA_EN",     "AB16"),
+            @("uart_tx",   "txp",       "U15")
+        )
+        # Both CST files carry Chinese comments. Get-Content WITHOUT -Encoding
+        # reads them as ANSI/GBK on Windows PowerShell 5.1, which mis-decodes
+        # the multibyte sequences and can swallow newlines, merging a comment
+        # with the following IO_LOC line. Anchored patterns then stop matching.
+        # Always pass -Encoding UTF8 for these files.
+        $projLines = @(Get-Content -LiteralPath $projCst -Encoding UTF8)
+        $refLines = @(Get-Content -LiteralPath $refCst -Encoding UTF8)
+        $pinFailed = [System.Collections.Generic.List[string]]::new()
+        foreach ($entry in $pinMap) {
+            $localName = $entry[0]
+            $officialName = $entry[1]
+            $pin = $entry[2]
+
+            $projLoc = @($projLines | Where-Object { $_ -match ("^\s*IO_LOC\s+`"" + $localName + "`"") })
+            $refLoc = @($refLines | Where-Object {
+                $_ -match ("^\s*IO_LOC\s+`"" + $officialName + "`"")
+            })
+            $projPort = @($projLines | Where-Object { $_ -match ("^\s*IO_PORT\s+`"" + $localName + "`"") })
+
+            if ($projLoc.Count -ne 1) {
+                $pinFailed.Add("${localName}: expected 1 IO_LOC, found $($projLoc.Count)")
+                continue
+            }
+            if ($refLoc.Count -ne 1) {
+                $pinFailed.Add("${localName}: reference has $($refLoc.Count) IO_LOC for $officialName")
+                continue
+            }
+            if ($projLoc[0] -notmatch ("\s" + $pin + ";")) {
+                $pinFailed.Add("${localName}: pin not $pin in project CST")
+            }
+            if ($refLoc[0] -notmatch ("\s" + $pin + ";")) {
+                $pinFailed.Add("${officialName}: reference pin is not $pin (reference drift?)")
+            }
+            if ($projPort.Count -ne 1) {
+                $pinFailed.Add("${localName}: expected 1 IO_PORT, found $($projPort.Count)")
+                continue
+            }
+            # IO_TYPE / PULL_MODE / BANK_VCCIO must match the reference exactly.
+            foreach ($attr in @("IO_TYPE", "PULL_MODE", "BANK_VCCIO")) {
+                $projAttr = [regex]::Match($projPort[0], $attr + "=(\S+?);").Groups[1].Value
+                $refPort = @($refLines | Where-Object {
+                    $_ -match ("^\s*IO_PORT\s+`"" + $officialName + "`"")
+                })
+                if ($refPort.Count -lt 1) {
+                    $pinFailed.Add("${localName}: reference IO_PORT for $officialName not found")
+                    continue
+                }
+                $refAttr = [regex]::Match($refPort[0], $attr + "=(\S+?);").Groups[1].Value
+                if ($projAttr -ne $refAttr) {
+                    $pinFailed.Add("${localName}.${attr} = '$projAttr' but reference '$refAttr'")
+                }
+            }
+            # A 1.5 V bank must never be declared as 3.3 V; that mismatch would
+            # damage the pin or silently break input thresholds.
+            if ($pin -eq "AA13" -and $projPort[0] -notmatch "BANK_VCCIO=1\.5") {
+                $pinFailed.Add("sys_rst_n (AA13) must stay in the 1.5 V bank")
+            }
+        }
+        Add-CheckResult "Pin map matches official reference ($($pinMap.Count) pins)" `
+            ($pinFailed.Count -eq 0) ($pinFailed -join "; ")
+    } else {
+        Add-CheckResult "Pin map matches official reference" $false `
+            "project or reference CST not found"
+    }
+
+    # ---------------------------------------------------------------------
+    # 6. DOCX structure
     # ---------------------------------------------------------------------
     Add-Type -AssemblyName System.IO.Compression.FileSystem
     $docxDir = Join-Path $prepRoot $docDir
