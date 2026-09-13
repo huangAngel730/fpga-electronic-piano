@@ -80,8 +80,9 @@
 module i2s_tx #(
     // 相位累加器位宽，与 audio_defs_pkg 的 TICK_ACC_BITS 保持一致
     parameter int unsigned ACC_BITS = 32,
-    // BCLK 相位步进，由顶层用 audio_defs_pkg::I2S_BCLK_PHASE_STEP 传入
-    parameter logic [ACC_BITS-1:0] BCLK_PHASE_STEP = 32'd263_882_791,
+    // BCLK 相位步进（翻转率），由顶层用 audio_defs_pkg::I2S_BCLK_PHASE_STEP 传入。
+    // 默认值 527765581 对应翻转率 6.144 MHz，即 BCLK = 3.072 MHz。
+    parameter logic [ACC_BITS-1:0] BCLK_PHASE_STEP = 32'd527_765_581,
     // 输入 PCM 位宽
     parameter int unsigned PCM_WIDTH = 24,
     // PT8211 有效位宽
@@ -122,8 +123,29 @@ module i2s_tx #(
     // =========================================================================
     // 1. BCLK 相位累加器
     //
-    // 累加器进位即为一个 BCLK 周期结束。bclk_ce 是内部时钟使能，
+    // 累加器进位即为一个 BCLK **半周期**结束。bclk_ce 是内部时钟使能，
     // 不是时钟，符合「不使用逻辑门控时钟」的约束。
+    //
+    // 【关键：BCLK_PHASE_STEP 的语义是「翻转率」＝ 2 x BCLK 频率】
+    //   bclk 在每个 bclk_ce 翻转一次，而一个完整 BCLK 周期包含两次翻转
+    //   （一高、一低），因此
+    //     BCLK 频率 = BCLK_PHASE_STEP x FCLK / 2^ACC_BITS / 2
+    //   要得到 BCLK = 3.072 MHz，PHASE_STEP 必须按 6.144 MHz 计算：
+    //     step = round(2^32 x 6.144e6 / 50e6) = 527765581
+    //   实际翻转率 6.143999996 MHz，折合 BCLK = 3.071999998 MHz，
+    //   误差 -0.0006 ppm。
+    //
+    // 【曾经的事故，记录以免重犯】
+    //   audio_defs_pkg 最初把 I2S_BCLK_PHASE_STEP 按 3.072 MHz 算成
+    //   263882791，注释还写着「实际 BCLK = 3.072000004 MHz」。
+    //   语义搞错了一半：该值实际给出 BCLK = 1.536 MHz，LRCLK 掉到 12 kHz，
+    //   帧长翻倍到 128 个 BCLK。
+    //   这个缺陷在 T005 的模块级 testbench 中【不可能】被发现，因为那里
+    //   用的是 BCLK_PHASE_STEP=1 / ACC_BITS=8 的合成参数，只验证了
+    //   「翻转次数与帧长的比例」，从未验证 BCLK 的绝对频率。
+    //   直到 T007 顶层用真实参数例化并测量引脚周期才暴露。见 V0029。
+    //   教训：分频器的「率」必须写清是周期率还是翻转率，并且模块级仿真
+    //   必须至少有一组用真实参数跑绝对频率的用例。
     // =========================================================================
     logic [ACC_BITS-1:0] bclk_acc;
     logic [ACC_BITS:0]   bclk_sum;
@@ -265,13 +287,23 @@ module i2s_tx #(
             din       <= 1'b0;
             shift_reg <= '0;
         end else begin
-            // BCLK 每个 bclk_ce 翻转一次。这一条必须独立于 slot_tick，
-            // 否则 bclk 会被自己的电平锁死，永远只翻转一次。
+            // BCLK 每个 bclk_ce 翻转一次，构成一个半周期。
+            // 这一条必须独立于 slot_tick，否则 bclk 会被自己的电平锁死。
             if (bclk_ce) bclk <= ~bclk;
 
             if (slot_tick) begin
-                // LRCK 在帧起始翻转：左声道槽位发送期间为 0，右声道为 1
-                if (frame_start) lrck <= ~lrck;
+                // LRCK 跟随声道划分：帧内前 32 个槽位（左声道）为 0，
+                // 后 32 个槽位（右声道）为 1。
+                //
+                // 【曾经的事故】原实现写 `if (frame_start) lrck <= ~lrck;`，
+                // 即每帧翻转一次。但一帧本身就是「左 32 + 右 32」的完整
+                // LRCK 周期，翻转一次相当于把 LRCK 周期拉长到两帧，
+                // 实测 LRCK = 24 kHz 而非 48 kHz，采样率整整低一倍。
+                // 该写法与同一模块内 right_ch = slot_cnt[5] 的声道划分
+                // 自相矛盾：数据按一帧内左右划分，时钟却按跨帧划分。
+                // 现改为直接跟随 right_ch，两者由同一来源保证一致。
+                // 见 验证记录.md V0029。
+                lrck <= right_ch;
 
                 shift_reg <= shift_next;
 

@@ -101,6 +101,12 @@ try {
         (Join-Path $codeDir (Join-Path "docs" "README.md")),
         (Join-Path $codeDir (Join-Path "docs" $entryDoc)),
         (Join-Path $codeDir "constraints\electronic_piano.cst"),
+        # T007 top-level bring-up: RTL, testbench and regression script.
+        # These are the minimum set needed to regenerate a bitstream and to
+        # re-run the top-level self-check, so they are gated by this script.
+        (Join-Path $codeDir "rtl\board\electronic_piano_top.sv"),
+        (Join-Path $codeDir "tb\board\tb_electronic_piano_top.sv"),
+        (Join-Path $codeDir (Join-Path "scripts" "run_t007_sim.ps1")),
         "legacy-prototype\AGENTS.md",
         "legacy-prototype\README.md"
     )
@@ -356,6 +362,44 @@ try {
     }
 
     Remove-Item -LiteralPath $stageDir -Recurse -Force -ErrorAction SilentlyContinue
+
+    # ---------------------------------------------------------------------
+    # 9. T007 top-level regression simulation
+    #
+    # Compiles and runs tb_electronic_piano_top, the top-level self-check.
+    # It asserts the two things that would otherwise be found only on the
+    # bench: BCLK/LRCK absolute frequencies and the pa_en power-on-pop guard.
+    #
+    # This check exists because both defects it now guards against were real:
+    #   1. i2s_tx toggled bclk once per bclk_ce, halving BCLK to 1.536 MHz and
+    #      pushing LRCK to 24 kHz. The module-level testbench could not see it
+    #      because it used synthetic parameters (BCLK_PHASE_STEP=1) and only
+    #      checked ratios, never absolute frequency.
+    #   2. The test tone phase step divided by CLK_HZ instead of the sample
+    #      rate, making the output a 0.42 Hz sine that decoded as silence.
+    # See 验证记录.md V0029.
+    # ---------------------------------------------------------------------
+    $t007Script = Join-Path $codeDir (Join-Path "scripts" "run_t007_sim.ps1")
+    if (Test-Path -LiteralPath $t007Script) {
+        # Run in a child PowerShell so that this script's error handling is
+        # unaffected by the child's native-command stderr noise.
+        $shellExe = (Get-Process -Id $PID).Path
+        $t007 = Invoke-Native -FilePath $shellExe -WorkingDirectory $repoRoot -Arguments @(
+            "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", $t007Script
+        )
+        $t007Passed = $t007.ExitCode -eq 0
+        $t007Detail = if ($t007Passed) {
+            "tb_electronic_piano_top PASS (12 checks)"
+        } else {
+            $tail = ($t007.Output -split "`r?`n" |
+                     Where-Object { $_ -match '\[FAIL\]|FAILED|Compile failed' } |
+                     Select-Object -First 6) -join " | "
+            "exit=$($t007.ExitCode) $tail"
+        }
+        Add-CheckResult "T007 top-level simulation" $t007Passed $t007Detail
+    } else {
+        Add-CheckResult "T007 top-level simulation" $false "run_t007_sim.ps1 not found"
+    }
 } finally {
     Pop-Location
 }
