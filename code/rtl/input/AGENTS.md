@@ -1,6 +1,6 @@
 # 交互与板级岗位规则
 
-负责人：M3 实体硬件、交互与上板验证负责人。岗位定义见 `代码/docs/角色分工.md`。
+负责人：M3 实体硬件、交互与上板验证负责人。岗位定义见 `code/docs/角色分工.md`。
 
 ## 主责范围
 
@@ -12,16 +12,16 @@
 
 ## 写入范围
 
-- `代码/rtl/input/`
-- `代码/software/`
-- `代码/scripts/`（串口、仪器、采集）
-- `代码/docs/hardware/`
-- `代码/docs/pinout/`
-- 对应的 `代码/tb/` 文件
+- `code/rtl/input/`
+- `code/software/`
+- `code/scripts/`（串口、仪器、采集）
+- `code/docs/hardware/`
+- `code/docs/pinout/`
+- 对应的 `code/tb/` 文件
 
 ## 与 M2 的边界
 
-- `代码/constraints/`、`代码/rtl/board/`、`代码/rtl/common/` 和顶层模块归 M2 负责；M3 提供引脚、电平、供电和实物接线依据，并复核约束与接线表一致。
+- `code/constraints/`、`code/rtl/board/`、`code/rtl/common/` 和顶层模块归 M2 负责；M3 提供引脚、电平、供电和实物接线依据，并复核约束与接线表一致。
 - UART 状态通道的协议和顶层实现由 M2 负责，M3 负责上位机解析和采集脚本。
 
 ## 约束

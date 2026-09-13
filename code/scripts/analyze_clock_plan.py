@@ -1,7 +1,7 @@
 """
 T019 时钟方案分析与 sample_tick 参数计算
 
-目的：为 代码/rtl/common/sample_tick_gen.sv 提供参数依据，
+目的：为 code/rtl/common/sample_tick_gen.sv 提供参数依据，
       并验证各候选 sys_clk 频率下的 sample_tick 生成精度。
 
 背景：板载晶振频率尚未核实（见 板级硬件事实.md），本脚本对多个

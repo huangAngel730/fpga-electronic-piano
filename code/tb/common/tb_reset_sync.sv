@@ -7,7 +7,7 @@
 //
 // 运行（iverilog，工作目录为仓库根）：
 //   iverilog -g2012 -Wall -o tb_reset_sync.vvp \
-//       代码/rtl/common/reset_sync.sv 代码/tb/common/tb_reset_sync.sv
+//       code/rtl/common/reset_sync.sv code/tb/common/tb_reset_sync.sv
 //   vvp tb_reset_sync.vvp
 // -----------------------------------------------------------------------------
 

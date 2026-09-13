@@ -14,7 +14,7 @@
     BT ET Td TD Tm T* Tj TJ — 文本（按字形轮廓不可得，忽略或画方块）
 
 用法：
-    python -X utf8 代码/scripts/render_pdf_page.py <pdf路径> <输出png> [页号] [缩放]
+    python -X utf8 code/scripts/render_pdf_page.py <pdf路径> <输出png> [页号] [缩放]
 """
 
 import re

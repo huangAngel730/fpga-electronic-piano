@@ -1,6 +1,6 @@
 # 音频算法岗位规则
 
-负责人：M1 音频算法、验证与竞赛交付负责人。岗位定义见 `代码/docs/角色分工.md`。
+负责人：M1 音频算法、验证与竞赛交付负责人。岗位定义见 `code/docs/角色分工.md`。
 
 ## 主责范围
 
@@ -13,17 +13,17 @@
 
 ## 写入范围
 
-- `代码/rtl/audio/`
-- `代码/rtl/synth/`
-- `代码/rtl/voice/`
-- `代码/rtl/mixer/`
-- `代码/rtl/effects/`
-- `代码/model/`
-- 对应的 `代码/tb/` 和 `代码/docs/test/` 文件
+- `code/rtl/audio/`
+- `code/rtl/synth/`
+- `code/rtl/voice/`
+- `code/rtl/mixer/`
+- `code/rtl/effects/`
+- `code/model/`
+- 对应的 `code/tb/` 和 `code/docs/test/` 文件
 
 ## 与 M2 的边界
 
-- I2S 数字发送位于 `代码/rtl/audio_out/`，归 M2 负责；M1 只提供 PCM 接口约定和位宽要求，并复核其数据相位与符号扩展是否符合模型。
+- I2S 数字发送位于 `code/rtl/audio_out/`，归 M2 负责；M1 只提供 PCM 接口约定和位宽要求，并复核其数据相位与符号扩展是否符合模型。
 - 数字效果器的跨采样率切换和跨时钟域部分由 M2 参与实现。
 
 ## 约束

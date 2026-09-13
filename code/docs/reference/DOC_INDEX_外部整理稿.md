@@ -9,8 +9,8 @@
 >
 > | 索引里的文件 | 本仓库实际位置 |
 > |---|---|
-> | `Tang_Mega_60K_30354_NEO_31005_引脚事实表.xlsx` | `代码/docs/`（已入库，哈希一致） |
-> | `tang_mega_60K_pins.cst` | `代码/constraints/tang_mega_60k_reference.cst`（已入库，哈希一致） |
+> | `Tang_Mega_60K_30354_NEO_31005_引脚事实表.xlsx` | `code/docs/`（已入库，哈希一致） |
+> | `tang_mega_60K_pins.cst` | `code/constraints/tang_mega_60k_reference.cst`（已入库，哈希一致） |
 > | `tang_mega_60k_30354_schematics..pdf` | **未入库**（可从 Sipeed 官方下载页获取） |
 > | `Tang_Mega_NEO_Dock-138K_31005_Schematics (1).pdf` | **未入库**（同上） |
 > | `BOARD_CONTEXT.md` | 本目录 `BOARD_CONTEXT_外部整理稿.md` |

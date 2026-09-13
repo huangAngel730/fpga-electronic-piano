@@ -21,7 +21,7 @@
 
 FPGA内的DDS、波表、ADSR、复音、混音和数字效果算法按软件工作管理，由M1负责；软件任务积压时按D010由M2和M3分担实现工作，算法数学定义和最终验收始终由M1负责。
 
-完整的岗位定义、决策权和复核关系见 `代码/docs/角色分工.md`，日常流程见 `代码/docs/三人协作执行手册.md`。
+完整的岗位定义、决策权和复核关系见 `code/docs/角色分工.md`，日常流程见 `code/docs/三人协作执行手册.md`。
 
 ## 板卡与仪器资源
 
@@ -32,7 +32,7 @@ FPGA内的DDS、波表、ADSR、复音、混音和数字效果算法按软件工
 | BD-01 | Tang Mega 60K + NEO Dock | 稳定集成板 | LA-01 |
 | BD-02 | Tang Mega 60K + NEO Dock | 实验开发板 | LA-02 |
 
-两块开发板合计每周40小时配额：M1六小时、M2十四小时、M3十小时、共同集成十小时。两台逻辑分析仪合计每周40小时配额：M1四小时、M2十四小时、M3十二小时、共同集成十小时。规则见 `代码/docs/板卡与仪器资源管理.md`，实际占用登记在 `代码/docs/资源使用记录.md`。
+两块开发板合计每周40小时配额：M1六小时、M2十四小时、M3十小时、共同集成十小时。两台逻辑分析仪合计每周40小时配额：M1四小时、M2十四小时、M3十二小时、共同集成十小时。规则见 `code/docs/板卡与仪器资源管理.md`，实际占用登记在 `code/docs/资源使用记录.md`。
 
 ## 已有八键原型
 
@@ -45,59 +45,59 @@ FPGA内的DDS、波表、ADSR、复音、混音和数字效果算法按软件工
 - 一位方波音频输出
 - 自检仿真Testbench
 
-该原型已通过Icarus自检仿真，验证等级L2，用于验证基础按键、相位累加和测试流程，不代表最终Tang Mega 60K多音色架构。后续正式代码按照 `代码/` 下的模块化规范逐步迁移和扩展。
+该原型已通过Icarus自检仿真，验证等级L2，用于验证基础按键、相位累加和测试流程，不代表最终Tang Mega 60K多音色架构。后续正式代码按照 `code/` 下的模块化规范逐步迁移和扩展。
 
 ## 目录
 
-- `准备/`：官方题目、方案分析、采购和团队协作文档，入口见 `准备/README.md`。
-- `准备/文档/06 三人分工与软硬件资源管理方案.docx`：分工与资源共享的正式报告，由 `准备/脚本/build_team_roles_resource_plan.py` 生成。
-- `代码/`：正式竞赛工程唯一开发目录，入口见 `代码/README.md`。
-- `代码/docs/`：项目事实、接口、决策、任务和验收规则，分类索引见 `代码/docs/README.md`。
-- `代码/rtl/`：后续Tang Mega 60K正式可综合RTL。
-- `代码/model/`：Python黄金参考模型。
-- `代码/scripts/`：环境、构建、烧录和自动测试脚本。
+- `prep/`：官方题目、方案分析、采购和团队协作文档，入口见 `prep/README.md`。
+- `prep/文档/06 三人分工与软硬件资源管理方案.docx`：分工与资源共享的正式报告，由 `prep/脚本/build_team_roles_resource_plan.py` 生成。
+- `code/`：正式竞赛工程唯一开发目录，入口见 `code/README.md`。
+- `code/docs/`：项目事实、接口、决策、任务和验收规则，分类索引见 `code/docs/README.md`。
+- `code/rtl/`：后续Tang Mega 60K正式可综合RTL。
+- `code/model/`：Python黄金参考模型。
+- `code/scripts/`：环境、构建、烧录和自动测试脚本。
 - `.github/`：合并请求模板、问题单模板和RTL冒烟工作流。
-- `legacy-prototype/`：2026-09 早期八键原型及其自检仿真，已冻结，仅作历史参考。正式开发一律进 `代码/`，说明见 `legacy-prototype/README.md`。
+- `legacy-prototype/`：2026-09 早期八键原型及其自检仿真，已冻结，仅作历史参考。正式开发一律进 `code/`，说明见 `legacy-prototype/README.md`。
 
 ## 团队和AI协作
 
 开始工作前必须阅读：
 
 1. `AGENTS.md`
-2. `代码/AGENTS.md`
+2. `code/AGENTS.md`
 3. 与本人岗位对应的局部 `AGENTS.md`
-4. `代码/docs/任务看板.md`
+4. `code/docs/任务看板.md`
 
-其余文档按需查阅，分类清单见 `代码/docs/协作入口.md`。
+其余文档按需查阅，分类清单见 `code/docs/协作入口.md`。
 
-当前三个人可以立即执行的任务、分支和首轮集成目标见 `代码/docs/三人开工任务说明.md`。
+当前三个人可以立即执行的任务、分支和首轮集成目标见 `code/docs/三人开工任务说明.md`。
 
-第一次接上项目（clone 仓库、配置 SSH、建自己的分支）见 `代码/docs/新队员上手指南.md`。
+第一次接上项目（clone 仓库、配置 SSH、建自己的分支）见 `code/docs/新队员上手指南.md`。
 
 项目事实以仓库文件和Git历史为准。公共接口、时钟、复位、位宽、采样率和引脚约束不能由个人或AI自行修改。
 
-向AI交接任务时使用 `代码/docs/AI交接上下文.md` 中的标准提示词，避免把聊天记录当作事实来源。
+向AI交接任务时使用 `code/docs/AI交接上下文.md` 中的标准提示词，避免把聊天记录当作事实来源。
 
 ## 分支与合并
 
-- `main`：可演示、可复现的稳定版本，禁止直接提交；引导期的直推例外见 `代码/docs/技术决策记录.md` 的 D014。
+- `main`：可演示、可复现的稳定版本，禁止直接提交；引导期的直推例外见 `code/docs/技术决策记录.md` 的 D014。
 - `develop`：通过模块测试的集成版本。
 - `feature/<name>`、`fix/<name>`、`docs/<name>`：单一目的开发分支。
 
-禁止强制推送，禁止提交 `.tools/`、安装包、波形、码流和厂商缓存。详见 `代码/docs/Git协作规范.md`。
+禁止强制推送，禁止提交 `.tools/`、安装包、波形、码流和厂商缓存。详见 `code/docs/Git协作规范.md`。
 
 ## 当前状态
 
-详见 `代码/docs/当前状态.md` 和 `代码/docs/任务看板.md`。报告状态时必须给出L0至L7验证等级，不能把仿真通过写成上板通过。
+详见 `code/docs/当前状态.md` 和 `code/docs/任务看板.md`。报告状态时必须给出L0至L7验证等级，不能把仿真通过写成上板通过。
 
 ## 原型仿真
 
-已有原型顶层为 `electronic_piano_top`，自检Testbench位于 `legacy-prototype/tb/tb_electronic_piano.v`。运行方法见 `legacy-prototype/README.md`，工具链激活见 `代码/docs/开发环境.md`。在正式复用前，应先按照当前环境运行仿真并确认PASS；不能仅依据远程仓库说明将其视为已经在Tang Mega 60K上验证。
+已有原型顶层为 `electronic_piano_top`，自检Testbench位于 `legacy-prototype/tb/tb_electronic_piano.v`。运行方法见 `legacy-prototype/README.md`，工具链激活见 `code/docs/开发环境.md`。在正式复用前，应先按照当前环境运行仿真并确认PASS；不能仅依据远程仓库说明将其视为已经在Tang Mega 60K上验证。
 
-代码质量和正式迁移建议见 `代码/docs/早期原型代码评审.md`。快速检查整个仓库可运行 `代码/scripts/check_repo.ps1`。
+代码质量和正式迁移建议见 `code/docs/早期原型代码评审.md`。快速检查整个仓库可运行 `code/scripts/check_repo.ps1`。
 
 `.github/workflows/rtl-smoke.yml` 会在推送和合并请求时自动编译并运行该原型仿真。
 
 ## 电气安全
 
-不要将8欧无源扬声器直接连接FPGA引脚。数字音频应经板载音频链路或I2S DAC转换后，再连接有源音箱或功放输入。5 V信号接入3.3 V FPGA GPIO前必须确认分压或电平转换。早期原型的蜂鸣器接法见 `legacy-prototype/docs/hardware.md`，那是历史参考；正式音频链路以 `代码/docs/` 为准。
+不要将8欧无源扬声器直接连接FPGA引脚。数字音频应经板载音频链路或I2S DAC转换后，再连接有源音箱或功放输入。5 V信号接入3.3 V FPGA GPIO前必须确认分压或电平转换。早期原型的蜂鸣器接法见 `legacy-prototype/docs/hardware.md`，那是历史参考；正式音频链路以 `code/docs/` 为准。

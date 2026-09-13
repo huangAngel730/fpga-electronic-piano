@@ -12,7 +12,7 @@
 //   无量化误差、无间隔抖动。
 //   当 FCLK 不能整除时（例如 50 MHz），仍能得到最接近的长期平均频率，
 //   无需为换频率改写 RTL。
-//   分析见 代码/scripts/analyze_clock_plan.py。
+//   分析见 code/scripts/analyze_clock_plan.py。
 //
 // 重要：sample_tick 是时钟使能，不是时钟。禁止用它驱动 always_ff 的时钟沿
 //       （接口规范 2.1 节）。

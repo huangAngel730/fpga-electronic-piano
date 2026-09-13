@@ -33,7 +33,7 @@
 操作符中的字符串。
 
 ```powershell
-python -X utf8 代码/scripts/tools/extract_pdf_text.py <pdf> [关键字...]
+python -X utf8 code/scripts/tools/extract_pdf_text.py <pdf> [关键字...]
 ```
 
 不带关键字时输出全部文本片段；带关键字时输出匹配片段及其前后文。
@@ -51,7 +51,7 @@ python -X utf8 代码/scripts/tools/extract_pdf_text.py <pdf> [关键字...]
 单元格，最后用 `|` 分隔输出，保住行列关系。
 
 ```powershell
-python -X utf8 代码/scripts/tools/extract_pdf_table.py <pdf>
+python -X utf8 code/scripts/tools/extract_pdf_table.py <pdf>
 ```
 
 工作原理：
@@ -74,7 +74,7 @@ python -X utf8 代码/scripts/tools/extract_pdf_table.py <pdf>
 `/ToUnicode` CMap 与字体对象。
 
 ```powershell
-python -X utf8 代码/scripts/tools/analyze_pdf_fonts.py <pdf>
+python -X utf8 code/scripts/tools/analyze_pdf_fonts.py <pdf>
 ```
 
 判读方法：
@@ -91,7 +91,7 @@ PDF 1.5 以后很多对象被压缩进 `ObjStm` 对象流，直接扫描未压�
 图片、字体、页面资源数量。
 
 ```powershell
-python -X utf8 代码/scripts/tools/expand_pdf_objstm.py <pdf>
+python -X utf8 code/scripts/tools/expand_pdf_objstm.py <pdf>
 ```
 
 **关键价值**：`extract_pdf_text.py` 说"没有文字"时，
@@ -103,7 +103,7 @@ python -X utf8 代码/scripts/tools/expand_pdf_objstm.py <pdf>
 再用映射表还原 `<hex> Tj` 形式的文本。
 
 ```powershell
-python -X utf8 代码/scripts/tools/extract_schematic_text.py <pdf> [关键字...]
+python -X utf8 code/scripts/tools/extract_schematic_text.py <pdf> [关键字...]
 ```
 
 支持 `beginbfchar` 与 `beginbfrange` 两种 CMap 形式。
@@ -113,7 +113,7 @@ python -X utf8 代码/scripts/tools/extract_schematic_text.py <pdf> [关键字..
 导出 PDF 内嵌的位图。
 
 ```powershell
-python -X utf8 代码/scripts/tools/extract_pdf_images.py <pdf> <输出目录> [最小宽度]
+python -X utf8 code/scripts/tools/extract_pdf_images.py <pdf> <输出目录> [最小宽度]
 ```
 
 按面积降序保存为 PNG，最宽的通常是原理图主体。
@@ -126,7 +126,7 @@ python -X utf8 代码/scripts/tools/extract_pdf_images.py <pdf> <输出目录> [
 最后手段：自己解释 PDF 内容流并光栅化成 PNG。
 
 ```powershell
-python -X utf8 代码/scripts/tools/render_pdf_page.py <pdf> <输出.png> [页号] [缩放]
+python -X utf8 code/scripts/tools/render_pdf_page.py <pdf> <输出.png> [页号] [缩放]
 ```
 
 实现了一个简化的 PDF 图形解释器，支持路径构造（`m l c v y re h`）、
@@ -182,7 +182,7 @@ python -X utf8 代码/scripts/tools/render_pdf_page.py <pdf> <输出.png> [页�
 **交叉验证来源**：官方例程的 `.cst` 文件给出了引脚分配与电平标准
 （`sys_clk` = V22 / LVCMOS33，`sys_rst_n` = AA13 / LVCMOS15），
 这比原理图 PDF 更直接可靠。该文件已入库为
-`代码/constraints/tang_mega_60k_reference.cst`。
+`code/constraints/tang_mega_60k_reference.cst`。
 
 ---
 
@@ -214,8 +214,8 @@ python -X utf8 代码/scripts/tools/render_pdf_page.py <pdf> <输出.png> [页�
 
 **取得的参数**：`Fbck ≤ 18.4 MHz`、`Fws ≤ 384 kHz`、`tH ≥ 25 ns`、
 `VIH ≥ 1.8 V`、THD 典型 0.13%。手册已入库为
-`代码/docs/PT8211_V1.7_E_数据手册.pdf`，结论见
-`代码/docs/板级硬件事实.md` §3.7。
+`code/docs/PT8211_V1.7_E_数据手册.pdf`，结论见
+`code/docs/板级硬件事实.md` §3.7。
 
 **仍未解决**：手册**不含时序波形图的文字描述**——图是矢量绘制的，
 `extract_pdf_table.py` 只能取到图上的标注文字，取不到波形本身的

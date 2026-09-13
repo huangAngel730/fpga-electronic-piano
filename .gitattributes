@@ -1,6 +1,6 @@
 # 换行符规则：仓库内统一存 LF，工作区也检出 LF。
 # 目的：消除 Windows 与 Linux 之间的整文件差异，并去掉 "LF will be replaced by CRLF" 提示。
-# 规则说明见 代码/docs/Git协作规范.md。不要用其他方式单独改某个文件的换行符。
+# 规则说明见 code/docs/Git协作规范.md。不要用其他方式单独改某个文件的换行符。
 * text=auto eol=lf
 
 # 二进制文件不做换行符转换，也不参与文本 diff
@@ -24,5 +24,5 @@
 
 # 第三方原始文件：保持逐字节原样，不做换行符转换，也不参与空白检查。
 # 这些文件来自厂商或主办方，必须与来源一致以便校验哈希；修改其空白会破坏比对。
-代码/constraints/tang_mega_60k_reference.cst  -text -whitespace
-准备/选题/**  -text -whitespace
+code/constraints/tang_mega_60k_reference.cst  -text -whitespace
+prep/选题/**  -text -whitespace

@@ -2,7 +2,7 @@
 // audio_defs_pkg.sv
 // 音频通公共定义包。对应任务 T019，接口规范 v1.0 第二、三节。
 //
-// 依据：代码/docs/模块接口规范.md
+// 依据：code/docs/模块接口规范.md
 //   - 2.3 节 sample_tick 频率 48 kHz，单周期宽
 //   - 3.1 节 performance_event_t 64 位
 //   - 3.3 节 事件类型编码
@@ -25,7 +25,7 @@ package audio_defs_pkg;
     // sample_tick 相位累加器参数
     //
     // 相位累加器位宽。32 位足以使最坏情况（100 MHz）的频率误差低于 0.15 ppm，
-    // 远优于音频可感知范围，见 代码/scripts/analyze_clock_plan.py。
+    // 远优于音频可感知范围，见 code/scripts/analyze_clock_plan.py。
     // -------------------------------------------------------------------------
     localparam int unsigned TICK_ACC_BITS = 32;
 
@@ -61,7 +61,7 @@ package audio_defs_pkg;
     // -------------------------------------------------------------------------
     // 板载实际参数（2026-09-12 确认）
     //
-    // 板载晶振 50 MHz，见 代码/docs/板级硬件事实.md 3.3 节。
+    // 板载晶振 50 MHz，见 code/docs/板级硬件事实.md 3.3 节。
     // 50 MHz 不能被 48 kHz 整除，故 PHASE_STEP 不是 2 的幂：
     //   step = round(2^32 * 48000 / 50000000) = 4123169 (0x003EEA21)
     //   实际平均采样率 = 48000.004608 Hz，误差 +0.096 ppm
@@ -69,7 +69,7 @@ package audio_defs_pkg;
     //
     // 该抖动可接受：sample_tick 在本项目中是"处理节拍"而非 DAC 时钟，
     // 音频输出的采样率由 I2S 的 BCLK/LRCLK 保证。
-    // 详见 代码/scripts/analyze_clock_50m.py。
+    // 详见 code/scripts/analyze_clock_50m.py。
     // -------------------------------------------------------------------------
     localparam int unsigned BOARD_CLK_HZ       = 50_000_000;
     localparam logic [TICK_ACC_BITS-1:0]
@@ -149,7 +149,7 @@ package audio_defs_pkg;
 
     // -------------------------------------------------------------------------
     // 事件 FIFO 深度（接口规范 3.6 节）
-    // 定量依据见 代码/scripts/analyze_event_fifo_budget.py
+    // 定量依据见 code/scripts/analyze_event_fifo_budget.py
     // -------------------------------------------------------------------------
     localparam int unsigned EVENT_FIFO_DEPTH = 32;
 

@@ -5,7 +5,7 @@
 50 MHz 不能被 48 kHz 整除，需要定量评估误差，并决定是否使用 PLL。
 
 用法：
-    python -X utf8 代码/scripts/analyze_clock_50m.py
+    python -X utf8 code/scripts/analyze_clock_50m.py
 """
 
 import math

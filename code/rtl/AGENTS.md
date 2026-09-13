@@ -1,10 +1,10 @@
 # FPGA 技术与集成岗位规则
 
-负责人：M2 FPGA 技术与系统集成负责人，兼任技术与集成负责人。岗位定义见 `代码/docs/角色分工.md`。
+负责人：M2 FPGA 技术与系统集成负责人，兼任技术与集成负责人。岗位定义见 `code/docs/角色分工.md`。
 
 ## 优先级
 
-本文件适用于 `代码/rtl/` 下全部内容。`代码/rtl/audio/AGENTS.md`（M1）和 `代码/rtl/input/AGENTS.md`（M3）是更深的规则，在各自目录内优先于本文件；本文件对未被它们覆盖的部分生效，包括 `代码/rtl/board/`、`代码/rtl/common/`、`代码/rtl/audio_out/` 和顶层模块。
+本文件适用于 `code/rtl/` 下全部内容。`code/rtl/audio/AGENTS.md`（M1）和 `code/rtl/input/AGENTS.md`（M3）是更深的规则，在各自目录内优先于本文件；本文件对未被它们覆盖的部分生效，包括 `code/rtl/board/`、`code/rtl/common/`、`code/rtl/audio_out/` 和顶层模块。
 
 ## 主责范围
 
@@ -19,12 +19,12 @@
 ## 写入范围
 
 - 顶层模块
-- `代码/rtl/board/`
-- `代码/rtl/common/`
-- `代码/rtl/audio_out/`
-- `代码/constraints/`
-- `代码/sim/`
-- 对应的 `代码/tb/` 与构建脚本
+- `code/rtl/board/`
+- `code/rtl/common/`
+- `code/rtl/audio_out/`
+- `code/constraints/`
+- `code/sim/`
+- 对应的 `code/tb/` 与构建脚本
 
 以上目录尚未创建时按需创建，不要为了占位批量建空目录。
 

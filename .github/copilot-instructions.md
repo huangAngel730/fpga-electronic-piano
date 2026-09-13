@@ -1,13 +1,13 @@
 # GitHub Copilot 指令
 
-本仓库的协作规范统一写在 `AGENTS.md` 中，规范来源以它和 `代码/docs/` 下的文档为准。本文件只是把 Copilot 指向正确的入口，避免生成与规范冲突的代码。
+本仓库的协作规范统一写在 `AGENTS.md` 中，规范来源以它和 `code/docs/` 下的文档为准。本文件只是把 Copilot 指向正确的入口，避免生成与规范冲突的代码。
 
 ## 生成或补全代码前先参考
 
 1. 根目录 `AGENTS.md`
-2. `代码/AGENTS.md`
-3. 与改动目录对应的局部 `AGENTS.md`：`代码/rtl/audio/AGENTS.md`（音频算法）、`代码/rtl/AGENTS.md`（FPGA 技术与集成）、`代码/rtl/input/AGENTS.md`（交互与板级）、`代码/model/AGENTS.md`（Python 黄金模型）
-4. `代码/docs/协作入口.md` 里的按需查阅清单
+2. `code/AGENTS.md`
+3. 与改动目录对应的局部 `AGENTS.md`：`code/rtl/audio/AGENTS.md`（音频算法）、`code/rtl/AGENTS.md`（FPGA 技术与集成）、`code/rtl/input/AGENTS.md`（交互与板级）、`code/model/AGENTS.md`（Python 黄金模型）
+4. `code/docs/协作入口.md` 里的按需查阅清单
 
 ## 生成 RTL 时的强制要求
 

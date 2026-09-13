@@ -5,7 +5,7 @@
 解压后提取括号内的文本对象（Tj / TJ 操作符）。
 
 用法：
-    python -X utf8 代码/scripts/extract_pdf_text.py <pdf路径> [关键字...]
+    python -X utf8 code/scripts/extract_pdf_text.py <pdf路径> [关键字...]
 """
 
 import re

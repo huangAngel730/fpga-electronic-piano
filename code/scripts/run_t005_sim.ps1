@@ -3,7 +3,7 @@
 # T005 (LSBJ I2S transmitter) regression simulation script.
 #
 # Usage (run from repository root):
-#   .\代码\scripts\run_t005_sim.ps1
+#   .\code\scripts\run_t005_sim.ps1
 #
 # Notes:
 #   1. This script loads the FPGA tool environment itself and does not rely on
@@ -41,8 +41,8 @@ foreach ($tool in @($iverilog, $vvp)) {
 
 # Paths are expressed as segments and joined at runtime so that this script
 # contains no non-ASCII literals.
-$segRtl = [char]0x4EE3 + [char]0x7801 + "\rtl"   # 代码\rtl
-$segTb  = [char]0x4EE3 + [char]0x7801 + "\tb"    # 代码\tb
+$segRtl = [char]0x4EE3 + [char]0x7801 + "\rtl"   # code\rtl
+$segTb  = [char]0x4EE3 + [char]0x7801 + "\tb"    # code\tb
 
 $tests = @(
     @{

@@ -19,16 +19,16 @@
 
 第一步：完整阅读以下文件，读完再动手。
 1. AGENTS.md
-2. 代码/AGENTS.md
-3. 代码/docs/协作入口.md
-4. 代码/docs/项目事实与范围.md
-5. 代码/docs/模块接口规范.md
-6. 代码/docs/技术决策记录.md
-7. 代码/docs/当前状态.md
-8. 代码/docs/任务看板.md
-9. 代码/docs/三人协作执行手册.md
-10. 代码/docs/AI交接上下文.md
-11. 代码/docs/三人开工任务说明.md
+2. code/AGENTS.md
+3. code/docs/协作入口.md
+4. code/docs/项目事实与范围.md
+5. code/docs/模块接口规范.md
+6. code/docs/技术决策记录.md
+7. code/docs/当前状态.md
+8. code/docs/任务看板.md
+9. code/docs/三人协作执行手册.md
+10. code/docs/AI交接上下文.md
+11. code/docs/三人开工任务说明.md
 12. 本岗位对应的局部 AGENTS.md
 
 任务编号：[Txxx]
@@ -65,11 +65,11 @@
 
 | 岗位 | 授权目录 |
 |---|---|
-| M1 | `代码/rtl/audio/`、`synth/`、`voice/`、`mixer/`、`effects/`、`代码/model/`、`代码/docs/test/` |
-| M2 | 顶层模块、`代码/rtl/board/`、`代码/rtl/common/`、`代码/rtl/audio_out/`、`代码/constraints/`、`代码/sim/` |
-| M3 | `代码/rtl/input/`、`代码/software/`、`代码/scripts/`、`代码/docs/hardware/`、`代码/docs/pinout/` |
+| M1 | `code/rtl/audio/`、`synth/`、`voice/`、`mixer/`、`effects/`、`code/model/`、`code/docs/test/` |
+| M2 | 顶层模块、`code/rtl/board/`、`code/rtl/common/`、`code/rtl/audio_out/`、`code/constraints/`、`code/sim/` |
+| M3 | `code/rtl/input/`、`code/software/`、`code/scripts/`、`code/docs/hardware/`、`code/docs/pinout/` |
 
-`代码/docs/` 下的协作文件由任务单指定负责人，至少一名非作者复核。共享目录修改必须经过复核。
+`code/docs/` 下的协作文件由任务单指定负责人，至少一名非作者复核。共享目录修改必须经过复核。
 
 ## 五 禁止事项
 

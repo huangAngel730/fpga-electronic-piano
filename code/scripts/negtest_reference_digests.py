@@ -5,7 +5,7 @@
 思路：逐个注入一种"看起来无害"的破坏，确认 verify_reference_digests.py
 会 FAIL；每次注入后都从备份还原，并进行字节级比对，确保仓库回到原状。
 
-用法：python -X utf8 代码/scripts/negtest_reference_digests.py
+用法：python -X utf8 code/scripts/negtest_reference_digests.py
 """
 
 from pathlib import Path

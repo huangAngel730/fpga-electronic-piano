@@ -3,7 +3,7 @@
 以及能否通过 ToUnicode CMap 还原。
 
 用法：
-    python -X utf8 代码/scripts/analyze_pdf_fonts.py <pdf路径>
+    python -X utf8 code/scripts/analyze_pdf_fonts.py <pdf路径>
 """
 
 import re

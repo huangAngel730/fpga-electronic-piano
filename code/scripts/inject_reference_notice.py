@@ -3,7 +3,7 @@
 """为入库的外部整理稿添加来源声明头，并把封装写法降级为待定。
 
 只做字符串层面的定点替换，不做任何正文改写。可重复执行（幂等）。
-用法：python -X utf8 代码/scripts/inject_reference_notice.py
+用法：python -X utf8 code/scripts/inject_reference_notice.py
 """
 
 from pathlib import Path
@@ -23,10 +23,10 @@ HEADER = """> **【本仓库入库说明 — 非原文，2026-09-13 追加】**
 > SHA-256 `EB24C3A069F1B31FF27E89DC5563F260ADD176C98FB1F4303E6AD24C53A06B0F`（111107 字节）。
 > 除本说明块与下方标注的 3 处“封装写法”措辞降级外，**正文未作任何改动**。
 >
-> - 它与 `代码/docs/板级硬件事实.md` 是**两个独立来源**，后者才是本项目的板级事实单一来源。
+> - 它与 `code/docs/板级硬件事实.md` 是**两个独立来源**，后者才是本项目的板级事实单一来源。
 >   两者冲突时以后者与 `技术决策记录.md` 的已冻结决策为准。详见本目录 `README.md`。
 > - 本文件**不作为约束依据**。写 `IO_LOC`/`IO_PORT` 时以
->   `代码/constraints/electronic_piano.cst` 与官方参考 CST 为准。
+>   `code/constraints/electronic_piano.cst` 与官方参考 CST 为准。
 > - **已核对一致**：音频 4 脚（Y17/AB17/AA16/AB16）、`sys_clk`=V22、
 >   `sys_rst_n`=AA13、`uart_tx`=U15 与本仓库记录完全一致；
 >   复位一节与 D018 更正完全吻合。
@@ -69,8 +69,8 @@ IDX_HEADER = """> **【本仓库入库说明 — 非原文，2026-09-13 追加�
 >
 > | 索引里的文件 | 本仓库实际位置 |
 > |---|---|
-> | `Tang_Mega_60K_30354_NEO_31005_引脚事实表.xlsx` | `代码/docs/`（已入库，哈希一致） |
-> | `tang_mega_60K_pins.cst` | `代码/constraints/tang_mega_60k_reference.cst`（已入库，哈希一致） |
+> | `Tang_Mega_60K_30354_NEO_31005_引脚事实表.xlsx` | `code/docs/`（已入库，哈希一致） |
+> | `tang_mega_60K_pins.cst` | `code/constraints/tang_mega_60k_reference.cst`（已入库，哈希一致） |
 > | `tang_mega_60k_30354_schematics..pdf` | **未入库**（可从 Sipeed 官方下载页获取） |
 > | `Tang_Mega_NEO_Dock-138K_31005_Schematics (1).pdf` | **未入库**（同上） |
 > | `BOARD_CONTEXT.md` | 本目录 `BOARD_CONTEXT_外部整理稿.md` |

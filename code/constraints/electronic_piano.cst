@@ -22,7 +22,7 @@
 //   NEO Dock 31005 原理图上标注的 Bank 归属来自 138K 器件，与 60K 不通用，
 //   不需要换算成 60K 的 Bank 号再写一遍。
 //
-// 依据：代码/docs/板级硬件事实.md、代码/constraints/README.md、
+// 依据：code/docs/板级硬件事实.md、code/constraints/README.md、
 //       Tang_Mega_60K_30354_NEO_31005_引脚事实表.xlsx（逐脚交叉核对，V0028）
 //       D020（音频输出引脚定案）
 // -----------------------------------------------------------------------------
@@ -92,7 +92,7 @@ IO_PORT "uart_tx"   IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8 BANK_VCCIO=3.3;
 // =============================================================================
 
 // =============================================================================
-// 上板前须知（来自官方 README，见 代码/docs/当前状态.md）
+// 上板前须知（来自官方 README，见 code/docs/当前状态.md）
 //
 // 1. 不要使用 Gowin Programmer 1.9.10.02（板载调试器问题多）。
 // 2. 必须在 Project - Configuration - Place & route - Dual Purpose Pin

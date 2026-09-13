@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""把 V0030 行插入 代码/docs/验证记录.md 的表格中，并更新末尾回归说明。
+"""把 V0030 行插入 code/docs/验证记录.md 的表格中，并更新末尾回归说明。
 
 插入位置：V0029 所在行之后的第一处空行之前。要求 V0030 尚不存在，
 避免重复插入。
 
-用法：python -X utf8 代码/scripts/append_v0030.py
+用法：python -X utf8 code/scripts/append_v0030.py
 """
 
 from pathlib import Path
@@ -16,12 +16,12 @@ LOG = REPO / "代码" / "docs" / "验证记录.md"
 
 V0030 = (
     "| V0030 | 2026-09-13 | 板级资料 / 外部整理稿入库 | "
-    "`代码/docs/reference/`（新建：`README.md`、`BOARD_CONTEXT_外部整理稿.md`、"
-    "`DOC_INDEX_外部整理稿.md`）、`代码/scripts/inject_reference_notice.py`（新建）、"
-    "`代码/scripts/verify_reference_digests.py`（新建）、"
-    "`代码/scripts/negtest_reference_digests.py`（新建）、`代码/scripts/check_repo.ps1`、"
-    "`代码/constraints/electronic_piano.cst`、`代码/constraints/README.md`、"
-    "`代码/docs/板级硬件事实.md` | L0 | 附件字节级入库 + SHA-256 溯源；"
+    "`code/docs/reference/`（新建：`README.md`、`BOARD_CONTEXT_外部整理稿.md`、"
+    "`DOC_INDEX_外部整理稿.md`）、`code/scripts/inject_reference_notice.py`（新建）、"
+    "`code/scripts/verify_reference_digests.py`（新建）、"
+    "`code/scripts/negtest_reference_digests.py`（新建）、`code/scripts/check_repo.ps1`、"
+    "`code/constraints/electronic_piano.cst`、`code/constraints/README.md`、"
+    "`code/docs/板级硬件事实.md` | L0 | 附件字节级入库 + SHA-256 溯源；"
     "入库前 pristine 哈希闸门；与 `板级硬件事实.md`/CST/31005 表逐条交叉核对；"
     "完整性检查的三种变异体负向测试；`check_repo.ps1` 全量 10 项 | "
     "PASS（**静态核对与文件校验，无仿真无实测**）。"
@@ -31,7 +31,7 @@ V0030 = (
     "**入库内容**：`BOARD_CONTEXT.md`（111107 字节，704 行，"
     "SHA-256 `EB24C3A0…A06B0F`）与 `DOC_INDEX.md`（5344 字节，48 行，"
     "SHA-256 `F2EBFAE6…2B02DE8`），**入库时哈希与来源逐字节一致**；"
-    "改名为加 `_外部整理稿` 后缀存入新建的 `代码/docs/reference/`，"
+    "改名为加 `_外部整理稿` 后缀存入新建的 `code/docs/reference/`，"
     "与厂商原始资料及本仓库自编文档分开。"
     "**为什么单列目录而不并入 `板级硬件事实.md`**：两者是**独立来源**，"
     "外部稿的输入资料与本仓库相同（同一份 31005 引脚事实表、同一份官方 CST，"
@@ -91,7 +91,7 @@ V0030 = (
     "(2) 第二次负向测试的注入方式**选错**——只替换 banner 后半段而保留了前缀，"
     "检测逻辑仍命中，故 PASS 属误判；改为整块删除后正确 FAIL。"
     "(3) 为在 PS 5.1 下比较中文而写的检测代码**引入了非 ASCII 字面量**，"
-    "导致 `check_repo.ps1` 语法解析失败（正是 `代码/AGENTS.md` 警告过的历史事故）；"
+    "导致 `check_repo.ps1` 语法解析失败（正是 `code/AGENTS.md` 警告过的历史事故）；"
     "已把该检查**整体移入 Python**，`check_repo.ps1` 现为**纯 ASCII、0 语法错误**，"
     "中文比较不再经 PowerShell。"
     "(4) 备份文件因**每次 `pwsh` 调用落在不同沙箱临时目录**而丢失，"
@@ -105,14 +105,14 @@ V0030 = (
 )
 
 FOOTER_OLD = (
-    r"**T007 一键回归**：`.\代码\scripts\run_t007_sim.ps1` "
+    r"**T007 一键回归**：`.\code\scripts\run_t007_sim.ps1` "
     "编译运行顶层自检 testbench，"
     "全部 PASS 时退出码 0（当前 12 项检查）。"
     "对应 V0029。"
 )
 FOOTER_NEW = FOOTER_OLD + (
     " **板级资料一键校验**："
-    r"`python -X utf8 .\代码\scripts\verify_reference_digests.py` "
+    r"`python -X utf8 .\code\scripts\verify_reference_digests.py` "
     "校验 `docs/reference/` 两份外部整理稿的"
     "来源声明头与正文完整性，"
     "全部 PASS 时退出码 0；"

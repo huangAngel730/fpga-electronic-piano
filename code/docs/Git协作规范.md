@@ -59,7 +59,7 @@ docs(interface): freeze performance event v0.1
 `.github/workflows/rtl-smoke.yml` 在推送和合并请求时执行：
 
 - 用 Icarus 编译并运行原型自检 testbench。
-- 对 `准备/脚本/` 下的 Python 生成脚本做语法检查。
+- 对 `prep/脚本/` 下的 Python 生成脚本做语法检查。
 
 持续集成只能证明 L1 至 L2 级别，不能代替上板验证。
 

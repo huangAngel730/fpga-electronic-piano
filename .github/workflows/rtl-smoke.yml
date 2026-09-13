@@ -78,7 +78,7 @@ jobs:
           import pathlib
           import sys
 
-          root = pathlib.Path("准备/脚本")
+          root = pathlib.Path("prep/脚本")
           files = sorted(root.glob("*.py"))
           if not files:
               print("未找到 Python 脚本，检查路径是否变更")

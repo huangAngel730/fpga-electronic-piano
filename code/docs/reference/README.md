@@ -1,7 +1,7 @@
 # 外部整理稿（只读参考）
 
 本目录存放**由外部工具/他人整理、非本仓库编写**的板卡资料整理稿。
-它们与 `代码/docs/板级硬件事实.md` 是**两个独立来源**，不是同一份文档的两个副本。
+它们与 `code/docs/板级硬件事实.md` 是**两个独立来源**，不是同一份文档的两个副本。
 
 ## 为什么单列一个目录
 
@@ -31,10 +31,10 @@
 
 - `Tang_Mega_60K_30354_NEO_31005_引脚事实表.xlsx`
   （SHA-256 `C69E1943782D4845F43C4546614F2AEB75DE66440B0ECE5FF17EDE46BAF029B6`，
-  与本仓库 `代码/docs/` 下的副本**一致**）
+  与本仓库 `code/docs/` 下的副本**一致**）
 - `tang_mega_60K_pins.cst`
   （SHA-256 `DCACED4A5D15D60A3615190138AD3522B562C82748E35FFD150139BC7542FF4C`，
-  与本仓库 `代码/constraints/tang_mega_60k_reference.cst` **一致**）
+  与本仓库 `code/constraints/tang_mega_60k_reference.cst` **一致**）
 
 ## 已核对的差异（入库时逐条比对）
 
@@ -108,7 +108,7 @@ https://dl.sipeed.com/shareURL/TANG/Mega_138K_60K/02_Schematic 获取）。
 1. **只读**。不要修改本目录文件的正文；需要更正时，改本仓库自己的文档
    并按 `变更与决策流程.md` 登记，同时在本节追加差异说明。
 2. **不作为约束依据**。写 `IO_LOC` / `IO_PORT` 时以
-   `代码/constraints/electronic_piano.cst` 和官方参考 CST 为准。
+   `code/constraints/electronic_piano.cst` 和官方参考 CST 为准。
 3. **不替代 `板级硬件事实.md`**。查板级事实先看后者；本目录文件用于
    补查第 9 节"端口约束总表"这类逐行明细。
 4. **其"待用户确认"章节不等于本项目待办**。两份文件的第 12 节列了 12 条

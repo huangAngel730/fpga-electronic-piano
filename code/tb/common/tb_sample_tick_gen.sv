@@ -7,11 +7,11 @@
 //
 // 运行（iverilog，工作目录为仓库根）：
 //   iverilog -g2012 -Wall -o tb_sample_tick_gen.vvp \
-//       代码/rtl/common/sample_tick_gen.sv 代码/tb/common/tb_sample_tick_gen.sv
+//       code/rtl/common/sample_tick_gen.sv code/tb/common/tb_sample_tick_gen.sv
 //   vvp tb_sample_tick_gen.vvp
 //
 // 为缩短仿真时间，本 TB 用缩小位宽的累加器验证行为，
-// 长期频率精度另用 Python 脚本分析（代码/scripts/analyze_clock_plan.py）。
+// 长期频率精度另用 Python 脚本分析（code/scripts/analyze_clock_plan.py）。
 // -----------------------------------------------------------------------------
 
 `timescale 1ns / 1ps

@@ -3,7 +3,7 @@
 # T019 (clock / reset / sample_tick) regression simulation script.
 #
 # Usage (run from repository root):
-#   .\代码\scripts\run_t019_sim.ps1
+#   .\code\scripts\run_t019_sim.ps1
 #
 # Notes:
 #   1. This script loads the FPGA tool environment itself and does not rely on
@@ -45,8 +45,8 @@ foreach ($tool in @($iverilog, $vvp)) {
 # contains no non-ASCII literals. Windows PowerShell 5.1 reads BOM-less UTF-8
 # files as ANSI, which corrupts non-ASCII string literals in the script source
 # itself. Keeping the source ASCII-only avoids that entirely.
-$segRtl = [char]0x4EE3 + [char]0x7801 + "\rtl"   # 代码\rtl
-$segTb  = [char]0x4EE3 + [char]0x7801 + "\tb"    # 代码\tb
+$segRtl = [char]0x4EE3 + [char]0x7801 + "\rtl"   # code\rtl
+$segTb  = [char]0x4EE3 + [char]0x7801 + "\tb"    # code\tb
 
 $tests = @(
     @{

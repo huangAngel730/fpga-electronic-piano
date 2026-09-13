@@ -1,6 +1,6 @@
 # Word 文档生成脚本
 
-本目录中的 Python 文件用于生成或更新 `准备/` 与 `准备/文档/` 下的 Word 报告。脚本依赖 `python-docx`，运行时显式使用 UTF-8。
+本目录中的 Python 文件用于生成或更新 `prep/` 与 `prep/文档/` 下的 Word 报告。脚本依赖 `python-docx`，运行时显式使用 UTF-8。
 
 ## 运行方式
 
@@ -8,10 +8,10 @@
 
 ```powershell
 python -m pip install python-docx
-python .\准备\脚本\build_team_roles_resource_plan.py
+python .\prep\脚本\build_team_roles_resource_plan.py
 ```
 
-部分旧脚本使用相对输出路径。运行前先检查文件顶部的 `OUTPUT`、`OUT` 或 `Path(...)` 定义；若脚本按 `准备/` 为工作目录设计，则执行：
+部分旧脚本使用相对输出路径。运行前先检查文件顶部的 `OUTPUT`、`OUT` 或 `Path(...)` 定义；若脚本按 `prep/` 为工作目录设计，则执行：
 
 ```powershell
 Set-Location 准备
@@ -37,6 +37,6 @@ python .\脚本\脚本名.py
 
 - 生成型 Word 优先改脚本，不只改 `.docx`。
 - 覆盖已有输出前检查是否存在人工补充；不确定时先备份。
-- 新增脚本时在本文件和 `准备/文档/00_README.txt` 登记输出。
+- 新增脚本时在本文件和 `prep/文档/00_README.txt` 登记输出。
 - 生成后至少检查 DOCX ZIP 结构，并进行页面渲染检查。
 

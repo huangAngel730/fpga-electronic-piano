@@ -2,7 +2,7 @@
 展开 PDF 的 ObjStm（对象流），查找图片 XObject 与页面资源。
 
 用法：
-    python -X utf8 代码/scripts/expand_pdf_objstm.py <pdf路径>
+    python -X utf8 code/scripts/expand_pdf_objstm.py <pdf路径>
 """
 
 import re

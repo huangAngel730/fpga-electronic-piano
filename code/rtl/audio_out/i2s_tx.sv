@@ -15,7 +15,7 @@
 // 为什么 BCLK 用相位累加而不是整数分频：
 //   50e6 / 3.072e6 = 16.276042，非整数。除以 16 得 3.125 MHz，
 //   误差 +17253 ppm，音高偏高约 0.29 半音，人耳可直接察觉。
-//   相位累加给出 +0.0013 ppm，详见 代码/scripts/analyze_clock_50m.py。
+//   相位累加给出 +0.0013 ppm，详见 code/scripts/analyze_clock_50m.py。
 //
 // 采样率由 BCLK/LRCK 的比值保证，与 sample_tick 的抖动无关。
 //

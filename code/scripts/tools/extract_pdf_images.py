@@ -6,7 +6,7 @@
 只依赖 Pillow 和标准库，不需要 PyMuPDF 或 poppler。
 
 用法：
-    python -X utf8 代码/scripts/extract_pdf_images.py <pdf路径> <输出目录> [最小宽度]
+    python -X utf8 code/scripts/extract_pdf_images.py <pdf路径> <输出目录> [最小宽度]
 
 输出文件名形如 page_000_img_000.png，按宽度降序排列，
 最宽的通常是原理图主体。

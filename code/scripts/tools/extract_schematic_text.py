@@ -6,7 +6,7 @@
 再提取字体 ToUnicode CMap 与页面内容流，还原可读文字。
 
 用法：
-    python -X utf8 代码/scripts/extract_schematic_text.py <pdf路径> [关键字...]
+    python -X utf8 code/scripts/extract_schematic_text.py <pdf路径> [关键字...]
 """
 
 import re

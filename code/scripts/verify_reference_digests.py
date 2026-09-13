@@ -5,7 +5,7 @@
 检查项：文件存在、字节数、行数、入库说明头是否在最前、正文是否仍然完整
 （把说明头切掉后，正文必须以原始文件的首个标题开头）。
 
-用法：python -X utf8 代码/scripts/verify_reference_digests.py
+用法：python -X utf8 code/scripts/verify_reference_digests.py
 """
 
 from pathlib import Path

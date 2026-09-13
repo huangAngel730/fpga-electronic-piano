@@ -7,7 +7,7 @@
 //
 // 运行（iverilog）：
 //   iverilog -g2012 -Wall -o tb_audio_defs_pkg.vvp \
-//       代码/rtl/common/audio_defs_pkg.sv 代码/tb/common/tb_audio_defs_pkg.sv
+//       code/rtl/common/audio_defs_pkg.sv code/tb/common/tb_audio_defs_pkg.sv
 //   vvp tb_audio_defs_pkg.vvp
 // -----------------------------------------------------------------------------
 

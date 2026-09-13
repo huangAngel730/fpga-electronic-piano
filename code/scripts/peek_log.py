@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""小工具：打印 代码/docs/验证记录.md 中指定编号的行摘要。
+"""小工具：打印 code/docs/验证记录.md 中指定编号的行摘要。
 
-用法：python -X utf8 代码/scripts/peek_log.py V0030
+用法：python -X utf8 code/scripts/peek_log.py V0030
 """
 
 from pathlib import Path

@@ -22,7 +22,7 @@
 > 该规则已由 **31005 引脚事实表表头以明文固化**（V0028），原文：
 > "60K球位必须由BTN针号回查30354核心板；底板原图的138K球位标签仅用于审计，
 > **禁止写入60K CST**。'未给出'不得自行假设。" 完整形式见
-> `代码/docs/板级硬件事实.md` §3.5.1。
+> `code/docs/板级硬件事实.md` §3.5.1。
 
 ---
 
@@ -63,7 +63,7 @@ DDR3 PLL、TMDS PLL 等绑定到固定位置，这些**本工程不适用**。
 | `pa_en` | **AB16** | LVCMOS33 | 3.3 V | Bank 7；**低有效**，0=功放开，1=功放关 |
 | `uart_tx` | **U15** | LVCMOS33 | 3.3 V | Bank 6；板载 USB-UART（BL616） |
 
-以上引脚均已用 `代码/docs/Tang_Mega_60K_30354_NEO_31005_引脚事实表.xlsx`
+以上引脚均已用 `code/docs/Tang_Mega_60K_30354_NEO_31005_引脚事实表.xlsx`
 逐脚交叉核对，并与参考 `.cst` 中的 `IO_LOC` 一致。
 
 **31005 版复核（V0028，2026-09-13）**：用户明确"这个文件为准哦，我们是这个
@@ -123,7 +123,7 @@ Bank 7**——官方 CST 本身并不给出 Bank 信息，这一点由事实表�
   官方只是给 PMOD0 的八根线起了 `LEDs[0..7]` 这个示例别名；
   实际点亮电平取决于插在 PMOD0 上的外部模块。
   来源：引脚事实表 r48-r55 与用户核对截图，详见
-  `代码/docs/reference/README.md` 差异一
+  `code/docs/reference/README.md` 差异一
 
 ### MIDI 接收引脚阻塞项（需决策）
 
@@ -152,7 +152,7 @@ Bank 7**——官方 CST 本身并不给出 Bank 信息，这一点由事实表�
 **未决策前不得写入 `audio_timing.sdc` 或工程 CST。**
 
 选定后写入 `electronic_piano.cst`，并同步更新
-`代码/docs/板级硬件事实.md` 的接线表。
+`code/docs/板级硬件事实.md` 的接线表。
 
 ---
 
@@ -228,5 +228,5 @@ sys_clk 周期（**20 ns**）的抖动。
 
 | 脚本 | 用途 |
 |---|---|
-| `代码/scripts/analyze_clock_50m.py` | 50 MHz 时钟方案的定量分析，含 PLL 可行性搜索与 BCLK 分频论证 |
-| `代码/scripts/analyze_clock_plan.py` | 各候选频率的整数分频可行性与相位累加精度分析 |
+| `code/scripts/analyze_clock_50m.py` | 50 MHz 时钟方案的定量分析，含 PLL 可行性搜索与 BCLK 分频论证 |
+| `code/scripts/analyze_clock_plan.py` | 各候选频率的整数分频可行性与相位累加精度分析 |
