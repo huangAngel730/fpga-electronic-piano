@@ -51,15 +51,48 @@
 #     powershell -ExecutionPolicy Bypass -File .\code\scripts\move_repo_to_ascii.ps1
 #
 # Add -WhatIf to print the plan without touching anything.
+#
+# DO NOT cd INTO THE REPOSITORY FIRST
+# -----------------------------------
+# Windows refuses to rename a directory that any process has as its current
+# working directory, and it reports the refusal as
+#
+#     Move-Item : Cannot move item because the item at <path> is in use.
+#
+# An earlier version of this script told the reader to cd into the repository,
+# which guaranteed that failure: the calling shell held the directory open for
+# the entire run. The script now changes its own location out of the tree
+# before moving and changes back afterwards, and the wrapper command below
+# starts in a neutral directory. Note that this only unbinds THIS process --
+# any other process sitting in the tree (an editor, a terminal, another agent
+# session) will still block the move, and the error message will not say which.
+#
+#     cd $env:USERPROFILE
+#     powershell -ExecutionPolicy Bypass -File D:\...\code\scripts\move_repo_to_ascii.ps1
+#
+# WHEN THE MOVE FAILS AS "IN USE"
+# -------------------------------
+# Nothing is damaged; the script stops before changing anything. To find the
+# holders, close whatever is parked in the tree and retry. If a DSH agent
+# session is holding it, create the file this script watches for and that
+# session will step out of the directory:
+#
+#     New-Item -ItemType File D:\17\project_17\MOVE_READY
+#
+# -WaitForRelease waits for that file before moving, so the session that owns
+# the repository can be told to let go without racing the move.
 
 param(
-    [switch]$WhatIf
+    [switch]$WhatIf,
+    [switch]$WaitForRelease,
+    [int]$ReleaseTimeoutSec = 600
 )
 
 $ErrorActionPreference = 'Stop'
 
 # --- Configuration -----------------------------------------------------------
 $target = 'D:\17\project_17\fpga_gowin'
+$releaseFlag = 'D:\17\project_17\MOVE_READY'
 
 # Build CJK names from code points so this file stays pure ASCII.
 $codeCjk = [char]0x4EE3 + [char]0x7801   # "code"
@@ -143,8 +176,61 @@ else {
 
 # --- Move --------------------------------------------------------------------
 Step 'move the repository'
+
+# Unbind this process from the tree. Windows will not rename a directory that
+# is any process's current working directory, and this script was itself
+# started from inside the tree in the previous attempt.
+$neutral = $env:USERPROFILE
+if (-not $neutral -or -not (Test-Path -LiteralPath $neutral)) {
+    $neutral = 'C:\'
+}
+Set-Location -LiteralPath $neutral -ErrorAction Stop
+Say "  this process moved its location to: $neutral"
+
+# Wait for other holders to step out. Polling rather than prompting, because
+# the typical holder is an agent session or an editor, not a person at this
+# console.
+if ($WaitForRelease -and -not $WhatIf) {
+    Say "  waiting for $releaseFlag (up to $ReleaseTimeoutSec s)"
+    $deadline = (Get-Date).AddSeconds($ReleaseTimeoutSec)
+    while (-not (Test-Path -LiteralPath $releaseFlag)) {
+        if ((Get-Date) -gt $deadline) {
+            throw "timed out waiting for $releaseFlag; close whatever is in the repository and retry"
+        }
+        Start-Sleep -Milliseconds 500
+    }
+    Say '  release flag seen; proceeding'
+}
+
+# Probe writability before moving, so a lock produces a clear message instead
+# of a bare "item is in use". Creating and deleting a file exercises the same
+# access the rename needs.
 if (-not $WhatIf) {
-    Move-Item -LiteralPath $source -Destination $target -ErrorAction Stop
+    $probe = Join-Path $source ('.move_probe_' + [Guid]::NewGuid().ToString('N').Substring(0, 8))
+    try {
+        [IO.File]::WriteAllText($probe, 'x')
+        Remove-Item -LiteralPath $probe -Force
+        Say '  source directory is writable'
+    }
+    catch {
+        throw "cannot write inside $source -- something still holds it: $($_.Exception.Message)"
+    }
+}
+
+if (-not $WhatIf) {
+    try {
+        Move-Item -LiteralPath $source -Destination $target -ErrorAction Stop
+    }
+    catch {
+        Write-Host ''
+        Write-Host '  MOVE FAILED -- nothing was changed.'
+        Write-Host "  $($_.Exception.Message)"
+        Write-Host ''
+        Write-Host '  Windows reports a directory-in-use refusal without naming the'
+        Write-Host '  process. Close any editor, terminal or agent session whose'
+        Write-Host '  working directory is inside the repository and retry.'
+        throw 'move failed'
+    }
     Say "  moved"
 }
 Say "  $source"
