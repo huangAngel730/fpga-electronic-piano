@@ -5,16 +5,26 @@
   实时多音色合成电子乐器引擎（高云选题二）—— Gowin 工程文件
 
   板卡：Sipeed Tang Mega 60K 核心板 30354 + NEO Dock 31005
-  器件：GW5AT-LV60PG484AC1/I0（器件名 GW5AT-60B，封装 PBGA484A）
+  器件：GW5AT-LV60PG484AC1/I0（器件名 GW5AT-60B）
 
   器件三要素的来源不是猜测，而是本机 Gowin 教育版 V1.9.11.03 自带的
   器件数据库，可用 device_package.csv 复核：
     gw5at60b-002,GW5AT-LV60PG484AC1/I0,GW5AT,GW5AT-60B,PBGA484A,...
-  该行同时给出 pn 与封装，故 D018 的
-  "PBG484A vs PG484A" 之争到此结束：
-    - pn   = GW5AT-LV60PG484AC1/I0   （PG484A 是 pn 里的封装代码段）
-    - 封装 = PBGA484A                （P-BGA，塑封球栅阵列）
-  此前仓库把封装误写作 "PBG484A"（字母顺序颠倒），已更正。
+  该行同时给出 pn 与封装。
+
+  【封装写法定案（D018 第 2 项，已关闭）】
+  IDE 中应选择的封装名为 **PBG484A**，Device Version 为 **B**。
+  依据 Sipeed 官方 Wiki 的 Precautions 表原文：
+    "The specific model of the FPGA chip used by Tang Mega 60K is
+     GW5AT-LV60PG484A. Please select the package model PBG484A &
+     Device Version: B in the IDE."
+  即料号段写作 PG484A、IDE 封装名写作 PBG484A，两者是不同层级的写法，
+  **均非笔误**。
+
+  【注意】上面 device_package.csv 行里的 PBGA484A 是器件数据库的**内部**
+  封装名，与 IDE 呈现给用户的封装名可以不同，**不得据它否定 PBG484A**。
+  本文件曾一度据此把结论改成 PBGA484A，属无效推理，已改回（见 V0032）。
+  本行的 <Device> 索引 gw5at60b-002 才是实际生效的器件选择。
 
   源文件用相对路径引用，因此本工程可整体移动；
   指向的 RTL 与约束仍存放在 code/rtl 与 code/constraints，不在本目录复制一份，
@@ -29,11 +39,17 @@
         <File path="../rtl/board/electronic_piano_top.sv" type="file.verilog" enable="1"/>
         <!-- 公共模块与定义包 -->
         <File path="../rtl/common/audio_defs_pkg.sv" type="file.verilog" enable="1"/>
+        <File path="../rtl/common/perf_event_pkg.sv" type="file.verilog" enable="1"/>
         <File path="../rtl/common/reset_sync.sv" type="file.verilog" enable="1"/>
         <File path="../rtl/common/sample_tick_gen.sv" type="file.verilog" enable="1"/>
+        <!-- T020/T014 事件驱动集成骨架的输入与发声链路 -->
+        <File path="../rtl/common/key_debounce.sv" type="file.verilog" enable="1"/>
+        <File path="../rtl/common/key_event_source.sv" type="file.verilog" enable="1"/>
+        <File path="../rtl/common/note_pitch.sv" type="file.verilog" enable="1"/>
+        <File path="../rtl/common/simple_voice.sv" type="file.verilog" enable="1"/>
         <!-- I2S LSBJ 发送器 -->
         <File path="../rtl/audio_out/i2s_tx.sv" type="file.verilog" enable="1"/>
-        <!-- 引脚约束（7 脚，见 electronic_piano.cst 头部说明） -->
+        <!-- 引脚约束（9 脚，见 electronic_piano.cst 头部说明） -->
         <File path="../constraints/electronic_piano.cst" type="file.cst" enable="1"/>
         <!-- 时序约束（50 MHz + I2S 虚拟时钟 + 输出延迟） -->
         <File path="../constraints/audio_timing.sdc" type="file.sdc" enable="1"/>

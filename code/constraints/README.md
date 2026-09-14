@@ -161,10 +161,61 @@ Bank 7**——官方 CST 本身并不给出 Bank 信息，这一点由事实表�
 ### 时钟
 
 ```
-create_clock -name sys_clk -period 20.000 [get_ports sys_clk]
+create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]
 ```
 
 板载晶振 **50 MHz**（2026-09-12 确认），周期 20.000 ns。
+
+### Gowin SDC 方言限制（2026-09-13 实测，改约束前必读）
+
+本工程用 Gowin EDA V1.9.11.03 Education 实测确认，官方 SDC 解析器
+比标准 SDC 窄，以下三条都必须遵守：
+
+| 写法 | 结果 |
+|---|---|
+| `[get_ports sys_clk]` | **报错** TA2000（`near token 'sys_clk]'`） |
+| `[get_ports {sys_clk}]` | 通过 |
+| `create_clock -name v -period N`（无对象，虚拟时钟） | **报错** TA2003（`Can't set timing constraint to object`） |
+| `set_clock_uncertainty -setup 1.0 [get_clocks {c}]` | **报错** TA2000（`near token '['`） |
+| `set_clock_uncertainty -setup 1.0 -from [get_clocks {c}] -to [get_clocks {c}]` | 通过 |
+
+结论：
+
+1. **方括号里的对象名必须再用花括号包一层**，即 `[get_ports {名字}]`。
+   官方例程（`IDE/data/examples/*/src/*.sdc`）全部是这个写法。
+2. **不支持虚拟时钟**。`create_clock` 必须绑定真实对象，因此本文件
+   不再使用 `i2s_bclk_virt` / `i2s_lrclk_virt`。BCLK/LRCLK 虽由时钟使能
+   翻转产生、不是时钟树信号，但约束时一律以 `sys_clk` 为参考时钟。
+3. `set_clock_uncertainty` **必须带 `-from` / `-to`**，不能直接跟
+   `[get_clocks {...}]`。
+
+另外两条与解析器相关的坑：
+
+- **注释符只有 `#`**。`//` 在 `.cst` 里合法（Gowin 自有格式），在 SDC 里
+  不是注释，整行会被当命令解析。综合阶段不读 SDC，这类错误直到 pnr 才暴露。
+- **注释里不要出现方括号**。读取器即使跳过注释行仍会扫描方括号做配对，
+  孤立的右方括号会破坏 token 流，且报错位置指向**后面**第一条真正用到
+  方括号的语句，而非出错的那行注释，极易误判。
+
+当前 SDC 实际生效的约束共 9 行：1 条 `create_clock`、
+2 条 `set_clock_uncertainty`、6 条 `set_output_delay`。
+
+#### 时序收敛实测（2026-09-13）
+
+`build_electronic_piano.ps1 -Flow pnr` 全流程通过，码流已生成：
+
+| 指标 | 数值 |
+|---|---|
+| 建立 TNS | 0.000 ns |
+| 建立违例端点 | 0 |
+| 保持违例端点 | 0 |
+| 最差建立余量 | +4.368 ns（`u_i2s_tx/bclk_s1/Q` → `i2s_bclk_obuf/O`） |
+| 约束频率 / 实测 Fmax | 50.000 MHz / **63.973 MHz**（余量 27.9%） |
+
+保留一条已知警告 `PR1014`：`sys_clk` 走通用布线资源而非专用时钟树。
+原因是 `sys_clk` 分配的 `V22` 是 `EMCCLK` 双功能脚（与官方参考 `.cst`
+第 3 行一致，引脚分配本身无误）。该警告在上板验收时需关注时钟偏斜，
+若实测音频指标异常，优先按配置项把该双功能脚设为普通 IO 后重跑。
 
 ### 两个关键结论
 
@@ -209,15 +260,20 @@ sys_clk 周期（**20 ns**）的抖动。
 
 ### 待完成项
 
-- [x] BCLK / LRCLK 相位累加器实现落地（T005），约束改用虚拟时钟描述
+- [x] BCLK / LRCLK 相位累加器实现落地（T005）
+      （注：原计划"改用虚拟时钟描述"已作废——Gowin 不支持虚拟时钟，
+      现统一以 `sys_clk` 为参考时钟，见上文方言限制）
 - [x] 音频输出引脚定案（D020）：`i2s_bclk`=Y17 / `i2s_lrck`=AB17 /
       `i2s_din`=AA16 / `pa_en`=AB16，端口名已与顶层约定一致
-- [ ] `set_output_delay` 数值仍为占位，须用首次布局布线报告的引脚走线
-      延迟校正；**在有实测依据前不得写成时序已收敛**
+- [x] `electronic_piano.cst` 与 `audio_timing.sdc` **已通过综合与布局布线**
+      （2026-09-13，TNS=0，Fmax 63.973 MHz），码流已生成
+- [ ] `set_output_delay` 数值仍为占位，须用本次布局布线报告的引脚走线
+      延迟校正；**在有实测依据前不得写成时序已收敛的最终值**
 - [x] 本工程 CST `electronic_piano.cst` 已建立（7 脚，从官方参考摘取，见 V0027），
       并由 `check_repo.ps1` 第 5 项每次自动比对官方参考，防止引脚漂移
-- [ ] `electronic_piano.cst` **尚未经综合、布局布线与上板验证**，
-      引脚与实际硬件是否对应尚无实测确认
+- [ ] 引脚与实际硬件的对应关系**尚未上板确认**（只到布局布线一级）
+- [ ] `PR1014`：`sys_clk` 走通用布线资源（V22 为 EMCCLK 双功能脚），
+      待上板实测音频指标后决定是否需在配置项中改为普通 IO
 - [ ] MIDI 接收引脚未定（`V14` 状态冲突，禁止采用），定案后补充输入延迟约束
 - [ ] 首次综合后，检查时序报告是否收敛
 - [ ] 上板实测 BCLK 频率与 I2S 波形，验证 DAC 输出 THD+N

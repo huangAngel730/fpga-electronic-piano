@@ -278,8 +278,15 @@ try {
     # ---------------------------------------------------------------------
     Add-Type -AssemblyName System.IO.Compression.FileSystem
     $docxDir = Join-Path $prepRoot $docDir
-    $docxFiles = @(Get-ChildItem -LiteralPath $docxDir -Filter "*.docx" -File -ErrorAction SilentlyContinue)
+    # Exclude Word's own lock/temp files. While a .docx is open in Word the
+    # directory also contains "~$name.docx", which is not a ZIP archive and
+    # would be reported as a corrupt deliverable. It is never tracked by git.
+    $docxFiles = @(
+        Get-ChildItem -LiteralPath $docxDir -Filter "*.docx" -File -ErrorAction SilentlyContinue |
+            Where-Object { -not $_.Name.StartsWith('~$') }
+    )
     $docxFailed = [System.Collections.Generic.List[string]]::new()
+    $docxSkipped = [System.Collections.Generic.List[string]]::new()
     foreach ($file in $docxFiles) {
         try {
             $archive = [System.IO.Compression.ZipFile]::OpenRead($file.FullName)
@@ -300,10 +307,26 @@ try {
                 $archive.Dispose()
             }
         } catch {
+            # A file currently open in Word is locked, not corrupt. Report it as
+            # skipped rather than failing the suite: it is an environment state,
+            # not a defect in the deliverable. Re-run with Word closed to verify.
+            # .NET exceptions surface here wrapped in a MethodInvocationException,
+            # so the real IOException is on InnerException.
+            $inner = $_.Exception.InnerException
+            if (($_.Exception -is [System.IO.IOException]) -or
+                ($inner -is [System.IO.IOException])) {
+                $docxSkipped.Add($file.Name)
+                continue
+            }
             $docxFailed.Add("$($file.Name): $($_.Exception.Message)")
         }
     }
-    Add-CheckResult "DOCX structure ($($docxFiles.Count) files)" `
+    $docxLabel = "DOCX structure ($($docxFiles.Count) files"
+    if ($docxSkipped.Count -gt 0) {
+        $docxLabel += ", $($docxSkipped.Count) locked by Word and skipped"
+    }
+    $docxLabel += ")"
+    Add-CheckResult $docxLabel `
         ($docxFailed.Count -eq 0) ($docxFailed -join "; ")
 
     # ---------------------------------------------------------------------

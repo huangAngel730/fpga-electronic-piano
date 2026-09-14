@@ -1,0 +1,109 @@
+# Download the electronic_piano bitstream to the Tang Mega 60K board.
+#
+# Pure ASCII on purpose: Windows PowerShell 5.1 decodes BOM-less UTF-8 as GBK,
+# which corrupts non-ASCII literals (see code/AGENTS.md).
+#
+# Usage:
+#   .\code\scripts\program_electronic_piano.ps1              # SRAM download (volatile)
+#   .\code\scripts\program_electronic_piano.ps1 -Mode flash  # write external flash (persistent)
+#   .\code\scripts\program_electronic_piano.ps1 -ScanOnly    # just check the cable/chain
+#
+# SRAM download is the default because it is reversible: power-cycling the board
+# restores whatever was in flash. Use -Mode flash only when you intend to keep
+# the design on the board across power cycles.
+
+[CmdletBinding()]
+param(
+    [ValidateSet('sram', 'flash')]
+    [string]$Mode = 'sram',
+
+    [switch]$ScanOnly,
+
+    # Override if the Programmer is installed somewhere else.
+    [string]$ProgrammerRoot = 'D:\Gowin\Programmer_V1.9.12.02'
+)
+
+$ErrorActionPreference = 'Stop'
+
+$repoRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
+
+# Keep the repository path ASCII-safe for the native tool: PowerShell 5.1 can
+# truncate non-ASCII arguments passed to an exe, so we always run the CLI with
+# its own directory as the working directory and pass forward-slash paths.
+$cli = Join-Path $ProgrammerRoot 'bin\programmer_cli.exe'
+if (-not (Test-Path -LiteralPath $cli)) {
+    throw "programmer_cli.exe not found at: $cli"
+}
+$cliDir = Split-Path -Parent $cli
+
+$bitstream = Join-Path $repoRoot 'code\build\impl\pnr\electronic_piano.fs'
+if (-not $ScanOnly -and -not (Test-Path -LiteralPath $bitstream)) {
+    throw "Bitstream not found: $bitstream`nRun: .\code\scripts\build_electronic_piano.ps1 -Flow pnr"
+}
+
+$fsArg = ($bitstream -replace '\\', '/')
+
+# operation_index: 2 = SRAM Program, 6 = embFlash Erase,Program,Verify.
+# The Tang Mega 60K has no embedded flash for the FPGA, so "flash" here means
+# the external SPI flash: 9 = exFlash Erase,Program,Verify.
+$operation = switch ($Mode) {
+    'sram'  { 2 }
+    'flash' { 9 }
+}
+
+Write-Host '=== electronic_piano programmer ==='
+Write-Host "repo      : $repoRoot"
+Write-Host "tool      : $cli"
+Write-Host "device    : GW5AT-60B"
+Write-Host "mode      : $Mode (operation_index=$operation)"
+Write-Host "bitstream : $fsArg"
+Write-Host ''
+
+# Native tools write progress to stderr; PS 5.1 would treat that as a fatal
+# error, so relax the preference for the duration of the call.
+$prevEap = $ErrorActionPreference
+$ErrorActionPreference = 'Continue'
+Push-Location $cliDir
+try {
+    if ($ScanOnly) {
+        Write-Host '--- scanning JTAG chain ---'
+        & $cli --scan 2>&1 | ForEach-Object { Write-Host "  $_" }
+        $code = $LASTEXITCODE
+        Write-Host ''
+        Write-Host "scan exit code: $code"
+        if ($code -ne 0) {
+            Write-Host ''
+            Write-Host 'No Gowin device found. Check:'
+            Write-Host '  1. USB cable from the PC to the board JTAG/debug port'
+            Write-Host '  2. Gowin USB Cable driver installed (driver\GowinUSBCableDriverV5_for_win7+.exe)'
+            Write-Host '  3. Board powered on'
+        }
+        exit $code
+    }
+
+    Write-Host '--- scanning JTAG chain ---'
+    & $cli --scan 2>&1 | ForEach-Object { Write-Host "  $_" }
+    if ($LASTEXITCODE -ne 0) {
+        throw "JTAG scan failed (exit $LASTEXITCODE); aborting before programming."
+    }
+
+    Write-Host ''
+    Write-Host "--- programming ($Mode) ---"
+    & $cli --device GW5AT-60B --operation_index $operation --fsFile $fsArg 2>&1 |
+        ForEach-Object { Write-Host "  $_" }
+    $code = $LASTEXITCODE
+    Write-Host ''
+    Write-Host "programmer exit code: $code"
+    if ($code -eq 0) {
+        Write-Host 'Download reported success.'
+        if ($Mode -eq 'sram') {
+            Write-Host 'SRAM is volatile: the design runs until the board loses power.'
+        }
+        Write-Host ''
+        Write-Host 'Expected on-board result: a steady 440 Hz sine tone on the speaker.'
+    }
+    exit $code
+} finally {
+    Pop-Location
+    $ErrorActionPreference = $prevEap
+}

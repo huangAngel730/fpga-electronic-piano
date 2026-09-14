@@ -26,11 +26,31 @@
 #     ERROR (EX2656): Verilog 2001 keyword 'unsigned' used in incorrect context
 #     ERROR (EX3444): 'package' is an unknown type
 #
-# The correct switch is -vlog_std sysv, taken from the vendor's own option
-# table at IDE\data\config\synthesisoptions.xml (entry SYN17). The plausible
-# sounding alternatives (-verilog_language, -verilog_std, sysv2017) are not
-# recognised and are silently ignored, which is why this is written out in the
-# project file rather than passed ad hoc.
+# The option name and value are both easy to get wrong, and neither the GUI
+# option table nor the documentation gives the command-line spelling directly.
+# What is actually true, established by probing gw_sh:
+#
+#   - The option is named -verilog_std, NOT -vlog_std.
+#     IDE\data\config\synthesisoptions.xml (SYN17) lists the command as
+#     "set_option -vlog_std sysv", but that string is the GUI-side command:
+#     the token vlog_std appears only in GaoUtils.dll and that XML, never in
+#     gw_sh.exe. Passing it to gw_sh fails with
+#         unknown option: -vlog_std
+#     -verilog_std is accepted, which confirms the name.
+#
+#   - The value is sysv2017. "sysv" is rejected with
+#         unknown verilog language value
+#     despite being what the GUI XML and the GUI label ("System Verilog")
+#     suggest. Accepted values are v2001 and sysv2017; every other spelling
+#     tried (... sysv, sv, sv2017, systemverilog, verilog2001, ...) is
+#     rejected. v2001 is what you get by default anyway, i.e. the broken case.
+#
+# So the correct line is "set_option -verilog_std sysv2017". It is written into
+# the generated Tcl rather than passed ad hoc so that the command-line build
+# stays reproducible.
+#
+# This file is pure ASCII on purpose: Windows PowerShell 5.1 decodes BOM-less
+# UTF-8 as GBK/ANSI, which has already silently broken a script in this repo.
 
 param(
     [ValidateSet('synth', 'pnr', 'bitstream')]
@@ -96,7 +116,7 @@ Write-Host ''
 $gprjFwd = ($project -replace '\\', '/')
 $script = @(
     "open_project {$gprjFwd}"
-    'set_option -vlog_std sysv'
+    'set_option -verilog_std sysv2017'
 )
 switch ($Flow) {
     'synth'     { $script += 'run syn' }

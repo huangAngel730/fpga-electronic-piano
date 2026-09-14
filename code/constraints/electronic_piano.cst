@@ -3,7 +3,13 @@
 // 本工程引脚约束（实时多音色合成电子乐器引擎，高云选题二）
 //
 // 板卡：Sipeed Tang Mega 60K + NEO Dock
-// 器件：GW5AT-LV60PG484AC1/I0（封装写法 PBG484A vs PG484A 仍待核实，见 D018）
+// 器件：GW5AT-LV60PG484AC1/I0，IDE 中选择的封装为 PBG484A，Device Version 为 B
+//       D018 的 "PBG484A vs PG484A" 之争已由 Sipeed 官方文档定案（2026-09-13 核实）：
+//         "The specific model ... is GW5AT-LV60PG484A
+//          Please select the package model PBG484A & Device Version: B in the IDE."
+//       即料号段写作 PG484A，而 IDE 封装名写作 PBG484A，两者是不同层级的写法，均非笔误。
+//       来源：sipeed_wiki docs/hardware/en/tang/tang-mega-60k/mega-60k.md "Precautions" 表。
+//       本文件第 6 行曾一度改为 PBGA484A，属过度更正，已按官方口径改回 PBG484A。
 //
 // 来源：本文件从 Sipeed 官方参考约束 tang_mega_60k_reference.cst
 //       （SHA256 DCACED4A5D15D60A3615190138AD3522B562C82748E35FFD150139BC7542FF4C）
@@ -38,6 +44,29 @@ IO_PORT "sys_clk"   IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
 // 【注意】本脚为 1.5 V 域，与上方 sys_clk 的 3.3 V 域不同，接线必须核对。
 IO_LOC  "sys_rst_n" AA13;
 IO_PORT "sys_rst_n" IO_TYPE=LVCMOS15 PULL_MODE=UP BANK_VCCIO=1.5;
+
+//====== USER KEYS ======
+// T020/T014 临时输入源：板载用户按键 EX_KEY.1 / EX_KEY.2。
+// 与 sys_rst_n 同属 Bank 9、同为 1.5 V 域、同为低有效带上拉。
+//
+// 【端口名必须与顶层完全一致】顶层端口是 key_n（低有效，故带 _n 后缀），
+// 不是 key。写成 "key[0]" 会报
+//   ERROR (CT1135): Can't find object named 'key[0]'
+// 且该错误在综合【之后】的物理约束阶段才报，综合报告里看不到。
+//
+// 【为什么只有两键】
+//   EX_KEY.0 的球位就是 AA13，已被 sys_rst_n 占用（同一根引脚不可能
+//   既当复位又当琴键）。因此本轮只用 AB13 / Y12 两键：
+//     key_n[0] = AB13 = EX_KEY.1 -> A4 (MIDI 69)
+//     key_n[1] = Y12  = EX_KEY.2 -> C5 (MIDI 72)
+//   引脚来源：Tang_Mega_60K_30354_NEO_31005 引脚事实表 r19 / r20。
+//
+// 【注意】本组与 sys_clk（3.3 V）不同电压域，接线核对时不要混。
+IO_LOC  "key_n[0]" AB13;
+IO_PORT "key_n[0]" IO_TYPE=LVCMOS15 PULL_MODE=UP BANK_VCCIO=1.5;
+
+IO_LOC  "key_n[1]" Y12;
+IO_PORT "key_n[1]" IO_TYPE=LVCMOS15 PULL_MODE=UP BANK_VCCIO=1.5;
 
 //====== AUDIO ======
 // 板载音频通路：FPGA -> PT8211-S (16 位 LSBJ DAC) -> NS4263 功放 -> 扬声器。
@@ -75,10 +104,10 @@ IO_PORT "uart_tx"   IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8 BANK_VCCIO=3.3;
 //    MIDI 接收引脚目前【未定】，三个候选路径见 constraints/README.md。
 //    在决策完成前不得写入本文件。
 //
-// 2. 用户按键 AB13 / Y12（EX_KEY.1 / EX_KEY.2）—— 本工程暂未使用。
-//    如需按键输入，可直接加入，电平同 sys_rst_n（LVCMOS15 / 1.5 V / 上拉）：
-//      IO_LOC  "key[0]" AB13;  IO_PORT "key[0]" IO_TYPE=LVCMOS15 PULL_MODE=UP BANK_VCCIO=1.5;
-//      IO_LOC  "key[1]" Y12;   IO_PORT "key[1]" IO_TYPE=LVCMOS15 PULL_MODE=UP BANK_VCCIO=1.5;
+// 2. 用户按键 AA13（EX_KEY.0）—— 【不能使用】，不是"暂未使用"。
+//    该球位已被 sys_rst_n 占用（见上），一颗引脚无法同时作复位和琴键。
+//    如需第三个琴键，只能走 T014 之后的外部 MIDI 键盘方案，
+//    或在确认 sys_rst_n 可改脚后重新分配。AB13 / Y12 两键已启用，见上。
 //
 // 3. CST 的 LEDs[0..7]（P19/R19/T21/U21/P16/R17/R18/T18，LVCMOS33 / 3.3 V）
 //    —— 【重要】这 8 个不是板载 LED，而是官方示例为 PMOD0 八根信号起的

@@ -56,12 +56,65 @@ $segTb  = "code\tb"
 $tests = @(
     @{
         Name = "tb_electronic_piano_top"
+        # Ordered list of files to compile AND stage. Header files listed here are
+        # staged but must NOT be passed to iverilog as compilation units, so the
+        # .svh entries are kept in a separate list below.
+        #
+        # T020 added the event-driven skeleton: key_debounce -> key_event_source
+        # -> simple_voice, plus perf_event_pkg (event type) and note_pitch
+        # (note number -> phase step). The top level now instantiates them, so
+        # they must be compiled in dependency order:
+        #   packages first, then leaf modules, then the top.
         Src  = @("$segRtl\common\audio_defs_pkg.sv",
+                 "$segRtl\common\perf_event_pkg.sv",
                  "$segRtl\common\reset_sync.sv",
                  "$segRtl\common\sample_tick_gen.sv",
+                 "$segRtl\common\key_debounce.sv",
+                 "$segRtl\common\note_pitch.sv",
+                 "$segRtl\common\key_event_source.sv",
+                 "$segRtl\common\simple_voice.sv",
                  "$segRtl\audio_out\i2s_tx.sv",
                  "$segRtl\board\electronic_piano_top.sv",
                  "$segTb\board\tb_electronic_piano_top.sv")
+        # Included headers: staged into the same tree so relative `include works,
+        # but not compiled directly. See the staging comment below.
+        # Registering sine_table.svh here also puts common/ on the iverilog
+        # include search path, which is what simple_voice.sv needs for its
+        # plain `include "sine_table.svh"`.
+        Inc  = @("$segRtl\common\sine_table.svh")
+    }
+    @{
+        Name = "tb_key_debounce"
+        Src  = @("$segRtl\common\key_debounce.sv",
+                 "$segTb\common\tb_key_debounce.sv")
+    }
+    @{
+        Name = "tb_note_pitch"
+        Src  = @("$segRtl\common\note_pitch.sv",
+                 "$segTb\common\tb_note_pitch.sv")
+    }
+    @{
+        Name = "tb_key_event_source"
+        Src  = @("$segRtl\common\perf_event_pkg.sv",
+                 "$segRtl\common\key_event_source.sv",
+                 "$segTb\common\tb_key_event_source.sv")
+    }
+    @{
+        # T020/T014 end-to-end: key press -> event -> voice -> PCM -> I2S pins -> pitch.
+        # This is the acceptance test for the event-driven skeleton.
+        Name = "tb_key_to_tone"
+        Src  = @("$segRtl\common\audio_defs_pkg.sv",
+                 "$segRtl\common\perf_event_pkg.sv",
+                 "$segRtl\common\reset_sync.sv",
+                 "$segRtl\common\sample_tick_gen.sv",
+                 "$segRtl\common\key_debounce.sv",
+                 "$segRtl\common\note_pitch.sv",
+                 "$segRtl\common\key_event_source.sv",
+                 "$segRtl\common\simple_voice.sv",
+                 "$segRtl\audio_out\i2s_tx.sv",
+                 "$segRtl\board\electronic_piano_top.sv",
+                 "$segTb\board\tb_key_to_tone.sv")
+        Inc  = @("$segRtl\common\sine_table.svh")
     }
 )
 
@@ -83,15 +136,58 @@ foreach ($test in $tests) {
     Write-Host "Compile and run $name"
     Write-Host ("=" * 60)
 
-    # Stage sources into the ASCII-only temp directory
+    # Stage sources into the ASCII-only temp directory.
+    #
+    # The directory layout is preserved (common/, audio_out/, board/, tb/) rather
+    # than flattening every file to src_N.sv. Reason: electronic_piano_top.sv
+    # does `include "../common/sine_table.svh"`, and a relative include only
+    # resolves if the includer's own directory and its sibling are reproduced.
+    # Flattening broke that include with:
+    #   Include file ../common/sine_table.svh not found
     $staged = @()
-    $idx = 0
     foreach ($src in $test.Src) {
-        $dst = Join-Path $stageRoot "src_$idx.sv"
+        $rel = $src -replace '^code\\', ''
+        $dst = Join-Path $stageRoot $rel
+        $dstDir = Split-Path -Parent $dst
+        if (-not (Test-Path -LiteralPath $dstDir)) {
+            New-Item -ItemType Directory -Force -Path $dstDir | Out-Null
+        }
         Copy-Item -LiteralPath (Join-Path $repoRoot $src) -Destination $dst -Force
         $staged += $dst
-        $idx++
     }
+
+    # Stage included headers into the same tree, but keep them out of $staged:
+    # iverilog treats a directly-listed .svh as a compilation unit and would
+    # choke on it. They only need to exist on disk for `include to find them.
+    if ($test.ContainsKey('Inc')) {
+        foreach ($inc in $test.Inc) {
+            $rel = $inc -replace '^code\\', ''
+            $dst = Join-Path $stageRoot $rel
+            $dstDir = Split-Path -Parent $dst
+            if (-not (Test-Path -LiteralPath $dstDir)) {
+                New-Item -ItemType Directory -Force -Path $dstDir | Out-Null
+            }
+            Copy-Item -LiteralPath (Join-Path $repoRoot $inc) -Destination $dst -Force
+        }
+    }
+
+    # `include search path.
+    #
+    # iverilog resolves `include relative to the CURRENT WORKING DIRECTORY, not
+    # relative to the file containing the directive. Verified with a minimal
+    # repro: a\main.sv containing `include "../b/inc.svh"` fails with
+    #     Include file ../b/inc.svh not found
+    # even though b\inc.svh exists next to it. Passing -I for each staged
+    # directory makes the lookup work regardless of where the .bat runs from.
+    $incDirs = @()
+    if ($test.ContainsKey('Inc')) {
+        foreach ($inc in $test.Inc) {
+            $rel = $inc -replace '^code\\', ''
+            $dir = Split-Path -Parent (Join-Path $stageRoot $rel)
+            if ($incDirs -notcontains $dir) { $incDirs += $dir }
+        }
+    }
+    $incFlags = ($incDirs | ForEach-Object { "-I `"$_`"" }) -join " "
 
     $srcList = ($staged -join " ")
 
@@ -99,7 +195,7 @@ foreach ($test in $tests) {
     $batLines = @(
         "@echo off",
         "call `"$envBat`" >nul 2>&1",
-        "`"$iverilog`" -g2012 -Wall -o `"$out`" $srcList > `"$log`" 2>&1",
+        "`"$iverilog`" -g2012 -Wall $incFlags -o `"$out`" $srcList > `"$log`" 2>&1",
         "echo IVERILOG_EXIT=%ERRORLEVEL%",
         "if not exist `"$out`" (echo COMPILE_FAILED & exit /b 1)",
         "`"$vvp`" `"$out`" >> `"$log`" 2>&1",

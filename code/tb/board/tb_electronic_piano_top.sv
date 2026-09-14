@@ -44,6 +44,12 @@ module tb_electronic_piano_top;
     logic pa_en;
     logic uart_tx;
 
+    // T020: user keys, active low (pressed = 0). Idle high.
+    //
+    // The board has internal pull-ups only when the CST sets PULL_MODE=UP;
+    // in simulation nothing drives them, so the testbench must hold them high.
+    logic [1:0] key_n = 2'b11;
+
     // -------------------------------------------------------------------------
     // 测试参数
     //   实际频率断言需要足够长的观察窗。
@@ -95,10 +101,18 @@ module tb_electronic_piano_top;
         .CLK_HZ        (50_000_000),
         .TEST_TONE_HZ  (440),
         .SINE_DEPTH    (256),
-        .TEST_AMPLITUDE(16'sd8192)
+        .TEST_AMPLITUDE(16'sd8192),
+        // T020: 0 = key-driven skeleton, 1 = T007 fixed tone.
+        // This testbench validates the fixed-tone path (the one proven on
+        // hardware in V0035) plus the new key path's event plumbing.
+        // SOURCE_MODE=1 keeps the original assertions valid.
+        .SOURCE_MODE   (1),
+        // Shorten debounce so the simulation does not need 10 ms per press.
+        .DEBOUNCE_CNT  (16)
     ) dut (
         .sys_clk   (sys_clk),
         .sys_rst_n (sys_rst_n),
+        .key_n     (key_n),
         .i2s_bclk  (i2s_bclk),
         .i2s_lrck  (i2s_lrck),
         .i2s_din   (i2s_din),

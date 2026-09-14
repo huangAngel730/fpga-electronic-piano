@@ -3,7 +3,10 @@
 // 顶层模块。对应任务 T007（上板点亮与硬件通路验证）。
 //
 // 板卡：Sipeed Tang Mega 60K 核心板 30354 + NEO Dock 31005
-// 器件：GW5AT-LV60PG484AC1/I0（封装写法 PBG484A vs PG484A 仍待核实，见 D018）
+// 器件：GW5AT-LV60PG484AC1/I0（料号段写 PG484A），IDE 封装选 PBG484A，Device Version B
+//   Sipeed 官方 Wiki 原文：select the package model PBG484A & Device Version: B in the IDE
+//   注意：PG484A 是料号段、PBG484A 是 IDE 封装名，两个层级并存且均非笔误。
+//   切勿依据 .gprj 器件数据库里的 PBGA484A 反推（该项曾导致一次误改，已改回）。
 //
 // -----------------------------------------------------------------------------
 // 本顶层的定位：**最小可上板工程**
@@ -98,16 +101,43 @@
 module electronic_piano_top #(
     // 系统时钟频率（本板 50 MHz）
     parameter int unsigned CLK_HZ = 50_000_000,
-    // 测试音频率（Hz）。440 Hz = A4，用于验证通路。
+    // 测试音频率（Hz）。用于 TEST_TONE_HZ_MODE 下的固定测试音。
     parameter int unsigned TEST_TONE_HZ = 440,
     // 正弦表深度（必须为 2 的幂，且与 SIN_TABLE 长度一致）
     parameter int unsigned SINE_DEPTH = 256,
     // 输出幅度（16 位有符号）。取满量程 32767 的约 1/4，
     // 既是安全音量，也避免任何中间运算溢出。
-    parameter logic signed [15:0] TEST_AMPLITUDE = 16'sd8192
+    parameter logic signed [15:0] TEST_AMPLITUDE = 16'sd8192,
+    // -------------------------------------------------------------------------
+    // 【T020 新增】骨架模式开关
+    //
+    //   SOURCE_MODE = 0（默认）：按键驱动。按 EX_KEY.1/EX_KEY.2 发声，
+    //                            松开静音。这是集成骨架的验证目标。
+    //   SOURCE_MODE = 1         ：固定测试音。与 T007 行为完全一致，
+    //                            上电即持续发声，用于通路自检与回归对照。
+    //
+    //   为什么保留固定测试音模式：V0035 已用固定音验证过整条硬件通路，
+    //   保留它就可以一键切回"已知良好"状态，在按键链路出问题时
+    //   快速区分"硬件坏了"与"按键逻辑错了"。这是排障手段，不是冗余代码。
+    // -------------------------------------------------------------------------
+    parameter int unsigned SOURCE_MODE = 0,
+    // 按键去抖门限（时钟周期数）。500000 @ 50 MHz = 10 ms。
+    parameter int unsigned DEBOUNCE_CNT = 500_000
 ) (
     input  logic sys_clk,     // V22, 50 MHz
     input  logic sys_rst_n,   // AA13, 低有效，1.5 V 域，EX_KEY.0
+    // -------------------------------------------------------------------------
+    // 【T020 新增】用户按键，低有效（按下 = 0）
+    //   key_n[0] = AB13 = EX_KEY.1
+    //   key_n[1] = Y12  = EX_KEY.2
+    //
+    //   【为什么没有 EX_KEY.0】EX_KEY.0 与 sys_rst_n 是同一个球 AA13。
+    //   若把它也当音符键，按下时等于按住复位；而 pa_en = ~rst_sync_n，
+    //   复位期间功放被关闭，结果是"按下就没声音"，无法作为音符使用。
+    //   故 AA13 继续专用于 sys_rst_n，不参与演奏输入。
+    //   复位本身不依赖按键：reset_sync 为上电异步复位、同步释放。
+    // -------------------------------------------------------------------------
+    input  logic [1:0] key_n,
     output logic i2s_bclk,    // Y17  -> PT8211-S BCK
     output logic i2s_lrck,    // AB17 -> PT8211-S WS
     output logic i2s_din,     // AA16 -> PT8211-S DIN
@@ -147,38 +177,54 @@ module electronic_piano_top #(
     localparam int unsigned SINE_IDX_BITS = $clog2(SINE_DEPTH);
 
     // -------------------------------------------------------------------------
-    // 正弦生成
+    // 正弦表（256 点，16 位有符号，幅度 +/-8192）
     //
-    // 【为什么用 function 而不是常量数组】
-    //   最初写成 localparam 数组（256 个 16'sd 字面量）。该写法在 Gowin 综合
-    //   下没问题，但 iverilog 报
-    //     "sorry: unpacked array parameters are not supported yet"
-    //   使仿真无法进行。仿真跑不起来就不能算验证过，因此改为用可综合的
-    //   function 在**编译期**用常量入参求值——综合工具会对常量入参做完全
-    //   展开，等价于常量表，不消耗运行时资源。
+    // 【表已移出本文件】表值定义在 code/rtl/common/sine_table.svh，
+    // 本文件只 include，不再内联 256 个字面量。
     //
-    // 【数值约定】
-    //   返回 16 位有符号值，取 sin(2*pi*index/SINE_DEPTH) 乘以 TEST_AMPLITUDE。
-    //   三角函数用 $sin 实现。iverilog 与 Gowin 均支持 $sin 的常量折叠；
-    //   若某工具不支持，可改用 code/scripts/gen_sine_table.py 生成 ROM 表
-    //   再替换本函数，接口不变。
+    // 为什么移出去：原先字面量直接内联在本文件里，导致
+    //   (1) 任何新合成模块想复用这张表，只能复制粘贴 256 个数字，
+    //       或者先重构本顶层；
+    //   (2) 生成脚本要往本文件里回写，脚本与顶层相互耦合。
+    // 现在表是 common/ 下的独立头文件，脚本只产出那一个文件，
+    // 谁都能 include，与本顶层解耦。
     //
-    //   索引是"相位"，返回的是该相位的瞬时幅度，因此天然覆盖 0..2*pi 全周，
-    //   不需要额外处理象限与符号。
+    // 【表的形状由两个工具限制共同决定，不是随意选的】
+    //   - GowinSynthesis 不支持 real 与 $sin，报 ERROR (EX3956)，
+    //     故表必须是预先算好的整数常量，不能在综合期算；
+    //   - iverilog 不支持 unpacked array parameter，
+    //     故表必须是打包向量（packed vector）。
+    //   打包向量是纯 Verilog-2001，两个工具都接受。
+    //
+    // 【数值约定】第 i 项 = round(sin(2*pi*i/SINE_DEPTH) * TEST_AMPLITUDE)，
+    // 四舍五入到最近整数（half away from zero），量程 +/-8192。
+    // 表由 code/scripts/gen_sine_table.py 生成；改动后必须重跑
+    //   python -X utf8 code/scripts/gen_sine_table.py --check
+    // 因为表错不会让综合报错，只会让音高或幅度悄悄跑偏。
+    //
+    // 索引即相位，天然覆盖 0..2*pi 全周，不需要处理象限与符号。
+    // -------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
+    // 正弦查表
+    //
+    // 【正弦表定义在 simple_voice 里，本文件不再 include 头文件】
+    //   sine_table.svh 的 ifndef 卫士是**全局**的：同一编译单元内第二次
+    //   include 会被静默跳过，既不报重复定义、也不提供任何定义。
+    //   之前顶层和 simple_voice 各 include 一次，iverilog 在 elaboration 报：
+    //     error: Unable to bind parameter `SINE_TABLE_DEFAULT' in `...dut'
+    //   故全设计只保留一个 include 点（simple_voice.sv），
+    //   本文件通过层次化引用复用它已展开的查表函数。
+    //   这样正弦表只有一份常量、一个 256 选 1 mux，不重复占资源。
+    //
+    // 【综合后是什么】入参是运行时信号（相位高位），不会折叠成常量，
+    // 会综合成一个 256 选 1 的宽 mux。T007 单音测试音下可接受
+    // （50 MHz 时序仍有裕量，见 V0031）；多声部时每个声部一份 mux
+    // 会显著吃 LUT，T004 应改为 BRAM 查表 + 流水线寄存器，见任务看板 T004。
     // -------------------------------------------------------------------------
     function automatic logic signed [15:0] sine_sample(
-        input int unsigned index
+        input logic [SINE_IDX_BITS-1:0] index
     );
-        real phase;
-        real value;
-        phase = 2.0 * 3.14159265358979323846 * real'(index) / real'(SINE_DEPTH);
-        value = $sin(phase) * real'(TEST_AMPLITUDE);
-        // 四舍五入到最近整数，避免系统性截断偏差。
-        // 用 $rtoi 而非 SystemVerilog 的 16'(...) 强制转换：
-        // iverilog 报 "Cast base expression must be a vector type"。
-        if (value >= 0.0) value = value + 0.5;
-        else              value = value - 0.5;
-        return $rtoi(value);
+        return u_simple_voice.sine_sample(index);
     endfunction
 
     // -------------------------------------------------------------------------
@@ -220,58 +266,126 @@ module electronic_piano_top #(
     );
 
     // -------------------------------------------------------------------------
-    // 4. 测试音：相位累加 + 正弦查表
+    // 4. 测试音参数（相位累加与查表移入下方 generate 的固定音分支）
     //
-    // 只在 sample_tick 上累加，使音高与采样率绑定，
-    // 而不是与 sys_clk 绑定。累加器高位作为查表索引。
-    //
-    // 取高 SINE_IDX_BITS 位作为索引，等价于取相位的整数部分。
-    // 累加器是 32 位、表深 256，故右移 (32-8)=24 位。
+    // 【分母是采样率 Fs，不是系统时钟】
+    //   累加器只在 sample_tick 上推进，即每秒推进 Fs = 48000 次，
+    //   所以步进必须按采样率算。最初写成除以 CLK_HZ(50 MHz)，
+    //   音高偏低 1041.67 倍（440 Hz -> 0.42 Hz），听感上就是没有声音。
+    //   见文件头与 V0029 的缺陷三记录。
     // -------------------------------------------------------------------------
     localparam int unsigned SINE_SHIFT = TICK_ACC_BITS - SINE_IDX_BITS;
 
-    logic [TICK_ACC_BITS-1:0] tone_phase;
-    logic [TICK_ACC_BITS:0]   tone_sum;
+    // -------------------------------------------------------------------------
+    // 5. 【T020】按键 -> 统一演奏事件 -> 单声部
+    //
+    // 数据流：
+    //   key_n -> 去抖 -> 脉冲 -> 事件 -> 声部 -> PCM -> i2s_tx
+    //
+    // 这一节把 T007 的"固定测试音"升级为"事件驱动的骨架"。
+    // 固定测试音路径保留（SOURCE_MODE=1），见下方 generate。
+    // -------------------------------------------------------------------------
+    logic [1:0] key_pressed;
+    logic [1:0] key_press_pulse;
+    logic [1:0] key_release_pulse;
 
-    assign tone_sum = {1'b0, tone_phase} + {1'b0, TONE_STEP};
+    key_debounce #(
+        .KEYS         (2),
+        .DEBOUNCE_CNT (DEBOUNCE_CNT)
+    ) u_key_debounce (
+        .clk           (sys_clk),
+        .rst_n         (rst_sync_n),
+        .key_n         (key_n),
+        .pressed       (key_pressed),
+        .press_pulse   (key_press_pulse),
+        .release_pulse (key_release_pulse)
+    );
 
-    always_ff @(posedge sys_clk or negedge rst_sync_n) begin
-        if (!rst_sync_n)     tone_phase <= '0;
-        else if (sample_tick) tone_phase <= tone_sum[TICK_ACC_BITS-1:0];
-    end
+    // 事件源：把按键脉冲翻译成统一演奏事件
+    logic                                      ev_valid;
+    logic                                      ev_ready;
+    perf_event_pkg::performance_event_t        ev_data;
 
-    // 查表索引：取相位高位
-    logic [SINE_IDX_BITS-1:0] sine_index;
-    assign sine_index = tone_phase[TICK_ACC_BITS-1 -: SINE_IDX_BITS];
+    key_event_source #(
+        .KEYS     (2),
+        .SOURCE_ID(4'd1)
+    ) u_key_event_source (
+        .clk           (sys_clk),
+        .rst_n         (rst_sync_n),
+        .press_pulse   (key_press_pulse),
+        .release_pulse (key_release_pulse),
+        .event_valid   (ev_valid),
+        .event_ready   (ev_ready),
+        .event_data    (ev_data)
+    );
 
-    // 当前正弦样点（16 位有符号），左右声道相同（单音，非立体声）
-    logic signed [15:0] tone_sample;
-    assign tone_sample = sine_sample(sine_index);
+    // 单声部占位实现（正式算法见 T004/T009/T010）
+    logic signed [PCM_WIDTH-1:0] voice_pcm_left;
+    logic signed [PCM_WIDTH-1:0] voice_pcm_right;
+    logic                        voice_active;
+    logic [6:0]                  voice_note;
+
+    simple_voice #(
+        .ACC_BITS   (TICK_ACC_BITS),
+        .SINE_DEPTH (SINE_DEPTH),
+        .PCM_WIDTH  (PCM_WIDTH),
+        .AMPLITUDE  (TEST_AMPLITUDE)
+    ) u_simple_voice (
+        .clk          (sys_clk),
+        .rst_n        (rst_sync_n),
+        .sample_tick  (sample_tick),
+        .event_valid  (ev_valid),
+        .event_ready  (ev_ready),
+        .event_data   (ev_data),
+        .pcm_left     (voice_pcm_left),
+        .pcm_right    (voice_pcm_right),
+        .voice_active (voice_active),
+        .current_note (voice_note)
+    );
 
     // -------------------------------------------------------------------------
-    // 5. 24 位 PCM 组装
+    // 6. 音源选择
     //
-    // i2s_tx 接受 24 位有符号 PCM。把 16 位测试音左移 8 位补齐到 24 位，
-    // 低 8 位补 0。这样 i2s_tx 内部的"加半 LSB 后右移 8 位"舍入
-    // 恰好还原为原 16 位值（低 8 位为 0，加 0x80 后右移 8 位即原值），
-    // 不引入任何舍入误差。
+    //   固定测试音路径：T007 原样保留，用于通路自检与回归对照。
+    //   按键路径：T020 新增的骨架。
     //
-    // 符号扩展必须显式做：{tone_sample, 8'b0} 会丢掉符号语义，
-    // 需先转成 24 位有符号再左移。这里用 $signed 包装保证有符号运算。
+    //   【为什么固定音路径不能删】V0035 已用它验证过整条硬件通路（L6）。
+    //   保留它，就能在按键链路异常时一键切回已验证状态，
+    //   快速区分"硬件/约束问题"和"按键逻辑问题"。
     // -------------------------------------------------------------------------
     logic signed [PCM_WIDTH-1:0] pcm_left;
     logic signed [PCM_WIDTH-1:0] pcm_right;
 
-    always_comb begin
-        // 显式符号扩展到 24 位，再左移 8 位对齐到高位。
-        // {16 位有符号, 8'b0} 位拼接后仍为有符号 24 位，
-        // 因为拼接结果的最左位就是 tone_sample 的符号位。
-        pcm_left  = $signed({tone_sample, 8'b0});
-        pcm_right = $signed({tone_sample, 8'b0});
-    end
+    generate
+        if (SOURCE_MODE == 1) begin : g_fixed_tone
+            // 固定测试音：上电即持续发声（与 T007 行为一致）
+            logic [TICK_ACC_BITS-1:0] tone_phase;
+            logic [TICK_ACC_BITS:0]   tone_sum;
+            logic [SINE_IDX_BITS-1:0] sine_index;
+            logic signed [15:0]       tone_sample;
+
+            assign tone_sum    = {1'b0, tone_phase} + {1'b0, TONE_STEP};
+            assign sine_index  = tone_phase[TICK_ACC_BITS-1 -: SINE_IDX_BITS];
+            assign tone_sample = sine_sample(sine_index);
+
+            always_ff @(posedge sys_clk or negedge rst_sync_n) begin
+                if (!rst_sync_n)     tone_phase <= '0;
+                else if (sample_tick) tone_phase <= tone_sum[TICK_ACC_BITS-1:0];
+            end
+
+            assign pcm_left  = $signed({tone_sample, 8'b0});
+            assign pcm_right = $signed({tone_sample, 8'b0});
+
+            // 该模式下按键不参与发声，但去抖与事件源仍在运行，
+            // 便于用逻辑分析仪/UART 观察事件链路是否工作。
+        end else begin : g_key_voice
+            assign pcm_left  = voice_pcm_left;
+            assign pcm_right = voice_pcm_right;
+        end
+    endgenerate
 
     // -------------------------------------------------------------------------
-    // 6. I2S (LSBJ) 发送
+    // 7. I2S (LSBJ) 发送
     //
     // BCLK 相位步进用包里已验证的常量：
     //   I2S_BCLK_PHASE_STEP = 263882791，实际 BCLK = 3.072000004 MHz

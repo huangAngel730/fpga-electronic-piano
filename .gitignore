@@ -34,6 +34,10 @@ output_files/
 # file only stores per-machine window layout and last-opened state.
 *.gprj.user
 
+# Tcl driver scripts under code/build/, regenerated on every
+# build_electronic_piano.ps1 run, so their content is not project source.
+code/build/run_*.tcl
+
 # Simulation products
 *.vcd
 *.fst
