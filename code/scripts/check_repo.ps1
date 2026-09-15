@@ -176,9 +176,26 @@ try {
     # Uses ast.parse instead of `python -m py_compile`.
     # py_compile writes a __pycache__ directory next to the source, which
     # litters the repo and can be denied outright. ast.parse only reads.
+    #
+    # Three roots are scanned (recursively):
+    #   prep/<scripts>/  - Word report generators
+    #   code/scripts/    - build, analysis and data generation helpers
+    #   code/model/      - Python golden reference model and its unit tests
+    # code/output/ is deliberately NOT scanned: it holds throwaway scratch
+    # scripts, not deliverables. Before 2026-09-15 only prep/<scripts>/ was
+    # scanned, so no file under code/ was covered at all.
     # ---------------------------------------------------------------------
     $pyScriptDir = Join-Path $prepRoot $scriptDir
-    $pythonFiles = @(Get-ChildItem -LiteralPath $pyScriptDir -Filter "*.py" -File -ErrorAction SilentlyContinue)
+    $pyRoots = @(
+        $pyScriptDir,
+        (Join-Path $repoRoot (Join-Path $codeDir "scripts")),
+        (Join-Path $repoRoot (Join-Path $codeDir "model"))
+    )
+    $pythonFiles = @(
+        foreach ($root in $pyRoots) {
+            Get-ChildItem -LiteralPath $root -Filter "*.py" -File -Recurse -ErrorAction SilentlyContinue
+        }
+    )
     $pythonFailed = [System.Collections.Generic.List[string]]::new()
     $syntaxProbe =
         "import ast,sys,pathlib;" +
