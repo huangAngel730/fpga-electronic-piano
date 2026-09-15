@@ -58,10 +58,11 @@ docs(interface): freeze performance event v0.1
 
 `.github/workflows/rtl-smoke.yml` 在推送和合并请求时执行：
 
-- 用 Icarus 编译并运行原型自检 testbench。
 - 对 `prep/脚本/` 下的 Python 生成脚本做语法检查。
 
-持续集成只能证明 L1 至 L2 级别，不能代替上板验证。
+**该工作流目前不构建 `code/rtl`。** 它原先还有一个"用 Icarus 编译并运行原型自检 testbench"的 job，2026-09-15 随 `legacy-prototype/` 归档一起删除：那 4 个源文件构成闭包（无 `include`、无 `readmem`），对 `code/` 下任何改动都不可能产生结果差异，等于给提交一个必然为 PASS 的绿灯。给它补一个真正编译 `code/rtl` 与 `code/tb` 的 job 是待办事项，见 `code/docs/验证记录.md` V0041。
+
+因此当前的合并门禁实际由本地 `code/scripts/check_repo.ps1` 承担，而不是持续集成。持续集成与本地检查都只能证明 L1 至 L2 级别，不能代替上板验证；综合、布局布线与时序（L4/L5）需要 Gowin EDA 和器件库，无法在 GitHub runner 上运行。
 
 ## 禁止提交的内容
 

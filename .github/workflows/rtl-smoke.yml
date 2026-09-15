@@ -1,4 +1,4 @@
-name: RTL 冒烟测试
+name: Python 脚本语法检查
 
 on:
   push:
@@ -22,42 +22,16 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  rtl-sim:
-    name: 原型 RTL 自检仿真
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    steps:
-      - name: 检出仓库
-        uses: actions/checkout@v4
-
-      - name: 安装 Icarus Verilog
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends iverilog
-
-      - name: 编译并运行原型自检 testbench
-        run: |
-          set -euo pipefail
-          workdir="$(mktemp -d)"
-          cd "$workdir"
-          iverilog -g2012 -Wall -o tb_proto.vvp \
-            "$GITHUB_WORKSPACE/legacy-prototype/tb/tb_electronic_piano.v" \
-            "$GITHUB_WORKSPACE/legacy-prototype/rtl/electronic_piano_top.v" \
-            "$GITHUB_WORKSPACE/legacy-prototype/rtl/key_debounce.v" \
-            "$GITHUB_WORKSPACE/legacy-prototype/rtl/tone_generator.v"
-          # Icarus 的 vvp 即使触发 $error 也返回 0，因此必须解析输出而不是只看退出码。
-          output="$(vvp tb_proto.vvp 2>&1)"
-          printf '%s\n' "$output"
-          if printf '%s' "$output" | grep -q "ERROR:"; then
-            echo "::error::原型自检仿真报告了错误"
-            exit 1
-          fi
-          if ! printf '%s' "$output" | grep -q "\$finish called"; then
-            echo "::error::仿真未正常执行到 \$finish，可能提前退出"
-            exit 1
-          fi
-          echo "原型自检仿真 PASS"
-
+  # The "rtl-sim" job that used to live here compiled the frozen
+  # legacy-prototype/ archive (4 files under legacy-prototype/, a closed set
+  # with no include and no readmem). It was removed on 2026-09-15 together with
+  # that archive, because it was a false-green: it reported PASS for 56 of the
+  # 59 commits then on develop without ever reading a file under code/.
+  #
+  # NOTE: this workflow therefore does NOT yet build code/rtl. Replacing it with
+  # a job that compiles code/rtl plus the code/tb testbenches is tracked as
+  # follow-up work; iverilog alone is enough for that (L2), but Gowin
+  # synthesis/PnR (L4/L5) cannot run on a GitHub runner at all.
   script-syntax:
     name: 文档生成脚本语法检查
     runs-on: ubuntu-latest

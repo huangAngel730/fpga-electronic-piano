@@ -34,18 +34,11 @@ FPGA内的DDS、波表、ADSR、复音、混音和数字效果算法按软件工
 
 两块开发板合计每周40小时配额：M1六小时、M2十四小时、M3十小时、共同集成十小时。两台逻辑分析仪合计每周40小时配额：M1四小时、M2十四小时、M3十二小时、共同集成十小时。规则见 `code/docs/板卡与仪器资源管理.md`，实际占用登记在 `code/docs/资源使用记录.md`。
 
-## 已有八键原型
+## 早期八键原型（已删除）
 
-`legacy-prototype/` 下的 `rtl/`、`tb/` 和 `docs/` 来自项目早期的厂商无关Verilog电子琴原型，当前功能包括：
+项目早期的厂商无关Verilog电子琴原型曾归档在 `legacy-prototype/`，功能包括 C4 至 C5 八个低有效琴键、两级输入同步和按键去抖、多键时高音优先、相位累加音调生成、一位方波音频输出和自检仿真Testbench。该原型于 2026-09-12 通过 Icarus 自检仿真，验证等级 L2，用于验证基础按键、相位累加和测试流程，不代表最终 Tang Mega 60K 多音色架构。
 
-- C4至C5八个低有效琴键
-- 两级输入同步和按键去抖
-- 多键时高音优先
-- 相位累加音调生成
-- 一位方波音频输出
-- 自检仿真Testbench
-
-该原型已通过Icarus自检仿真，验证等级L2，用于验证基础按键、相位累加和测试流程，不代表最终Tang Mega 60K多音色架构。后续正式代码按照 `code/` 下的模块化规范逐步迁移和扩展。
+**该归档已于 2026-09-15 从工作树删除。** 原因是它已冻结、不再被正式工程引用，却让持续集成长期处于"假绿"状态：CI 里唯一真正编译 RTL 的 job 编译的正是这 4 个文件，而它们构成一个闭包（无 `include`、无 `readmem`），所以对 `code/` 下的任何改动都不可能产生结果差异。源码仍可从 Git 历史完整取回。
 
 ## 目录
 
@@ -56,8 +49,7 @@ FPGA内的DDS、波表、ADSR、复音、混音和数字效果算法按软件工
 - `code/rtl/`：后续Tang Mega 60K正式可综合RTL。
 - `code/model/`：Python黄金参考模型。
 - `code/scripts/`：环境、构建、烧录和自动测试脚本。
-- `.github/`：合并请求模板、问题单模板和RTL冒烟工作流。
-- `legacy-prototype/`：2026-09 早期八键原型及其自检仿真，已冻结，仅作历史参考。正式开发一律进 `code/`，说明见 `legacy-prototype/README.md`。
+- `.github/`：合并请求模板、问题单模板和脚本语法检查工作流。
 
 ## 团队和AI协作
 
@@ -90,14 +82,14 @@ FPGA内的DDS、波表、ADSR、复音、混音和数字效果算法按软件工
 
 详见 `code/docs/当前状态.md` 和 `code/docs/任务看板.md`。报告状态时必须给出L0至L7验证等级，不能把仿真通过写成上板通过。
 
-## 原型仿真
+## 仿真入口
 
-已有原型顶层为 `electronic_piano_top`，自检Testbench位于 `legacy-prototype/tb/tb_electronic_piano.v`。运行方法见 `legacy-prototype/README.md`，工具链激活见 `code/docs/开发环境.md`。在正式复用前，应先按照当前环境运行仿真并确认PASS；不能仅依据远程仓库说明将其视为已经在Tang Mega 60K上验证。
+正式工程的仿真入口是 `code/scripts/run_t007_sim.ps1`（顶层自检，覆盖 BCLK/LRCK 绝对频率、左右声道、pa_en 开机防爆音）和 `code/scripts/run_t019_sim.ps1`（复位、sample_tick 与音频包定义）。工具链激活见 `code/docs/开发环境.md`。
 
-代码质量和正式迁移建议见 `code/docs/早期原型代码评审.md`。快速检查整个仓库可运行 `code/scripts/check_repo.ps1`。
+快速检查整个仓库可运行 `code/scripts/check_repo.ps1`，其中包含顶层仿真回归。早期原型的代码评审记录保留在 `code/docs/早期原型代码评审.md`。
 
-`.github/workflows/rtl-smoke.yml` 会在推送和合并请求时自动编译并运行该原型仿真。
+`.github/workflows/rtl-smoke.yml` 目前只检查 `prep/脚本` 下的 Python 语法，**不构建 `code/rtl`**。给它补一个真正编译 `code/rtl` 与 `code/tb` 的 job 是待办事项；综合、布局布线与时序（L4/L5）需要 Gowin EDA 和器件库，无法在 GitHub runner 上运行。
 
 ## 电气安全
 
-不要将8欧无源扬声器直接连接FPGA引脚。数字音频应经板载音频链路或I2S DAC转换后，再连接有源音箱或功放输入。5 V信号接入3.3 V FPGA GPIO前必须确认分压或电平转换。早期原型的蜂鸣器接法见 `legacy-prototype/docs/hardware.md`，那是历史参考；正式音频链路以 `code/docs/` 为准。
+不要将8欧无源扬声器直接连接FPGA引脚。数字音频应经板载音频链路或I2S DAC转换后，再连接有源音箱或功放输入。5 V信号接入3.3 V FPGA GPIO前必须确认分压或电平转换。正式音频链路以 `code/docs/` 为准。

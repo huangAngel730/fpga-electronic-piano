@@ -12,8 +12,10 @@
 #
 # Second lesson: native tools cannot receive non-ASCII paths or a non-ASCII
 # working directory. iverilog.exe fails with exit code 0xC0000142 (DLL init
-# failure) when handed a path under a CJK directory. Sources are therefore
-# staged into an ASCII temp directory before compiling.
+# failure) when handed a path under a CJK directory. This script no longer
+# compiles anything itself -- its own legacy compile was removed on 2026-09-15
+# -- so the only remaining compile is delegated to run_t007_sim.ps1, which does
+# its own ASCII staging.
 
 $ErrorActionPreference = "Stop"
 
@@ -39,7 +41,6 @@ $topicDir  = [string]([char]0x9009 + [char]0x9898)                       # topic
 $teamDir   = [string]([char]0x56E2 + [char]0x961F)                       # team sharing pack
 
 $prepRoot = Join-Path $repoRoot $prepDir
-$outputRoot = Join-Path $repoRoot (Join-Path $codeDir "output\repo-check")
 $failures = [System.Collections.Generic.List[string]]::new()
 
 function Add-CheckResult {
@@ -129,9 +130,9 @@ try {
             [string]([char]0x5916 + [char]0x90E8 + [char]0x6574 + [char]0x7406 + [char]0x7A3F)))),
         (Join-Path $codeDir (Join-Path "docs\reference" ("DOC_INDEX_{0}.md" -f `
             [string]([char]0x5916 + [char]0x90E8 + [char]0x6574 + [char]0x7406 + [char]0x7A3F)))),
-        (Join-Path $codeDir (Join-Path "scripts" "verify_reference_digests.py")),
-        "legacy-prototype\AGENTS.md",
-        "legacy-prototype\README.md"
+        (Join-Path $codeDir (Join-Path "scripts" "verify_reference_digests.py"))
+        # The two legacy-prototype/ entries were dropped on 2026-09-15 when that
+        # archive was deleted (see the verification log, V0041).
     )
 
     $missingPaths = @($requiredPaths | Where-Object { -not (Test-Path -LiteralPath $_) })
@@ -335,79 +336,18 @@ try {
         ($docxFailed.Count -eq 0) ($docxFailed -join "; ")
 
     # ---------------------------------------------------------------------
-    # 6. Legacy prototype RTL: compile and smoke run
+    # Load the FPGA tool environment so iverilog.exe / vvp.exe are on PATH
+    # for the top-level regression check in section 9.
     #
-    # Sources are staged into an ASCII directory first. Passing a CJK path to
-    # iverilog.exe makes it die with 0xC0000142 before it even parses a file.
+    # Section 6 ("Legacy prototype RTL: compile and smoke run") was removed on
+    # 2026-09-15 together with the legacy-prototype/ archive. That check had
+    # become a false-green: it compiled a frozen 2026-09 eight-key prototype
+    # whose four source files form a closed set (no include, no readmem), so
+    # its result was provably independent of every change under code/ -- it
+    # reported PASS for 56 of the 59 commits then on develop. The archive is
+    # still recoverable from git history if the provenance is ever needed.
     # ---------------------------------------------------------------------
     . (Join-Path $codeDir (Join-Path "scripts" "enter_fpga_env.ps1"))
-    try {
-        New-Item -ItemType Directory -Force -Path $outputRoot -ErrorAction Stop | Out-Null
-    } catch {
-        Write-Host ("         note: cannot create {0}; artifacts will not be archived" -f $outputRoot) -ForegroundColor DarkYellow
-    }
-
-    $stageDir = Join-Path ([System.IO.Path]::GetTempPath()) "repo_check_legacy"
-    if (Test-Path -LiteralPath $stageDir) {
-        Remove-Item -LiteralPath $stageDir -Recurse -Force
-    }
-    New-Item -ItemType Directory -Force -Path $stageDir | Out-Null
-
-    $legacySources = @(
-        "legacy-prototype\rtl\electronic_piano_top.v",
-        "legacy-prototype\rtl\key_debounce.v",
-        "legacy-prototype\rtl\tone_generator.v",
-        "legacy-prototype\tb\tb_electronic_piano.v"
-    )
-    foreach ($source in $legacySources) {
-        Copy-Item -LiteralPath $source -Destination $stageDir -Force
-    }
-
-    $vvpName = "legacy-prototype.vvp"
-    $compile = Invoke-Native -FilePath "iverilog.exe" -WorkingDirectory $stageDir -Arguments @(
-        "-g2012", "-Wall", "-s", "tb_electronic_piano", "-o", $vvpName,
-        "electronic_piano_top.v", "key_debounce.v", "tone_generator.v", "tb_electronic_piano.v"
-    )
-    $compilePassed = ($compile.ExitCode -eq 0) -and (Test-Path -LiteralPath (Join-Path $stageDir $vvpName))
-    Add-CheckResult "Legacy RTL compile" $compilePassed `
-        $(if ($compilePassed) { $compile.Output } else { "exit=$($compile.ExitCode) $($compile.Output)" })
-
-    if ($compilePassed) {
-        # Note: vvp writes a VCD next to the .vvp file, so run it in the
-        # ASCII stage dir and keep the repo clean.
-        $sim = Invoke-Native -FilePath "vvp.exe" -WorkingDirectory $stageDir -Arguments @($vvpName)
-        $simPassed = ($sim.ExitCode -eq 0) -and
-                     ($sim.Output -notmatch "ERROR:") -and
-                     ($sim.Output -match '\$finish called')
-        $simDetail = if ($simPassed) {
-            (($sim.Output -split "`r?`n" | Where-Object { $_ -match '\$finish called' }) -join " ")
-        } else {
-            "exit=$($sim.ExitCode) $($sim.Output)"
-        }
-        Add-CheckResult "Legacy RTL smoke" $simPassed $simDetail
-
-        # Preserve the artifacts under the repo output dir for inspection.
-        # This is best-effort: the working directory may be read-only under a
-        # sandbox, and an inability to archive evidence must not turn an
-        # otherwise passing check into a failure.
-        $archived = [System.Collections.Generic.List[string]]::new()
-        $archiveSkipped = $false
-        foreach ($artifact in @($vvpName, "electronic_piano.vcd")) {
-            $produced = Join-Path $stageDir $artifact
-            if (-not (Test-Path -LiteralPath $produced)) { continue }
-            try {
-                Copy-Item -LiteralPath $produced -Destination $outputRoot -Force -ErrorAction Stop
-                $archived.Add($artifact)
-            } catch {
-                $archiveSkipped = $true
-            }
-        }
-        if ($archiveSkipped) {
-            Write-Host ("         note: could not archive artifacts to {0} (read-only?); simulation result is still valid" -f $outputRoot) -ForegroundColor DarkYellow
-        }
-    }
-
-    Remove-Item -LiteralPath $stageDir -Recurse -Force -ErrorAction SilentlyContinue
 
     # ---------------------------------------------------------------------
     # 9. T007 top-level regression simulation
