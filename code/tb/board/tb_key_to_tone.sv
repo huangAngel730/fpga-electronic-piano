@@ -48,8 +48,12 @@ module tb_key_to_tone;
         .TEST_AMPLITUDE(16'sd8192),
         // 0 = 按键驱动骨架：本 testbench 验证的就是这条路径
         .SOURCE_MODE   (0),
-        // 去抖门限缩短到 16 个时钟，否则每次按键要等 10 ms
-        .DEBOUNCE_CNT  (16)
+        // 去抖门限缩短到 16 个时钟，否则每次按键要等 10 ms。
+        // button_debouncer 按"毫秒"参数化，故同时把换算用的参考主频调成
+        // 16000 Hz：此时 1 ms = 16 周期，DEBOUNCE_CNT=16 仍精确对应 16 个
+        // 50 MHz 时钟，与原占位实现的去抖窗口逐周期一致。
+        .DEBOUNCE_CNT  (16),
+        .DEBOUNCE_CLK_HZ (16_000)
     ) dut (
         .sys_clk   (sys_clk),
         .sys_rst_n (sys_rst_n),

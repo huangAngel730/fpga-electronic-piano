@@ -122,7 +122,12 @@ module electronic_piano_top #(
     // -------------------------------------------------------------------------
     parameter int unsigned SOURCE_MODE = 0,
     // 按键去抖门限（时钟周期数）。500000 @ 50 MHz = 10 ms。
-    parameter int unsigned DEBOUNCE_CNT = 500_000
+    parameter int unsigned DEBOUNCE_CNT = 500_000,
+    // 去抖模块（button_debouncer）在换算"毫秒 -> 周期数"时使用的参考时钟频率。
+    // 默认等于真实主频 CLK_HZ，此时上板行为与既有的周期数口径完全一致。
+    // 仿真时可调小，使短去抖周期仍能精确表达，详见例化处的说明。
+    // 该参数只影响去抖时间常数的换算，不改变任何端口或时钟。
+    parameter int unsigned DEBOUNCE_CLK_HZ = CLK_HZ
 ) (
     input  logic sys_clk,     // V22, 50 MHz
     input  logic sys_rst_n,   // AA13, 低有效，1.5 V 域，EX_KEY.0
@@ -289,16 +294,35 @@ module electronic_piano_top #(
     logic [1:0] key_press_pulse;
     logic [1:0] key_release_pulse;
 
-    key_debounce #(
-        .KEYS         (2),
-        .DEBOUNCE_CNT (DEBOUNCE_CNT)
-    ) u_key_debounce (
-        .clk           (sys_clk),
-        .rst_n         (rst_sync_n),
-        .key_n         (key_n),
-        .pressed       (key_pressed),
-        .press_pulse   (key_press_pulse),
-        .release_pulse (key_release_pulse)
+    // 按键去抖：使用 M3 的 T021 正式实现（rtl/input/button_debouncer.sv）。
+    // 它替换了本骨架原先的占位实现 rtl/common/key_debounce.sv（方案 A，2026-09-15）。
+    //
+    // 【为什么需要 DEBOUNCE_CLK_HZ】M3 的模块按"时钟频率 + 毫秒"参数化
+    // （比周期数可读，换主频时不必手算），而本顶层的对外参数是 DEBOUNCE_CNT
+    // （周期数）。两者之间只差一个时钟频率，所以这里把它显式参数化：
+    //   真实硬件：DEBOUNCE_CLK_HZ = CLK_HZ = 50 MHz，DEBOUNCE_CNT = 500000
+    //             -> 10 ms -> 500000 周期，与原实现逐周期一致。
+    //   仿真时  ：testbench 把 DEBOUNCE_CLK_HZ 调小（如 16000），
+    //             DEBOUNCE_CNT = 16 即对应 1 ms -> 16 周期，
+    //             使快速仿真仍能得到与原实现完全相同的去抖窗口。
+    // 这样既保留了毫秒参数化的可读性，又不改变任何既有的仿真与上板口径。
+    localparam integer DEBOUNCE_MS_DIVISOR = (DEBOUNCE_CLK_HZ < 1000) ? 1 : (DEBOUNCE_CLK_HZ / 1000);
+    localparam integer DEBOUNCE_TIME_MS_CALC =
+        (DEBOUNCE_CNT + DEBOUNCE_MS_DIVISOR - 1) / DEBOUNCE_MS_DIVISOR;
+    localparam integer DEBOUNCE_TIME_MS =
+        (DEBOUNCE_TIME_MS_CALC < 1) ? 1 : DEBOUNCE_TIME_MS_CALC;
+
+    button_debouncer #(
+        .BUTTON_COUNT     (2),
+        .CLK_FREQ_HZ      (DEBOUNCE_CLK_HZ),
+        .DEBOUNCE_TIME_MS (DEBOUNCE_TIME_MS)
+    ) u_button_debouncer (
+        .clk                  (sys_clk),
+        .rst_n                (rst_sync_n),
+        .button_n_async       (key_n),
+        .button_down          (key_pressed),
+        .button_press_pulse   (key_press_pulse),
+        .button_release_pulse (key_release_pulse)
     );
 
     // 事件源：把按键脉冲翻译成统一演奏事件

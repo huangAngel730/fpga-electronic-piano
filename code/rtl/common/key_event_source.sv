@@ -58,7 +58,7 @@ module key_event_source #(
 ) (
     input  logic                    clk,
     input  logic                    rst_n,
-    // 去抖后的单周期脉冲（来自 key_debounce）
+    // 去抖后的单周期脉冲（来自 rtl/input/button_debouncer.sv，T021）
     input  logic [KEYS-1:0]         press_pulse,
     input  logic [KEYS-1:0]         release_pulse,
     // 统一演奏事件输出（规范 3.5 的 valid/ready 握手）

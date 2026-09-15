@@ -108,7 +108,10 @@ module tb_electronic_piano_top;
         // SOURCE_MODE=1 keeps the original assertions valid.
         .SOURCE_MODE   (1),
         // Shorten debounce so the simulation does not need 10 ms per press.
-        .DEBOUNCE_CNT  (16)
+        // DEBOUNCE_CLK_HZ=16000 makes 1 ms equal 16 cycles, so DEBOUNCE_CNT=16
+        // still maps to exactly 16 x 50 MHz clocks.
+        .DEBOUNCE_CNT  (16),
+        .DEBOUNCE_CLK_HZ (16_000)
     ) dut (
         .sys_clk   (sys_clk),
         .sys_rst_n (sys_rst_n),

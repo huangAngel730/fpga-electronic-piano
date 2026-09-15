@@ -115,6 +115,11 @@ try {
         # re-run the top-level self-check, so they are gated by this script.
         (Join-Path $codeDir "rtl\board\electronic_piano_top.sv"),
         (Join-Path $codeDir "tb\board\tb_electronic_piano_top.sv"),
+        # T021 (2026-09-15): M3's button debouncer replaced the M2 placeholder and
+        # is now instantiated by the top level, so gate it like the top level to
+        # stop the build from silently losing the file.
+        (Join-Path $codeDir "rtl\input\button_debouncer.sv"),
+        (Join-Path $codeDir "tb\input\tb_button_debouncer.sv"),
         (Join-Path $codeDir (Join-Path "scripts" "run_t007_sim.ps1")),
         # External board-documentation digests kept read-only under
         # docs/reference. The directory name is ASCII, but the digests carry a

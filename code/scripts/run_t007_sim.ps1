@@ -65,11 +65,13 @@ $tests = @(
         # (note number -> phase step). The top level now instantiates them, so
         # they must be compiled in dependency order:
         #   packages first, then leaf modules, then the top.
+        # T021 (2026-09-15) replaced the M2 placeholder key_debounce with M3's
+        # button_debouncer in rtl/input/, so this list now points there.
         Src  = @("$segRtl\common\audio_defs_pkg.sv",
                  "$segRtl\common\perf_event_pkg.sv",
                  "$segRtl\common\reset_sync.sv",
                  "$segRtl\common\sample_tick_gen.sv",
-                 "$segRtl\common\key_debounce.sv",
+                 "$segRtl\input\button_debouncer.sv",
                  "$segRtl\common\note_pitch.sv",
                  "$segRtl\common\key_event_source.sv",
                  "$segRtl\common\simple_voice.sv",
@@ -84,9 +86,10 @@ $tests = @(
         Inc  = @("$segRtl\common\sine_table.svh")
     }
     @{
-        Name = "tb_key_debounce"
-        Src  = @("$segRtl\common\key_debounce.sv",
-                 "$segTb\common\tb_key_debounce.sv")
+        # T021: M3's button debouncer (replaced the M2 placeholder 2026-09-15).
+        Name = "tb_button_debouncer"
+        Src  = @("$segRtl\input\button_debouncer.sv",
+                 "$segTb\input\tb_button_debouncer.sv")
     }
     @{
         Name = "tb_note_pitch"
@@ -107,7 +110,7 @@ $tests = @(
                  "$segRtl\common\perf_event_pkg.sv",
                  "$segRtl\common\reset_sync.sv",
                  "$segRtl\common\sample_tick_gen.sv",
-                 "$segRtl\common\key_debounce.sv",
+                 "$segRtl\input\button_debouncer.sv",
                  "$segRtl\common\note_pitch.sv",
                  "$segRtl\common\key_event_source.sv",
                  "$segRtl\common\simple_voice.sv",
