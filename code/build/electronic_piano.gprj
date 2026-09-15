@@ -39,13 +39,15 @@
         <File path="../rtl/board/electronic_piano_top.sv" type="file.verilog" enable="1"/>
         <!-- 公共模块与定义包 -->
         <File path="../rtl/common/audio_defs_pkg.sv" type="file.verilog" enable="1"/>
-        <File path="../rtl/common/perf_event_pkg.sv" type="file.verilog" enable="1"/>
         <File path="../rtl/common/reset_sync.sv" type="file.verilog" enable="1"/>
         <File path="../rtl/common/sample_tick_gen.sv" type="file.verilog" enable="1"/>
-        <!-- T021 按键去抖（M3 实现，方案 A 于 2026-09-15 替换 M2 的占位版） -->
-        <File path="../rtl/input/button_debouncer.sv" type="file.verilog" enable="1"/>
-        <!-- T020/T014 事件驱动集成骨架的输入与发声链路 -->
-        <File path="../rtl/common/key_event_source.sv" type="file.verilog" enable="1"/>
+        <!-- T021 按键去抖（M3 实现，方案 A 于 2026-09-15 替换 M2 的占位版）
+             2026-09-15 布局迁移：rtl/input/ 改为每模块一子目录 -->
+        <File path="../rtl/input/button_debouncer/button_debouncer.sv" type="file.verilog" enable="1"/>
+        <!-- T022 按键转统一演奏事件（M3 实现，2026-09-15 按 D022 取代 M2 占位
+             key_event_source.sv；事件类型同时收敛到 audio_defs_pkg.sv，
+             perf_event_pkg.sv 已删除） -->
+        <File path="../rtl/input/button_event_converter/button_event_converter.sv" type="file.verilog" enable="1"/>
         <File path="../rtl/common/note_pitch.sv" type="file.verilog" enable="1"/>
         <File path="../rtl/common/simple_voice.sv" type="file.verilog" enable="1"/>
         <!-- I2S LSBJ 发送器 -->

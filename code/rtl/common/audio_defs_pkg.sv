@@ -8,7 +8,21 @@
 //   - 3.3 节 事件类型编码
 //   - 3.2.1 节 control_id 编码
 //
-// 注意：本包只定义类型与常量，不含任何时序逻辑。
+// 注意：本包只定义类型、常量与纯组合函数，不含任何时序逻辑。
+//
+// -----------------------------------------------------------------------------
+// 【D022 / 2026-09-15】本包是统一演奏事件类型的**唯一**定义处
+// -----------------------------------------------------------------------------
+//   2026-09-14 曾在 rtl/common/perf_event_pkg.sv 内重复定义过一份逐字段
+//   完全相同的 performance_event_t。两份并存时编译器与仿真都不报错，
+//   属"静默分叉"风险：任一侧单独改动都会让发送方与接收方位域不一致，
+//   而仿真只会表现为音高/力度全错，不会给出任何错误信息。
+//
+//   2026-09-15 按 D022 收敛：perf_event_pkg.sv 中的事件构造函数
+//   make_note_event() 与 make_all_notes_off() 迁入本包，该包已删除。
+//
+//   **此后新增任何事件字段或事件类型编码，只允许修改本文件。**
+//   不得再在任何其他文件或包内重新定义 performance_event_t。
 // -----------------------------------------------------------------------------
 
 `ifndef AUDIO_DEFS_PKG_SV
@@ -170,6 +184,56 @@ package audio_defs_pkg;
         input logic [13:0] bend_14bit
     );
         return $signed({1'b0, bend_14bit} - 15'sd8192) >>> 2;
+    endfunction
+
+    // -------------------------------------------------------------------------
+    // 事件构造函数（原 perf_event_pkg.sv，2026-09-15 按 D022 迁入）
+    // -------------------------------------------------------------------------
+
+    // 构造一个 Note On 或 Note Off 事件。
+    //
+    // 【velocity 不得为 0】
+    //   规范 3.4 节：输入适配层收到 velocity=0 的 Note On 时，必须在进入
+    //   公共事件 FIFO 前转换成 Note Off；音频核心不接收 velocity 为 0 的
+    //   Note On。因此本函数在 velocity=0 时**返回 Note Off**，把该规则
+    //   固化在构造入口，避免调用方遗漏。
+    //   返回的 Note Off 保留原 note_number 与 source_id。
+    function automatic performance_event_t make_note_event(
+        input logic               is_on,
+        input logic [3:0]         source_id,
+        input logic [3:0]         channel,
+        input logic [6:0]         note_number,
+        input logic [9:0]         velocity
+    );
+        performance_event_t ev;
+        ev.event_type    = (is_on && (velocity != 10'd0)) ? EVENT_NOTE_ON
+                                                          : EVENT_NOTE_OFF;
+        ev.source_id     = source_id;
+        ev.channel       = channel;
+        ev.note_number   = note_number;
+        ev.velocity      = velocity;
+        ev.expression    = 10'd0;
+        ev.control_id    = 8'd0;
+        ev.control_value = 12'd0;
+        ev.reserved      = 6'd0;
+        return ev;
+    endfunction
+
+    // 构造全部音符关闭事件（规范 3.4 节，用于异常恢复与演示前清空挂音）
+    function automatic performance_event_t make_all_notes_off(
+        input logic [3:0] source_id
+    );
+        performance_event_t ev;
+        ev.event_type    = EVENT_ALL_NOTES_OFF;
+        ev.source_id     = source_id;
+        ev.channel       = 4'd0;
+        ev.note_number   = 7'd0;
+        ev.velocity      = 10'd0;
+        ev.expression    = 10'd0;
+        ev.control_id    = 8'd0;
+        ev.control_value = 12'd0;
+        ev.reserved      = 6'd0;
+        return ev;
     endfunction
 
 endpackage

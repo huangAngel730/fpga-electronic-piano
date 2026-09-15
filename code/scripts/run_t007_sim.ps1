@@ -61,19 +61,20 @@ $tests = @(
         # .svh entries are kept in a separate list below.
         #
         # T020 added the event-driven skeleton: key_debounce -> key_event_source
-        # -> simple_voice, plus perf_event_pkg (event type) and note_pitch
-        # (note number -> phase step). The top level now instantiates them, so
-        # they must be compiled in dependency order:
-        #   packages first, then leaf modules, then the top.
+        # -> simple_voice, plus note_pitch (note number -> phase step). The top
+        # level now instantiates them, so they must be compiled in dependency
+        # order: packages first, then leaf modules, then the top.
         # T021 (2026-09-15) replaced the M2 placeholder key_debounce with M3's
-        # button_debouncer in rtl/input/, so this list now points there.
+        # button_debouncer in rtl/input/.
+        # D022 (2026-09-15): perf_event_pkg was deleted (merged into
+        # audio_defs_pkg) and key_event_source was replaced by M3's
+        # button_event_converter. rtl/input/ now uses one subdirectory per module.
         Src  = @("$segRtl\common\audio_defs_pkg.sv",
-                 "$segRtl\common\perf_event_pkg.sv",
                  "$segRtl\common\reset_sync.sv",
                  "$segRtl\common\sample_tick_gen.sv",
-                 "$segRtl\input\button_debouncer.sv",
+                 "$segRtl\input\button_debouncer\button_debouncer.sv",
                  "$segRtl\common\note_pitch.sv",
-                 "$segRtl\common\key_event_source.sv",
+                 "$segRtl\input\button_event_converter\button_event_converter.sv",
                  "$segRtl\common\simple_voice.sv",
                  "$segRtl\audio_out\i2s_tx.sv",
                  "$segRtl\board\electronic_piano_top.sv",
@@ -88,7 +89,7 @@ $tests = @(
     @{
         # T021: M3's button debouncer (replaced the M2 placeholder 2026-09-15).
         Name = "tb_button_debouncer"
-        Src  = @("$segRtl\input\button_debouncer.sv",
+        Src  = @("$segRtl\input\button_debouncer\button_debouncer.sv",
                  "$segTb\input\tb_button_debouncer.sv")
     }
     @{
@@ -97,22 +98,25 @@ $tests = @(
                  "$segTb\common\tb_note_pitch.sv")
     }
     @{
-        Name = "tb_key_event_source"
-        Src  = @("$segRtl\common\perf_event_pkg.sv",
-                 "$segRtl\common\key_event_source.sv",
-                 "$segTb\common\tb_key_event_source.sv")
+        # T022: M3's button-to-performance-event converter, which replaced the M2
+        # placeholder key_event_source under D022 (2026-09-15). Compiles together
+        # with audio_defs_pkg because that package is now the single definition
+        # site of performance_event_t.
+        Name = "tb_button_event_converter"
+        Src  = @("$segRtl\common\audio_defs_pkg.sv",
+                 "$segRtl\input\button_event_converter\button_event_converter.sv",
+                 "$segTb\input\tb_button_event_converter.sv")
     }
     @{
         # T020/T014 end-to-end: key press -> event -> voice -> PCM -> I2S pins -> pitch.
         # This is the acceptance test for the event-driven skeleton.
         Name = "tb_key_to_tone"
         Src  = @("$segRtl\common\audio_defs_pkg.sv",
-                 "$segRtl\common\perf_event_pkg.sv",
                  "$segRtl\common\reset_sync.sv",
                  "$segRtl\common\sample_tick_gen.sv",
-                 "$segRtl\input\button_debouncer.sv",
+                 "$segRtl\input\button_debouncer\button_debouncer.sv",
                  "$segRtl\common\note_pitch.sv",
-                 "$segRtl\common\key_event_source.sv",
+                 "$segRtl\input\button_event_converter\button_event_converter.sv",
                  "$segRtl\common\simple_voice.sv",
                  "$segRtl\audio_out\i2s_tx.sv",
                  "$segRtl\board\electronic_piano_top.sv",
@@ -224,10 +228,24 @@ foreach ($test in $tests) {
     }
     $lines | ForEach-Object { "  $_" }
 
-    # Exact marker match. The testbench prints " [FAIL] <item>" for each failed
-    # check and a summary line. Matching the anchored marker avoids false hits
-    # from words like "FAILED" in unrelated text.
-    $failLines = @($lines | Where-Object { $_ -match '\[FAIL\]' })
+    # Failure detection must cover every marker form the testbenches in this
+    # repo actually emit. Matching only "[FAIL]" was NOT sufficient:
+    # tb_button_debouncer, tb_button_event_converter, tb_key_event_source and
+    # tb_note_pitch report failures as "ERROR:" / "FAIL:", and every timeout path
+    # uses "FAIL:" as well, so a failure in any of those could never be reported
+    # as FAIL by this script. Fixed 2026-09-15 (see the verification log).
+    #
+    # The patterns are deliberately narrow to avoid false positives. In
+    # particular the per-testbench summary line "N PASS, M FAIL" contains the
+    # word FAIL even on a completely clean run, so a bare word match is wrong.
+    # Accepted markers:
+    #   [FAIL] <item>       item-level failure
+    #   FAIL: <text>        summary, timeout and named-item failure
+    #   TESTBENCH FAILED    tb_key_event_source / tb_note_pitch summary
+    #   >>> ...FAIL         tb_electronic_piano_top / tb_key_to_tone banner
+    #   FAIL                whole line, tb_audio_defs_pkg style
+    $failPattern = '\[FAIL\]|FAIL:|TESTBENCH FAILED|>>>.*FAIL|^\s*FAIL\s*$'
+    $failLines = @($lines | Where-Object { $_ -match $failPattern })
     $failCount = $failLines.Count
 
     if ($failCount -gt 0) {

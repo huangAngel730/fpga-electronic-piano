@@ -119,8 +119,17 @@ try {
         # T021 (2026-09-15): M3's button debouncer replaced the M2 placeholder and
         # is now instantiated by the top level, so gate it like the top level to
         # stop the build from silently losing the file.
-        (Join-Path $codeDir "rtl\input\button_debouncer.sv"),
+        # 2026-09-15: rtl/input/ was reorganised to one subdirectory per module,
+        # so the debouncer path gained a directory level.
+        (Join-Path $codeDir "rtl\input\button_debouncer\button_debouncer.sv"),
         (Join-Path $codeDir "tb\input\tb_button_debouncer.sv"),
+        # T022 / D022 (2026-09-15): M3's button_event_converter replaced the M2
+        # placeholder key_event_source, and audio_defs_pkg became the single
+        # definition site of performance_event_t (perf_event_pkg.sv deleted).
+        # Gate all three so a future cleanup cannot silently drop the event path.
+        (Join-Path $codeDir "rtl\input\button_event_converter\button_event_converter.sv"),
+        (Join-Path $codeDir "tb\input\tb_button_event_converter.sv"),
+        (Join-Path $codeDir "rtl\common\audio_defs_pkg.sv"),
         (Join-Path $codeDir (Join-Path "scripts" "run_t007_sim.ps1")),
         # External board-documentation digests kept read-only under
         # docs/reference. The directory name is ASCII, but the digests carry a

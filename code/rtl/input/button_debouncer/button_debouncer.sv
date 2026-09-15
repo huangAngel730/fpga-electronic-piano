@@ -10,7 +10,11 @@
 // 迁移记录（M2，方案 A）
 // -----------------------------------------------------------------------------
 //   原路径：代码/rtl/input/button_debouncer.sv
-//   新路径：code/rtl/input/button_debouncer.sv
+//   新路径：code/rtl/input/button_debouncer/button_debouncer.sv
+//
+//   （原为 code/rtl/input/button_debouncer.sv。2026-09-15 M2 采纳 M3 建议的
+//     "rtl/input/ 每模块一子目录"布局，本文件与其 README 一并下移到同名
+//     子目录内，源码内容仍逐字保留。）
 //
 //   本模块替换了 M2 在 T020 集成骨架中写的占位实现
 //   code/rtl/common/key_debounce.sv。替换理由：M3 的实现在工程规范上更完备——

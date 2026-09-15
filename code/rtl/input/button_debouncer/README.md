@@ -97,4 +97,6 @@ vsim -c -l vsim.log tb_button_debouncer -do "run -all; quit -f"
 PASS: tb_button_debouncer completed all checks
 ```
 
-当前验证覆盖复位、短抖动、去抖边界、长按不重复、释放边界、短毛刺、两路同时按下和按下期间复位，共 8 组场景、27 项自动检查。当前等级为 L2；尚未完成综合、布局布线、顶层集成或上板验证。
+当前验证覆盖复位、短抖动、去抖边界、长按不重复、释放边界、短毛刺、两路同时按下和按下期间复位，共 8 组场景、27 项自动检查。
+
+**2026-09-15 状态更新**：本模块已由 `code/rtl/board/electronic_piano_top.sv` 例化（实例名 `u_button_debouncer`），并纳入 `code/scripts/run_t007_sim.ps1` 的 iverilog 全量回归；综合、布局布线与时序收敛已通过（见 `code/docs/验证记录.md` V0040），**替换后的码流尚未重新上板**。本文件原位于 `code/rtl/input/README.md`，2026-09-15 目录改为"每模块一子目录"后随模块下移至本目录；同级 `button_event_converter/` 是 T022 的按键转统一演奏事件模块，用法见其自身 README。

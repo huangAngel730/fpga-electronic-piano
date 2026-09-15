@@ -60,7 +60,7 @@ module simple_voice #(
     // 统一演奏事件输入（规范 3.5 握手）
     input  logic                    event_valid,
     output logic                    event_ready,
-    input  perf_event_pkg::performance_event_t event_data,
+    input  audio_defs_pkg::performance_event_t event_data,
     // PCM 输出（规范第四章）
     output logic signed [PCM_WIDTH-1:0] pcm_left,
     output logic signed [PCM_WIDTH-1:0] pcm_right,
@@ -69,7 +69,13 @@ module simple_voice #(
     output logic [6:0]              current_note
 );
 
-    import perf_event_pkg::*;
+    // 事件类型常量原属 perf_event_pkg，2026-09-15 按 D022 收敛到
+    // audio_defs_pkg。此处用**显式命名导入**而不是 import *：
+    // audio_defs_pkg 还导出 PCM_WIDTH、SAMPLE_RATE_HZ 等同名常量，
+    // 与本模块自己的参数重名，显式导入可避免歧义。
+    import audio_defs_pkg::EVENT_NOTE_ON;
+    import audio_defs_pkg::EVENT_NOTE_OFF;
+    import audio_defs_pkg::EVENT_ALL_NOTES_OFF;
 
     // -------------------------------------------------------------------------
     // 正弦表

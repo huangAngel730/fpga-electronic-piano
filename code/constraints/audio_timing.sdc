@@ -232,14 +232,20 @@ set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_lrck}]
 #   与本节的 sys_rst_n 完全同类：同为 Bank 9 的机械按键、同为
 #   LVCMOS15 / 1.5 V / 上拉、同样相对 sys_clk 异步。
 #   因此处理方式也相同，且【已在 RTL 内解决，不由 SDC 表达】：
-#     - 亚稳态：key_debounce 对每个按键做两级同步 + 计数去抖
-#               （rtl/common/key_debounce.sv），未直接跨时钟域使用。
+#     - 亚稳态：button_debouncer 对每个按键做两级同步 + 计数去抖
+#               （rtl/input/button_debouncer/button_debouncer.sv），
+#               未直接跨时钟域使用。
 #     - 抖动：DEBOUNCE_CNT = 500000 个 sys_clk = 10 ms，
 #               远大于机械按键典型抖动时间（< 1 ms）。
 #   与 sys_rst_n 一样，【不加 set_input_delay】：这两条路径的时序
 #   由去抖计数器的保持时间吸收，不是需要对齐到某个时钟沿的数据通路。
-#   真正的约束点在去抖之后，即 key_event_source 产生的事件脉冲，
+#   真正的约束点在去抖之后，即 button_event_converter 产生的统一演奏事件
+#   （rtl/input/button_event_converter/button_event_converter.sv），
 #   全程处于 sys_clk 单时钟域内，由第 45 行的 create_clock 覆盖。
+#
+# 【2026-09-15 路径更正】上面两处文件路径已随"rtl/input/ 每模块一子目录"
+#   迁移更新。旧名 key_debounce.sv 与 key_event_source.sv 分别是 M2 的
+#   T020 占位去抖与占位事件源，均已删除（见 V0040、V0046 与决策 D022）。
 # -----------------------------------------------------------------------------
 
 # -----------------------------------------------------------------------------

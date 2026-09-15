@@ -294,7 +294,8 @@ module electronic_piano_top #(
     logic [1:0] key_press_pulse;
     logic [1:0] key_release_pulse;
 
-    // 按键去抖：使用 M3 的 T021 正式实现（rtl/input/button_debouncer.sv）。
+    // 按键去抖：使用 M3 的 T021 正式实现
+    // （rtl/input/button_debouncer/button_debouncer.sv）。
     // 它替换了本骨架原先的占位实现 rtl/common/key_debounce.sv（方案 A，2026-09-15）。
     //
     // 【为什么需要 DEBOUNCE_CLK_HZ】M3 的模块按"时钟频率 + 毫秒"参数化
@@ -326,21 +327,36 @@ module electronic_piano_top #(
     );
 
     // 事件源：把按键脉冲翻译成统一演奏事件
-    logic                                      ev_valid;
-    logic                                      ev_ready;
-    perf_event_pkg::performance_event_t        ev_data;
+    //
+    // 【D022 / 2026-09-15】原 M2 占位模块 key_event_source 已删除，改用 M3 的
+    // button_event_converter（依据 技术决策记录 D022，按 T021 先例走"取代占位"）。
+    // 两者的端口名不同：新模块是 button_press_pulse / button_release_pulse，
+    // 内部自带本地事件 FIFO。
+    //
+    // 音高映射：两个实体按键实测为 A4(69) 与 C5(72)，相差 3 个半音。模块默认的
+    // BASE_NOTE_NUMBER=60 / NOTE_STEP=2 是"每键差 2 个半音"的等间距映射，只适用
+    // 于按键编号连续的场合，因此这里显式覆盖为 69 / 3。
+    logic                               ev_valid;
+    logic                               ev_ready;
+    logic [31:0]                        ev_overflow_count;
+    audio_defs_pkg::performance_event_t ev_data;
 
-    key_event_source #(
-        .KEYS     (2),
-        .SOURCE_ID(4'd1)
-    ) u_key_event_source (
-        .clk           (sys_clk),
-        .rst_n         (rst_sync_n),
-        .press_pulse   (key_press_pulse),
-        .release_pulse (key_release_pulse),
-        .event_valid   (ev_valid),
-        .event_ready   (ev_ready),
-        .event_data    (ev_data)
+    // ev_overflow_count：本模块本地 FIFO 溢出计数。当前顶层尚无状态通道，
+    // 该信号只能在仿真中观测；UART 状态通道落地后应接入其中，不要删除。
+    button_event_converter #(
+        .BUTTON_COUNT    (2),
+        .BASE_NOTE_NUMBER(69),
+        .NOTE_STEP       (3),
+        .SOURCE_ID       (4'd1)
+    ) u_button_event_converter (
+        .clk                  (sys_clk),
+        .rst_n                (rst_sync_n),
+        .button_press_pulse   (key_press_pulse),
+        .button_release_pulse (key_release_pulse),
+        .event_ready          (ev_ready),
+        .event_valid          (ev_valid),
+        .event_data           (ev_data),
+        .overflow_count       (ev_overflow_count)
     );
 
     // 单声部占位实现（正式算法见 T004/T009/T010）
