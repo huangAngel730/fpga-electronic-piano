@@ -7,7 +7,8 @@
 1. 阅读根目录 `AGENTS.md`。
 2. 阅读本目录 `AGENTS.md`。
 3. 阅读 `docs/协作入口.md` 并确认岗位、任务编号、授权目录和验收条件。
-4. 从最新 `develop` 创建任务分支。
+4. 切到最新 `develop` 并直接在上面工作，**不新建分支**（D025）；推送前先跑
+   `.\code\scripts\check_repo.ps1` 并确认 8 项全 PASS。
 
 ## 当前目录
 
