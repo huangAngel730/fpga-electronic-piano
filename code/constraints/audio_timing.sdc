@@ -235,8 +235,11 @@ set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_lrck}]
 #     - 亚稳态：button_debouncer 对每个按键做两级同步 + 计数去抖
 #               （rtl/input/button_debouncer/button_debouncer.sv），
 #               未直接跨时钟域使用。
-#     - 抖动：DEBOUNCE_CNT = 500000 个 sys_clk = 10 ms，
-#               远大于机械按键典型抖动时间（< 1 ms）。
+#     - 抖动：DEBOUNCE_CNT = 150000 个 sys_clk = 3 ms（2026-09-16 由
+#               500000 / 10 ms 下调，依据赛题"总延迟 <= 10 ms"与项目
+#               自定 "< 5 ms" 的端到端指标，理由见
+#               rtl/board/electronic_piano_top.sv 的 DEBOUNCE_CNT 参数说明），
+#               仍远大于机械按键典型抖动时间（< 1 ms）。
 #   与 sys_rst_n 一样，【不加 set_input_delay】：这两条路径的时序
 #   由去抖计数器的保持时间吸收，不是需要对齐到某个时钟沿的数据通路。
 #   真正的约束点在去抖之后，即 button_event_converter 产生的统一演奏事件
