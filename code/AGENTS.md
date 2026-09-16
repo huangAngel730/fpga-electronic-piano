@@ -46,9 +46,12 @@
   可以随手改**，改动前仍须按 `code/docs/变更与决策流程.md` 提变更说明。
 - 软件任务积压时按 D010 分担，分担后仍由 M1 负责算法定义与最终验收。
 - 需要跨目录修改时先停止，列出影响并取得授权，不得自行扩大写入范围。
-- **四处共享文件改动前先在群里说一句**：`rtl/board/electronic_piano_top.sv`、
-  `rtl/common/audio_defs_pkg.sv`、`constraints/electronic_piano.cst`、
-  `docs/模块接口规范.md`。这是取消分支隔离后的替代保障之一（D025 §3.3）。
+- **八处共享文件改动前先在群里说一句**，分两组（D025 §3.3 + D026）：
+  - **接口组**：`rtl/board/electronic_piano_top.sv`、`rtl/common/audio_defs_pkg.sv`、
+    `constraints/electronic_piano.cst`、`docs/模块接口规范.md`；
+  - **编号表组**：`docs/验证记录.md`、`docs/技术决策记录.md`、`docs/任务看板.md`、
+    `docs/当前状态.md`。这一组不属于任何一个人的目录，三个岗位都要往里追加，
+    是本项目两次编号撞号的实际发生地。
 
 ## 推送最低条件
 
@@ -56,6 +59,9 @@
 
 - **推送前运行 `.\code\scripts\check_repo.ps1` 且全 PASS**（当前 8／8、退出码 0）。
 - **推送前先 `git fetch`；取号前先看 `develop` 上的最新一行。**
+- **编号只在推送前最后一步取（D026）**：开工不写、干活不写、功能提交里不带编号；
+  顺序是 `git fetch` → `git pull --rebase` → 看编号表末尾 → 写号 → 做成一个只含
+  编号的独立小提交 → 立刻推送。
 - 模块测试自动 PASS，且测试覆盖复位、边界和至少一个异常场景。
 - 无新增未解释 lint 错误。
 - 接口和参数与 `code/docs/模块接口规范.md` 一致。
