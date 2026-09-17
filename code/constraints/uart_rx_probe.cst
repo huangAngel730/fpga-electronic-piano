@@ -1,0 +1,134 @@
+// =============================================================================
+// uart_rx_probe.cst
+//
+// UART RX 引脚诊断工程（顶层 rtl/board/uart_rx_probe.sv）专用引脚约束。
+//
+// 【本文件不是 electronic_piano.cst，也不要合并进去】
+//   诊断工程是独立工程，顶层是 uart_rx_probe，不是 electronic_piano_top。
+//   正式工程的 9 脚约束原样留在 electronic_piano.cst，本文件既不增删它，
+//   也不改变它的任何一行。诊断做完后本工程连同本文件可以整体删除，
+//   不影响正式工程的可复现性。
+//
+// -----------------------------------------------------------------------------
+// 一 本文件要回答的问题
+// -----------------------------------------------------------------------------
+//   板载 USB-UART（BL616）的 TX 到底接到 FPGA 的哪颗球？
+//   本工程把两只候选脚【同时】接进来当输入，各跑一路 uart_rx，
+//   用一路串口报告把两路的电平、跳变数、正确字节数、帧错误数、
+//   最小跳变间隔一起打出来，一次上板即可判定。
+//
+//   A 路 = V14   B 路 = Y14
+//
+// -----------------------------------------------------------------------------
+// 二 为什么这次可以直接写 IOSTANDARD（"V14 电平冲突"的结论）
+// -----------------------------------------------------------------------------
+//   此前 V14 一直记为"禁止采用"，理由是官方参考 CST 里这一行自相矛盾：
+//
+//     //IO_PORT "rxp"  IO_TYPE=LVCMOS15 PULL_MODE=NONE DRIVE=OFF BANK_VCCIO=3.3;
+//
+//   同一行既写 LVCMOS15 又写 BANK_VCCIO=3.3，二者不能同时成立。
+//   本次按"同一 Bank 只有一个 VCCIO"把冲突解开，依据是官方参考 CST 自身：
+//
+//     * V14 属 **Bank 8**（来源：Tang_Mega_60K_30354_NEO_31005 引脚事实表，
+//       Excel r31；与外部整理稿 BOARD_CONTEXT 一致）。
+//     * 官方参考 CST 里 Bank 8 的其它脚【全部】写 LVCMOS33 / 3.3 V：
+//       cmos_pclk=AB20、cmos_href=AB21、cmos_vsync=Y21、cmos_pwdn=AB22、
+//       cmos_xclk=AA21、cmos_scl=AA14、cmos_db[0..7]、PHY_CLK=V19 等。
+//     * 反证：Bank 9 的脚（sys_rst_n=AA13、Key_in[0/1]=AA13 邻近、
+//       cmos_sda=Y13）官方全部写 LVCMOS15 / 1.5 V。
+//
+//   即：官方文件在"哪个脚在哪个 Bank"上是分得清的，V14 那行的
+//   BANK_VCCIO=3.3 是对的，IO_TYPE=LVCMOS15 是从上一行 Y14（Bank 9）
+//   复制过来没改的笔误。因此本工程对 V14 采用：
+//
+//     IO_TYPE=LVCMOS33  PULL_MODE=UP  BANK_VCCIO=3.3
+//
+//   这是**静态推导**结论，不是实测。本次上板诊断本身也是对这个推导的验证：
+//   若 V14 真能收到帧，说明 3.3 V 域判断正确；若两路都收不到，
+//   下一步才需要按 LVCMOS15 / 1.5 V 重做一版对照（见本文件末尾【备选】）。
+//
+//   Y14 属 **Bank 9**（309 号文件同源事实表：dock 板底面测试点 TP24，
+//   官方参考 CST 的 "For version 31002" 一行写 LVCMOS15 / 1.5 V），
+//   与本工程 sys_rst_n（AA13）同 Bank，故同样用 LVCMOS15 / 1.5 V。
+//
+// -----------------------------------------------------------------------------
+// 三 电气安全：为什么两路同时接是安全的
+// -----------------------------------------------------------------------------
+//   1. 顶层把 probe_a / probe_b 声明为 input，本工程【从不驱动】这两颗球。
+//      一颗只作输入的球不会与任何驱动器争电流，因此"两路同时探"本身
+//      不存在冲突。真正的冲突风险只来自外部接线（见第 四 节）。
+//   2. PULL_MODE=UP 是刻意的：诊断时这两颗球很可能悬空，
+//      悬空脚的读数会乱跳，把 ed（跳变数）刷成噪声计数，无法判读。
+//      内部上拉把"没人驱动"固定成"空闲高"，此时应看到 lv=1、ed=0。
+//      V14 上另有 BL616 的推挽输出，上拉被它盖过，不改变它的驱动能力；
+//      最坏情况是 BL616 输出低时多灌约几十微安，可忽略。
+//   3. 不写 DRIVE：本工程的这两个端口是输入，驱动强度无意义。
+//      官方那两行写了 DRIVE=OFF，但整行是注释、从未编译过，
+//      这里不采用未经验证的写法。
+//
+//   外部接线要求见 rtl/board/uart_rx_probe.sv 文件头的【上板步骤】。
+//   最关键的一条：CH340 的 TX 接到 V14 时，核心板的 USB-C 不要同时插，
+//   因为 V14 在核心板上连着 BL616 的 TX，两个输出会对顶。
+//
+// -----------------------------------------------------------------------------
+// 四 引脚来源
+// -----------------------------------------------------------------------------
+//   code/docs/Tang_Mega_60K_30354_NEO_31005_引脚事实表.xlsx
+//   code/constraints/tang_mega_60k_reference.cst（UART 段 L197-L205）
+//   code/docs/板级硬件事实.md 3.4 节
+//   前 7 个端口与 electronic_piano.cst 逐字一致（同一份官方来源），
+//   只有 probe_a / probe_b 是本工程新增。
+// =============================================================================
+
+// ====== SYS ======
+IO_LOC  "sys_clk"     V22;
+IO_PORT "sys_clk"     IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+
+// EX_KEY.0，Bank 9，1.5 V 域，低有效，内部上拉。
+// 诊断工程沿用正式工程的复位接法：按住这颗键 = 复位。
+IO_LOC  "sys_rst_n"   AA13;
+IO_PORT "sys_rst_n"   IO_TYPE=LVCMOS15 PULL_MODE=UP BANK_VCCIO=1.5;
+
+// ====== 音频（本诊断不用，但不留悬空输出）======
+// 只把 pa_en 驱动为 1 关闭功放，i2s 三脚驱动为低，
+// 避免诊断期间扬声器出噪声、也避免 DAC 输入端悬空。
+IO_LOC  "pa_en"       AB16;
+IO_PORT "pa_en"       IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+
+IO_LOC  "i2s_bclk"    Y17;
+IO_PORT "i2s_bclk"    IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+
+IO_LOC  "i2s_lrck"    AB17;
+IO_PORT "i2s_lrck"    IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+
+IO_LOC  "i2s_din"     AA16;
+IO_PORT "i2s_din"     IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+
+// ====== UART 报告输出 ======
+// 板载 USB-UART（BL616），FPGA 只发不收。官方参考文件中该端口名为 txp。
+IO_LOC  "uart_tx"     U15;
+IO_PORT "uart_tx"     IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8 BANK_VCCIO=3.3;
+
+// ====== UART RX 候选 A：V14 ======
+// 298 号：BL616 GPIO28_TX ->（经 0 欧）-> FPGA V14，Bank 8。
+// 本板 NEO 底板为 31005（>= 31004），官方注释给出的 UART RX 就是 V14，
+// 因此 A 路是首选候选。只看不驱动。
+IO_LOC  "probe_a"     V14;
+IO_PORT "probe_a"     IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+
+// ====== UART RX 候选 B：Y14 ======
+// Dock 板底面测试点 TP24，Bank 9（与 sys_rst_n 同 Bank，1.5 V 域）。
+// 官方注释里"For version 31002"一行写的是 Y14，本板不是 31002，
+// 所以 B 路是低概率候选；一起探是为了拿到"谁是、谁不是"的对照证据。
+IO_LOC  "probe_b"     Y14;
+IO_PORT "probe_b"     IO_TYPE=LVCMOS15 PULL_MODE=UP BANK_VCCIO=1.5;
+
+// =============================================================================
+// 【备选】若 A 路（V14）一路收不到、且怀疑 3.3 V 判断有误，改成下面这组重做：
+//
+//   IO_PORT "probe_a"   IO_TYPE=LVCMOS15 PULL_MODE=UP BANK_VCCIO=1.5;
+//
+// 不要同时写两行 IO_PORT "probe_a"：同一端口只能有一条 IO_PORT，
+// 重复会导致约束冲突。判据：V14 收到正确帧则 3.3 V 正确；
+// 两路都收不到且 lv 读数与外部实测电平不符时，才怀疑电平标准。
+// =============================================================================

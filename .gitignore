@@ -36,7 +36,8 @@ output_files/
 
 # Tcl driver scripts under code/build/, regenerated on every
 # build_electronic_piano.ps1 run, so their content is not project source.
-code/build/run_*.tcl
+# The ** covers per-project subdirectories such as code/build/probe/.
+code/build/**/run_*.tcl
 
 # Simulation products
 *.vcd

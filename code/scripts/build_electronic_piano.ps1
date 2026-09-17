@@ -1,7 +1,14 @@
-# Build the electronic_piano Gowin project from the command line.
+# Build a Gowin project in this repository from the command line.
 #
 # Usage:  .\build_electronic_piano.ps1 [-Flow synth|pnr|bitstream]
-#         .\build_electronic_piano.ps1 -Flow pnr -SynthOnly   # see below
+#         .\build_electronic_piano.ps1 -Flow bitstream -Project probe\uart_rx_probe
+#
+# -Project is a path under code/build/ without the .gprj extension. The default
+# is the main design, so every existing invocation keeps working unchanged.
+# The diagnostic UART-RX probe project lives in its own subdirectory on purpose:
+# Gowin writes impl/ next to the .gprj, and some of those intermediate files
+# (cmd.do, device.cfg) are not prefixed with the project name, so two projects
+# sharing code/build/impl/ would overwrite each other's scratch files.
 #
 # Why a script instead of GUI steps: the project rules require every build to
 # be reproducible from the command line (see code/AGENTS.md, build toolchain).
@@ -54,7 +61,11 @@
 
 param(
     [ValidateSet('synth', 'pnr', 'bitstream')]
-    [string]$Flow = 'synth'
+    [string]$Flow = 'synth',
+
+    # Project path under code/build/, without the .gprj extension.
+    # Use 'probe\uart_rx_probe' for the UART-RX pin diagnostic.
+    [string]$Project = 'electronic_piano'
 )
 
 $ErrorActionPreference = 'Continue'
@@ -64,7 +75,8 @@ $ErrorActionPreference = 'Continue'
 $codeDir = 'code'
 # $PSScriptRoot is <repo>/code/scripts, so the repo root is two levels up.
 $repoRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
-$project = Join-Path $repoRoot "$codeDir\build\electronic_piano.gprj"
+$project = Join-Path $repoRoot "$codeDir\build\$Project.gprj"
+$projectDir = Split-Path -Parent $project
 
 if (-not (Test-Path -LiteralPath $project)) {
     Write-Host "ERROR: project file not found: $project"
@@ -83,7 +95,7 @@ if ($badChars) {
     exit 1
 }
 
-Write-Host '=== electronic_piano build ==='
+Write-Host '=== Gowin build ==='
 Write-Host "repo   : $repoRoot"
 Write-Host "project: $project"
 Write-Host "flow   : $Flow"
@@ -124,7 +136,7 @@ switch ($Flow) {
     'bitstream' { $script += 'run all' }
 }
 
-$tclFile = Join-Path $repoRoot "$codeDir\build\run_$Flow.tcl"
+$tclFile = Join-Path $projectDir "run_$Flow.tcl"
 # Write with an explicit UTF-8 encoding and no BOM: gw_sh's Tcl reads the file
 # as bytes, and a BOM would become part of the first command.
 [IO.File]::WriteAllLines($tclFile, $script, [Text.UTF8Encoding]::new($false))
@@ -138,7 +150,7 @@ Write-Host "gw_sh exit code: $rc"
 
 # --- Collect outputs --------------------------------------------------------
 # gw_sh writes impl/ next to the project file.
-$impl = Join-Path $repoRoot "$codeDir\build\impl"
+$impl = Join-Path $projectDir 'impl'
 if (Test-Path -LiteralPath $impl) {
     Write-Host ''
     Write-Host 'outputs:'

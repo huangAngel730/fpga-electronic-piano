@@ -1,4 +1,4 @@
-# Download the electronic_piano bitstream to the Tang Mega 60K board.
+# Download a bitstream to the Tang Mega 60K board.
 #
 # Pure ASCII on purpose: Windows PowerShell 5.1 decodes BOM-less UTF-8 as GBK,
 # which corrupts non-ASCII literals (see code/AGENTS.md).
@@ -8,9 +8,14 @@
 #   .\code\scripts\program_electronic_piano.ps1 -Mode flash  # write external flash (persistent)
 #   .\code\scripts\program_electronic_piano.ps1 -ScanOnly    # just check the cable/chain
 #
+#   # diagnostic UART-RX probe bitstream instead of the main design:
+#   .\code\scripts\program_electronic_piano.ps1 -Bitstream code\build\probe\impl\pnr\uart_rx_probe.fs
+#
 # SRAM download is the default because it is reversible: power-cycling the board
 # restores whatever was in flash. Use -Mode flash only when you intend to keep
 # the design on the board across power cycles.
+#
+# -Bitstream takes a path relative to the repository root (or an absolute path).
 
 [CmdletBinding()]
 param(
@@ -18,6 +23,9 @@ param(
     [string]$Mode = 'sram',
 
     [switch]$ScanOnly,
+
+    # Repository-relative path of the .fs file to download.
+    [string]$Bitstream = 'code\build\impl\pnr\electronic_piano.fs',
 
     # Override if the Programmer is installed somewhere else.
     [string]$ProgrammerRoot = 'D:\Gowin\Programmer_V1.9.12.02'
@@ -36,7 +44,11 @@ if (-not (Test-Path -LiteralPath $cli)) {
 }
 $cliDir = Split-Path -Parent $cli
 
-$bitstream = Join-Path $repoRoot 'code\build\impl\pnr\electronic_piano.fs'
+if ([IO.Path]::IsPathRooted($Bitstream)) {
+    $bitstream = $Bitstream
+} else {
+    $bitstream = Join-Path $repoRoot $Bitstream
+}
 if (-not $ScanOnly -and -not (Test-Path -LiteralPath $bitstream)) {
     throw "Bitstream not found: $bitstream`nRun: .\code\scripts\build_electronic_piano.ps1 -Flow pnr"
 }
@@ -100,7 +112,13 @@ try {
             Write-Host 'SRAM is volatile: the design runs until the board loses power.'
         }
         Write-Host ''
-        Write-Host 'Expected on-board result: a steady 440 Hz sine tone on the speaker.'
+        if ($bitstream -match 'uart_rx_probe') {
+            Write-Host 'Expected on-board result: a UART report every 250 ms on'
+            Write-Host 'the board USB-UART port at 115200 8N1, starting with'
+            Write-Host 'UART-RX-PROBE A=V14 B=Y14. The speaker stays silent.'
+        } else {
+            Write-Host 'Expected on-board result: a steady 440 Hz sine tone on the speaker.'
+        }
     }
     exit $code
 } finally {
