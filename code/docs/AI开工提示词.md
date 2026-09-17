@@ -96,6 +96,7 @@
 - 让上位机、树莓派或电脑替代 FPGA 完成核心合成通路。
 - 在开工时就把 `V00xx`／`D0xx`／`T0xx` 编号写死。编号只在推送前最后一步、
   `git fetch` 之后从编号表末尾取（D026）。
-- 未经群里说明就改动八处共享文件（接口组：`electronic_piano_top.sv`、
-  `audio_defs_pkg.sv`、`electronic_piano.cst`、`模块接口规范.md`；编号表组：
-  `验证记录.md`、`技术决策记录.md`、`任务看板.md`、`当前状态.md`）。
+- 未经群里说明就改动**接口组**的四个共享文件（`electronic_piano_top.sv`、
+  `audio_defs_pkg.sv`、`electronic_piano.cst`、`模块接口规范.md`）。
+  （**编号表组**的 `验证记录.md`／`技术决策记录.md`／`任务看板.md`／`当前状态.md`
+  不需要提前说明，但编号必须按上一条在推送前最后一步取，D027。）

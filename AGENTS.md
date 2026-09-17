@@ -116,5 +116,5 @@ python .\脚本\build_gaoyun_topic2_report.py
 - 公共接口、时钟、复位、数据位宽、采样率、顶层端口和引脚分配属于受控内容，修改前必须按 `code/docs/变更与决策流程.md` 提交变更说明。
 - **复核统一归 M2**（D025，2026-09-16）：M1、M3 推送后由 M2 复核该次推送，M2 自己主责的改动标记「自审」。复核通过不强制留痕，只有发现问题时才补一行验证记录。主负责人不等于可以绕过接口规范或测试验收。
 - 不允许三个人分别维护互不兼容的顶层工程。**稳定版本进入 `main`，集成版本进入 `develop`；不再使用功能分支**——三人一律直接推 `develop`，`main` 只在阶段同步点由 M2 从 `develop` 合并并打标签。推送前必须运行 `.\code\scripts\check_repo.ps1` 且全 PASS，禁止 `git push --force`。
-- AI 只能修改任务单授权的目录；发现必须跨模块修改时，先停止并列出影响，不得自行扩大写入范围。**八处共享文件**改动前先在群里说明——接口组：`code/rtl/board/electronic_piano_top.sv`、`code/rtl/common/audio_defs_pkg.sv`、`code/constraints/electronic_piano.cst`、`code/docs/模块接口规范.md`；编号表组：`code/docs/验证记录.md`、`code/docs/技术决策记录.md`、`code/docs/任务看板.md`、`code/docs/当前状态.md`。**编号（`V00xx`／`D0xx`／`T0xx`）只在推送前最后一步 `git fetch` 之后取，开工时不写编号，功能提交里不带编号**（D026）。
+- AI 只能修改任务单授权的目录；发现必须跨模块修改时，先停止并列出影响，不得自行扩大写入范围。**八处共享文件分两组，保护手段不同**（D026 + D027）——**接口组**（`code/rtl/board/electronic_piano_top.sv`、`code/rtl/common/audio_defs_pkg.sv`、`code/constraints/electronic_piano.cst`、`code/docs/模块接口规范.md`）改动前**必须在群里说明**；**编号表组**（`code/docs/验证记录.md`、`code/docs/技术决策记录.md`、`code/docs/任务看板.md`、`code/docs/当前状态.md`）**不需要提前说明**，只受下面的取号规则约束。**编号（`V00xx`／`D0xx`／`T0xx`）只在推送前最后一步 `git fetch` 之后取，开工时不写编号，功能提交里不带编号**（D026）。
 - 任务完成后必须更新 `code/docs/当前状态.md` 和 `code/docs/任务看板.md`，并说明实际执行到静态检查、仿真、综合、时序或上板中的哪一级。
