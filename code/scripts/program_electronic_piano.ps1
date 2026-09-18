@@ -11,6 +11,9 @@
 #   # diagnostic UART-RX probe bitstream instead of the main design:
 #   .\code\scripts\program_electronic_piano.ps1 -Bitstream code\build\probe\impl\pnr\uart_rx_probe.fs
 #
+#   # diagnostic UART RX echo bitstream (external CH340 drives PMOD0 R17):
+#   .\code\scripts\program_electronic_piano.ps1 -Bitstream code\build\echo_probe\impl\pnr\uart_echo_probe.fs
+#
 # SRAM download is the default because it is reversible: power-cycling the board
 # restores whatever was in flash. Use -Mode flash only when you intend to keep
 # the design on the board across power cycles.
@@ -112,7 +115,15 @@ try {
             Write-Host 'SRAM is volatile: the design runs until the board loses power.'
         }
         Write-Host ''
-        if ($bitstream -match 'uart_rx_probe') {
+        if ($bitstream -match 'uart_echo_probe') {
+            Write-Host 'Expected on-board result: the report line ECHO-PROBE RX=R17'
+            Write-Host 'ECHO115200=R18 ECHO31250=T18 every 250 ms on the board'
+            Write-Host 'USB-UART port (COM13) at 115200 8N1, and byte-for-byte'
+            Write-Host 'echo of whatever is driven into PMOD0 (J9) pin 8 (R17).'
+            Write-Host 'Pins, wiring and read-out rules: see the header of'
+            Write-Host 'code\constraints\uart_echo_probe.cst.'
+            Write-Host 'The speaker stays silent (pa_en is held high).'
+        } elseif ($bitstream -match 'uart_rx_probe') {
             Write-Host 'Expected on-board result: a UART report every 250 ms on'
             Write-Host 'the board USB-UART port at 115200 8N1, starting with'
             Write-Host 'UART-RX-PROBE A=V14 B=Y14. The speaker stays silent.'
