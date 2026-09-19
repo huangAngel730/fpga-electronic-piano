@@ -92,8 +92,8 @@ class TestFrozenConstants(unittest.TestCase):
         self.assertEqual(WT_SAMPLE_BITS, 16)
         self.assertEqual(WT_ADDR_BITS, 10)
         self.assertEqual(WT_LENGTH, 1024)
-        self.assertEqual(WT_AMPLITUDE, 32_767)
-        self.assertEqual(PCM_FULL_SCALE_FROM_WT, 8_388_352)
+        self.assertEqual(WT_AMPLITUDE, 8192)
+        self.assertEqual(PCM_FULL_SCALE_FROM_WT, 2_097_152)
 
 
 class TestFixedPointPrimitives(unittest.TestCase):
@@ -345,7 +345,7 @@ class TestPcmConversion(unittest.TestCase):
                 self.assertFalse(clipped)
 
     def test_full_scale_stays_in_range(self):
-        pcm, clipped = wt16_to_pcm24(WT_SAMPLE_MAX)
+        pcm, clipped = wt16_to_pcm24(8192)  # WT_AMPLITUDE
         self.assertEqual(pcm, PCM_FULL_SCALE_FROM_WT)
         self.assertFalse(clipped)
         self.assertLessEqual(pcm, PCM_MAX)
@@ -373,15 +373,17 @@ class TestPcmConversion(unittest.TestCase):
 
         必须饱和限幅并计数，绝不允许回绕。回绕在音频上表现为剧烈爆音，
         是这条链路最危险的失效模式。
+
+        注意：WT_AMPLITUDE=8192时，2倍增益不会超出24位范围，改用4倍测试
         """
         result = render_pcm24(
-            "sine", 440.0, 2048, gain_q15=GAIN_Q15_ONE * 2
+            "sine", 440.0, 2048, gain_q15=GAIN_Q15_ONE * 4
         )
         self.assertGreater(result.clip_count, 0)
         self.assertLessEqual(max(result.pcm), PCM_MAX)
         self.assertGreaterEqual(min(result.pcm), PCM_MIN)
         _report(
-            "增益 2.0 满幅正弦削波",
+            "增益 4.0 满幅正弦削波",
             f"2048 个样本中削波 {result.clip_count} 个，"
             f"输出范围 [{min(result.pcm)}, {max(result.pcm)}]，无回绕",
         )

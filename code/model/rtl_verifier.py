@@ -13,17 +13,56 @@ from audio_defs import PCM_BITS
 
 
 def load_hex_file(file_path: Path) -> List[int]:
-    """加载hex文件，转为有符号整数列表"""
+    """加载hex文件，转为有符号整数列表
+
+    支持格式：
+    1. 纯hex（6位）：000000 到 FFFFFF
+    2. 带0x前缀：0x000000
+    3. 注释行以#开头，空行忽略
+
+    Returns:
+        有符号24位PCM样本列表
+
+    Raises:
+        ValueError: 文件格式错误
+        FileNotFoundError: 文件不存在
+    """
+    if not file_path.exists():
+        raise FileNotFoundError(f"文件不存在: {file_path}")
+
     samples = []
+    line_num = 0
+
     for line in file_path.read_text(encoding='utf-8').splitlines():
+        line_num += 1
         line = line.strip()
+
+        # 跳过空行和注释
         if not line or line.startswith('#'):
             continue
-        # 24位hex转有符号
-        val = int(line, 16)
+
+        # 移除0x前缀
+        if line.startswith('0x') or line.startswith('0X'):
+            line = line[2:]
+
+        # 验证hex格式
+        if len(line) != 6:
+            raise ValueError(f"行{line_num}: hex长度必须为6位，实际{len(line)}位: {line}")
+
+        try:
+            val = int(line, 16)
+        except ValueError:
+            raise ValueError(f"行{line_num}: 非法hex字符: {line}")
+
+        # 24位有符号转换
         if val >= (1 << (PCM_BITS - 1)):
             val -= (1 << PCM_BITS)
+
         samples.append(val)
+
+    if not samples:
+        raise ValueError(f"文件为空或无有效数据: {file_path}")
+
     return samples
 
 
@@ -82,7 +121,15 @@ def verify_mixer_rtl(rtl_output_dir: Path, reference_dir: Path,
     Args:
         rtl_output_dir: RTL输出目录（包含mixer_rtl_outputs.txt）
         reference_dir: Python参考目录（包含mixer_outputs.txt）
-        tolerance: 容差
+        tolerance: 容差（LSB数）
+
+    Returns:
+        True: 验证通过
+        False: 验证失败
+
+    Raises:
+        FileNotFoundError: 文件不存在
+        ValueError: 文件格式错误
     """
     print("=" * 70)
     print("混音器RTL验证")
@@ -92,21 +139,16 @@ def verify_mixer_rtl(rtl_output_dir: Path, reference_dir: Path,
     ref_file = reference_dir / "mixer_outputs.txt"
     rtl_file = rtl_output_dir / "mixer_rtl_outputs.txt"
 
-    if not ref_file.exists():
-        print(f"[错误] 参考文件不存在: {ref_file}")
-        return False
-
-    if not rtl_file.exists():
-        print(f"[错误] RTL输出文件不存在: {rtl_file}")
-        return False
-
     print(f"参考文件: {ref_file}")
     print(f"RTL文件: {rtl_file}")
     print()
 
-    # 加载数据
-    reference = load_hex_file(ref_file)
-    rtl_output = load_hex_file(rtl_file)
+    try:
+        reference = load_hex_file(ref_file)
+        rtl_output = load_hex_file(rtl_file)
+    except (FileNotFoundError, ValueError) as e:
+        print(f"[错误] {e}")
+        return False
 
     print(f"参考样本数: {len(reference)}")
     print(f"RTL样本数: {len(rtl_output)}")
@@ -119,12 +161,12 @@ def verify_mixer_rtl(rtl_output_dir: Path, reference_dir: Path,
     print("=" * 70)
     print("验证结果")
     print("=" * 70)
-    print(f"总样本数: {stats['total_samples']}")
-    print(f"失配数: {stats['mismatches']}")
-    print(f"通过率: {stats['pass_rate']:.2f}%")
-    print(f"最大误差: {stats['max_error']} LSB")
+    print(f"总样本数: {stats.get('total_samples', 0)}")
+    print(f"失配数: {stats.get('mismatches', 0)}")
+    print(f"通过率: {stats.get('pass_rate', 0):.2f}%")
+    print(f"最大误差: {stats.get('max_error', 0)} LSB")
 
-    if not passed:
+    if not passed and 'first_mismatch' in stats and stats['first_mismatch']:
         print()
         print("首个失配:")
         m = stats['first_mismatch']
@@ -173,14 +215,24 @@ if __name__ == "__main__":
     ref_dir = SCRIPT_DIR / "generated" / "mixer"
     rtl_dir = Path("rtl_outputs")  # RTL输出目录（需M2提供）
 
-    if rtl_dir.exists():
-        verify_mixer_rtl(rtl_dir, ref_dir, tolerance=0)
-    else:
+    print("RTL验证工具")
+    print()
+
+    if not rtl_dir.exists():
         print(f"RTL输出目录不存在: {rtl_dir}")
         print("此工具需要M2提供RTL仿真输出后使用")
         print()
         print("使用方法:")
-        print("  python rtl_verifier.py")
+        print("  1. M2将RTL输出保存为: rtl_outputs/mixer_rtl_outputs.txt")
+        print("  2. 运行: python rtl_verifier.py")
         print()
-        print("期望的RTL输出文件:")
-        print("  rtl_outputs/mixer_rtl_outputs.txt")
+        print("hex文件格式要求:")
+        print("  - 每行6位hex（000000-FFFFFF）")
+        print("  - 可选0x前缀")
+        print("  - #开头为注释行")
+        print("  - 空行忽略")
+    else:
+        try:
+            verify_mixer_rtl(rtl_dir, ref_dir, tolerance=0)
+        except Exception as e:
+            print(f"[错误] 验证失败: {e}")

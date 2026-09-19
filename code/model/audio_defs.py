@@ -50,8 +50,9 @@ WT_SAMPLE_BITS = 16
 WT_SAMPLE_MAX = (1 << (WT_SAMPLE_BITS - 1)) - 1  # 32767
 WT_SAMPLE_MIN = -(1 << (WT_SAMPLE_BITS - 1))  # -32768
 
-#: 波表满幅取 +32767 而不是 32768，使正负满幅对称，避免取反时溢出。
-WT_AMPLITUDE = WT_SAMPLE_MAX
+#: 波表满幅（冻结为8192，与RTL一致）
+#: 单声部1/4满幅，4声部合成到满幅，留-12.04dB余量
+WT_AMPLITUDE = 8192
 
 #: 波表地址位宽，1024 点单周期表。
 WT_ADDR_BITS = 10

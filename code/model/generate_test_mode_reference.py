@@ -22,11 +22,11 @@ if str(SCRIPT_DIR) not in sys.path:
 
 from audio_defs import SAMPLE_RATE_HZ, PCM_BITS, PCM_MAX, PCM_MIN
 from dds_model import freq_to_fcw, fcw_to_freq, WavetableOscillator, make_wavetable, render_pcm24
+from mixer import mix_voices
 
 # 测试模式参数
 TEST_FREQUENCIES = [200, 400, 600, 800]  # Hz，4复音示例
 DURATION_SECONDS = 2.0  # 生成2秒音频
-AMPLITUDE_PER_VOICE = 0.25  # 每路幅度，4路混音后总幅度=1.0
 
 
 def calculate_test_fcws():
@@ -73,10 +73,9 @@ def generate_mixed_pcm(fcw_results, duration_sec):
 
     num_samples = int(SAMPLE_RATE_HZ * duration_sec)
     print(f"样本数: {num_samples} ({duration_sec} 秒)")
-    print(f"每路幅度: {AMPLITUDE_PER_VOICE:.2f} (混音后 {AMPLITUDE_PER_VOICE * len(fcw_results):.2f})")
     print()
 
-    # 创建振荡器（使用正弦波表）
+    # 创建振荡器（使用8192幅度波表）
     sine_table = make_wavetable('sine', 1024, 8192)
     oscillators = []
     for result in fcw_results:
@@ -86,14 +85,10 @@ def generate_mixed_pcm(fcw_results, duration_sec):
     # 生成混音样本
     mixed_samples = []
     for _ in range(num_samples):
-        sample_sum = 0
-        for osc in oscillators:
-            sample = osc.step()
-            sample_sum += sample
-
-        # 缩放并限幅
-        mixed = int(sample_sum * AMPLITUDE_PER_VOICE)
-        mixed = max(PCM_MIN, min(PCM_MAX, mixed))
+        # 4路DDS输出（16位波表样本）
+        voices = [osc.step() << 8 for osc in oscillators]
+        # 使用混音器（26位累加+饱和限幅）
+        mixed, clipped = mix_voices(voices)
         mixed_samples.append(mixed)
 
     # 统计

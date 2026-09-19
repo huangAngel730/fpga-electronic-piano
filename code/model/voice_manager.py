@@ -18,10 +18,11 @@ class VoiceAllocator:
         """分配声部给新音符，返回声部索引"""
         self.time += 1
 
-        # 1. 同音重复：先释放旧的
+        # 1. 同音重复：原槽重触发（不换槽）
         for i, v in enumerate(self.voices):
             if v == note_number:
-                self.voices[i] = None
+                self.timestamps[i] = self.time
+                return i
 
         # 2. 查找空闲声部
         for i, v in enumerate(self.voices):
