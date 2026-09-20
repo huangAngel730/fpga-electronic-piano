@@ -77,7 +77,15 @@ $tests = @(
 )
 
 $failed = @()
-$stageRoot = Join-Path $env:TEMP "uart_rx_probe_sim"
+# Unique staging directory per run (GUID suffix).
+#
+# A FIXED name ($env:TEMP\uart_rx_probe_sim) was used until 2026-09-18. Two runs
+# started at the same time (another developer, another AI agent on the same
+# host, or a manual run overlapping the push gate) deleted and recreated the
+# directory the first run was compiling in; observed as "Compile failed, no
+# simulation artifact produced" and a false FAIL on identical sources. Same fix
+# as run_t007_sim.ps1 and run_uart_echo_probe_sim.ps1.
+$stageRoot = Join-Path $env:TEMP ("uart_rx_probe_sim_" + [guid]::NewGuid().ToString("N"))
 New-Item -ItemType Directory -Force -Path $stageRoot | Out-Null
 
 foreach ($test in $tests) {
