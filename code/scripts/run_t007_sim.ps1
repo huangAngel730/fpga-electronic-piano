@@ -126,10 +126,21 @@ $tests = @(
 )
 
 $failed = @()
-$stageRoot = Join-Path $env:TEMP "t007_sim"
-if (Test-Path -LiteralPath $stageRoot) {
-    Remove-Item -LiteralPath $stageRoot -Recurse -Force -ErrorAction SilentlyContinue
-}
+# Unique staging directory per run.
+#
+# A FIXED name ($env:TEMP\t007_sim) was used until 2026-09-18. Because this
+# script is called by check_repo.ps1, any second run started while the first
+# was still compiling (another developer, another AI agent on the same host, or
+# a manual run overlapping the gate) deleted and recreated the directory the
+# first run was compiling in. Observed symptoms, both on identical sources:
+#   - "The process cannot access the file because it is being used by another
+#      process" while writing the driver .bat, and
+#   - "Compile failed, no simulation artifact produced" because the .vvp of
+#      the first run had just been deleted by the second run's cleanup.
+# Both made the push gate report a false FAIL. A GUID suffix removes the shared
+# state; the same idiom is already used by run_midi_input_sim.ps1,
+# run_t022_sim.ps1 and run_t026_tests.ps1.
+$stageRoot = Join-Path $env:TEMP ("t007_sim_" + [guid]::NewGuid().ToString("N"))
 New-Item -ItemType Directory -Force -Path $stageRoot | Out-Null
 
 foreach ($test in $tests) {
