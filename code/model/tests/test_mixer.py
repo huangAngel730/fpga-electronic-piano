@@ -34,33 +34,42 @@ class TestMixerBoundary(unittest.TestCase):
         self.assertEqual(out, 0)
         self.assertFalse(clipped)
 
-    def test_single_voice_full_scale(self):
-        """单声部满幅不应削波"""
-        # 波表定标后的满幅值
-        full_scale = 32767 << 8  # 8388352
-        out, clipped = mix_voices([full_scale])
-        self.assertEqual(out, full_scale)
+    def test_d028_single_voice_no_clip(self):
+        """D028冻结工作点：单声部峰值2097152不削波"""
+        peak = 2097152  # 8192 << 8
+        out, clipped = mix_voices([peak])
+        self.assertEqual(out, peak)
         self.assertFalse(clipped)
 
-    def test_two_voices_full_scale_clips(self):
-        """双声部满幅应削波"""
-        full_scale = 32767 << 8
-        out, clipped = mix_voices([full_scale, full_scale])
-        self.assertEqual(out, PCM_MAX)
+    def test_d028_four_voices_positive_clip(self):
+        """D028临界：4声部正峰值2097152刚好削波到8388607"""
+        peak = 2097152
+        out, clipped = mix_voices([peak] * 4)
+        self.assertEqual(out, 8388607)  # PCM_MAX
         self.assertTrue(clipped)
 
-    def test_four_voices_positive_full_scale(self):
-        """4声部正满幅应削波到PCM_MAX"""
-        full_scale = 32767 << 8
-        out, clipped = mix_voices([full_scale] * 4)
-        self.assertEqual(out, PCM_MAX)
+    def test_d028_four_voices_negative_clip(self):
+        """D028临界：4声部负峰值超过PCM_MIN应削波"""
+        # -2097152 * 4 = -8388608 刚好等于PCM_MIN，不削波
+        # 测试略微超过的情况
+        peak = -2097153
+        out, clipped = mix_voices([peak] * 4)
+        self.assertEqual(out, -8388608)  # PCM_MIN
         self.assertTrue(clipped)
 
-    def test_four_voices_negative_full_scale(self):
-        """4声部负满幅应削波到PCM_MIN"""
-        full_scale = -(32767 << 8)
-        out, clipped = mix_voices([full_scale] * 4)
-        self.assertEqual(out, PCM_MIN)
+    def test_d028_just_below_clip(self):
+        """D028边界：4声部总和8388607不削波"""
+        # 分配：2097151 * 4 = 8388604 < 8388607
+        out, clipped = mix_voices([2097151] * 4)
+        self.assertEqual(out, 8388604)
+        self.assertFalse(clipped)
+
+    def test_d028_one_lsb_over_clip(self):
+        """D028边界：超过1 LSB应削波"""
+        # 4声部总和8388608应削波到8388607
+        # 单声部2097152 * 4 = 8388608
+        out, clipped = mix_voices([2097152] * 4)
+        self.assertEqual(out, 8388607)
         self.assertTrue(clipped)
 
     def test_opposite_signs_cancel(self):
@@ -279,9 +288,9 @@ class TestMixerUtilities(unittest.TestCase):
 
     def test_estimate_headroom(self):
         """余量估算合理性"""
-        # 4声部满幅相加会溢出4倍，对应-12dB
+        # D028冻结工作点：4声部峰值2097152相加刚好到8388608，余量约0dB
         headroom = estimate_headroom_db(4)
-        self.assertAlmostEqual(headroom, -12.04, places=1)
+        self.assertAlmostEqual(headroom, 0.0, places=1)
 
 
 # --------------------------------------------------------------------------
@@ -320,9 +329,9 @@ def generate_test_vectors(output_dir: Path, num_vectors: int = 1000):
         clipped_lines.append("1" if clipped else "0")
 
     # 写入文件
-    (output_dir / "mixer_inputs.txt").write_text("\n".join(input_lines) + "\n", encoding="utf-8")
-    (output_dir / "mixer_outputs.txt").write_text("\n".join(output_lines) + "\n", encoding="utf-8")
-    (output_dir / "mixer_clipped.txt").write_text("\n".join(clipped_lines) + "\n", encoding="utf-8")
+    (output_dir / "mixer_inputs.txt").write_text("\n".join(input_lines) + "\n", encoding="utf-8", newline='\n')
+    (output_dir / "mixer_outputs.txt").write_text("\n".join(output_lines) + "\n", encoding="utf-8", newline='\n')
+    (output_dir / "mixer_clipped.txt").write_text("\n".join(clipped_lines) + "\n", encoding="utf-8", newline='\n')
 
     print(f"已生成{num_vectors}个测试向量到 {output_dir}")
     print(f"  - mixer_inputs.txt: 4声部输入")
