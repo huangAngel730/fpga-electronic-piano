@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import math
 import sys
 import time
 from dataclasses import asdict, dataclass
@@ -239,23 +240,31 @@ def serial_status_lines(
                 yield raw_line.decode("ascii", errors="replace")
 
 
-def list_serial_ports(output_stream: TextIO = sys.stdout) -> int:
+def discover_serial_ports() -> list[tuple[str, str]]:
+    """供命令行和 GUI 共用的串口枚举入口。"""
+
+    _load_pyserial()
+    from serial.tools import list_ports  # type: ignore[import-not-found]
+
+    return [(port.device, port.description) for port in list_ports.comports()]
+
+
+def list_serial_ports(output_stream: TextIO | None = None) -> int:
     """列出pyserial能够发现的串口。"""
 
+    if output_stream is None:
+        output_stream = sys.stdout
     try:
-        _load_pyserial()
-        from serial.tools import list_ports  # type: ignore[import-not-found]
-    except RuntimeError as exc:
+        ports = discover_serial_ports()
+    except (ImportError, OSError, RuntimeError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 2
-
-    ports = list(list_ports.comports())
     if not ports:
         print("No serial ports found.", file=output_stream)
         return 0
 
-    for port in ports:
-        print(f"{port.device}: {port.description}", file=output_stream)
+    for device, description in ports:
+        print(f"{device}: {description}", file=output_stream)
     return 0
 
 
@@ -264,11 +273,15 @@ def consume_status_lines(
     *,
     max_valid_lines: int = 0,
     logger: CsvStatusLogger | None = None,
-    output_stream: TextIO = sys.stdout,
-    error_stream: TextIO = sys.stderr,
+    output_stream: TextIO | None = None,
+    error_stream: TextIO | None = None,
 ) -> MonitorStats:
     """解析并显示输入流；错误行被报告但不会让长期监视立即退出。"""
 
+    if output_stream is None:
+        output_stream = sys.stdout
+    if error_stream is None:
+        error_stream = sys.stderr
     stats = MonitorStats()
     for line in lines:
         stats.input_line_count += 1
@@ -306,8 +319,8 @@ def _nonnegative_int(value: str) -> int:
 
 def _nonnegative_float(value: str) -> float:
     parsed = float(value)
-    if parsed < 0:
-        raise argparse.ArgumentTypeError("value must not be negative")
+    if not math.isfinite(parsed) or parsed < 0:
+        raise argparse.ArgumentTypeError("value must be finite and nonnegative")
     return parsed
 
 
@@ -330,6 +343,26 @@ def _stop_bits(value: str) -> float:
     if parsed not in (1.0, 1.5, 2.0):
         raise argparse.ArgumentTypeError("stopbits must be 1, 1.5, or 2")
     return parsed
+
+
+def validate_serial_settings(
+    port: str, baud: str, bytesize: str, parity: str, stopbits: str
+) -> tuple[str, int, int, str, float]:
+    """使用与 CLI 相同的规则检查 GUI 输入，不猜测硬件默认值。"""
+
+    selected_port = port.strip()
+    if not selected_port:
+        raise ValueError("serial port is required")
+    try:
+        return (
+            selected_port,
+            _positive_int(baud.strip()),
+            _byte_size(bytesize.strip()),
+            _parity(parity.strip()),
+            _stop_bits(stopbits.strip()),
+        )
+    except (argparse.ArgumentTypeError, ValueError) as exc:
+        raise ValueError(str(exc)) from exc
 
 
 def build_argument_parser() -> argparse.ArgumentParser:
