@@ -51,7 +51,8 @@ WT_SAMPLE_MAX = (1 << (WT_SAMPLE_BITS - 1)) - 1  # 32767
 WT_SAMPLE_MIN = -(1 << (WT_SAMPLE_BITS - 1))  # -32768
 
 #: 波表满幅（冻结为8192，与RTL一致）
-#: 单声部1/4满幅，4声部合成到满幅，留-12.04dB余量
+#: 单声部1/4满幅设计：WT_AMPLITUDE << WT_TO_PCM_SHIFT = 2097152
+#: 4声部满幅合成到8388608（刚好削波），留0dB余量
 WT_AMPLITUDE = 8192
 
 #: 波表地址位宽，1024 点单周期表。
@@ -66,7 +67,8 @@ PHASE_FRAC_MASK = (1 << PHASE_FRAC_BITS) - 1
 #: 16 位波表样本到 24 位 PCM 的定标：左移 8 位，等价于乘 256，无舍入误差。
 WT_TO_PCM_SHIFT = PCM_BITS - WT_SAMPLE_BITS  # 8
 
-#: 波表满幅经上述定标后的 PCM 值，32767 * 256 = 8388352，约 -0.0003 dBFS。
+#: 波表满幅经上述定标后的 PCM 值：8192 * 256 = 2097152（单声部峰值）
+#: D028冻结工作点，4声部合成峰值为8388608（刚好触发削波）
 PCM_FULL_SCALE_FROM_WT = WT_AMPLITUDE << WT_TO_PCM_SHIFT
 
 #: 增益定点格式 Q1.15，32768 表示 1.0。
