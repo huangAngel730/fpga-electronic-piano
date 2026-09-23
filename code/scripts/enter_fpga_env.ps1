@@ -1,7 +1,36 @@
 $ErrorActionPreference = "Stop"
 
-$gowinRoot = "D:\Gowin\Gowin_V1.9.11.03_Education\Gowin_V1.9.11.03_Education_x64"
-$programmerRoot = "D:\Gowin\Programmer_V1.9.12.02"
+function Find-InstalledToolRoot {
+    param(
+        [string[]]$Candidates,
+        [string]$RequiredRelativePath,
+        [string]$ToolName
+    )
+
+    foreach ($candidate in $Candidates) {
+        if ([string]::IsNullOrWhiteSpace($candidate)) {
+            continue
+        }
+        if (Test-Path -LiteralPath (Join-Path $candidate $RequiredRelativePath) -PathType Leaf) {
+            return (Resolve-Path -LiteralPath $candidate).Path
+        }
+    }
+    throw "$ToolName was not found. Set its installation root environment variable."
+}
+
+# Environment variables take priority; keep both existing and bundled layouts.
+$gowinRoot = Find-InstalledToolRoot -ToolName "Gowin IDE" `
+    -RequiredRelativePath "IDE\bin\GowinSynthesis.exe" -Candidates @(
+        $env:GOWIN_HOME,
+        "D:\Gowin\Gowin_V1.9.11.03_Education\Gowin_V1.9.11.03_Education_x64",
+        "D:\program\gaoyunFPGA\Gowin\Gowin_V1.9.11.03_Education_x64"
+    )
+$programmerRoot = Find-InstalledToolRoot -ToolName "Gowin Programmer" `
+    -RequiredRelativePath "bin\programmer.exe" -Candidates @(
+        $env:GOWIN_PROGRAMMER_HOME,
+        (Join-Path $gowinRoot "Programmer"),
+        "D:\Gowin\Programmer_V1.9.12.02"
+    )
 $ossCadRoot = "D:\Gowin\oss-cad-suite"
 
 $requiredDirectories = @(

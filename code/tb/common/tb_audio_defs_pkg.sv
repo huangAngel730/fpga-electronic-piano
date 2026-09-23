@@ -157,11 +157,19 @@ module tb_audio_defs_pkg;
 
         // I2S BCLK 参数：确认不能用整数分频
         check_int("I2S_BCLK_HZ", I2S_BCLK_HZ, 3_072_000);
-        check_int("BCLK 函数计算 step",
-                  phase_step_for(50_000_000, I2S_BCLK_HZ), 32'd263882791);
-        check_int("I2S_BCLK_PHASE_STEP 与函数一致",
+        // 【2026-09-18 修正】I2S_BCLK_PHASE_STEP 的语义是「翻转率」，不是
+        // 「周期率」：i2s_tx 中 bclk 每个 bclk_ce 翻转一次，一个完整 BCLK
+        // 周期要两次翻转，故 50 MHz 下必须按 2 x 3.072 MHz = 6.144 MHz 计算，
+        // 得 527765581。本行此前固化的是 263882791（按 3.072 MHz 算），
+        // 那个值实际给出 BCLK = 1.536 MHz、LRCLK = 12 kHz，是错的；
+        // 详见 audio_defs_pkg.sv 第 102-115 行与 i2s_tx.sv 第 129-145 行，
+        // 暴露过程见 验证记录.md V0029。旧期望值导致本 TB 长期 FAIL，
+        // 而 T019 不在推送门禁里，所以一直没被发现。
+        check_int("BCLK 翻转率函数计算 step",
+                  phase_step_for(50_000_000, 2 * I2S_BCLK_HZ), 32'd527765581);
+        check_int("I2S_BCLK_PHASE_STEP 与翻转率一致",
                   I2S_BCLK_PHASE_STEP,
-                  phase_step_for(50_000_000, I2S_BCLK_HZ));
+                  phase_step_for(50_000_000, 2 * I2S_BCLK_HZ));
         // 回归：tick_phase_step 包装必须仍等价于 48 kHz 目标
         check_int("tick_phase_step 包装与 phase_step_for 一致",
                   tick_phase_step(50_000_000),
@@ -174,11 +182,12 @@ module tb_audio_defs_pkg;
             longint unsigned bclk_target;
             longint unsigned bclk_ppm;
             bclk_actual = longint'(I2S_BCLK_PHASE_STEP) * BOARD_CLK_HZ;
-            bclk_target = (longint'(1) << TICK_ACC_BITS) * I2S_BCLK_HZ;
+            // 目标同样是「翻转率」= 2 x BCLK（见上面的修正说明）。
+            bclk_target = (longint'(1) << TICK_ACC_BITS) * 2 * I2S_BCLK_HZ;
             bclk_ppm = ((bclk_actual > bclk_target ? bclk_actual - bclk_target
                                                    : bclk_target - bclk_actual)
                         * 1_000_000) / bclk_target;
-            check_int("BCLK 误差(ppm) < 1", bclk_ppm < 1, 1);
+            check_int("BCLK 翻转率误差(ppm) < 1", bclk_ppm < 1, 1);
         end
 
         // 非整除频率：检查长期平均频率误差

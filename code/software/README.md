@@ -1,6 +1,6 @@
 # T026 UART 状态监视上位机雏形
 
-`uart_status_monitor.py` 是电子琴项目 T026 的 Python 上位机雏形。它负责接收、严格解析、显示并可选保存 FPGA 通过 UART 发出的状态文本。
+`uart_status_monitor.py` 是电子琴项目 T026 的 Python 上位机雏形。它负责接收、严格解析、显示并可选保存 FPGA 通过 UART 发出的状态文本。T025 尚未实现，当前 `STAT` 七字段格式只是待双方联调的候选格式，不代表真实协议已冻结。
 
 详细中文教程和示例见：[串口使用教程和示例](串口使用教程和示例.md)。
 
@@ -28,7 +28,7 @@
 也可以直接运行：
 
 ```powershell
-C:\Users\songdongkuan\miniconda3\python.exe -X utf8 .\code\software\uart_status_gui.py
+python -X utf8 .\code\software\uart_status_gui.py
 ```
 
 打开后可以直接点击“模拟模式”观察界面。连接开发板前，必须根据 T025 最终协议填写波特率、数据位、校验位和停止位；界面不会填入未经确认的默认硬件参数。
@@ -66,12 +66,12 @@ python -X utf8 uart_status_monitor.py --simulate --count 4 --interval 0 --log st
 
 ## 真实串口模式
 
-真实串口读取依赖可选包 `pyserial`：
+真实串口读取依赖 `pyserial`。在仓库根目录使用同一个 Python 安装并运行：
 
 ```powershell
-python -m pip install pyserial
-python -X utf8 uart_status_monitor.py --list-ports
-python -X utf8 uart_status_monitor.py --port COM5 --baud 115200 --bytesize 8 --parity N --stopbits 1 --log status.csv
+python -m pip install -r .\code\software\requirements.txt
+python -X utf8 .\code\software\uart_status_monitor.py --list-ports
+python -X utf8 .\code\software\uart_status_monitor.py --port COM5 --baud 115200 --bytesize 8 --parity N --stopbits 1 --log status.csv
 ```
 
 上面的 `COM5`、`115200` 和 `8N1` 只用于展示命令写法，不是本项目已经确认的硬件参数。现有资料尚未冻结 T025 的串口格式，因此真实模式要求显式填写串口、波特率、数据位、校验位和停止位，必须等 T025 明确协议后使用实际参数。
@@ -89,7 +89,9 @@ python -X utf8 uart_status_monitor.py --port COM5 --baud 115200 --bytesize 8 --p
 也可以显式指定 Python：
 
 ```powershell
-.\code\scripts\run_t026_tests.ps1 -PythonExe "C:\Users\songdongkuan\miniconda3\python.exe"
+.\code\scripts\run_t026_tests.ps1 -PythonExe "<本机 Python 可执行文件的完整路径>"
 ```
 
-脚本依次执行语法编译、单元测试和三条模拟状态的冒烟测试。为避免修改或清理工程文件，脚本会把本次新增的 Python 文件复制到一个新的系统临时目录中运行，且不会删除该临时目录。
+两个 PowerShell 脚本共用解释器发现逻辑：先使用显式 `-PythonExe`，否则依次尝试命令 `python`、`py` 和常见安装位置。脚本依次执行语法编译、单元测试和三条模拟状态的冒烟测试。为避免修改或清理工程文件，测试脚本把 T026 文件复制到新的系统临时目录中运行，且不会删除该临时目录。
+
+当前自动测试只验证软件逻辑（L1/L2）。真实 COM 口打开、断开恢复、FPGA 状态行和 CSV 日志仍需在有设备且 T025 完成后单独验收；不要把模拟或假串口测试当作上板通过。

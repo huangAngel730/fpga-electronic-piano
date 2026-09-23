@@ -89,7 +89,11 @@ $tests = @(
 )
 
 $failed = @()
-$stageRoot = Join-Path $env:TEMP "uart_echo_probe_sim"
+# Unique staging directory per run: a fixed name let a stale .vvp from an earlier
+# run satisfy the "did the compile produce an artifact" test, and let two
+# concurrent runs delete each other's sources (see run_t007_sim.ps1 for the
+# failure signatures this produced on 2026-09-18).
+$stageRoot = Join-Path $env:TEMP ("uart_echo_probe_sim_" + [guid]::NewGuid().ToString("N"))
 New-Item -ItemType Directory -Force -Path $stageRoot | Out-Null
 
 foreach ($test in $tests) {

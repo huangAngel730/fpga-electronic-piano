@@ -414,6 +414,38 @@ try {
     }
 
     # ---------------------------------------------------------------------
+    # 9b. T019 common-package simulation
+    #
+    # Runs tb_audio_defs_pkg, tb_reset_sync and tb_sample_tick_gen. Added
+    # 2026-09-18 after tb_audio_defs_pkg was found FAILING in the working tree:
+    # it still asserted the old I2S_BCLK_PHASE_STEP = 263882791 while
+    # audio_defs_pkg.sv had been corrected to 527765581 (the parameter is a
+    # toggle rate, i.e. 2 x BCLK). The stale expectation had been red for a
+    # while and nobody saw it, because only T007 ran inside this gate. The
+    # package carries the shared interface constants, so a silently rotting
+    # package testbench is a cross-team risk, not a private one.
+    # ---------------------------------------------------------------------
+    $t019Script = Join-Path $codeDir (Join-Path "scripts" "run_t019_sim.ps1")
+    if (Test-Path -LiteralPath $t019Script) {
+        $shellExe019 = (Get-Process -Id $PID).Path
+        $t019 = Invoke-Native -FilePath $shellExe019 -WorkingDirectory $repoRoot -Arguments @(
+            "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", $t019Script
+        )
+        $t019Passed = $t019.ExitCode -eq 0
+        $t019Detail = if ($t019Passed) {
+            "tb_audio_defs_pkg / tb_reset_sync / tb_sample_tick_gen PASS"
+        } else {
+            $tail019 = ($t019.Output -split "`r?`n" |
+                        Where-Object { $_ -match '\[FAIL\]|FAILED|Compile failed' } |
+                        Select-Object -First 6) -join " | "
+            "exit=$($t019.ExitCode) $tail019"
+        }
+        Add-CheckResult "T019 common-package simulation" $t019Passed $t019Detail
+    } else {
+        Add-CheckResult "T019 common-package simulation" $false "run_t019_sim.ps1 not found"
+    }
+
+    # ---------------------------------------------------------------------
     # 10. External reference digests stay annotated and intact
     #
     # docs/reference/ holds board documentation written by someone else.

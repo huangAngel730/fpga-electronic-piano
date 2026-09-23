@@ -10,21 +10,8 @@ $softwareDir = Join-Path $repoRoot "code\software"
 $programSource = Join-Path $softwareDir "uart_status_monitor.py"
 $guiSource = Join-Path $softwareDir "uart_status_gui.py"
 $testSource = Join-Path (Join-Path $softwareDir "tests") "test_uart_status_monitor.py"
-
-if ([string]::IsNullOrWhiteSpace($PythonExe)) {
-    $pythonCandidates = @(
-        (Join-Path $env:USERPROFILE "miniconda3\python.exe"),
-        (Join-Path $env:LOCALAPPDATA "Programs\Python\Python312\python.exe")
-    )
-    $PythonExe = $pythonCandidates |
-        Where-Object { Test-Path -LiteralPath $_ -PathType Leaf } |
-        Select-Object -First 1
-}
-
-if ([string]::IsNullOrWhiteSpace($PythonExe) -or
-    -not (Test-Path -LiteralPath $PythonExe -PathType Leaf)) {
-    throw "Python executable not found. Use -PythonExe with an absolute path."
-}
+. (Join-Path $PSScriptRoot "resolve_t026_python.ps1")
+$PythonExe = Resolve-T026Python -PythonExe $PythonExe
 
 if (-not (Test-Path -LiteralPath $programSource -PathType Leaf)) {
     throw "T026 program not found: $programSource"

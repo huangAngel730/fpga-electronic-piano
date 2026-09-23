@@ -16,9 +16,11 @@ from uart_status_monitor import (
     CsvStatusLogger,
     StatusParseError,
     StatusSnapshot,
+    discover_serial_ports,
     parse_status_line,
     serial_status_lines,
     simulate_status_lines,
+    validate_serial_settings,
 )
 
 
@@ -576,18 +578,18 @@ class StatusMonitorApp:
 
     def refresh_ports(self, show_message: bool = True) -> None:
         try:
-            from serial.tools import list_ports  # type: ignore[import-not-found]
-        except ImportError:
-            messagebox.showerror("缺少 pyserial", "请先安装：python -m pip install pyserial")
+            ports = discover_serial_ports()
+        except (ImportError, OSError, RuntimeError) as exc:
+            messagebox.showerror("串口扫描失败", f"{exc}\n可尝试：python -m pip install pyserial")
             return
 
         self.port_lookup.clear()
         displays: list[str] = []
-        for port in list_ports.comports():
-            description = port.description.strip()
-            display = port.device if not description else f"{port.device} · {description}"
+        for device, description_text in ports:
+            description = description_text.strip()
+            display = device if not description else f"{device} · {description}"
             displays.append(display)
-            self.port_lookup[display] = port.device
+            self.port_lookup[display] = device
 
         combo = self.port_combo.combo  # type: ignore[attr-defined]
         combo.configure(values=tuple(displays))
@@ -624,20 +626,21 @@ class StatusMonitorApp:
             return
 
         try:
-            baud_rate = int(required["波特率"])
-            byte_size = int(required["数据位"])
-            stop_bits = float(required["停止位"])
-        except ValueError:
-            messagebox.showerror("参数错误", "波特率、数据位和停止位必须是数字。")
-            return
-        if baud_rate <= 0:
-            messagebox.showerror("参数错误", "波特率必须大于 0。")
+            port, baud_rate, byte_size, parity, stop_bits = validate_serial_settings(
+                port,
+                required["波特率"],
+                required["数据位"],
+                required["校验位"],
+                required["停止位"],
+            )
+        except ValueError as exc:
+            messagebox.showerror("参数错误", str(exc))
             return
 
         self._prepare_worker(f"正在连接 {port}")
         self.worker = threading.Thread(
             target=self._serial_worker,
-            args=(port, baud_rate, byte_size, required["校验位"], stop_bits),
+            args=(port, baud_rate, byte_size, parity, stop_bits),
             daemon=True,
         )
         self.worker.start()
