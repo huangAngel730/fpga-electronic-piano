@@ -30,10 +30,15 @@ def load_hex_file(file_path: Path) -> List[int]:
     if not file_path.exists():
         raise FileNotFoundError(f"文件不存在: {file_path}")
 
+    # 检测BOM
+    raw_bytes = file_path.read_bytes()
+    if raw_bytes.startswith(b'\xef\xbb\xbf'):
+        raise ValueError(f"文件包含UTF-8 BOM标记。请使用无BOM编码保存: {file_path}")
+
     samples = []
     line_num = 0
 
-    for line in file_path.read_text(encoding='utf-8').splitlines():
+    for line in raw_bytes.decode('utf-8').splitlines():
         line_num += 1
         line = line.strip()
 
