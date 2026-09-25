@@ -168,9 +168,6 @@ module electronic_piano_top #(
     // 参数计算
     // -------------------------------------------------------------------------
 
-    // 48 kHz 采样节拍步进。用包里已验证的常量，避免重复推导。
-    localparam logic [TICK_ACC_BITS-1:0] TICK_STEP = BOARD_TICK_PHASE_STEP;
-
     // 测试音相位步进。
     //
     // 【关键：分母是采样率 Fs，不是系统时钟】
@@ -268,16 +265,16 @@ module electronic_piano_top #(
     // -------------------------------------------------------------------------
     // 3. 48 kHz 采样节拍
     // -------------------------------------------------------------------------
-    logic sample_tick;
-
-    sample_tick_gen #(
-        .ACC_BITS   (TICK_ACC_BITS),
-        .PHASE_STEP (TICK_STEP)
-    ) u_sample_tick (
-        .clk         (sys_clk),
-        .rst_n       (rst_sync_n),
-        .sample_tick (sample_tick)
-    );
+    logic sample_tick, frame_sample_req, i2s_frame_tick;
+    logic [31:0] sample_req_id;
+    logic i2s_ready, pcm_valid_q, pcm_ready;
+    logic [31:0] produced_req_id;
+    logic signed [PCM_WIDTH-1:0] produced_left, produced_right;
+    logic signed [PCM_WIDTH-1:0] buffered_left, buffered_right;
+    logic pending_valid;
+    logic [31:0] audio_frame_count, pcm_request_count;
+    logic [31:0] pcm_commit_count, audio_underrun;
+    assign sample_tick = frame_sample_req;
 
     // -------------------------------------------------------------------------
     // 4. 测试音参数（相位累加与查表移入下方 generate 的固定音分支）
@@ -437,12 +434,44 @@ module electronic_piano_top #(
     // -------------------------------------------------------------------------
     // 7. I2S (LSBJ) 发送
     //
-    // BCLK 相位步进用包里已验证的常量：
-    //   I2S_BCLK_PHASE_STEP = 263882791，实际 BCLK = 3.072000004 MHz
-    // 有效数据在帧末尾（slot 63）采样，故 valid 恒为 1 即可，
-    // i2s_tx 每帧自动取用当前 PCM 值。
+    // BCLK 翻转步进为 527765581；完整帧完成时派生下一组 PCM 请求。
+    // The registered placeholder producer hands one sample to the pending
+    // buffer. The serializer takes only the previous committed sample.
     // -------------------------------------------------------------------------
-    logic i2s_ready;
+    // This early single-voice producer captures PCM once per frame request.
+    // The final M1 core will provide its own registered valid/data/req_id.
+    always_ff @(posedge sys_clk or negedge rst_sync_n) begin
+        if (!rst_sync_n) begin
+            produced_left <= '0;
+            produced_right <= '0;
+            produced_req_id <= '0;
+            pcm_valid_q <= 1'b0;
+        end else if (sample_tick) begin
+            produced_left <= pcm_left;
+            produced_right <= pcm_right;
+            produced_req_id <= sample_req_id;
+            pcm_valid_q <= 1'b1;
+        end else if (i2s_frame_tick || (pcm_valid_q && pcm_ready)) begin
+            // Cancel an expired result at the full-frame boundary.
+            pcm_valid_q <= 1'b0;
+        end
+    end
+
+    pcm_frame_buffer #(.PCM_WIDTH(PCM_WIDTH)) u_pcm_frame_buffer (
+        .clk(sys_clk), .rst_n(rst_sync_n),
+        .frame_tick(i2s_frame_tick),
+        .calc_ready(!pcm_valid_q || i2s_frame_tick),
+        .sample_req(frame_sample_req), .sample_req_id(sample_req_id),
+        .pcm_valid(pcm_valid_q), .pcm_ready(pcm_ready),
+        .pcm_req_id(produced_req_id),
+        .pcm_left(produced_left), .pcm_right(produced_right),
+        .play_left(buffered_left), .play_right(buffered_right),
+        .pending_valid(pending_valid),
+        .audio_frame_count(audio_frame_count),
+        .pcm_request_count(pcm_request_count),
+        .pcm_commit_count(pcm_commit_count),
+        .audio_underrun(audio_underrun)
+    );
 
     i2s_tx #(
         .ACC_BITS         (TICK_ACC_BITS),
@@ -453,12 +482,13 @@ module electronic_piano_top #(
         .clk       (sys_clk),
         .rst_n     (rst_sync_n),
         .valid     (1'b1),
-        .pcm_left  (pcm_left),
-        .pcm_right (pcm_right),
+        .pcm_left  (buffered_left),
+        .pcm_right (buffered_right),
         .bclk      (i2s_bclk),
         .lrck      (i2s_lrck),
         .din       (i2s_din),
-        .ready     (i2s_ready)
+        .ready     (i2s_ready),
+        .frame_tick(i2s_frame_tick)
     );
 
     // -------------------------------------------------------------------------

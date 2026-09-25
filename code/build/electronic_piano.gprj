@@ -40,7 +40,6 @@
         <!-- 公共模块与定义包 -->
         <File path="../rtl/common/audio_defs_pkg.sv" type="file.verilog" enable="1"/>
         <File path="../rtl/common/reset_sync.sv" type="file.verilog" enable="1"/>
-        <File path="../rtl/common/sample_tick_gen.sv" type="file.verilog" enable="1"/>
         <!-- T021 按键去抖（M3 实现，方案 A 于 2026-09-15 替换 M2 的占位版）
              2026-09-15 布局迁移：rtl/input/ 改为每模块一子目录 -->
         <File path="../rtl/input/button_debouncer/button_debouncer.sv" type="file.verilog" enable="1"/>
@@ -50,8 +49,9 @@
         <File path="../rtl/input/button_event_converter/button_event_converter.sv" type="file.verilog" enable="1"/>
         <File path="../rtl/common/note_pitch.sv" type="file.verilog" enable="1"/>
         <File path="../rtl/common/simple_voice.sv" type="file.verilog" enable="1"/>
-        <!-- I2S LSBJ 发送器 -->
+        <!-- I2S LSBJ sender and one-frame PCM handoff -->
         <File path="../rtl/audio_out/i2s_tx.sv" type="file.verilog" enable="1"/>
+        <File path="../rtl/audio_out/pcm_frame_buffer.sv" type="file.verilog" enable="1"/>
         <!-- 引脚约束（9 脚，见 electronic_piano.cst 头部说明） -->
         <File path="../constraints/electronic_piano.cst" type="file.cst" enable="1"/>
         <!-- 时序约束（50 MHz + I2S 虚拟时钟 + 输出延迟） -->

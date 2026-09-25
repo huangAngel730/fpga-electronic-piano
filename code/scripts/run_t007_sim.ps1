@@ -77,6 +77,7 @@ $tests = @(
                  "$segRtl\input\button_event_converter\button_event_converter.sv",
                  "$segRtl\common\simple_voice.sv",
                  "$segRtl\audio_out\i2s_tx.sv",
+                 "$segRtl\audio_out\pcm_frame_buffer.sv",
                  "$segRtl\board\electronic_piano_top.sv",
                  "$segTb\board\tb_electronic_piano_top.sv")
         # Included headers: staged into the same tree so relative `include works,
@@ -119,6 +120,7 @@ $tests = @(
                  "$segRtl\input\button_event_converter\button_event_converter.sv",
                  "$segRtl\common\simple_voice.sv",
                  "$segRtl\audio_out\i2s_tx.sv",
+                 "$segRtl\audio_out\pcm_frame_buffer.sv",
                  "$segRtl\board\electronic_piano_top.sv",
                  "$segTb\board\tb_key_to_tone.sv")
         Inc  = @("$segRtl\common\sine_table.svh")

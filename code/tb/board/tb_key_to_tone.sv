@@ -332,6 +332,7 @@ module tb_key_to_tone;
         // 松开
         release_key(0);
         repeat (200) @(posedge sys_clk);
+        repeat (4) @(negedge i2s_lrck); // buffered sample clears both channels
         measure_pitch(5000, freq, zeros, pk, dc, meas_ok);
         $display("    松开后 峰值 = %0d", pk);
         check("松开 key0 后回到静音", pk < 50);
@@ -352,6 +353,7 @@ module tb_key_to_tone;
 
         release_key(1);
         repeat (200) @(posedge sys_clk);
+        repeat (4) @(negedge i2s_lrck);
         measure_pitch(5000, freq, zeros, pk, dc, meas_ok);
         check("松开 key1 后回到静音", pk < 50);
 
@@ -381,6 +383,7 @@ module tb_key_to_tone;
         release_key(0);
         release_key(1);
         repeat (200) @(posedge sys_clk);
+        repeat (4) @(negedge i2s_lrck);
         measure_pitch(5000, freq, zeros, pk, dc, meas_ok);
         check("全部松开后静音", pk < 50);
 

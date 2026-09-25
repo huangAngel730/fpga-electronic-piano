@@ -49,6 +49,17 @@ $tests = @(
         Name = "tb_i2s_tx"
         Src  = @("$segRtl\audio_out\i2s_tx.sv",
                  "$segTb\audio_out\tb_i2s_tx.sv")
+    },
+    @{
+        Name = "tb_pcm_frame_buffer"
+        Src  = @("$segRtl\audio_out\pcm_frame_buffer.sv",
+                 "$segTb\audio_out\tb_pcm_frame_buffer.sv")
+    },
+    @{
+        Name = "tb_pcm_frame_link"
+        Src  = @("$segRtl\audio_out\i2s_tx.sv",
+                 "$segRtl\audio_out\pcm_frame_buffer.sv",
+                 "$segTb\audio_out\tb_pcm_frame_link.sv")
     }
 )
 
@@ -100,9 +111,12 @@ foreach ($test in $tests) {
 
     # Run
     $result = & $vvp $out 2>&1 | ForEach-Object { "$_" }
+    $vvpExitCode = $LASTEXITCODE
     $result | ForEach-Object { $_ }
 
-    if ($result -match "^FAIL") {
+    if (($vvpExitCode -ne 0) -or
+        (-not ($result -match '^PASS')) -or
+        ($result -match '^(FAIL|FATAL)')) {
         Write-Host "  >>> $name FAIL" -ForegroundColor Red
         $failed += $name
     } else {

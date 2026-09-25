@@ -96,7 +96,8 @@ module i2s_tx #(
     output logic                        bclk,       // PT8211 pin 1 (BCK)
     output logic                        lrck,       // PT8211 pin 2 (WS)，低=左
     output logic                        din,        // PT8211 pin 3 (DIN)
-    output logic                        ready       // 可接受新样点
+    output logic                        ready,      // legacy direct-input indicator
+    output logic                        frame_tick  // one pulse per full stereo frame
 );
 
     // PT8211 有效位宽与 24 位输入的位移量。
@@ -193,6 +194,7 @@ module i2s_tx #(
 
     // 帧起始：本拍是帧内最后一个槽位
     wire frame_start = slot_tick && (slot_cnt == BCLK_PER_FRAME-1);
+    assign frame_tick = frame_start;
 
     // =========================================================================
     // 3. 24 -> 16 位舍入与饱和
@@ -318,8 +320,8 @@ module i2s_tx #(
     // 5. 帧起始采样与 ready
     //
     // 在帧末尾（slot 63）采样 valid，使同一组样点在整帧内保持稳定。
-    // 当前实现每帧都接受新样点，上游按 48 kHz 节拍提供数据即可。
-    // 保留 ready 以便未来接入 FIFO 反压。
+    // T055 uses the frame buffer for real backpressure; this legacy ready
+    // port is not PCM ready. frame_tick marks a complete 64-BCLK frame.
     // =========================================================================
     always_ff @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
