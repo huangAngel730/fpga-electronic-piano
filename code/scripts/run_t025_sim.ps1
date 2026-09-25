@@ -22,7 +22,9 @@ try {
         'code\rtl\common\uart_tx.sv',
         'code\rtl\common\uart_rx.sv',
         'code\rtl\board\uart_status_reporter.sv',
-        'code\tb\board\tb_uart_status_reporter.sv'
+        'code\tb\board\tb_uart_status_reporter.sv',
+        'code\tb\board\tb_uart_status_baud.sv',
+        'code\tb\board\tb_uart_status_diag.sv'
     )
     $staged = @()
     for ($i = 0; $i -lt $sources.Count; $i++) {
@@ -35,14 +37,16 @@ try {
         $staged += $destination
     }
 
-    $output = Join-Path $stage 'tb_uart_status_reporter.vvp'
-    & $iverilog -g2012 -Wall -s tb_uart_status_reporter -o $output @staged
-    if ($LASTEXITCODE -ne 0) {
-        throw 'T025 compile failed'
-    }
-    & $vvp $output
-    if ($LASTEXITCODE -ne 0) {
-        throw 'T025 simulation failed'
+    foreach ($top in @('tb_uart_status_reporter', 'tb_uart_status_baud', 'tb_uart_status_diag')) {
+        $output = Join-Path $stage "$top.vvp"
+        & $iverilog -g2012 -Wall -s $top -o $output @staged
+        if ($LASTEXITCODE -ne 0) {
+            throw "T025 $top compile failed"
+        }
+        & $vvp $output
+        if ($LASTEXITCODE -ne 0) {
+            throw "T025 $top simulation failed"
+        }
     }
     Write-Host 'T025 UART status reporter: ALL PASS'
 }

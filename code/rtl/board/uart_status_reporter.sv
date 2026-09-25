@@ -5,7 +5,9 @@
 module uart_status_reporter #(
     parameter int unsigned CLK_HZ = 50_000_000,
     parameter int unsigned BAUD = 115_200,
-    parameter int unsigned REPORT_CYCLES = CLK_HZ / 4
+    parameter int unsigned REPORT_CYCLES = CLK_HZ / 4,
+    // Before the mixer exists, report a DIAG line and a nonnumeric clip field.
+    parameter bit CLIP_COUNT_VALID = 1'b1
 ) (
     input  logic        clk,
     input  logic        rst_n,  // synchronous, active low
@@ -19,7 +21,8 @@ module uart_status_reporter #(
     output logic        tx,
     output logic        report_busy
 );
-    localparam logic [8*26-1:0] LABEL0 = "STAT active_voice_count=0x";
+    localparam logic [8*26-1:0] LABEL0 = CLIP_COUNT_VALID ?
+        "STAT active_voice_count=0x" : "DIAG active_voice_count=0x";
     localparam logic [8*14-1:0] LABEL1 = " clip_count=0x";
     localparam logic [8*20-1:0] LABEL2 = " event_fifo_level=0x";
     localparam logic [8*29-1:0] LABEL3 = " event_fifo_high_watermark=0x";
@@ -67,8 +70,9 @@ module uart_status_reporter #(
         nibble = snapshot[field_index][4*(7-hex_index) +: 4];
         case (phase)
             2'd0: tx_data = label_char(field_index, char_index);
-            2'd1: tx_data = nibble < 4'd10 ? 8'h30 + {4'b0,nibble}
-                                           : 8'h37 + {4'b0,nibble};
+            2'd1: tx_data = (!CLIP_COUNT_VALID && field_index == 3'd1) ?
+                8'h2d : (nibble < 4'd10 ? 8'h30 + {4'b0,nibble}
+                                           : 8'h37 + {4'b0,nibble});
             2'd2: tx_data = 8'h0d;
             default: tx_data = 8'h0a;
         endcase

@@ -36,7 +36,16 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'T025 common FIFO compile failed' }
     & $vvp $output
     if ($LASTEXITCODE -ne 0) { throw 'T025 common FIFO simulation failed' }
-    Write-Host 'T025 UART status and common FIFO: ALL PASS'
+    $counterOut = Join-Path $stage 'tb_system_status_counters.vvp'
+    $counterRtl = Join-Path $stage 'status_counters.sv'
+    $counterTb = Join-Path $stage 'tb_system_status_counters.sv'
+    Copy-Item -LiteralPath (Join-Path $repoRoot 'code\rtl\common\system_status_counters.sv') -Destination $counterRtl
+    Copy-Item -LiteralPath (Join-Path $repoRoot 'code\tb\common\tb_system_status_counters.sv') -Destination $counterTb
+    & $iverilog -g2012 -Wall -s tb_system_status_counters -o $counterOut $counterRtl $counterTb
+    if ($LASTEXITCODE -ne 0) { throw 'T025 status counters compile failed' }
+    & $vvp $counterOut
+    if ($LASTEXITCODE -ne 0) { throw 'T025 status counters simulation failed' }
+    Write-Host 'T025 UART status and common FIFO and counters: ALL PASS'
 }
 finally {
     Remove-Item -LiteralPath $stage -Recurse -Force -ErrorAction SilentlyContinue

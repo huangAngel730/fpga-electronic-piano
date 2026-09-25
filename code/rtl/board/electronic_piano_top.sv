@@ -274,6 +274,7 @@ module electronic_piano_top #(
     logic pending_valid;
     logic [31:0] audio_frame_count, pcm_request_count;
     logic [31:0] pcm_commit_count, audio_underrun;
+    logic [31:0] status_event_overflow, status_max_processing_cycles;
     assign sample_tick = frame_sample_req;
 
     // -------------------------------------------------------------------------
@@ -504,6 +505,17 @@ module electronic_piano_top #(
         .audio_underrun(audio_underrun)
     );
 
+    // T025: request-to-commit peak and actual dropped events in sys_clk.
+    system_status_counters u_system_status_counters (
+        .clk(sys_clk), .rst_n(rst_sync_n),
+        .pcm_request(frame_sample_req),
+        .pcm_commit(pcm_valid_q && pcm_ready),
+        .button_overflow(ev_overflow_count),
+        .midi_overflow(midi_event_overflow),
+        .event_fifo_overflow(status_event_overflow),
+        .max_processing_cycles(status_max_processing_cycles)
+    );
+
     i2s_tx #(
         .ACC_BITS         (TICK_ACC_BITS),
         .BCLK_PHASE_STEP  (I2S_BCLK_PHASE_STEP),
@@ -523,15 +535,24 @@ module electronic_piano_top #(
     );
 
     // -------------------------------------------------------------------------
-    // 7. UART 调试输出（占位）
-    //
-    // 本最小工程还不发送任何数据，但 uart_tx 是已约束的引脚，
-    // 必须被驱动，否则综合会报"端口未驱动"并可能被优化掉。
-    //
-    // UART 空闲电平为高。这里恒驱 1，使上位机看到一条干净的静止线路，
-    // 而不是随机噪声。真正的状态输出属于后续任务（UART 状态通道）。
+    // 7. T025 stage diagnostic on U15. Six live fields can be observed.
+    // There is no mixer clip event yet. DIAG and clip_count=0x--------
+    // deliberately fail the strict seven-numeric-field STAT parser so that
+    // an unavailable value can never be mistaken for a measured zero.
     // -------------------------------------------------------------------------
-    assign uart_tx = 1'b1;
+    logic status_report_busy;
+    uart_status_reporter #(.CLK_HZ(CLK_HZ), .CLIP_COUNT_VALID(1'b0))
+    u_uart_status_reporter (
+        .clk(sys_clk), .rst_n(rst_sync_n),
+        .active_voice_count({31'd0, voice_active}),
+        .clip_count(32'd0), // unused while CLIP_COUNT_VALID=0
+        .event_fifo_level({16'd0, event_fifo_level}),
+        .event_fifo_high_watermark({16'd0, event_fifo_high_watermark}),
+        .event_fifo_overflow(status_event_overflow),
+        .audio_underrun(audio_underrun),
+        .max_processing_cycles(status_max_processing_cycles),
+        .tx(uart_tx), .report_busy(status_report_busy)
+    );
 
     // -------------------------------------------------------------------------
     // 未使用的信号，显式标注避免 lint 警告
