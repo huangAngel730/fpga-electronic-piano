@@ -94,6 +94,11 @@ IO_PORT "pa_en"     IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
 IO_LOC  "uart_tx"   U15;
 IO_PORT "uart_tx"   IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8 BANK_VCCIO=3.3;
 
+// Isolated MIDI RX from J9 pin 8 or J14 pin 5; idle high, 31250 8N1.
+// External adapter output must be verified as noninverted 3.3 V logic.
+IO_LOC  "midi_rx"  R17;
+IO_PORT "midi_rx"  IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+
 // =============================================================================
 // 以下引脚【故意不写入】，原因见各条：
 //
@@ -101,8 +106,7 @@ IO_PORT "uart_tx"   IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8 BANK_VCCIO=3.3;
 //    官方参考文件中该行被注释掉，且注释自相矛盾：同一行既写
 //    IO_TYPE=LVCMOS15 又写 BANK_VCCIO=3.3，IOSTANDARD 无法确定。
 //    另注：官方还给出 31002 版本用 Y14，31004 及以后用 V14。
-//    MIDI 接收引脚目前【未定】，三个候选路径见 constraints/README.md。
-//    在决策完成前不得写入本文件。
+//    外部 MIDI 输入现使用 R17（见上）；V14 继续禁占。
 //
 // 2. 用户按键 AA13（EX_KEY.0）—— 【不能使用】，不是"暂未使用"。
 //    该球位已被 sys_rst_n 占用（见上），一颗引脚无法同时作复位和琴键。
@@ -115,7 +119,7 @@ IO_PORT "uart_tx"   IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8 BANK_VCCIO=3.3;
 //    底板没有 8 颗可供 RTL 直接点亮的离散用户 LED，点亮电平取决于插在
 //    PMOD0 上的外部模块，不能从核心板或底板推断。
 //    来源：Tang_Mega_60K_30354_NEO_31005 引脚事实表 r48-r55 及用户核对截图。
-//    本工程状态指示方案未定，暂不写入。
+//    R17 已作 midi_rx；R18/T18 留给诊断工程，不占正式工程。
 //
 // 4. DDR3 / HDMI / 以太网 / SDRAM / 摄像头 / SD 卡 / CH569 —— 本工程不使用。
 // =============================================================================

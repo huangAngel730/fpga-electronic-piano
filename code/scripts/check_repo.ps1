@@ -238,7 +238,8 @@ try {
             @("i2s_lrck",  "HP_WS",     "AB17"),
             @("i2s_din",   "HP_DIN",    "AA16"),
             @("pa_en",     "PA_EN",     "AB16"),
-            @("uart_tx",   "txp",       "U15")
+            @("uart_tx",   "txp",       "U15"),
+            @("midi_rx",   "LEDs[2]",   "R17")
         )
         # Both CST files carry Chinese comments. Get-Content WITHOUT -Encoding
         # reads them as ANSI/GBK on Windows PowerShell 5.1, which mis-decodes
@@ -255,7 +256,7 @@ try {
 
             $projLoc = @($projLines | Where-Object { $_ -match ("^\s*IO_LOC\s+`"" + $localName + "`"") })
             $refLoc = @($refLines | Where-Object {
-                $_ -match ("^\s*IO_LOC\s+`"" + $officialName + "`"")
+                $_ -match ("^\s*IO_LOC\s+`"" + [regex]::Escape($officialName) + "`"")
             })
             $projPort = @($projLines | Where-Object { $_ -match ("^\s*IO_PORT\s+`"" + $localName + "`"") })
 
@@ -277,19 +278,29 @@ try {
                 $pinFailed.Add("${localName}: expected 1 IO_PORT, found $($projPort.Count)")
                 continue
             }
-            # IO_TYPE / PULL_MODE / BANK_VCCIO must match the reference exactly.
+            # The official LEDs[2] is an output with PULL=NONE. R17 is now
+            # an asynchronous MIDI input: its idle state must be pulled UP.
+            $refPort = @($refLines | Where-Object {
+                $_ -match ("^\s*IO_PORT\s+`"" + [regex]::Escape($officialName) + "`"")
+            })
+            if ($refPort.Count -ne 1) {
+                $pinFailed.Add("${localName}: expected 1 reference IO_PORT, found $($refPort.Count)")
+                continue
+            }
             foreach ($attr in @("IO_TYPE", "PULL_MODE", "BANK_VCCIO")) {
-                $projAttr = [regex]::Match($projPort[0], $attr + "=(\S+?);").Groups[1].Value
-                $refPort = @($refLines | Where-Object {
-                    $_ -match ("^\s*IO_PORT\s+`"" + $officialName + "`"")
-                })
-                if ($refPort.Count -lt 1) {
-                    $pinFailed.Add("${localName}: reference IO_PORT for $officialName not found")
+                $pattern = [regex]::Escape($attr) + "=([^\s;]+)(?:\s|;)"
+                $projMatch = [regex]::Match($projPort[0], $pattern)
+                $refMatch = [regex]::Match($refPort[0], $pattern)
+                if (-not $projMatch.Success -or -not $refMatch.Success) {
+                    $pinFailed.Add("${localName}: missing $attr in project or reference")
                     continue
                 }
-                $refAttr = [regex]::Match($refPort[0], $attr + "=(\S+?);").Groups[1].Value
-                if ($projAttr -ne $refAttr) {
-                    $pinFailed.Add("${localName}.${attr} = '$projAttr' but reference '$refAttr'")
+                $expected = $refMatch.Groups[1].Value
+                if ($localName -eq "midi_rx" -and $attr -eq "PULL_MODE") {
+                    $expected = "UP"
+                }
+                if ($projMatch.Groups[1].Value -ne $expected) {
+                    $pinFailed.Add("${localName}.${attr} = '$($projMatch.Groups[1].Value)' but expected '$expected'")
                 }
             }
             # A 1.5 V bank must never be declared as 3.3 V; that mismatch would

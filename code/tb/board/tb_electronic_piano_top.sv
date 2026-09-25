@@ -43,6 +43,7 @@ module tb_electronic_piano_top;
     logic i2s_din;
     logic pa_en;
     logic uart_tx;
+    logic midi_rx = 1'b1;  // idle high
 
     // T020: user keys, active low (pressed = 0). Idle high.
     //
@@ -116,6 +117,7 @@ module tb_electronic_piano_top;
         .sys_clk   (sys_clk),
         .sys_rst_n (sys_rst_n),
         .key_n     (key_n),
+        .midi_rx   (midi_rx),
         .i2s_bclk  (i2s_bclk),
         .i2s_lrck  (i2s_lrck),
         .i2s_din   (i2s_din),
