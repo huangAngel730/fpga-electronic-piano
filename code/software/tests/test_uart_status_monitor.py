@@ -15,9 +15,9 @@ from types import SimpleNamespace
 from unittest.mock import patch
 
 
-SOFTWARE_DIR = Path(__file__).resolve().parents[1]
-if str(SOFTWARE_DIR) not in sys.path:
-    sys.path.insert(0, str(SOFTWARE_DIR))
+UART_TEST_DIR = Path(__file__).resolve().parents[1] / "uart_test"
+if str(UART_TEST_DIR) not in sys.path:
+    sys.path.insert(0, str(UART_TEST_DIR))
 
 from uart_status_monitor import (  # noqa: E402
     CsvStatusLogger,

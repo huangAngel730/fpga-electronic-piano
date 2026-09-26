@@ -24,18 +24,19 @@ USB MIDI 输入设备，适合核对 MIDIPLUS X4 III 实际发出的消息。
 ## 2. 文件位置
 
 ```text
-code/software/midi监视器/midi_monitor.py
-code/software/midi监视器/midi_monitor_gui.py
-code/software/midi监视器/requirements-midi.txt
-code/software/midi监视器/resolve_midi_python.cmd
-code/software/midi监视器/install_midi_monitor_dependencies.cmd
-code/software/midi监视器/安装MIDI监视器依赖.cmd
-code/software/midi监视器/open_midi_monitor.cmd
-code/software/midi监视器/打开MIDI监视器.cmd
+code/software/midi_monitor/midi_monitor.py
+code/software/midi_monitor/midi_input_worker.py
+code/software/midi_monitor/midi_monitor_gui.py
+code/software/midi_monitor/requirements-midi.txt
+code/software/midi_monitor/resolve_midi_python.cmd
+code/software/midi_monitor/install_midi_monitor_dependencies.cmd
+code/software/midi_monitor/安装MIDI监视器依赖.cmd
+code/software/midi_monitor/open_midi_monitor.cmd
+code/software/midi_monitor/打开MIDI监视器.cmd
 code/software/tests/test_midi_monitor.py
 ```
 
-前七个程序文件在 `midi监视器` 文件夹中；自动测试仍保留在仓库统一的
+前九个程序文件在 `midi_monitor` 文件夹中；自动测试仍保留在仓库统一的
 `code/software/tests` 目录。
 
 ## 3. 第一次使用：安装依赖
@@ -69,7 +70,7 @@ Tkinter 随大多数 Windows Python 安装提供，不需要安装 PyQt。
 在资源管理器中进入：
 
 ```text
-E:\FPGA\GAOYUNFPGA\team\fpga-electronic-piano\code\software\midi监视器
+E:\FPGA\GAOYUNFPGA\team\fpga-electronic-piano\code\software\midi_monitor
 ```
 
 双击：
@@ -107,6 +108,9 @@ E:\FPGA\GAOYUNFPGA\team\fpga-electronic-piano\code\software\midi监视器
 6. 在“MIDI输入设备”中选择名称包含 X4 III、MIDIPLUS 或 USB MIDI 的设备。
 7. 点击“连接”。
 8. 状态栏显示“已连接”后再弹奏。
+
+X4 III 同时出现多个端口时，优先选择 `X4III 0`；`MIDIIN2 (X4III)` 通常是第二路输入，
+不作为琴键本身的首选端口。一次只连接一个端口，避免重复或争用。
 
 如果列表为空：
 
@@ -160,6 +164,31 @@ note_off     1   C4     40   80 3C 28
 
 注意：这个结果只证明 X4 III 发出了力度消息。声音大小是否随力度变化，要等 FPGA 正式音源使用
 Velocity 后再验收。
+
+### 如果力度始终是 100
+
+程序不会生成或修正力度，而是直接读取 Note On 的第三个原始 MIDI 字节。例如：
+
+```text
+90 3C 64
+```
+
+末尾的 `64` 是十六进制，等于十进制 100。如果轻按、重按时原始字节末尾一直是 `64`，说明
+键盘实际发送的就是 100，不是界面把它改成了 100。二手键盘最常见的原因是 `VEL` 被前任设置成
+`Fixed`。请进入 X4 III 的 `SEL` 设置模式，把 `VEL` 改为 `Normal`（也可以测试 `Light` 或
+`Hard`），然后重新轻按和重按。
+
+新版监视器连续收到 8 次完全相同的 Note On 力度后，会在连接状态栏提示检查 `VEL=Fixed`。
+这个提示是诊断建议，不会篡改收到的数据。
+
+### 如果连接后不再出现消息
+
+- 先确认使用的是 `X4III 0`，不要同时让编曲软件占用同一端口；
+- 新版使用独立接收线程持续轮询 MIDI 端口，不再依赖容易失去回调的驱动回调模式；
+- 端口异常停止时，程序会等待约 1 秒自动重新连接；
+- 如果拔插了 USB，等 Windows 重新识别后点击一次“刷新”和“连接”。
+
+关闭窗口时，主界面只发出停止请求，不在界面线程等待 RtMidi 驱动关闭，因此不会因为驱动响应慢而卡住。
 
 ## 9. Pitch、Mod 和延音踏板测试
 
@@ -218,7 +247,7 @@ CSV 使用 UTF-8 with BOM，Windows Excel 可以直接打开中文说明。CSV �
 
 ## 12. 自动测试
 
-不需要真实键盘。先进入 `midi监视器` 目录，再运行：
+不需要真实键盘。先进入 `midi_monitor` 目录，再运行：
 
 ```powershell
 & 'C:\Users\songdongkuan\miniconda3\python.exe' -X utf8 -m unittest discover -s ..\tests -p test_midi_monitor.py -v

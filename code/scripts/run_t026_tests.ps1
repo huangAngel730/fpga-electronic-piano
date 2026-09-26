@@ -7,8 +7,9 @@ $ErrorActionPreference = "Stop"
 # Keep this script ASCII-only for Windows PowerShell 5.1 compatibility.
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path
 $softwareDir = Join-Path $repoRoot "code\software"
-$programSource = Join-Path $softwareDir "uart_status_monitor.py"
-$guiSource = Join-Path $softwareDir "uart_status_gui.py"
+$uartTestDir = Join-Path $softwareDir "uart_test"
+$programSource = Join-Path $uartTestDir "uart_status_monitor.py"
+$guiSource = Join-Path $uartTestDir "uart_status_gui.py"
 $testSource = Join-Path (Join-Path $softwareDir "tests") "test_uart_status_monitor.py"
 . (Join-Path $PSScriptRoot "resolve_t026_python.ps1")
 $PythonExe = Resolve-T026Python -PythonExe $PythonExe
@@ -47,14 +48,16 @@ function Invoke-Python {
 # removed afterward, which preserves the project's write-only safety rule.
 $stageRoot = Join-Path $env:TEMP ("t026_tests_" + [guid]::NewGuid().ToString("N"))
 $stageSoftware = Join-Path $stageRoot "software"
+$stageUartTest = Join-Path $stageSoftware "uart_test"
 $stageTests = Join-Path $stageSoftware "tests"
 New-Item -ItemType Directory -Path $stageTests | Out-Null
-Copy-Item -LiteralPath $programSource -Destination $stageSoftware
-Copy-Item -LiteralPath $guiSource -Destination $stageSoftware
+New-Item -ItemType Directory -Path $stageUartTest | Out-Null
+Copy-Item -LiteralPath $programSource -Destination $stageUartTest
+Copy-Item -LiteralPath $guiSource -Destination $stageUartTest
 Copy-Item -LiteralPath $testSource -Destination $stageTests
 
-$stageProgram = Join-Path $stageSoftware "uart_status_monitor.py"
-$stageGui = Join-Path $stageSoftware "uart_status_gui.py"
+$stageProgram = Join-Path $stageUartTest "uart_status_monitor.py"
+$stageGui = Join-Path $stageUartTest "uart_status_gui.py"
 
 Write-Host "[T026] Python: $PythonExe"
 Write-Host "[T026] Staged files: $stageRoot"
