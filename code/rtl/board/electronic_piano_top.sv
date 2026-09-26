@@ -14,10 +14,8 @@
 // 目的不是实现完整乐器，而是先把"硬件通路"验证通：
 //   时钟 -> 复位 -> 音频节拍 -> I2S 发送 -> PT8211 -> 功放 -> 扬声器
 //
-// 因此本顶层**刻意保持极简**：
-//   - 不例化任何合成器、MIDI 输入或效果器（那些模块尚未实现）；
-//   - 音源是一个内置的正弦测试音，仅用于验证通路；
-//   - 所有参数走 parameter，后续替换为真实音源时不改本文件结构。
+// 当前保留按键/固定音诊断路径，另接入 31250 baud MIDI 输入、
+// 双输入 32 项公共事件 FIFO 与单声部占位音源；多声部及效果器仍待开发。
 //
 // 为什么需要一个能发声的测试音而不是直接输出静音：
 //   静音无法区分"通路正常但没数据"和"通路某处断了"。
@@ -73,7 +71,8 @@
 //   i2s_lrck AB17 LVCMOS33 3.3 V  Bank 7  接 PT8211-S WS
 //   i2s_din  AA16 LVCMOS33 3.3 V  Bank 7  接 PT8211-S DIN
 //   pa_en    AB16 LVCMOS33 3.3 V  Bank 7  功放使能，低有效
-//   uart_tx  U15  LVCMOS33 3.3 V  Bank 6  板载 USB-UART（BL610），调试输出
+//   uart_tx  U15  LVCMOS33 3.3 V  Bank 6  板载 USB-UART（BL616），调试输出
+//   midi_rx  R17  LVCMOS33 3.3 V          PMOD0_IO5，经外部隔离模块输入
 //
 // 注意 sys_rst_n 与其余脚电压域不同（1.5 V vs 3.3 V）。
 //
@@ -152,6 +151,7 @@ module electronic_piano_top #(
     //   复位本身不依赖按键：reset_sync 为上电异步复位、同步释放。
     // -------------------------------------------------------------------------
     input  logic [1:0] key_n,
+    input  logic midi_rx, // R17, isolated 3.3 V MIDI data
     output logic i2s_bclk,    // Y17  -> PT8211-S BCK
     output logic i2s_lrck,    // AB17 -> PT8211-S WS
     output logic i2s_din,     // AA16 -> PT8211-S DIN
@@ -274,6 +274,7 @@ module electronic_piano_top #(
     logic pending_valid;
     logic [31:0] audio_frame_count, pcm_request_count;
     logic [31:0] pcm_commit_count, audio_underrun;
+    logic [31:0] status_event_overflow, status_max_processing_cycles;
     assign sample_tick = frame_sample_req;
 
     // -------------------------------------------------------------------------
@@ -348,8 +349,8 @@ module electronic_piano_top #(
     logic [31:0]                        ev_overflow_count;
     audio_defs_pkg::performance_event_t ev_data;
 
-    // ev_overflow_count：本模块本地 FIFO 溢出计数。当前顶层尚无状态通道，
-    // 该信号只能在仿真中观测；UART 状态通道落地后应接入其中，不要删除。
+    // This is the button adapter's local drop count. T025 will aggregate
+    // local input drops separately from the shared queue watermarks.
     button_event_converter #(
         .BUTTON_COUNT    (2),
         .BASE_NOTE_NUMBER(69),
@@ -364,6 +365,37 @@ module electronic_piano_top #(
         .event_valid          (ev_valid),
         .event_data           (ev_data),
         .overflow_count       (ev_overflow_count)
+    );
+
+    // T025 common event FIFO: both input adapters keep their local buffers.
+    // MIDI and key events share the 50 MHz clock and common queue.
+    logic                               shared_event_valid;
+    logic                               shared_event_ready;
+    audio_defs_pkg::performance_event_t shared_event_data;
+    logic [15:0]                        event_fifo_level;
+    logic [15:0]                        event_fifo_high_watermark;
+    logic midi_event_valid, midi_event_ready;
+    audio_defs_pkg::performance_event_t midi_event_data;
+    logic [31:0] midi_event_overflow;
+    midi_input #(.CLK_HZ(CLK_HZ), .SOURCE_ID(4'd0)) u_midi_input (
+        .clk(sys_clk), .rst_n(rst_sync_n), .midi_rx_async(midi_rx),
+        .event_ready(midi_event_ready), .event_valid(midi_event_valid),
+        .event_data(midi_event_data),
+        .event_fifo_level(), .event_fifo_high_watermark(),
+        .uart_frame_error_count(), .parser_error_count(),
+        .event_fifo_overflow_count(midi_event_overflow), .midi_rx_busy()
+    );
+    performance_event_fifo #(.DEPTH(EVENT_FIFO_DEPTH)) u_performance_event_fifo (
+        .clk(sys_clk), .rst_n(rst_sync_n),
+        .button_valid(ev_valid), .button_ready(ev_ready),
+        .button_data(ev_data),
+        .midi_valid(midi_event_valid), .midi_ready(midi_event_ready),
+        .midi_data(midi_event_data),
+        .event_valid(shared_event_valid),
+        .event_ready(shared_event_ready),
+        .event_data(shared_event_data),
+        .event_fifo_level(event_fifo_level),
+        .event_fifo_high_watermark(event_fifo_high_watermark)
     );
 
     // 单声部占位实现（正式算法见 T004/T009/T010）
@@ -381,9 +413,9 @@ module electronic_piano_top #(
         .clk          (sys_clk),
         .rst_n        (rst_sync_n),
         .sample_tick  (sample_tick),
-        .event_valid  (ev_valid),
-        .event_ready  (ev_ready),
-        .event_data   (ev_data),
+        .event_valid  (shared_event_valid),
+        .event_ready  (shared_event_ready),
+        .event_data   (shared_event_data),
         .pcm_left     (voice_pcm_left),
         .pcm_right    (voice_pcm_right),
         .voice_active (voice_active),
@@ -473,6 +505,17 @@ module electronic_piano_top #(
         .audio_underrun(audio_underrun)
     );
 
+    // T025: request-to-commit peak and actual dropped events in sys_clk.
+    system_status_counters u_system_status_counters (
+        .clk(sys_clk), .rst_n(rst_sync_n),
+        .pcm_request(frame_sample_req),
+        .pcm_commit(pcm_valid_q && pcm_ready),
+        .button_overflow(ev_overflow_count),
+        .midi_overflow(midi_event_overflow),
+        .event_fifo_overflow(status_event_overflow),
+        .max_processing_cycles(status_max_processing_cycles)
+    );
+
     i2s_tx #(
         .ACC_BITS         (TICK_ACC_BITS),
         .BCLK_PHASE_STEP  (I2S_BCLK_PHASE_STEP),
@@ -492,15 +535,24 @@ module electronic_piano_top #(
     );
 
     // -------------------------------------------------------------------------
-    // 7. UART 调试输出（占位）
-    //
-    // 本最小工程还不发送任何数据，但 uart_tx 是已约束的引脚，
-    // 必须被驱动，否则综合会报"端口未驱动"并可能被优化掉。
-    //
-    // UART 空闲电平为高。这里恒驱 1，使上位机看到一条干净的静止线路，
-    // 而不是随机噪声。真正的状态输出属于后续任务（UART 状态通道）。
+    // 7. T025 stage diagnostic on U15. Six live fields can be observed.
+    // There is no mixer clip event yet. DIAG and clip_count=0x--------
+    // deliberately fail the strict seven-numeric-field STAT parser so that
+    // an unavailable value can never be mistaken for a measured zero.
     // -------------------------------------------------------------------------
-    assign uart_tx = 1'b1;
+    logic status_report_busy;
+    uart_status_reporter #(.CLK_HZ(CLK_HZ), .CLIP_COUNT_VALID(1'b0))
+    u_uart_status_reporter (
+        .clk(sys_clk), .rst_n(rst_sync_n),
+        .active_voice_count({31'd0, voice_active}),
+        .clip_count(32'd0), // unused while CLIP_COUNT_VALID=0
+        .event_fifo_level({16'd0, event_fifo_level}),
+        .event_fifo_high_watermark({16'd0, event_fifo_high_watermark}),
+        .event_fifo_overflow(status_event_overflow),
+        .audio_underrun(audio_underrun),
+        .max_processing_cycles(status_max_processing_cycles),
+        .tx(uart_tx), .report_busy(status_report_busy)
+    );
 
     // -------------------------------------------------------------------------
     // 未使用的信号，显式标注避免 lint 警告

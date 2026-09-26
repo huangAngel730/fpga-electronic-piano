@@ -37,6 +37,7 @@ module tb_key_to_tone;
     logic i2s_din;
     logic pa_en;
     logic uart_tx;
+    logic midi_rx = 1'b1;  // idle high
 
     int pass_cnt = 0;
     int fail_cnt = 0;
@@ -58,6 +59,7 @@ module tb_key_to_tone;
         .sys_clk   (sys_clk),
         .sys_rst_n (sys_rst_n),
         .key_n     (key_n),
+        .midi_rx   (midi_rx),
         .i2s_bclk  (i2s_bclk),
         .i2s_lrck  (i2s_lrck),
         .i2s_din   (i2s_din),

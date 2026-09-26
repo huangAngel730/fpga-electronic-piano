@@ -75,6 +75,13 @@ $tests = @(
                  "$segRtl\input\button_debouncer\button_debouncer.sv",
                  "$segRtl\common\note_pitch.sv",
                  "$segRtl\input\button_event_converter\button_event_converter.sv",
+                 "$segRtl\common\performance_event_fifo.sv",
+                 "$segRtl\common\system_status_counters.sv",
+                 "$segRtl\common\uart_tx.sv",
+                 "$segRtl\board\uart_status_reporter.sv",
+                 "$segRtl\common\uart_rx.sv",
+                 "$segRtl\input\midi_input\midi_event_parser.sv",
+                 "$segRtl\input\midi_input\midi_input.sv",
                  "$segRtl\common\simple_voice.sv",
                  "$segRtl\audio_out\i2s_tx.sv",
                  "$segRtl\audio_out\pcm_frame_buffer.sv",
@@ -118,11 +125,39 @@ $tests = @(
                  "$segRtl\input\button_debouncer\button_debouncer.sv",
                  "$segRtl\common\note_pitch.sv",
                  "$segRtl\input\button_event_converter\button_event_converter.sv",
+                 "$segRtl\common\performance_event_fifo.sv",
+                 "$segRtl\common\system_status_counters.sv",
+                 "$segRtl\common\uart_tx.sv",
+                 "$segRtl\board\uart_status_reporter.sv",
+                 "$segRtl\common\uart_rx.sv",
+                 "$segRtl\input\midi_input\midi_event_parser.sv",
+                 "$segRtl\input\midi_input\midi_input.sv",
                  "$segRtl\common\simple_voice.sv",
                  "$segRtl\audio_out\i2s_tx.sv",
                  "$segRtl\audio_out\pcm_frame_buffer.sv",
                  "$segRtl\board\electronic_piano_top.sv",
                  "$segTb\board\tb_key_to_tone.sv")
+        Inc  = @("$segRtl\common\sine_table.svh")
+    }
+    @{
+        Name = "tb_midi_top_integration"
+        Src  = @("$segRtl\common\audio_defs_pkg.sv",
+                 "$segRtl\common\reset_sync.sv",
+                 "$segRtl\common\uart_rx.sv",
+                 "$segRtl\input\button_debouncer\button_debouncer.sv",
+                 "$segRtl\input\button_event_converter\button_event_converter.sv",
+                 "$segRtl\input\midi_input\midi_event_parser.sv",
+                 "$segRtl\input\midi_input\midi_input.sv",
+                 "$segRtl\common\performance_event_fifo.sv",
+                 "$segRtl\common\system_status_counters.sv",
+                 "$segRtl\common\uart_tx.sv",
+                 "$segRtl\board\uart_status_reporter.sv",
+                 "$segRtl\common\note_pitch.sv",
+                 "$segRtl\common\simple_voice.sv",
+                 "$segRtl\audio_out\i2s_tx.sv",
+                 "$segRtl\audio_out\pcm_frame_buffer.sv",
+                 "$segRtl\board\electronic_piano_top.sv",
+                 "$segTb\board\tb_midi_top_integration.sv")
         Inc  = @("$segRtl\common\sine_table.svh")
     }
 )
