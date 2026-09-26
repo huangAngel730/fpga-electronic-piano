@@ -152,6 +152,29 @@ def test_retrigger():
     print(f"  Release中途电平: {level_before}")
     print(f"  重触发后电平: {level_after}")
 
+    # 补充测试：Release更早阶段的重触发
+    env2 = PianoADSREnvelope()
+    env2.note_on(velocity=1023)
+    for _ in range(ATTACK_SAMPLES + DECAY_SAMPLES + 1000):
+        env2.step()
+    env2.note_off()
+
+    # Release刚开始（约6530电平）
+    for _ in range(2400):
+        level = env2.step()
+
+    level_before_early = level
+    env2.note_on(velocity=768)
+    level_after_early = env2.step()
+
+    print(f"  Release早期电平: {level_before_early}")
+    print(f"  重触发后电平: {level_after_early}")
+    print(f"  电平跳变: {abs(level_after_early - level_before_early)}")
+
+    # 验证跳变幅度
+    if abs(level_after_early - level_before_early) > 100:
+        print(f"  [WARNING] 电平跳变较大，建议从当前电平开始Attack")
+
     # 验证能达到新的velocity峰值
     for _ in range(ATTACK_SAMPLES + 100):
         level = env.step()
