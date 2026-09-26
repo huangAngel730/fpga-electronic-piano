@@ -82,11 +82,20 @@ class PianoADSREnvelope:
 
         Args:
             velocity: MIDI velocity (0-1023)
+
+        Release重触发平滑过渡：
+            如果在Release阶段重触发，从当前电平开始新的Attack，
+            避免电平突变导致的爆音。
         """
+        # Release重触发：保持当前电平作为起点
+        retrigger_start_level = self.level if self.state == 'RELEASE' else 0.0
+
         self.state = 'ATTACK'
-        self.level = 0.0
+        self.level = retrigger_start_level
         self.counter = 0
         self.velocity_gain = velocity_to_gain(velocity)
+        # 计算从当前电平到目标增益的步长
+        self.attack_delta = self.velocity_gain - retrigger_start_level
 
     def note_off(self):
         """触发Note Off - 从当前电平平滑释放"""
@@ -99,8 +108,8 @@ class PianoADSREnvelope:
     def step(self) -> int:
         """更新包络，返回当前电平（Q1.15）"""
         if self.state == 'ATTACK':
-            # 线性攻击到峰值
-            self.level += (self.velocity_gain / ATTACK_SAMPLES)
+            # 线性攻击到峰值，从retrigger_start_level开始
+            self.level += (self.attack_delta / ATTACK_SAMPLES)
             if self.level >= self.velocity_gain:
                 self.level = self.velocity_gain
                 self.state = 'DECAY'

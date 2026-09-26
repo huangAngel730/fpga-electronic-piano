@@ -119,10 +119,10 @@ def generate_true_4voice_test():
     if four_voice_count > 0:
         print(f"4声部活跃区间: 约帧360到帧4800")
         print("\n[PASS] 生成了真正的4声部同时活跃向量")
+        return 0
     else:
         print("\n[FAIL] 未生成4声部同时活跃的帧")
-
-    return 0
+        return 1
 
 
 if __name__ == "__main__":
