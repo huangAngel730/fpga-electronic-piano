@@ -1,16 +1,18 @@
 from __future__ import annotations
 
 import csv
+import queue
 import sys
 import tempfile
+import time
 import unittest
 from datetime import datetime
 from pathlib import Path
 
 
-SOFTWARE_DIR = Path(__file__).resolve().parents[1]
-if str(SOFTWARE_DIR) not in sys.path:
-    sys.path.insert(0, str(SOFTWARE_DIR))
+MIDI_MONITOR_DIR = Path(__file__).resolve().parents[1] / "midi_monitor"
+if str(MIDI_MONITOR_DIR) not in sys.path:
+    sys.path.insert(0, str(MIDI_MONITOR_DIR))
 
 from midi_monitor import (
     CsvMidiLogger,
@@ -20,6 +22,7 @@ from midi_monitor import (
     midi_note_name,
     simulation_messages,
 )
+from midi_input_worker import MidiInputWorker
 
 
 FIXED_TIME = datetime(2026, 9, 25, 12, 34, 56, 789000)
@@ -50,6 +53,22 @@ class MidiMonitorTests(unittest.TestCase):
         self.assertEqual(event.note_name, "C4")
         self.assertEqual(event.velocity, 100)
         self.assertEqual(event.raw_hex, "90 3C 64")
+
+    def test_velocity_is_never_replaced_with_a_fixed_value(self) -> None:
+        for velocity in (1, 24, 64, 100, 127):
+            with self.subTest(velocity=velocity):
+                event = describe_midi_message(
+                    SimulatedMessage(
+                        "note_on",
+                        channel=0,
+                        note=60,
+                        velocity=velocity,
+                        raw_bytes=(0x90, 0x3C, velocity),
+                    ),
+                    FIXED_TIME,
+                )
+                self.assertEqual(event.velocity, velocity)
+                self.assertTrue(event.raw_hex.endswith(f"{velocity:02X}"))
 
     def test_note_on_velocity_zero_is_displayed_as_note_off(self) -> None:
         message = SimulatedMessage(
@@ -134,6 +153,66 @@ class MidiMonitorTests(unittest.TestCase):
             self.assertEqual(len(rows), 2)
             self.assertEqual(rows[0]["raw_hex"], "90 3C 18")
             self.assertEqual(rows[1]["event_type"], "note_off")
+
+    def test_input_worker_polls_messages_and_closes_in_background(self) -> None:
+        class FakePort:
+            def __init__(self) -> None:
+                self.messages = ["first", "second"]
+                self.closed = False
+
+            def poll(self) -> object | None:
+                if self.messages:
+                    return self.messages.pop(0)
+                return None
+
+            def close(self) -> None:
+                self.closed = True
+
+        class FakeBackend:
+            def __init__(self, port: FakePort) -> None:
+                self.port = port
+                self.opened_name = ""
+
+            def open_input(self, name: str) -> FakePort:
+                self.opened_name = name
+                return self.port
+
+        output_queue: queue.Queue[tuple[str, object]] = queue.Queue()
+        port = FakePort()
+        backend = FakeBackend(port)
+        worker = MidiInputWorker(
+            backend,
+            "X4III 0",
+            output_queue,
+            poll_interval_seconds=0.001,
+            heartbeat_seconds=0.01,
+        )
+        worker.start()
+
+        received: list[object] = []
+        deadline = time.monotonic() + 0.5
+        while time.monotonic() < deadline and len(received) < 2:
+            try:
+                kind, payload = output_queue.get(timeout=0.05)
+            except queue.Empty:
+                continue
+            if kind == "receiver_message":
+                owner, message = payload  # type: ignore[misc]
+                self.assertIs(owner, worker)
+                received.append(message)
+
+        started = time.monotonic()
+        worker.stop()
+        stop_call_seconds = time.monotonic() - started
+        deadline = time.monotonic() + 0.5
+        while worker.is_alive and time.monotonic() < deadline:
+            time.sleep(0.005)
+
+        self.assertEqual(backend.opened_name, "X4III 0")
+        self.assertEqual(received, ["first", "second"])
+        self.assertLess(stop_call_seconds, 0.05)
+        self.assertFalse(worker.is_alive)
+        self.assertTrue(port.closed)
 
 
 if __name__ == "__main__":

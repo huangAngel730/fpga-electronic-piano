@@ -26,11 +26,12 @@ X4 III USB MIDI
 
 ## 生成的文件
 
-所有文件均位于 `E:\FPGA\GAOYUNFPGA\team\fpga-electronic-piano\code\software\midi监视器`：
+所有程序文件均位于 `E:\FPGA\GAOYUNFPGA\team\fpga-electronic-piano\code\software\midi_monitor`：
 
 | 文件 | 作用 |
 |---|---|
 | `midi_monitor.py` | 与界面无关的消息解释、统计、模拟消息和 CSV 保存 |
+| `midi_input_worker.py` | 后台打开、轮询和关闭 RtMidi 端口，向 GUI 队列发送消息与健康状态 |
 | `midi_monitor_gui.py` | Tkinter 图形界面、USB MIDI 设备连接和实时显示 |
 | `requirements-midi.txt` | 声明 `mido` 与 `python-rtmidi` 依赖 |
 | `resolve_midi_python.cmd` | 查找并验证 Python 3.9 以上解释器，优先使用当前用户的 Miniconda/Anaconda |
@@ -62,9 +63,9 @@ X4 III USB MIDI
 - `MetricCard`：显示最后音符、力度、按住琴键、通道、力度范围和消息总数。
 - `ValueMeter`：显示Velocity、Mod、Sustain和有正负方向的Pitch Bend。
 - `PianoStrip`：显示C2至C6琴键，当前按住琴键高亮，最后音符使用另一颜色提示。
-- `event_queue`：USB MIDI回调不直接修改Tkinter控件，而是把事件送入队列，由GUI主线程每50 ms读取，
-  避免跨线程更新界面。
-- `input_port`：当前打开的真实MIDI端口；退出或切换到模拟模式时显式关闭。
+- `event_queue`：后台接收线程不直接修改Tkinter控件，而是把消息送入队列，由GUI主线程分批读取，
+  避免跨线程更新界面和消息过多时长期占住主线程。
+- `input_worker`：当前MIDI后台接收器；打开、轮询和关闭端口均在同一后台线程执行。
 - `csv_logger`：未开始保存时为`None`，开始CSV后每条消息立即写盘。
 - `simulation_job`：Tkinter定时任务编号，用于可靠停止模拟消息。
 
@@ -94,14 +95,15 @@ DIN、光耦、R17和FPGA链路必须另外实测。
 3. 已连接真实USB MIDI；
 4. 模拟模式；
 5. 连接或接收错误；
-6. 退出时关闭端口和CSV。
+6. 端口中断后自动重连；
+7. 退出时立即停止界面，端口由后台线程关闭，CSV正常收尾。
 
 缺少`mido`或`python-rtmidi`时界面仍可打开模拟模式，并明确显示安装命令。设备为空、端口被占用、
 CSV不能写入或消息解释异常时均提示错误，不让程序直接崩溃。
 
 ## Testbench等价的软件测试情况
 
-`tests/test_midi_monitor.py`共10项，覆盖：
+`tests/test_midi_monitor.py`共12项，覆盖：
 
 1. C-1、C4、A4、G9音名边界；
 2. 非法音符编号拒绝；
@@ -113,11 +115,13 @@ CSV不能写入或消息解释异常时均提示错误，不让程序直接崩�
 8. Mod、Sustain、Pitch状态；
 9. 模拟消息覆盖T036所需类型；
 10. CSV关闭后重开继续追加且不重复表头。
+11. Velocity 取值1、24、64、100、127时均原样保留并与原始第三字节一致；
+12. 后台接收器能连续轮询消息，`stop()`非阻塞，端口最终关闭。
 
 ## 实际运行的检查与结果
 
 - 三个Python文件`py_compile`：PASS，退出码0。
-- 新增MIDI测试：10/10 PASS。
+- 新增MIDI测试：12/12 PASS。
 - `code/software/tests`全部软件测试：38/38 PASS。
 - 隐藏Tkinter窗口实例化完整`MidiMonitorApp`并送入一条C4力度24消息：
   `GUI_SMOKE_PASS 1 C4 24`。
@@ -131,16 +135,34 @@ CSV不能写入或消息解释异常时均提示错误，不让程序直接崩�
   `C:\Users\songdongkuan\miniconda3\python.exe`。
 - 修复方法：安装器和 UI 启动器统一调用 `resolve_midi_python.cmd`，候选解释器必须实际运行并且版本不低于 Python 3.9。
 - 可诊断性：安装时先显示选中的绝对路径和版本；如果 `pip` 失败，保留真正的错误输出。
-- 移动适配：启动器继续使用 `%~dp0` 定位同目录文件，因此整个 `midi监视器` 文件夹移动后仍可工作。
+- 移动适配：启动器继续使用 `%~dp0` 定位同目录文件，因此整个 `midi_monitor` 文件夹移动后仍可工作。
 - 实际结果：安装器选择 `C:\Users\songdongkuan\miniconda3\python.exe`（Python 3.12.4）；
   `mido 1.3.3` 与 `python-rtmidi 1.5.8` 已安装，导入检查通过。
 - 界面检查：带真实 RtMidi 后端创建隐藏窗口成功，显示“未发现MIDI设备”，程序正常退出。
-- 移动后单元测试：从 `midi监视器` 目录运行父目录中的测试，10/10 PASS。
+- 移动后单元测试：从 `midi_monitor` 目录运行父目录中的测试，10/10 PASS。
+
+## 2026-09-26 真实键盘稳定性修复
+
+- 用户实测问题：Note On力度始终100；关闭窗口短暂卡住；连接一段时间后停止显示消息。
+- 力度核查：`describe_midi_message()`始终读取消息自身的`velocity`，不存在固定100的赋值；新增
+  1、24、64、100、127五档自动测试，解析值和原始第三字节全部一致。连续8次收到同一力度时，
+  界面提示检查X4 III的`VEL=Fixed`设置，但绝不改写原始数据。
+- 接收修复：移除RtMidi回调模式，新增`MidiInputWorker`后台线程；端口的打开、非阻塞`poll()`、
+  心跳和关闭都由同一线程负责。驱动停止后约1秒自动重连。
+- 界面修复：每轮最多处理100条队列消息，剩余消息下一轮立即处理，避免消息洪峰令Tk主线程
+  长时间无法响应。
+- 关闭修复：关闭按钮只设置停止事件，不再从GUI主线程同步调用驱动`close()`；隐藏窗口实测
+  `GUI_CLOSE_SECONDS=0.0261`，退出码0。
+- 环境实测：Windows/RtMidi当前枚举到`X4III 0`与`MIDIIN2 (X4III) 1`；没有自动打开或修改
+  第二路端口。
+- 真实端口冒烟：后台线程成功打开`X4III 0`并保持心跳，2.2秒后状态仍为“已连接”；关闭界面
+  耗时0.0270秒，150毫秒后后台线程已退出且端口已关闭。
+- 实际检查：3个Python文件`py_compile`通过；MIDI专用测试12/12通过；真实键盘重新弹奏验证待用户执行。
 
 ## 尚未验证的问题
 
-- 已执行真实 Windows MIDI 后端枚举，但当前返回空列表；尚未识别到已连接的 USB MIDI 输入设备。
-- 尚未连接X4 III，未采集真实Note、Velocity、Pitch、Mod、SUS数据。
+- 已识别并枚举X4 III；用户已看到Note消息，但本次修复后的长时间接收、可变Velocity和关闭手感仍需重新实测。
+- 尚未保存并复核真实Note、Velocity、Pitch、Mod、SUS CSV证据。
 - 未测试Windows设备在其他音乐软件占用时的实际错误文字。
 - 未在多种Windows缩放比例与显示器分辨率下人工检查布局。
 - USB消息不能代替DIN/光耦/R17/FPGA链路测试。

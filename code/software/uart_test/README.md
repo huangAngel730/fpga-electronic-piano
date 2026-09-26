@@ -28,7 +28,7 @@
 也可以直接运行：
 
 ```powershell
-python -X utf8 .\code\software\uart_status_gui.py
+python -X utf8 .\code\software\uart_test\uart_status_gui.py
 ```
 
 打开后可以直接点击“模拟模式”观察界面。连接开发板前，必须根据 T025 最终协议填写波特率、数据位、校验位和停止位；界面不会填入未经确认的默认硬件参数。
@@ -70,8 +70,8 @@ python -X utf8 uart_status_monitor.py --simulate --count 4 --interval 0 --log st
 
 ```powershell
 python -m pip install -r .\code\software\requirements.txt
-python -X utf8 .\code\software\uart_status_monitor.py --list-ports
-python -X utf8 .\code\software\uart_status_monitor.py --port COM5 --baud 115200 --bytesize 8 --parity N --stopbits 1 --log status.csv
+python -X utf8 .\code\software\uart_test\uart_status_monitor.py --list-ports
+python -X utf8 .\code\software\uart_test\uart_status_monitor.py --port COM5 --baud 115200 --bytesize 8 --parity N --stopbits 1 --log status.csv
 ```
 
 上面的 `COM5`、`115200` 和 `8N1` 只用于展示命令写法，不是本项目已经确认的硬件参数。现有资料尚未冻结 T025 的串口格式，因此真实模式要求显式填写串口、波特率、数据位、校验位和停止位，必须等 T025 明确协议后使用实际参数。

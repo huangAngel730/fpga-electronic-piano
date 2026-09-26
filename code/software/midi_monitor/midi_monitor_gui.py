@@ -5,7 +5,9 @@ from __future__ import annotations
 
 import itertools
 import queue
+import time
 import tkinter as tk
+from collections import deque
 from datetime import datetime
 from pathlib import Path
 from tkinter import filedialog, messagebox, ttk
@@ -18,12 +20,15 @@ from midi_monitor import (
     describe_midi_message,
     simulation_messages,
 )
+from midi_input_worker import MidiInputWorker
 
 
 APP_TITLE = "FPGA 电子琴 · 队伍 MIDI 监视器"
 POLL_INTERVAL_MS = 50
 SIMULATION_INTERVAL_MS = 520
 MAX_LOG_ROWS = 500
+MAX_EVENTS_PER_POLL = 100
+RECONNECT_DELAY_MS = 1000
 
 COLORS = {
     "background": "#07111F",
@@ -236,10 +241,17 @@ class MidiMonitorApp:
         self.root.protocol("WM_DELETE_WINDOW", self.close)
 
         self.event_queue: queue.Queue[tuple[str, object]] = queue.Queue()
-        self.input_port: Any = None
+        self.input_worker: MidiInputWorker | None = None
+        self.requested_device_name: str | None = None
+        self.reconnect_job: str | None = None
+        self.poll_job: str | None = None
+        self.last_receiver_heartbeat = 0.0
+        self.closing = False
         self.csv_logger: CsvMidiLogger | None = None
         self.stats = MidiStatistics()
         self.last_note: int | None = None
+        self.recent_note_velocities: deque[int] = deque(maxlen=8)
+        self.velocity_warning_active = False
         self.simulation_job: str | None = None
         self.simulation_cycle = itertools.cycle(simulation_messages())
 
@@ -259,7 +271,7 @@ class MidiMonitorApp:
         self._configure_style()
         self._build_ui()
         self.refresh_devices(show_dialog=False)
-        self.root.after(POLL_INTERVAL_MS, self._poll_queue)
+        self.poll_job = self.root.after(POLL_INTERVAL_MS, self._poll_queue)
 
     def _configure_style(self) -> None:
         style = ttk.Style(self.root)
@@ -575,8 +587,7 @@ class MidiMonitorApp:
                 messagebox.showinfo(
                     "需要安装依赖",
                     "真实USB MIDI需要 mido 和 python-rtmidi。\n\n"
-                    "请在仓库根目录运行：\n"
-                    "python -m pip install -r .\\code\\software\\requirements-midi.txt",
+                    "请双击本目录的“安装MIDI监视器依赖.cmd”。",
                 )
             return
         try:
@@ -608,37 +619,54 @@ class MidiMonitorApp:
             return
         self.stop_simulation()
         self.disconnect_device(update_status=False)
-        try:
-            self.input_port = MIDI_BACKEND.open_input(name, callback=self._midi_callback)
-        except Exception as exc:
-            self.connection_var.set("连接失败")
-            self.connection_detail_var.set(str(exc))
-            messagebox.showerror(
-                "MIDI设备连接失败",
-                f"无法打开：{name}\n\n{exc}\n\n"
-                "如果设备被其他音乐软件占用，请先关闭那个软件再重试。",
-            )
+        self.requested_device_name = name
+        self._start_input_worker(name)
+
+    def _start_input_worker(self, name: str) -> None:
+        if self.closing or MIDI_BACKEND is None:
             return
-        self.connection_var.set("已连接")
+        if self.reconnect_job is not None:
+            try:
+                self.root.after_cancel(self.reconnect_job)
+            except tk.TclError:
+                pass
+            self.reconnect_job = None
+        worker = MidiInputWorker(MIDI_BACKEND, name, self.event_queue)
+        self.input_worker = worker
+        self.last_receiver_heartbeat = time.monotonic()
+        self.connection_var.set("正在连接")
         self.connection_detail_var.set(name)
+        worker.start()
 
     def disconnect_device(self, update_status: bool = True) -> None:
-        if self.input_port is not None:
+        self.requested_device_name = None
+        if self.reconnect_job is not None:
             try:
-                self.input_port.close()
-            except Exception:
+                self.root.after_cancel(self.reconnect_job)
+            except tk.TclError:
                 pass
-            self.input_port = None
+            self.reconnect_job = None
+        worker = self.input_worker
+        self.input_worker = None
+        if worker is not None:
+            worker.stop()
         if update_status:
             self.connection_var.set("已断开")
             self.connection_detail_var.set("可以选择其他设备或运行模拟模式")
 
-    def _midi_callback(self, message: Any) -> None:
-        try:
-            event = describe_midi_message(message)
-            self.event_queue.put(("event", event))
-        except Exception as exc:
-            self.event_queue.put(("error", str(exc)))
+    def _schedule_reconnect(self, reason: str) -> None:
+        if self.closing or self.requested_device_name is None or self.reconnect_job is not None:
+            return
+        self.connection_var.set("接收中断，准备重连")
+        self.connection_detail_var.set(reason)
+        self.reconnect_job = self.root.after(RECONNECT_DELAY_MS, self._reconnect_device)
+
+    def _reconnect_device(self) -> None:
+        self.reconnect_job = None
+        name = self.requested_device_name
+        if self.closing or name is None:
+            return
+        self._start_input_worker(name)
 
     def start_simulation(self) -> None:
         self.disconnect_device(update_status=False)
@@ -685,17 +713,47 @@ class MidiMonitorApp:
             self.csv_var.set(f"CSV已保存：{path.name}")
 
     def _poll_queue(self) -> None:
+        if self.closing:
+            return
+        processed = 0
         try:
-            while True:
+            while processed < MAX_EVENTS_PER_POLL:
                 kind, payload = self.event_queue.get_nowait()
+                processed += 1
                 if kind == "event":
                     self._handle_event(payload)  # type: ignore[arg-type]
                 elif kind == "error":
                     self.connection_var.set("接收数据错误")
                     self.connection_detail_var.set(str(payload))
+                elif kind == "receiver_connected":
+                    if payload is self.input_worker:
+                        self.connection_var.set("已连接")
+                        self.connection_detail_var.set(self.requested_device_name or "MIDI设备")
+                elif kind == "receiver_heartbeat":
+                    if payload is self.input_worker:
+                        self.last_receiver_heartbeat = time.monotonic()
+                elif kind == "receiver_message":
+                    worker, message = payload  # type: ignore[misc]
+                    if worker is self.input_worker:
+                        self.last_receiver_heartbeat = time.monotonic()
+                        try:
+                            self._handle_event(describe_midi_message(message))
+                        except Exception as exc:
+                            self.connection_var.set("接收数据错误")
+                            self.connection_detail_var.set(str(exc))
+                elif kind == "receiver_error":
+                    worker, error_text = payload  # type: ignore[misc]
+                    if worker is self.input_worker:
+                        self.connection_var.set("MIDI端口错误")
+                        self.connection_detail_var.set(str(error_text))
+                elif kind == "receiver_stopped":
+                    if payload is self.input_worker:
+                        self.input_worker = None
+                        self._schedule_reconnect("端口已停止，正在自动重新连接")
         except queue.Empty:
             pass
-        self.root.after(POLL_INTERVAL_MS, self._poll_queue)
+        delay = 1 if not self.event_queue.empty() else POLL_INTERVAL_MS
+        self.poll_job = self.root.after(delay, self._poll_queue)
 
     def _handle_event(self, event: MidiEvent) -> None:
         self.stats.update(event)
@@ -703,6 +761,20 @@ class MidiMonitorApp:
             self.last_note = event.note
         if event.velocity is not None and event.event_type == "note_on":
             self.velocity_meter.set(event.velocity)
+            self.recent_note_velocities.append(event.velocity)
+            if (
+                len(self.recent_note_velocities) == self.recent_note_velocities.maxlen
+                and len(set(self.recent_note_velocities)) == 1
+            ):
+                velocity = self.recent_note_velocities[0]
+                self.velocity_warning_active = True
+                self.connection_detail_var.set(
+                    f"连续8次Note On力度都是{velocity}；软件读取的是原始MIDI值，"
+                    "请检查X4 III的VEL是否设为Fixed"
+                )
+            elif self.velocity_warning_active and len(set(self.recent_note_velocities)) > 1:
+                self.velocity_warning_active = False
+                self.connection_detail_var.set(self.requested_device_name or "力度已经发生变化")
         if event.event_type == "control_change":
             if event.controller == 1 and event.value is not None:
                 self.mod_meter.set(event.value)
@@ -778,6 +850,8 @@ class MidiMonitorApp:
             self.tree.delete(item)
         self.stats = MidiStatistics()
         self.last_note = None
+        self.recent_note_velocities.clear()
+        self.velocity_warning_active = False
         self.note_card.set("—")
         self.velocity_card.set("—")
         self.active_card.set(0)
@@ -792,6 +866,15 @@ class MidiMonitorApp:
         self.counter_var.set("消息 0 · Note On 0 · Note Off 0")
 
     def close(self) -> None:
+        if self.closing:
+            return
+        self.closing = True
+        if self.poll_job is not None:
+            try:
+                self.root.after_cancel(self.poll_job)
+            except tk.TclError:
+                pass
+            self.poll_job = None
         self.stop_simulation()
         self.disconnect_device(update_status=False)
         self.stop_csv()
