@@ -29,13 +29,14 @@ from audio_defs import PCM_BITS, PCM_MAX, PCM_MIN, saturate_pcm24
 #: 默认最大声部数（对应T010的4复音）
 DEFAULT_MAX_VOICES = 4
 
-#: 混音中间结果位宽（必须能容纳N个PCM相加）
-# N=4时最大值：8388352 * 4 = 33553408 ≈ 2^25，需要26位有符号
-MIXER_ACCUM_BITS = 32  # 使用32位以留有余量
+#: 混音中间结果位宽（接口规范v1.2要求：不少于32位）
+MIXER_ACCUM_BITS = 32
 
-#: 混音累加器范围（实际使用26位）
-MIXER_ACCUM_MAX = (1 << 25) - 1  # 33554431
-MIXER_ACCUM_MIN = -(1 << 25)      # -33554432
+#: 混音累加器实际有效范围（数学分析：26位足够，但规格要求32位实现）
+# 4声部峰值：2097152 * 4 = 8388608 < 2^23，需24位有符号
+# 考虑临界情况，26位足够，但RTL必须按≥32位实现
+MIXER_ACCUM_MAX = (1 << 25) - 1  # 数学分析上界
+MIXER_ACCUM_MIN = -(1 << 25)      # 数学分析下界
 
 
 # --------------------------------------------------------------------------
@@ -135,7 +136,7 @@ def estimate_headroom_db(num_voices: int, per_voice_peak: int = None) -> float:
 
     参数：
         num_voices: 声部数
-        per_voice_peak: 单声部峰值（默认为8388352，即波表定标后满幅）
+        per_voice_peak: 单声部峰值（默认为2097152，即D028冻结工作点）
 
     返回：
         余量（dB），正值表示不会削波
@@ -143,8 +144,8 @@ def estimate_headroom_db(num_voices: int, per_voice_peak: int = None) -> float:
     import math
 
     if per_voice_peak is None:
-        # 波表满幅定标后的值：32767 * 256
-        per_voice_peak = 32767 << 8  # 8388352
+        # D028冻结工作点：8192 * 256 = 2097152
+        per_voice_peak = 8192 << 8  # 2097152
 
     # 所有声部同时满幅的总和
     worst_case_sum = num_voices * per_voice_peak

@@ -115,7 +115,7 @@ def save_hex_output(samples, output_path):
             unsigned = sample
         lines.append(f"{unsigned:06x}")
 
-    output_path.write_text('\n'.join(lines) + '\n', encoding='utf-8')
+    output_path.write_text('\n'.join(lines) + '\n', encoding='utf-8', newline='\n')
     print(f"已保存hex文件: {output_path} ({len(lines)} 行)")
 
 
