@@ -115,7 +115,8 @@ class VisualScoreReference:
         self,
         preview_time: float = 2.0,
         screen_height: float = 400.0,
-        hit_window_ms: float = 100.0
+        hit_window_ms: float = 100.0,
+        note_linger_time: float = 0.5
     ):
         """
         初始化参考模型
@@ -124,10 +125,12 @@ class VisualScoreReference:
             preview_time: 音符提前出现时间（秒），样例值 2.0
             screen_height: 从屏幕顶部到判定线的距离（像素），样例值 400.0
             hit_window_ms: 命中判定时间窗口（毫秒），样例值 ±100ms
+            note_linger_time: duration=None 的音符在判定线停留时间（秒），默认 0.5
         """
         self.preview_time = preview_time
         self.screen_height = screen_height
         self.hit_window_ms = hit_window_ms
+        self.note_linger_time = note_linger_time
 
         # 计算下落速度（像素/秒）
         self.fall_speed = screen_height / preview_time
@@ -193,6 +196,10 @@ class VisualScoreReference:
         """
         生成所有视觉事件（预告、到达、消失）
 
+        消失规则：
+        - 有 duration: 在 hit_time + duration 时消失
+        - 无 duration (None): 在 hit_time + note_linger_time 时消失
+
         Returns:
             按时间排序的视觉事件列表
         """
@@ -218,16 +225,21 @@ class VisualScoreReference:
                 y_position=0.0
             ))
 
-            # 消失事件：如果有持续时间，在 Note Off 时消失
+            # 消失事件
             if note.duration is not None:
+                # 有持续时间：在 Note Off 时消失
                 disappear_time = note.hit_time + note.duration
-                events.append(VisualEvent(
-                    event_type='disappear',
-                    time=disappear_time,
-                    note_id=note.note_id,
-                    note_number=note.note_number,
-                    y_position=0.0  # 已经在判定线上
-                ))
+            else:
+                # 无持续时间：在判定线停留 note_linger_time 后消失
+                disappear_time = note.hit_time + self.note_linger_time
+
+            events.append(VisualEvent(
+                event_type='disappear',
+                time=disappear_time,
+                note_id=note.note_id,
+                note_number=note.note_number,
+                y_position=0.0  # 已经在判定线上
+            ))
 
         # 按时间、note_id、事件类型排序，确保顺序稳定
         events.sort(key=lambda e: (e.time, e.note_id, e.event_type))
@@ -276,47 +288,72 @@ class VisualScoreReference:
 
     def judge_performance(
         self,
-        performance_events: List[Tuple[int, float]]
-    ) -> List[HitJudgement]:
+        performance_events: List[Tuple[int, float]],
+        song_start_time: float = 0.0
+    ) -> Dict:
         """
         判定一组演奏事件
 
+        一对一匹配规则：
+        - 一次真实 Note On 最多命中一个曲谱音符
+        - 同一曲谱音符不能被重复命中
+        - 窗口内最接近的匹配优先
+        - 未按音符在 hit_time + hit_window 后转为 Miss
+        - 窗口外误按记录为 extra_press
+
         Args:
             performance_events: 演奏事件列表，每项为 (note_number, time)
+            song_start_time: 曲目起点时间（秒），用于统一 hit_time 与真实按键时间基准
 
         Returns:
-            所有音符的命中判定结果列表
+            字典包含：
+            - judgements: 所有曲谱音符的判定结果列表
+            - extra_presses: 窗口外的误按列表，每项为 (note_number, time)
         """
         judgements = []
+        used_events = set()
+        extra_presses = []
 
         # 为每个曲谱音符找最接近的演奏事件
-        used_events = set()
-
         for note in self.notes:
             best_match = None
             best_error = float('inf')
             best_idx = None
+
+            # 计算该音符的绝对判定时间
+            absolute_hit_time = song_start_time + note.hit_time
+            window_sec = self.hit_window_ms / 1000.0
 
             for idx, (perf_note, perf_time) in enumerate(performance_events):
                 # 只匹配相同音高且未被使用的事件
                 if perf_note != note.note_number or idx in used_events:
                     continue
 
-                error = abs(perf_time - note.hit_time)
-                if error < best_error:
+                error = abs(perf_time - absolute_hit_time)
+
+                # 只考虑在时间窗口内的事件
+                if error <= window_sec and error < best_error:
                     best_error = error
                     best_match = perf_time
                     best_idx = idx
 
             if best_match is not None:
                 used_events.add(best_idx)
-                judgement = self.judge_hit(note.note_id, best_match)
+                # 使用相对时间计算判定
+                judgement = HitJudgement(
+                    note_id=note.note_id,
+                    note_number=note.note_number,
+                    expected_time=absolute_hit_time,
+                    actual_time=best_match,
+                    time_error=(best_match - absolute_hit_time) * 1000.0,
+                    is_hit=True
+                )
             else:
                 # 未找到匹配的演奏事件，记为 Miss
                 judgement = HitJudgement(
                     note_id=note.note_id,
                     note_number=note.note_number,
-                    expected_time=note.hit_time,
+                    expected_time=absolute_hit_time,
                     actual_time=float('nan'),
                     time_error=float('inf'),
                     is_hit=False
@@ -324,11 +361,24 @@ class VisualScoreReference:
 
             judgements.append(judgement)
 
-        return judgements
+        # 记录未被匹配的演奏事件为误按
+        for idx, (perf_note, perf_time) in enumerate(performance_events):
+            if idx not in used_events:
+                extra_presses.append((perf_note, perf_time))
+
+        return {
+            'judgements': judgements,
+            'extra_presses': extra_presses
+        }
 
     def get_notes_at_time(self, time: float) -> List[Dict]:
         """
         获取某时刻所有可见音符的状态
+
+        可见性规则：
+        - 在预告时间前不可见
+        - 有 duration: 在 hit_time + duration 后不可见
+        - 无 duration: 在 hit_time + note_linger_time 后不可见
 
         Args:
             time: 查询时刻（秒）
@@ -343,17 +393,21 @@ class VisualScoreReference:
             if time < note.hit_time - self.preview_time:
                 continue
 
-            # 如果有持续时间，在 Note Off 后不可见
+            # 计算消失时间
             if note.duration is not None:
-                if time > note.hit_time + note.duration:
-                    continue
+                disappear_time = note.hit_time + note.duration
+            else:
+                disappear_time = note.hit_time + self.note_linger_time
+
+            # 消失后不可见
+            if time > disappear_time:
+                continue
 
             # 计算位置
             y_pos = self.get_y_position(time, note.hit_time)
 
             # 判断是否还在激活状态（到达判定线后且未消失）
-            is_active = (time >= note.hit_time and
-                        (note.duration is None or time <= note.hit_time + note.duration))
+            is_active = (time >= note.hit_time and time <= disappear_time)
 
             visible_notes.append({
                 'note_id': note.note_id,

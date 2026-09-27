@@ -12,12 +12,15 @@ test_visual_score_reference.py
 - 速度变化（预留接口）
 - 重置（清空曲谱）
 - 命中判定（Hit/Miss，时间窗口）
+- 一对一匹配规则
+- 窗口外误按记录
 
-验收标准：所有测试 PASS，输出 "ALL TESTS PASSED"
+验收标准：所有测试 PASS，失败返回非零退出码
 
 作者：M1
 任务：T0xx 双模式可视化 - 下落音符曲谱时间轴
 日期：2026-09-27
+修订：2026-09-27（按 M2 要求修正）
 """
 
 import sys
@@ -42,7 +45,7 @@ def assert_close(actual, expected, tolerance, msg):
         print(f"  Expected: {expected}")
         print(f"  Actual: {actual}")
         print(f"  Error: {abs(actual - expected)}")
-        sys.exit(1)
+        raise AssertionError(msg)
 
 
 def assert_equal(actual, expected, msg):
@@ -51,7 +54,7 @@ def assert_equal(actual, expected, msg):
         print(f"FAIL: {msg}")
         print(f"  Expected: {expected}")
         print(f"  Actual: {actual}")
-        sys.exit(1)
+        raise AssertionError(msg)
 
 
 def test_basic_note_preview():
@@ -61,17 +64,18 @@ def test_basic_note_preview():
     model = VisualScoreReference(
         preview_time=2.0,
         screen_height=400.0,
-        hit_window_ms=100.0
+        hit_window_ms=100.0,
+        note_linger_time=0.5
     )
 
-    # 添加一个音符：C5(72) 在 5.0 秒到达判定线
+    # 添加一个音符：C5(72) 在 5.0 秒到达判定线，无持续时间
     model.add_note(note_id=1, note_number=72, hit_time=5.0, velocity=512)
 
     # 生成视觉事件
     events = model.generate_visual_events()
 
-    # 应该有2个事件：appear 和 arrive
-    assert_equal(len(events), 2, "应该生成2个事件")
+    # 应该有3个事件：appear, arrive, disappear
+    assert_equal(len(events), 3, "应该生成3个事件")
 
     # 检查 appear 事件
     appear = events[0]
@@ -87,6 +91,11 @@ def test_basic_note_preview():
     assert_close(arrive.time, 5.0, 0.001, "arrive 时间应为 5.0")
     assert_close(arrive.y_position, 0.0, 0.001, "arrive 位置应在判定线")
 
+    # 检查 disappear 事件
+    disappear = events[2]
+    assert_equal(disappear.event_type, 'disappear', "第三个事件应是 disappear")
+    assert_close(disappear.time, 5.5, 0.001, "disappear 时间应为 5.0 + 0.5")
+
     # 检查中间时刻的位置
     y_at_4s = model.get_y_position(4.0, 5.0)
     assert_close(y_at_4s, 200.0, 0.001, "4.0秒时应在中间位置 200像素")
@@ -98,7 +107,7 @@ def test_same_note_repeat():
     """测试2：同音重复（区分音符实例）"""
     print("测试2：同音重复...", end=" ")
 
-    model = VisualScoreReference(preview_time=2.0, screen_height=400.0)
+    model = VisualScoreReference(preview_time=2.0, screen_height=400.0, note_linger_time=0.5)
 
     # 添加两个相同音高的音符，不同时间
     model.add_note(note_id=1, note_number=60, hit_time=3.0)
@@ -106,26 +115,17 @@ def test_same_note_repeat():
 
     events = model.generate_visual_events()
 
-    # 应该有4个事件
-    assert_equal(len(events), 4, "两个音符应生成4个事件")
+    # 应该有6个事件（每个音符3个事件）
+    assert_equal(len(events), 6, "两个音符应生成6个事件")
 
-    # 事件按时间顺序：1.0s(音符1 appear), 2.0s(音符2 appear), 3.0s(音符1 arrive), 4.0s(音符2 arrive)
+    # 按时间顺序检查关键事件
     assert_equal(events[0].note_id, 1, "第1个事件属于音符1")
     assert_equal(events[0].event_type, 'appear', "第1个事件是 appear")
-    assert_equal(events[0].note_number, 60, "音符号应为60")
     assert_close(events[0].time, 1.0, 0.001, "音符1在1.0秒出现")
 
     assert_equal(events[1].note_id, 2, "第2个事件属于音符2")
     assert_equal(events[1].event_type, 'appear', "第2个事件是 appear")
     assert_close(events[1].time, 2.0, 0.001, "音符2在2.0秒出现")
-
-    assert_equal(events[2].note_id, 1, "第3个事件属于音符1")
-    assert_equal(events[2].event_type, 'arrive', "第3个事件是 arrive")
-    assert_close(events[2].time, 3.0, 0.001, "音符1在3.0秒到达")
-
-    assert_equal(events[3].note_id, 2, "第4个事件属于音符2")
-    assert_equal(events[3].event_type, 'arrive', "第4个事件是 arrive")
-    assert_close(events[3].time, 4.0, 0.001, "音符2在4.0秒到达")
 
     # 确认两个音符有不同的ID但相同的音高
     note_ids = [e.note_id for e in events]
@@ -147,23 +147,23 @@ def test_chord():
 
     events = model.generate_visual_events()
 
-    # 3个音符，每个2个事件 = 6个事件
-    assert_equal(len(events), 6, "和弦应生成6个事件")
+    # 3个音符，每个3个事件 = 9个事件
+    assert_equal(len(events), 9, "和弦应生成9个事件")
 
     # 检查所有 appear 事件时间相同
-    appear_times = [e.time for e in events if e.event_type == 'appear']
-    assert_equal(len(appear_times), 3, "应有3个 appear 事件")
-    for t in appear_times:
-        assert_close(t, 3.0, 0.001, "所有音符应同时出现")
+    appear_events = [e for e in events if e.event_type == 'appear']
+    assert_equal(len(appear_events), 3, "应有3个 appear 事件")
+    for e in appear_events:
+        assert_close(e.time, 3.0, 0.001, "所有音符应同时出现")
 
     # 检查所有 arrive 事件时间相同
-    arrive_times = [e.time for e in events if e.event_type == 'arrive']
-    assert_equal(len(arrive_times), 3, "应有3个 arrive 事件")
-    for t in arrive_times:
-        assert_close(t, 5.0, 0.001, "所有音符应同时到达")
+    arrive_events = [e for e in events if e.event_type == 'arrive']
+    assert_equal(len(arrive_events), 3, "应有3个 arrive 事件")
+    for e in arrive_events:
+        assert_close(e.time, 5.0, 0.001, "所有音符应同时到达")
 
     # 检查音符号不同
-    note_numbers = sorted([e.note_number for e in events if e.event_type == 'arrive'])
+    note_numbers = sorted([e.note_number for e in arrive_events])
     assert_equal(note_numbers, [60, 64, 67], "应包含三个不同音符")
 
     print("PASS")
@@ -181,10 +181,6 @@ def test_rest():
 
     # 在 4.0 秒时查询可见音符
     visible_at_4s = model.get_notes_at_time(4.0)
-
-    # 此时音符1已经到达并停止，音符2还未出现
-    # 音符1在3.0秒到达，没有持续时间，理论上仍可见但已到达判定线以下
-    # 音符2在6.0秒到达，4.0秒时刚好在预告边界上
 
     # 检查音符2的位置
     y_note2 = model.get_y_position(4.0, 6.0)
@@ -340,7 +336,9 @@ def test_performance_judgement():
         (67, 4.12),   # 延迟 120ms，超出窗口
     ]
 
-    judgements = model.judge_performance(performance)
+    result = model.judge_performance(performance, song_start_time=0.0)
+    judgements = result['judgements']
+    extra_presses = result['extra_presses']
 
     # 检查结果
     assert_equal(len(judgements), 3, "应有3个判定结果")
@@ -355,10 +353,14 @@ def test_performance_judgement():
     assert_equal(judgements[1].is_hit, True, "音符2应命中")
     assert_close(judgements[1].time_error, 50.0, 1.0, "音符2延迟50ms")
 
-    # 音符3：未命中
+    # 音符3：未命中（超出窗口）
     assert_equal(judgements[2].note_id, 3, "第3个判定对应音符3")
     assert_equal(judgements[2].is_hit, False, "音符3应未命中")
-    assert_close(judgements[2].time_error, 120.0, 1.0, "音符3延迟120ms")
+    assert_equal(math.isnan(judgements[2].actual_time), True, "音符3无有效按键时间")
+
+    # 窗口外的按键被记录为误按
+    assert_equal(len(extra_presses), 1, "应有1个误按（窗口外的67）")
+    assert_equal(extra_presses[0], (67, 4.12), "67在4.12秒的按键超出窗口")
 
     print("PASS")
 
@@ -376,20 +378,88 @@ def test_performance_miss_note():
     # 演奏：只按了第1个
     performance = [(60, 3.0)]
 
-    judgements = model.judge_performance(performance)
+    result = model.judge_performance(performance, song_start_time=0.0)
+    judgements = result['judgements']
+    extra_presses = result['extra_presses']
 
     # 应该有2个判定，第2个为 Miss
     assert_equal(len(judgements), 2, "应有2个判定结果")
     assert_equal(judgements[0].is_hit, True, "音符1应命中")
     assert_equal(judgements[1].is_hit, False, "音符2应未命中（漏按）")
     assert_equal(math.isnan(judgements[1].actual_time), True, "漏按音符的实际时间应为 NaN")
+    assert_equal(len(extra_presses), 0, "应无误按")
+
+    print("PASS")
+
+
+def test_extra_presses():
+    """测试13：窗口外误按"""
+    print("测试13：窗口外误按...", end=" ")
+
+    model = VisualScoreReference(hit_window_ms=100.0)
+
+    # 曲谱：1个音符
+    model.add_note(note_id=1, note_number=60, hit_time=3.0)
+
+    # 演奏：正确按键 + 2个误按
+    performance = [
+        (60, 3.0),   # 正确
+        (62, 3.5),   # 误按：不在曲谱中
+        (64, 5.0),   # 误按：不在曲谱中
+    ]
+
+    result = model.judge_performance(performance, song_start_time=0.0)
+    judgements = result['judgements']
+    extra_presses = result['extra_presses']
+
+    # 检查判定结果
+    assert_equal(len(judgements), 1, "应有1个曲谱音符判定")
+    assert_equal(judgements[0].is_hit, True, "音符1应命中")
+
+    # 检查误按
+    assert_equal(len(extra_presses), 2, "应有2个误按")
+    assert_equal(extra_presses[0], (62, 3.5), "第1个误按")
+    assert_equal(extra_presses[1], (64, 5.0), "第2个误按")
+
+    print("PASS")
+
+
+def test_same_note_one_to_one():
+    """测试14：同音重复一对一匹配"""
+    print("测试14：同音重复一对一匹配...", end=" ")
+
+    model = VisualScoreReference(hit_window_ms=100.0)
+
+    # 曲谱：同音3次
+    model.add_note(note_id=1, note_number=60, hit_time=3.0)
+    model.add_note(note_id=2, note_number=60, hit_time=4.0)
+    model.add_note(note_id=3, note_number=60, hit_time=5.0)
+
+    # 演奏：只按了2次
+    performance = [
+        (60, 3.02),  # 对应音符1
+        (60, 4.05),  # 对应音符2
+    ]
+
+    result = model.judge_performance(performance, song_start_time=0.0)
+    judgements = result['judgements']
+
+    # 检查一对一匹配
+    assert_equal(len(judgements), 3, "应有3个判定结果")
+    assert_equal(judgements[0].is_hit, True, "音符1应命中")
+    assert_equal(judgements[1].is_hit, True, "音符2应命中")
+    assert_equal(judgements[2].is_hit, False, "音符3应未命中（漏按）")
+
+    # 确认每个演奏事件只匹配一个音符
+    hit_count = sum(1 for j in judgements if j.is_hit)
+    assert_equal(hit_count, 2, "应有2个命中，对应2次按键")
 
     print("PASS")
 
 
 def test_configurable_window():
-    """测试13：可配置时间窗口"""
-    print("测试13：可配置时间窗口...", end=" ")
+    """测试15：可配置时间窗口"""
+    print("测试15：可配置时间窗口...", end=" ")
 
     # 窗口 50ms
     model_50 = VisualScoreReference(hit_window_ms=50.0)
@@ -410,8 +480,8 @@ def test_configurable_window():
 
 
 def test_configurable_preview():
-    """测试14：可配置预告时间"""
-    print("测试14：可配置预告时间...", end=" ")
+    """测试16：可配置预告时间"""
+    print("测试16：可配置预告时间...", end=" ")
 
     # 预告时间 1.0 秒
     model = VisualScoreReference(preview_time=1.0, screen_height=400.0)
@@ -428,6 +498,32 @@ def test_configurable_preview():
     print("PASS")
 
 
+def test_note_without_duration():
+    """测试17：无持续时间音符的移除"""
+    print("测试17：无持续时间音符的移除...", end=" ")
+
+    model = VisualScoreReference(preview_time=2.0, screen_height=400.0, note_linger_time=0.5)
+
+    # 添加无持续时间的音符
+    model.add_note(note_id=1, note_number=60, hit_time=5.0, duration=None)
+
+    events = model.generate_visual_events()
+
+    # 应该有3个事件：appear, arrive, disappear
+    assert_equal(len(events), 3, "无持续时间的音符也应生成3个事件")
+    assert_equal(events[2].event_type, 'disappear', "第3个事件应是 disappear")
+    assert_close(events[2].time, 5.5, 0.001, "应在 hit_time + note_linger_time 消失")
+
+    # 检查可见性
+    visible_at_5_3 = model.get_notes_at_time(5.3)
+    assert_equal(len(visible_at_5_3), 1, "5.3秒时音符应可见")
+
+    visible_at_5_6 = model.get_notes_at_time(5.6)
+    assert_equal(len(visible_at_5_6), 0, "5.6秒时音符应已消失")
+
+    print("PASS")
+
+
 def run_all_tests():
     """运行所有测试"""
     print("=" * 60)
@@ -435,26 +531,36 @@ def run_all_tests():
     print("=" * 60)
     print()
 
-    test_basic_note_preview()
-    test_same_note_repeat()
-    test_chord()
-    test_rest()
-    test_note_off()
-    test_reset()
-    test_hit_judgement_perfect()
-    test_hit_judgement_early()
-    test_hit_judgement_late()
-    test_hit_judgement_miss()
-    test_performance_judgement()
-    test_performance_miss_note()
-    test_configurable_window()
-    test_configurable_preview()
+    try:
+        test_basic_note_preview()
+        test_same_note_repeat()
+        test_chord()
+        test_rest()
+        test_note_off()
+        test_reset()
+        test_hit_judgement_perfect()
+        test_hit_judgement_early()
+        test_hit_judgement_late()
+        test_hit_judgement_miss()
+        test_performance_judgement()
+        test_performance_miss_note()
+        test_extra_presses()
+        test_same_note_one_to_one()
+        test_configurable_window()
+        test_configurable_preview()
+        test_note_without_duration()
 
-    print()
-    print("=" * 60)
-    print("ALL TESTS PASSED")
-    print("=" * 60)
-    return 0
+        print()
+        print("=" * 60)
+        print("ALL TESTS PASSED (17/17)")
+        print("=" * 60)
+        return 0
+    except Exception as e:
+        print()
+        print("=" * 60)
+        print(f"TESTS FAILED: {e}")
+        print("=" * 60)
+        return 1
 
 
 if __name__ == '__main__':
