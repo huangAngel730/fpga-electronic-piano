@@ -46,13 +46,26 @@ module sine_wavetable_1024 (
     output logic signed [15:0] dout
 );
 
-    // 使用高云BSRAM（推断或显式实例化）
-    // 1024 × 16位 = 16Kbits，占用1个BSRAM块
+    // 1024点正弦波表ROM（同步读取）
     logic signed [15:0] rom_data [0:1023];
+    string wavetable_path;
 
-    // 从文件加载波表数据
     initial begin
-        $readmemh("../../../model/generated/wavetables/sine_1024_32767.mem", rom_data);
+        // 默认路径：从仿真工作目录（code/）向下查找
+        wavetable_path = "model/generated/wavetables/sine_1024_32767.mem";
+
+        if ($test$plusargs("WAVETABLE_PATH")) begin
+            void'($value$plusargs("WAVETABLE_PATH=%s", wavetable_path));
+        end
+
+        $readmemh(wavetable_path, rom_data);
+
+        if (rom_data[0] === 16'bx) begin
+            $display("ERROR: Failed to load wavetable from: %s", wavetable_path);
+            $finish(1);
+        end else begin
+            $display("INFO: Loaded wavetable from: %s", wavetable_path);
+        end
     end
 
     // 同步读取（BSRAM特性）

@@ -50,6 +50,7 @@ module tb_dds_oscillator;
     integer golden_file, error_count, sample_count;
     logic signed [15:0] expected_sample;
     integer scan_ret;
+    string line;
 
     initial begin
         // 初始化
@@ -67,22 +68,24 @@ module tb_dds_oscillator;
         $display("Testing A4 (440Hz) for 1000 samples");
 
         // 设置FCW: A4 (440Hz)
-        // FCW = (440 * 2^32) / 48000 = 39224903
-        fcw = 32'd39224903;
+        // Python模型: midi_note_to_fcw(69) = 0x0258bf26
+        fcw = 32'h0258bf26;
 
         // 打开黄金参考文件
-        golden_file = $fopen("../../../model/generated/dds_test/dds_a4_440hz.txt", "r");
+        golden_file = $fopen("model/generated/dds_test/dds_a4_440hz.txt", "r");
         if (golden_file == 0) begin
             $display("ERROR: Cannot open golden reference file");
-            $finish;
+            $display("Path: model/generated/dds_test/dds_a4_440hz.txt");
+            $display("Please run: python code/model/generate_dds_test_vectors.py");
+            $finish(1);
         end
 
-        // 跳过文件头
+        // 跳过文件头注释行
         while (!$feof(golden_file)) begin
-            scan_ret = $fscanf(golden_file, "%d\n", expected_sample);
-            if (scan_ret == 1 && expected_sample != 0) break;
+            if ($fgets(line, golden_file)) begin
+                if (line[0] != "#") break;
+            end
         end
-        $fseek(golden_file, 0, 0);  // 重置到文件开头
 
         // 逐样本验证（前1000样本）
         repeat(1000) begin
@@ -91,7 +94,8 @@ module tb_dds_oscillator;
                 // 等待1个时钟让波表输出稳定
                 @(posedge sys_clk);
 
-                scan_ret = $fscanf(golden_file, "%d\n", expected_sample);
+                // 从文件读取：格式 "sample_idx phase_hex wt_sample_dec wt_sample_hex"
+                scan_ret = $fscanf(golden_file, "%*d %*s %d %*s\n", expected_sample);
                 if (scan_ret != 1) begin
                     $display("ERROR: Failed to read golden reference at sample %0d", sample_count);
                     error_count++;

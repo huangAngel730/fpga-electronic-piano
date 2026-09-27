@@ -157,8 +157,10 @@ module tb_adsr_piano;
         @(posedge sys_clk);
         note_on = 0;
 
+        // 等待ROM查表完成（2个时钟周期）
+        repeat(2) @(posedge sys_clk);
+
         // 检查首样本跳变
-        @(posedge sys_clk);
         if (sample_tick) begin
             @(posedge sys_clk);
             integer delta = (envelope_level > prev_level) ?
@@ -171,6 +173,58 @@ module tb_adsr_piano;
                 error_count++;
             end else begin
                 $display("PASS: Retrigger transition smooth");
+            end
+        end
+
+        // 测试3: 轻力度重触发边界
+        $display("\nTest 3: Low velocity retrigger");
+
+        // 新Note On，低velocity
+        @(posedge sys_clk);
+        note_on = 1;
+        velocity = 10'd100;  // 低velocity
+        @(posedge sys_clk);
+        note_on = 0;
+
+        // 到Release中途
+        repeat(30000) begin
+            @(posedge sys_clk);
+            if (sample_tick) sample_count++;
+        end
+
+        @(posedge sys_clk);
+        note_off = 1;
+        @(posedge sys_clk);
+        note_off = 0;
+
+        repeat(2400) begin
+            @(posedge sys_clk);
+            if (sample_tick) sample_count++;
+        end
+
+        prev_level = envelope_level;
+
+        // 极低velocity重触发
+        @(posedge sys_clk);
+        note_on = 1;
+        velocity = 10'd50;
+        @(posedge sys_clk);
+        note_on = 0;
+
+        repeat(2) @(posedge sys_clk);
+
+        if (sample_tick) begin
+            @(posedge sys_clk);
+            integer delta2 = (envelope_level > prev_level) ?
+                            (envelope_level - prev_level) : (prev_level - envelope_level);
+            $display("Low velocity retrigger: prev=%d, now=%d, delta=%d",
+                     prev_level, envelope_level, delta2);
+
+            if (delta2 > 138) begin
+                $display("ERROR: Low velocity retrigger jump too large: %d", delta2);
+                error_count++;
+            end else begin
+                $display("PASS: Low velocity retrigger smooth");
             end
         end
 

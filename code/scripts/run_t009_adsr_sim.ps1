@@ -1,4 +1,4 @@
-# T009 ADSR仿真脚本
+# T009 ADSR仿真脚本（修正版）
 $ErrorActionPreference = "Stop"
 Set-Location $PSScriptRoot\..
 
@@ -18,35 +18,39 @@ with open('generated/wavetables/velocity_gain_rom.mem', 'w') as f:
 print('Generated velocity_gain_rom.mem')
 "@
     Pop-Location
+
+    if (-not (Test-Path $romFile)) {
+        Write-Host "ERROR: Failed to generate Velocity ROM" -ForegroundColor Red
+        exit 1
+    }
 }
 
-# 尝试使用Icarus Verilog
+# 使用Icarus Verilog仿真
 $iverilog = Get-Command iverilog -ErrorAction SilentlyContinue
-if ($iverilog) {
-    Write-Host "Using Icarus Verilog" -ForegroundColor Green
-
-    iverilog -g2012 -o tb_adsr.vvp `
-        -s tb_adsr_piano `
-        rtl\audio\adsr_piano_envelope.sv `
-        tb\audio\tb_adsr_piano.sv
-
-    if ($LASTEXITCODE -ne 0) {
-        Write-Host "ERROR: Compilation failed" -ForegroundColor Red
-        exit 1
-    }
-
-    vvp tb_adsr.vvp
-    $exitCode = $LASTEXITCODE
-    Remove-Item tb_adsr.vvp -ErrorAction SilentlyContinue
-
-    if ($exitCode -eq 0) {
-        Write-Host "`nPASS: T009 ADSR simulation" -ForegroundColor Green
-        exit 0
-    } else {
-        Write-Host "`nFAIL: T009 ADSR simulation" -ForegroundColor Red
-        exit 1
-    }
-} else {
+if (-not $iverilog) {
     Write-Host "ERROR: iverilog not found" -ForegroundColor Red
     exit 1
 }
+
+Write-Host "Compiling RTL..." -ForegroundColor Green
+iverilog -g2012 -o build\tb_adsr.vvp `
+    -s tb_adsr_piano `
+    rtl\audio\adsr_piano_envelope.sv `
+    tb\audio\tb_adsr_piano.sv
+
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "ERROR: Compilation failed" -ForegroundColor Red
+    exit 1
+}
+
+Write-Host "Running simulation..." -ForegroundColor Green
+vvp build\tb_adsr.vvp
+$exitCode = $LASTEXITCODE
+
+if ($exitCode -eq 0) {
+    Write-Host "`nPASS: T009 ADSR simulation" -ForegroundColor Green
+} else {
+    Write-Host "`nFAIL: T009 ADSR simulation (exit code: $exitCode)" -ForegroundColor Red
+}
+
+exit $exitCode
