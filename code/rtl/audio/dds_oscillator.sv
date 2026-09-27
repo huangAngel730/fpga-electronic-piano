@@ -48,24 +48,28 @@ module sine_wavetable_1024 (
 
     // 1024点正弦波表ROM（同步读取）
     logic signed [15:0] rom_data [0:1023];
+    // synthesis translate_off
     string wavetable_path;
+    integer rom_index;
+    // synthesis translate_on
 
     initial begin
-        // 默认路径：从仿真工作目录（code/）向下查找
-        wavetable_path = "model/generated/wavetables/sine_1024_32767.mem";
-
-        if ($test$plusargs("WAVETABLE_PATH")) begin
-            void'($value$plusargs("WAVETABLE_PATH=%s", wavetable_path));
-        end
-
-        $readmemh(wavetable_path, rom_data);
-
-        if (rom_data[0] === 16'bx) begin
-            $display("ERROR: Failed to load wavetable from: %s", wavetable_path);
-            $finish(1);
+        // Simulation can override the ROM path; synthesis sees a constant file.
+        // synthesis translate_off
+        if ($value$plusargs("WAVETABLE_PATH=%s", wavetable_path)) begin
+            $readmemh(wavetable_path, rom_data);
         end else begin
-            $display("INFO: Loaded wavetable from: %s", wavetable_path);
+            wavetable_path = "model/generated/wavetables/sine_1024_32767.mem";
+        // synthesis translate_on
+            $readmemh("model/generated/wavetables/sine_1024_32767.mem", rom_data);
+        // synthesis translate_off
         end
+        for (rom_index = 0; rom_index < 1024; rom_index = rom_index + 1) begin
+            if (^rom_data[rom_index] === 1'bx)
+                $fatal(1, "Uninitialized wavetable word %0d in %s", rom_index, wavetable_path);
+        end
+        $display("INFO: Loaded 1024 wavetable words from %s", wavetable_path);
+        // synthesis translate_on
     end
 
     // 同步读取（BSRAM特性）

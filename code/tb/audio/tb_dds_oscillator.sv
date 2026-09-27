@@ -1,147 +1,56 @@
-// T004 DDS振荡器Testbench
-// 验证策略：逐样本对比M1 Python模型输出
+// T004 self-check: compare 1000 actual samples with M1 DDS model.
+// Drive at negedge; sample before phase update, matching model.step().
 `timescale 1ns/1ps
-
 module tb_dds_oscillator;
-
-    // 时钟和复位
-    logic sys_clk;
-    logic sys_rst_n;
-    logic sample_tick;
-
-    // DDS接口
-    logic [31:0] fcw;
-    logic signed [15:0] wt_sample;
-
-    // 实例化DUT
-    dds_oscillator u_dut (
-        .sys_clk(sys_clk),
-        .sys_rst_n(sys_rst_n),
-        .sample_tick(sample_tick),
-        .fcw(fcw),
-        .wt_sample(wt_sample)
-    );
-
-    // 时钟生成：50MHz
+    logic sys_clk = 0;
+    always #10 sys_clk = ~sys_clk;
+    logic sys_rst_n = 0, sample_tick = 0;
+    logic [31:0] fcw = 0;
+    wire signed [15:0] wt_sample;
+    dds_oscillator dut (.*);
+    integer file_handle, scan_count, expected_index, expected_sample;
+    integer compared = 0;
+    logic [31:0] expected_phase, expected_fcw;
+    string vectors;
     initial begin
-        sys_clk = 0;
-        forever #10 sys_clk = ~sys_clk;  // 20ns周期
-    end
-
-    // 采样时钟生成：48kHz
-    // 50MHz / 48kHz ≈ 1042周期
-    integer sample_counter;
-    always_ff @(posedge sys_clk or negedge sys_rst_n) begin
-        if (!sys_rst_n) begin
-            sample_counter <= 0;
-            sample_tick <= 0;
-        end else begin
-            if (sample_counter >= 1041) begin
-                sample_counter <= 0;
-                sample_tick <= 1;
-            end else begin
-                sample_counter <= sample_counter + 1;
-                sample_tick <= 0;
-            end
-        end
-    end
-
-    // 测试流程
-    integer golden_file, error_count, sample_count;
-    logic signed [15:0] expected_sample;
-    integer scan_ret;
-    string line;
-
-    initial begin
-        // 初始化
-        sys_rst_n = 0;
-        fcw = 32'h0;
-        error_count = 0;
-        sample_count = 0;
-
-        // 复位
-        repeat(10) @(posedge sys_clk);
+        if (!$value$plusargs("VECTORS=%s", vectors))
+            $fatal(1, "VECTORS path is required");
+        file_handle = $fopen(vectors, "r");
+        if (file_handle == 0) $fatal(1, "Cannot open vectors: %s", vectors);
+        repeat (4) @(negedge sys_clk);
         sys_rst_n = 1;
-        repeat(10) @(posedge sys_clk);
-
-        $display("=== T004 DDS Oscillator Test ===");
-        $display("Testing A4 (440Hz) for 1000 samples");
-
-        // 设置FCW: A4 (440Hz)
-        // Python模型: midi_note_to_fcw(69) = 0x0258bf26
-        fcw = 32'h0258bf26;
-
-        // 打开黄金参考文件
-        golden_file = $fopen("model/generated/dds_test/dds_a4_440hz.txt", "r");
-        if (golden_file == 0) begin
-            $display("ERROR: Cannot open golden reference file");
-            $display("Path: model/generated/dds_test/dds_a4_440hz.txt");
-            $display("Please run: python code/model/generate_dds_test_vectors.py");
-            $finish(1);
-        end
-
-        // 跳过文件头注释行
-        while (!$feof(golden_file)) begin
-            if ($fgets(line, golden_file)) begin
-                if (line[0] != "#") break;
+        repeat (2) @(negedge sys_clk);
+        for (integer n = 0; n < 1000; n = n + 1) begin
+            scan_count = $fscanf(file_handle, "%d %h %h %d\n",
+                                 expected_index, expected_fcw, expected_phase, expected_sample);
+            if (scan_count != 4 || expected_index != n)
+                $fatal(1, "Missing/malformed vector %0d (fields=%0d)", n, scan_count);
+            if (n == 900) begin
+                sys_rst_n = 0;
+                repeat (3) @(negedge sys_clk);
+                sys_rst_n = 1;
+                repeat (2) @(negedge sys_clk);
             end
+            fcw = expected_fcw;
+            // Several clocks without sample_tick must preserve phase/sample.
+            repeat (3) @(negedge sys_clk);
+            #1;
+            if (dut.phase_acc !== expected_phase || $signed(wt_sample) !== expected_sample)
+                $fatal(1, "sample %0d phase=%h expected=%h value=%0d expected=%0d",
+                       n, dut.phase_acc, expected_phase, $signed(wt_sample), expected_sample);
+            compared = compared + 1;
+            sample_tick = 1;
+            @(negedge sys_clk);
+            sample_tick = 0;
+            repeat (2) @(negedge sys_clk);
         end
-
-        // 逐样本验证（前1000样本）
-        repeat(1000) begin
-            @(posedge sys_clk);
-            if (sample_tick) begin
-                // 等待1个时钟让波表输出稳定
-                @(posedge sys_clk);
-
-                // 从文件读取：格式 "sample_idx phase_hex wt_sample_dec wt_sample_hex"
-                scan_ret = $fscanf(golden_file, "%*d %*s %d %*s\n", expected_sample);
-                if (scan_ret != 1) begin
-                    $display("ERROR: Failed to read golden reference at sample %0d", sample_count);
-                    error_count++;
-                    break;
-                end
-
-                // 对比输出
-                if (wt_sample !== expected_sample) begin
-                    $display("MISMATCH at sample %0d: DUT=%0d, Expected=%0d",
-                             sample_count, wt_sample, expected_sample);
-                    error_count++;
-                    if (error_count >= 10) begin
-                        $display("ERROR: Too many mismatches, stopping test");
-                        break;
-                    end
-                end
-
-                sample_count++;
-                if (sample_count % 100 == 0) begin
-                    $display("Progress: %0d samples verified", sample_count);
-                end
-            end
-        end
-
-        $fclose(golden_file);
-
-        // 结果报告
-        $display("");
-        $display("=== Test Summary ===");
-        $display("Total samples: %0d", sample_count);
-        $display("Errors: %0d", error_count);
-
-        if (error_count == 0) begin
-            $display("PASS: T004 DDS oscillator matches Python model");
-            $finish(0);
-        end else begin
-            $display("FAIL: T004 DDS oscillator has mismatches");
-            $finish(1);
-        end
+        if (compared != 1000) $fatal(1, "Insufficient comparison count: %0d", compared);
+        $fclose(file_handle);
+        $display("PASS tb_dds_oscillator compared=%0d (FCW change/stall/reset)", compared);
+        $finish;
     end
-
-    // 超时保护
     initial begin
-        #100ms;
-        $display("ERROR: Simulation timeout");
-        $finish(2);
+        #2_000_000;
+        $fatal(1, "DDS self-check timeout, compared=%0d", compared);
     end
-
 endmodule
