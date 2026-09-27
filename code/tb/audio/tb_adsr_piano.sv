@@ -1,251 +1,168 @@
-// T009 ADSR包络Testbench
-// 验证策略：逐样本对比M1 Python模型，包括Release重触发
+// T009 sample-counted boundary gate; not a substitute for model comparison.
+// Events driven at negedge; sample_tick accelerated to shorten simulation.
 `timescale 1ns/1ps
-
 module tb_adsr_piano;
-
-    logic sys_clk;
-    logic sys_rst_n;
-    logic sample_tick;
-    logic note_on;
-    logic note_off;
-    logic [9:0] velocity;
-    logic [15:0] envelope_level;
-    logic [2:0] state_out;
-
-    // 实例化DUT
-    adsr_piano_envelope u_dut (
-        .sys_clk(sys_clk),
-        .sys_rst_n(sys_rst_n),
-        .sample_tick(sample_tick),
-        .note_on(note_on),
-        .note_off(note_off),
-        .velocity(velocity),
-        .envelope_level(envelope_level),
-        .state_out(state_out)
-    );
-
-    // 时钟生成：50MHz
+    logic sys_clk=0;
+    always #10 sys_clk=~sys_clk;
+    logic sys_rst_n=0, sample_tick=0, note_on=0, note_off=0;
+    logic [9:0] velocity=1023;
+    wire [15:0] envelope_level;
+    wire [2:0] state_out;
+    adsr_piano_envelope u_dut(.*);
+    integer samples=0, errors=0, checks=0, prev_level, delta;
+    task automatic check(input logic ok, input string label_text);
+        checks=checks+1;
+        if (ok !== 1'b1) begin
+            errors=errors+1;
+            $display("FAIL %s at samples=%0d level=%0d state=%0d",label_text,samples,envelope_level,state_out);
+        end
+    endtask
+    task automatic reset_dut;
+        @(negedge sys_clk);
+        sys_rst_n=0;sample_tick=0;note_on=0;note_off=0;
+        repeat(3) @(negedge sys_clk);
+        check(envelope_level==0 && state_out==0,"reset clears output/state");
+        sys_rst_n=1;
+        repeat(2) @(negedge sys_clk);
+    endtask
+    task automatic trigger_on(input logic [9:0] v);
+        @(negedge sys_clk);velocity=v;note_on=1;
+        @(negedge sys_clk);note_on=0;
+        repeat(2) @(negedge sys_clk);
+    endtask
+    task automatic trigger_off;
+        @(negedge sys_clk);note_off=1;
+        @(negedge sys_clk);note_off=0;
+    endtask
+    task automatic step_samples(input integer n);
+        repeat(n) begin
+            @(negedge sys_clk);sample_tick=1;
+            @(negedge sys_clk);sample_tick=0;
+            samples=samples+1;
+            repeat(2) @(negedge sys_clk);
+        end
+    endtask
+    task automatic retrigger_case(input logic [9:0] old_v, new_v);
+        reset_dut();trigger_on(old_v);step_samples(6000);
+        trigger_off();step_samples(100);
+        prev_level=envelope_level;
+        trigger_on(new_v);
+        delta=($signed({1'b0,envelope_level})-prev_level);
+        if(delta<0)delta=-delta;
+        check(delta<=138,"event-level retrigger continuity");
+        // Check every early sample; never conditionally skip the assertion.
+        repeat(4) begin
+            step_samples(1);
+            delta=($signed({1'b0,envelope_level})-prev_level);
+            if(delta<0)delta=-delta;
+            check(delta<=138,"retrigger first-sample continuity");
+            prev_level=envelope_level;
+        end
+    endtask
     initial begin
-        sys_clk = 0;
-        forever #10 sys_clk = ~sys_clk;
-    end
-
-    // 采样时钟生成：48kHz
-    integer sample_counter;
-    always_ff @(posedge sys_clk or negedge sys_rst_n) begin
-        if (!sys_rst_n) begin
-            sample_counter <= 0;
-            sample_tick <= 0;
-        end else begin
-            if (sample_counter >= 1041) begin
-                sample_counter <= 0;
-                sample_tick <= 1;
-            end else begin
-                sample_counter <= sample_counter + 1;
-                sample_tick <= 0;
-            end
-        end
-    end
-
-    // 测试流程
-    integer sample_count, error_count;
-    logic [15:0] prev_level;
-
-    initial begin
-        sys_rst_n = 0;
-        note_on = 0;
-        note_off = 0;
-        velocity = 10'd1023;
-        error_count = 0;
-        sample_count = 0;
-
-        repeat(10) @(posedge sys_clk);
-        sys_rst_n = 1;
-        repeat(10) @(posedge sys_clk);
-
-        $display("=== T009 ADSR Piano Envelope Test ===");
-
-        // 测试1: 完整ADSR循环
-        $display("\nTest 1: Full ADSR cycle with velocity=1023");
-
-        // Note On
-        @(posedge sys_clk);
-        note_on = 1;
-        @(posedge sys_clk);
-        note_on = 0;
-
-        // 等待Attack + Decay完成（5ms + 100ms = 5040样本）
-        repeat(5040) begin
-            @(posedge sys_clk);
-            if (sample_tick) sample_count++;
-        end
-
-        $display("After Attack+Decay: level=%d, state=%d", envelope_level, state_out);
-
-        // Sustain阶段（500ms = 24000样本）
-        repeat(24000) begin
-            @(posedge sys_clk);
-            if (sample_tick) sample_count++;
-        end
-
-        $display("After Sustain: level=%d, state=%d", envelope_level, state_out);
-
-        // Note Off
-        @(posedge sys_clk);
-        note_off = 1;
-        @(posedge sys_clk);
-        note_off = 0;
-
-        prev_level = envelope_level;
-
-        // Release阶段（100ms = 4800样本）
+        reset_dut();trigger_on(1023);step_samples(240);
+        check(envelope_level==32767,"full-velocity Attack peak");
+        check(state_out==2,"M1 debug encoding DECAY=2 after Attack");
+        step_samples(4802);
+        check(envelope_level>=13105 && envelope_level<=13107,"full-velocity Sustain endpoint");
+        check(state_out==3,"M1 debug encoding SUSTAIN=3 after Decay");
+        trigger_off();prev_level=envelope_level;
+        check(state_out==4,"M1 debug encoding RELEASE=4 at Note Off");
         repeat(4800) begin
-            @(posedge sys_clk);
-            if (sample_tick) begin
-                if (envelope_level > prev_level) begin
-                    $display("ERROR: Release level increased %d->%d", prev_level, envelope_level);
-                    error_count++;
-                end
-                prev_level = envelope_level;
-                sample_count++;
+            step_samples(1);
+            if(envelope_level>prev_level)begin
+                errors=errors+1;
+                if(errors<12)$display("FAIL Release increased %0d -> %0d",prev_level,envelope_level);
             end
+            prev_level=envelope_level;
         end
-
-        if (envelope_level != 0) begin
-            $display("ERROR: Release did not reach zero, final=%d", envelope_level);
-            error_count++;
-        end else begin
-            $display("Release completed: level=0, state=%d", state_out);
-        end
-
-        // 测试2: Release重触发
-        $display("\nTest 2: Release retrigger smooth transition");
-
-        // Note On
-        @(posedge sys_clk);
-        note_on = 1;
-        velocity = 10'd1023;
-        @(posedge sys_clk);
-        note_on = 0;
-
-        // 完整ADSR到Release中途
-        repeat(30000) begin
-            @(posedge sys_clk);
-            if (sample_tick) sample_count++;
-        end
-
-        // Note Off进入Release
-        @(posedge sys_clk);
-        note_off = 1;
-        @(posedge sys_clk);
-        note_off = 0;
-
-        // Release中途（2400样本）
-        repeat(2400) begin
-            @(posedge sys_clk);
-            if (sample_tick) sample_count++;
-        end
-
-        prev_level = envelope_level;
-        $display("Before retrigger: level=%d", prev_level);
-
-        // Release重触发
-        @(posedge sys_clk);
-        note_on = 1;
-        velocity = 10'd512;
-        @(posedge sys_clk);
-        note_on = 0;
-
-        // 等待ROM查表完成（2个时钟周期）
-        repeat(2) @(posedge sys_clk);
-
-        // 检查首样本跳变
-        if (sample_tick) begin
-            @(posedge sys_clk);
-            integer delta = (envelope_level > prev_level) ?
-                           (envelope_level - prev_level) : (prev_level - envelope_level);
-            $display("After retrigger: level=%d, delta=%d", envelope_level, delta);
-
-            // 检查跳变是否在合理范围（< 138 LSB，M2门槛）
-            if (delta > 138) begin
-                $display("ERROR: Retrigger jump too large: %d > 138", delta);
-                error_count++;
-            end else begin
-                $display("PASS: Retrigger transition smooth");
-            end
-        end
-
-        // 测试3: 轻力度重触发边界
-        $display("\nTest 3: Low velocity retrigger");
-
-        // 新Note On，低velocity
-        @(posedge sys_clk);
-        note_on = 1;
-        velocity = 10'd100;  // 低velocity
-        @(posedge sys_clk);
-        note_on = 0;
-
-        // 到Release中途
-        repeat(30000) begin
-            @(posedge sys_clk);
-            if (sample_tick) sample_count++;
-        end
-
-        @(posedge sys_clk);
-        note_off = 1;
-        @(posedge sys_clk);
-        note_off = 0;
-
-        repeat(2400) begin
-            @(posedge sys_clk);
-            if (sample_tick) sample_count++;
-        end
-
-        prev_level = envelope_level;
-
-        // 极低velocity重触发
-        @(posedge sys_clk);
-        note_on = 1;
-        velocity = 10'd50;
-        @(posedge sys_clk);
-        note_on = 0;
-
-        repeat(2) @(posedge sys_clk);
-
-        if (sample_tick) begin
-            @(posedge sys_clk);
-            integer delta2 = (envelope_level > prev_level) ?
-                            (envelope_level - prev_level) : (prev_level - envelope_level);
-            $display("Low velocity retrigger: prev=%d, now=%d, delta=%d",
-                     prev_level, envelope_level, delta2);
-
-            if (delta2 > 138) begin
-                $display("ERROR: Low velocity retrigger jump too large: %d", delta2);
-                error_count++;
-            end else begin
-                $display("PASS: Low velocity retrigger smooth");
-            end
-        end
-
-        // 测试完成
-        $display("\n=== Test Summary ===");
-        $display("Total samples: %d", sample_count);
-        $display("Errors: %d", error_count);
-
-        if (error_count == 0) begin
-            $display("PASS: T009 ADSR envelope");
-            $finish(0);
-        end else begin
-            $display("FAIL: T009 ADSR envelope");
-            $finish(1);
-        end
+        step_samples(1);
+        check(envelope_level==0 && state_out==0,"Release reaches idle zero");
+        retrigger_case(1023,512);
+        retrigger_case(1023,1);
+        reset_dut();trigger_on(100);step_samples(5043);
+        // M1 model gain100=6803, sustain=floor(13107*6803/32767)=2721.
+        check(envelope_level>=2720 && envelope_level<=2722,"velocity100 scaled Sustain");
+        trigger_off();step_samples(20);reset_dut();
+        // A MIDI event may arrive in the same frame as sample_tick. The
+        // accepted sample must not vanish while the synchronous ROM loads.
+        reset_dut();
+        @(negedge sys_clk);velocity=10'd1023;note_on=1;sample_tick=1;
+        @(negedge sys_clk);note_on=0;sample_tick=0;
+        repeat(4) @(negedge sys_clk);
+        check(envelope_level>=134 && envelope_level<=138,
+              "Note On with immediate sample_tick still advances first sample");
+        // Note Off accepted on the sample edge must consume its first
+        // release step, not silently delay the envelope by a frame.
+        reset_dut();trigger_on(1023);step_samples(6000);
+        prev_level=envelope_level;
+        @(negedge sys_clk);note_off=1;sample_tick=1;
+        @(negedge sys_clk);note_off=0;sample_tick=0;
+        repeat(2) @(negedge sys_clk);
+        check(envelope_level<prev_level && prev_level-envelope_level<=5,
+              "Note Off with immediate sample_tick consumes first release step");        check(samples>=27000 && checks>=21,"all tests actually executed");
+        if(errors!=0)$fatal(1,"T009 failed: samples=%0d checks=%0d errors=%0d",samples,checks,errors);
+        $display("PASS tb_adsr_piano samples=%0d checks=%0d",samples,checks);
+        $finish;
     end
-
+    initial begin #10_000_000; $fatal(1,"T009 gate timeout samples=%0d",samples); end
+endmodule
+// Emits a deterministic trace for external Python comparison. The event
+// markers tell the checker which operations to apply to M1's reference model.
+module tb_adsr_model_trace;
+    logic sys_clk=0;
+    always #10 sys_clk=~sys_clk;
+    logic sys_rst_n=0, sample_tick=0, note_on=0, note_off=0;
+    logic [9:0] velocity=0;
+    wire [15:0] envelope_level;
+    wire [2:0] state_out;
+    adsr_piano_envelope dut(.*);
+    integer trace, count=0;
+    string trace_path;
+    task automatic do_reset;
+        @(negedge sys_clk);
+        sys_rst_n=0;sample_tick=0;note_on=0;note_off=0;
+        repeat(4) @(negedge sys_clk);
+        sys_rst_n=1;
+        repeat(2) @(negedge sys_clk);
+        $fdisplay(trace,"R");
+    endtask
+    task automatic do_on(input logic [9:0] v);
+        @(negedge sys_clk);velocity=v;note_on=1;
+        @(negedge sys_clk);note_on=0;
+        // Complete two-stage synchronous ROM read before next audio tick.
+        repeat(2) @(negedge sys_clk);
+        $fdisplay(trace,"N %0d",v);
+    endtask
+    task automatic do_off;
+        @(negedge sys_clk);note_off=1;
+        @(negedge sys_clk);note_off=0;
+        $fdisplay(trace,"F");
+    endtask
+    task automatic ticks(input integer n);
+        repeat(n) begin
+            @(negedge sys_clk);sample_tick=1;
+            @(negedge sys_clk);sample_tick=0;
+            count=count+1;
+            $fdisplay(trace,"S %0d %0d",envelope_level,state_out);
+            repeat(2) @(negedge sys_clk);
+        end
+    endtask
     initial begin
-        #200ms;
-        $display("ERROR: Simulation timeout");
-        $finish(2);
+        if(!$value$plusargs("TRACE=%s",trace_path))$fatal(1,"TRACE path required");
+        trace=$fopen(trace_path,"w");
+        if(!trace)$fatal(1,"Cannot write trace: %s",trace_path);
+        do_reset();do_on(1023);
+        ticks(240);ticks(4800);ticks(24000);do_off();ticks(4800);
+        do_reset();do_on(100);
+        ticks(240);ticks(4800);ticks(24000);do_off();ticks(4800);
+        do_reset();do_on(1023);
+        ticks(240);ticks(4800);ticks(100);do_off();ticks(50);
+        do_on(512);ticks(240);ticks(100);
+        $fclose(trace);
+        if(count<26000)$fatal(1,"Trace incomplete: %0d",count);
+        $display("PASS tb_adsr_model_trace samples=%0d",count);
+        $finish;
     end
-
+    initial begin #8_000_000; $fatal(1,"Model trace timeout: %0d",count); end
 endmodule
