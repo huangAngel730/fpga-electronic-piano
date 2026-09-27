@@ -85,90 +85,83 @@ module adsr_piano_envelope (
                 rom_addr <= velocity;
                 // 捕获当前电平用于重触发
                 start_level <= (state == RELEASE) ? level : 32'h0;
-                // 等待下一拍ROM输出稳定后进入ATTACK
-                state <= IDLE;  // 临时进入IDLE等待ROM
-                sample_counter <= 16'hFFFF;  // 标记为等待ROM
+                // 标记等待ROM，不立即转状态
+                sample_counter <= 16'hFFFF;
             end
             // Note Off事件
             else if (note_off && state != IDLE) begin
                 state <= RELEASE;
                 sample_counter <= 16'h0;
-                release_start <= level;  // 保存Release开始时的电平
+                release_start <= level;
             end
             // 采样时钟：更新包络
             else if (sample_tick) begin
-                case (state)
-                    IDLE: begin
-                        // 检查是否刚从note_on进来，等待ROM输出
-                        if (sample_counter == 16'hFFFF) begin
-                            // ROM输出已稳定，进入ATTACK
-                            target_gain <= rom_dout;
-                            level <= start_level;
-                            state <= ATTACK;
-                            sample_counter <= 16'h0;
-                        end else begin
+                // ROM等待中且有效：进入ATTACK
+                if (sample_counter == 16'hFFFF) begin
+                    target_gain <= rom_dout;
+                    level <= start_level;
+                    // 计算Decay目标：velocity_gain * 0.4
+                    decay_target <= {rom_dout, 16'h0} * SUSTAIN_LEVEL_Q15 / 32768;
+                    state <= ATTACK;
+                    sample_counter <= 16'h0;
+                end
+                else begin
+                else begin
+                    case (state)
+                        IDLE: begin
                             level <= 32'h0;
                         end
-                    end
 
-                    ATTACK: begin
-                        // 线性上升：level += (target_gain - start_level) / ATTACK_SAMPLES
-                        if (sample_counter < ATTACK_SAMPLES) begin
-                            // 使用32位精度计算
-                            level <= start_level +
-                                     (({target_gain, 16'h0} - start_level) * (sample_counter + 1)) / ATTACK_SAMPLES;
-                            sample_counter <= sample_counter + 1;
-                        end else begin
-                            // Attack完成，进入Decay
-                            level <= {target_gain, 16'h0};
-                            decay_target <= {SUSTAIN_LEVEL_Q15, 16'h0};
-                            state <= DECAY;
-                            sample_counter <= 16'h0;
+                        ATTACK: begin
+                            if (sample_counter < ATTACK_SAMPLES) begin
+                                level <= start_level +
+                                         (({target_gain, 16'h0} - start_level) * (sample_counter + 1)) / ATTACK_SAMPLES;
+                                sample_counter <= sample_counter + 1;
+                            end else begin
+                                level <= {target_gain, 16'h0};
+                                state <= DECAY;
+                                sample_counter <= 16'h0;
+                            end
                         end
-                    end
 
-                    DECAY: begin
-                        if (sample_counter < DECAY_SAMPLES) begin
-                            // 线性下降到Sustain电平
-                            level <= {target_gain, 16'h0} -
-                                     (({target_gain, 16'h0} - decay_target) * (sample_counter + 1)) / DECAY_SAMPLES;
-                            sample_counter <= sample_counter + 1;
-                        end else begin
-                            // Decay完成，进入Sustain
-                            level <= decay_target;
-                            state <= SUSTAIN;
-                            sample_counter <= 16'h0;
+                        DECAY: begin
+                            if (sample_counter < DECAY_SAMPLES) begin
+                                level <= {target_gain, 16'h0} -
+                                         (({target_gain, 16'h0} - decay_target) * (sample_counter + 1)) / DECAY_SAMPLES;
+                                sample_counter <= sample_counter + 1;
+                            end else begin
+                                level <= decay_target;
+                                state <= SUSTAIN;
+                                sample_counter <= 16'h0;
+                            end
                         end
-                    end
 
-                    SUSTAIN: begin
-                        // 缓慢指数衰减：每100样本 × 0.997
-                        // 近似: level -= level >> 8
-                        sample_counter <= sample_counter + 1;
-                        if (sample_counter >= 100) begin
-                            sample_counter <= 16'h0;
-                            level <= level - (level >> 8);
-                        end
-                    end
-
-                    RELEASE: begin
-                        if (sample_counter < RELEASE_SAMPLES) begin
-                            // 线性下降到0，从release_start开始
-                            level <= release_start - (release_start * (sample_counter + 1)) / RELEASE_SAMPLES;
+                        SUSTAIN: begin
                             sample_counter <= sample_counter + 1;
-                        end else begin
-                            // Release完成
-                            level <= 32'h0;
+                            if (sample_counter >= 100) begin
+                                sample_counter <= 16'h0;
+                                level <= level - (level >> 8);
+                            end
+                        end
+
+                        RELEASE: begin
+                            if (sample_counter < RELEASE_SAMPLES) begin
+                                level <= release_start - (release_start * (sample_counter + 1)) / RELEASE_SAMPLES;
+                                sample_counter <= sample_counter + 1;
+                            end else begin
+                                level <= 32'h0;
+                                state <= IDLE;
+                                sample_counter <= 16'h0;
+                            end
+                        end
+
+                        default: begin
                             state <= IDLE;
-                            sample_counter <= 16'h0;
+                            level <= 32'h0;
                         end
-                    end
-
-                    default: begin
-                        state <= IDLE;
-                        level <= 32'h0;
-                    end
-                endcase
+                    endcase
+                end
+            end
             end
         end
     end
