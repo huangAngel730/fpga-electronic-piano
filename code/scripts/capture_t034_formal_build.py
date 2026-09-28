@@ -13,8 +13,9 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[2]
 PROJECT = ROOT / "code/build/electronic_piano.gprj"
 PNR = ROOT / "code/build/impl/pnr"
+SYNTH = ROOT / "code/build/impl/gwsynthesis/electronic_piano_syn.rpt.html"
 OUTPUT = ROOT / "code/output/t034_formal_build"
-from check_t009_fusion_report import Rows, verify  # noqa: E402
+from check_t009_fusion_report import verify  # noqa: E402
 
 
 def digest(path):
@@ -80,6 +81,28 @@ def placed_pins(usage):
     return found
 
 
+def synthesis_bsram(report):
+    # Gowin synthesis prints a device denominator even for a zero-block design.
+    # This is synthesis evidence, not an assertion about a missing PnR row.
+    matches = re.findall(
+        r'<td class="label">\s*BSRAM\s*</td>\s*<td>\s*(\d+)\s*/\s*(\d+)\s*</td>',
+        report, re.I)
+    if len(matches) != 1:
+        raise ValueError(f"Expected one synthesis BSRAM utilization row, got {len(matches)}")
+    used, available = map(int, matches[0])
+    if available != 118 or used > available:
+        raise ValueError(f"Unexpected synthesis BSRAM utilization {used}/{available}")
+    return {"used": used, "available": available, "stage": "synthesis"}
+
+
+def validate_synthesis_against_pnr(synth, pnr):
+    bsram = synthesis_bsram(synth)
+    pnr_used = pnr["timing_and_resources"]["resources"].get("BSRAM")
+    if pnr_used is not None and bsram["used"] != pnr_used:
+        raise ValueError(f"Synthesis/PnR BSRAM mismatch: {bsram['used']} vs {pnr_used}")
+    return bsram
+
+
 def verify_build(timing, usage, cst):
     errors, timing_info = verify(timing, usage)
     # Gowin omits the DSP/BSRAM categories entirely in a design using neither.
@@ -135,7 +158,7 @@ def run_capture():
     before = {str(p.relative_to(ROOT)).replace("\\", "/"): digest(p) for p in inputs}
     OUTPUT.mkdir(parents=True, exist_ok=True)
     targets = [PNR / ("electronic_piano" + suffix)
-               for suffix in (".rpt.txt", "_tr_content.html", ".fs")]
+               for suffix in (".rpt.txt", "_tr_content.html", ".fs")] + [SYNTH]
     start = datetime.now(timezone.utc)
     command = ["powershell.exe", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File",
                str(ROOT / "code/scripts/build_electronic_piano.ps1"), "-Flow", "bitstream"]
@@ -156,6 +179,8 @@ def run_capture():
     info = verify_build(targets[1].read_text(encoding="utf-8"),
                         targets[0].read_text(encoding="utf-8"),
                         (ROOT / "code/constraints/electronic_piano.cst").read_text(encoding="utf-8"))
+    info["synthesis_bsram"] = validate_synthesis_against_pnr(
+        SYNTH.read_text(encoding="utf-8"), info)
     top = (ROOT / "code/rtl/board/electronic_piano_top.sv").read_text(encoding="utf-8")
     if not re.search(r'parameter\s+int\s+unsigned\s+SOURCE_MODE\s*=\s*0', top):
         raise ValueError("Baseline SOURCE_MODE changed; reclassify the evidence")
@@ -183,6 +208,8 @@ def main():
             info = verify_build((pnr / "electronic_piano_tr_content.html").read_text(encoding="utf-8"),
                                 (pnr / "electronic_piano.rpt.txt").read_text(encoding="utf-8"),
                                 (ROOT / "code/constraints/electronic_piano.cst").read_text(encoding="utf-8"))
+            info["synthesis_bsram"] = validate_synthesis_against_pnr(
+                SYNTH.read_text(encoding="utf-8"), info)
             print("PASS existing report inspection only:", json.dumps(info, indent=2))
         else:
             info = run_capture()

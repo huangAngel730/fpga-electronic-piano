@@ -6,7 +6,8 @@ from unittest import TestCase, main
 from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
-from capture_t034_formal_build import cst_pins, verify_build  # noqa: E402
+from capture_t034_formal_build import (  # noqa: E402
+    cst_pins, synthesis_bsram, validate_synthesis_against_pnr, verify_build)
 
 CST = ('IO_LOC "midi_rx" R17;\n'
        'IO_PORT "midi_rx" IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;\n')
@@ -40,6 +41,29 @@ class TestCapture(TestCase):
         with patch("capture_t034_formal_build.verify", return_value=([], INFO.copy())):
             with self.assertRaisesRegex(ValueError, "missing"):
                 verify_build("timing", REPORT.replace("midi_rx |", "other |"), CST)
+
+    def test_synthesis_explicit_zero_bsram(self):
+        report = '<td class="label">BSRAM</td>\n<td>0 / 118</td>'
+        info = {"timing_and_resources": {"resources": {"Logic": 5}}}
+        self.assertEqual(validate_synthesis_against_pnr(report, info)["used"], 0)
+        self.assertNotIn("BSRAM", info["timing_and_resources"]["resources"])
+
+    def test_synthesis_missing_or_ambiguous_bsram_fails(self):
+        row = '<td class="label">BSRAM</td><td>0 / 118</td>'
+        for text in ("", row + row):
+            with self.assertRaisesRegex(ValueError, "Expected one synthesis BSRAM"):
+                synthesis_bsram(text)
+
+    def test_synthesis_wrong_capacity_or_usage_fails(self):
+        for amount in ("0 / 120", "119 / 118"):
+            with self.assertRaisesRegex(ValueError, "Unexpected synthesis BSRAM"):
+                synthesis_bsram(f'<td class="label">BSRAM</td><td>{amount}</td>')
+
+    def test_synthesis_pnr_mismatch_fails(self):
+        info = {"timing_and_resources": {"resources": {"BSRAM": 2}}}
+        with self.assertRaisesRegex(ValueError, "Synthesis/PnR BSRAM mismatch"):
+            validate_synthesis_against_pnr(
+                '<td class="label">BSRAM</td><td>0 / 118</td>', info)
 
     def test_duplicate_constraint_rejected(self):
         with self.assertRaisesRegex(ValueError, "Duplicate IO_LOC"):
