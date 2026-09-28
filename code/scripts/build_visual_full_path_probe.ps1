@@ -3,7 +3,8 @@
 param(
     [Parameter(Mandatory=$true)][string]$VisualizerRoot,
     [Parameter(Mandatory=$true)][string]$GuiDviIpDir,
-    [Parameter(Mandatory=$true)][string]$ReferenceRoot
+    [Parameter(Mandatory=$true)][string]$ReferenceRoot,
+    [ValidateSet('auto','measured')][string]$SerialResetPlacement = 'auto'
 )
 $ErrorActionPreference = 'Stop'
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
@@ -46,7 +47,25 @@ foreach ($file in $sources) {
     }
 }
 $out = Join-Path $repoRoot 'code\output\visual_full_path_probe'
+if ($SerialResetPlacement -eq 'measured') {
+    $out = Join-Path $out 'measured_serial_reset'
+}
 New-Item -ItemType Directory -Force -Path $out | Out-Null
+$physicalConstraint = Join-Path $repoRoot 'code\constraints\hdmi_link_probe.cst'
+if ($SerialResetPlacement -eq 'measured') {
+    # Place only the two existing M2 serial-reset FFs. All HDMI pins, IO
+    # standards, PLL and M3 sources stay in their reviewed configuration.
+    $cstText = [IO.File]::ReadAllText($physicalConstraint)
+    $expected = 'INS_LOC "u_video_pll/PLLA_inst" PLL_R[0];'
+    if ($cstText.Split(@($expected),[StringSplitOptions]::None).Length -ne 2) {
+        throw 'Unexpected HDMI CST input; refusing reset placement trial'
+    }
+    $cstText += "`n// M2 measured serial-reset FF placement, independent probe only.`n"
+    $cstText += 'INS_LOC "u_serial_reset/sync_chain_0_s0" R49C101[1][A];' + "`n"
+    $cstText += 'INS_LOC "u_serial_reset/sync_chain_1_s0" R49C101[1][B];' + "`n"
+    $physicalConstraint = Join-Path $out 'measured_serial_reset.cst'
+    [IO.File]::WriteAllText($physicalConstraint,$cstText,[Text.UTF8Encoding]::new($false))
+}
 $project = @(
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<!DOCTYPE gowin-fpga-project>',
@@ -59,7 +78,9 @@ foreach ($file in $sources) {
     $project += ('<File path="{0}" type="file.verilog" enable="1"/>' -f $escaped)
 }
 foreach ($extension in @('cst','sdc')) {
-    $file = Join-Path $repoRoot ('code\constraints\'+ $(if($extension -eq 'sdc') {'visual_full_path_probe.sdc'} else {'hdmi_link_probe.cst'}))
+    $file = if ($extension -eq 'cst') { $physicalConstraint } else {
+        Join-Path $repoRoot 'code\constraints\visual_full_path_probe.sdc'
+    }
     $escaped = [Security.SecurityElement]::Escape($file.Replace('\','/'))
     $project += ('<File path="{0}" type="file.{1}" enable="1"/>' -f $escaped,$extension)
 }
@@ -89,6 +110,10 @@ try {
 if ($buildCode -ne 0) { throw "Gowin build failed: $buildCode" }
 $timing = Join-Path $out 'impl\pnr\visual_full_path_probe_tr_content.html'
 $pins = Join-Path $out 'impl\pnr\visual_full_path_probe.rpt.txt'
+if ($SerialResetPlacement -eq 'measured') {
+    & python (Join-Path $PSScriptRoot 'check_visual_serial_reset_report.py') $timing --cst $physicalConstraint
+    if ($LASTEXITCODE -ne 0) { throw 'Measured serial reset recovery failed. Never program.' }
+}
 & python (Join-Path $PSScriptRoot 'check_visual_full_path_report.py') $timing `
     --pin-report $pins
 if ($LASTEXITCODE -ne 0) {
