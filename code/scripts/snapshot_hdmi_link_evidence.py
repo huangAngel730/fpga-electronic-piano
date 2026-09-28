@@ -63,11 +63,24 @@ def capture(repo: Path) -> dict:
 
 
 def main() -> int:
-    if len(sys.argv) != 2:
-        raise SystemExit("Usage: snapshot_hdmi_link_evidence.py REPO_ROOT")
+    if len(sys.argv) not in (2, 4):
+        raise SystemExit("Usage: snapshot_hdmi_link_evidence.py REPO_ROOT [OUTPUT_FILE GUI_IP_DIR]")
     repo = Path(sys.argv[1])
     result = capture(repo)
-    dest = repo / "code/docs/evidence/hdmi_link_probe_20260927.json"
+    if len(sys.argv) == 4:
+        gui_dir = Path(sys.argv[3])
+        artifacts = (
+            "DVI_TX_Top.ipc", "DVI_TX_Top.v", "DVI_TX_Top.vo",
+            "temp/DviTx/DVI_TX_Top.log", "temp/DviTx/dvi_tx_defines.v",
+        )
+        result["gui_ip_sha256"] = {
+            rel: hashlib.sha256((gui_dir / rel).read_bytes()).hexdigest()
+            for rel in artifacts
+        }
+        if result["gui_ip_sha256"]["DVI_TX_Top.v"] != result["sha256"]["code/output/hdmi_link_probe/vendor/DVI_TX_Top.v"]:
+            raise ValueError("Compiled DVI TX differs from reviewed GUI IP")
+        result["gui_ip_device"] = "GW5AT-LV60PG484AC1/I0"
+    dest = Path(sys.argv[2]) if len(sys.argv) == 4 else repo / "code/docs/evidence/hdmi_link_probe_20260927.json"
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_bytes((json.dumps(result, indent=2, ensure_ascii=False) + "\n").encode("utf-8"))
     print(f"PASS captured current HDMI evidence, {len(result['sha256'])} hashes: {dest}")

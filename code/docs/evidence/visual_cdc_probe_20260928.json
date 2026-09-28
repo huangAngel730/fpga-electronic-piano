@@ -1,0 +1,91 @@
+{
+  "date": "2026-09-28",
+  "kind": "M2 independent 64-bit visual mailbox CDC constraint experiment; not board image",
+  "tool": "Gowin V1.9.11.03 Education",
+  "part": "GW5AT-LV60PG484AC1/I0",
+  "pixel_clock_mhz": 25,
+  "system_clock_mhz": 50,
+  "source_revision": "eec0a9e",
+  "sources_sha256": {
+    "code/rtl/board/visual_cdc_probe.sv": "c35c2dbf11fc7a35b3df7f1460385f256375a9bf7cb80da09c46e5a97cd89982",
+    "code/rtl/common/visual_event_bridge.sv": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c",
+    "code/constraints/visual_cdc_probe.cst": "bc0770ad3de810d54a6f22688346f9c6bab6e009be8577da29403373a9864673",
+    "code/constraints/visual_cdc_probe.sdc": "2d638bca3c34524232527cbe9d901031ba2e223725d37f95e1ae5bfab7e56852",
+    "code/scripts/build_visual_cdc_probe.ps1": "41a3601f86ae04f1d2541c772b6c0dc61c23da025f9d8596968e4ac7f0b53d61",
+    "code/scripts/check_visual_cdc_report.py": "c335f71fc4f1af95414b74c2c4dc7d34a67177c6f87950578ef44c3c7dc0466f"
+  },
+  "modes": {
+    "sentinel": {
+      "report_sha256": "b75c1b8c5f88184d2b27523e14bcf08da17bc6d03884df36e36628dbbabaaa1d",
+      "build_log_sha256": "db88e3687cd8f7ee023758228acb45f3b28e01cba1c2da9eb32d873fd17da7bb",
+      "setup_violated_endpoints": 64,
+      "hold_violated_endpoints": 0,
+      "paths_analyzed": 1126,
+      "payload_worst_slack_ns": -2.318,
+      "payload_worst_from": "u_bridge/payload_hold.event_type_0_s0",
+      "payload_worst_to": "u_bridge/video_data.event_type_0_s0",
+      "second_stage": {
+        "ack_meta_to_ack_sync_setup_slack_ns": 19.109,
+        "ack_meta_to_ack_sync_hold_slack_ns": 0.38,
+        "req_meta_to_req_sync_setup_slack_ns": 39.154,
+        "req_meta_to_req_sync_hold_slack_ns": 0.335,
+        "desync_meta_to_video_desync_setup_slack_ns": 38.919,
+        "desync_meta_to_video_desync_hold_slack_ns": 0.476
+      },
+      "resources": {
+        "Logic": {
+          "used": 169,
+          "available": 59904
+        },
+        "Register": {
+          "used": 232,
+          "available": 60780
+        },
+        "PLLA": {
+          "used": 1,
+          "available": 8
+        }
+      },
+      "expected": "64 failures prove bound activation; never program"
+    },
+    "bounded": {
+      "report_sha256": "9da4da790025abd687adb2db966d3f714c0a616f2d243ca8823d22094ca88cc6",
+      "build_log_sha256": "6de2643a5946e89f4051469a998e790d71452a2000d2520f4a6f84a057b8bfcd",
+      "setup_violated_endpoints": 0,
+      "hold_violated_endpoints": 0,
+      "paths_analyzed": 1126,
+      "payload_worst_slack_ns": 7.681,
+      "payload_worst_from": "u_bridge/payload_hold.event_type_0_s0",
+      "payload_worst_to": "u_bridge/video_data.event_type_0_s0",
+      "second_stage": {
+        "ack_meta_to_ack_sync_setup_slack_ns": 19.109,
+        "ack_meta_to_ack_sync_hold_slack_ns": 0.38,
+        "req_meta_to_req_sync_setup_slack_ns": 39.154,
+        "req_meta_to_req_sync_hold_slack_ns": 0.335,
+        "desync_meta_to_video_desync_setup_slack_ns": 38.919,
+        "desync_meta_to_video_desync_hold_slack_ns": 0.476
+      },
+      "resources": {
+        "Logic": {
+          "used": 169,
+          "available": 59904
+        },
+        "Register": {
+          "used": 232,
+          "available": 60780
+        },
+        "PLLA": {
+          "used": 1,
+          "available": 8
+        }
+      },
+      "expected": "zero STA violations in isolated CDC probe only"
+    }
+  },
+  "limitations": [
+    "synthetic external payload inputs have no board wiring/IO delay",
+    "this project does not include M3 renderer, DVI transmitter, score/mode CDC or real audio",
+    "both Gowin mode builds emit an .fs but neither is safe to download",
+    "PR1014 generic reference-clock routing warning remains"
+  ]
+}
