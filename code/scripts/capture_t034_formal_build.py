@@ -15,7 +15,7 @@ PROJECT = ROOT / "code/build/electronic_piano.gprj"
 PNR = ROOT / "code/build/impl/pnr"
 SYNTH = ROOT / "code/build/impl/gwsynthesis/electronic_piano_syn.rpt.html"
 OUTPUT = ROOT / "code/output/t034_formal_build"
-from check_t009_fusion_report import verify  # noqa: E402
+from check_t009_fusion_report import Rows, verify  # noqa: E402
 
 
 def digest(path):
@@ -103,6 +103,41 @@ def validate_synthesis_against_pnr(synth, pnr):
     return bsram
 
 
+
+def active_sdc_commands(timing, sdc):
+    # The formal SDC uses one command per line. Fail instead of silently
+    # accepting a Tcl continuation that this parser cannot inspect.
+    commands = []
+    for raw in sdc.splitlines():
+        line = raw.split("#", 1)[0].strip()
+        if not line:
+            continue
+        if line.endswith("\\"):
+            raise ValueError("Multiline SDC command needs explicit parser support")
+        commands.append(" ".join(line.split()))
+    if not commands or len(commands) != len(set(commands)):
+        raise ValueError("Empty or duplicate SDC commands")
+    parser = Rows()
+    parser.feed(timing)
+    reported = [row for section, row in parser.rows
+                if section == "SDC_Report" and len(row) == 3
+                and row[0] != "SDC Command Type"]
+    active = [" ".join(row[2].split()) for row in reported if row[1] == "Actived"]
+    if len(active) != len(commands) or set(active) != set(commands) or \
+            len(active) != len(set(active)) or len(reported) != len(commands):
+        raise ValueError("SDC mismatch: inactive, missing, duplicate or unreviewed command")
+    clocks = [re.search(r"(?:^|\s)-name\s+(\S+)", command)
+              for command in commands if command.startswith("create_clock ")]
+    if not clocks or any(match is None for match in clocks):
+        raise ValueError("SDC clock declaration missing a name")
+    clock_rows = [row for section, row in parser.rows
+                  if section == "Clock_Report" and len(row) >= 5 and row[0].isdigit()]
+    for match in clocks:
+        if sum(row[1] == match[1] for row in clock_rows) != 1:
+            raise ValueError(f"Declared clock {match[1]} absent from STA clock summary")
+    return commands
+
+
 def verify_build(timing, usage, cst):
     errors, timing_info = verify(timing, usage)
     # Gowin omits the DSP/BSRAM categories entirely in a design using neither.
@@ -181,6 +216,9 @@ def run_capture():
                         (ROOT / "code/constraints/electronic_piano.cst").read_text(encoding="utf-8"))
     info["synthesis_bsram"] = validate_synthesis_against_pnr(
         SYNTH.read_text(encoding="utf-8"), info)
+    info["active_sdc_commands"] = active_sdc_commands(
+        targets[1].read_text(encoding="utf-8"),
+        (ROOT / "code/constraints/audio_timing.sdc").read_text(encoding="utf-8"))
     top = (ROOT / "code/rtl/board/electronic_piano_top.sv").read_text(encoding="utf-8")
     if not re.search(r'parameter\s+int\s+unsigned\s+SOURCE_MODE\s*=\s*0', top):
         raise ValueError("Baseline SOURCE_MODE changed; reclassify the evidence")
@@ -210,6 +248,9 @@ def main():
                                 (ROOT / "code/constraints/electronic_piano.cst").read_text(encoding="utf-8"))
             info["synthesis_bsram"] = validate_synthesis_against_pnr(
                 SYNTH.read_text(encoding="utf-8"), info)
+            info["active_sdc_commands"] = active_sdc_commands(
+                (pnr / "electronic_piano_tr_content.html").read_text(encoding="utf-8"),
+                (ROOT / "code/constraints/audio_timing.sdc").read_text(encoding="utf-8"))
             print("PASS existing report inspection only:", json.dumps(info, indent=2))
         else:
             info = run_capture()

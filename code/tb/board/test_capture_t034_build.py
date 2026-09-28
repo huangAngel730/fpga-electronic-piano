@@ -7,7 +7,8 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 from capture_t034_formal_build import (  # noqa: E402
-    cst_pins, synthesis_bsram, validate_synthesis_against_pnr, verify_build)
+    active_sdc_commands, cst_pins, synthesis_bsram,
+    validate_synthesis_against_pnr, verify_build)
 
 CST = ('IO_LOC "midi_rx" R17;\n'
        'IO_PORT "midi_rx" IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;\n')
@@ -64,6 +65,49 @@ class TestCapture(TestCase):
         with self.assertRaisesRegex(ValueError, "Synthesis/PnR BSRAM mismatch"):
             validate_synthesis_against_pnr(
                 '<td class="label">BSRAM</td><td>0 / 118</td>', info)
+
+    def test_sdc_report_matches_active_commands(self):
+        timing = (
+            '<a name="SDC_Report"></a>'
+            '<tr><th>SDC Command Type</th><th>State</th><th>Detail Command</th></tr>'
+            '<tr><td>TC_CLOCK</td><td>Actived</td><td>create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]</td></tr>'
+            '<a name="Clock_Report"></a>'
+            '<tr><td>1</td><td>sys_clk</td><td>Base</td><td>20.000</td><td>50.000</td></tr>'
+        )
+        sdc = 'create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]\n'
+        self.assertEqual(active_sdc_commands(timing, sdc), [sdc.strip()])
+
+    def test_sdc_missing_or_inactive_command_rejected(self):
+        timing = (
+            '<a name="SDC_Report"></a>'
+            '<tr><th>SDC Command Type</th><th>State</th><th>Detail Command</th></tr>'
+            '<tr><td>TC_CLOCK</td><td>Actived</td><td>create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]</td></tr>'
+        )
+        with self.assertRaisesRegex(ValueError, "SDC mismatch"):
+            active_sdc_commands(timing, 'create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]\nset_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_din}]\n')
+        inactive = timing.replace('<td>Actived</td>', '<td>Inactive</td>')
+        with self.assertRaisesRegex(ValueError, "SDC mismatch"):
+            active_sdc_commands(inactive, 'create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]\n')
+
+    def test_sdc_unreviewed_active_exception_rejected(self):
+        sdc = 'create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]\n'
+        timing = (
+            '<a name="SDC_Report"></a>'
+            '<tr><td>TC_CLOCK</td><td>Actived</td><td>create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]</td></tr>'
+            '<tr><td>TC_EXCEPTION</td><td>Actived</td><td>set_false_path -from [get_clocks {sys_clk}]</td></tr>'
+        )
+        with self.assertRaisesRegex(ValueError, "SDC mismatch"):
+            active_sdc_commands(timing, sdc)
+
+    def test_sdc_duplicate_and_extra_report_rejected(self):
+        timing = (
+            '<a name="SDC_Report"></a>'
+            '<tr><th>SDC Command Type</th><th>State</th><th>Detail Command</th></tr>'
+            '<tr><td>TC_CLOCK</td><td>Actived</td><td>create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]</td></tr>'
+            '<tr><td>TC_CLOCK</td><td>Actived</td><td>create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]</td></tr>'
+        )
+        with self.assertRaisesRegex(ValueError, "SDC mismatch"):
+            active_sdc_commands(timing, 'create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]\n')
 
     def test_duplicate_constraint_rejected(self):
         with self.assertRaisesRegex(ValueError, "Duplicate IO_LOC"):
