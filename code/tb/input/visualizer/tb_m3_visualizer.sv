@@ -242,6 +242,26 @@ module tb_m3_visualizer;
         sample_target(1, 100, 1, 24'h3c7ca6, "slot-seven priority");
         target_live_valid = '0;
 
+        target_mode = 1'b1;
+        target_score_valid[0] = 1'b1;
+        target_score_note[0 +: 7] = 7'd36;
+        target_score_velocity[0 +: 10] = 10'd900;
+        target_score_y[0 +: 10] = 10'd260;
+        sample_target(1, 100, 1, 24'he080e8, "scaled score-note color");
+        target_score_valid[7] = 1'b1;
+        target_score_note[49 +: 7] = 7'd36;
+        target_score_velocity[70 +: 10] = 10'd100;
+        target_score_y[70 +: 10] = 10'd260;
+        target_score_hit[7] = 1'b1;
+        sample_target(1, 100, 1, 24'h30e870, "score slot-seven hit priority");
+        target_score_hit[7] = 1'b0;
+        target_score_missed[7] = 1'b1;
+        sample_target(1, 100, 1, 24'he83838,
+                      "score slot-seven miss priority");
+        target_score_valid = '0;
+        target_score_missed = '0;
+        target_mode = 1'b0;
+
         $display("PASS tb_m3_visualizer: %0d integration checks", checks);
         $finish;
     end
