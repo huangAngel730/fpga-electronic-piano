@@ -1,0 +1,83 @@
+{
+  "source_baseline_commit": "5023ecf483d5529eccb030265bafdd684e409b95",
+  "scope": "synthetic independent DDS+ADSR+mixer datapath; excludes formal voice allocation/audio output",
+  "variants": {
+    "1": {
+      "fmax_mhz": 57.541,
+      "worst": {
+        "Setup": {
+          "slack_ns": 2.621,
+          "from": "u_probe/g_lane[0].g_present.u_adsr/start_q16_0_s0/Q",
+          "to": "u_probe/mult_3_s1/B[12]"
+        },
+        "Hold": {
+          "slack_ns": 0.26,
+          "from": "u_probe/g_lane[0].g_present.u_dds/phase_acc_24_s0/Q",
+          "to": "u_probe/g_lane[0].g_present.u_dds/u_sine_table/rom_data_rom_data_0_0_s/AD[6]"
+        }
+      },
+      "resources": {
+        "Logic": 683,
+        "Register": 179,
+        "BSRAM": 2,
+        "DSP": 6
+      },
+      "tool": "V1.9.11.03 Education",
+      "part": "GW5AT-LV60PG484AC1/I0"
+    },
+    "4": {
+      "fmax_mhz": 52.528,
+      "worst": {
+        "Setup": {
+          "slack_ns": 0.963,
+          "from": "u_probe/g_lane[1].g_present.u_adsr/start_q16_0_s0/Q",
+          "to": "u_probe/mult_78_s1/B[13]"
+        },
+        "Hold": {
+          "slack_ns": 0.062,
+          "from": "u_probe/g_lane[2].g_present.u_dds/phase_acc_25_s0/Q",
+          "to": "u_probe/g_lane[2].g_present.u_dds/u_sine_table/rom_data_rom_data_0_0_s/AD[7]"
+        }
+      },
+      "resources": {
+        "Logic": 2959,
+        "Register": 716,
+        "BSRAM": 8,
+        "DSP": 24
+      },
+      "tool": "V1.9.11.03 Education",
+      "part": "GW5AT-LV60PG484AC1/I0"
+    }
+  },
+  "delta_four_minus_one": {
+    "Logic": 2276,
+    "Register": 537,
+    "BSRAM": 6,
+    "DSP": 18
+  },
+  "sha256": {
+    "code/rtl/board/voice_datapath_probe.sv": "9f861b33125de681b81fd2611f63ab599af82afcfc8314362c940486f4fee076",
+    "code/rtl/audio/dds_oscillator.sv": "7ead22971797096baded170d6ae11e164d37916cfa759ad79f574a297aad208d",
+    "code/rtl/audio/adsr_piano_envelope.sv": "2d156006c8393666a216a2c39026a7b5a50acd2b4e3d37acec67e87f6dbf4eca",
+    "code/rtl/mixer/pcm_mixer_4voice.sv": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+    "code/model/generated/wavetables/sine_1024_32767.mem": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060",
+    "code/model/generated/wavetables/velocity_gain_rom.mem": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+    "code/scripts/run_t024_voice_datapath.ps1": "0a038655b9a5a2380c662ad171ea66dbad358e538507ff454669eb7c6c735ab6",
+    "code/scripts/check_t024_voice_datapath.py": "8ac3fe7ec5cefd060a7af8d2a3d9cda84189b1dc02c801abe1f9e83cf61b34b6",
+    "code/scripts/run_t024_voice_datapath_sim.ps1": "a597c0a20040244b1d9592ce62a8cc6ea111c56f6a257531c20cf5dd4c128ee6",
+    "code/tb/board/tb_voice_datapath_probe.sv": "c3f7dd3dfc98a383428dda0a5f20a6777bed0d345024e4805359a49468e2380c",
+    "code/tb/board/test_t024_voice_datapath.py": "ee81704a83f3f513b9019c51a5627cdae269590652f5cd890a22896ab83760ff",
+    "code/output/t024_voice_datapath/lanes_1/impl/pnr/voice_datapath_probe_1.rpt.txt": "e227bd33f4cc5425d0eabdcc5a5ec3750301c3eb28a524d518363c069fdf2941",
+    "code/output/t024_voice_datapath/lanes_1/impl/pnr/voice_datapath_probe_1_tr_content.html": "5ad27665c7cfdce1dd9ce42684250bad160f7d67765a7a6c77663c406d558df7",
+    "code/output/t024_voice_datapath/lanes_1/impl/pnr/voice_datapath_probe_1.fs": "932b4eed6e6c2111c8ec911a2f76ffbd9963e3dac9285cbde3904ca58108fd76",
+    "code/output/t024_voice_datapath/lanes_4/impl/pnr/voice_datapath_probe_4.rpt.txt": "f36ee02d1ce142466672c982ef8127f0788ea5d693b69283803cf98a4fa621d6",
+    "code/output/t024_voice_datapath/lanes_4/impl/pnr/voice_datapath_probe_4_tr_content.html": "c9019c7ab35ba1a4f5a9292d206c5195f5c6a37ec0b408c5c4b0863f84aaf65c",
+    "code/output/t024_voice_datapath/lanes_4/impl/pnr/voice_datapath_probe_4.fs": "261741036dedff23e818cd0ea07df1b0f2ed722dd2e017d4ddb2c9000a7dd663"
+  },
+  "limitations": [
+    "Prototype scales 32767 peak sine before PCM; not M1 D028 frozen wavetable/PCM truth",
+    "No allocator, note ownership, request-ID, I2S, UART or speaker",
+    "No board CST; only 50 MHz sys_clk, standalone PnR, no hardware download",
+    "Expected voice result latency and frame deadline not demonstrated"
+  ]
+}
