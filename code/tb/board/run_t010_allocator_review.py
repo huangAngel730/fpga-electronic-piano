@@ -91,6 +91,34 @@ def main() -> int:
             print(("PASS" if passed else "FAIL") + " T010 " + scenario + f" exit={rc}")
             for line in lines:
                 print("  " + line)
+        if vector_release:
+            generator = ROOT / "code/tb/board/generate_t010_allocator_vectors.py"
+            oracle_tb = ROOT / "code/tb/board/tb_t010_allocator_vectors.sv"
+            rc, text = run([sys.executable, str(generator), str(out / "oracle_vectors.txt")],
+                           out, "oracle_generate")
+            if rc or "T010 oracle vectors=" not in text:
+                raise RuntimeError("Independent oracle vector generation failed")
+            shutil.copyfile(oracle_tb, out / "oracle_tb.sv")
+            rc, text = run([str(tools["iverilog"]), "-g2012", "-Wall", "-s",
+                            "tb_t010_allocator_vectors", "-o", "oracle.vvp",
+                            "allocator_netlist.v", "oracle_tb.sv"], out, "oracle_compile")
+            if rc:
+                raise RuntimeError(f"Oracle TB compile failed: {out/'oracle_compile.log'}")
+            rc, text = run([str(tools["vvp"]), "oracle.vvp",
+                            "+VECTORS=" + (out / "oracle_vectors.txt").as_posix()],
+                           out, "oracle")
+            marker = "PASS T010 oracle vectors=" + str(
+                len((out / "oracle_vectors.txt").read_text(encoding="ascii").splitlines()))
+            passed = rc == 0 and marker in text
+            evidence = [line for line in text.splitlines()
+                        if "PASS T010" in line or "FAIL T010" in line]
+            record["scenarios"].append({"name": "oracle", "exit": rc,
+                                        "passed": passed, "evidence": evidence})
+            print(("PASS" if passed else "FAIL") + f" T010 oracle exit={rc}")
+            for line in evidence:
+                print("  " + line)
+            record["oracle_vectors_sha256"] = hashlib.sha256(
+                (out / "oracle_vectors.txt").read_bytes()).hexdigest()
     except (OSError, RuntimeError, subprocess.TimeoutExpired) as exc:
         record["error"] = str(exc)
         print("ERROR T010 review: " + str(exc), file=sys.stderr)
@@ -99,10 +127,15 @@ def main() -> int:
         (out / "summary.json").write_bytes((json.dumps(record, indent=2) + "\n").encode("utf-8"))
     if record["error"] or not record["source_unchanged"]:
         return 2
-    failures = sum(not scenario["passed"] for scenario in record["scenarios"])
-    print(f"T010 review: {len(SCENARIOS)-failures}/{len(SCENARIOS)} scenarios pass; original source unchanged.")
+    directed = [item for item in record["scenarios"] if item["name"] in SCENARIOS]
+    directed_passed = sum(item["passed"] for item in directed)
+    oracle = next((item for item in record["scenarios"] if item["name"] == "oracle"), None)
+    print(f"T010 review: {directed_passed}/{len(SCENARIOS)} directed scenarios; "
+          f"oracle={'PASS' if oracle and oracle['passed'] else 'FAIL' if oracle else 'not run'}; "
+          "original source unchanged.")
     print(f"Evidence: {out/'summary.json'}")
-    return 1 if failures else 0
+    return 1 if directed_passed != len(SCENARIOS) or (vector_release and
+                    (oracle is None or not oracle["passed"])) else 0
 
 
 if __name__ == "__main__":

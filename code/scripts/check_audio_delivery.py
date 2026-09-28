@@ -19,7 +19,7 @@ EVIDENCE_DIR = ROOT / "code/output/audio_delivery_gate"
 CHECKS = (
     ("T004 DDS", "run_t004_dds_sim.ps1", r"T004 ALL PASS: 1000 model samples"),
     ("T009 ADSR", "run_t009_adsr_sim.ps1", r"T009 STAGE PASS: 73210 amplitude samples"),
-    ("T010 voice", "run_t010_allocator_review.ps1", r"T010 review: 6/6 scenarios pass"),
+    ("T010 voice", "run_t010_allocator_review.ps1", r"T010 review: 6/6 directed scenarios; oracle=PASS"),
     ("T023 mixer", "run_t023_mixer_sim.ps1", r"PASS mixer: 3008 stereo frames"),
     ("T025 clip", "run_t025_clip_counter_sim.ps1", r"PASS tb_pcm_clip_counter checks=57"),
     ("T025 PCM handoff", "run_t025_result_hold_sim.ps1", r"PASS tb_pcm_result_hold checks=35"),
