@@ -21,14 +21,18 @@ module tb_visual_path_integration;
     wire renderer_valid = bridge_valid && !video_stall;
     wire [15:0] x, y;
     wire data_enable, hs, vs, frame_start, line_start;
-    logic mode_toggle = 0;
-    logic score_valid = 0;
-    wire score_ready;
-    logic [15:0] score_note_id = 0;
-    logic [6:0] score_note_number = 0;
-    logic [15:0] score_hit_frame = 0, score_duration_frames = 0;
-    logic score_duration_valid = 0;
-    logic [9:0] score_velocity = 0;
+    logic src_mode_valid = 0, src_score_valid = 0;
+    wire src_mode_ready, src_score_ready, mode_toggle, score_valid;
+    wire score_ready, control_sys_done, control_video_done;
+    logic [15:0] src_score_note_id = 0, src_score_hit_frame = 0;
+    logic [15:0] src_score_duration_frames = 0;
+    logic [6:0] src_score_note_number = 0;
+    logic src_score_duration_valid = 0;
+    logic [9:0] src_score_velocity = 0;
+    wire [15:0] score_note_id, score_hit_frame, score_duration_frames;
+    wire [6:0] score_note_number;
+    wire score_duration_valid;
+    wire [9:0] score_velocity;
     wire display_mode;
     wire [15:0] current_frame;
     wire [7:0] r, g, b;
@@ -43,6 +47,27 @@ module tb_visual_path_integration;
         .sys_reset_done(sys_reset_done), .video_reset_done(video_reset_done),
         .video_valid(bridge_valid), .video_desync(bridge_desync),
         .video_ready(bridge_ready), .video_data(bridge_data)
+    );
+    visual_control_bridge #(.FRAME_WIDTH(16)) control_bridge (
+        .sys_clk(sys_clk), .pixel_clk(pixel_clk), .rst_n(shared_rst_n),
+        .src_mode_valid(src_mode_valid), .src_mode_ready(src_mode_ready),
+        .video_mode_toggle_pulse(mode_toggle),
+        .src_score_valid(src_score_valid), .src_score_ready(src_score_ready),
+        .src_score_note_id(src_score_note_id),
+        .src_score_note_number(src_score_note_number),
+        .src_score_hit_frame(src_score_hit_frame),
+        .src_score_duration_valid(src_score_duration_valid),
+        .src_score_duration_frames(src_score_duration_frames),
+        .src_score_velocity(src_score_velocity),
+        .video_score_valid(score_valid), .video_score_ready(score_ready),
+        .video_score_note_id(score_note_id),
+        .video_score_note_number(score_note_number),
+        .video_score_hit_frame(score_hit_frame),
+        .video_score_duration_valid(score_duration_valid),
+        .video_score_duration_frames(score_duration_frames),
+        .video_score_velocity(score_velocity),
+        .sys_reset_done(control_sys_done),
+        .video_reset_done(control_video_done)
     );
     video_scan_timing #(
         .H_ACTIVE(64), .H_FRONT(2), .H_SYNC(2), .H_BACK(2),
@@ -94,6 +119,20 @@ module tb_visual_path_integration;
             accepted_valid = 1'b0;
         end
     endtask
+    task automatic send_mode_request;
+        begin
+            @(negedge sys_clk); src_mode_valid=1;
+            do @(posedge sys_clk); while (!src_mode_ready);
+            @(negedge sys_clk); src_mode_valid=0;
+        end
+    endtask
+    task automatic send_score_request;
+        begin
+            @(negedge sys_clk); src_score_valid=1;
+            do @(posedge sys_clk); while (!src_score_ready);
+            @(negedge sys_clk); src_score_valid=0;
+        end
+    endtask
     task automatic check_pixel(input integer px, input integer py,
                                input logic [23:0] expected);
         begin
@@ -118,7 +157,8 @@ module tb_visual_path_integration;
         repeat(4) @(negedge sys_clk);
         sys_rst_n = 1;
         pll_locked = 1;
-        wait(sys_reset_done && video_reset_done);
+        wait(sys_reset_done && video_reset_done &&
+             control_sys_done && control_video_done);
         next_frame();
         checks = checks + 1;
 
@@ -146,26 +186,26 @@ module tb_visual_path_integration;
             $fatal(1,"note transfer count differs: %0d/%0d",accepted_count, delivered_count);
         checks = checks + 1;
 
-        // The UI mode request is already in pixel clock domain in this test.
-        @(negedge pixel_clk); mode_toggle = 1;
-        @(negedge pixel_clk); mode_toggle = 0;
+        // Mode request starts in sys_clk, crosses CDC, then flips at a
+        // whole video frame boundary in M3's unchanged wrapper.
+        send_mode_request();
+        wait(mode_toggle);
+        @(negedge pixel_clk);
         if (display_mode) $fatal(1,"mode changed inside a frame");
         next_frame();
         if (!display_mode) $fatal(1,"mode did not change at frame boundary");
         checks = checks + 1;
 
-        // Score is already on the pixel side. This checks the bridge/scan/
-        // renderer wiring, not an unfrozen score CDC or linger policy.
-        @(negedge pixel_clk);
-        if (!score_ready) $fatal(1,"score receiver not ready");
-        score_note_id = 16'd7;
-        score_note_number = 7'd64;
-        score_hit_frame = current_frame + 4;
-        score_duration_valid = 1;
-        score_duration_frames = 3;
-        score_velocity = 10'd700;
-        score_valid = 1;
-        @(negedge pixel_clk); score_valid = 0;
+        @(negedge sys_clk);
+        if (!src_score_ready) $fatal(1,"score source was not ready");
+        src_score_note_id = 16'd7;
+        src_score_note_number = 7'd64;
+        src_score_hit_frame = current_frame + 4;
+        src_score_duration_valid = 1;
+        src_score_duration_frames = 3;
+        src_score_velocity = 10'd700;
+        send_score_request();
+        wait(score_valid && score_ready);
         next_frame();
         do @(negedge pixel_clk); while (!(x == 34 && y == 9));
         if ({r,g,b} === 24'h081020 || {r,g,b} === 24'h000000)
@@ -178,13 +218,16 @@ module tb_visual_path_integration;
         repeat(4) @(negedge sys_clk);
         @(negedge sys_clk); pll_locked = 0;
         repeat(4) @(negedge pixel_clk);
-        if (video_reset_done || sys_reset_done || bridge_valid || display_mode ||
+        if (video_reset_done || sys_reset_done || control_sys_done ||
+            control_video_done || bridge_valid || display_mode ||
+            src_mode_ready || src_score_ready || score_valid || mode_toggle ||
             {r,g,b} !== 24'h000000)
             $fatal(1,"PLL loss did not flush both domains");
         checks = checks + 1;
         @(negedge sys_clk); pll_locked = 1;
         video_stall = 0;
-        wait(sys_reset_done && video_reset_done);
+        wait(sys_reset_done && video_reset_done &&
+             control_sys_done && control_video_done);
         repeat(20) @(negedge pixel_clk);
         if (bridge_valid || delivered_count != 2)
             $fatal(1,"stale event replayed after PLL relock");

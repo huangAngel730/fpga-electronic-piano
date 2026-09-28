@@ -15,6 +15,8 @@ $src = @(
     (Join-Path $repoRoot 'code\rtl\common\audio_defs_pkg.sv'),
     (Join-Path $repoRoot 'code\rtl\common\reset_sync.sv'),
     (Join-Path $repoRoot 'code\rtl\common\visual_event_bridge.sv'),
+    (Join-Path $repoRoot 'code\rtl\common\visual_mailbox_cdc.sv'),
+    (Join-Path $repoRoot 'code\rtl\common\visual_control_bridge.sv'),
     (Join-Path $repoRoot 'code\rtl\common\video_scan_timing.sv')
 )
 foreach ($file in @('visual_live_state.sv','visual_score_tracker.sv',

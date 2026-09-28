@@ -1,0 +1,106 @@
+{
+  "date": "2026-09-28",
+  "scope": "M2 standalone score/mode CDC control adapter only; not HDMI or audio integration",
+  "tool": "Gowin V1.9.11.03 Education",
+  "part": "GW5AT-LV60PG484AC1/I0",
+  "system_clock_mhz": 50,
+  "pixel_clock_mhz": 25,
+  "score_payload_width": 98,
+  "model": "external 98 unconstrained synthetic inputs, 1-bit mode command via dedicated mailbox",
+  "sources_sha256": {
+    "code/rtl/common/visual_mailbox_cdc.sv": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c",
+    "code/rtl/common/visual_control_bridge.sv": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428",
+    "code/rtl/board/visual_control_probe.sv": "83356c55c366b889e42e7af534d7599f71072df3b03119ce80347fb6c328ffb9",
+    "code/constraints/visual_control_probe.cst": "bc0770ad3de810d54a6f22688346f9c6bab6e009be8577da29403373a9864673",
+    "code/constraints/visual_control_probe.sdc": "82e94d0b91f791d48af8d7f3589ab22e2f59c627750edebd53563485984ac78f",
+    "code/tb/common/tb_visual_control_bridge.sv": "16d6c3fb16e9698b36d1bbc6b639386d52f391a430f38d439dfd5bbf8989cc2f",
+    "code/scripts/run_visual_control_sim.ps1": "fdfcea5a957f17f0448694cbd7f90b4d809e105b589a78afdf7ed846a909b2a5",
+    "code/scripts/build_visual_control_probe.ps1": "f58be451b0e53fb1a8e344a7dbf594390d5f291069dec6e6e8f690967ecec182",
+    "code/scripts/check_visual_control_report.py": "de1bdbf8e7afb1ba70fc1c372e0815c75b24b0ebe27fb25d4e3d638c73903505",
+    "code/tb/board/tb_visual_path_integration.sv": "2b6378fb94b4fa2fb565ff2cea6784131b4b3e75c65f0b77c93be67fd8980dfa",
+    "code/scripts/run_visual_path_integration_sim.ps1": "23978c3715194e11267a5d1f431cc4b5572584bc26f07d7843c989a5b549b5c5"
+  },
+  "modes": {
+    "sentinel": {
+      "report_sha256": "4b25a023933660641eb069e77d36221856ccb2f8530475b0aea388fb13c4ffd9",
+      "pnr_usage_sha256": "3fbe355d48402c1934231e47b6ad1feb1bd8d2617bb46896c639101651ca686d",
+      "build_log_sha256": "50ddc2118c2b31300826cc1ebc30cce6788fcb4a733beb9aff76342b9fe47934",
+      "setup_violated_endpoints": 98,
+      "hold_violated_endpoints": 0,
+      "paths_analyzed": 1505,
+      "distinct_score_capture_endpoints": 98,
+      "score_path_worst_slack_ns": -5.293,
+      "score_path_best_slack_ns": -3.105,
+      "second_stage": {
+        "u_score_mailbox.ack_meta_to_ack_sync.setup_slack_ns": 19.124,
+        "u_score_mailbox.ack_meta_to_ack_sync.hold_slack_ns": 0.374,
+        "u_score_mailbox.req_meta_to_req_sync.setup_slack_ns": 39.118,
+        "u_score_mailbox.req_meta_to_req_sync.hold_slack_ns": 0.368,
+        "u_mode_mailbox.ack_meta_to_ack_sync.setup_slack_ns": 19.154,
+        "u_mode_mailbox.ack_meta_to_ack_sync.hold_slack_ns": 0.335,
+        "u_mode_mailbox.req_meta_to_req_sync.setup_slack_ns": 39.154,
+        "u_mode_mailbox.req_meta_to_req_sync.hold_slack_ns": 0.335
+      },
+      "resources": {
+        "Logic": {
+          "used": 92,
+          "available": 59904
+        },
+        "Register": {
+          "used": 336,
+          "available": 60780
+        },
+        "PLLA": {
+          "used": 1,
+          "available": 8
+        }
+      },
+      "interpretation": "proof that all 98 paths are constrained: expected violations, unsafe to program"
+    },
+    "bounded": {
+      "report_sha256": "9a20549fcdcf585b94eeab0913a37b25c49c6193879425c974f5bc98cc042ce8",
+      "pnr_usage_sha256": "055103f75df0d2a4aa4b6812cb2a2aac2f3f2c2da65f8bb085ff32f9cdaefd66",
+      "build_log_sha256": "e30d43db8bc06b0e6574ea1fe067022c8794554b9d85b492f0870e0d918a69d5",
+      "setup_violated_endpoints": 0,
+      "hold_violated_endpoints": 0,
+      "paths_analyzed": 1505,
+      "distinct_score_capture_endpoints": 98,
+      "score_path_worst_slack_ns": 4.706,
+      "score_path_best_slack_ns": 6.894,
+      "second_stage": {
+        "u_score_mailbox.ack_meta_to_ack_sync.setup_slack_ns": 19.124,
+        "u_score_mailbox.ack_meta_to_ack_sync.hold_slack_ns": 0.374,
+        "u_score_mailbox.req_meta_to_req_sync.setup_slack_ns": 39.118,
+        "u_score_mailbox.req_meta_to_req_sync.hold_slack_ns": 0.368,
+        "u_mode_mailbox.ack_meta_to_ack_sync.setup_slack_ns": 19.154,
+        "u_mode_mailbox.ack_meta_to_ack_sync.hold_slack_ns": 0.335,
+        "u_mode_mailbox.req_meta_to_req_sync.setup_slack_ns": 39.154,
+        "u_mode_mailbox.req_meta_to_req_sync.hold_slack_ns": 0.335
+      },
+      "resources": {
+        "Logic": {
+          "used": 92,
+          "available": 59904
+        },
+        "Register": {
+          "used": 336,
+          "available": 60780
+        },
+        "PLLA": {
+          "used": 1,
+          "available": 8
+        }
+      },
+      "interpretation": "10 ns bound passes only isolated adapter, not full display timing"
+    }
+  },
+  "limitations": [
+    "real score producer and mode switch must hold valid/data until ready; a one-cycle source pulse can be lost",
+    "score producer is not implemented; no song format or MIDI import in this proof",
+    "test inputs are synthetic and not electrically mapped to real board pins",
+    "M3 renderer and formal electronic piano top not included; no end-to-end audiovisual timing",
+    "PR1014 generic reference clock routing warning remains",
+    "the experiment emits an fs file but this synthetic probe must never be programmed"
+  ],
+  "negative_report_mutations": 4
+}
