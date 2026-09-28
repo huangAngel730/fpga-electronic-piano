@@ -3,7 +3,12 @@
 // Yosys/read_slang elaborated netlist. No internal slot register peeking.
 `timescale 1ns/1ps
 module tb_t010_allocator_review;
-    reg sys_clk=0,sys_rst_n=1,note_on=0,note_off=0,release_done=0;
+    reg sys_clk=0,sys_rst_n=1,note_on=0,note_off=0;
+`ifdef T010_RELEASE_VECTOR
+    reg [3:0] release_done=0;
+`else
+    reg release_done=0;
+`endif
     reg [3:0] source_id=0,channel_id=0;
     reg [7:0] midi_note=0;
     wire [1:0] allocated_slot,release_slot;
@@ -41,8 +46,12 @@ module tb_t010_allocator_review;
         else check(release_target_valid && release_slot==expected_slot,"Note Off identity/slot");
         @(negedge sys_clk);note_off=0;
     endtask
-    task automatic done;
+    task automatic done(input integer slot_index);
+`ifdef T010_RELEASE_VECTOR
+        @(negedge sys_clk);release_done=4'b0001 << slot_index;
+`else
         @(negedge sys_clk);release_done=1;
+`endif
         @(posedge sys_clk);#1;
         check(!slot_valid && !release_target_valid,"completion is not a Note event");
         @(negedge sys_clk);release_done=0;
@@ -73,9 +82,9 @@ module tb_t010_allocator_review;
         end else if(scenario=="release_isolation")begin
             fill();off(0,0,61,1);off(0,0,63,3);
             // Fixture: only voice1 has finished its Release; voice3 has not.
-            // The current single release_done port cannot encode that identity.
+            // Completion identifies slot1 only; slot3 must remain in Release.
             // With correct per-voice completion, only slot1 becomes free.
-            done();on(0,0,64,1);
+            done(1);on(0,0,64,1);
             // Existing LRU policy: if there is no other idle slot, steal oldest
             // slot0. If completion wrongly cleared slot3, new note takes 3.
             on(0,0,65,0);
@@ -86,7 +95,7 @@ module tb_t010_allocator_review;
             repeat(5) on(0,0,60,0);
             on(0,0,64,1);
         end else if(scenario=="single_release")begin
-            fill();off(0,0,61,1);done();on(0,0,64,1);
+            fill();off(0,0,61,1);done(1);on(0,0,64,1);
         end else $fatal(1,"Unknown scenario %s",scenario);
         $display("PASS T010 %s checks=%0d",scenario,checks);
         $finish;

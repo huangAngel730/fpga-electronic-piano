@@ -6,9 +6,11 @@ netlist, then Icarus/VVP for behavioural checks. This is not Gowin's encrypted
 netlist or a claim of direct Icarus source compatibility. Missing tooling,
 compile errors, no PASS marker or any failed scenario must return nonzero.
 """
+import argparse
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -28,14 +30,33 @@ def run(command, out: Path, name: str, timeout: int = 60):
 
 
 def main() -> int:
-    source = ROOT / "code/rtl/audio/voice_allocator_4.sv"
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source", type=Path,
+                        default=ROOT / "code/rtl/audio/voice_allocator_4.sv")
+    parser.add_argument("--output", type=Path,
+                        default=ROOT / "code/output/t010_allocator_review")
+    args = parser.parse_args()
+    source = args.source.resolve()
+    out = args.output.resolve()
+    if not source.is_file():
+        parser.error(f"Source file missing: {source}")
+    if not out.is_relative_to((ROOT / "code/output").resolve()):
+        parser.error("Review output must be within code/output")
     tb = ROOT / "code/tb/board/tb_t010_allocator_review.sv"
-    out = ROOT / "code/output/t010_allocator_review"
     out.mkdir(parents=True, exist_ok=True)
+    content = source.read_bytes().decode("utf-8-sig")
+    content = re.sub(r"//[^\n]*|/\*.*?\*/", "", content, flags=re.S)
+    vector_release = bool(re.search(r"\binput\s+logic\s*\[\s*3\s*:\s*0\s*\]\s*release_done\b", content))
+    scalar_release = bool(re.search(r"\binput\s+logic\s+release_done\b", content))
+    if vector_release == scalar_release:
+        parser.error("Expected one scalar or 4-bit release_done input")
     digest = hashlib.sha256(source.read_bytes()).hexdigest()
-    record = {"source": source.relative_to(ROOT).as_posix(), "source_sha256": digest,
+    record = {"source": source.relative_to(ROOT).as_posix()
+              if source.is_relative_to(ROOT) else str(source),
+              "source_sha256": digest,
               "method": "unmodified source -> Yosys/read_slang/techmap -> generic Verilog -> Icarus/VVP",
-              "scenarios": [], "error": None}
+              "scenarios": [], "error": None,
+              "release_done_interface": "per-slot[3:0]" if vector_release else "legacy scalar"}
     cad = Path(os.environ.get("YOSYSHQ_ROOT", "D:/Gowin/oss-cad-suite"))
     tools = {name: cad / "bin" / (name + ".exe") for name in ("yosys", "iverilog", "vvp")}
     try:
@@ -51,9 +72,12 @@ def main() -> int:
         if rc:
             raise RuntimeError(f"SystemVerilog lowering failed, exit={rc}; see {out/'lower.log'}")
         record["netlist_sha256"] = hashlib.sha256((out / "allocator_netlist.v").read_bytes()).hexdigest()
-        rc, text = run([str(tools["iverilog"]), "-g2012", "-Wall", "-s",
-                        "tb_t010_allocator_review", "-o", "review.vvp",
-                        "allocator_netlist.v", "tb.sv"], out, "compile")
+        compile_cmd = [str(tools["iverilog"]), "-g2012", "-Wall", "-s",
+                       "tb_t010_allocator_review", "-o", "review.vvp"]
+        if vector_release:
+            compile_cmd.append("-DT010_RELEASE_VECTOR")
+        compile_cmd.extend(["allocator_netlist.v", "tb.sv"])
+        rc, text = run(compile_cmd, out, "compile")
         if rc:
             raise RuntimeError(f"TB compile failed, exit={rc}; see {out/'compile.log'}")
         for scenario in SCENARIOS:
