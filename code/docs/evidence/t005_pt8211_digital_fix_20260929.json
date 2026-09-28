@@ -1,0 +1,55 @@
+{
+  "date": "2026-09-29",
+  "scope": "T005 current formal single-voice DIAG build; digital PT8211 WS polarity/last sampled bit, no board DAC output",
+  "original_failure": "V0113 old design six physical channel assertions FAIL",
+  "current_tests": {
+    "pt8211_physical_ws_checks": 6,
+    "t005_i2s_checks": 19,
+    "pcm_buffer_checks": 17,
+    "frame_link": "A B B B B C; exactly 3 injected missing frames; one additional later empty frame observed",
+    "t007_top_and_key": "all PASS",
+    "t019": "all PASS",
+    "t025_stat_synthetic": "PASS",
+    "t025_diag_formal_top_checks": 440,
+    "repo_gate": "9/9 PASS in command output; not an artifact hash"
+  },
+  "pnr": {
+    "tool": "V1.9.11.03 Education",
+    "part": "GW5AT-LV60PG484AC1/I0",
+    "logic": 2354,
+    "register": 803,
+    "fmax_mhz": 57.251,
+    "setup_slack_ns": 2.533,
+    "hold_slack_ns": 0.001,
+    "recovery_slack_ns": 16.433,
+    "removal_slack_ns": 0.244,
+    "setup_hold_violated_endpoints": 0,
+    "pins_matching_cst": 10,
+    "active_sdc_commands": 9,
+    "synthesis_bsram_used": 0
+  },
+  "sha256": {
+    "code/rtl/audio_out/i2s_tx.sv": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+    "code/scripts/run_t005_sim.ps1": "7d9d0aea442bdb02f1a1f8db5faa774e00dc12741a40a6432747d3f1093ebb1b",
+    "code/tb/audio_out/tb_i2s_tx.sv": "1b00044cbefbab243711cfe2b8228aed0cf16bbfea8be16b1742731e983ed82d",
+    "code/tb/audio_out/tb_pcm_frame_link.sv": "04016da931c3433eb619209a6573d3c8daa7795e136d9d047ef9e414a9219019",
+    "code/tb/audio_out/tb_pt8211_ws_polarity.sv": "ed2e1feab3e2bc0bac20a58a004fdc3c3c7c4a06c7c7c1b059d1b26236f999de",
+    "code/tb/board/tb_electronic_piano_top.sv": "63182581f57a0950b7d0b43367d7882be725e241ca9e0e12dab8528a7915e194",
+    "code/tb/board/tb_key_to_tone.sv": "493d27ff13f1c5bd7acca648666bb19c8a8f8650c35223911f4c941a4cf72974",
+    "code/docs/模块接口规范.md": "9699e7a6e1258b848396201bfe530681badc9db4fea05581fdfa7fee90f37611",
+    "code/constraints/audio_timing.sdc": "849c8b374c366ea1cbe6f44b17f761adad90861e3b50a0baf3ade73c05f953f5",
+    "code/constraints/electronic_piano.cst": "76037da27eabba7bf322d41ad8f90c16b1a72b549fc2ffb865b380bfbda35dcb",
+    "code/build/electronic_piano.gprj": "90bc570dc3903bcc0158503f55e7abe4dfed2b4a094d2082c813afec401fcb52",
+    "code/build/impl/pnr/electronic_piano.rpt.txt": "68770a0f5d33d8d18ff222301e576c2e593840877c836d1761d46457d47c152f",
+    "code/build/impl/pnr/electronic_piano_tr_content.html": "756551d99ad7e78b347113e116fe015befa173bdb4a61612cb1a14e6756596aa",
+    "code/build/impl/pnr/electronic_piano.fs": "20722cf1fe8b72cfde67d56523ba3c94075ff0219890a4e2131d0d98a69e593b",
+    "code/build/impl/gwsynthesis/electronic_piano_syn.rpt.html": "029f4b097f78740606b3d06452c9683d83d1010177843bc6233c92ce8cdaedf5",
+    "code/output/t005_fix_release_20260929/t005.log": "f4fc33b3657955db8b616d33ff08b9fa85a16f1c4a3a2cc0beab85d1a4423af2"
+  },
+  "unverified": [
+    "PT8211 physical DAC LCH/RCH and analog amplitude",
+    "logic analyzer BCK/WS/DIN at DAC pins",
+    "four-voice top / 7-numeric-field STAT",
+    "PR1014 board effects"
+  ]
+}

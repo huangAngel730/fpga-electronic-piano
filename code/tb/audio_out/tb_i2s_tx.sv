@@ -111,32 +111,38 @@ module tb_i2s_tx;
     //
     // 依据接口规范 v1.1：每声道 16 位有效数据右对齐，LSB 紧贴 LRCK 跳变沿。
     //
-    // 在 BCLK 上升沿采样 DIN，按帧内边沿序号确定位序：
-    //   edge  0..31 -> 左声道槽位（LRCK 低），slot 低 16 位为有效数据
-    //   edge 32..63 -> 右声道槽位（LRCK 高），slot 低 16 位为有效数据
+    // 在 BCLK 上升沿采样 DIN，以实际 WS 翻转界定上一半帧：
+    //   WS 低 -> 右声道，WS 高 -> 左声道；各取最后 16 个上升沿。
     // 与 DUT 内部实现完全独立，不复用任何内部信号。
     // =========================================================================
-    int unsigned dec_edge   = 0;
     int unsigned dec_frames = 0;
-    logic [31:0] dec_slot   = '0;
-    logic [15:0] dec_left   = '0;
-    logic [15:0] dec_right  = '0;
+    int unsigned half_edges = 0;
+    logic ws_prev = 0, ws_seen = 0;
+    logic [31:0] dec_slot = '0;
+    logic [15:0] dec_left = '0, dec_right = '0;
 
-    always @(posedge bclk) begin
-        if (rst_n) begin
-            if (dec_edge == 0) dec_slot = '0;
-            dec_slot = {dec_slot[30:0], din};
-
-            if (dec_edge == 31) begin
-                dec_left = dec_slot[15:0];
-            end else if (dec_edge == 63) begin
-                dec_right  = dec_slot[15:0];
-                dec_frames = dec_frames + 1;
+    // Derive half-frame boundaries from actual WS, not an assumed BCK offset.
+    // On transition the preceding 32 edges belong to ws_prev; the current
+    // rising edge is the first bit of the next half-frame.
+    always @(posedge bclk) if (rst_n) begin
+        if (!ws_seen) begin ws_prev = lrck; ws_seen = 1; end
+        if (lrck !== ws_prev) begin
+            if (half_edges == 32) begin
+                if (ws_prev == 1'b0) dec_right = dec_slot[15:0];
+                else begin dec_left = dec_slot[15:0]; dec_frames++; end
             end
-
-            if (dec_edge == 63) dec_edge = 0;
-            else                dec_edge = dec_edge + 1;
+            ws_prev = lrck;
+            half_edges = 0;
+            dec_slot = '0;
         end
+        dec_slot = {dec_slot[30:0], din};
+        half_edges++;
+    end
+    always @(negedge rst_n) begin
+        ws_seen = 0;
+        half_edges = 0;
+        dec_slot = '0;
+        dec_frames = 0;
     end
 
     // =========================================================================

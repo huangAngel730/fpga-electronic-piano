@@ -4,7 +4,7 @@
 //
 // 目标器件：板载 PT8211（16 位双通道 DAC，LSBJ / 日本格式）
 //   - 不是标准 I2S（Philips 格式）。两者在 64 BCLK/帧下相差 15 个 BCLK。
-//   - BCK = 位时钟，WS = 字选择（低=左声道），DIN = 数据。
+//   - BCK = 位时钟，WS = 字选择（低=右声道），DIN = 数据。
 //   - 数据右对齐：每声道 16 位有效数据，LSB 紧贴 WS 跳变沿。
 //
 // 作用：
@@ -22,20 +22,19 @@
 // -----------------------------------------------------------------------------
 // 帧结构（64 BCLK = 1 帧 = 32 槽位 x 2 声道）
 // -----------------------------------------------------------------------------
-//   slot 0..31  : 左声道，LRCK = 0
-//   slot 32..63 : 右声道，LRCK = 1
+//   slot 0..31  : 右声道，LRCK = 0
+//   slot 32..63 : 左声道，LRCK = 1
 //
 //   每声道槽位 32 位，其中低 16 位为有效 PCM，高 16 位为填充：
 //
 //     slot 内序号   31 ... 16 | 15 14 ... 1  0
 //     含义          填充(忽略) | MSB ........ LSB
 //
-//   slot 15 移出 MSB，slot 0 移出 LSB，因此 LSB 紧贴槽位末尾，
-//   也就是紧贴 LRCK 的跳变沿。这就是 LSBJ。
-//
-//   实现上不必显式区分填充区：槽位共有 32 拍，把 16 位数据装在
-//   移位寄存器高半部，移完 16 位有效数据后自然只剩填充 0，
-//   在 slot 15..0 移出，slot 31..16 移出 0。这与上图等价。
+//   DUT 内部计数在 BCK 下降沿推进；PT8211 在 BCK 上升沿采样。
+//   因此内部槽号 16 装载后，DAC 实际看到的是本 WS 半帧的最后
+//   16 次上升沿依次送出 MSB..LSB（V0113 定向反例）。
+//   前 16 次上升沿为填充位；物理解码以实际 WS 翻转为边界，
+//   不能以复位时 BCK 的第 32 次上升沿替代这个边界。
 //
 // -----------------------------------------------------------------------------
 // 定点约定（位宽、舍入与饱和）
@@ -94,7 +93,7 @@ module i2s_tx #(
     input  logic signed [PCM_WIDTH-1:0] pcm_left,   // 24 位有符号
     input  logic signed [PCM_WIDTH-1:0] pcm_right,
     output logic                        bclk,       // PT8211 pin 1 (BCK)
-    output logic                        lrck,       // PT8211 pin 2 (WS)，低=左
+    output logic                        lrck,       // PT8211 pin 2 (WS)，低=右
     output logic                        din,        // PT8211 pin 3 (DIN)
     output logic                        ready,      // legacy direct-input indicator
     output logic                        frame_tick  // one pulse per full stereo frame
@@ -111,15 +110,14 @@ module i2s_tx #(
     localparam int unsigned FRAME_CNT_BITS = 6;                    // 0..63
 
     // 装载声道数据的槽位。装载后该声道还要输出 16 位有效数据，
-    // 因此装载点必须在槽位内序号 15（剩下 slot 15..0 共 16 拍）。
+    // 按 PT8211 的 BCK 上升沿观测：槽内序号16装载，后续16个上升沿
+    // 恰好采到16位有效数据，LSB落在该WS半帧的最后一次上升沿。
     //
-    // 为什么不是 slot 31 或 slot 0：
-    //   槽位内序号 15 -> 数据占 slot 15..0，LSB 落在 slot 0，紧贴槽位末尾；
-    //   同时 slot 31..16 输出填充 0，正好构成前 16 拍的填充区。
-    // 若误设为 16，数据会占 slot 16..1，LSB 落在 slot 1，
-    // 与 LRCK 跳变沿之间隔了一个 BCLK，就不再是 LSBJ。
+    // 为什么不是内部槽号 15：
+    // 旧代码以下降沿内部槽号推断上升沿采样边界，装载15使DAC实采值
+    // 整体左移1位（V0113）。装载16已由独立的BCK上升沿/WS物理解码验证。
     localparam logic [SLOT_CNT_BITS-1:0] LOAD_SLOT =
-        SLOT_CNT_BITS'(DAC_WIDTH - 1);
+        SLOT_CNT_BITS'(DAC_WIDTH);
 
     // =========================================================================
     // 1. BCLK 相位累加器
@@ -199,7 +197,7 @@ module i2s_tx #(
     // =========================================================================
     // 3. 24 -> 16 位舍入与饱和
     //
-    // 组合逻辑给出 next 值，在上一个声道的装载点寄存，
+    // 组合逻辑给出 next 值，在帧边界寄存后于本声道的槽号16装载，
     // 使通路不在移位链上。
     // =========================================================================
     logic signed [DAC_WIDTH-1:0] sample_left;
@@ -261,9 +259,8 @@ module i2s_tx #(
     // din 取最高位 shift_reg[SLOT_BITS-1]。这样装载后第一个 BCLK 移出
     // 的就是 MSB，最后一个移出的是 LSB，符合手册的 MSB first。
     //
-    // 装载点选在声道槽位的 slot 15：装载后 slot 15..0 共 16 拍移出
-    // MSB..LSB，slot 31..16 共 16 拍移出填充 0。
-    // 于是 LSB 落在 slot 0，紧贴槽位末尾，也就是紧贴 LRCK 跳变沿。
+    // 在内部槽号16装载，PT8211 在后续BCK上升沿采到16位有效数据。
+    // LSB是该WS半帧最后一个上升沿采样的位（V0113定向反例）。
     // =========================================================================
     logic [SLOT_BITS-1:0] shift_reg;
     logic [SLOT_BITS-1:0] shift_next;
@@ -272,9 +269,9 @@ module i2s_tx #(
     always_comb begin
         if (slot_in_ch == LOAD_SLOT) begin
             // 装载：数据放高位，低位补 0
-            if (right_ch) shift_next = {sample_right,
+            if (right_ch) shift_next = {sample_left,
                                         {(SLOT_BITS-DAC_WIDTH){1'b0}}};
-            else          shift_next = {sample_left,
+            else          shift_next = {sample_right,
                                         {(SLOT_BITS-DAC_WIDTH){1'b0}}};
         end else begin
             // 左移一位，低位补 0
@@ -294,14 +291,14 @@ module i2s_tx #(
             if (bclk_ce) bclk <= ~bclk;
 
             if (slot_tick) begin
-                // LRCK 跟随声道划分：帧内前 32 个槽位（左声道）为 0，
-                // 后 32 个槽位（右声道）为 1。
+                // LRCK 跟随槽位划分：PT8211 的 WS=0 为右声道，
+                // WS=1 为左声道；每个区间保留32个BCK周期。
                 //
                 // 【曾经的事故】原实现写 `if (frame_start) lrck <= ~lrck;`，
                 // 即每帧翻转一次。但一帧本身就是「左 32 + 右 32」的完整
                 // LRCK 周期，翻转一次相当于把 LRCK 周期拉长到两帧，
                 // 实测 LRCK = 24 kHz 而非 48 kHz，采样率整整低一倍。
-                // 该写法与同一模块内 right_ch = slot_cnt[5] 的声道划分
+                // 该写法与同一模块内 right_ch = slot_cnt[5] 的半帧划分
                 // 自相矛盾：数据按一帧内左右划分，时钟却按跨帧划分。
                 // 现改为直接跟随 right_ch，两者由同一来源保证一致。
                 // 见 验证记录.md V0029。
@@ -309,8 +306,8 @@ module i2s_tx #(
 
                 shift_reg <= shift_next;
 
-                // DIN 输出最高位。装载那一拍输出的是新数据的 MSB，
-                // 随后依次是 MSB-1 .. LSB，最后移出的 LSB 落在 slot 0。
+                // DIN 输出最高位，PT8211于BCK上升沿采样；
+                // 最后16个采样沿按MSB→LSB读取。
                 din <= shift_next[SLOT_BITS-1];
             end
         end

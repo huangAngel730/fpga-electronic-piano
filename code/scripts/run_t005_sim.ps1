@@ -51,6 +51,11 @@ $tests = @(
                  "$segTb\audio_out\tb_i2s_tx.sv")
     },
     @{
+        Name = "tb_pt8211_ws_polarity"
+        Src  = @("$segRtl\audio_out\i2s_tx.sv",
+                 "$segTb\audio_out\tb_pt8211_ws_polarity.sv")
+    },
+    @{
         Name = "tb_pcm_frame_buffer"
         Src  = @("$segRtl\audio_out\pcm_frame_buffer.sv",
                  "$segTb\audio_out\tb_pcm_frame_buffer.sv")

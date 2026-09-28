@@ -72,7 +72,7 @@ module tb_key_to_tone;
     //
     //   - 在 BCLK 上升沿采样 DIN（PT8211 在 BCK 上升沿锁存数据）；
     //   - 每声道 32 个 BCLK 一个槽位，槽位结束时取低 16 位为有效数据；
-    //   - 用槽位结束时刻的 i2s_lrck 电平判定左右（低=左，高=右）；
+    //   - 用槽位结束时刻的 i2s_lrck 电平判定左右（低=右，高=左）；
     //   - 一帧 64 个 BCLK，LRCK 频率 = BCLK/64 = 48 kHz。
     //
     // 【为什么计数到 31 就归零，而不是数到 63】
@@ -90,7 +90,8 @@ module tb_key_to_tone;
     // =========================================================================
     localparam int SLOT_BITS = 32;
 
-    int  bclk_cnt = 0;                  // 槽位内 BCLK 计数 0..31
+    int  bclk_cnt = 0;                  // BCK rising edges since actual WS transition
+    logic ws_seen = 0, ws_previous = 0;
     logic [SLOT_BITS-1:0] slot_shreg = '0;
     logic signed [15:0]   dec_left   = '0;
     logic signed [15:0]   dec_right  = '0;
@@ -109,31 +110,28 @@ module tb_key_to_tone;
     int                   lr_checked  = 0;
 
     always @(posedge i2s_bclk) begin
-        // 新位进低位，与 DUT 的 LSBJ 约定一致
-        slot_shreg = {slot_shreg[SLOT_BITS-2:0], i2s_din};
-        bclk_edges = bclk_edges + 1;
-
-        if (bclk_cnt == SLOT_BITS-1) begin
-            // 槽位结束，取低 16 位为有效数据
-            if (i2s_lrck == 1'b0) begin
-                dec_left       = slot_shreg[15:0];
-                dec_left_valid = 1'b1;
-                left_cnt       = left_cnt + 1;
-                sample_stb     = 1'b1;  // 左声道采样点，供本 testbench 使用
-            end else begin
-                dec_right  = slot_shreg[15:0];
-                sample_stb = 1'b0;
-                // 同一帧内比较左右声道（单音下应完全相同）
-                if (dec_left_valid) begin
-                    lr_checked = lr_checked + 1;
-                    if (dec_right !== dec_left) lr_mismatch = lr_mismatch + 1;
-                end
-            end
+        if (!ws_seen) begin ws_seen = 1; ws_previous = i2s_lrck; end
+        if (i2s_lrck !== ws_previous) begin
             bclk_cnt = 0;
-        end else begin
-            sample_stb = 1'b0;
-            bclk_cnt   = bclk_cnt + 1;
+            slot_shreg = '0;
+            ws_previous = i2s_lrck;
         end
+        slot_shreg = {slot_shreg[SLOT_BITS-2:0], i2s_din};
+        bclk_edges++;
+        bclk_cnt++;
+        if (bclk_cnt == SLOT_BITS) begin
+            if (i2s_lrck == 1'b0) begin
+                dec_right = slot_shreg[15:0];
+                sample_stb = 1'b0;
+            end else begin
+                dec_left = slot_shreg[15:0];
+                dec_left_valid = 1'b1;
+                left_cnt++;
+                sample_stb = 1'b1;
+                if (dec_right !== dec_left) lr_mismatch++;
+                lr_checked++;
+            end
+        end else sample_stb = 1'b0;
     end
 
     // 供 testbench 使用的左声道样本（48 kHz 更新）

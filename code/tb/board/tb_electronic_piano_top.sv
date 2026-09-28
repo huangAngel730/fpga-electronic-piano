@@ -130,7 +130,7 @@ module tb_electronic_piano_top;
     //
     // 只观察引脚，不引用 DUT 内部信号。
     //   - 在 BCLK 上升沿采样 DIN（PT8211 在 BCK 上升沿锁存数据）；
-    //   - 每 32 个 BCLK 切换声道，LRCK 低=左、高=右；
+    //   - 每 32 个 BCLK 切换声道，LRCK 低=右、高=左；
     //   - 每声道的 32 位槽位中，低 16 位为有效数据（LSBJ）。
     //
     // 注意：DUT 中 BCLK 在 sys_clk 下降沿更新、DIN 在上升沿更新，
@@ -138,7 +138,8 @@ module tb_electronic_piano_top;
     // =========================================================================
     localparam int SLOT_BITS = 32;
 
-    int  bclk_cnt = 0;              // 帧内 BCLK 计数 0..63
+    int  bclk_cnt = 0;              // BCK rising edges since actual WS transition
+    logic ws_seen = 0, ws_previous = 0;
     logic [SLOT_BITS-1:0] slot_shreg = '0;
     logic dec_left_valid  = 1'b0;
     logic dec_right_valid = 1'b0;
@@ -152,27 +153,27 @@ module tb_electronic_piano_top;
     int  mismatch_lr = 0;           // 左右声道不一致的次数
 
     always @(posedge i2s_bclk) begin
-        // 移位：新位进低位，与 DUT 的 LSBJ 约定一致
-        // 槽位内先移出 MSB，最后移出 LSB，因此 LSB 落在最低位。
+        if (!ws_seen) begin ws_seen = 1; ws_previous = i2s_lrck; end
+        if (i2s_lrck !== ws_previous) begin
+            bclk_cnt = 0;
+            slot_shreg = '0;
+            ws_previous = i2s_lrck;
+        end
         slot_shreg = {slot_shreg[SLOT_BITS-2:0], i2s_din};
-
-        if (bclk_cnt == SLOT_BITS-1) begin
-            // 槽位结束，取低 16 位为有效数据
+        bclk_cnt++;
+        if (bclk_cnt == SLOT_BITS) begin
             if (i2s_lrck == 1'b0) begin
-                dec_left        = slot_shreg[15:0];
-                dec_left_valid  = 1'b1;
+                dec_right = slot_shreg[15:0];
+                dec_right_valid = 1'b1;
+            end else begin
+                dec_left = slot_shreg[15:0];
+                dec_left_valid = 1'b1;
                 if (left_count < MAX_SAMPLES) begin
                     left_samples[left_count] = $signed(slot_shreg[15:0]);
                     left_count++;
                 end
-            end else begin
-                dec_right       = slot_shreg[15:0];
-                dec_right_valid = 1'b1;
-                if (dec_left_valid && (dec_right !== dec_left)) mismatch_lr++;
+                if (dec_right_valid && (dec_right !== dec_left)) mismatch_lr++;
             end
-            bclk_cnt = 0;
-        end else begin
-            bclk_cnt = bclk_cnt + 1;
         end
     end
 
