@@ -75,6 +75,7 @@ $ErrorActionPreference = 'Continue'
 $codeDir = 'code'
 # $PSScriptRoot is <repo>/code/scripts, so the repo root is two levels up.
 $repoRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
+$isMainProject = $Project -eq 'electronic_piano'
 $project = Join-Path $repoRoot "$codeDir\build\$Project.gprj"
 $projectDir = Split-Path -Parent $project
 
@@ -115,6 +116,36 @@ if (-not (Test-Path -LiteralPath $gwSh)) {
 Write-Host "tool   : $gwSh"
 Write-Host ''
 
+# Main build: mirror project into ignored directory and use explicit ROM paths.
+# Gowin's parser resolves readmemh relative to its process, not reliably to GPRJ.
+if ($isMainProject) {
+    $formalProject = $project
+    $stagedDir = Join-Path $repoRoot 'code/build/staged_formal'
+    New-Item -ItemType Directory -Force -Path $stagedDir | Out-Null
+    $text = [IO.File]::ReadAllText($formalProject)
+    [xml]$doc = $text.Replace('<?xml version="1"','<?xml version="1.0"')
+    foreach ($entry in $doc.Project.FileList.File) {
+        $inputFile = [IO.Path]::GetFullPath((Join-Path $projectDir $entry.path))
+        if ($entry.type -eq 'file.verilog') {
+            $sourceText = [IO.File]::ReadAllText($inputFile)
+            foreach ($name in @('sine_1024_8192.mem','sine_1024_32767.mem','velocity_gain_rom.mem')) {
+                $rom = Join-Path $repoRoot ('code/model/generated/wavetables/' + $name)
+                if (-not (Test-Path -LiteralPath $rom)) { throw "Missing ROM: $rom" }
+                $sourceText = $sourceText.Replace('model/generated/wavetables/' + $name,$rom.Replace('\','/'))
+            }
+            if ($sourceText -ne [IO.File]::ReadAllText($inputFile)) {
+                $generated = Join-Path $stagedDir ([IO.Path]::GetFileName($inputFile))
+                [IO.File]::WriteAllText($generated,$sourceText,[Text.UTF8Encoding]::new($false))
+                $inputFile = $generated
+            }
+        }
+        $entry.path = $inputFile.Replace('\','/')
+    }
+    $projectDir = $stagedDir
+    $project = Join-Path $stagedDir 'electronic_piano.gprj'
+    $doc.Save($project)
+}
+
 # --- Run the flow -----------------------------------------------------------
 # gw_sh takes a Tcl script. The "run" command accepts exactly three process
 # names, taken from gw_sh's own help text embedded in GWTE.dll:
@@ -127,6 +158,7 @@ Write-Host ''
 # a backslash would start a Tcl escape sequence and corrupt the path.
 $gprjFwd = ($project -replace '\\', '/')
 $script = @(
+    "cd {$($projectDir.Replace('\','/'))}"
     "open_project {$gprjFwd}"
     'set_option -verilog_std sysv2017'
 )
@@ -143,8 +175,10 @@ $tclFile = Join-Path $projectDir "run_$Flow.tcl"
 
 Write-Host "running $Flow ..."
 Write-Host "  tcl: $tclFile"
-& $gwSh $tclFile 2>&1 | ForEach-Object { Write-Host "  $_" }
+$buildOutput = & $gwSh $tclFile 2>&1
+$buildOutput | ForEach-Object { Write-Host "  $_" }
 $rc = $LASTEXITCODE
+if (($buildOutput -join "`n") -match 'EX3988|ERROR\s*\(') { $rc = 1; Write-Host 'ERROR: ROM/parser failure cannot be accepted as a successful build' }
 Write-Host ''
 Write-Host "gw_sh exit code: $rc"
 
@@ -160,4 +194,8 @@ if (Test-Path -LiteralPath $impl) {
         ForEach-Object { Write-Host ('  {0,-58} {1,10} B' -f $_.Name, $_.Length) }
 }
 
+if ($isMainProject -and $Flow -ne 'synth' -and $rc -eq 0) {
+    & python -X utf8 (Join-Path $PSScriptRoot 'check_t024_formal_report.py') $projectDir
+    if ($LASTEXITCODE -ne 0) { $rc = 1 }
+}
 exit $rc

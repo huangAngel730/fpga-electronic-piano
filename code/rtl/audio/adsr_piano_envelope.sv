@@ -78,7 +78,8 @@ module adsr_piano_envelope (
         end else if (state==LOAD_2) begin
             step_delta = $signed({1'b0,rom_dout,16'b0})-$signed({1'b0,start_q16});
             reciprocal = ATTACK_RECIP_Q32;
-        end else if (state==ATTACK && sample_tick && elapsed==ATTACK_SAMPLES-1) begin
+        end // Precompute throughout Attack; step_q16 still latches only at its boundary.
+        else if (state==ATTACK) begin
             step_delta = $signed({1'b0,sustain_q16})-$signed({1'b0,peak_q16});
         end
         step_product = step_delta * reciprocal;

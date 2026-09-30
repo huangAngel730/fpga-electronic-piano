@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-30",
+  "scope": "actual four-lane DDS ADSR to gain mixer and PCM commit; no top UART I2S integration or new STA",
+  "tests": {
+    "checks": 20287,
+    "pcm_frames": 10140,
+    "result": "PASS",
+    "comparison": "independent per-frame signed integer floor product and stereo saturation using actual DDS/ADSR snapshots; not yet end-to-end Python time/state oracle"
+  },
+  "wave_rom": {
+    "length": 1024,
+    "amplitude": 8192,
+    "generator": "existing dds_model.make_wavetable sine, round_half_away_from_zero"
+  },
+  "source_sha256": {
+    "code/rtl/board/polyphonic_audio_core.sv": "4f17c0512e8a0e0b317d951b5299be6c36e58cf0873742690491ce83cea5290b",
+    "code/rtl/board/polyphonic_envelope_bank.sv": "58d525d2468eb3992cda467aa4b6b5e7af9ba89d0b31817821aabe9219f94843",
+    "code/rtl/board/polyphonic_event_router.sv": "e7048ff30c7a153c74bf7fb58ea0da97ef915a214763d3adb49cd2ebf569607b",
+    "code/rtl/board/polyphonic_pcm_commit.sv": "f17af64432f6c9954993eafbb79c669a7b800c271019bceeb00f64470535dfb1",
+    "code/rtl/board/voice_gain_q15_candidate.sv": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+    "code/rtl/audio/dds_oscillator.sv": "3cd758e28da8f76a30da38cb2dfcd458db5743d4ea4f38e072a43d7f83719f04",
+    "code/model/generated/wavetables/sine_1024_8192.mem": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2",
+    "code/scripts/run_t024_audio_core.py": "e150efdc73f28514089eef18aeb7306907ac940787b93e82be226c4d6212ffa5",
+    "code/tb/board/tb_polyphonic_audio_core.sv": "d0a3160b615b074ead1e720de6e916004f03ebd23c4bb018da81701ec25fc632"
+  },
+  "run_log_sha256": "5910568e461c8ede39743f144188b73e81fda578281eb6c83a9d33a8e050ac98",
+  "submitted": false,
+  "new_pnr": false
+}

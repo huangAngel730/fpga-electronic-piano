@@ -15,6 +15,10 @@ module tb_midi_top_integration;
         .i2s_bclk, .i2s_lrck, .i2s_din, .pa_en, .uart_tx
     );
 
+    // Accelerate only audio frames for lifecycle test; UART remains actual 50MHz/31250.
+    defparam dut.u_i2s_tx.ACC_BITS=8;
+    defparam dut.u_i2s_tx.BCLK_PHASE_STEP=8'd255;
+
     task automatic check(input bit ok, input string reason);
         if (!ok) $fatal(1, "%s", reason);
         checks++;
@@ -40,7 +44,7 @@ module tb_midi_top_integration;
               dut.event_fifo_level == 0, "idle with MIDI RX high");
 
         send_byte(8'h90); send_byte(8'h3c); send_byte(8'h64);
-        repeat (5) @(negedge sys_clk);
+        repeat (30) @(negedge sys_clk);
         check(dut.voice_active && dut.voice_note == 7'd60,
               "MIDI Note On reaches voice through common FIFO");
         check(dut.event_fifo_high_watermark > 0 &&
@@ -49,7 +53,10 @@ module tb_midi_top_integration;
 
         send_byte(8'h80); send_byte(8'h3c); send_byte(8'h00);
         repeat (5) @(negedge sys_clk);
-        check(!dut.voice_active, "MIDI Note Off releases same voice");
+        check(dut.voice_active, "MIDI Note Off keeps actual Release tail occupied");
+        wait(dut.status_active_voice_count==0);
+        repeat(3)@(negedge sys_clk);
+        check(!dut.voice_active, "Release completion retires voice");
         check(dut.event_fifo_level == 0 && dut.midi_event_overflow == 0,
               "shared FIFO clean after MIDI Note Off");
 
@@ -61,5 +68,5 @@ module tb_midi_top_integration;
         $display("PASS tb_midi_top_integration checks=%0d", checks);
         $finish;
     end
-    initial begin #12_000_000; $fatal(1, "MIDI top timeout"); end
+    initial begin #50_000_000; $fatal(1, "MIDI top timeout"); end
 endmodule

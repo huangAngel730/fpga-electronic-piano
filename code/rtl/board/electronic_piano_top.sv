@@ -15,7 +15,8 @@
 //   时钟 -> 复位 -> 音频节拍 -> I2S 发送 -> PT8211 -> 功放 -> 扬声器
 //
 // 当前保留按键/固定音诊断路径，另接入 31250 baud MIDI 输入、
-// 双输入 32 项公共事件 FIFO 与单声部占位音源；多声部及效果器仍待开发。
+// 双输入32项公共事件FIFO与四声部DDS/ADSR/混音核心。正常模式输出七字段STAT；
+// 固定音模式保留DIAG。Pitch/Mod/Sustain音频效果仍待实现。
 //
 // 为什么需要一个能发声的测试音而不是直接输出静音：
 //   静音无法区分"通路正常但没数据"和"通路某处断了"。
@@ -232,10 +233,100 @@ module electronic_piano_top #(
     // （50 MHz 时序仍有裕量，见 V0031）；多声部时每个声部一份 mux
     // 会显著吃 LUT，T004 应改为 BRAM 查表 + 流水线寄存器，见任务看板 T004。
     // -------------------------------------------------------------------------
+    // Local copy of generated constants for fixed-tone elaboration only.
+// -----------------------------------------------------------------------------
+// sine_table.svh  (GENERATED FILE -- DO NOT EDIT BY HAND)
+// -----------------------------------------------------------------------------
+// 256-point packed sine wavetable, 16-bit signed, amplitude +/-8192.
+//
+// Regenerate with:
+//     python -X utf8 code/scripts/gen_sine_table.py --write
+// Verify without touching the file (used by check_repo / regression):
+//     python -X utf8 code/scripts/gen_sine_table.py --check
+//
+// Why a packed vector instead of an unpacked array
+// ------------------------------------------------
+// Two independent tool limits force this shape -- see gen_sine_table.py for
+// the full story. Short version:
+//   * `real` + `$sin` is rejected by GowinSynthesis (EX3956), so the table
+//     MUST be precomputed integer constants;
+//   * an unpacked array parameter is rejected by iverilog, so the table
+//     MUST be a packed vector.
+// A packed vector is plain Verilog-2001 and both tools accept it.
+//
+// Entry k occupies bits [16*k +: 16]; entry 0 is the LSB slice (rightmost).
+//
+// Guard: including this file twice is harmless, but a module that also
+// defines its own SINE_TABLE_DEFAULT would collide. Do not redefine it.
+// -----------------------------------------------------------------------------
+
+
+// Number of entries in the table. Must be a power of two so that the DDS can
+// slice the phase accumulator with a plain bit-select (no divider, no modulo).
+localparam int unsigned SINE_TABLE_DEPTH = 256;
+
+// Full table, packed. Total width = 16 * 256 = 4096 bits.
+localparam logic signed [4096-1:0] SINE_TABLE_DEFAULT = {
+        16'sd0, 16'sd201, 16'sd402, 16'sd603, 16'sd803, 16'sd1003, 16'sd1202, 16'sd1401,
+        16'sd1598, 16'sd1795, 16'sd1990, 16'sd2185, 16'sd2378, 16'sd2570, 16'sd2760, 16'sd2948,
+        16'sd3135, 16'sd3320, 16'sd3503, 16'sd3683, 16'sd3862, 16'sd4038, 16'sd4212, 16'sd4383,
+        16'sd4551, 16'sd4717, 16'sd4880, 16'sd5040, 16'sd5197, 16'sd5351, 16'sd5501, 16'sd5649,
+        16'sd5793, 16'sd5933, 16'sd6070, 16'sd6203, 16'sd6333, 16'sd6458, 16'sd6580, 16'sd6698,
+        16'sd6811, 16'sd6921, 16'sd7027, 16'sd7128, 16'sd7225, 16'sd7317, 16'sd7405, 16'sd7489,
+        16'sd7568, 16'sd7643, 16'sd7713, 16'sd7779, 16'sd7839, 16'sd7895, 16'sd7946, 16'sd7993,
+        16'sd8035, 16'sd8071, 16'sd8103, 16'sd8130, 16'sd8153, 16'sd8170, 16'sd8182, 16'sd8190,
+        16'sd8192, 16'sd8190, 16'sd8182, 16'sd8170, 16'sd8153, 16'sd8130, 16'sd8103, 16'sd8071,
+        16'sd8035, 16'sd7993, 16'sd7946, 16'sd7895, 16'sd7839, 16'sd7779, 16'sd7713, 16'sd7643,
+        16'sd7568, 16'sd7489, 16'sd7405, 16'sd7317, 16'sd7225, 16'sd7128, 16'sd7027, 16'sd6921,
+        16'sd6811, 16'sd6698, 16'sd6580, 16'sd6458, 16'sd6333, 16'sd6203, 16'sd6070, 16'sd5933,
+        16'sd5793, 16'sd5649, 16'sd5501, 16'sd5351, 16'sd5197, 16'sd5040, 16'sd4880, 16'sd4717,
+        16'sd4551, 16'sd4383, 16'sd4212, 16'sd4038, 16'sd3862, 16'sd3683, 16'sd3503, 16'sd3320,
+        16'sd3135, 16'sd2948, 16'sd2760, 16'sd2570, 16'sd2378, 16'sd2185, 16'sd1990, 16'sd1795,
+        16'sd1598, 16'sd1401, 16'sd1202, 16'sd1003, 16'sd803, 16'sd603, 16'sd402, 16'sd201,
+        16'sd0, -16'sd201, -16'sd402, -16'sd603, -16'sd803, -16'sd1003, -16'sd1202, -16'sd1401,
+        -16'sd1598, -16'sd1795, -16'sd1990, -16'sd2185, -16'sd2378, -16'sd2570, -16'sd2760, -16'sd2948,
+        -16'sd3135, -16'sd3320, -16'sd3503, -16'sd3683, -16'sd3862, -16'sd4038, -16'sd4212, -16'sd4383,
+        -16'sd4551, -16'sd4717, -16'sd4880, -16'sd5040, -16'sd5197, -16'sd5351, -16'sd5501, -16'sd5649,
+        -16'sd5793, -16'sd5933, -16'sd6070, -16'sd6203, -16'sd6333, -16'sd6458, -16'sd6580, -16'sd6698,
+        -16'sd6811, -16'sd6921, -16'sd7027, -16'sd7128, -16'sd7225, -16'sd7317, -16'sd7405, -16'sd7489,
+        -16'sd7568, -16'sd7643, -16'sd7713, -16'sd7779, -16'sd7839, -16'sd7895, -16'sd7946, -16'sd7993,
+        -16'sd8035, -16'sd8071, -16'sd8103, -16'sd8130, -16'sd8153, -16'sd8170, -16'sd8182, -16'sd8190,
+        -16'sd8192, -16'sd8190, -16'sd8182, -16'sd8170, -16'sd8153, -16'sd8130, -16'sd8103, -16'sd8071,
+        -16'sd8035, -16'sd7993, -16'sd7946, -16'sd7895, -16'sd7839, -16'sd7779, -16'sd7713, -16'sd7643,
+        -16'sd7568, -16'sd7489, -16'sd7405, -16'sd7317, -16'sd7225, -16'sd7128, -16'sd7027, -16'sd6921,
+        -16'sd6811, -16'sd6698, -16'sd6580, -16'sd6458, -16'sd6333, -16'sd6203, -16'sd6070, -16'sd5933,
+        -16'sd5793, -16'sd5649, -16'sd5501, -16'sd5351, -16'sd5197, -16'sd5040, -16'sd4880, -16'sd4717,
+        -16'sd4551, -16'sd4383, -16'sd4212, -16'sd4038, -16'sd3862, -16'sd3683, -16'sd3503, -16'sd3320,
+        -16'sd3135, -16'sd2948, -16'sd2760, -16'sd2570, -16'sd2378, -16'sd2185, -16'sd1990, -16'sd1795,
+        -16'sd1598, -16'sd1401, -16'sd1202, -16'sd1003, -16'sd803, -16'sd603, -16'sd402, -16'sd201
+};
+
+// Look up entry `index` (0 .. SINE_TABLE_DEPTH-1).
+//
+// MUST be called with a constant or an elaborated-loop index: the for-loop
+// below unrolls at compile time into a chain of bit-selects, which maps to
+// pure combinational muxing. With a 256-entry table that is a wide mux;
+// see the DDS module for the registered/pipelined usage that keeps timing.
+function automatic logic signed [15:0] sine_lookup(
+    input logic [31:0] index
+);
+    logic signed [15:0] value;
+    integer k;
+    begin
+        value = 16'sd0;
+        for (k = 0; k < SINE_TABLE_DEPTH; k = k + 1) begin
+            if (index == k[31:0]) begin
+                value = SINE_TABLE_DEFAULT[16*k +: 16];
+            end
+        end
+    end
+    return value;
+endfunction
+
     function automatic logic signed [15:0] sine_sample(
         input logic [SINE_IDX_BITS-1:0] index
     );
-        return u_simple_voice.sine_sample(index);
+        return sine_lookup({{(32-SINE_IDX_BITS){1'b0}}, index});
     endfunction
 
     // -------------------------------------------------------------------------
@@ -398,12 +489,19 @@ module electronic_piano_top #(
         .event_fifo_high_watermark(event_fifo_high_watermark)
     );
 
-    // 单声部占位实现（正式算法见 T004/T009/T010）
-    logic signed [PCM_WIDTH-1:0] voice_pcm_left;
-    logic signed [PCM_WIDTH-1:0] voice_pcm_right;
-    logic                        voice_active;
-    logic [6:0]                  voice_note;
-
+    // T024 normal mode: four actual DDS/ADSR voices and approved Q15 gain.
+    wire [31:0] status_active_voice_count, status_clip_count;
+    wire [31:0] core_max_processing_cycles;
+    wire [31:0] legacy_max_processing_cycles;
+    logic voice_active;
+    logic [6:0] voice_note;
+    generate
+      if (SOURCE_MODE == 1) begin:g_fixed_tone
+        // Fixed-tone diagnostic keeps legacy timing; not a STAT acceptance build.
+        wire signed [23:0] voice_pcm_left,voice_pcm_right;
+        wire fixed_event_ready;
+        logic signed [23:0] pcm_left,pcm_right;
+        assign shared_event_ready=fixed_event_ready;
     simple_voice #(
         .ACC_BITS   (TICK_ACC_BITS),
         .SINE_DEPTH (SINE_DEPTH),
@@ -414,7 +512,7 @@ module electronic_piano_top #(
         .rst_n        (rst_sync_n),
         .sample_tick  (sample_tick),
         .event_valid  (shared_event_valid),
-        .event_ready  (shared_event_ready),
+        .event_ready  (fixed_event_ready),
         .event_data   (shared_event_data),
         .pcm_left     (voice_pcm_left),
         .pcm_right    (voice_pcm_right),
@@ -422,22 +520,6 @@ module electronic_piano_top #(
         .current_note (voice_note)
     );
 
-    // -------------------------------------------------------------------------
-    // 6. 音源选择
-    //
-    //   固定测试音路径：T007 原样保留，用于通路自检与回归对照。
-    //   按键路径：T020 新增的骨架。
-    //
-    //   【为什么固定音路径不能删】V0035 已用它验证过整条硬件通路（L6）。
-    //   保留它，就能在按键链路异常时一键切回已验证状态，
-    //   快速区分"硬件/约束问题"和"按键逻辑问题"。
-    // -------------------------------------------------------------------------
-    logic signed [PCM_WIDTH-1:0] pcm_left;
-    logic signed [PCM_WIDTH-1:0] pcm_right;
-
-    generate
-        if (SOURCE_MODE == 1) begin : g_fixed_tone
-            // 固定测试音：上电即持续发声（与 T007 行为一致）
             logic [TICK_ACC_BITS-1:0] tone_phase;
             logic [TICK_ACC_BITS:0]   tone_sum;
             logic [SINE_IDX_BITS-1:0] sine_index;
@@ -455,23 +537,6 @@ module electronic_piano_top #(
             assign pcm_left  = $signed({tone_sample, 8'b0});
             assign pcm_right = $signed({tone_sample, 8'b0});
 
-            // 该模式下按键不参与发声，但去抖与事件源仍在运行，
-            // 便于用逻辑分析仪/UART 观察事件链路是否工作。
-        end else begin : g_key_voice
-            assign pcm_left  = voice_pcm_left;
-            assign pcm_right = voice_pcm_right;
-        end
-    endgenerate
-
-    // -------------------------------------------------------------------------
-    // 7. I2S (LSBJ) 发送
-    //
-    // BCLK 翻转步进为 527765581；完整帧完成时派生下一组 PCM 请求。
-    // The registered placeholder producer hands one sample to the pending
-    // buffer. The serializer takes only the previous committed sample.
-    // -------------------------------------------------------------------------
-    // This early single-voice producer captures PCM once per frame request.
-    // The final M1 core will provide its own registered valid/data/req_id.
     always_ff @(posedge sys_clk or negedge rst_sync_n) begin
         if (!rst_sync_n) begin
             produced_left <= '0;
@@ -505,16 +570,38 @@ module electronic_piano_top #(
         .audio_underrun(audio_underrun)
     );
 
-    // T025: request-to-commit peak and actual dropped events in sys_clk.
+        assign status_active_voice_count={31'd0,voice_active};
+        assign status_clip_count=0;
+        assign core_max_processing_cycles=0;
+      end else begin:g_polyphonic
+        polyphonic_audio_core u_audio_core(
+          .clk(sys_clk),.rst_n(rst_sync_n),.event_valid(shared_event_valid),
+          .event_ready(shared_event_ready),.event_data(shared_event_data),.frame_tick(i2s_frame_tick),
+          .play_left(buffered_left),.play_right(buffered_right),.pending_valid(pending_valid),
+          .active_voice_count(status_active_voice_count),.clip_count(status_clip_count),.audio_underrun(audio_underrun),
+          .audio_frame_count(audio_frame_count),.pcm_request_count(pcm_request_count),.pcm_commit_count(pcm_commit_count),
+          .max_processing_cycles(core_max_processing_cycles)
+        );
+        assign voice_active=|status_active_voice_count;
+        // Legacy debug alias only; actual four note identities are in the router.
+        assign voice_note=u_audio_core.u_bank.slot_notes[6:0];
+        assign frame_sample_req=u_audio_core.sample_req;
+        assign sample_req_id=u_audio_core.sample_req_id;
+        assign pcm_valid_q=u_audio_core.u_commit.pcm_valid;
+        assign pcm_ready=u_audio_core.u_commit.pcm_ready;
+        assign produced_req_id=u_audio_core.u_commit.pcm_req_id;
+        assign produced_left=u_audio_core.u_commit.pcm_left;
+        assign produced_right=u_audio_core.u_commit.pcm_right;
+      end
+    endgenerate
+    // Public FIFO overflow remains a saturating sum of actual input drops.
     system_status_counters u_system_status_counters (
-        .clk(sys_clk), .rst_n(rst_sync_n),
-        .pcm_request(frame_sample_req),
-        .pcm_commit(pcm_valid_q && pcm_ready),
-        .button_overflow(ev_overflow_count),
-        .midi_overflow(midi_event_overflow),
-        .event_fifo_overflow(status_event_overflow),
-        .max_processing_cycles(status_max_processing_cycles)
+        .clk(sys_clk),.rst_n(rst_sync_n),.pcm_request(frame_sample_req),
+        .pcm_commit(pcm_valid_q && pcm_ready),.button_overflow(ev_overflow_count),
+        .midi_overflow(midi_event_overflow),.event_fifo_overflow(status_event_overflow),
+        .max_processing_cycles(legacy_max_processing_cycles)
     );
+    assign status_max_processing_cycles= SOURCE_MODE==1 ? legacy_max_processing_cycles : core_max_processing_cycles;
 
     i2s_tx #(
         .ACC_BITS         (TICK_ACC_BITS),
@@ -535,17 +622,15 @@ module electronic_piano_top #(
     );
 
     // -------------------------------------------------------------------------
-    // 7. T025 stage diagnostic on U15. Six live fields can be observed.
-    // There is no mixer clip event yet. DIAG and clip_count=0x--------
-    // deliberately fail the strict seven-numeric-field STAT parser so that
-    // an unavailable value can never be mistaken for a measured zero.
+    // 7. T025 normal seven-field STAT on U15; fixed tone is DIAG.
+    // Normal mode reports real seven-field STAT; fixed-tone remains DIAG.
     // -------------------------------------------------------------------------
     logic status_report_busy;
-    uart_status_reporter #(.CLK_HZ(CLK_HZ), .CLIP_COUNT_VALID(1'b0))
+    uart_status_reporter #(.CLK_HZ(CLK_HZ), .CLIP_COUNT_VALID(SOURCE_MODE != 1))
     u_uart_status_reporter (
         .clk(sys_clk), .rst_n(rst_sync_n),
-        .active_voice_count({31'd0, voice_active}),
-        .clip_count(32'd0), // unused while CLIP_COUNT_VALID=0
+        .active_voice_count(status_active_voice_count),
+        .clip_count(status_clip_count),
         .event_fifo_level({16'd0, event_fifo_level}),
         .event_fifo_high_watermark({16'd0, event_fifo_high_watermark}),
         .event_fifo_overflow(status_event_overflow),

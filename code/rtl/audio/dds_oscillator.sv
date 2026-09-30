@@ -3,7 +3,9 @@
 // 32位相位累加 + 1024点波表查表
 `timescale 1ns/1ps
 
-module dds_oscillator (
+module dds_oscillator #(
+    parameter ROM_FILE = "model/generated/wavetables/sine_1024_32767.mem"
+) (
     input  logic        sys_clk,        // 系统时钟 (50 MHz)
     input  logic        sys_rst_n,      // 系统复位，低有效
     input  logic        sample_tick,    // 采样时钟使能 (48 kHz)
@@ -29,7 +31,7 @@ module dds_oscillator (
     end
 
     // 波表ROM实例化
-    sine_wavetable_1024 u_sine_table (
+    sine_wavetable_1024 #(.ROM_FILE(ROM_FILE)) u_sine_table (
         .clk(sys_clk),
         .addr(wt_addr),
         .dout(wt_sample)
@@ -40,7 +42,9 @@ endmodule
 
 // 1024点正弦波表ROM
 // 数据来源: code/model/generated/wavetables/sine_1024_32767.mem
-module sine_wavetable_1024 (
+module sine_wavetable_1024 #(
+    parameter ROM_FILE = "model/generated/wavetables/sine_1024_32767.mem"
+) (
     input  logic        clk,
     input  logic [9:0]  addr,
     output logic signed [15:0] dout
@@ -59,9 +63,9 @@ module sine_wavetable_1024 (
         if ($value$plusargs("WAVETABLE_PATH=%s", wavetable_path)) begin
             $readmemh(wavetable_path, rom_data);
         end else begin
-            wavetable_path = "model/generated/wavetables/sine_1024_32767.mem";
+            wavetable_path = ROM_FILE;
         // synthesis translate_on
-            $readmemh("model/generated/wavetables/sine_1024_32767.mem", rom_data);
+            $readmemh(ROM_FILE, rom_data);
         // synthesis translate_off
         end
         for (rom_index = 0; rom_index < 1024; rom_index = rom_index + 1) begin

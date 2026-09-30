@@ -182,6 +182,11 @@ New-Item -ItemType Directory -Force -Path $stageRoot | Out-Null
 
 foreach ($test in $tests) {
     $name = $test.Name
+    if ($name -in @('tb_electronic_piano_top','tb_key_to_tone','tb_midi_top_integration')) {
+        & python -X utf8 (Join-Path $PSScriptRoot 'run_t025_top_stat.py') --top $name --tb ('code/tb/board/' + $name + '.sv')
+        if ($LASTEXITCODE -ne 0) { $failed += $name }
+        continue
+    }
     $out  = Join-Path $stageRoot "$name.vvp"
     $log  = Join-Path $stageRoot "$name.log"
     $bat  = Join-Path $stageRoot "$name.bat"

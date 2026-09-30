@@ -1,0 +1,26 @@
+{
+  "date": "2026-09-30",
+  "baseline": "e6f6638",
+  "scope": "real event/DDS/ADSR bank -> explicit test PCM vectors -> real mixer/hold/frame buffer/clip counter; no production amplitude scaling or I2S/STAT",
+  "tests": {
+    "checks": 29,
+    "accepted_pcm_generations": 5,
+    "clipped_commits": 3,
+    "intentional_underrun_frames": 2,
+    "result": "PASS"
+  },
+  "sources_sha256": {
+    "code/rtl/board/polyphonic_pcm_commit.sv": "f17af64432f6c9954993eafbb79c669a7b800c271019bceeb00f64470535dfb1",
+    "code/tb/board/tb_polyphonic_pcm_commit.sv": "e9fd8c108bbf06a6c4b055b0120812bfcd2dbf139c040b3d3989ff59a127ae2e",
+    "code/scripts/run_t024_pcm_commit.py": "c90487a985f7cb0c14acacec71d23f25976132ad4ae2179d594e5398326fc73d",
+    "code/rtl/audio_out/pcm_result_hold.sv": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+    "code/rtl/audio_out/pcm_frame_buffer.sv": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+    "code/rtl/common/pcm_clip_counter.sv": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+    "code/rtl/mixer/pcm_mixer_4voice.sv": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a"
+  },
+  "run_log_sha256": "519163de37621b7b20d3c946d22b82e259c0554a7dfae4d9315aae2dc361a32b",
+  "formal_top_modified": false,
+  "new_pnr": false,
+  "board_test": false,
+  "submitted": false
+}

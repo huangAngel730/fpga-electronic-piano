@@ -63,5 +63,16 @@
         <File path="../constraints/electronic_piano.cst" type="file.cst" enable="1"/>
         <!-- 时序约束（50 MHz + I2S 虚拟时钟 + 输出延迟） -->
         <File path="../constraints/audio_timing.sdc" type="file.sdc" enable="1"/>
+        <File path="../rtl/audio/voice_allocator_4.sv" type="file.verilog" enable="1"/>
+        <File path="../rtl/audio/dds_oscillator.sv" type="file.verilog" enable="1"/>
+        <File path="../rtl/audio/adsr_piano_envelope.sv" type="file.verilog" enable="1"/>
+        <File path="../rtl/board/polyphonic_event_router.sv" type="file.verilog" enable="1"/>
+        <File path="../rtl/board/polyphonic_envelope_bank.sv" type="file.verilog" enable="1"/>
+        <File path="../rtl/board/voice_gain_q15_candidate.sv" type="file.verilog" enable="1"/>
+        <File path="../rtl/board/polyphonic_pcm_commit.sv" type="file.verilog" enable="1"/>
+        <File path="../rtl/board/polyphonic_audio_core.sv" type="file.verilog" enable="1"/>
+        <File path="../rtl/mixer/pcm_mixer_4voice.sv" type="file.verilog" enable="1"/>
+        <File path="../rtl/common/pcm_clip_counter.sv" type="file.verilog" enable="1"/>
+        <File path="../rtl/audio_out/pcm_result_hold.sv" type="file.verilog" enable="1"/>
     </FileList>
 </Project>

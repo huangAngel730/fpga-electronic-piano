@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+"""M2 four-slot event routing test; lowers unchanged allocator for Icarus."""
+from pathlib import Path
+import subprocess
+root=Path(__file__).resolve().parents[2];stage=root/'code/output/t024_event_router';stage.mkdir(parents=True,exist_ok=True)
+source=root/'code/rtl/audio/voice_allocator_4.sv';net=stage/'allocator.v';ys=stage/'lower.ys'
+ys.write_text('read_slang --top voice_allocator_4 '+source.as_posix()+'\nproc\nopt\ntechmap\nopt\nwrite_verilog -noattr '+net.as_posix()+'\n',encoding='ascii')
+cad=Path('D:/Gowin/oss-cad-suite');q=lambda p:'"'+str(p)+'"'
+commands=[q(cad/'bin/yosys.exe')+' -Q -T -s '+q(ys),q(cad/'bin/iverilog.exe')+' -g2012 -s tb_polyphonic_event_router -o '+q(stage/'tb.vvp')+' '+' '.join(map(q,[root/'code/rtl/common/audio_defs_pkg.sv',net,root/'code/rtl/common/note_pitch.sv',root/'code/rtl/board/polyphonic_event_router.sv',root/'code/tb/board/tb_polyphonic_event_router.sv'])),q(cad/'bin/vvp.exe')+' '+q(stage/'tb.vvp')]
+bat=stage/'run.bat';bat.write_text('@echo off\r\ncall '+q(cad/'environment.bat')+' >nul\r\n'+'\r\nif errorlevel 1 exit /b 1\r\n'.join(commands)+'\r\nexit /b %errorlevel%\r\n',encoding='ascii')
+p=subprocess.run(['cmd.exe','/c',str(bat)],capture_output=True,text=True,encoding='utf-8',errors='replace',timeout=120,cwd=stage)
+(stage/'run.log').write_text(p.stdout+p.stderr,encoding='utf-8');
+for line in (p.stdout+p.stderr).splitlines():
+    if 'PASS polyphonic_event_router' in line or 'FATAL' in line or 'error:' in line:print(line)
+print('Full log:',stage/'run.log')
+raise SystemExit(p.returncode if p.returncode else (0 if 'PASS polyphonic_event_router' in p.stdout else 1))

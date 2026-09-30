@@ -15,7 +15,7 @@ module tb_t025_top_diag;
     integer lines = 0, checks = 0, fields;
     logic [31:0] voices, level, watermark, overflow, underrun, processing;
 
-    electronic_piano_top #(.CLK_HZ(1_000_000), .DEBOUNCE_CNT(1000)) dut (
+    electronic_piano_top #(.CLK_HZ(1_000_000), .DEBOUNCE_CNT(1000), .SOURCE_MODE(1)) dut (
         .sys_clk, .sys_rst_n, .key_n, .midi_rx,
         .i2s_bclk, .i2s_lrck, .i2s_din, .pa_en, .uart_tx
     );

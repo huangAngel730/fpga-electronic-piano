@@ -1,0 +1,68 @@
+{
+  "date": "2026-09-30",
+  "baseline": "e6f6638",
+  "scope": "event router plus four DDS/ADSR sample scheduler only; no amplitude scaling/mixer/PCM/I2S/UART or board result",
+  "tests": {
+    "router_checks": 23,
+    "bank_checks": 30744,
+    "bank_requests": 10086,
+    "bank_lane_ticks": 10085,
+    "bank_consumed_results": 10083,
+    "first_bank_run_checks": 30741,
+    "method": "unchanged allocator lowered with Yosys/read_slang; Icarus bank executes source DDS/ADSR; independent DDS ROM/phase check"
+  },
+  "gowin": {
+    "tool": "V1.9.11.03 Education",
+    "part": "GW5AT-LV60PG484AC1/I0",
+    "top": "polyphonic_envelope_bank_probe",
+    "clock_mhz": 50,
+    "report": {
+      "resources": {
+        "Logic": 3000,
+        "Register": 1417,
+        "DSP": 20,
+        "BSRAM": 8
+      },
+      "worst_ns": {
+        "Setup": 1.54,
+        "Hold": 0.223,
+        "Recovery": null,
+        "Removal": null
+      },
+      "fmax_mhz": "54.171(MHz)",
+      "setup_hold_violated_endpoints": [
+        "0",
+        "0"
+      ]
+    },
+    "limits": "Internal sys_clk setup/hold only; Recovery/Removal no analyzed paths; no pin constraints or external IO timing; probe must not be downloaded",
+    "warnings": "Input event_data[35:0] unused: control/effect fields not implemented; user cache sh.log write failed but build and reports completed"
+  },
+  "source_sha256": {
+    "code/rtl/board/polyphonic_event_router.sv": "e7048ff30c7a153c74bf7fb58ea0da97ef915a214763d3adb49cd2ebf569607b",
+    "code/rtl/board/polyphonic_envelope_bank.sv": "3553ef804f3714003d079dd585dd461190b184908417defc17c1a6c53e07fcdd",
+    "code/rtl/board/polyphonic_envelope_bank_probe.sv": "fcc1619a81bbda93f5cb0445f6bdbc3b381ad14ec97ffc20010ce08d2763d615",
+    "code/rtl/common/audio_defs_pkg.sv": "eaa208c4db65a81ad902dbbb627b86cf79af9626b265fb84fdf1ae8f24b13351",
+    "code/rtl/common/note_pitch.sv": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+    "code/rtl/audio/voice_allocator_4.sv": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+    "code/rtl/audio/dds_oscillator.sv": "7ead22971797096baded170d6ae11e164d37916cfa759ad79f574a297aad208d",
+    "code/rtl/audio/adsr_piano_envelope.sv": "d65566e839f1b51b39c670167d27498ad38acbf02ff1270d98a1e48db97a69b9",
+    "code/tb/board/tb_polyphonic_event_router.sv": "b5f6a84738c439728a127906bbe010aa57e583abb4a7993443886a9efc012ab8",
+    "code/tb/board/tb_polyphonic_envelope_bank.sv": "d13d629758f78d227f9c6b318dffa83b0f45c91651a02465b5e1238aa0d49955",
+    "code/scripts/run_t024_event_router.py": "b68454fab968d168e822424f4c0d07018a373d9bd53dcaeb27efc2f7875c0425",
+    "code/scripts/run_t024_envelope_bank.py": "9ee47de9d6b098e8e40041a8e14ecb3bb46d3741a3f97a574f361f0f58e9215f",
+    "code/scripts/build_t024_envelope_bank.ps1": "823e0f0a33c140ac9287066d454ac437da9e54da209b15da5c9ddd313f9e6339",
+    "code/model/generated/wavetables/sine_1024_32767.mem": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060",
+    "code/model/generated/wavetables/velocity_gain_rom.mem": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64"
+  },
+  "report_sha256": {
+    "code/output/t024_envelope_bank_build/impl/pnr/bank_probe_tr_content.html": "f778b2b53af10ea9bba76de7ffdd7a1b253d1f0c2e60cdf00a932e6f954ab09e",
+    "code/output/t024_envelope_bank_build/impl/pnr/bank_probe.rpt.txt": "f3af62ad37cbc56f7730d12150fc6bb209c88f8531f37eaeb373c21b22df2e1a",
+    "code/output/t024_envelope_bank_build/impl/pnr/bank_probe.fs": "1b1944d0b1f373b9eaaf8d554e68868809b12380468badfbcd2cde1a05886bcd",
+    "code/output/t024_envelope_bank_build/build.log": "a90f0007d389becd7543c1e344ef77fba8e9d3085574fbd9f3e111cb3061756f",
+    "code/output/t024_envelope_bank/run.log": "b9d8c181677f2d091821fcf522265200030f968cf2e9a03bfd1e08887c22e8d7"
+  },
+  "formal_top_modified": false,
+  "submitted": false,
+  "repo_gate": "check_repo.ps1 ALL PASS, including 82-file Python syntax and T007/T019 simulation, after final stage changes"
+}

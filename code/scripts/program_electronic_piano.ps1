@@ -28,7 +28,7 @@ param(
     [switch]$ScanOnly,
 
     # Repository-relative path of the .fs file to download.
-    [string]$Bitstream = 'code\build\impl\pnr\electronic_piano.fs',
+    [string]$Bitstream = 'code\build\staged_formal\impl\pnr\electronic_piano.fs',
 
     # Override if the Programmer is installed somewhere else.
     [string]$ProgrammerRoot = 'D:\Gowin\Programmer_V1.9.12.02'
@@ -53,7 +53,7 @@ if ([IO.Path]::IsPathRooted($Bitstream)) {
     $bitstream = Join-Path $repoRoot $Bitstream
 }
 if (-not $ScanOnly -and -not (Test-Path -LiteralPath $bitstream)) {
-    throw "Bitstream not found: $bitstream`nRun: .\code\scripts\build_electronic_piano.ps1 -Flow pnr"
+    throw "Bitstream not found: $bitstream`nRun: .\code\scripts\build_electronic_piano.ps1 -Flow bitstream"
 }
 
 $fsArg = ($bitstream -replace '\\', '/')

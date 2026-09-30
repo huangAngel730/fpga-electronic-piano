@@ -75,3 +75,15 @@ fatal: Could not read from remote repository.
 本项目已确认的板级事实记录在 `code/docs/板级硬件事实.md`，
 引脚参考表见 `code/constraints/tang_mega_60k_reference.cst`。
 
+
+## 2026-09-30 本地正式四声部/STAT集成阶段
+
+正常SOURCE_MODE=0接四路DDS/ADSR、批准的Q15截断、混音及代次PCM；SOURCE_MODE=1保留固定音DIAG诊断。Pitch/Mod/Sustain音频效果尚未接入，不能由本阶段声部实现推断支持。最新本地改动未提交推送，以阶段说明和输入哈希为准。
+
+```powershell
+python -X utf8 code/scripts/run_t024_audio_core.py
+python -X utf8 code/scripts/run_t025_top_stat.py
+.\code\scripts\build_electronic_piano.ps1 -Flow bitstream
+```
+
+正式构建用Git忽略的`code/build/staged_formal/`保存显式ROM路径副本，缺ROM警告会使构建失败。有效码流位于`code/build/staged_formal/impl/pnr/electronic_piano.fs`，Programmer默认SRAM路径已同步；旧`code/build/impl/`产物不是本次交付。下载前须核对阶段清单及SHA256，不以存在.fs判成功。
