@@ -1,0 +1,66 @@
+{
+  "date": "2026-09-30",
+  "source_zip_sha256": "ced7e88f615a9a60f38b40a5fe9a616e42d8e44501675c561260cfa5b3f2b80f",
+  "baseline": "4113b39",
+  "scope": "T009 standalone module; no system integration or board validation",
+  "tests": {
+    "transition_model": 6,
+    "state_model": 4,
+    "legacy_model": 8,
+    "model_unittest": 8,
+    "rtl_boundary_checks": 27,
+    "rtl_sample_steps": 33114,
+    "model_comparison_samples": 73210,
+    "model_comparison_max_delta_q15_lsb": 1,
+    "retrigger_matrix_samples": 13425,
+    "retrigger_phase_max_delta_q15_lsb": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "negative_missing_rom_exit": 1,
+    "negative_truncated_rom_exit": 1,
+    "negative_corrupt_trace_exit": 1
+  },
+  "gowin": {
+    "version": "V1.9.11.03 Education",
+    "part": "GW5AT-LV60PG484AC1/I0",
+    "top": "adsr_piano_envelope",
+    "clock_mhz": 50,
+    "report": {
+      "resources": {
+        "Logic": 565,
+        "Register": 147,
+        "DSP": 5,
+        "BSRAM": 1
+      },
+      "worst_ns": {
+        "Setup": 2.228,
+        "Hold": 0.275,
+        "Recovery": null,
+        "Removal": null
+      },
+      "fmax_mhz": "56.268(MHz)",
+      "setup_hold_violated_endpoints": [
+        "0",
+        "0"
+      ]
+    },
+    "limitation": "Recovery/Removal no analyzed paths in standalone report; no external IO timing proof",
+    "cache_log_warning": "Unable to open user cache sh.log; run all exited 0 and generated checked reports"
+  },
+  "source_sha256": {
+    "code/model/adsr_piano.py": "687d7237db2699cc367278dfee758b6d2d4370c55ab822441878205383a29cf8",
+    "code/model/test_adsr_transition_limits.py": "8ba722335ba09717405fbca5ebf4eaa0d86fe9c8e50b35ec613271364775d34a",
+    "code/model/test_adsr_state_retrigger.py": "a89249cd3b72f7b64e3124c2f9c9efe48d8d6e02a0e92cd26994d31f088746c5",
+    "code/model/tests/test_adsr_piano.py": "404f3660250cb95c399d442baf0c27627aaaf03d71a652a44e2ba905db16cac0",
+    "code/rtl/audio/adsr_piano_envelope.sv": "d65566e839f1b51b39c670167d27498ad38acbf02ff1270d98a1e48db97a69b9",
+    "code/model/generated/wavetables/velocity_gain_rom.mem": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64"
+  },
+  "report_sha256": {
+    "code/output/t009_fusion/impl/pnr/adsr_probe_tr_content.html": "4085693e76fb9f252b7e74af7e2c3847209b3b0a50f17dbf98990f53593b3589",
+    "code/output/t009_fusion/impl/pnr/adsr_probe.rpt.txt": "d830969c3f7e0b5bb2f1443a1b65cb4ac970575b08466ba19db6e77ec974c869",
+    "code/output/t009_fusion/impl/pnr/adsr_probe.fs": "76b6f230d8e1a184ac989bf7ff16f2f34fe42fedd2e9bedbd5b943f8021422bf"
+  }
+}

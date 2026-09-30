@@ -128,7 +128,7 @@ def test_long_sustain():
 
 
 def test_retrigger():
-    """测试Release阶段重新触发"""
+    """测试Release阶段重新触发（修正版：保持当前电平）"""
     print("\n测试5: Release阶段重触发")
 
     env = PianoADSREnvelope()
@@ -142,15 +142,16 @@ def test_retrigger():
     for _ in range(RELEASE_SAMPLES // 2):
         env.step()
 
-    # Release中途重新Note On
+    # Release中途重新Note On（新规则：保持当前电平）
     level_before = env.step()
     env.note_on(velocity=512)  # 使用中等velocity
     level_after = env.step()
 
-    # 应该从0开始新的Attack
-    assert level_after < 1000, "重触发未从0开始"
+    # 应该保持当前电平，平滑过渡
+    jump = abs(level_after - level_before)
+    assert jump <= 138, f"重触发跳变过大: {jump} LSB"
     print(f"  Release中途电平: {level_before}")
-    print(f"  重触发后电平: {level_after}")
+    print(f"  重触发后电平: {level_after}, 跳变={jump} LSB")
 
     # 补充测试：Release更早阶段的重触发
     env2 = PianoADSREnvelope()
@@ -169,11 +170,11 @@ def test_retrigger():
 
     print(f"  Release早期电平: {level_before_early}")
     print(f"  重触发后电平: {level_after_early}")
-    print(f"  电平跳变: {abs(level_after_early - level_before_early)}")
+    jump_early = abs(level_after_early - level_before_early)
+    print(f"  电平跳变: {jump_early} LSB")
 
-    # 验证跳变幅度
-    if abs(level_after_early - level_before_early) > 100:
-        print(f"  [WARNING] 电平跳变较大，建议从当前电平开始Attack")
+    # 验证跳变幅度满足 ≤138 LSB
+    assert jump_early <= 138, f"Release早期重触发跳变过大: {jump_early} LSB"
 
     # 验证能达到新的velocity峰值
     for _ in range(ATTACK_SAMPLES + 100):

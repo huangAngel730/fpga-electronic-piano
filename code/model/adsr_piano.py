@@ -83,19 +83,25 @@ class PianoADSREnvelope:
         Args:
             velocity: MIDI velocity (0-1023)
 
-        Release重触发平滑过渡：
-            如果在Release阶段重触发，从当前电平开始新的Attack，
-            避免电平突变导致的爆音。
+        Release重触发平滑过渡（修正版）：
+            - 保持当前电平作为起点（包括 Release 和非零 Sustain）
+            - 新目标高于当前：平滑上升
+            - 新目标低于当前：平滑下降
+            - 240 采样过渡时间，最大跳变 ≤138 LSB
         """
-        # Release重触发：保持当前电平作为起点
-        retrigger_start_level = self.level if self.state == 'RELEASE' else 0.0
+        # 保存重触发起点（任何状态下的当前电平）
+        retrigger_start_level = self.level
+
+        # 计算新目标电平
+        target_gain = velocity_to_gain(velocity)
 
         self.state = 'ATTACK'
         self.level = retrigger_start_level
         self.counter = 0
-        self.velocity_gain = velocity_to_gain(velocity)
-        # 计算从当前电平到目标增益的步长
-        self.attack_delta = self.velocity_gain - retrigger_start_level
+        self.velocity_gain = target_gain
+
+        # 计算从当前电平到目标的步长（上升或下降）
+        self.attack_delta = (target_gain - retrigger_start_level) / ATTACK_SAMPLES
 
     def note_off(self):
         """触发Note Off - 从当前电平平滑释放"""
@@ -108,9 +114,26 @@ class PianoADSREnvelope:
     def step(self) -> int:
         """更新包络，返回当前电平（Q1.15）"""
         if self.state == 'ATTACK':
-            # 线性攻击到峰值，从retrigger_start_level开始
-            self.level += (self.attack_delta / ATTACK_SAMPLES)
-            if self.level >= self.velocity_gain:
+            # 线性过渡到目标电平（上升或下降）
+            self.level += self.attack_delta
+
+            # 判断是否到达目标
+            if self.attack_delta >= 0:
+                # 上升：达到或超过目标
+                if self.level >= self.velocity_gain:
+                    self.level = self.velocity_gain
+                    self.state = 'DECAY'
+                    self.counter = 0
+            else:
+                # 下降：达到或低于目标
+                if self.level <= self.velocity_gain:
+                    self.level = self.velocity_gain
+                    self.state = 'DECAY'
+                    self.counter = 0
+
+            # 按采样计数精确结束过渡（240采样后必须进入DECAY）
+            self.counter += 1
+            if self.counter >= ATTACK_SAMPLES and self.state == 'ATTACK':
                 self.level = self.velocity_gain
                 self.state = 'DECAY'
                 self.counter = 0
@@ -142,7 +165,6 @@ class PianoADSREnvelope:
                 self.level = 0.0
                 self.state = 'IDLE'
 
-        self.counter += 1
         return int(self.level)  # 返回整数Q1.15
 
     def get_state(self) -> Tuple[str, int, int]:

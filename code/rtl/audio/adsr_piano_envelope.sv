@@ -98,8 +98,8 @@ module adsr_piano_envelope (
             sustain_q16<=0;elapsed<=0;rom_addr<=0;step_q16<=0;pending_tick<=0;release_step_pending<=0;
         end else if (note_on) begin
             rom_addr<=velocity;
-            start_q16 <= (state==RELEASE) ? level_q16 : 32'd0;
-            if (state!=RELEASE) level_q16<=0;
+            // 任何状态重触发都保留当前电平作为起点（同步Python模型）
+            start_q16 <= level_q16;
             elapsed<=0;
             pending_tick<=sample_tick;
             release_step_pending<=0;
