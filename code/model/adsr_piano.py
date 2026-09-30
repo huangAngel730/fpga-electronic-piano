@@ -114,26 +114,12 @@ class PianoADSREnvelope:
     def step(self) -> int:
         """更新包络，返回当前电平（Q1.15）"""
         if self.state == 'ATTACK':
-            # 线性过渡到目标电平（上升或下降）
+            # 线性过渡到目标电平（上升、下降或零斜率）
             self.level += self.attack_delta
-
-            # 判断是否到达目标
-            if self.attack_delta >= 0:
-                # 上升：达到或超过目标
-                if self.level >= self.velocity_gain:
-                    self.level = self.velocity_gain
-                    self.state = 'DECAY'
-                    self.counter = 0
-            else:
-                # 下降：达到或低于目标
-                if self.level <= self.velocity_gain:
-                    self.level = self.velocity_gain
-                    self.state = 'DECAY'
-                    self.counter = 0
-
-            # 按采样计数精确结束过渡（240采样后必须进入DECAY）
             self.counter += 1
-            if self.counter >= ATTACK_SAMPLES and self.state == 'ATTACK':
+
+            # 240 采样后精确结束过渡（包括零斜率）
+            if self.counter >= ATTACK_SAMPLES:
                 self.level = self.velocity_gain
                 self.state = 'DECAY'
                 self.counter = 0

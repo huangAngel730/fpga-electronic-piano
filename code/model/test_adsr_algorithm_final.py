@@ -313,12 +313,71 @@ def test_boundary_events():
     return True
 
 
+def test_true_zero_slope_retrigger():
+    """测试5：真正零斜率重触发（当前电平 = 目标电平）"""
+    print("\n" + "=" * 70)
+    print("测试5：真正零斜率重触发（同电平重触发）")
+    print("=" * 70)
+
+    # 场景：同力度连续重触发
+    env = PianoADSREnvelope()
+    env.note_on(1023)
+
+    # 走完 Attack 到达峰值
+    for _ in range(ATTACK_SAMPLES):
+        env.step()
+
+    level_before = env.level
+    print(f"  重触发前电平：{level_before}")
+    print(f"  重触发前状态：{env.get_state()[0]}")
+
+    # 同力度重触发（零斜率）
+    env.note_on(1023)
+
+    print(f"  attack_delta：{env.attack_delta}")
+
+    # 检查第 1 采样
+    level_1 = env.step()
+    state_1 = env.get_state()[0]
+    print(f"\n  第 1 采样：状态={state_1}, 电平={level_1}")
+
+    # 断言：第 1 采样必须为 ATTACK
+    assert state_1 == 'ATTACK', f"第 1 采样状态错误：{state_1}，应为 ATTACK"
+
+    # 检查第 239 采样
+    for _ in range(237):
+        env.step()
+
+    level_239 = env.step()
+    state_239 = env.get_state()[0]
+    print(f"  第 239 采样：状态={state_239}, 电平={level_239}")
+
+    # 断言：第 239 采样必须为 ATTACK
+    assert state_239 == 'ATTACK', f"第 239 采样状态错误：{state_239}，应为 ATTACK"
+
+    # 检查第 240 采样
+    level_240 = env.step()
+    state_240 = env.get_state()[0]
+    print(f"  第 240 采样：状态={state_240}, 电平={level_240}")
+
+    # 断言：第 240 采样后必须为 DECAY
+    assert state_240 == 'DECAY', f"第 240 采样后状态错误：{state_240}，应为 DECAY"
+
+    # 断言：电平应保持不变
+    assert level_1 == level_before, f"零斜率重触发电平改变：{level_before} → {level_1}"
+    assert level_239 == level_before, f"零斜率过渡期电平改变：{level_239}"
+    assert level_240 == level_before, f"零斜率结束电平改变：{level_240}"
+
+    print(f"\n✓ PASS: 零斜率重触发固定 240 采样，状态正确")
+    return True
+
+
 def run_all_tests():
     """运行所有测试"""
     print("=" * 70)
     print("T009 ADSR 算法终验和补充边界验证")
     print("=" * 70)
-    print("验证范围：连续重触发、极端力度、零斜率重触发、边界事件")
+    print("验证范围：连续重触发、极端力度、零斜率重触发、边界事件、真零斜率")
     print(f"定案指标：240 采样过渡、≤{MAX_TRANSITION_LSB} LSB 跳变、±{MODEL_TOLERANCE_LSB} LSB 容差")
 
     results = []
@@ -326,6 +385,7 @@ def run_all_tests():
     results.append(("极端力度切换", test_extreme_velocity_switch()))
     results.append(("零斜率重触发", test_zero_slope_retrigger()))
     results.append(("阶段边界事件", test_boundary_events()))
+    results.append(("真零斜率重触发", test_true_zero_slope_retrigger()))
 
     print("\n" + "=" * 70)
     print("测试汇总")

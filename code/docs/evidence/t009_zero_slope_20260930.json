@@ -1,0 +1,97 @@
+{
+  "date": "2026-09-30",
+  "scope": "M1 fixed240 zero-slope model correction and closeout test received; actual existing RTL verified, no hardware change",
+  "source_zip_sha256": "9db62424344b58f38852db595a79b2030027b6cea83a9381e810f9fdfdbe36c8",
+  "m1_delivery_date_label": "2026-09-28 in supplied docs; reviewed/received2026-09-30; not retroactive Git basis",
+  "semantic": "Every Note On/retrigger uses240 audio sample updates including same-level target. Public state after steps1..239=ATTACK, step240=DECAY with exact peak; first Decay change at241. Model internal velocity0 testing is not external MIDI Note On velocity0 behavior.",
+  "sources_sha256": {
+    "code/model/adsr_piano.py": "63f26b812945d659e9b3b24f3ab2030148acbd0dda3da334b033aa4fd5ba0f0c",
+    "code/model/test_adsr_algorithm_final.py": "6910e0724b3625f06b5242a1dd1d45ad195ce8a91287ef39a3e44aed9629b542",
+    "code/rtl/audio/adsr_piano_envelope.sv": "775fec7f546a00ca7bf98f132cce8d5d92d80ca6094af8e9e14cb07cd54a2e9d",
+    "code/tb/audio/tb_adsr_zero_slope.sv": "aa1730a5192bff0715efafaa85aff9f601e0613ab18e89ddab6481ef6f6650b3",
+    "code/scripts/run_t009_zero_slope.py": "90b189d7d31fc5224111368e274864b69e300c54b0fe65f0b0a49202cd19f5a7"
+  },
+  "model_tests": {
+    "test_adsr_algorithm_final.py": {
+      "exit": 0,
+      "summary": [
+        "通过: 5/5",
+        "失败: 0/5"
+      ]
+    },
+    "test_adsr_transition_limits.py": {
+      "exit": 0,
+      "summary": [
+        "通过: 6/6",
+        "失败: 0/6"
+      ]
+    },
+    "test_dds_adsr_output_spec.py": {
+      "exit": 0,
+      "summary": [
+        "✓ 所有七个关键场景断言通过"
+      ]
+    },
+    "test_adsr_state_retrigger.py": {
+      "exit": 0,
+      "summary": [
+        "通过: 4/4",
+        "失败: 0/4"
+      ]
+    },
+    "test_adsr_piano.py": {
+      "exit": 0,
+      "summary": [
+        "[PASS] 全部边界测试通过"
+      ]
+    },
+    "attack_241": {
+      "exit": 1
+    },
+    "bad_state": {
+      "exit": 1
+    }
+  },
+  "negative_old_v2_model": "exit1 true-zero first-state assertion; catches original defect",
+  "rtl_zero_slope": {
+    "velocities": [
+      1023,
+      512,
+      1
+    ],
+    "same_level_retriggers_each": 3,
+    "checks": 5071,
+    "sample_count": 2883,
+    "max_q15_difference": 1,
+    "public_sample_states_exact": true
+  },
+  "existing_rtl_regression": {
+    "boundary_checks": 27,
+    "steps": 33114,
+    "model_amplitude_samples": 73210,
+    "max_delta_q15": 1,
+    "missing_rom_exit": 1,
+    "truncated_rom_exit": 1,
+    "corrupt_trace_exit": 1
+  },
+  "fourvoice_model_regression": {
+    "rtl_checks": 20287,
+    "frames": 10140,
+    "envelope_max_delta_q15": 1,
+    "pcm_max_delta_pcm24": 512
+  },
+  "existing_fpga_build_source_hashes_unchanged": true,
+  "design_commit": "54774f1",
+  "same_fs_sha256": "dead6e1c913f4bfdc807a7945b8654f51be453d3531e674537ae3a2e89bf4321",
+  "new_gowin_build": false,
+  "new_hardware_validation": false,
+  "logs_sha256": {
+    "code/output/t009_zero_slope_review_20260930/model_results.json": "22046072ebe367c4b2cbac41efa221097c1440433cd54ebc502bfe56e7ac4a7b",
+    "code/output/t009_zero_slope_review_20260930/old_model/run.log": "102290d0fe49371f7ea0c04bb35fd4988f6e8f193b5495145b11bf99dea01458",
+    "code/output/t009_zero_slope_rtl/run.log": "bb473414de85076e1fcbb521565458719aa4e1d9a6d26d73aef739bd6d537e6e",
+    "code/output/t009_zero_slope_rtl/zero.trace": "3fb0a863d26fb380109fa3d9d9ff6f66aed351fd4db4367d357f1382cedbc609",
+    "code/output/t009_zero_slope_current_regression_20260930.log": "6dd2c626ebf09ad516036813b6ee2fcdfaa64c91df9db5dc69a46a8b69fdfacb",
+    "code/output/t024_audio_core/run.log": "90b5c8020f7836dcf9af8287f67dfb3e5eae6fed8c899e7920d370fee7d31180",
+    "code/output/t024_audio_core/audio.trace": "1069611d240f3a5947632ce9ddaf7e52cc8907e6d8557557222b84aff78e6f33"
+  }
+}
