@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Review M1's offline T009 ZIP against unmodified project RTL.
+"""Review M1's offline T009 ZIP against repository or explicit ZIP candidate RTL.
 
 Produces an ignored evidence directory, returning nonzero if any named
 state has a model-to-RTL Q15 difference above two LSB. It never installs
@@ -44,9 +44,14 @@ def process(args, stage):
     model_path.write_bytes(data[MODEL_MEMBER])
     (stage / "test_adsr_transition_limits.py").write_bytes(data[TEST_MEMBER])
     (stage / "audio_defs.py").write_bytes((ROOT / "code/model/audio_defs.py").read_bytes())
-    rtl = ROOT / RTL_MEMBER
-    if data[RTL_MEMBER] != rtl.read_bytes():
-        raise ValueError("ZIP RTL differs from current repository; review that change separately")
+    repository_rtl = ROOT / RTL_MEMBER
+    if args.use_zip_rtl:
+        rtl = stage / "adsr_piano_envelope.sv"
+        rtl.write_bytes(data[RTL_MEMBER])
+    else:
+        rtl = repository_rtl
+        if data[RTL_MEMBER] != rtl.read_bytes():
+            raise ValueError("ZIP RTL differs from current repository; pass --use-zip-rtl to review the candidate")
     log = stage / "model_test.log"
     result = subprocess.run([sys.executable, "-X", "utf8", "test_adsr_transition_limits.py"],
                             cwd=stage, capture_output=True, text=True, encoding="utf-8",
@@ -118,7 +123,9 @@ def process(args, stage):
             raise ValueError(f"Missing coverage: {reports}")
         return {"zip_sha256": fingerprint(args.zip),
                 "m1_model_sha256": hashlib.sha256(data[MODEL_MEMBER]).hexdigest(),
-                "repository_rtl_sha256": fingerprint(rtl),
+                "repository_rtl_sha256": fingerprint(repository_rtl),
+                "tested_rtl_sha256": fingerprint(rtl),
+                "tested_rtl_source": "ZIP candidate" if args.use_zip_rtl else "repository",
                 "repository_audio_defs_sha256": fingerprint(ROOT / "code/model/audio_defs.py"),
                 "model_six_tests": "PASS", "sample_count": trace_count,
                 "phase_comparison": {p: reports[p] for p in PHASES},
@@ -132,6 +139,8 @@ def process(args, stage):
 def main():
     cli = argparse.ArgumentParser(description=__doc__)
     cli.add_argument("zip", type=Path)
+    cli.add_argument("--use-zip-rtl", action="store_true",
+                     help="Compare the ZIP model against its candidate RTL in the ignored staging area")
     args = cli.parse_args()
     stage = OUTPUT / uuid.uuid4().hex
     stage.parent.mkdir(parents=True, exist_ok=True)
