@@ -1,0 +1,89 @@
+{
+  "baseline": "e6f66385de00b65759eb9302acf95f7c59930c49",
+  "serializer_commit": "0898da0",
+  "sys_clk_hz": 50000000,
+  "sample_rate_hz": 48000,
+  "tone_hz_nominal": 440,
+  "peak_pcm16": 8192,
+  "download": "SRAM only; not automatically programmed",
+  "source_sha256": {
+    "code/rtl/common/audio_defs_pkg.sv": "eaa208c4db65a81ad902dbbb627b86cf79af9626b265fb84fdf1ae8f24b13351",
+    "code/rtl/common/reset_sync.sv": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+    "code/rtl/input/button_debouncer/button_debouncer.sv": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+    "code/rtl/input/button_event_converter/button_event_converter.sv": "f6befb9c7415c69da62f2083e22803eae93ebeac63b8903b3c1314c4e9e723f0",
+    "code/rtl/common/performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+    "code/rtl/common/system_status_counters.sv": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+    "code/rtl/board/uart_status_reporter.sv": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+    "code/rtl/common/uart_tx.sv": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+    "code/rtl/common/uart_rx.sv": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+    "code/rtl/input/midi_input/midi_event_parser.sv": "fa07b44ea2e3ff6a491d5c00d9ef09d87da934151365c0adac077db0b0b374e1",
+    "code/rtl/input/midi_input/midi_input.sv": "9d07ee52cb8162f1d6edc1507a932205ed81c26dbdb9416726fc6068c86440bf",
+    "code/rtl/common/note_pitch.sv": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+    "code/rtl/common/simple_voice.sv": "eab4974b0315c75a8076b21afea1dade122fecbcc672eb0802ba0e358a1bf274",
+    "code/rtl/audio_out/i2s_tx.sv": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+    "code/rtl/audio_out/pcm_frame_buffer.sv": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+    "code/rtl/board/electronic_piano_top.sv": "aee5f99916ca7c15ca2a03e97e002f63ae1a8f44a248cd7d01da5e22859b8061",
+    "code/tb/board/tb_t005_channel_probe.sv": "9e4db7151a6ef8b3fd1e04ce9627a863ff5f5fd26422b246724b96a69f61afe5"
+  },
+  "channels": {
+    "left": {
+      "generated_top_sha256": "1044d8c5a72ef3b7a3e644aa71e84cdd00dc9e3808013abde78523bcf67d7ac5",
+      "simulation_log_sha256": "f20ec2f30711f361b91f95404cdf9cee6bb5a015d076d8602f18bdaa8aca7029",
+      "simulation": "PASS",
+      "fs_path": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\t005_channel_probe\\left\\impl\\pnr\\t005_left_440hz.fs",
+      "fs_sha256": "d38e06e16e2e8b126b6567f917caf99302bf3daa30b744d5d8f4b31f9680e539",
+      "build_log_sha256": "2e84da9cbf27c9b4c639ec0cc41b9185cf48c54ffbd748673aec5b75877574cd",
+      "timing_report": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\t005_channel_probe\\left\\impl\\pnr\\t005_left_440hz_tr_content.html",
+      "resource_report": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\t005_channel_probe\\left\\impl\\pnr\\t005_left_440hz.rpt.txt",
+      "timing": {
+        "worst_slack_ns": {
+          "Setup": 4.501,
+          "Hold": 0.001,
+          "Recovery": 16.368,
+          "Removal": 0.472
+        },
+        "fmax_mhz": "64.520(MHz)",
+        "setup_violated_endpoints": 0,
+        "hold_violated_endpoints": 0,
+        "pin_checks": 10
+      },
+      "report_sha256": {
+        "t005_left_440hz_tr_content.html": "dac6a2973bfa9e9d4be1536a5672758ab67b482d354c0e1e584ffddebb638078",
+        "t005_left_440hz.pin.html": "8d8260b27ca087e8717622bfbdd70a9c5e9efe245780f4696f3ddc7f5dc0d8c2",
+        "t005_left_440hz.rpt.txt": "d9eaf8683965c40500ab04712987cce2113820ef4076b02f0acd66b41bc7dd47"
+      }
+    },
+    "right": {
+      "generated_top_sha256": "a3294dca97da48c19dd096489b69064b3df313a9bb8f869fd02a7a7f1ef929a8",
+      "simulation_log_sha256": "7e0139c02e88d02865763c5422a9a999b7dcb1a8450ee303752c8a0c194a2b28",
+      "simulation": "PASS",
+      "fs_path": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\t005_channel_probe\\right\\impl\\pnr\\t005_right_440hz.fs",
+      "fs_sha256": "e93c1624edd2e088612e57864040a6f957692d77f2daee11028f7bb6950d1de6",
+      "build_log_sha256": "fb7271ad25c6e02c47e898fdf166e15c55dd1d7c68d68c7a0a8c49d2466f6bc7",
+      "timing_report": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\t005_channel_probe\\right\\impl\\pnr\\t005_right_440hz_tr_content.html",
+      "resource_report": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\t005_channel_probe\\right\\impl\\pnr\\t005_right_440hz.rpt.txt",
+      "timing": {
+        "worst_slack_ns": {
+          "Setup": 4.352,
+          "Hold": 0.001,
+          "Recovery": 16.573,
+          "Removal": 0.274
+        },
+        "fmax_mhz": "63.904(MHz)",
+        "setup_violated_endpoints": 0,
+        "hold_violated_endpoints": 0,
+        "pin_checks": 10
+      },
+      "report_sha256": {
+        "t005_right_440hz_tr_content.html": "41499bd68fc602fba189c2dfb9800953bff45bd2cb9179dda52ef9fb664b406b",
+        "t005_right_440hz.pin.html": "24b7a2956da6099d8877adf31106ac269132d2024bfcdc3d506aa27bf6f07016",
+        "t005_right_440hz.rpt.txt": "fe080a69cb1d4b00fdb2f64dfa076a050d4e1ea0540df72a2c597e741b6efd98"
+      }
+    }
+  },
+  "diagnostic_script_sha256": "a982da8ca3d32162f607b94b09d7f1d18dba233f37ff732606bc68e472524784",
+  "constraints_sha256": {
+    "code\\constraints\\electronic_piano.cst": "76037da27eabba7bf322d41ad8f90c16b1a72b549fc2ffb865b380bfbda35dcb",
+    "code\\constraints\\audio_timing.sdc": "849c8b374c366ea1cbe6f44b17f761adad90861e3b50a0baf3ade73c05f953f5"
+  }
+}
