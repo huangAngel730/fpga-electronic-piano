@@ -1,0 +1,106 @@
+{
+  "date": "2026-10-01",
+  "reviewed_M3_function": "e522402",
+  "M3_validation": "1411513/V0135",
+  "received_diff_source_files": {
+    "code/rtl/input/midi_input/README.md": "0ce2432dbc3e5b5ea6dd1dc91bd79cc2527a3c13cf17d6c70c3dbb2de8a94162",
+    "code/rtl/input/midi_input/midi_event_parser.sv": "76edfbd3ff0b94b0c9d044ac41c4c3af5f2c83f1da57468720e82cb66c0e6264",
+    "code/rtl/input/midi_input/midi_input.sv": "b51fab00db5eecc4442326498ac5dcfc1d7fbbadba9772f5ff845dfc916f34b3",
+    "code/scripts/run_midi_controls_sim.ps1": "1ccdf69ba48a9abd4d7257b21740ad9746c3274b637ad2c27e304f576bfd0880",
+    "code/tb/input/tb_midi_cc64.sv": "a21a1a2eedab8b50b7dadf242553fe5f7e24fb6dcd45fa604b1ed792a5900862",
+    "code/tb/input/tb_midi_control_queue.sv": "4bd702fc1d32a6d730bbce07a0556ca55ab719ce65d014bf1dfd2af27596a014",
+    "code/tb/input/tb_midi_controls.sv": "6329f2aafa4596d70c27b9ff894e395e58176aa20649903a53acc7cc5a70bc38",
+    "code/tb/input/tb_midi_controls_uart.sv": "213ef4e4dc1db2d7a1e2f9efbee00e296e26de1b08b1db83ccbca195917ee573",
+    "code/tb/input/tb_midi_input.sv": "4241292244fae27c369c81b41f9ad94031ef2a8af2aee831415d9358cfb7fe50"
+  },
+  "M3_source_modified_by_M2": false,
+  "tests": {
+    "M3_six_actual_run_results": [
+      "PASS tb_midi_controls pitch_raw=16384 cc1_raw=128 channels=16 sources=2 events_per_source=18445 checks=36904",
+      "PASS tb_midi_control_queue clk_hz=64000 min_interval_cycles=64 checks=1286 control_handshakes=43",
+      "PASS tb_midi_control_queue clk_hz=50000000 min_interval_cycles=50000 checks=51222 control_handshakes=43",
+      "PASS tb_midi_controls_uart clk_hz=50000000 baud=31250 events=8 checks=14",
+      "PASS: tb_midi_input completed 44 checks",
+      "PASS tb_midi_cc64 events=2058 checks=4134 channels=16 raw_values=128",
+      "PASS all MIDI controls regressions; logs: D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\midi_controls_20261001_222019_a318caaa"
+    ],
+    "M3_logs_sha256": {
+      "cc64_regression_run.log": "1b1c1cee5033b7fac7ae994736b33d722c0d2d153efab8b3d386133869c33830",
+      "mapping_run.log": "34b435653d116963ed8aa7954e87dfd81bf19ac763d7d7105a957bdc8e3ca8d1",
+      "note_uart_regression_run.log": "c6487f27340d1a4154935e4d5f3400fd5f228480667b3547796b48a58a2bfc37",
+      "queue_50m_run.log": "b724686554f5dcf4b5f639e0e9a0a38590b5d2200d4d02eac55316743fb9975a",
+      "queue_fast_run.log": "52b1dae1ba0f2ec81600dc3710c7effa6ab375a2083da0f3df1d4eeb62e21568",
+      "uart_50m_run.log": "8241f007d04dce495c93756cfc2ef47d937ef95f525699dd39c992c2900acc91",
+      "cc64_regression_compile.log": "0d093f88e46d2a3c89562e5d5b618916c290f51ff11beeec1d1ed99947b8593f",
+      "mapping_compile.log": "78073943471fb6be5d3f75f730aaeea60ceba8cee0fe7737fc07f396f217386b",
+      "note_uart_regression_compile.log": "0d093f88e46d2a3c89562e5d5b618916c290f51ff11beeec1d1ed99947b8593f",
+      "queue_50m_compile.log": "0d093f88e46d2a3c89562e5d5b618916c290f51ff11beeec1d1ed99947b8593f",
+      "queue_fast_compile.log": "0d093f88e46d2a3c89562e5d5b618916c290f51ff11beeec1d1ed99947b8593f",
+      "uart_50m_compile.log": "0d093f88e46d2a3c89562e5d5b618916c290f51ff11beeec1d1ed99947b8593f"
+    },
+    "M2_link": {
+      "scope": "M3 parser to independent M2 state TB-only; no formal audio or hardware claim",
+      "result": [
+        "PASS midi_controls_state_link checks=2548667 frames=202 controls=4 discrete=2"
+      ],
+      "wrong_valid_only_tap_rejected": true,
+      "source_sha256": {
+        "code\\rtl\\common\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "code\\rtl\\input\\midi_input\\midi_event_parser.sv": "76edfbd3ff0b94b0c9d044ac41c4c3af5f2c83f1da57468720e82cb66c0e6264",
+        "code\\rtl\\board\\performance_control_state.sv": "a7399a2473e3b8f30aea445e44d7c516140b9156717b254cb1984920f17346fb",
+        "code\\tb\\board\\tb_midi_controls_state_link.sv": "4a4d8163937246607a33b093d5faf0871f79a35ad19f65f3c896653703c2b042"
+      },
+      "logs_sha256": {
+        "compile.log": "c8c40450698c005125021a48ec16591af592f308aadf38f01828aac3bf60f78f",
+        "run.log": "d0a15a4dd5f89f6bfa1c36ce134998d8c95c8c78bfd993ab14efa32f4ddab666",
+        "wrong_tap.log": "18b5c2b9c0b48e683c06bcb4f38fe6249f9e6dacd6f8dbc865c7d462d754b89e",
+        "wrong_tap_compile.log": "c8c40450698c005125021a48ec16591af592f308aadf38f01828aac3bf60f78f"
+      }
+    }
+  },
+  "accepted_scope": "MIDI input L2 plus independent accepted handshake/control-state snapshot L2; not formal FCW/LFO/audio hardware",
+  "new_Gowin_PnR": false,
+  "new_bitstream": false,
+  "official_audio_router_changed": false,
+  "T024_hardware_received": {
+    "test_date": "2026-10-01",
+    "design": "eb64f3f",
+    "filename": "electronic_piano_STAT_commit_pulse_20261001.fs",
+    "sha256": "f45e75461d5bfb351107ea13a470adb24bd77b0544adafc712d1c7f2a3b1587a",
+    "download": "SRAM Program",
+    "six_actions_passed": [
+      "velocity loudness",
+      "four-key independent release",
+      "fifth-key steal",
+      "stale stolen key release does not kill new note",
+      "same-note retrigger",
+      "reset silence and recovery"
+    ],
+    "source": "user-forwarded M3 onsite report; M2 not present, no raw audio/instrument logs received",
+    "same_test_two_messages_not_double_counted": true,
+    "V1_sustain_HDMI_result_inferred": false
+  },
+  "dispatch_limits": [
+    "controls may reorder across Note/CC64",
+    "discrete continuous traffic can postpone controls",
+    "pending32 at source aggregate1kHz can take~32ms without other blocking",
+    "infinite backpressure limited by finite discrete FIFO",
+    "M2 state updates only on valid&&ready; snapshot triggered by sample request"
+  ],
+  "V1_package_redelivery": {
+    "design": "083a07e",
+    "filename": "electronic_piano_4voice_V1_sustain_20261001.fs",
+    "sha256": "5944a031bc3d533c77ad801d4b63b1783c355e9874138db07278f11c2cf841c1",
+    "ZIP": "V1_四声部延音同版验收包_083a07e_20261001.zip",
+    "ZIP_sha256": "1b16334dddd57fb14a870dcf33dfcc9c49593b68f68851e7b5b25e1009f23763",
+    "rechecked": true,
+    "written_to_M3_E_drive": false
+  },
+  "T025_T026_retest_paused": true,
+  "repo_gate": {
+    "result": "ALL PASS",
+    "python_syntax_files": 112,
+    "T007_T019": "PASS",
+    "log_sha256": "0c0aad54b43890fd96f22865490573262b1bc45e3711b8710feaa44d7ba1050c"
+  }
+}
