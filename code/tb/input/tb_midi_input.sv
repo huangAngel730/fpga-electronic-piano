@@ -183,6 +183,7 @@ module tb_midi_input;
         logic [31:0]         parser_errors_before;
         logic [31:0]         frame_errors_before;
         performance_event_t  held_event;
+        performance_event_t  cc_expected;
 
         rst_n                     = 1'b0;
         midi_rx_async             = 1'b1;
@@ -253,7 +254,7 @@ module tb_midi_input;
         // Running Status, without producing an event or desynchronizing notes.
         received_before = received_count;
         send_midi_byte(8'hB0);
-        send_midi_byte(8'h40);
+        send_midi_byte(8'h01);
         send_midi_byte(8'h7F);
         send_midi_byte(8'h41);
         send_midi_byte(8'h01);
@@ -385,6 +386,35 @@ module tb_midi_input;
 
         check_value(expected_read_index == expected_write_index,
                     "not all expected events were received");
+
+        // [14] CC64 over the real UART path, including running status and F8.
+        // Expected fields are built independently from the public helper.
+        rst_n = 1'b1;
+        repeat (3) @(negedge clk);
+        for (integer cc_index = 0; cc_index < 4; cc_index = cc_index + 1) begin
+            cc_expected = '0;
+            cc_expected.event_type = EVENT_CONTROL_CHANGE;
+            cc_expected.source_id = SOURCE_ID;
+            cc_expected.channel = 4'd15;
+            cc_expected.control_id = CTRL_SUSTAIN;
+            case (cc_index)
+                0: cc_expected.control_value = 12'd0;
+                1: cc_expected.control_value = 12'd2031;
+                2: cc_expected.control_value = 12'd2064;
+                3: cc_expected.control_value = 12'd4095;
+            endcase
+            expected_events[expected_write_index] = cc_expected;
+            expected_write_index = expected_write_index + 1;
+        end
+        event_ready = 1'b1;
+        send_midi_byte(8'hBF);
+        send_midi_byte(8'h40); send_midi_byte(8'h00);
+        send_midi_byte(8'h40); send_midi_byte(8'h3F);
+        send_midi_byte(8'h40); send_midi_byte(8'hF8); send_midi_byte(8'h40);
+        send_midi_byte(8'h40); send_midi_byte(8'h7F);
+        wait_until_received(18);
+        check_value(expected_read_index == expected_write_index,
+                    "UART CC64 boundary events were not received");
 
         if (error_count == 0) begin
             $display("PASS: tb_midi_input completed %0d checks", check_count);

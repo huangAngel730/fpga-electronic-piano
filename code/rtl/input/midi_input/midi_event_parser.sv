@@ -2,7 +2,7 @@
 // midi_event_parser.sv
 // 把 MIDI 字节流转换成项目统一的 64 位演奏事件。
 //
-// 第一版支持：Note On、Note Off、Velocity=0 转 Note Off、Running Status、
+// 支持：Note On、Note Off、CC64、Velocity=0 转 Note Off、Running Status、
 // F8..FF 实时字节穿插、System Common/SysEx 跳过，以及本地事件 FIFO。
 //
 // 本模块只接收已经解码的 UART 字节，不绑定实体引脚，也不产生派生时钟。
@@ -88,8 +88,8 @@ module midi_event_parser #(
         end
     endfunction
 
-    // 收齐 Note Number 和 Velocity 后生成一个统一事件。
-    // 字段拼装只调用公共包函数，同时保证 Velocity=0 自动变成 Note Off。
+    // 收齐两个数据字节后生成事件。CC64使用v1.6公共构造函数；
+    // 其他CC仍完整消费但不输出，不能把控制编号64直接当公共control_id。
     always_comb begin
         parsed_event_valid = 1'b0;
         parsed_event_data  = '0;
@@ -97,16 +97,24 @@ module midi_event_parser #(
         if (midi_byte_valid && !midi_byte_error && !sysex_active &&
             !midi_byte[7] && (system_data_remaining == 2'd0) &&
             running_status[7] && !channel_message_has_one_data_byte(running_status[7:4]) &&
-            channel_data_pending &&
-            ((running_status[7:4] == 4'h8) || (running_status[7:4] == 4'h9))) begin
-            parsed_event_valid = 1'b1;
-            parsed_event_data  = audio_defs_pkg::make_note_event(
-                running_status[7:4] == 4'h9,
-                SOURCE_ID,
-                running_status[3:0],
-                first_data_byte,
-                audio_defs_pkg::midi_velocity_to_10bit(midi_byte[6:0])
-            );
+            channel_data_pending) begin
+            if ((running_status[7:4] == 4'h8) ||
+                (running_status[7:4] == 4'h9)) begin
+                parsed_event_valid = 1'b1;
+                parsed_event_data  = audio_defs_pkg::make_note_event(
+                    running_status[7:4] == 4'h9,
+                    SOURCE_ID,
+                    running_status[3:0],
+                    first_data_byte,
+                    audio_defs_pkg::midi_velocity_to_10bit(midi_byte[6:0])
+                );
+            end else if ((running_status[7:4] == 4'hB) &&
+                         (first_data_byte == 7'h40)) begin
+                parsed_event_valid = 1'b1;
+                parsed_event_data = audio_defs_pkg::make_sustain_event(
+                    SOURCE_ID, running_status[3:0], midi_byte[6:0]
+                );
+            end
         end
     end
 

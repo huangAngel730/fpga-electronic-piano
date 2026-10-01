@@ -1,6 +1,6 @@
 # MIDI 输入模块使用说明（含实际例子）
 
-日期：2026-09-18  
+日期：2026-09-18；CC64 更新：2026-10-01
 负责人范围：M3 输入接收、解析、统一事件转换及 Testbench
 
 ## 0. 初学者先看这一节
@@ -120,8 +120,8 @@ velocity    = 806
 简单地说，`uart_rx` 负责“听清每个字节”，`midi_event_parser` 负责“看懂每条
 消息”，FIFO 负责“暂时排队”。它支持 Note On、Note Off、Note On 且 Velocity 为 0 时转成 Note Off、
 多条音符消息连续接收、基本 Running Status，以及插在消息任意位置的
-MIDI Real-Time 字节。暂不生成弯音、踏板、Aftertouch 和 Control Change
-事件，但解析器会按这些消息规定的数据长度将其完整吃掉，避免后续音符错位。
+MIDI Real-Time 字节。2026-10-01 按公共接口 v1.6 新增 CC64 延音踏板统一事件；
+暂不生成弯音、Aftertouch 和其他 Control Change 事件，但会完整消费数据，避免音符错位。
 
 标准 5 针 MIDI 是电流环接口，外部必须使用符合要求的隔离接收电路；如果
 接入模块输出为 5 V UART，还必须电平转换。不得把 5 V 信号或标准 MIDI 插座
@@ -184,7 +184,7 @@ MIDI Real-Time 字节。暂不生成弯音、踏板、Aftertouch 和 Control Cha
 | `sysex_active` | 1 | 位于 F0 至 F7 的 SysEx 区间内 |
 | `fifo_mem` | 64 x 深度 | 保存尚未被下游接收的统一事件 |
 | `fifo_count` | 参数化 | 当前 FIFO 中的事件数量 |
-| `parsed_event_valid` | 1 | 本拍完成了一条 Note 消息 |
+| `parsed_event_valid` | 1 | 本拍完成了一条 Note 或 CC64 消息 |
 | `parser_error_pulse` | 1 | 本拍发现非法数据、截断消息或 SysEx 内异常状态 |
 | `fifo_overflow_pulse` | 1 | 本拍产生事件但本地 FIFO 没有空位 |
 
@@ -197,6 +197,8 @@ MIDI Real-Time 字节。暂不生成弯音、踏板、Aftertouch 和 Control Cha
 
 - `8n note velocity`：生成 Note Off。
 - `9n note velocity`：Velocity 非零时生成 Note On；为零时生成 Note Off。
+- `Bn 40 vv`：调用公共 `make_sustain_event()`，生成 `EVENT_CONTROL_CHANGE`、
+  `CTRL_SUSTAIN=6`；7 位值扩为 `{vv,vv[6:2]}`，12 位阈值 2048 对应原始值 64。
 - `n` 直接写入统一事件的 4 位 `channel`，所以线缆上的 MIDI 通道 1 对应字段 0。
 - Note Number 直接使用 MIDI 的 7 位值，不再用固定 `NOTE_STEP` 推算。
 - 7 位 Velocity 按接口规范扩为 `{velocity[6:0], velocity[6:4]}`，范围 0 至 1023。
@@ -219,7 +221,7 @@ MIDI Real-Time 字节。暂不生成弯音、踏板、Aftertouch 和 Control Cha
 `F8` 是 MIDI Timing Clock，可以插在一条消息的任意位置。解析器会忽略 `F8`，
 其余字节仍按 `90 3C 64` 处理，最后得到中央 C 的 Note On。
 
-### 5.2 暂不支持的控制消息
+### 5.2 CC64 与其他控制消息
 
 例如：
 
@@ -227,9 +229,11 @@ MIDI Real-Time 字节。暂不生成弯音、踏板、Aftertouch 和 Control Cha
 B0 40 7F
 ```
 
-这是 Control Change。当前版本暂时不把它变成统一事件，但会把三个字节完整读完。
-如果它后面紧跟 `90 3C 64`，中央 C 仍能正确解析，不会把上一条消息的数据错当成
-新的音符。
+这是 CC64 踩踏板，现生成 `CTRL_SUSTAIN`、`control_value=4095` 的控制事件；
+`B0 40 00` 对应松踏板、值 0。通道和来源保留，其他事件字段清零。
+`B0 01 7F` 等其他 CC 仍跳过，并保证后续 `90 3C 64` 正确解析。
+新增解析不等于现有正式码流已支持延音；独立控制与接入说明见
+`code/rtl/input/sustain_control/README.md`。
 
 ### 5.3 SysEx 消息
 
@@ -335,5 +339,8 @@ E:\FPGA\Bpan\modelsim\modelsim1\win64
   在确认接收模块数据手册与开发板电气条件后完成。
 - 当前正式工程的 UART RX 引脚仍有板级电压属性待实物确认，本模块不能作为解除
   该硬件阻塞项的依据。
-- 弯音轮、踏板、Aftertouch 和 Control Change 事件生成属于后续扩展，本版本只
-  保证跳过这些消息后仍能继续正确解析音符。
+- 弯音轮、Aftertouch 和非 CC64 控制事件仍属后续扩展；CC64 解析和独立延音
+  控制已实现，正式路由/分配器/ADSR 接线和踏板音效上板由 M2 后续集成。
+- 新增自检入口 `.\code\scripts\run_cc64_input_sim.ps1`，覆盖 16 通道×128 个值、
+  Running Status/Realtime/异常/FIFO 边界和真实 UART；实际 UART 回归已从旧版
+  42 项扩为 44 项。上文旧环境/42 项记录属于 2026-09-18 的历史结果。
