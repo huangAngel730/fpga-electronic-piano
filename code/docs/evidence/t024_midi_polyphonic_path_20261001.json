@@ -1,0 +1,92 @@
+{
+  "scope": "Formal top GPRJ list; real 50MHz MIDI 31250 8N1. Fast Release run plus true-rate run. No force, no source modification, no STAT test.",
+  "source_sha256": {
+    "code\\rtl\\board\\electronic_piano_top.sv": "c75f4321c28753e851c26e6cb0810947a85e8f17ca61b28ae7e527a5ff765a5b",
+    "code\\rtl\\common\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+    "code\\rtl\\common\\reset_sync.sv": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+    "code\\rtl\\input\\button_debouncer\\button_debouncer.sv": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+    "code\\rtl\\input\\button_event_converter\\button_event_converter.sv": "f6befb9c7415c69da62f2083e22803eae93ebeac63b8903b3c1314c4e9e723f0",
+    "code\\rtl\\common\\performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+    "code\\rtl\\common\\system_status_counters.sv": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+    "code\\rtl\\board\\uart_status_reporter.sv": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+    "code\\rtl\\common\\uart_tx.sv": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+    "code\\rtl\\common\\uart_rx.sv": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+    "code\\rtl\\input\\midi_input\\midi_event_parser.sv": "fa07b44ea2e3ff6a491d5c00d9ef09d87da934151365c0adac077db0b0b374e1",
+    "code\\rtl\\input\\midi_input\\midi_input.sv": "9d07ee52cb8162f1d6edc1507a932205ed81c26dbdb9416726fc6068c86440bf",
+    "code\\rtl\\common\\note_pitch.sv": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+    "code\\rtl\\common\\simple_voice.sv": "eab4974b0315c75a8076b21afea1dade122fecbcc672eb0802ba0e358a1bf274",
+    "code\\rtl\\audio_out\\i2s_tx.sv": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+    "code\\rtl\\audio_out\\pcm_frame_buffer.sv": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+    "code\\rtl\\audio\\voice_allocator_4.sv": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+    "code\\rtl\\audio\\dds_oscillator.sv": "3cd758e28da8f76a30da38cb2dfcd458db5743d4ea4f38e072a43d7f83719f04",
+    "code\\rtl\\audio\\adsr_piano_envelope.sv": "775fec7f546a00ca7bf98f132cce8d5d92d80ca6094af8e9e14cb07cd54a2e9d",
+    "code\\rtl\\board\\polyphonic_event_router.sv": "e7048ff30c7a153c74bf7fb58ea0da97ef915a214763d3adb49cd2ebf569607b",
+    "code\\rtl\\board\\polyphonic_envelope_bank.sv": "58d525d2468eb3992cda467aa4b6b5e7af9ba89d0b31817821aabe9219f94843",
+    "code\\rtl\\board\\voice_gain_q15_candidate.sv": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+    "code\\rtl\\board\\polyphonic_pcm_commit.sv": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+    "code\\rtl\\board\\polyphonic_audio_core.sv": "2578baab928ca53a245ed6824249ce4c77dd3c949d68ccd28f98133909a4c1ca",
+    "code\\rtl\\mixer\\pcm_mixer_4voice.sv": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+    "code\\rtl\\common\\pcm_clip_counter.sv": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+    "code\\rtl\\audio_out\\pcm_result_hold.sv": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+    "code\\build\\electronic_piano.gprj": "c30c90fabd0ddef63fe7e27f3606836299e52c73db40b1e056fce824c9fdf8a6",
+    "code\\tb\\board\\tb_t024_midi_polyphonic_path.sv": "731270da90a0d6e671d16e2e282589c2351d53eaf196602d8034195ede107b01",
+    "code\\scripts\\run_t024_midi_polyphonic_path.py": "1ca0d1fafe22e30edf0838e661607a7efa1691c2e37de41632b710607ce716b3"
+  },
+  "runs": [
+    {
+      "fast_audio": 1,
+      "pass": true,
+      "exit_code": 0,
+      "result": [
+        "PASS tb_t024_midi_polyphonic_path fast=1 checks=26 halves=34304 nonzero=32006 bytes=54 note_on=10 note_off=8 frame_min=128 frame_max=129"
+      ],
+      "testbench_sha256": "49c4416cf8f2a1424d3ebe545508a3d767130938c57209edf1dfd465dfd62327",
+      "binary_sha256": "58e14e96a28ba7e5597aa7fb9d1583d83e8c7cfa119f1c4849f49284e344461e"
+    },
+    {
+      "fast_audio": 0,
+      "pass": true,
+      "exit_code": 0,
+      "result": [
+        "PASS tb_t024_midi_polyphonic_path fast=0 checks=11 halves=1565 nonzero=1472 bytes=12 note_on=4 note_off=0 frame_min=1041 frame_max=1042"
+      ],
+      "testbench_sha256": "731270da90a0d6e671d16e2e282589c2351d53eaf196602d8034195ede107b01",
+      "binary_sha256": "06cd83d1c31540c8bd87237cc09bd3ef55f39f1825bfcc25d3447cee2ba83a64"
+    }
+  ],
+  "negative_serial_lsb": {
+    "rejected": true,
+    "exit_code": 1
+  },
+  "passed": true,
+  "testbench_snapshot_note": "Fast=1 compiled before adding the extra four-note checks to the FAST_AUDIO=0 branch. Its exact snapshot SHA matches initial input hash; no fast branch or production source changed. Real-rate=0 compiled final TB. Future runner snapshots each compile input.",
+  "log_sha256": {
+    "lower.log": "e21644954b13911488f613d58565b914692031965874410acfa9452ccc80240e",
+    "compile_1.log": "4d49575e9cc6baaf65ff5ec7d6b40d2fcbf6e271c99db76ec1d464cbf3675f19",
+    "run_1.log": "1f808eb075bd2cc3bc148e7ed4d66383cf42fe9a2dc6a4ac301f10dd01e4f808",
+    "negative_serial_lsb.log": "cb4770a90c06c3ff25eea3ef202c8709b083c4606b0f6fd3bec55b62048c87a9",
+    "compile_0.log": "4d49575e9cc6baaf65ff5ec7d6b40d2fcbf6e271c99db76ec1d464cbf3675f19",
+    "run_0.log": "ea25171de6df4029d11b68f0f0d4b76830a5aa9d91f11fb8a0175575e1169ee1"
+  },
+  "design_commit": "eb64f3f",
+  "review_baseline": "5f4ae47",
+  "new_rtl_changes": false,
+  "new_gowin_build": false,
+  "new_hardware_result": false,
+  "paused_T025_T026_unchanged": true,
+  "board_package": {
+    "filename": "T024_四声部实测包_eb64f3f_20261001.zip",
+    "sha256": "a39af10e2f705a7ad9874cb5a56f279f9f9983923e8d25591da3f226f2103fad",
+    "bytes": 496272,
+    "bitstream_sha256": "f45e75461d5bfb351107ea13a470adb24bd77b0544adafc712d1c7f2a3b1587a",
+    "reused_existing_L5": true,
+    "new_hardware_validation": false
+  },
+  "repo_gate": {
+    "result": "ALL PASS",
+    "after_incorporating_m3": "85d9593",
+    "log_sha256": "8f030385b378e720b8c3b59197a82aed4017fa503b51acf57318f68235269ec9",
+    "log": "code/output/t024_midi_polyphonic_path_20261001/check_repo_after_m3.log",
+    "scope": "Repository gate incl existing T007/T019; added full four-voice runs are separately bound to 5f4ae47 input hashes"
+  }
+}
