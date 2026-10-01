@@ -1,0 +1,147 @@
+// =============================================================================
+// uart_echo_probe.cst
+//
+// UART RX 外部驱动回传诊断工程（顶层 rtl/board/uart_echo_probe.sv）专用引脚约束。
+//
+// 【本文件不是 electronic_piano.cst，也不要合并进去】
+//   诊断工程是独立工程，顶层是 uart_echo_probe，不是 electronic_piano_top。
+//   正式工程的引脚约束原样留在 electronic_piano.cst，本文件既不增删它，
+//   也不改变它的任何一行。诊断做完后本工程连同本文件可以整体删除，
+//   不影响正式工程的可复现性。
+//
+// -----------------------------------------------------------------------------
+// 一 本工程要回答的问题
+// -----------------------------------------------------------------------------
+//   FPGA 的一根 3.3 V IO，能不能被外部 USB 转 TTL（CH340）驱动、
+//   并按 UART 帧正确解出字节？
+//
+//   验证方式：收到什么就原样回传（echo）。电脑在同一个串口助手里打字，
+//   字打进去、原样弹回来，就是"收得到、电平对、波特率对"的直接证据；
+//   同时报告通道给出跳变数、正确字节数、帧错误数、实测位周期。
+//
+//   为什么不去驱动 V14（板载 USB-UART 的 RX）：
+//   * V14 在核心板上经 0 欧电阻接 BL616 的 TX，是推挽输出且空闲为高。
+//     调试线（DEBUG-USB2）插着时，CH340 的推挽 TX 与它对着顶，
+//     谁能拉低取决于驱动能力，读数不可信（这就是"V14 电平冲突"的实体来源）。
+//     拔掉调试线又会让 COM13 消失，报告无处可看。
+//   * V14 / Y14 只在核心板上经 BTB 到底板，手边没有可插的排针点；
+//     PMOD0（J9）是标准 2x6 座，能直接插杜邦线。
+//   * PMOD0 本来就是本工程选定给 MIDI 输入（T036 / 方案 B）的候选脚，
+//     这次实测同时也是那几只脚的可用性验证。
+//
+// -----------------------------------------------------------------------------
+// 二 引脚分配（PMOD0 = 连接器 J9，全部 LVCMOS33）
+// -----------------------------------------------------------------------------
+//   端口        球号   方向   用途
+//   probe_rx    R17    输入   被测 RX，PMOD0_IO5＝SDRAM1_D4。
+//                            外部 3.3 V 的 CH340 TX 接这里：
+//                            J14 第 5 脚（地走 J14 第 12 脚），
+//                            或 J9 第 8 脚（地走 J9 第 3 或 4 脚）。
+//   echo_tx_a   R18    输出   A 路回传（115200），PMOD0_IO6＝SDRAM1_D7，
+//                            J14 第 8 脚／J9 第 5 脚。
+//   echo_tx_b   T18    输出   B 路回传（31250，即 MIDI 波特率），
+//                            PMOD0_IO7＝SDRAM1_D6，J14 第 7 脚／J9 第 6 脚。
+//   uart_tx     U15    输出   报告，走板载 USB-UART（BL616）-> 电脑 COM13。
+//
+//   J9／J8 的排针脚号（官方底板原理图 FPGA_EXT_CONN 页，31004 与 31005 两版一致）：
+//     1／2＝+3V3，3／4＝GND，5／6＝IO6／IO7，7／8＝IO4／IO5，
+//     9／10＝IO2／IO3，11／12＝IO0／IO1。
+//   **不要照 Digilent PMOD 2x6 通用定义接**（那套定义在本板上是错的），
+//   完整证据与万用表定标法见 code/docs/板级硬件事实.md §3.5.3。
+//   J14 第 11 脚是 5V_Peripheral，绝不可当 IO 或地使用。
+//
+//   引脚来源：
+//     code/docs/reference/BOARD_CONTEXT_外部整理稿.md（182-195、274-289、481-488 行）
+//     官方参考文件 code/constraints/tang_mega_60k_reference.cst（LEDS 段）
+//   前 7 个端口与 electronic_piano.cst / uart_rx_probe.cst 逐字一致，
+//   只有 probe_rx / echo_tx_a / echo_tx_b 是本工程新增。
+//
+// -----------------------------------------------------------------------------
+// 二之二 为什么不用 PMOD0_IO0/IO1/IO2（P19 / R19 / T21）
+// -----------------------------------------------------------------------------
+//   最初按"IO0 起顺着排"选了 P19 / R19 / T21，布局布线直接报硬错误：
+//
+//     ERROR (PR2028) : The constrained location is useless in current package
+//     ERROR (PR2017) : 'probe_rx' cannot be placed according to constraint,
+//                      for the location is a dedicated pin (CPU)
+//
+//   （'echo_tx_a' R19、'echo_tx_b' T21 同样两条。）
+//   原因是本器件把一部分球位留给硬核 CPU，默认不作为普通 IO：
+//   code/build/echo_probe/impl/pnr/device.cfg 里写着
+//     set CPU regular_io = false
+//   P19 / R19 / T21 正在其中，而 T18 / R18 / R17 / P16 / U21 不在，
+//   所以同一只 2x6 座上 IO0／IO1／IO2（P19／R19／T21）三针不可用；
+//   R17／R18／T18（IO5／IO6／IO7）已实测可用并已上板；IO3／IO4（U21／P16）未实测。
+//   本工程不去改这个器件选项（`CPU regular_io = true` 未实测，不知道对
+//   配置与其它资源有无影响），改用同座上可用的三针。
+//   【未实测】PMOD0_IO3（U21）、IO4（P16）这两针本次没有约束，
+//   是否可用没有证据；将来 MIDI 输入电路若要用满 8 针，需要另做一次
+//   只跑布局布线的试探，或先确认 `CPU regular_io` 选项的后果。
+//
+// -----------------------------------------------------------------------------
+// 三 电气与安全
+// -----------------------------------------------------------------------------
+//   1. 全部 3.3 V 域，只能接 3.3 V 的 USB-TTL。CH340 模块若可跳 5 V/3.3 V，
+//      必须拨到 3.3 V；5 V 直接接 FPGA 引脚是禁项（根 AGENTS.md 电气安全）。
+//   2. 必须共地：CH340 的 GND 接 J14 第 12 脚（或 J9 第 3／4 脚）。
+//      不要接 J14 第 11 脚——那是 5V_Peripheral。
+//   3. PULL_MODE=UP 是刻意的：probe_rx 不接线时若悬空，读数会乱跳，
+//      把 ed（跳变数）刷成噪声计数，无法判读。内部上拉把"没人驱动"
+//      固定成"空闲高"，此时应看到 lv=1、ed=0。
+//   4. echo_tx_* 用 DRIVE=8（最弱档）：这是插在 2x6 座上的杜邦线，
+//      不是 50 欧传输线，弱驱动可以减少过冲与串扰。
+//   5. 【复用提示】PMOD0 的 8 个 IO 与底板 SDRAM1_D[0..7] 共球位
+//      （官方参考 CST 里的 `LEDs[0..7]` **不是板载 LED**，就是 PMOD0
+//      的别名，见 板级硬件事实.md 与 BOARD_CONTEXT 外部整理稿 182 行）。
+//      本工程不使用 SDRAM（不驱动 SDRAM 时钟/片选），SDRAM 的 DQ 处于
+//      高阻输入态，因此不构成争用。若实测发现"什么都没接、ed 仍在涨"，
+//      说明该网络被底板上的共用器件扰动，改用 PMOD1（J8）重做：
+//        probe_rx  = Y21   echo_tx_a = Y22   echo_tx_b = AB21
+//      并按 板级硬件事实.md 的规则确认没有同时启用 PMOD1、DVP 与 SDRAM1。
+// =============================================================================
+
+// ====== SYS ======
+IO_LOC  "sys_clk"     V22;
+IO_PORT "sys_clk"     IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+
+// EX_KEY.0，Bank 9，1.5 V 域，低有效，内部上拉。
+// 诊断工程沿用正式工程的复位接法：按住这颗键 = 复位。
+IO_LOC  "sys_rst_n"   AA13;
+IO_PORT "sys_rst_n"   IO_TYPE=LVCMOS15 PULL_MODE=UP BANK_VCCIO=1.5;
+
+// ====== 音频（本诊断不用，但不留悬空输出）======
+// 只把 pa_en 驱动为 1 关闭功放，i2s 三脚驱动为低，
+// 避免诊断期间扬声器出噪声、也避免 DAC 输入端悬空。
+IO_LOC  "pa_en"       AB16;
+IO_PORT "pa_en"       IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+
+IO_LOC  "i2s_bclk"    Y17;
+IO_PORT "i2s_bclk"    IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+
+IO_LOC  "i2s_lrck"    AB17;
+IO_PORT "i2s_lrck"    IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+
+IO_LOC  "i2s_din"     AA16;
+IO_PORT "i2s_din"     IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+
+// ====== 报告输出（板载 USB-UART，BL616）======
+// 官方参考文件中该端口名为 txp。与 uart_rx_probe.cst 逐字一致。
+IO_LOC  "uart_tx"     U15;
+IO_PORT "uart_tx"     IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8 BANK_VCCIO=3.3;
+
+// ====== 被侧 RX：PMOD0 IO5 = R17 ======
+// CH340 的 TX 接这里。只作输入，本工程从不驱动这颗球，
+// 因此无论座上还插着什么，都不存在与外部驱动争用。
+IO_LOC  "probe_rx"    R17;
+IO_PORT "probe_rx"    IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+
+// ====== A 路回传：PMOD0 IO6 = R18（115200）======
+// CH340 的 RX 接这里。
+IO_LOC  "echo_tx_a"   R18;
+IO_PORT "echo_tx_a"   IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;
+
+// ====== B 路回传：PMOD0 IO7 = T18（31250 = MIDI）======
+// 接 MIDI 光耦方案时不需要它；它是"用同一根 RX 脚验证 MIDI 波特率"
+// 的回传通道，把 CH340 的 RX 挪到这一针即可读到 31250 的回声。
+IO_LOC  "echo_tx_b"   T18;
+IO_PORT "echo_tx_b"   IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;
