@@ -7,7 +7,7 @@
 
 ## 环境要求
 
-Python 3.9 以上，**不需要 numpy、scipy 或任何第三方包**。
+Python 3.9 以上，原有 DDS／ADSR／混音参考模型不依赖第三方包。新增 T027 双音色生成与 FFT 复核单独依赖 NumPy，见 `requirements_t027.txt`；这项依赖只用于离线生成与验证，不替代 FPGA 实时音频。
 频率测量与信纳比计算全部用标准库实现，保证三个人的机器和 CI 都能直接跑。
 
 Windows 下命令统一加 `-X utf8`，否则默认 GBK 控制台会把中文输出打成乱码。
@@ -63,3 +63,17 @@ python -X utf8 code/model/wavetable_gen.py --check
   `wavetable_gen.GENERATOR_VERSION`，否则已经发给 M2 的向量无法追溯。
 - 本目录不产出正式音频。正式合成通路必须在 FPGA 上，见
   `code/docs/AI开工提示词.md` 第五节。
+
+## T027 已接收双音色模块（2026-10-01）
+
+`t027_timbre_model.py`、`generate_t027_roms.py` 与两份 generated/*_wavetable.hex 为 M1 修正版；标称 ±8192，1024×16 位，正弦逐字等同正式 sine_1024_8192.mem。
+
+```powershell
+python -m pip install -r code/model/requirements_t027.txt
+python -X utf8 code/model/generate_t027_roms.py
+python -X utf8 code/scripts/run_t027_revised_delivery.py
+```
+
+最后一条实际编译运行四实例 RTL、逐样本核对、FFT 与测频，并执行错误 LSB 反例。需已配置的 Icarus iverilog/vvp。M1 原 test_t027_timbre.py/test_t027_rtl.py 中多项只有打印，未作为验收测试接入本仓库；原件保留在 M2 接收输出目录。详情见 `../docs/T027_修正版_M2接收复核_2026-10-01.md`。
+
+模块已单独验证，不表示正式四声部已切换音色。默认 ROM 路径相对仿真/综合工作目录，应通过 SINE_ROM_FILE/TRIANGLE_ROM_FILE 参数配置；接受 sample_tick 的边沿 E，在 E+3 输出对应 data/valid。Note On 与 sample_tick 同沿时该样本仍用旧锁存音色，下一采样使用新锁存音色。全局复位清相位，Note Off 不切断外部 ADSR 的 Release 波形。
