@@ -204,15 +204,16 @@ def main():
         endmodule\n''',encoding='ascii')
     cad = Path(os.environ.get('YOSYSHQ_ROOT','D:/Gowin/oss-cad-suite'))
     quote = lambda value: '"' + str(value) + '"'
+    public_pkg = ROOT/'code/rtl/common/audio_defs_pkg.sv'
     pkg = ROOT/'code/rtl/board/sustain_control_contract_pkg.sv'
     inc = ROOT/'code/rtl/board'
     tb = ROOT/'code/tb/board/tb_sustain_contract.sv'
     mapping = stage/'mapping.vvp'
     compiled = stage/'ports.vvp'
     commands = [
-        ' '.join(map(quote,[cad/'bin/iverilog.exe','-g2012','-s','tb_sustain_mapping','-o',mapping,pkg,mapping_tb])),
+        ' '.join(map(quote,[cad/'bin/iverilog.exe','-g2012','-s','tb_sustain_mapping','-o',mapping,public_pkg,pkg,mapping_tb])),
         ' '.join(map(quote,[cad/'bin/vvp.exe',mapping])),
-        ' '.join(map(quote,[cad/'bin/iverilog.exe','-g2012','-I',inc,'-s','tb_sustain_contract','-o',compiled,pkg,stub,tb])),
+        ' '.join(map(quote,[cad/'bin/iverilog.exe','-g2012','-I',inc,'-s','tb_sustain_contract','-o',compiled,public_pkg,pkg,stub,tb])),
     ]
     result = execute(stage,commands,'prepare')
     if result.returncode or 'PASS sustain mapping128' not in result.stdout:
@@ -227,7 +228,7 @@ def main():
         if not source.is_file():raise ValueError('Missing controller ' + str(source))
         binary = stage/'controller.vvp'
         cmds = [' '.join(map(quote,[cad/'bin/iverilog.exe','-g2012','-I',inc,'-I',source.parent,
-                 '-s','tb_sustain_contract','-o',binary,pkg,source,tb])),
+                 '-s','tb_sustain_contract','-o',binary,public_pkg,pkg,source,tb])),
                 ' '.join(map(quote,[cad/'bin/vvp.exe',binary,'+VECTORS='+str(vector_path)]))]
         result = execute(stage,cmds,'controller')
         print(result.stdout.strip())

@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-01",
+  "baseline": "38b49c7",
+  "group_notice_user_confirmed": true,
+  "scope": "public CC64 definition only, controller/parser/integration not implemented by this change",
+  "interface_version": "v1.6",
+  "event": {
+    "event_type": 4,
+    "control_id": 6,
+    "value_expansion": "{raw7,raw7[6:2]}",
+    "threshold12": 2048,
+    "raw_threshold7": 64,
+    "zero_unused_fields": true,
+    "source_channel_preserved": true
+  },
+  "helpers": [
+    "midi_cc_to_12bit",
+    "make_sustain_event"
+  ],
+  "contract_compatibility": "deprecated PROPOSED alias preserved as public constant reference; mapping now same source; cmd/release/ports unchanged",
+  "tests": {
+    "construct_events": 32768,
+    "cc_values": 128,
+    "source_channel_pairs": 256,
+    "previous_note_velocity_pitch_rules": "PASS",
+    "wrong_mapping_negative": "rejected",
+    "port_stub_compile_and7473cycle_vector_generation": "PASS, no sustain implementation",
+    "T019": "ALL PASS"
+  },
+  "source_sha256": {
+    "code/rtl/common/audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+    "code/docs/模块接口规范.md": "71c5ea11b836306ac2bbb328cad1d1df7c5e75781c27be739bb80f68b63709b7",
+    "code/rtl/board/sustain_control_contract_pkg.sv": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+    "code/scripts/prepare_sustain_contract.py": "3d1f50f07ce593bc20bf7bb2ad6a5022b736fb4d64e8c57fc7ad4225dc78eb4f",
+    "code/tb/common/tb_cc64_event_contract.sv": "b8f399aaf1bf7d2ae0ebbdb6fa625f1074f73b95342d73966f60ccb20958866f",
+    "code/scripts/run_cc64_event_contract.py": "671cb1c77536e39b25beadfed9e77a6023a07f69e42b33a5186f290f6c05986b"
+  },
+  "shared_top_CST_modified": false,
+  "M3_parser_modified": false,
+  "new_fs_generated": false,
+  "actual_sustain_behavior": "NOT VERIFIED",
+  "online_workflow": "M3 normal Git develop, M1 offline only",
+  "logs_sha256": {
+    "code/output/t019_cc64_public_20261001.log": "6674a033e6d6f6b991fe2c847efc9556a95425cbac1a37e9b5c8c36358ef7e0b",
+    "code/output/cc64_event_contract/wrong_mapping_negative.log": "41fba3b0d9d5505a5a93e1ad5e268a66670932b7807777daa6ea47136df55968",
+    "code/output/cc64_event_contract/run.log": "6d0abf9fdce2ce2bf4a8697a8b7c5e6f3f49fd362f268da0d0243e817b8cd79e"
+  },
+  "repo_gate": {
+    "result": "ALL PASS",
+    "python_syntax_files": 93,
+    "log_sha256": "8f678bfe1416c1e0ab5c841997e1d799a2b483040bcf2423fcc9ca78914ffdb7"
+  },
+  "existing_public_text_compatibility": "exact old package after removing intended new constant/two helpers; source top/parser/CST unchanged"
+}

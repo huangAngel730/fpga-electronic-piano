@@ -151,6 +151,7 @@ package audio_defs_pkg;
     localparam logic [7:0] CTRL_PAN          = 8'd3;
     localparam logic [7:0] CTRL_PITCH_RANGE  = 8'd4;
     localparam logic [7:0] CTRL_VOICE_SELECT = 8'd5;
+    localparam logic [7:0] CTRL_SUSTAIN      = 8'd6;
     localparam logic [7:0] CTRL_EFFECT_DELAY = 8'd16;
     localparam logic [7:0] CTRL_EFFECT_MIX   = 8'd17;
 
@@ -176,6 +177,26 @@ package audio_defs_pkg;
         input logic [6:0] velocity_7bit
     );
         return {velocity_7bit, velocity_7bit[6:4]};
+    endfunction
+
+    // CC64: preserve source/channel, raw7>=64 equals expanded12>=2048.
+    function automatic logic [11:0] midi_cc_to_12bit(input logic [6:0] value);
+        return {value, value[6:2]};
+    endfunction
+
+    function automatic performance_event_t make_sustain_event(
+        input logic [3:0] source_id,
+        input logic [3:0] channel,
+        input logic [6:0] value
+    );
+        performance_event_t ev;
+        ev = '0;
+        ev.event_type = EVENT_CONTROL_CHANGE;
+        ev.source_id = source_id;
+        ev.channel = channel;
+        ev.control_id = CTRL_SUSTAIN;
+        ev.control_value = midi_cc_to_12bit(value);
+        return ev;
     endfunction
 
     // MIDI 14 位 Pitch Bend 转换为 12 位有符号
