@@ -1,7 +1,13 @@
 // T024 approved v1.5 arithmetic -> stereo mixer -> frame commit.
 // SOURCE waveform ROM is explicitly 8192 peak; no rescaling of 32767 ROM.
 // All stages in clk domain. Result waves/envelopes/ID stable until handshake.
-module polyphonic_audio_core (
+module polyphonic_audio_core #(
+    // Build-time selection only; no new MIDI control/event/public top port.
+    parameter integer PIANO_TIMBRE_ENABLE = 1,
+    parameter WAVE_ROM_FILE = PIANO_TIMBRE_ENABLE ?
+        "model/generated/wavetables/piano_band_4x256_8191.mem" :
+        "model/generated/wavetables/sine_1024_8192.mem"
+) (
     input logic clk,rst_n,event_valid,frame_tick,
     input logic [63:0] event_data,
     output wire event_ready,
@@ -18,7 +24,7 @@ module polyphonic_audio_core (
     wire [3:0] bank_occupied;
     wire [11:0] bank_states;
     wire [95:0] voices;
-    polyphonic_envelope_bank #(.WAVE_ROM_FILE("model/generated/wavetables/sine_1024_8192.mem")) u_bank (
+    polyphonic_envelope_bank #(.PIANO_TIMBRE_ENABLE(PIANO_TIMBRE_ENABLE),.WAVE_ROM_FILE(WAVE_ROM_FILE)) u_bank (
         .clk(clk),.rst_n(rst_n),.event_valid(event_valid),.event_ready(event_ready),.event_data(event_data),
         .frame_tick(frame_tick),.sample_req(sample_req),.sample_req_id(sample_req_id),.calc_ready(calc_ready),
         .result_valid(bank_valid),.result_ready(bank_ready),.result_req_id(bank_id),

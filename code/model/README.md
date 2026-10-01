@@ -77,3 +77,9 @@ python -X utf8 code/scripts/run_t027_revised_delivery.py
 最后一条实际编译运行四实例 RTL、逐样本核对、FFT 与测频，并执行错误 LSB 反例。需已配置的 Icarus iverilog/vvp。M1 原 test_t027_timbre.py/test_t027_rtl.py 中多项只有打印，未作为验收测试接入本仓库；原件保留在 M2 接收输出目录。详情见 `../docs/T027_修正版_M2接收复核_2026-10-01.md`。
 
 模块已单独验证，不表示正式四声部已切换音色。默认 ROM 路径相对仿真/综合工作目录，应通过 SINE_ROM_FILE/TRIANGLE_ROM_FILE 参数配置；接受 sample_tick 的边沿 E，在 E+3 输出对应 data/valid。Note On 与 sample_tick 同沿时该样本仍用旧锁存音色，下一采样使用新锁存音色。全局复位清相位，Note Off 不切断外部 ADSR 的 Release 波形。
+
+## V1谐波音色正式链路参考
+
+生成器：`python -X utf8 code/model/piano_wavetable_gen.py`。纯正弦回归：`python -X utf8 code/scripts/run_t024_audio_core.py`；V1原ADSR/正式力度ROM逐样本回放：`python -X utf8 code/scripts/run_piano_v1_audio_core.py`；四音谱/力度：`python -X utf8 code/scripts/run_piano_v1_audio_capabilities.py`。
+
+相邻音同版实际RTL A-B：先运行 `run_piano_pair_capture.py`（纯正弦）和加 `--piano`（V1），再用 `check_piano_pair_capture.py` 对两份实际capture分析。该分析依赖已声明NumPy，包络/力度核心参考不改变。`research/piano_v1_legacy_model.py`只是旧隔离概念模型，不能替代正式oracle。M1算法签收/新音色实物仍待。

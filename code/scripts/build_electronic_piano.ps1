@@ -132,7 +132,7 @@ if ($isMainProject) {
             $portHeader = Join-Path $repoRoot 'code/rtl/board/sustain_controller_ports.svh'
             $sourceText = $sourceText.Replace('`include "sustain_controller_ports.svh"',
                 ('`include "' + $portHeader.Replace('\','/') + '"'))
-            foreach ($name in @('sine_1024_8192.mem','sine_1024_32767.mem','velocity_gain_rom.mem')) {
+            foreach ($name in @('sine_1024_8192.mem','sine_1024_32767.mem','velocity_gain_rom.mem','piano_band_4x256_8191.mem')) {
                 $rom = Join-Path $repoRoot ('code/model/generated/wavetables/' + $name)
                 if (-not (Test-Path -LiteralPath $rom)) { throw "Missing ROM: $rom" }
                 $sourceText = $sourceText.Replace('model/generated/wavetables/' + $name,$rom.Replace('\','/'))

@@ -67,7 +67,7 @@ def main():
             print(text[-3000:])
             return code
         command = [str(CAD / "bin/vvp.exe"), str(binary),
-                   "+WAVETABLE_PATH=" + str(ROOT / "code/model/generated/wavetables/sine_1024_8192.mem"),
+                   "+WAVETABLE_PATH=" + str(ROOT / "code/model/generated/wavetables/piano_band_4x256_8191.mem"),
                    "+VELOCITY_ROM_PATH=" + str(ROOT / "code/model/generated/wavetables/velocity_gain_rom.mem")]
         code, text = execute(command, stage, f"run_{fast}")
         results = [line for line in text.splitlines() if line.startswith("PASS " + TOP)]

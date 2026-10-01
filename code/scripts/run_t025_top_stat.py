@@ -16,7 +16,7 @@ for e in ET.parse(ROOT/'code/build/electronic_piano.gprj').findall('.//File'):
   sources.append(stage/'allocator.v' if p.name=='voice_allocator_4.sv' else p)
 sources.sort(key=lambda p:0 if p.name=='audio_defs_pkg.sv' else (1 if p.name=='sustain_control_contract_pkg.sv' else 2))
 sources.append(ROOT/args.tb)
-commands=[q(cad/'bin/yosys.exe')+' -Q -T -s '+q(ys),q(cad/'bin/iverilog.exe')+' -g2012 -s '+args.top+' -I '+q(ROOT/'code/rtl/board')+' -I '+q(ROOT/'code/rtl/common')+' -o '+q(stage/'tb.vvp')+' '+' '.join(map(q,sources)),q(cad/'bin/vvp.exe')+' '+q(stage/'tb.vvp')+' '+q('+VELOCITY_ROM_PATH='+str(ROOT/'code/model/generated/wavetables/velocity_gain_rom.mem'))+' '+q('+WAVETABLE_PATH='+str(ROOT/'code/model/generated/wavetables/sine_1024_8192.mem'))]
+commands=[q(cad/'bin/yosys.exe')+' -Q -T -s '+q(ys),q(cad/'bin/iverilog.exe')+' -g2012 -s '+args.top+' -I '+q(ROOT/'code/rtl/board')+' -I '+q(ROOT/'code/rtl/common')+' -o '+q(stage/'tb.vvp')+' '+' '.join(map(q,sources)),q(cad/'bin/vvp.exe')+' '+q(stage/'tb.vvp')+' '+q('+VELOCITY_ROM_PATH='+str(ROOT/'code/model/generated/wavetables/velocity_gain_rom.mem'))+' '+q('+WAVETABLE_PATH='+str(ROOT/'code/model/generated/wavetables/piano_band_4x256_8191.mem'))]
 bat=stage/'run.bat';bat.write_text('@echo off\r\ncall '+q(cad/'environment.bat')+' >nul\r\n'+'\r\nif errorlevel 1 exit /b 1\r\n'.join(commands)+'\r\nexit /b %errorlevel%\r\n',encoding='ascii')
 p=subprocess.run(['cmd.exe','/c',str(bat)],cwd=stage,capture_output=True,text=True,encoding='utf-8',errors='replace',timeout=300)
 (stage/'run.log').write_text(p.stdout+p.stderr,encoding='utf-8')

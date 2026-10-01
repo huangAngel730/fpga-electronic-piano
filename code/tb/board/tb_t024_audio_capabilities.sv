@@ -2,7 +2,7 @@
 // Faster frame requests shorten simulation; audio interpretation is Fs=48000.
 // No waveform/ADSR bypass, forced PCM, production test-mode or UART changes.
 `timescale 1ns/1ps
-module tb_t024_audio_capabilities;
+module tb_t024_audio_capabilities #(parameter integer PIANO_TIMBRE_ENABLE=0);
     import audio_defs_pkg::*;
     logic clk=0;always #10 clk=~clk;
     logic rst_n=0,event_valid=0,frame_tick=0;
@@ -11,7 +11,7 @@ module tb_t024_audio_capabilities;
     wire signed [23:0] play_left,play_right;
     wire [31:0] active_voice_count,clip_count,audio_underrun;
     wire [31:0] audio_frame_count,pcm_request_count,pcm_commit_count,max_processing_cycles;
-    polyphonic_audio_core dut(.*);
+    polyphonic_audio_core #(.PIANO_TIMBRE_ENABLE(PIANO_TIMBRE_ENABLE)) dut(.*);
     integer samples=0,checks=0,fd,total=0;
     string capture;
     task automatic check(input logic ok,input string label_text);

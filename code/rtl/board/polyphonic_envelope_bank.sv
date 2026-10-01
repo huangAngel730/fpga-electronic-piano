@@ -4,6 +4,7 @@
 // frame_tick cancels an old generation. One accepted sample_req causes at most
 // one lane_tick. Cancelling a computed result does not roll back DSP state.
 module polyphonic_envelope_bank #(
+    parameter integer PIANO_TIMBRE_ENABLE = 0,
     parameter WAVE_ROM_FILE = "model/generated/wavetables/sine_1024_32767.mem"
 ) (
     input logic clk, rst_n,
@@ -51,10 +52,18 @@ module polyphonic_envelope_bank #(
         .active_voice_count(active_voice_count)
     );
     for(genvar i=0;i<4;i=i+1) begin:g_lane
-        dds_oscillator #(.ROM_FILE(WAVE_ROM_FILE)) u_dds (
-            .sys_clk(clk),.sys_rst_n(rst_n),.sample_tick(lane_tick),
-            .fcw(slot_fcw[32*i+:32]),.wt_sample(waves[16*i+:16])
-        );
+        if(PIANO_TIMBRE_ENABLE) begin:g_piano
+            piano_dds_oscillator #(.ROM_FILE(WAVE_ROM_FILE)) u_dds (
+                .sys_clk(clk),.sys_rst_n(rst_n),.sample_tick(lane_tick),
+                .note_on(slot_note_on[i]),.velocity(slot_velocity[10*i+:10]),
+                .fcw(slot_fcw[32*i+:32]),.wt_sample(waves[16*i+:16])
+            );
+        end else begin:g_sine
+            dds_oscillator #(.ROM_FILE(WAVE_ROM_FILE)) u_dds (
+                .sys_clk(clk),.sys_rst_n(rst_n),.sample_tick(lane_tick),
+                .fcw(slot_fcw[32*i+:32]),.wt_sample(waves[16*i+:16])
+            );
+        end
         adsr_piano_envelope u_envelope (
             .sys_clk(clk),.sys_rst_n(rst_n),.sample_tick(lane_tick),
             .note_on(slot_note_on[i]),.note_off(slot_note_off[i]),

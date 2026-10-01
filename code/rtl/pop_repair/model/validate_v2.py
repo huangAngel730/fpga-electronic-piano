@@ -12,7 +12,10 @@ from dataclasses import dataclass
 from pathlib import Path
 
 import generate_wavetable_v2 as wavetable_v2
-import validate_prototype as v1
+# V1 legacy oracle moved out of RTL sources; keep V2 research import working.
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "model/research"))
+import piano_v1_legacy_model as v1
 
 SAMPLE_RATE = v1.SAMPLE_RATE
 PHASE_SCALE = v1.PHASE_SCALE
