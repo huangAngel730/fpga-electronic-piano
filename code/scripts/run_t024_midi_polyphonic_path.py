@@ -48,7 +48,7 @@ def main():
                 for entry in ET.parse(project).findall(".//File")
                 if entry.attrib["type"] == "file.verilog" and entry.attrib.get("enable", "1") == "1"]
     sources = [net if source.name == allocator.name else source for source in original]
-    sources.sort(key=lambda source: 0 if source.name == "audio_defs_pkg.sv" else 1)
+    sources.sort(key=lambda source: 0 if source.name == "audio_defs_pkg.sv" else (1 if source.name == "sustain_control_contract_pkg.sv" else 2))
     tb = ROOT / f"code/tb/board/{TOP}.sv"
     sources.append(tb)
     evidence = {"scope": "Formal top GPRJ list; real 50MHz MIDI 31250 8N1. Fast Release run plus true-rate run. No force, no source modification, no STAT test.",
@@ -61,7 +61,7 @@ def main():
         snapshot.write_bytes(tb.read_bytes())
         command = [str(CAD / "bin/iverilog.exe"), "-g2012", "-s", TOP,
                    "-P", f"{TOP}.FAST_AUDIO={fast}", "-I", str(ROOT / "code/rtl/common"),
-                   "-o", str(binary)] + list(map(str, sources[:-1])) + [str(snapshot)]
+                   "-I", str(ROOT / "code/rtl/board"), "-o", str(binary)] + list(map(str, sources[:-1])) + [str(snapshot)]
         code, text = execute(command, stage, f"compile_{fast}")
         if code:
             print(text[-3000:])

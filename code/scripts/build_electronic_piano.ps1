@@ -128,6 +128,10 @@ if ($isMainProject) {
         $inputFile = [IO.Path]::GetFullPath((Join-Path $projectDir $entry.path))
         if ($entry.type -eq 'file.verilog') {
             $sourceText = [IO.File]::ReadAllText($inputFile)
+            # The agreed sustain port header lives in board/, not input/.
+            $portHeader = Join-Path $repoRoot 'code/rtl/board/sustain_controller_ports.svh'
+            $sourceText = $sourceText.Replace('`include "sustain_controller_ports.svh"',
+                ('`include "' + $portHeader.Replace('\','/') + '"'))
             foreach ($name in @('sine_1024_8192.mem','sine_1024_32767.mem','velocity_gain_rom.mem')) {
                 $rom = Join-Path $repoRoot ('code/model/generated/wavetables/' + $name)
                 if (-not (Test-Path -LiteralPath $rom)) { throw "Missing ROM: $rom" }

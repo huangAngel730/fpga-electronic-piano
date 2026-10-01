@@ -40,10 +40,10 @@ module tb_polyphonic_event_router;
         send(EVENT_NOTE_ON,1,0,60,0);check(off_count==2,"zero velocity means off");
         send(EVENT_NOTE_ON,1,0,60,700);
         send(EVENT_ALL_NOTES_OFF,0,0,0,0);check(off_count==6,"global panic releases all sources");
-        @(negedge clk);release_done=4'b1101;@(negedge clk);release_done=0;repeat(2)@(negedge clk);
+        @(negedge clk);release_done=4'b1101;@(negedge clk);release_done=0;repeat(20)@(negedge clk);wait(event_ready);
         check(active_voice_count==1 && slot_occupied==4'b0010,"release complete is per slot");
 
-        @(negedge clk);release_done=4'b0010;@(negedge clk);release_done=0;repeat(2)@(negedge clk);
+        @(negedge clk);release_done=4'b0010;@(negedge clk);release_done=0;repeat(20)@(negedge clk);wait(event_ready);
         check(active_voice_count==0,"all release tails reclaimed");
         send(EVENT_NOTE_ON,0,0,69,900);
         @(negedge clk);release_done=4'b0001;@(negedge clk);release_done=0;

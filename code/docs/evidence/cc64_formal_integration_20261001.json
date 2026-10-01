@@ -1,0 +1,146 @@
+{
+  "review_date": "2026-10-01",
+  "baseline": "97d5d64 plus local T027200d1bd",
+  "M3_sustain_function": "fd9d892",
+  "modified_M3_controller": false,
+  "modified_M1_ADSR_allocator": false,
+  "new_clocks_or_pins": false,
+  "raw_CC123_supported": false,
+  "disconnect_timeout_added": false,
+  "source_sha256": {
+    "code/rtl/board/polyphonic_event_router.sv": "3a85d64a84447c1cbbf833150a6576c13b79e30a7d4a972c14707363a5f758f4",
+    "code/rtl/input/sustain_control/sustain_controller.sv": "dd244b99b06eaa2ed7e7deda1c08aeb119f002bff939ce5941e5e81a559cbc4e",
+    "code/rtl/board/sustain_control_contract_pkg.sv": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+    "code/rtl/board/sustain_controller_ports.svh": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d",
+    "code/rtl/input/midi_input/midi_event_parser.sv": "bb0a47d42c84e0222da4bced78024a95b1c8be45409cec1ecb9a7db1df7d5a44",
+    "code/rtl/board/polyphonic_envelope_bank.sv": "58d525d2468eb3992cda467aa4b6b5e7af9ba89d0b31817821aabe9219f94843",
+    "code/rtl/board/polyphonic_audio_core.sv": "2578baab928ca53a245ed6824249ce4c77dd3c949d68ccd28f98133909a4c1ca",
+    "code/rtl/audio/adsr_piano_envelope.sv": "775fec7f546a00ca7bf98f132cce8d5d92d80ca6094af8e9e14cb07cd54a2e9d",
+    "code/rtl/audio/voice_allocator_4.sv": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+    "code/build/electronic_piano.gprj": "bbb2d397ccf43283f0b7d05089d2a9fb0cae354c1e773c5c3dae658d3b1a9ad3",
+    "code/scripts/build_electronic_piano.ps1": "ce5f682af45513552e68480cb11dd9cd2a6b68dae3d6d07932dd0bce70d325cc"
+  },
+  "tests": {
+    "independent_contract_cycles": 7473,
+    "parser_events": 2058,
+    "parser_checks": 4134,
+    "uart_checks": 44,
+    "independent_controller_extra_checks": 47,
+    "router_checks": 23,
+    "audio_core_checks": 20288,
+    "audio_core_model_frames": 10140,
+    "envelope_delta_q15": 1,
+    "PCM24_delta": 512,
+    "sustain_audio_checks": 68249,
+    "envelope_bank_checks": 30744,
+    "pcm_commit_checks": 198,
+    "real_MIDI_top": {
+      "state_checks": 14,
+      "decoded_half_frames": 47642,
+      "nonzero_halves": 44584,
+      "raw_MIDI_bytes": 33,
+      "note_ons": 4,
+      "note_offs": 4,
+      "frame_cycles": [
+        128,
+        129
+      ],
+      "audio_acceleration": "TB only; 50MHz/31250baud real",
+      "wrong_LSB_rejected": true
+    },
+    "real_MIDI_top_source_evidence": {
+      "scope": "Formal top GPRJ list; real 50MHz MIDI 31250 8N1. Fast Release run plus true-rate run. No force, no source modification, no STAT test.",
+      "source_sha256": {
+        "code\\rtl\\board\\electronic_piano_top.sv": "c75f4321c28753e851c26e6cb0810947a85e8f17ca61b28ae7e527a5ff765a5b",
+        "code\\rtl\\common\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "code\\rtl\\common\\reset_sync.sv": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+        "code\\rtl\\input\\button_debouncer\\button_debouncer.sv": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+        "code\\rtl\\input\\button_event_converter\\button_event_converter.sv": "f6befb9c7415c69da62f2083e22803eae93ebeac63b8903b3c1314c4e9e723f0",
+        "code\\rtl\\common\\performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+        "code\\rtl\\common\\system_status_counters.sv": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+        "code\\rtl\\board\\uart_status_reporter.sv": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+        "code\\rtl\\common\\uart_tx.sv": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+        "code\\rtl\\common\\uart_rx.sv": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+        "code\\rtl\\input\\midi_input\\midi_event_parser.sv": "bb0a47d42c84e0222da4bced78024a95b1c8be45409cec1ecb9a7db1df7d5a44",
+        "code\\rtl\\input\\midi_input\\midi_input.sv": "9d07ee52cb8162f1d6edc1507a932205ed81c26dbdb9416726fc6068c86440bf",
+        "code\\rtl\\common\\note_pitch.sv": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+        "code\\rtl\\common\\simple_voice.sv": "eab4974b0315c75a8076b21afea1dade122fecbcc672eb0802ba0e358a1bf274",
+        "code\\rtl\\audio_out\\i2s_tx.sv": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+        "code\\rtl\\audio_out\\pcm_frame_buffer.sv": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+        "code\\rtl\\audio\\voice_allocator_4.sv": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+        "code\\rtl\\audio\\dds_oscillator.sv": "3cd758e28da8f76a30da38cb2dfcd458db5743d4ea4f38e072a43d7f83719f04",
+        "code\\rtl\\audio\\adsr_piano_envelope.sv": "775fec7f546a00ca7bf98f132cce8d5d92d80ca6094af8e9e14cb07cd54a2e9d",
+        "code\\rtl\\board\\sustain_control_contract_pkg.sv": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+        "code\\rtl\\input\\sustain_control\\sustain_controller.sv": "dd244b99b06eaa2ed7e7deda1c08aeb119f002bff939ce5941e5e81a559cbc4e",
+        "code\\rtl\\board\\polyphonic_event_router.sv": "3a85d64a84447c1cbbf833150a6576c13b79e30a7d4a972c14707363a5f758f4",
+        "code\\rtl\\board\\polyphonic_envelope_bank.sv": "58d525d2468eb3992cda467aa4b6b5e7af9ba89d0b31817821aabe9219f94843",
+        "code\\rtl\\board\\voice_gain_q15_candidate.sv": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+        "code\\rtl\\board\\polyphonic_pcm_commit.sv": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+        "code\\rtl\\board\\polyphonic_audio_core.sv": "2578baab928ca53a245ed6824249ce4c77dd3c949d68ccd28f98133909a4c1ca",
+        "code\\rtl\\mixer\\pcm_mixer_4voice.sv": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+        "code\\rtl\\common\\pcm_clip_counter.sv": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+        "code\\rtl\\audio_out\\pcm_result_hold.sv": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+        "code\\build\\electronic_piano.gprj": "bbb2d397ccf43283f0b7d05089d2a9fb0cae354c1e773c5c3dae658d3b1a9ad3",
+        "code\\tb\\board\\tb_sustain_midi_top.sv": "43f453ff5936b87a30495415f67d1eaa908b0de2b1ee89c5f98fd2744583c025"
+      },
+      "runs": [
+        {
+          "fast_audio": 1,
+          "pass": true,
+          "exit_code": 0,
+          "result": [
+            "PASS tb_sustain_midi_top fast=1 checks=14 halves=47642 nonzero=44584 bytes=33 note_on=4 note_off=4 frame_min=128 frame_max=129"
+          ],
+          "testbench_sha256": "43f453ff5936b87a30495415f67d1eaa908b0de2b1ee89c5f98fd2744583c025",
+          "binary_sha256": "02fac4e869cfd05c1a4274d9b9d183d824b2098021a4087a071626ebf4536c68"
+        }
+      ],
+      "passed": true
+    }
+  },
+  "timing": {
+    "resources": {
+      "Logic": 6065,
+      "Register": 3409,
+      "DSP": 24,
+      "BSRAM": 8
+    },
+    "fmax_mhz": 50.235,
+    "worst_slack_ns": {
+      "Setup": 0.094,
+      "Hold": 0.001,
+      "Recovery": 12.833,
+      "Removal": 0.333
+    },
+    "setup_hold_violated_endpoints": 0,
+    "pins_checked": 10,
+    "warning": "PR1014 retained"
+  },
+  "bitstream": {
+    "filename": "electronic_piano_4voice_sustain_20261001.fs",
+    "sha256": "728ea42df44b1cfb7ece6bec83e81a631990826709281c3f5478dd5523473cc3"
+  },
+  "hardware_test": false,
+  "report_sha256": {
+    "code\\output\\sustain_contract\\m2_formal_build_20261001.log": "26b71ae6ed01335b84422d69ecc789a5119a0ade2e9be48773e07e499eb8795d",
+    "code\\build\\staged_formal\\impl\\pnr\\electronic_piano_tr_content.html": "b9aaf988f67126365099d8a8dfb26f5420d93b2891af24c00115d0b0ca1f6209",
+    "code\\build\\staged_formal\\impl\\pnr\\electronic_piano.rpt.txt": "1fefbd3acf1ca681d1ede024c85c52d6cec9af6162c27a2097f9e2c8ab75efd9",
+    "code\\build\\staged_formal\\impl\\gwsynthesis\\electronic_piano_syn_resource.html": "326c1425de23fd21c3a549e56c312e761b6d498afc4b636e0cdbe05e7aea3fcd"
+  },
+  "model_effects_changed": false,
+  "logs_sha256": {
+    "code\\output\\sustain_midi_top_20261001\\run_1.log": "d47174b46d388ea372e7e0d91c5b97eee8f5b2288f26327de0ac7ebc720743ac",
+    "code\\output\\sustain_midi_top_20261001\\m2_negative_serial_lsb.log": "717d8a81c7128df61424b07d006a1d28a583d97147d747bdd3976eed268801a1",
+    "code\\output\\sustain_audio_integration\\run.log": "df42e57960b4076f9a6a990b70d781ad00b1440c520e3d1b2117feeeb790c83b",
+    "code\\output\\t024_envelope_bank\\run.log": "b6703da03b4b3faf7f5298ddcf834df638e0313ffc1fb04c4cc593b18cec4c80",
+    "code\\output\\t024_audio_core\\run.log": "b0899ca29802563c813aa34696fe546025cd7ca3082f31fd90ccfc3c00d74ab4",
+    "code\\output\\sustain_contract\\m2_review_20261001.log": "0e85d9d6eba8f20eb802469992e99f98e4437b56cabd4aca63f0221cdb836b4e",
+    "code\\output\\sustain_contract\\m2_cc64_review_20261001.log": "a21db6f258a3cc8ad117edac5135011ef7f570d57b153a8e1249091b5e73f107"
+  },
+  "repo_gate": {
+    "result": "ALL PASS",
+    "python_syntax_files": 100,
+    "T007_T019": "PASS",
+    "log_sha256": "4664ceee4af097d0c3c87b38f0b2c595a8f901cd146665b8e385a80d15120cac"
+  }
+}

@@ -92,6 +92,8 @@ module tb_polyphonic_envelope_bank;
         send(EVENT_NOTE_ON,2,3,65,1023);check(active_voice_count==4,"reuse freed slot for another source");
         send(EVENT_ALL_NOTES_OFF,0,0,0,0);
         for(integer n=0;n<4800;n++)sample_once();
+        // Control retirement is serial; do not invent another audio sample.
+        wait(event_ready);repeat(2)@(negedge clk);
         check(active_voice_count==0 && captured==0,"all sources retire after global Release");
         // A frame request can arrive after event acceptance but before slot dispatch.
         begin
