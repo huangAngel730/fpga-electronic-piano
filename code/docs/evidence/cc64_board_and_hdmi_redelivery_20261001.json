@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-01",
+  "scope": "M3 reported b60d99c SRAM5-actions plus exact standalone HDMI and audio rollback file handoff",
+  "hardware_report": {
+    "source": "user-forwarded M3 onsite report",
+    "M2_present": false,
+    "raw_recording_or_download_logs_received": false,
+    "design_commit": "b60d99c",
+    "filename": "electronic_piano_4voice_sustain_20261001.fs",
+    "sha256": "728ea42df44b1cfb7ece6bec83e81a631990826709281c3f5478dd5523473cc3",
+    "download": "SRAM Program",
+    "five_actions": [
+      "normal NoteOff without pedal",
+      "pedal down key release retains natural envelope decay",
+      "pedal up releases key-up notes only",
+      "retrigger4-voices5th-steal no hang/stale release isolation",
+      "reset silence/recovery no leftover pedal"
+    ],
+    "all_passed": true,
+    "level": "L6 limited sine+CC64 only",
+    "V1_HDMI_Pitch_Mod_proven": false
+  },
+  "hdmi_probe": {
+    "filename": "hdmi_link_probe.fs",
+    "sha256": "ce9560cbe6bf3bea38bbcb7c01ba7162c238c01cf70b828e3bd636f8369ef239",
+    "GUI_IP_evidence": "code/docs/evidence/hdmi_link_probe_gui_ip_repro_20260927.json",
+    "existing_tool_level": "L5",
+    "new_hardware_test": false,
+    "fixed_color": [
+      32,
+      64,
+      128
+    ]
+  },
+  "recovery": {
+    "same_as_reported_audio": true,
+    "download_completed_by_M2": false
+  },
+  "file_delivery": {
+    "M3_E_drive_accessible": false,
+    "package_created": true,
+    "package_received_by_M3": false,
+    "destination_example": "E:/FPGA/GAOYUNFPGA/CallBack/HDMI_probe_ce9560_rollback_b60d99c_20261001",
+    "specific_test_time_reserved": false
+  },
+  "new_bitstream_built": false,
+  "code_or_interface_changes": false,
+  "T025_T026_retest_paused": true,
+  "package": {
+    "filename": "HDMI_probe_ce9560_rollback_b60d99c_20261001.zip",
+    "sha256": "37b1eea1a8991836000e167e8241ec4cdca1100b4d1ec6d24a04f3300f679621",
+    "bytes": 764480,
+    "files": {
+      "probe/hdmi_link_probe.fs": "ce9560cbe6bf3bea38bbcb7c01ba7162c238c01cf70b828e3bd636f8369ef239",
+      "rollback/electronic_piano_4voice_sustain_20261001.fs": "728ea42df44b1cfb7ece6bec83e81a631990826709281c3f5478dd5523473cc3"
+    },
+    "both_original_bytes_verified": true,
+    "M3_received": false
+  },
+  "repo_gate": {
+    "result": "ALL PASS",
+    "python_syntax_files": 112,
+    "T007_T019": "PASS",
+    "log_sha256": "0c0aad54b43890fd96f22865490573262b1bc45e3711b8710feaa44d7ba1050c"
+  }
+}
