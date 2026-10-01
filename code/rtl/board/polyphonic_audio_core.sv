@@ -11,7 +11,7 @@ module polyphonic_audio_core (
     output wire [31:0] audio_frame_count,pcm_request_count,pcm_commit_count,
     output wire [31:0] max_processing_cycles
 );
-    wire sample_req,calc_ready,bank_valid,bank_ready;
+    wire sample_req,calc_ready,bank_valid,bank_ready,actual_commit;
     wire [31:0] sample_req_id,bank_id;
     wire [63:0] bank_envelopes,bank_waves;
     wire [127:0] bank_fcw;
@@ -36,12 +36,12 @@ module polyphonic_audio_core (
         .clk(clk),.rst_n(rst_n),.frame_tick(frame_tick),.calc_ready(calc_ready),
         .sample_req(sample_req),.sample_req_id(sample_req_id),.result_valid(bank_valid),
         .result_ready(bank_ready),.result_req_id(bank_id),.voices_left(voices),.voices_right(voices),
-        .play_left(play_left),.play_right(play_right),.pending_valid(pending_valid),
+        .play_left(play_left),.play_right(play_right),.pending_valid(pending_valid),.commit_pulse(actual_commit),
         .audio_frame_count(audio_frame_count),.pcm_request_count(pcm_request_count),
         .pcm_commit_count(pcm_commit_count),.audio_underrun(audio_underrun),.clip_count(clip_count)
     );
     wire [31:0] unused_overflow;
     system_status_counters u_latency(.clk(clk),.rst_n(rst_n),.pcm_request(sample_req),
-        .pcm_commit(u_commit.pcm_valid && u_commit.pcm_ready),.button_overflow(32'd0),.midi_overflow(32'd0),
+        .pcm_commit(actual_commit),.button_overflow(32'd0),.midi_overflow(32'd0),
         .event_fifo_overflow(unused_overflow),.max_processing_cycles(max_processing_cycles));
 endmodule

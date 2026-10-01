@@ -12,6 +12,7 @@ module polyphonic_pcm_commit (
     input logic [95:0] voices_left, voices_right,
     output wire signed [23:0] play_left, play_right,
     output wire pending_valid,
+    output wire commit_pulse, // successful current-generation stereo buffer commit
     output wire [31:0] audio_frame_count, pcm_request_count, pcm_commit_count,
     output wire [31:0] audio_underrun, clip_count
 );
@@ -38,6 +39,8 @@ module polyphonic_pcm_commit (
         .pending_valid(pending_valid),.audio_frame_count(audio_frame_count),
         .pcm_request_count(pcm_request_count),.pcm_commit_count(pcm_commit_count),.audio_underrun(audio_underrun)
     );
+    assign commit_pulse = pcm_valid && pcm_ready;
+
     pcm_clip_counter u_clip_counter (
         .clk(clk),.rst_n(rst_n),.pcm_valid(pcm_valid),.pcm_ready(pcm_ready),
         .clip_any(pcm_clip_any),.clip_count(clip_count)

@@ -19,7 +19,7 @@ module tb_polyphonic_pcm_commit;
     wire result_ready=pipe_ready && deliver;
     wire [31:0] transport_id=wrong_id ? bank_id-1'b1 : bank_id;
     wire signed [23:0] play_left,play_right;
-    wire pending_valid;
+    wire pending_valid,commit_pulse;
     wire [31:0] audio_frame_count,pcm_request_count,pcm_commit_count,audio_underrun,clip_count;
     polyphonic_envelope_bank u_bank (
         .clk(clk),.rst_n(rst_n),.event_valid(event_valid),.event_ready(event_ready),.event_data(event_data),
@@ -32,7 +32,7 @@ module tb_polyphonic_pcm_commit;
         .clk(clk),.rst_n(rst_n),.frame_tick(frame_tick),.calc_ready(calc_ready),
         .sample_req(sample_req),.sample_req_id(sample_req_id),.result_valid(result_valid),
         .result_ready(pipe_ready),.result_req_id(transport_id),.voices_left(lefts),.voices_right(rights),
-        .play_left(play_left),.play_right(play_right),.pending_valid(pending_valid),
+        .play_left(play_left),.play_right(play_right),.pending_valid(pending_valid),.commit_pulse(commit_pulse),
         .audio_frame_count(audio_frame_count),.pcm_request_count(pcm_request_count),
         .pcm_commit_count(pcm_commit_count),.audio_underrun(audio_underrun),.clip_count(clip_count)
     );
@@ -62,7 +62,10 @@ module tb_polyphonic_pcm_commit;
         check(pending_valid && clip_count==expected_clips,"one accepted stereo generation counts once");
         check(active_voice_count==4 && bank_occupied==4'b1111,"result generated after four live voice lanes");
     endtask
-    always @(posedge clk) if(rst_n && dut.pcm_valid && dut.pcm_ready) begin
+    always @(posedge clk) if(rst_n) begin
+        check(commit_pulse===(dut.pcm_valid && dut.pcm_ready),"exported pulse equals actual commit, never stale or precommit valid");
+    end
+    always @(posedge clk) if(rst_n && commit_pulse) begin
         seen_commits++;
         check(dut.pcm_req_id==sample_req_id,"commit ID matches current frame");
         if(dut.pcm_clip_any)seen_clips++;

@@ -40,6 +40,19 @@ module tb_polyphonic_audio_core;
             if(dut.u_bank.slot_note_off[i])$fdisplay(trace,"F %0d",i);
         end
     end
+    integer cycle_index=0,request_cycle=0,observed_peak=0;
+    logic measuring=0;
+    always @(posedge clk) begin
+        if(!rst_n) begin cycle_index=0;request_cycle=0;observed_peak=0;measuring=0;end
+        else begin
+            cycle_index++;
+            if(dut.sample_req)begin request_cycle=cycle_index;measuring=1;end
+            if(dut.actual_commit && measuring)begin
+                if(cycle_index-request_cycle>observed_peak)observed_peak=cycle_index-request_cycle;
+                measuring=0;
+            end
+        end
+    end
     initial begin
         if($value$plusargs("TRACE=%s",trace_path))begin trace=$fopen(trace_path,"w");if(!trace)$fatal(1,"Cannot open trace");end
         repeat(4)@(negedge clk);check(play_left==0 && active_voice_count==0,"reset");rst_n=1;
@@ -53,6 +66,7 @@ module tb_polyphonic_audio_core;
         send(EVENT_ALL_NOTES_OFF,0,0);for(integer n=0;n<4800;n++)frame();
         check(active_voice_count==0 && play_left==0 && play_right==0,"global release silence");
         check(max_processing_cycles>0 && max_processing_cycles<64,"actual request commit latency bounded");
+        check(max_processing_cycles==observed_peak && observed_peak>=11,"reported peak equals independently timestamped request/commit cycles");
         rst_n=0;repeat(3)@(negedge clk);check(pcm_commit_count==0 && clip_count==0,"reset counters");
         if(trace)$fclose(trace);
         $display("PASS polyphonic_audio_core checks=%0d frames=%0d",checks,frames);$finish;

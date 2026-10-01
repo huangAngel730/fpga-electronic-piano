@@ -47,8 +47,23 @@ def main():
     for port,(ball,standard,voltage) in expected.items():
         actual=[r for _,r in pins.rows if len(r)>17 and r[0]==port]
         if len(actual)!=1 or actual[0][2].split('/')[0]!=ball or actual[0][7]!=standard or actual[0][17]!=voltage:errors.append('Pin/IO standard mismatch '+port)
+    # RTL simulation alone cannot catch Gowin sweeping a hierarchically read
+    # commit signal. Require the published counter itself to survive synthesis.
+    hierarchy_path=args.build/'impl/gwsynthesis'/(name+'_syn_resource.html')
+    latency_registers=0
+    if not hierarchy_path.is_file():
+        errors.append('Missing synthesis hierarchy: cannot verify latency counter retention')
+    else:
+        hierarchy=module.Rows();hierarchy.feed(hierarchy_path.read_text(encoding='utf-8'))
+        latency=[r for _,r in hierarchy.rows if len(r)>=2 and r[0].split(' (')[0].endswith('|--u_latency')]
+        if len(latency)!=1 or not latency[0][1].isdigit():
+            errors.append('Missing/ambiguous retained u_latency counter; do not accept max_processing_cycles=0')
+        else:
+            latency_registers=int(latency[0][1])
+            if latency_registers<65:
+                errors.append('Latency counter registers missing: expected elapsed32+peak32+active1')
     if not (folder/(name+'.fs')).is_file():errors.append('Missing FS')
-    info={'resources':resources,'fmax_mhz':fmax,'worst_slack_ns':slack,'setup_hold_violated_endpoints':0 if not errors else None,'pins_checked':len(expected),'scope':'formal audio/STAT STA only; no hardware verification'}
+    info={'latency_counter_registers':latency_registers,'resources':resources,'fmax_mhz':fmax,'worst_slack_ns':slack,'setup_hold_violated_endpoints':0 if not errors else None,'pins_checked':len(expected),'scope':'formal audio/STAT STA only; no hardware verification'}
     for error in errors:print('FAIL formal T024:',error)
     if errors:return 1
     (args.build/'checked_summary.json').write_text(json.dumps(info,indent=2)+'\n',encoding='utf-8')
