@@ -11,8 +11,15 @@
 // - WAVETABLE_SIZE: 1024
 // - PHASE_BITS: 32
 // - SAMPLE_BITS: 16
-// - ROM_LATENCY: 2 周期
 // - 波表范围：±8192
+//
+// 流水线口径（以真实边沿为准，勿再沿用旧的“2 周期 / 3 级”说法）：
+// 采样边沿 E 接收相位与锁存音色，输出落在 E+3，共 4 个寄存阶段：
+//   E   : addr_pipe[0] <- wt_addr；timbre_pipe[0] <- timbre_latched；valid_pipe[0] <- sample_tick
+//   E+1 : addr_pipe[1] <- addr_pipe[0]；timbre_pipe[1]、valid_pipe[1] 同步移位
+//   E+2 : 同步 ROM 数据寄存器 <- ROM[addr_pipe[1]]（sine_data / triangle_data）
+//   E+3 : sample_out <- 音色选择(ROM 数据)；sample_valid <- valid_pipe[2]
+// Note On 与 sample_tick 同沿时：本拍仍用旧 timbre_latched，下一拍生效。
 
 `timescale 1ns/1ps
 

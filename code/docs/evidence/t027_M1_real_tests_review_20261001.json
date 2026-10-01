@@ -1,0 +1,161 @@
+{
+  "review_date": "2026-10-01",
+  "baseline": "5af1a5a",
+  "package_name": "M1_T027_交付_修正说明与真实RTL自检_20261001.zip",
+  "package_sha256": "1106a1b93feab038ec9aef7c43f9caefc243d4cd5e153b29dcdbb0a25489c18e",
+  "received_change_manifest": {
+    "baseline": "0e29e22",
+    "m2_receipt_commit": "88f63d5",
+    "package_date": "2026-10-01",
+    "author": "M1",
+    "scope": "T027 修正说明 + 真实 RTL 自检；不改动 M2 已接收入库的算法逻辑",
+    "files": [
+      {
+        "path": "code/model/test_t027_rtl.py",
+        "operation": "update",
+        "baseline_sha256": "678e029480958ba958fdc014a9871b349dd3c1a166f5788d60e5fee7338f020c",
+        "new_sha256": "7f22c50db930eee38a8c0b0e5dd151425debfaa456f769d17425af9b2d6a788d",
+        "note": "重写：真实断言 / 真实调用仿真器 + Python 逐样本对照"
+      },
+      {
+        "path": "code/model/test_t027_timbre.py",
+        "operation": "update",
+        "baseline_sha256": "59f34db503c97e20ebd0285bfa8b3218d8d5511dff164d9edcedec82f428d297",
+        "new_sha256": "b12c9bc950c175fe6c393431ee7e6d294efce8e382c36a54381cd1973419d197",
+        "note": "重写：真实断言 / 真实调用仿真器 + Python 逐样本对照"
+      },
+      {
+        "path": "code/rtl/audio/timbre_oscillator.sv",
+        "operation": "update",
+        "baseline_sha256": "16f3f93af52ea9f497de42067e1dcdadea228577b51bb413a848c480b9647249",
+        "new_sha256": "6918f4d5e5129aae0dc38286f88d6fb536083ecfcd000fea63e89fe5d38e6a39",
+        "note": "仅注释更正（逻辑零改动，已用去注释比对证明）"
+      },
+      {
+        "path": "code/tb/audio/tb_t027_timbre_rtl.sv",
+        "operation": "add",
+        "baseline_sha256": null,
+        "new_sha256": "7990df0f68b7f63f1c584267a95e35aa64373ef1255ccd0b2f391a2e6c46fae5",
+        "note": "新增真实 RTL 自检 TB"
+      }
+    ],
+    "rom_unchanged": true,
+    "rom_sha256": {
+      "code/model/generated/sine_wavetable.hex": "85a1d27131227696ae077506bd9ebdb4bc0bd87828260bcd90407da6c21acd93",
+      "code/model/generated/triangle_wavetable.hex": "5b6892e95325641f2b319588bae10b556585ae103d6f16df81c28babe1072996"
+    },
+    "verification_level": "L1(模型) + L2/L3(真实仿真+逐样本)",
+    "not_executed": [
+      "Gowin 综合",
+      "PnR/时序",
+      "上板",
+      "正式四声部接入",
+      "切换防爆音"
+    ],
+    "test_results": {
+      "test_t027_timbre.py": {
+        "exit_code": 0,
+        "passed": "5/5",
+        "real_assertions": true
+      },
+      "test_t027_rtl.py": {
+        "exit_code": 0,
+        "passed": "2/2",
+        "simulator": "modelsim",
+        "positive_checks": 46164,
+        "valid_outputs": 45175,
+        "latches": 72,
+        "negative_detected": true
+      }
+    }
+  },
+  "received_file_hashes_valid": true,
+  "ROM_samples_and_LF_file_unchanged": true,
+  "ROM_manifest_CRLF_hashes_explained": true,
+  "oscillator_comment_only_change_proven": true,
+  "model_test_assertion_counts": {
+    "test_wavetable_generation": 9,
+    "test_harmonic_difference": 3,
+    "test_timbre_switching": 6,
+    "test_fundamental_frequency_invariance": 3,
+    "test_polyphony_independence": 7
+  },
+  "original_script_actual_runs": {
+    "model": "5/5 exit0",
+    "rtl": "2/2 exit0"
+  },
+  "original_verdict_mutations": {
+    "post_simulation_failed_result_still_accepted": true,
+    "corruption_disabled_still_counted_negative_pass": true,
+    "tested_only_in_independent_process_original_not_modified": true
+  },
+  "accepted_files": [
+    "code/model/test_t027_timbre.py",
+    "code/tb/audio/tb_t027_timbre_rtl.sv",
+    "code/rtl/audio/timbre_oscillator.sv (comments only)",
+    "code/scripts/run_t027_m1_test_suite.py (M2 strict runner)"
+  ],
+  "not_accepted_as_official_runner": "code/model/test_t027_rtl.py",
+  "strict_M2_results": {
+    "scope": "Independent dual-timbre M1 tests, not V1 piano or formal FCW/audio build",
+    "models_passed": 5,
+    "TB_result": [
+      "PASS tb_t027_timbre_rtl checks=91339 valid_outputs=45175 latches=72 cycles=11541"
+    ],
+    "capture_result": {
+      "Python_comparisons": 46164,
+      "valid_outputs": 45175,
+      "latch_events": 72,
+      "capture_cycles": 11541
+    },
+    "real_negative_return_code": 1,
+    "strict_verdict_fixtures": [
+      "late FATAL",
+      "PASS plus nonzero exit",
+      "negative disabled",
+      "unrelated timeout",
+      "zero exit"
+    ],
+    "negative_detected": true,
+    "source_sha256": {
+      "code\\rtl\\audio\\timbre_oscillator.sv": "6918f4d5e5129aae0dc38286f88d6fb536083ecfcd000fea63e89fe5d38e6a39",
+      "code\\tb\\audio\\tb_t027_timbre_rtl.sv": "7990df0f68b7f63f1c584267a95e35aa64373ef1255ccd0b2f391a2e6c46fae5",
+      "code\\model\\generated\\sine_wavetable.hex": "1abfd5c47759cd4089f4b39069b3ff0ab388838502b325d9ef7d9e01549ec7f4",
+      "code\\model\\generated\\triangle_wavetable.hex": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+      "code\\model\\test_t027_timbre.py": "b12c9bc950c175fe6c393431ee7e6d294efce8e382c36a54381cd1973419d197"
+    },
+    "capture_sha256": "743c24ec4ccd3dd2f5262e3f9dbf12d3f06ccdc59bedce8e014f6352c81d447c",
+    "logs_sha256": {
+      "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "model.log": "e3b1168221551da42778a7025f222214767b2b5e881cb7ba974b52a16ba2d38c",
+      "negative.log": "69b489be312dd29821538fe90451f8773a0d9d12a95d74fcbed19b89a55e06e9",
+      "positive.log": "e0c31f608b231958d558e868cdbb64c3e5b9b5463cac74567a1557e31380e863"
+    },
+    "ModelSim_rerun": false,
+    "hardware_or_Gowin_changed": false
+  },
+  "new_Gowin_PnR": false,
+  "new_bitstream": false,
+  "formal_V1_audio_inputs_changed": false,
+  "M1_draft_deleted": false,
+  "T027_overall_closed": false,
+  "V1_algorithm_signoff_received": false,
+  "logs_sha256": {
+    "model_original.log": "e3b1168221551da42778a7025f222214767b2b5e881cb7ba974b52a16ba2d38c",
+    "rtl_original.log": "060d7843b1865a6e2b9389ff2538edd4138dd473e823c89a1228e0dc64c4b866",
+    "original_verdict_mutations.log": "aaa795c675eb0f3999e09914f724cc05f85a2435ff1db6c5036ad0d075e0b908"
+  },
+  "sender_ModelSim_log_sha256": "475856bdb78ee678b3ae3cc4bf7be0d15b280b3c66dc9e528501509f6416cd08",
+  "repo_gate": {
+    "result": "ALL PASS",
+    "python_syntax_files": 114,
+    "T007_T019": "PASS",
+    "log_sha256": "27460ad078fabc7cfe1c2c68a4725cb20b36cc67db73baebfbaa7c66b8d7f01d"
+  },
+  "accepted_sources_sha256": {
+    "code/model/test_t027_timbre.py": "b12c9bc950c175fe6c393431ee7e6d294efce8e382c36a54381cd1973419d197",
+    "code/tb/audio/tb_t027_timbre_rtl.sv": "7990df0f68b7f63f1c584267a95e35aa64373ef1255ccd0b2f391a2e6c46fae5",
+    "code/rtl/audio/timbre_oscillator.sv": "6918f4d5e5129aae0dc38286f88d6fb536083ecfcd000fea63e89fe5d38e6a39",
+    "code/scripts/run_t027_m1_test_suite.py": "97892921597f231d7ffadc444013a7d195297d51c10b04090d2b273ca91f83f8"
+  }
+}

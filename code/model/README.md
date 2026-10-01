@@ -83,3 +83,9 @@ python -X utf8 code/scripts/run_t027_revised_delivery.py
 生成器：`python -X utf8 code/model/piano_wavetable_gen.py`。纯正弦回归：`python -X utf8 code/scripts/run_t024_audio_core.py`；V1原ADSR/正式力度ROM逐样本回放：`python -X utf8 code/scripts/run_piano_v1_audio_core.py`；四音谱/力度：`python -X utf8 code/scripts/run_piano_v1_audio_capabilities.py`。
 
 相邻音同版实际RTL A-B：先运行 `run_piano_pair_capture.py`（纯正弦）和加 `--piano`（V1），再用 `check_piano_pair_capture.py` 对两份实际capture分析。该分析依赖已声明NumPy，包络/力度核心参考不改变。`research/piano_v1_legacy_model.py`只是旧隔离概念模型，不能替代正式oracle。M1算法签收/新音色实物仍待。
+
+## T027 M1真实测试补交（2026-10-01）
+
+`test_t027_timbre.py`现在接收为真实模型级断言；`tb/audio/tb_t027_timbre_rtl.sv`实际四实例/capture已接收。M1原`test_t027_rtl.py`虽调用仿真器，但正向忽略sim_ok、负向未检出也返回False误算PASS，暂不作为正式入口。
+
+使用 `python -X utf8 code/scripts/run_t027_m1_test_suite.py`，它严格核仿真退出/PASS/FATAL/capture，负向只承认明确PCM偏差；既有`run_t027_revised_delivery.py`仍可用。详情`../docs/T027_真实自检补交_M2复核_2026-10-01.md`。本次是Sine/Triangle独立模块验证，未改正式V1音色或证明切换无爆音。
