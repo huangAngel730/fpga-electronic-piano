@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-01",
+  "baseline": "4902882",
+  "scope": "M2 standalone CC64 public-mapping proposal and four-slot controller contract, no implementation",
+  "proposed_public_event": {
+    "event_type": 4,
+    "control_id": 6,
+    "value": "{midi_cc7,midi_cc7[6:2]}",
+    "threshold12": 2048,
+    "midi_threshold7": 64,
+    "shared_audio_defs_modified": false,
+    "shared_spec_modified": false,
+    "formal_parser_modified": false,
+    "notice_confirmed": false
+  },
+  "controller": "M3 owns independent sustain_controller; not implemented by M2",
+  "clock_reset": "single50MHz sys_clk; asynchronous reset assertion, upstream synchronized release",
+  "generation": "per-slot uint32 changed on every Note On, including retrigger; exact identity+generation check for NoteOff/Retire",
+  "handshake": "single cmdvalid/ready; release mask and four generations held until release ready; no new command accepted while releasevalid, even acknowledgement edge",
+  "checks": {
+    "mapping_cases": 128,
+    "port_and_TB_compile": "PASS with compile-only stub",
+    "directed_oracle_state_expectations": "PASS",
+    "vectors_prepared": 7473,
+    "zero_output_stub": "behavior rejected, never passed off as controller",
+    "extracted_offline_packet_prepare": "PASS",
+    "actual_M3_controller_test": "NOT AVAILABLE",
+    "Gowin": "NOT RUN",
+    "hardware": "NOT RUN"
+  },
+  "source_sha256": {
+    "code/docs/CC64_延音控制开工接口合同_2026-10-01.md": "b9805759592a35b0c3960ad3959dcbfad79da8201d4d39024965463b3df33513",
+    "code/rtl/board/sustain_control_contract_pkg.sv": "ca0dc77c6e9c480f1a45d8035b64ca75d227fdaecabec6dd61470812b181ccce",
+    "code/rtl/board/sustain_controller_ports.svh": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d",
+    "code/scripts/prepare_sustain_contract.py": "94037aaf8914755964508dd6a48d311aa61c30f095755c6e49f63d18598557cc",
+    "code/tb/board/tb_sustain_contract.sv": "e0bd604a6819bf49b452121d7f319e4256149c41b68a49cddb9c39af5a60be4a"
+  },
+  "output_sha256": {
+    "code/output/sustain_contract/vectors.txt": "874601041fa56b8d1e731eeb8f9144fcc5631977558d70dbf9c9b058cc989ad1",
+    "code/output/sustain_contract/prepare.log": "0ba125daae53fc26aa1d988edcefd21265c2846f9c21b84907bc3334a0fff7f4",
+    "code/output/sustain_contract/placeholder_negative.log": "1c718e2b8e1ec1a51e7add786f4c91ea085d3d79b41355d686420ea66b6abcb0",
+    "code/output/m3_sustain_interface_20261001/extracted_contract_check.log": "5d96c18d865b92454218426d8ed40a186ec26ebcf694f84650bc88294e2104e4"
+  },
+  "offline_package": {
+    "path": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\m3_sustain_interface_20261001\\M3_CC64_延音接口开工包_4902882_20261001.zip",
+    "bytes": 64267,
+    "sha256": "873b73d2c8feec06c63fad0e5531a7d5c171ffd19a58f89061b60673a67607a7"
+  },
+  "module_implementation_allowed_files": [
+    "code/rtl/input/sustain_control/sustain_controller.sv",
+    "code/tb/input/sustain_control/",
+    "code/docs/hardware/CC64延音控制交付说明.md"
+  ],
+  "formal_integration": "M2 event route/allocator/ADSR connection; shared release of CC64 constant after explicit group notice",
+  "M1_offline_tasks_overlap": false,
+  "repo_gate": {
+    "result": "ALL PASS",
+    "python_syntax_files": 92,
+    "log_sha256": "6f0cd596c2a876cf67169b8b6117d56a61cb00ac9434fc83edd1c4d260243ead"
+  }
+}
