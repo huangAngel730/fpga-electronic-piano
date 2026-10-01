@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------------
 // midi_input.sv
 // 标准 MIDI 数字接收链路：
-//   隔离/电平转换后的 RX -> UART 31250 8N1 -> MIDI 解析 -> 事件 FIFO。
+//   RX -> UART 31250 8N1 -> MIDI解析 -> 离散FIFO / Pitch与CC1限速合并。
 //
 // 光耦或电平转换属于外部硬件；严禁把 5 V MIDI/UART 信号直接接入 FPGA。
 // -----------------------------------------------------------------------------
@@ -48,7 +48,8 @@ module midi_input #(
 
     midi_event_parser #(
         .LOCAL_FIFO_DEPTH (LOCAL_FIFO_DEPTH),
-        .SOURCE_ID         (SOURCE_ID)
+        .SOURCE_ID         (SOURCE_ID),
+        .CLK_HZ            (CLK_HZ)
     ) u_midi_event_parser (
         .clk                       (clk),
         .rst_n                     (rst_n),

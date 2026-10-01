@@ -254,7 +254,7 @@ module tb_midi_input;
         // Running Status, without producing an event or desynchronizing notes.
         received_before = received_count;
         send_midi_byte(8'hB0);
-        send_midi_byte(8'h01);
+        send_midi_byte(8'h02);
         send_midi_byte(8'h7F);
         send_midi_byte(8'h41);
         send_midi_byte(8'h01);

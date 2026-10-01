@@ -2,7 +2,7 @@
 // midi_event_parser.sv
 // 把 MIDI 字节流转换成项目统一的 64 位演奏事件。
 //
-// 支持：Note On、Note Off、CC64、Velocity=0 转 Note Off、Running Status、
+// 支持：Note On/Off、CC64、Pitch Bend/CC1、Velocity=0、Running Status、
 // F8..FF 实时字节穿插、System Common/SysEx 跳过，以及本地事件 FIFO。
 //
 // 本模块只接收已经解码的 UART 字节，不绑定实体引脚，也不产生派生时钟。
@@ -11,7 +11,8 @@
 
 module midi_event_parser #(
     parameter integer     LOCAL_FIFO_DEPTH = 8,
-    parameter logic [3:0] SOURCE_ID         = 4'd0
+    parameter logic [3:0] SOURCE_ID         = 4'd0,
+    parameter integer     CLK_HZ           = 50_000_000
 ) (
     input  logic                               clk,
     input  logic                               rst_n,
@@ -53,6 +54,32 @@ module midi_event_parser #(
     logic               parser_error_pulse;
     logic               fifo_overflow_pulse;
 
+    // SOURCE_ID is fixed per parser. These are transport pending slots, not
+    // the system's accepted source/channel performance-control state table.
+    localparam integer CONTROL_INTERVAL = (CLK_HZ + 999) / 1000;
+    localparam integer RATE_WIDTH = (CONTROL_INTERVAL <= 1) ? 1 :
+                                   $clog2(CONTROL_INTERVAL);
+    logic [RATE_WIDTH-1:0] control_cooldown;
+    logic [31:0] control_pending;
+    logic [11:0] pending_value [0:31];
+    logic [15:0] mod_sent_valid;
+    logic [11:0] mod_sent_value [0:15];
+    logic control_locked;
+    logic [4:0] locked_index, round_robin_index;
+    performance_event_t locked_event;
+    wire parsed_control = parsed_event_valid &&
+        ((parsed_event_data.event_type == EVENT_PITCH_BEND &&
+          parsed_event_data.control_id == CTRL_PITCH_BEND) ||
+         (parsed_event_data.event_type == EVENT_CONTROL_CHANGE &&
+          parsed_event_data.control_id == CTRL_MODULATION));
+    wire [4:0] parsed_control_index = {parsed_event_data.channel,
+                                    parsed_event_data.control_id == CTRL_MODULATION};
+    wire parsed_discrete = parsed_event_valid && !parsed_control;
+    logic selected_valid;
+    logic [4:0] selected_index;
+    logic [4:0] scan_index;
+    integer control_scan, control_reset;
+
     integer comb_fifo_index;
     integer seq_fifo_index;
 
@@ -88,8 +115,8 @@ module midi_event_parser #(
         end
     endfunction
 
-    // 收齐两个数据字节后生成事件。CC64使用v1.6公共构造函数；
-    // 其他CC仍完整消费但不输出，不能把控制编号64直接当公共control_id。
+    // 收齐两个数据字节后生成事件，使用冻结公共映射函数。
+    // 仅CC1/CC64受支持；原始CC编号不能直接用作公共control_id。
     always_comb begin
         parsed_event_valid = 1'b0;
         parsed_event_data  = '0;
@@ -114,6 +141,22 @@ module midi_event_parser #(
                 parsed_event_data = audio_defs_pkg::make_sustain_event(
                     SOURCE_ID, running_status[3:0], midi_byte[6:0]
                 );
+            end else if (running_status[7:4] == 4'hE) begin
+                parsed_event_valid = 1'b1;
+                parsed_event_data.event_type = EVENT_PITCH_BEND;
+                parsed_event_data.source_id = SOURCE_ID;
+                parsed_event_data.channel = running_status[3:0];
+                parsed_event_data.control_id = CTRL_PITCH_BEND;
+                parsed_event_data.control_value = midi_bend_to_12bit(
+                    {midi_byte[6:0], first_data_byte});
+            end else if ((running_status[7:4] == 4'hB) &&
+                         (first_data_byte == 7'h01)) begin
+                parsed_event_valid = 1'b1;
+                parsed_event_data.event_type = EVENT_CONTROL_CHANGE;
+                parsed_event_data.source_id = SOURCE_ID;
+                parsed_event_data.channel = running_status[3:0];
+                parsed_event_data.control_id = CTRL_MODULATION;
+                parsed_event_data.control_value = midi_cc_to_12bit(midi_byte[6:0]);
             end
         end
     end
@@ -205,10 +248,12 @@ module midi_event_parser #(
 
     // FIFO 输出只依赖寄存状态，因此反压时 event_valid 和 event_data 保持稳定。
     always_comb begin
-        event_valid      = (fifo_count != {FIFO_COUNT_WIDTH{1'b0}});
+        event_valid      = control_locked || (fifo_count != {FIFO_COUNT_WIDTH{1'b0}});
         event_data       = '0;
         event_fifo_level = fifo_count;
-        if (event_valid) begin
+        if (control_locked) begin
+            event_data = locked_event;
+        end else if (event_valid) begin
             event_data = fifo_mem[0];
         end
     end
@@ -222,7 +267,7 @@ module midi_event_parser #(
             fifo_mem_next[comb_fifo_index] = fifo_mem[comb_fifo_index];
         end
 
-        if (event_valid && event_ready) begin
+        if (!control_locked && event_valid && event_ready) begin
             for (comb_fifo_index = 0; comb_fifo_index < LOCAL_FIFO_DEPTH - 1;
                  comb_fifo_index = comb_fifo_index + 1) begin
                 fifo_mem_next[comb_fifo_index] = fifo_mem[comb_fifo_index + 1];
@@ -231,7 +276,7 @@ module midi_event_parser #(
             fifo_count_next = fifo_count - 1'b1;
         end
 
-        if (parsed_event_valid) begin
+        if (parsed_discrete) begin
             if (fifo_count_next < LOCAL_FIFO_DEPTH) begin
                 fifo_mem_next[fifo_count_next] = parsed_event_data;
                 fifo_count_next = fifo_count_next + 1'b1;
@@ -264,6 +309,83 @@ module midi_event_parser #(
             if (fifo_overflow_pulse &&
                 (event_fifo_overflow_count != 32'hFFFF_FFFF)) begin
                 event_fifo_overflow_count <= event_fifo_overflow_count + 32'd1;
+            end
+        end
+    end
+
+    // Round-robin within continuous controls; discrete FIFO has priority.
+    always_comb begin
+        selected_valid = 1'b0;
+        selected_index = '0;
+        scan_index = '0;
+        for (control_scan = 0; control_scan < 32; control_scan = control_scan + 1) begin
+            scan_index = round_robin_index + 5'(control_scan);
+            if (!selected_valid && control_pending[scan_index]) begin
+                selected_valid = 1'b1;
+                selected_index = scan_index;
+            end
+        end
+    end
+
+    // At most one locked control event; only unpresented slots may be merged.
+    // Rate is measured from successful handshakes, so a stalled event cannot
+    // accumulate emission credits or produce a post-stall control burst.
+    always_ff @(posedge clk) begin
+        if (!rst_n) begin
+            control_cooldown <= '0;
+            control_pending <= '0;
+            mod_sent_valid <= '0;
+            control_locked <= 1'b0;
+            locked_index <= '0;
+            locked_event <= '0;
+            round_robin_index <= '0;
+            for (control_reset = 0; control_reset < 32; control_reset = control_reset + 1)
+                pending_value[control_reset] <= '0;
+            for (control_reset = 0; control_reset < 16; control_reset = control_reset + 1)
+                mod_sent_value[control_reset] <= '0;
+        end else begin
+            if (control_cooldown != 0)
+                control_cooldown <= control_cooldown - 1'b1;
+            if (control_locked && event_ready) begin
+                control_locked <= 1'b0;
+                locked_event <= '0;
+                control_cooldown <= RATE_WIDTH'(CONTROL_INTERVAL - 1);
+                if (locked_index[0]) begin
+                    mod_sent_valid[locked_index[4:1]] <= 1'b1;
+                    mod_sent_value[locked_index[4:1]] <= locked_event.control_value;
+                end
+            end
+            if (!control_locked && fifo_count == 0 && !parsed_discrete &&
+                control_cooldown == 0 && selected_valid &&
+                !(parsed_control && parsed_control_index == selected_index)) begin
+                control_locked <= 1'b1;
+                locked_index <= selected_index;
+                locked_event <= '0;
+                locked_event.event_type <= selected_index[0] ?
+                    EVENT_CONTROL_CHANGE : EVENT_PITCH_BEND;
+                locked_event.source_id <= SOURCE_ID;
+                locked_event.channel <= selected_index[4:1];
+                locked_event.control_id <= selected_index[0] ?
+                    CTRL_MODULATION : CTRL_PITCH_BEND;
+                locked_event.control_value <= pending_value[selected_index];
+                control_pending[selected_index] <= 1'b0;
+                round_robin_index <= selected_index + 5'd1;
+            end
+            if (parsed_control) begin
+                pending_value[parsed_control_index] <= parsed_event_data.control_value;
+                // Compare against the same-item in-flight value when present;
+                // otherwise the last acknowledged CC1. Reverting an unsent
+                // change cancels it without erasing the immutable in-flight event.
+                if (parsed_control_index[0] &&
+                    ((control_locked && locked_index == parsed_control_index) ?
+                     (locked_event.control_value == parsed_event_data.control_value) :
+                     (mod_sent_valid[parsed_control_index[4:1]] &&
+                      mod_sent_value[parsed_control_index[4:1]] ==
+                          parsed_event_data.control_value))) begin
+                    control_pending[parsed_control_index] <= 1'b0;
+                end else begin
+                    control_pending[parsed_control_index] <= 1'b1;
+                end
             end
         end
     end

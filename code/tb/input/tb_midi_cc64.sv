@@ -89,9 +89,9 @@ module tb_midi_cc64;
         check(read_index == 2048 && errors == 0 && overflows == 0,
               "all-channel sweep count/counters");
 
-        // CC1/CC123 do not output; following running CC64 stays aligned.
+        // CC2/CC123 do not output; following running CC64 stays aligned.
         before_count = read_index;
-        send_byte(8'hB3, 0); send_byte(8'h01, 0); send_byte(8'h7F, 0);
+        send_byte(8'hB3, 0); send_byte(8'h02, 0); send_byte(8'h7F, 0);
         send_byte(8'h7B, 0); send_byte(8'h00, 0);
         check(read_index == before_count, "unsupported CC emitted event");
         expect_cc(3, 64); send_byte(8'h40, 0); send_byte(8'h40, 0); drain();
