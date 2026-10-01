@@ -46,8 +46,6 @@ module visual_score_tracker #(
 
     localparam logic [Y_WIDTH-1:0] TRAVEL_Y_VALUE =
         TRAVEL_Y[Y_WIDTH-1:0];
-    localparam logic [63:0] PREVIEW_FRAMES_64 =
-        {32'd0, PREVIEW_FRAMES[31:0]};
     localparam logic [63:0] TRAVEL_Y_64 =
         {32'd0, TRAVEL_Y[31:0]};
 
@@ -71,7 +69,6 @@ module visual_score_tracker #(
 
     integer output_index;
     integer free_search_index;
-    integer match_search_index;
     integer state_index;
 
     function automatic logic [FRAME_WIDTH-1:0] absolute_frame_error(
@@ -99,28 +96,36 @@ module visual_score_tracker #(
         end
     endfunction
 
+    // The unsaturated branch has remaining_frames < PREVIEW_FRAMES. Keep
+    // full-width time comparisons, then narrow only this proven bounded value.
+    localparam integer REM_BITS_RAW = (PREVIEW_FRAMES <= 1) ? 1 : $clog2(PREVIEW_FRAMES);
+    localparam integer REM_BITS = (REM_BITS_RAW < FRAME_WIDTH) ? REM_BITS_RAW : FRAME_WIDTH;
+    localparam integer TRAVEL_BITS = (TRAVEL_Y < 1) ? 1 : $clog2(TRAVEL_Y + 64'd1);
+    localparam integer PRODUCT_BITS = REM_BITS + TRAVEL_BITS;
+    localparam integer DIVISOR_BITS = $clog2(PREVIEW_FRAMES + 64'd1);
+    localparam integer DIV_BITS = (PRODUCT_BITS > DIVISOR_BITS) ? PRODUCT_BITS : DIVISOR_BITS;
+
     function automatic logic [Y_WIDTH-1:0] calculate_y(
         input logic [FRAME_WIDTH-1:0] frame_value,
         input logic [FRAME_WIDTH-1:0] hit_frame_value
     );
         logic [FRAME_WIDTH-1:0] remaining_frames;
-        logic [63:0]            scaled_distance;
-        logic [63:0]            scaled_quotient;
+        logic [PRODUCT_BITS-1:0] scaled_distance;
+        logic [PRODUCT_BITS-1:0] scaled_quotient;
         begin
-            remaining_frames = {FRAME_WIDTH{1'b0}};
-            scaled_distance  = 64'd0;
-            scaled_quotient  = 64'd0;
-
+            remaining_frames = '0;
+            scaled_distance = '0;
+            scaled_quotient = '0;
             if (frame_value >= hit_frame_value) begin
-                calculate_y = {Y_WIDTH{1'b0}};
+                calculate_y = '0;
             end else begin
                 remaining_frames = hit_frame_value - frame_value;
                 if (remaining_frames >= PREVIEW_FRAMES) begin
                     calculate_y = TRAVEL_Y_VALUE;
                 end else begin
-                    scaled_distance = remaining_frames * TRAVEL_Y;
-                    scaled_quotient = scaled_distance / PREVIEW_FRAMES_64;
-                    calculate_y = scaled_quotient[Y_WIDTH-1:0];
+                    scaled_distance = remaining_frames[REM_BITS-1:0] * PRODUCT_BITS'(TRAVEL_Y);
+                    scaled_quotient = DIV_BITS'(scaled_distance) / DIV_BITS'(PREVIEW_FRAMES);
+                    calculate_y = Y_WIDTH'(scaled_quotient);
                 end
             end
         end
@@ -149,32 +154,42 @@ module visual_score_tracker #(
         score_accept = score_valid && score_ready;
     end
 
-    // A live Note On selects the nearest unjudged score note of the same pitch.
-    // Strictly smaller comparison gives deterministic low-slot tie breaking.
+    // Parallel absolute errors feed a balanced nearest-match tree. The left
+    // child contains lower slot indices and wins equal errors, preserving the
+    // original strictly-smaller scan including an eligible all-ones error.
+    localparam integer MATCH_LEVELS = (SLOT_COUNT <= 1) ? 0 : $clog2(SLOT_COUNT);
+    localparam integer MATCH_LEAVES = 1 << MATCH_LEVELS;
+    localparam integer MATCH_INDEX_BITS = (SLOT_COUNT <= 1) ? 1 : $clog2(SLOT_COUNT);
+    wire tree_valid [1:2*MATCH_LEAVES-1];
+    wire [FRAME_WIDTH-1:0] tree_error [1:2*MATCH_LEAVES-1];
+    wire [MATCH_INDEX_BITS-1:0] tree_index [1:2*MATCH_LEAVES-1];
+    for (genvar slot = 0; slot < MATCH_LEAVES; slot = slot + 1) begin : g_match_leaf
+        if (slot < SLOT_COUNT) begin : g_real
+            assign tree_valid[MATCH_LEAVES+slot] = slot_used_mem[slot] &&
+                !judged_mem[slot] && note_number_mem[slot] == performance_data.note_number;
+            assign tree_error[MATCH_LEAVES+slot] = absolute_frame_error(effective_frame, hit_frame_mem[slot]);
+            assign tree_index[MATCH_LEAVES+slot] = MATCH_INDEX_BITS'(slot);
+        end else begin : g_padding
+            assign tree_valid[MATCH_LEAVES+slot] = 1'b0;
+            assign tree_error[MATCH_LEAVES+slot] = '1;
+            assign tree_index[MATCH_LEAVES+slot] = '0;
+        end
+    end
+    for (genvar node = 1; node < MATCH_LEAVES; node = node + 1) begin : g_match_node
+        wire choose_left = tree_valid[2*node] &&
+            (!tree_valid[2*node+1] || tree_error[2*node] <= tree_error[2*node+1]);
+        assign tree_valid[node] = tree_valid[2*node] || tree_valid[2*node+1];
+        assign tree_error[node] = choose_left ? tree_error[2*node] : tree_error[2*node+1];
+        assign tree_index[node] = choose_left ? tree_index[2*node] : tree_index[2*node+1];
+    end
     always_comb begin
-        match_valid      = 1'b0;
+        match_valid = 1'b0;
         match_slot_index = 0;
-        match_error      = {FRAME_WIDTH{1'b1}};
-
-        if (performance_fire &&
-            (performance_data.event_type == EVENT_NOTE_ON)) begin
-            for (match_search_index = 0; match_search_index < SLOT_COUNT;
-                 match_search_index = match_search_index + 1) begin
-                if (slot_used_mem[match_search_index] &&
-                    !judged_mem[match_search_index] &&
-                    (note_number_mem[match_search_index] ==
-                     performance_data.note_number) &&
-                    (!match_valid ||
-                     (absolute_frame_error(effective_frame,
-                                           hit_frame_mem[match_search_index]) <
-                      match_error))) begin
-                    match_valid      = 1'b1;
-                    match_slot_index = match_search_index;
-                    match_error      = absolute_frame_error(
-                        effective_frame, hit_frame_mem[match_search_index]
-                    );
-                end
-            end
+        match_error = '1;
+        if (performance_fire && performance_data.event_type == EVENT_NOTE_ON && tree_valid[1]) begin
+            match_valid = 1'b1;
+            match_slot_index = int'(tree_index[1]);
+            match_error = tree_error[1];
         end
     end
 

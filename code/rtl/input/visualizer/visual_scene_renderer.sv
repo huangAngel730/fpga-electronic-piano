@@ -1,4 +1,5 @@
-// M3 pixel renderer. It contains no clock, CDC, HDMI or TMDS logic.
+// Pixel renderer; M2 constant-geometry timing optimization of M3 74cae4c.
+// Contains no clock, CDC, HDMI or TMDS logic; RGB remains combinational.
 `timescale 1ns/1ps
 module visual_scene_renderer #(
     parameter integer LIVE_SLOT_COUNT = 8,
@@ -31,124 +32,120 @@ module visual_scene_renderer #(
     output logic [7:0] rgb_g,
     output logic [7:0] rgb_b
 );
-    // Convert X to a lane with one fixed-point reciprocal multiply.  The
-    // quotient is corrected once, which is sufficient because active X is
-    // 16-bit and the reciprocal keeps 20 fractional bits.  This replaces the
-    // per-pixel divider used by the original renderer.
-    localparam integer LANE_RECIP_SHIFT = 20;
-    localparam integer LANE_RECIP_SCALE = 1_048_576;
-    localparam integer LANE_RECIP_MULT =
-        (NOTE_COUNT * LANE_RECIP_SCALE) / SCREEN_WIDTH;
-
-    integer lane;
-    integer lane_scaled_left;
-    integer lane_scaled_right;
-    integer note_value;
-    integer velocity_value;
+    logic [7:0] live_selected_velocity, score_selected_velocity;
+    logic score_selected_hit, score_selected_miss;
+    wire [7:0] live_winner, score_winner;
+    integer selected_index;
     integer px;
     integer py;
-    integer scaled_pixel;
-    integer scaled_pixel_plus_one;
-    integer scaled_pixel_plus_two;
     integer i;
-    integer selected_live_slot;
-    integer selected_score_slot;
-    logic lane_left_edge;
-    logic lane_right_edge;
     logic [7:0] live_pixel_match;
     logic [7:0] score_pixel_match;
+    wire [NOTE_COUNT-1:0] lane_match, lane_body, lane_left, lane_right;
+    wire [NOTE_COUNT-1:0] lane_black, lane_key_down;
+    wire [6:0] lane_note_term [0:NOTE_COUNT-1];
+    logic [6:0] pixel_note;
+    integer lane_index;
 
-    function automatic [15:0] lane_for_x(input logic [15:0] x_value);
-        logic [47:0] reciprocal_product;
-        logic [31:0] scaled_x;
-        logic [31:0] candidate;
-        begin
-            reciprocal_product = $unsigned(x_value) * LANE_RECIP_MULT;
-            candidate = reciprocal_product >> LANE_RECIP_SHIFT;
-            scaled_x = $unsigned(x_value) * NOTE_COUNT;
-
-            // floor(reciprocal) can underestimate the exact quotient by one.
-            if (((candidate + 1) * SCREEN_WIDTH) <= scaled_x)
-                candidate = candidate + 1;
-            if (candidate >= NOTE_COUNT)
-                candidate = NOTE_COUNT - 1;
-            lane_for_x = candidate[15:0];
+    // All divisions/products below are elaboration constants. A pixel belongs
+    // to [ceil(k*W/N), ceil((k+1)*W/N)); borders retain the old floor(W*k/N)
+    // convention, including its fractional-boundary pixel. Narrow lanes may
+    // have no interior. Empty intervals do not match, even when N exceeds W.
+    for (genvar k = 0; k < NOTE_COUNT; k = k + 1) begin : g_lane
+        localparam integer START_X = (k*SCREEN_WIDTH + NOTE_COUNT-1)/NOTE_COUNT;
+        localparam integer END_X = ((k+1)*SCREEN_WIDTH + NOTE_COUNT-1)/NOTE_COUNT;
+        localparam integer LEFT_X = k*SCREEN_WIDTH/NOTE_COUNT;
+        localparam integer RIGHT_X = (k+1)*SCREEN_WIDTH/NOTE_COUNT;
+        localparam integer NOTE = BASE_NOTE + k;
+        assign lane_match[k] = pixel_x >= START_X && pixel_x < END_X;
+        if (RIGHT_X >= LEFT_X + 3) begin : g_body
+            assign lane_body[k] = lane_match[k] &&
+                pixel_x >= LEFT_X + 1 && pixel_x <= RIGHT_X - 2;
+        end else begin : g_empty_body
+            assign lane_body[k] = 1'b0;
         end
-    endfunction
-
-    function automatic logic [127:0] make_black_note_mask;
-        integer note_index;
-        integer pitch_class;
-        begin
-            make_black_note_mask = 128'd0;
-            for (note_index = 0; note_index < 128;
-                 note_index = note_index + 1) begin
-                pitch_class = note_index % 12;
-                if (pitch_class == 1 || pitch_class == 3 ||
-                    pitch_class == 6 || pitch_class == 8 ||
-                    pitch_class == 10)
-                    make_black_note_mask[note_index] = 1'b1;
-            end
+        assign lane_left[k] = lane_match[k] && pixel_x == LEFT_X;
+        if (RIGHT_X > 0) begin : g_right
+            assign lane_right[k] = lane_match[k] && pixel_x == RIGHT_X - 1;
+        end else begin : g_empty_right
+            assign lane_right[k] = 1'b0;
         end
-    endfunction
+        assign lane_note_term[k] = {7{lane_match[k]}} & 7'(NOTE);
+        assign lane_black[k] = lane_match[k] &&
+            (NOTE%12 == 1 || NOTE%12 == 3 || NOTE%12 == 6 ||
+             NOTE%12 == 8 || NOTE%12 == 10);
+        assign lane_key_down[k] = lane_match[k] && key_down[NOTE];
+    end
+    // Parallel one-hot decode; no variable multiplication or 128:1 key mux.
+    always_comb begin
+        pixel_note = 7'd0;
+        for (lane_index = 0; lane_index < NOTE_COUNT; lane_index = lane_index + 1)
+            pixel_note = pixel_note | lane_note_term[lane_index];
+    end
+    wire pixel_note_body = |lane_body;
+    wire lane_left_edge = |lane_left;
+    wire lane_right_edge = |lane_right;
 
-    localparam logic [127:0] BLACK_NOTE_MASK = make_black_note_mask();
-
-    // Preserve the original rule that a higher-numbered occupied slot draws
-    // over a lower-numbered slot, but select it with one compact priority
-    // encoder instead of cascading the RGB assignment through every slot.
-    function automatic integer highest_set_bit8(input logic [7:0] value);
-        begin
-            casez (value)
-                8'b1???????: highest_set_bit8 = 7;
-                8'b01??????: highest_set_bit8 = 6;
-                8'b001?????: highest_set_bit8 = 5;
-                8'b0001????: highest_set_bit8 = 4;
-                8'b00001???: highest_set_bit8 = 3;
-                8'b000001??: highest_set_bit8 = 2;
-                8'b0000001?: highest_set_bit8 = 1;
-                8'b00000001: highest_set_bit8 = 0;
-                default:     highest_set_bit8 = -1;
-            endcase
+    for (genvar slot = 0; slot < 8; slot = slot + 1) begin : g_winner
+        if (slot == 7) begin : g_top
+            assign live_winner[slot] = live_pixel_match[slot];
+            assign score_winner[slot] = score_pixel_match[slot];
+        end else begin : g_lower
+            assign live_winner[slot] = live_pixel_match[slot] &&
+                !(|live_pixel_match[7:slot+1]);
+            assign score_winner[slot] = score_pixel_match[slot] &&
+                !(|score_pixel_match[7:slot+1]);
         end
-    endfunction
+    end
+
+    // Exactly one matching slot wins: later slots overwrite earlier slots.
+    // Fixed part-selects avoid index*10 arithmetic and variable barrel muxes.
+    always_comb begin
+        live_selected_velocity = 8'd0;
+        score_selected_velocity = 8'd0;
+        score_selected_hit = 1'b0;
+        score_selected_miss = 1'b0;
+        for (selected_index = 0; selected_index < LIVE_SLOT_COUNT; selected_index = selected_index + 1)
+            live_selected_velocity = live_selected_velocity |
+                ({8{live_winner[selected_index]}} & live_velocity[selected_index*10+2 +: 8]);
+        for (selected_index = 0; selected_index < SCORE_SLOT_COUNT; selected_index = selected_index + 1) begin
+            score_selected_velocity = score_selected_velocity |
+                ({8{score_winner[selected_index]}} & score_velocity[selected_index*10+2 +: 8]);
+            score_selected_hit = score_selected_hit | (score_winner[selected_index] && score_hit[selected_index]);
+            score_selected_miss = score_selected_miss | (score_winner[selected_index] && score_miss[selected_index]);
+        end
+    end
+
+    // Match terms never depend on RGB or selected data; avoid a combinational
+    // feedback through the winner stage by keeping them in a separate process.
+    always_comb begin
+        live_pixel_match = 8'd0;
+        score_pixel_match = 8'd0;
+        for (i = 0; i < LIVE_SLOT_COUNT; i = i + 1)
+            live_pixel_match[i] = live_valid[i] && pixel_note_body &&
+                live_note_number[i*7 +: 7] == pixel_note &&
+                int'(pixel_y) >= int'(live_y[i*Y_WIDTH +: Y_WIDTH]) &&
+                int'(pixel_y) < int'(live_y[i*Y_WIDTH +: Y_WIDTH]) + 10;
+        for (i = 0; i < SCORE_SLOT_COUNT; i = i + 1)
+            score_pixel_match[i] = score_valid[i] && pixel_note_body &&
+                score_note_number[i*7 +: 7] == pixel_note &&
+                int'(pixel_y) >= ((int'(score_y[i*Y_WIDTH +: Y_WIDTH]) >= JUDGE_Y) ?
+                    0 : JUDGE_Y - int'(score_y[i*Y_WIDTH +: Y_WIDTH])) &&
+                int'(pixel_y) < ((int'(score_y[i*Y_WIDTH +: Y_WIDTH]) >= JUDGE_Y) ?
+                    12 : JUDGE_Y - int'(score_y[i*Y_WIDTH +: Y_WIDTH]) + 12);
+    end
 
     always_comb begin
         rgb_r = 8'h00;
         rgb_g = 8'h00;
         rgb_b = 8'h00;
-        lane = 0;
-        lane_scaled_left = 0;
-        lane_scaled_right = 0;
-        note_value = 0;
-        velocity_value = 0;
         px = int'(pixel_x);
         py = int'(pixel_y);
-        scaled_pixel = px * NOTE_COUNT;
-        scaled_pixel_plus_one = (px + 1) * NOTE_COUNT;
-        scaled_pixel_plus_two = (px + 2) * NOTE_COUNT;
-        lane_left_edge = 1'b0;
-        lane_right_edge = 1'b0;
-        live_pixel_match = 8'd0;
-        score_pixel_match = 8'd0;
-        selected_live_slot = -1;
-        selected_score_slot = -1;
 
         if (data_enable && px < SCREEN_WIDTH && py < SCREEN_HEIGHT) begin
             rgb_r = 8'h08;
             rgb_g = 8'h10;
             rgb_b = 8'h20;
-            lane = int'(lane_for_x(pixel_x));
-            lane_scaled_left = lane * SCREEN_WIDTH;
-            lane_scaled_right = (lane + 1) * SCREEN_WIDTH;
-            // These comparisons are exactly equivalent to checking X against
-            // floor(lane*width/count), without a run-time divider.
-            lane_left_edge =
-                (scaled_pixel <= lane_scaled_left) &&
-                (lane_scaled_left < scaled_pixel_plus_one);
-            lane_right_edge =
-                (scaled_pixel_plus_one <= lane_scaled_right) &&
-                (lane_scaled_right < scaled_pixel_plus_two);
             if (lane_left_edge) begin
                 rgb_r = 8'h18;
                 rgb_g = 8'h28;
@@ -162,75 +159,33 @@ module visual_scene_renderer #(
             end
 
             if (!display_mode) begin
-                // The match terms are independent and synthesize in parallel.
-                for (i = 0; i < LIVE_SLOT_COUNT; i = i + 1) begin
-                    live_pixel_match[i] = live_valid[i] &&
-                        int'(live_note_number[i*7 +: 7]) >= BASE_NOTE &&
-                        int'(live_note_number[i*7 +: 7]) <
-                            BASE_NOTE + NOTE_COUNT &&
-                        scaled_pixel >
-                            ((int'(live_note_number[i*7 +: 7]) - BASE_NOTE) *
-                             SCREEN_WIDTH) &&
-                        scaled_pixel_plus_two <=
-                            ((int'(live_note_number[i*7 +: 7]) - BASE_NOTE + 1) *
-                             SCREEN_WIDTH) &&
-                        py >= int'(live_y[i*Y_WIDTH +: Y_WIDTH]) &&
-                        py < int'(live_y[i*Y_WIDTH +: Y_WIDTH]) + 10;
-                end
-                selected_live_slot = highest_set_bit8(live_pixel_match);
-                if (selected_live_slot >= 0) begin
-                    velocity_value = int'(live_velocity[
-                        selected_live_slot*10 +: 10]) >> 2;
-                    // velocity_value is 0..255 after the existing
+                if (|live_pixel_match) begin
+                    // Selected velocity is 0..255 after the existing
                     // quarter-scale conversion; all sums fit in U8.
-                    rgb_r = 48 + (velocity_value >> 1);
-                    rgb_g = 112 + (velocity_value >> 1);
-                    rgb_b = 160 + (velocity_value >> 2);
+                    rgb_r = 48 + (live_selected_velocity >> 1);
+                    rgb_g = 112 + (live_selected_velocity >> 1);
+                    rgb_b = 160 + (live_selected_velocity >> 2);
                 end
             end else begin
-                // score_y is distance above the judgement line (positive is
-                // upward); raster Y grows downward from the screen top.
-                for (i = 0; i < SCORE_SLOT_COUNT; i = i + 1) begin
-                    score_pixel_match[i] = score_valid[i] &&
-                        int'(score_note_number[i*7 +: 7]) >= BASE_NOTE &&
-                        int'(score_note_number[i*7 +: 7]) <
-                            BASE_NOTE + NOTE_COUNT &&
-                        scaled_pixel >
-                            ((int'(score_note_number[i*7 +: 7]) - BASE_NOTE) *
-                             SCREEN_WIDTH) &&
-                        scaled_pixel_plus_two <=
-                            ((int'(score_note_number[i*7 +: 7]) - BASE_NOTE + 1) *
-                             SCREEN_WIDTH) &&
-                        py >= ((int'(score_y[i*Y_WIDTH +: Y_WIDTH]) >= JUDGE_Y) ?
-                               0 : JUDGE_Y -
-                               int'(score_y[i*Y_WIDTH +: Y_WIDTH])) &&
-                        py < ((int'(score_y[i*Y_WIDTH +: Y_WIDTH]) >= JUDGE_Y) ?
-                              12 : JUDGE_Y -
-                              int'(score_y[i*Y_WIDTH +: Y_WIDTH]) + 12);
-                end
-                selected_score_slot = highest_set_bit8(score_pixel_match);
-                if (selected_score_slot >= 0) begin
-                    velocity_value = int'(score_velocity[
-                        selected_score_slot*10 +: 10]) >> 2;
-                    if (score_hit[selected_score_slot]) begin
+                if (|score_pixel_match) begin
+                    if (score_selected_hit) begin
                         rgb_r = 8'h30;
                         rgb_g = 8'he8;
                         rgb_b = 8'h70;
-                    end else if (score_miss[selected_score_slot]) begin
+                    end else if (score_selected_miss) begin
                         rgb_r = 8'he8;
                         rgb_g = 8'h38;
                         rgb_b = 8'h38;
                     end else begin
-                        rgb_r = 112 + (velocity_value >> 1);
-                        rgb_g = 72 + (velocity_value >> 2);
-                        rgb_b = 176 + (velocity_value >> 2);
+                        rgb_r = 112 + (score_selected_velocity >> 1);
+                        rgb_g = 72 + (score_selected_velocity >> 2);
+                        rgb_b = 176 + (score_selected_velocity >> 2);
                     end
                 end
             end
 
             if (py >= KEYBOARD_TOP) begin
-                note_value = BASE_NOTE + lane;
-                if (BLACK_NOTE_MASK[note_value]) begin
+                if (|lane_black) begin
                     rgb_r = 8'h18;
                     rgb_g = 8'h1c;
                     rgb_b = 8'h24;
@@ -239,7 +194,7 @@ module visual_scene_renderer #(
                     rgb_g = 8'he8;
                     rgb_b = 8'hdc;
                 end
-                if (key_down[note_value]) begin
+                if (|lane_key_down) begin
                     rgb_r = 8'h20;
                     rgb_g = 8'hc8;
                     rgb_b = 8'he8;
