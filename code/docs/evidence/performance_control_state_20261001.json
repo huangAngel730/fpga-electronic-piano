@@ -1,0 +1,112 @@
+{
+  "baseline": "30339fa",
+  "scope": "standalone M2 control bank only; not formal top/GPRJ/FCW/LFO/MIDI",
+  "vectors": 17455,
+  "coverage": {
+    "reset": 1,
+    "defaults": 1,
+    "all_256_identities": 768,
+    "inactive_defaults": 256,
+    "all_signed_pitch_patterns": 4096,
+    "all_unsigned_mod_patterns": 4096,
+    "range_legal_and_reserved": 4096,
+    "unaccepted_backpressure": 25,
+    "accepted_after_backpressure": 5,
+    "ignored_or_note_lifecycle": 10,
+    "release_same_identity": 1,
+    "steal_changes_query_not_snapshot": 1,
+    "steal_new_snapshot": 1,
+    "generation_wrap": 1,
+    "random_atomic_snapshot": 4096,
+    "final_reset": 1
+  },
+  "RTL_pass": true,
+  "source_sha256": {
+    "code\\rtl\\common\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+    "code\\rtl\\board\\performance_control_state.sv": "a7399a2473e3b8f30aea445e44d7c516140b9156717b254cb1984920f17346fb",
+    "code\\tb\\board\\tb_performance_control_state.sv": "43b99280c608d1e72009e40b2b926be884c050ddd2701401c4e06772f55273fb"
+  },
+  "vector_sha256": "b52edf6980b385833196310620a289e08854ec9f03b7f3e1c69f8322f74bbc54",
+  "formal_integration": false,
+  "new_clock_or_public_interface": false,
+  "new_bitstream": false,
+  "wrong_pitch_expected_rejected": true,
+  "Yosys_structural_synth": {
+    "passed": true,
+    "cell_types": {
+      "$logic_or": 2,
+      "$eq": 8,
+      "$bwmux": 3,
+      "$logic_and": 17,
+      "$mux": 62,
+      "$demux": 2,
+      "$not": 5,
+      "$lt": 1,
+      "$ge": 5,
+      "$le": 1,
+      "$gt": 1,
+      "$bmux": 12,
+      "$logic_not": 1,
+      "$adffe": 777,
+      "$adff": 2
+    },
+    "sequential_bits": 7739,
+    "scope": "generic structural cells, not Gowin Logic/BSRAM/DSP or physical Fmax"
+  },
+  "logs_sha256": {
+    "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gowin_synth.log": "fabec0f5fc12e5ffbcc0411549f93036dbe628ff59bfd2eb276f6117265a26ce",
+    "negative.log": "09a6d0686ba66a006d6377d87d880d13ef62481160d19032f7ccf5be8d92eae0",
+    "RTL.log": "dafeb573e941112d9fad661e3236de47383fbe6b8f50d71899351f25c1c6b2fb",
+    "synth.log": "a5fd8386287571106064b19962fb3bbdbc4a7750b53fd02092e7082d23c6f229"
+  },
+  "Gowin_synthesis": {
+    "passed": true,
+    "tool": "Gowin V1.9.11.03 Education",
+    "device": "GW5AT-LV60PG484AC1/I0",
+    "scope": "standalone unconstrained synthesis only, includes observe wrapper; not formal timing",
+    "Logic": 7851,
+    "Register": 1633,
+    "BSRAM": 0,
+    "DSP": 0,
+    "RAM16": 512,
+    "Latch": 0,
+    "controller_hierarchy": {
+      "name": "u_controls",
+      "Register": "1601",
+      "Alu": "32",
+      "Lut": "4231",
+      "Ssram": "512",
+      "T_Register": "1601(1601)",
+      "T_Alu": "32(32)",
+      "T_Lut": "4231(4231)",
+      "T_Ssram": "512(512)"
+    },
+    "probe_source_sha256": "8a99b15a6cf8578f6c11a3d05c7457bebe8fdc4622dcde1b29dbc025b21d88e6",
+    "inputs": {
+      "stage": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\performance_control_state_20261001\\gowin_probe",
+      "scope": "synthesis-only standalone probe, not formal timing",
+      "sources_sha256": {
+        "code\\rtl\\common\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "code\\rtl\\board\\performance_control_state.sv": "a7399a2473e3b8f30aea445e44d7c516140b9156717b254cb1984920f17346fb",
+        "code\\tb\\board\\performance_control_probe.sv": "8a99b15a6cf8578f6c11a3d05c7457bebe8fdc4622dcde1b29dbc025b21d88e6"
+      }
+    },
+    "report_sha256": "9f8f5d7fde8a1a19cc9e3a5011aaa8b62fbeada9eca4ee30bcd5a29d92659ebb",
+    "hierarchy_sha256": "60bb7c465793c2482af569f3c97dbac61904fca73f876b2151df27c2db77502d",
+    "log_sha256": "fabec0f5fc12e5ffbcc0411549f93036dbe628ff59bfd2eb276f6117265a26ce"
+  },
+  "repo_gate": {
+    "result": "ALL PASS",
+    "python_syntax_files": 111,
+    "T007_T019": "PASS",
+    "log_sha256": "fd00e3436242cf00db3a72684ce666e8a6211d8711f1b3c8cb5d98c595cf0611"
+  },
+  "final_sources_sha256": {
+    "code/rtl/board/performance_control_state.sv": "a7399a2473e3b8f30aea445e44d7c516140b9156717b254cb1984920f17346fb",
+    "code/scripts/run_performance_control_state.py": "6d508fdef57c346e1db88c620599ff88e5182598e7bbfdea6d135bbfead28f1b",
+    "code/scripts/prepare_performance_control_probe.py": "9421ae99147bdc7f43989ed427e1bd7e174e7913834e2eec75ccdafce258fb08",
+    "code/tb/board/tb_performance_control_state.sv": "43b99280c608d1e72009e40b2b926be884c050ddd2701401c4e06772f55273fb",
+    "code/tb/board/performance_control_probe.sv": "8a99b15a6cf8578f6c11a3d05c7457bebe8fdc4622dcde1b29dbc025b21d88e6"
+  }
+}
