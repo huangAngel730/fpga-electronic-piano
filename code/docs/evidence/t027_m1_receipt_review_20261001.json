@@ -1,0 +1,78 @@
+{
+  "receipt": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\t027_m1_review_20261001\\received",
+  "source_hashes": {
+    "code/model/t027_timbre_model.py": "e3461f1fc451fe6e70914f7b2dc1be2e9789a2f552a493dcfa7dd6a7b4b40eba",
+    "code/model/test_t027_timbre.py": "59f34db503c97e20ebd0285bfa8b3218d8d5511dff164d9edcedec82f428d297",
+    "code/model/generate_t027_roms.py": "43ad807f7c1658808068d90a100de392472135a38227c96e77feccc38c66758d",
+    "code/model/generated/sine_wavetable.hex": "648561414b138e97ec5ae1d989111afaa94e94619f0f6ff5b8c07a46a841aa15",
+    "code/model/generated/triangle_wavetable.hex": "521b04a4310c8fbb93666b41c97f863cf87ff68bf6f836c17ea1bdc2c311d7bf",
+    "code/rtl/audio/timbre_oscillator.sv": "ba05776f5ebd5c0e1a8c2edfb2e7b95ec7d5b8f88da8916767fc790695aca58f"
+  },
+  "checks": {
+    "m1_claimed_suite": {
+      "pass": true,
+      "exit_code": 0
+    },
+    "rom_reproducibility": {
+      "pass": true
+    },
+    "frozen_waveform_amplitude": {
+      "pass": false
+    },
+    "distinct_third_harmonic": {
+      "pass": true
+    },
+    "behavior_tests_have_assertions": {
+      "pass": false
+    },
+    "rtl_compile": {
+      "pass": true,
+      "exit_code": 0
+    },
+    "rtl_behavior": {
+      "pass": false,
+      "exit_code": 1
+    }
+  },
+  "waveforms": {
+    "sine": {
+      "length": 1024,
+      "minimum": -32768,
+      "maximum": 32767,
+      "rom_matches_generator": true,
+      "thd_harmonics_2_through_10": 1.1514209565996056e-06,
+      "third_relative_to_fundamental": 7.606329906035244e-07
+    },
+    "triangle": {
+      "length": 1024,
+      "minimum": -32768,
+      "maximum": 32767,
+      "rom_matches_generator": true,
+      "thd_harmonics_2_through_10": 0.12047725216319172,
+      "third_relative_to_fundamental": 0.11110631743878267
+    }
+  },
+  "formal_waveform": {
+    "minimum": -8192,
+    "maximum": 8192
+  },
+  "m1_test_assertion_counts": {
+    "test_wavetable_generation": 10,
+    "test_harmonic_difference": 3,
+    "test_timbre_switching": 0,
+    "test_fundamental_frequency_invariance": 0,
+    "test_polyphony_independence": 0
+  },
+  "rtl_result": [
+    "RESULT checks=169 stream_errors=77 sparse_errors=0 active_switch_errors=1 release_errors=1 phase_errors=1 total_errors=80"
+  ],
+  "accepted": false,
+  "package": {
+    "filename": "M1_T027_Pitch_Mod_T028_离线工作包_0e29e22_20261001.11.15.zip",
+    "sha256": "47cd1665a90911caedef1b8d3198289d7f86e136fd0acadea5abf79eb5b831b5",
+    "baseline": "0e29e223d7beed2cc6af50f0228db615f571bf96",
+    "baseline_files_changed": 0,
+    "new_delivery_files": 6
+  },
+  "boundary": "M2 receipt review only. Candidate sources kept in ignored output; production RTL/public interface/ROM not replaced. No Gowin/PnR/board claim."
+}
