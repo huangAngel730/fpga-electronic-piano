@@ -1,0 +1,633 @@
+{
+  "date": "2026-10-02",
+  "baseline": "251cd8d",
+  "scope": "M2 independent serialized control snapshot optimization; no formal top/GPRJ or algorithm edits",
+  "candidate_logic": "one29-bit256identity RAM read/write with initialized256bit logical reset",
+  "handshake_contract": {
+    "request_accept_to_result_valid_cycles": 4,
+    "50MHz_latency_ns": 80,
+    "event_update_blocked_cycles_per_read": 4,
+    "held_snapshot_immutable": true,
+    "old_parallel_snapshot_reference_same_accepted_events": true,
+    "interface_is_not_drop_in_parallel_module": true
+  },
+  "simulation": {
+    "date": "2026-10-02",
+    "baseline": "251cd8d",
+    "scope": "standalone optimized handshaking candidate, not formal replacement",
+    "vectors": 27525,
+    "coverage": {
+      "reset": 1,
+      "reset_defaults": 1,
+      "input_tags_change_during_scan": 4672,
+      "result_ack": 1168,
+      "all_identities_same_edge_write_snapshot": 768,
+      "all_4096_pitch_bitpatterns": 4096,
+      "pattern_snapshot": 384,
+      "all_4096_mod_values": 4096,
+      "all_4096_range_legal_invalid": 4096,
+      "initial_lifecycle": 1,
+      "begin_held_snapshot": 1,
+      "event_backpressure_during_reads": 4,
+      "deferred_event_accepted_after_reads": 1,
+      "stalled_output_immutable": 12,
+      "held_result_ack": 1,
+      "later_snapshot_sees_updates": 1,
+      "ignored_events_noteoff_panic": 8,
+      "inactive_neutral": 1,
+      "steal_rebind_and_generation_wrap": 1,
+      "reset_during_scan_request": 1,
+      "reset_cancels_inflight": 1,
+      "logical_RAM_reset_defaults": 1,
+      "first_partial_write_after_reset": 1,
+      "reset_stalled_result_begin": 1,
+      "reset_stalled_result_wait": 4,
+      "reset_cancels_held": 1,
+      "defaults_after_stalled_reset": 1,
+      "random_two_handshake_streams": 8192,
+      "drain_results": 8,
+      "final_reset": 1
+    },
+    "results": [
+      "PASS performance_control_snapshot vectors=27525 checks=131803 requests=2464 results=2459 event_handshakes=15511"
+    ],
+    "exact_request_to_valid_clocks": 4,
+    "max_event_ready_low_clocks_per_request": 4,
+    "reference": "original performance_control_state exact snapshot at accepted request",
+    "negative_payload_rejected": true,
+    "negative_reset_guard_rejected": true,
+    "sources_sha256": {
+      "code\\rtl\\common\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+      "code\\rtl\\board\\performance_control_state.sv": "a7399a2473e3b8f30aea445e44d7c516140b9156717b254cb1984920f17346fb",
+      "code\\rtl\\board\\performance_control_snapshot.sv": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+      "code\\tb\\board\\tb_performance_control_snapshot.sv": "a266269a70be31ac0b9dc417d95f47590b6200ef989c373142de754d2d125039"
+    },
+    "vectors_sha256": "d685eeeef6676d8f7bc4e8f083a818698da2dd0231f44cb2d1d465e6fe5accd8",
+    "logs_sha256": {
+      "compile.log": "4669d821aa47fa1e0ae3c69d288d12bba506cfe44610862a87d021705abc89b0",
+      "negative_payload.log": "821f0693f16b5b76b49b7195f5c03e79089e906d5810a2619e5bfc3eeed149db",
+      "negative_reset.log": "821f0693f16b5b76b49b7195f5c03e79089e906d5810a2619e5bfc3eeed149db",
+      "negative_reset_compile.log": "4669d821aa47fa1e0ae3c69d288d12bba506cfe44610862a87d021705abc89b0",
+      "RTL.log": "2522a2c81d26bde09902734f48466b876aa4aecc7997e888c79940643a88d21b"
+    }
+  },
+  "50MHz_parser_schedule": {
+    "scope": "50MHz real-rate M3-parser scheduling TB, not official PCM algorithm or latency measurement",
+    "result": [
+      "PASS control_snapshot_schedule checks=216773 requests=203 consumed=203 controls=5 discrete=3 valid_latency=4 consume_latency=13 event_stall=4"
+    ],
+    "sources_sha256": {
+      "code\\rtl\\common\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+      "code\\rtl\\input\\midi_input\\midi_event_parser.sv": "76edfbd3ff0b94b0c9d044ac41c4c3af5f2c83f1da57468720e82cb66c0e6264",
+      "code\\rtl\\board\\performance_control_state.sv": "a7399a2473e3b8f30aea445e44d7c516140b9156717b254cb1984920f17346fb",
+      "code\\rtl\\board\\performance_control_snapshot.sv": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+      "code\\tb\\board\\tb_control_snapshot_schedule.sv": "6ba634209292073f254a9370b78eff8b8bf0d8689f626f8dd1c1ee5a8292b0e0"
+    },
+    "logs_sha256": {
+      "compile.log": "ba15bdb955d76f0d5703632439be1bef6f06acf98cb00bc54e4c18e4e6630bc2",
+      "RTL.log": "97588d4d4f4baf17e500da976c36001f2e54398d757675bbc92c6e4e5fb90838"
+    }
+  },
+  "serial_PnR": {
+    "errors": [],
+    "facts": {
+      "resources": {
+        "Logic": 2168,
+        "Register": 836,
+        "DSP": 0,
+        "BSRAM": 0,
+        "RAM16": 128
+      },
+      "fmax_mhz": 58.122,
+      "summary": {
+        "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+        "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+        "Numbers of Paths Analyzed": "4765",
+        "Numbers of Endpoints Analyzed": "3681",
+        "Numbers of Falling Endpoints": "0",
+        "Numbers of Setup Violated Endpoints": "0",
+        "Numbers of Hold Violated Endpoints": "0"
+      },
+      "minimum_slack_ns": {
+        "Setup": 2.795,
+        "Hold": 0.002,
+        "Recovery": 15.686,
+        "Removal": 0.603
+      },
+      "worst_paths": {
+        "Setup": [
+          "1",
+          "2.795",
+          "stimulus_59_s0/Q",
+          "g_serial.u_controls/control_mem_control_mem_8_4_s/DI[3]",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.495",
+          "15.710"
+        ],
+        "Hold": [
+          "1",
+          "0.002",
+          "stimulus_90_s0/Q",
+          "g_serial.u_controls/snapshot_id_20_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "0.000",
+          "-0.008",
+          "0.535"
+        ],
+        "Recovery": [
+          "1",
+          "15.686",
+          "u_reset/sync_chain_1_s0/Q",
+          "g_serial.u_controls/snapshot_modulation_20_s0/CLEAR",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "-0.009",
+          "2.976"
+        ],
+        "Removal": [
+          "1",
+          "0.603",
+          "u_reset/sync_chain_1_s0/Q",
+          "g_serial.u_controls/initialized_37_s0/CLEAR",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "0.000",
+          "-0.205",
+          "1.255"
+        ]
+      },
+      "scope": "standalone wrapper internal50MHz timing only; no external IO timing or board proof",
+      "report_sha256": {
+        "impl\\pnr\\control_snapshot_timing_probe_tr_content.html": "2825380fb13a54abf28db55734904f0dd2e49407456d70ae72ebffb778818504",
+        "impl\\pnr\\control_snapshot_timing_probe.rpt.txt": "69f92cc4de4854632dc2c4a21b4d9780693a4ea4de3aa51eb8cfd499f89eee72",
+        "impl\\gwsynthesis\\control_snapshot_timing_probe_syn_rsc.xml": "ac47b4c00fa51afe7f003a5d6890c64424099670115a8b04713a7fcd6bf40ca0"
+      }
+    },
+    "inputs": {
+      "variant": "serialized",
+      "clock_target_mhz": 50,
+      "extra_min_delay_ns": null,
+      "original_source_sha256": {
+        "code\\rtl\\common\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "code\\rtl\\common\\reset_sync.sv": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+        "code\\rtl\\board\\performance_control_state.sv": "a7399a2473e3b8f30aea445e44d7c516140b9156717b254cb1984920f17346fb",
+        "code\\rtl\\board\\performance_control_snapshot.sv": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+        "code\\tb\\board\\control_snapshot_timing_probe.sv": "8ddbbd9dcd08949497f7b5b02721df0d1a7fef35fb501aa32fa3334bc4c982e5"
+      },
+      "actual_build_input_sha256": {
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\reset_sync.sv": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\board\\performance_control_state.sv": "a7399a2473e3b8f30aea445e44d7c516140b9156717b254cb1984920f17346fb",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\board\\performance_control_snapshot.sv": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\control_snapshot_optimization_20261002\\serial_validated_probe_PnR\\control_snapshot_timing_probe.sv": "8ddbbd9dcd08949497f7b5b02721df0d1a7fef35fb501aa32fa3334bc4c982e5",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\control_snapshot_optimization_20261002\\serial_validated_probe_PnR\\control_snapshot_probe.sdc": "6b31faee0cc581697bdc82e1ec9e3437f1e0ca7192241791b76d44513750df1d",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\control_snapshot_optimization_20261002\\serial_validated_probe_PnR\\control_snapshot_probe.cst": "62fceb5c7d0300ed815c09b6d508e834132dff218722c950db6fcc6a049cbdcf",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\control_snapshot_optimization_20261002\\serial_validated_probe_PnR\\control_snapshot_timing_probe.gprj": "694846c73400bbb4203f603e32e97d46c2dc9b952b3138f22808eb5a5a7ae492"
+      },
+      "scope": "same scan observation wrapper internal timing comparison; external scan IO timing not constrained, no board use"
+    }
+  },
+  "parallel_PnR": {
+    "errors": [
+      "Numbers of Hold Violated Endpoints=255",
+      "negative Hold=-0.2"
+    ],
+    "facts": {
+      "resources": {
+        "Logic": 8016,
+        "Register": 1897,
+        "DSP": 0,
+        "BSRAM": 0,
+        "RAM16": 512
+      },
+      "fmax_mhz": 56.395,
+      "summary": {
+        "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+        "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+        "Numbers of Paths Analyzed": "12574",
+        "Numbers of Endpoints Analyzed": "9936",
+        "Numbers of Falling Endpoints": "0",
+        "Numbers of Setup Violated Endpoints": "0",
+        "Numbers of Hold Violated Endpoints": "255"
+      },
+      "minimum_slack_ns": {
+        "Setup": 2.268,
+        "Hold": -0.2,
+        "Recovery": 16.056,
+        "Removal": 0.406
+      },
+      "worst_paths": {
+        "Setup": [
+          "1",
+          "2.268",
+          "stimulus_15_s0/Q",
+          "g_parallel.u_controls/range_mem[248]_3_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "16.411"
+        ],
+        "Hold": [
+          "1",
+          "-0.200",
+          "stimulus_24_s0/Q",
+          "stimulus_40_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "0.000",
+          "-0.197",
+          "0.510"
+        ],
+        "Recovery": [
+          "1",
+          "16.056",
+          "u_reset/sync_chain_1_s0/Q",
+          "g_parallel.u_controls/snapshot_pitch_range_8_s0/CLEAR",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "2.596"
+        ],
+        "Removal": [
+          "1",
+          "0.406",
+          "u_reset/sync_chain_1_s0/Q",
+          "g_parallel.u_controls/snapshot_modulation_36_s0/CLEAR",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "0.000",
+          "-0.197",
+          "1.050"
+        ]
+      },
+      "scope": "standalone wrapper internal50MHz timing only; no external IO timing or board proof",
+      "report_sha256": {
+        "impl\\pnr\\control_snapshot_timing_probe_tr_content.html": "a25a1c046f7ddd04386d6c87198cc5b2a1e909300e793625311644667ad0aaf2",
+        "impl\\pnr\\control_snapshot_timing_probe.rpt.txt": "91adb7e8c04e92c104d9698d7be55dc7d554d14f924dfa0d3b5dd1c047baa821",
+        "impl\\gwsynthesis\\control_snapshot_timing_probe_syn_rsc.xml": "68bc503add4f26833c5efe602c82738c8a15b08e31a9234c14c240ae62a695fd"
+      }
+    },
+    "inputs": {
+      "variant": "parallel",
+      "clock_target_mhz": 50,
+      "extra_min_delay_ns": null,
+      "original_source_sha256": {
+        "code\\rtl\\common\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "code\\rtl\\common\\reset_sync.sv": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+        "code\\rtl\\board\\performance_control_state.sv": "a7399a2473e3b8f30aea445e44d7c516140b9156717b254cb1984920f17346fb",
+        "code\\rtl\\board\\performance_control_snapshot.sv": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+        "code\\tb\\board\\control_snapshot_timing_probe.sv": "8ddbbd9dcd08949497f7b5b02721df0d1a7fef35fb501aa32fa3334bc4c982e5"
+      },
+      "actual_build_input_sha256": {
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\reset_sync.sv": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\board\\performance_control_state.sv": "a7399a2473e3b8f30aea445e44d7c516140b9156717b254cb1984920f17346fb",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\board\\performance_control_snapshot.sv": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\control_snapshot_optimization_20261002\\parallel_validated_probe_PnR\\control_snapshot_timing_probe.sv": "c62f078f6a3214b84c0784bcc8d4be6b9495e6fcdee27605df5347a07c5d68eb",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\control_snapshot_optimization_20261002\\parallel_validated_probe_PnR\\control_snapshot_probe.sdc": "6b31faee0cc581697bdc82e1ec9e3437f1e0ca7192241791b76d44513750df1d",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\control_snapshot_optimization_20261002\\parallel_validated_probe_PnR\\control_snapshot_probe.cst": "62fceb5c7d0300ed815c09b6d508e834132dff218722c950db6fcc6a049cbdcf",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\control_snapshot_optimization_20261002\\parallel_validated_probe_PnR\\control_snapshot_timing_probe.gprj": "0379ed6869fbe106a16dacb495f0af7381ce3cfeb4691367c9a8324ab7c3b5db"
+      },
+      "scope": "same scan observation wrapper internal timing comparison; external scan IO timing not constrained, no board use"
+    }
+  },
+  "same_wrapper_comparison_resource_savings": {
+    "Logic": {
+      "parallel": 8016,
+      "serialized": 2168,
+      "relative_reduction": 0.7295409181636727
+    },
+    "Register": {
+      "parallel": 1897,
+      "serialized": 836,
+      "relative_reduction": 0.5593041644702161
+    },
+    "RAM16": {
+      "parallel": 512,
+      "serialized": 128,
+      "relative_reduction": 0.75
+    }
+  },
+  "observation_probe_full_rank": {
+    "bits": 260,
+    "cyclic_XOR_taps": 7,
+    "exact_GF2_rank": 260,
+    "full_payload_reachable": true,
+    "structural_check": "PASS",
+    "invalid_previous_wrapper_report_accepted": false
+  },
+  "failed_trials": {
+    "serial_PnR": {
+      "accepted": false,
+      "errors": [
+        "Numbers of Hold Violated Endpoints=355",
+        "negative Hold=-0.371"
+      ],
+      "facts": {
+        "resources": {
+          "Logic": 1872,
+          "Register": 836,
+          "DSP": 0,
+          "BSRAM": 0,
+          "RAM16": 128
+        },
+        "fmax_mhz": 62.592,
+        "summary": {
+          "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+          "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+          "Numbers of Paths Analyzed": "4757",
+          "Numbers of Endpoints Analyzed": "3681",
+          "Numbers of Falling Endpoints": "0",
+          "Numbers of Setup Violated Endpoints": "0",
+          "Numbers of Hold Violated Endpoints": "355"
+        },
+        "minimum_slack_ns": {
+          "Setup": 4.024,
+          "Hold": -0.371,
+          "Recovery": 15.236,
+          "Removal": 0.725
+        },
+        "worst_paths": {
+          "Setup": [
+            "1",
+            "4.024",
+            "g_serial.u_controls/read_slot_0_s1/Q",
+            "g_serial.u_controls/control_mem_control_mem_3_6_s/DI[0]",
+            "sys_clk:[R]",
+            "sys_clk:[R]",
+            "20.000",
+            "0.000",
+            "14.976"
+          ],
+          "Hold": [
+            "1",
+            "-0.371",
+            "stimulus_157_s0/Q",
+            "g_serial.u_controls/snapshot_generations_25_s0/D",
+            "sys_clk:[R]",
+            "sys_clk:[R]",
+            "0.000",
+            "-0.197",
+            "0.351"
+          ],
+          "Recovery": [
+            "1",
+            "15.236",
+            "u_reset/sync_chain_1_s0/Q",
+            "g_serial.u_controls/snapshot_pitch_bend_15_s0/CLEAR",
+            "sys_clk:[R]",
+            "sys_clk:[R]",
+            "20.000",
+            "0.009",
+            "3.407"
+          ],
+          "Removal": [
+            "1",
+            "0.725",
+            "u_reset/sync_chain_1_s0/Q",
+            "g_serial.u_controls/snapshot_generations_5_s0/CLEAR",
+            "sys_clk:[R]",
+            "sys_clk:[R]",
+            "0.000",
+            "-0.201",
+            "1.373"
+          ]
+        },
+        "scope": "standalone wrapper internal50MHz timing only; no external IO timing or board proof",
+        "report_sha256": {
+          "impl\\pnr\\control_snapshot_timing_probe_tr_content.html": "372e15b8447cb4f04927f5df5def1116d48a9d7b3c29c16f206c72872029f567",
+          "impl\\pnr\\control_snapshot_timing_probe.rpt.txt": "8d95f51e39e65e9d63db4767781699672fb1d05cce0a5505860eccf7438c982c",
+          "impl\\gwsynthesis\\control_snapshot_timing_probe_syn_rsc.xml": "5a8570f541d42493c66617d95fffdb85f439705d0065c1763900836c1d498529"
+        }
+      }
+    },
+    "parallel_PnR": {
+      "accepted": true,
+      "errors": [],
+      "facts": {
+        "resources": {
+          "Logic": 7666,
+          "Register": 1897,
+          "DSP": 0,
+          "BSRAM": 0,
+          "RAM16": 512
+        },
+        "fmax_mhz": 69.96,
+        "summary": {
+          "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+          "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+          "Numbers of Paths Analyzed": "12566",
+          "Numbers of Endpoints Analyzed": "9936",
+          "Numbers of Falling Endpoints": "0",
+          "Numbers of Setup Violated Endpoints": "0",
+          "Numbers of Hold Violated Endpoints": "0"
+        },
+        "minimum_slack_ns": {
+          "Setup": 5.706,
+          "Hold": 0.002,
+          "Recovery": 15.983,
+          "Removal": 0.508
+        },
+        "worst_paths": {
+          "Setup": [
+            "1",
+            "5.706",
+            "stimulus_6_s0/Q",
+            "g_parallel.u_controls/range_mem[185]_3_s0/CE",
+            "sys_clk:[R]",
+            "sys_clk:[R]",
+            "20.000",
+            "0.019",
+            "12.964"
+          ],
+          "Hold": [
+            "1",
+            "0.002",
+            "stimulus_53_s0/Q",
+            "g_parallel.u_controls/pitch_mem[0]_pitch_mem[0]_13_1_s2/WAD[0]",
+            "sys_clk:[R]",
+            "sys_clk:[R]",
+            "0.000",
+            "-0.004",
+            "0.556"
+          ],
+          "Recovery": [
+            "1",
+            "15.983",
+            "u_reset/sync_chain_1_s0/Q",
+            "g_parallel.u_controls/snapshot_generations_126_s0/CLEAR",
+            "sys_clk:[R]",
+            "sys_clk:[R]",
+            "20.000",
+            "0.009",
+            "2.661"
+          ],
+          "Removal": [
+            "1",
+            "0.508",
+            "u_reset/sync_chain_1_s0/Q",
+            "g_parallel.u_controls/snapshot_generations_10_s0/CLEAR",
+            "sys_clk:[R]",
+            "sys_clk:[R]",
+            "0.000",
+            "-0.197",
+            "1.152"
+          ]
+        },
+        "scope": "standalone wrapper internal50MHz timing only; no external IO timing or board proof",
+        "report_sha256": {
+          "impl\\pnr\\control_snapshot_timing_probe_tr_content.html": "857de945626d47d5d5f8548b0417ed1d9e244ff07396dfe29baba8eb19886e87",
+          "impl\\pnr\\control_snapshot_timing_probe.rpt.txt": "423c0bdaabc92ac3e2e0030056059171857033d974aa06b9f2f295aacfeef8e6",
+          "impl\\gwsynthesis\\control_snapshot_timing_probe_syn_rsc.xml": "b655ff70dc64ae1f9f37ad1fc71205003960cc34793964c49fcb875c141874ec"
+        }
+      }
+    },
+    "serial_min_delay_PnR": {
+      "accepted": false,
+      "errors": [
+        "Numbers of Hold Violated Endpoints=2079",
+        "negative Hold=-1.371",
+        "negative Removal=-0.275"
+      ],
+      "facts": {
+        "resources": {
+          "Logic": 1872,
+          "Register": 836,
+          "DSP": 0,
+          "BSRAM": 0,
+          "RAM16": 128
+        },
+        "fmax_mhz": 62.592,
+        "summary": {
+          "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+          "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+          "Numbers of Paths Analyzed": "4757",
+          "Numbers of Endpoints Analyzed": "3681",
+          "Numbers of Falling Endpoints": "0",
+          "Numbers of Setup Violated Endpoints": "0",
+          "Numbers of Hold Violated Endpoints": "2079"
+        },
+        "minimum_slack_ns": {
+          "Setup": 4.024,
+          "Hold": -1.371,
+          "Recovery": 15.236,
+          "Removal": -0.275
+        },
+        "worst_paths": {
+          "Setup": [
+            "1",
+            "4.024",
+            "g_serial.u_controls/read_slot_0_s1/Q",
+            "g_serial.u_controls/control_mem_control_mem_3_6_s/DI[0]",
+            "sys_clk:[R]",
+            "sys_clk:[R]",
+            "20.000",
+            "0.000",
+            "14.976"
+          ],
+          "Hold": [
+            "1",
+            "-1.371",
+            "stimulus_157_s0/Q",
+            "g_serial.u_controls/snapshot_generations_25_s0/D",
+            "sys_clk:[R]",
+            "sys_clk:[R]",
+            "1.000",
+            "-0.197",
+            "0.351"
+          ],
+          "Recovery": [
+            "1",
+            "15.236",
+            "u_reset/sync_chain_1_s0/Q",
+            "g_serial.u_controls/snapshot_pitch_bend_15_s0/CLEAR",
+            "sys_clk:[R]",
+            "sys_clk:[R]",
+            "20.000",
+            "0.009",
+            "3.407"
+          ],
+          "Removal": [
+            "1",
+            "-0.275",
+            "u_reset/sync_chain_1_s0/Q",
+            "g_serial.u_controls/snapshot_generations_5_s0/CLEAR",
+            "sys_clk:[R]",
+            "sys_clk:[R]",
+            "1.000",
+            "-0.201",
+            "1.373"
+          ]
+        },
+        "scope": "standalone wrapper internal50MHz timing only; no external IO timing or board proof",
+        "report_sha256": {
+          "impl\\pnr\\control_snapshot_timing_probe_tr_content.html": "af1af49313661dbd0a8288ba10fa26642d4404be344858938047a23839d15936",
+          "impl\\pnr\\control_snapshot_timing_probe.rpt.txt": "8eb4b633d01f95eb5f779c2b1d7433ecebc668b771b82d64c1a9e6af2460ecaa",
+          "impl\\gwsynthesis\\control_snapshot_timing_probe_syn_rsc.xml": "5a8570f541d42493c66617d95fffdb85f439705d0065c1763900836c1d498529"
+        }
+      }
+    },
+    "serial_decoded_PnR": {
+      "accepted": false,
+      "reason": "probe text-replacement self-reference invalidated; no report used",
+      "build_log_sha256": "01c5a2385914070abafa934c0235744cc7d3bf86a1e3449f43852223e19959b5"
+    }
+  },
+  "report_negative_tests": [
+    "Hold endpoint corruption",
+    "Setup endpoint corruption",
+    "weakened0.5ns hold uncertainty",
+    "period40ns instead20ns"
+  ],
+  "formal_audio_core_modified": false,
+  "M1_algorithm_modified": false,
+  "M3_parser_modified": false,
+  "public_interface_modified": false,
+  "board_download_or_valid_production_fs_created": false,
+  "source_sha256": {
+    "code/rtl/board/performance_control_snapshot.sv": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+    "code/rtl/board/performance_control_state.sv": "a7399a2473e3b8f30aea445e44d7c516140b9156717b254cb1984920f17346fb",
+    "code/rtl/input/midi_input/midi_event_parser.sv": "76edfbd3ff0b94b0c9d044ac41c4c3af5f2c83f1da57468720e82cb66c0e6264",
+    "code/tb/board/tb_performance_control_snapshot.sv": "a266269a70be31ac0b9dc417d95f47590b6200ef989c373142de754d2d125039",
+    "code/tb/board/tb_control_snapshot_schedule.sv": "6ba634209292073f254a9370b78eff8b8bf0d8689f626f8dd1c1ee5a8292b0e0",
+    "code/tb/board/control_snapshot_timing_probe.sv": "8ddbbd9dcd08949497f7b5b02721df0d1a7fef35fb501aa32fa3334bc4c982e5",
+    "code/scripts/run_serial_control_snapshot.py": "e927d7776cd0f4cd5451a8c005bb747298a65dc0fcb3c524613105dc6838adf7",
+    "code/scripts/run_control_snapshot_schedule.py": "041dda541fb1387388a56dd108be2d8ce6b63ca64461b3bd5464f6934d77867b",
+    "code/scripts/prepare_control_snapshot_timing.py": "5f0f407c24b61fd51496304eac68746f762b99a3822b8257bc947b7e71f3cf13",
+    "code/scripts/check_control_snapshot_timing.py": "ce7983e61a66547e474058fc48b4f2adaa232864a177d51eba5765a896c60c39",
+    "code/tb/board/test_control_snapshot_report.py": "e6a6b2dd7790e83faa526b194f7717140b670a58cce52b6e807a6718fca39324"
+  },
+  "final_logs_sha256": {
+    "code\\output\\control_snapshot_optimization_20261002\\serial_validated_probe_PnR\\build.log": "9b6f7d5db6ce00c781e671091a1bdcdb22ce10ac8c4ee2c7115b92c5830c1f1d",
+    "code\\output\\control_snapshot_optimization_20261002\\parallel_validated_probe_PnR\\build.log": "9bd1e2b255966c01044390a3766ba9673b4893e44a7ae1fa9a12bb8e9690915f",
+    "code\\output\\control_snapshot_optimization_20261002\\RTL.log": "2522a2c81d26bde09902734f48466b876aa4aecc7997e888c79940643a88d21b",
+    "code\\output\\control_snapshot_optimization_20261002\\negative_payload.log": "821f0693f16b5b76b49b7195f5c03e79089e906d5810a2619e5bfc3eeed149db",
+    "code\\output\\control_snapshot_optimization_20261002\\negative_reset.log": "821f0693f16b5b76b49b7195f5c03e79089e906d5810a2619e5bfc3eeed149db",
+    "code\\output\\control_snapshot_optimization_20261002\\wrapper_check.log": "fe6edfc3d40c69ac4774b19a492c52a0fa7b436a62c031a9718d1d60c6ecf8fd",
+    "code\\output\\control_snapshot_optimization_20261002\\schedule\\RTL.log": "97588d4d4f4baf17e500da976c36001f2e54398d757675bbc92c6e4e5fb90838",
+    "code\\output\\control_snapshot_optimization_20261002\\report_negative_tests.log": "99067af2a9cc499b3b73a7a64081ef4b0372a2f93e20c57a44125a4c64e3e491"
+  },
+  "tool_reference": {
+    "hold_correction": "IDE/data/config/rtlrouteoptions.xml PNR27/-correct_hold_violation1",
+    "min_delay_manual": "IDE/doc/EN/SUG940-2.0E p70-71, diagnostic stricter-min-delay attempt rejected"
+  },
+  "remaining": [
+    "M1 FCW/LFO interface and calculation timeline",
+    "M2 formal event ready/request/result connection",
+    "production full-chain PnR and STA",
+    "actual MIDI controls sound verification"
+  ],
+  "T025_T026_retest_paused": true,
+  "repo_gate": {
+    "result": "ALL PASS",
+    "python_syntax_files": 118,
+    "T007_T019": "PASS",
+    "log_sha256": "fa72f568f14890696465996cfc2ab291491134457793909bdcb9496608d2f787"
+  }
+}
