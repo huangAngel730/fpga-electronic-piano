@@ -15,6 +15,7 @@ module visual_score_tracker #(
     parameter integer TRAVEL_Y           = 400,
     parameter integer HIT_WINDOW_FRAMES  = 6,
     parameter bit BOTTOM_EXIT_GEOMETRY = 1'b0,
+    parameter bit STRICT_CONTACT = 1'b0,
     parameter integer RASTER_HEIGHT = 480,
     parameter integer MIN_NOTE_HEIGHT = 12
 ) (
@@ -32,6 +33,7 @@ module visual_score_tracker #(
     input  logic [9:0]                            score_velocity,
 
     input  logic                                  performance_fire,
+    input  logic                                  match_enabled,
     input  audio_defs_pkg::performance_event_t    performance_data,
     input  logic                                  video_desync,
 
@@ -69,6 +71,7 @@ module visual_score_tracker #(
 
     logic [FRAME_WIDTH-1:0] effective_frame;
     logic                   score_accept;
+    logic                   duplicate_score_id;
     logic                   match_valid;
     integer                 free_slot_index;
     integer                 match_slot_index;
@@ -248,7 +251,14 @@ module visual_score_tracker #(
                 free_slot_index = free_search_index;
             end
         end
-        score_accept = score_valid && score_ready;
+        duplicate_score_id=1'b0;
+        if(STRICT_CONTACT)begin
+            for(integer id_slot=0;id_slot<SLOT_COUNT;id_slot=id_slot+1)
+                if(slot_used_mem[id_slot] && note_id_mem[id_slot]==score_note_id)
+                    duplicate_score_id=1'b1;
+        end
+        // Duplicate active instances are consumed but cannot rearm a hit.
+        score_accept = score_valid && score_ready && !duplicate_score_id;
     end
 
     // Parallel absolute errors feed a balanced nearest-match tree. The left
@@ -263,8 +273,13 @@ module visual_score_tracker #(
     for (genvar slot = 0; slot < MATCH_LEAVES; slot = slot + 1) begin : g_match_leaf
         if (slot < SLOT_COUNT) begin : g_real
             assign tree_valid[MATCH_LEAVES+slot] = slot_used_mem[slot] &&
-                !judged_mem[slot] && note_number_mem[slot] == performance_data.note_number;
-            assign tree_error[MATCH_LEAVES+slot] = absolute_frame_error(effective_frame, hit_frame_mem[slot]);
+                !judged_mem[slot] && note_number_mem[slot] == performance_data.note_number &&
+                (!STRICT_CONTACT || hit_frame_mem[slot]==effective_frame);
+            if(STRICT_CONTACT)begin : g_contact_error
+                assign tree_error[MATCH_LEAVES+slot] = '0;
+            end else begin : g_legacy_error
+                assign tree_error[MATCH_LEAVES+slot] = absolute_frame_error(effective_frame, hit_frame_mem[slot]);
+            end
             assign tree_index[MATCH_LEAVES+slot] = MATCH_INDEX_BITS'(slot);
         end else begin : g_padding
             assign tree_valid[MATCH_LEAVES+slot] = 1'b0;
@@ -283,7 +298,10 @@ module visual_score_tracker #(
         match_valid = 1'b0;
         match_slot_index = 0;
         match_error = '1;
-        if (performance_fire && performance_data.event_type == EVENT_NOTE_ON && tree_valid[1]) begin
+        // Strict eligibility is evaluated against the geometry becoming
+        // visible after this edge, including frame_start's current_frame+1.
+        if (performance_fire && performance_data.event_type == EVENT_NOTE_ON && tree_valid[1] &&
+            (!STRICT_CONTACT || (match_enabled && performance_data.velocity!=0))) begin
             match_valid = 1'b1;
             match_slot_index = int'(tree_index[1]);
             match_error = tree_error[1];
@@ -376,7 +394,7 @@ module visual_score_tracker #(
                         if (!judged_mem[state_index] &&
                             (effective_frame >
                              (hit_frame_mem[state_index] +
-                              HIT_WINDOW_FRAMES))) begin
+                              (STRICT_CONTACT ? 0 : HIT_WINDOW_FRAMES)))) begin
                             judged_mem[state_index] <= 1'b1;
                             hit_mem[state_index]    <= 1'b0;
                             miss_mem[state_index]   <= 1'b1;

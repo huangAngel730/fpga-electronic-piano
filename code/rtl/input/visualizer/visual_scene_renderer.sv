@@ -19,6 +19,7 @@ module visual_scene_renderer #(
     input logic desync_latched,
     input logic [127:0] key_down,
     input logic [127:0] flash_active,
+    input logic [255:0] flash_level,
     input logic [LIVE_SLOT_COUNT-1:0] live_valid,
     input logic [(LIVE_SLOT_COUNT*7)-1:0] live_note_number,
     input logic [(LIVE_SLOT_COUNT*Y_WIDTH)-1:0] live_y,
@@ -46,6 +47,7 @@ module visual_scene_renderer #(
     logic [7:0] score_pixel_match;
     wire [NOTE_COUNT-1:0] lane_match, lane_body, lane_left, lane_right;
     wire [NOTE_COUNT-1:0] flash_core,flash_glow;
+    wire [NOTE_COUNT-1:0] core_level[0:3],glow_level[0:3];
     wire [6:0] lane_note_term [0:NOTE_COUNT-1];
     logic [6:0] pixel_note;
     integer lane_index;
@@ -67,6 +69,10 @@ module visual_scene_renderer #(
         localparam integer GLOW_RIGHT=(CENTER_X+4>=SCREEN_WIDTH) ? SCREEN_WIDTH-1 : CENTER_X+4;
         assign flash_core[k]=flash_active[NOTE] && pixel_x>=CORE_LEFT && pixel_x<=CORE_RIGHT;
         assign flash_glow[k]=flash_active[NOTE] && pixel_x>=GLOW_LEFT && pixel_x<=GLOW_RIGHT;
+        for(genvar level=0;level<4;level=level+1)begin:g_flash_level
+            assign core_level[level][k]=flash_core[k] && flash_level[2*NOTE+:2]==2'(level);
+            assign glow_level[level][k]=flash_glow[k] && flash_level[2*NOTE+:2]==2'(level);
+        end
         assign lane_match[k] = pixel_x >= START_X && pixel_x < END_X;
         if (RIGHT_X >= LEFT_X + 3) begin : g_body
             assign lane_body[k] = lane_match[k] &&
@@ -193,10 +199,16 @@ module visual_scene_renderer #(
             // Constant boxes are clipped by active-area/data_enable above.
             if(display_mode && !desync_latched)begin
                 if(py>=((SCREEN_HEIGHT>8) ? SCREEN_HEIGHT-8 : 0) && (|flash_glow))begin
-                    rgb_r=8'h30;rgb_g=8'hb0;rgb_b=8'hc8;
+                    if(|glow_level[3])begin rgb_r=8'h80;rgb_g=8'he8;rgb_b=8'hff;end
+                    else if(|glow_level[2])begin rgb_r=8'h40;rgb_g=8'h80;rgb_b=8'hb0;end
+                    else if(|glow_level[1])begin rgb_r=8'h20;rgb_g=8'h40;rgb_b=8'h60;end
+                    else begin rgb_r=8'h10;rgb_g=8'h20;rgb_b=8'h30;end
                 end
                 if(py>=((SCREEN_HEIGHT>4) ? SCREEN_HEIGHT-4 : 0) && (|flash_core))begin
-                    rgb_r=8'hff;rgb_g=8'hff;rgb_b=8'he0;
+                    if(|core_level[3])begin rgb_r=8'hff;rgb_g=8'hff;rgb_b=8'he0;end
+                    else if(|core_level[2])begin rgb_r=8'hff;rgb_g=8'hd0;rgb_b=8'h60;end
+                    else if(|core_level[1])begin rgb_r=8'hb0;rgb_g=8'h68;rgb_b=8'h20;end
+                    else begin rgb_r=8'h50;rgb_g=8'h30;rgb_b=8'h10;end
                 end
             end
 

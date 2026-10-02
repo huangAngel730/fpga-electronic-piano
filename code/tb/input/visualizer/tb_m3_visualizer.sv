@@ -74,7 +74,7 @@ module tb_m3_visualizer;
     ) target_renderer (
         .pixel_x(target_x), .pixel_y(target_y), .data_enable(target_de),
         .display_mode(target_mode), .desync_latched(target_desync),
-        .key_down(target_keys), .flash_active(128'd0), .live_valid(target_live_valid),
+        .key_down(target_keys), .flash_active(128'd0), .flash_level(256'd0), .live_valid(target_live_valid),
         .live_note_number(target_live_note),
         .live_velocity(target_live_velocity), .live_y(target_live_y), .live_end_y(target_live_end_y),
         .score_valid(target_score_valid),

@@ -18,7 +18,7 @@ module tb_renderer_geometry_equiv #(
         .NOTE_COUNT(N), .BASE_NOTE(BASE), .JUDGE_Y(JUDGE),
         .KEYBOARD_TOP(KEY_TOP)) dut (
         .data_enable(de),.pixel_x(x),.pixel_y(y),.display_mode(mode),
-        .desync_latched(desync),.key_down(keys),.flash_active(128'd0),.live_valid(lv),
+        .desync_latched(desync),.key_down(keys),.flash_active(128'd0), .flash_level(256'd0),.live_valid(lv),
         .live_note_number(ln),.live_y(ly),.live_end_y(le),.live_velocity(lvel),
         .score_valid(sv),.score_note_number(sn),.score_y(sy),
         .score_top_y(st),.score_end_y(se),

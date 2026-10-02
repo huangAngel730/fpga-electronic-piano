@@ -1,0 +1,435 @@
+{
+  "date": "2026-10-02",
+  "reviewer": "main M2",
+  "strict_source_commit": "36cc8a2",
+  "audio_pipeline_review": "V0153/80c7848",
+  "counter_review": "V0151",
+  "formal_ADSR_bank_counter_overwritten": false,
+  "M1_M3_private_role_handoff_confirmed": false,
+  "board_programmed": false,
+  "independent_combo_tool_acceptance": true,
+  "full_audio_visual_hardware_acceptance": false,
+  "no_video_requested_or_viewed": true,
+  "strict_receipt": {
+    "source_commit": "36cc8a2",
+    "received_SHA_checks": {
+      "inputs": 45,
+      "evidence_inputs": 45,
+      "original_audio": 38,
+      "reports": 16
+    },
+    "candidate_fs_sha256": "729fe910a08578db20991326945973d4d310a70ba6d498d9ca8786aaa24a30df",
+    "paths": [
+      "code/rtl/input/visualizer/m3_visualizer.sv",
+      "code/rtl/input/visualizer/visual_hit_flash.sv",
+      "code/rtl/input/visualizer/visual_scene_renderer.sv",
+      "code/rtl/input/visualizer/visual_score_tracker.sv",
+      "code/scripts/run_m3_visualizer_sim.ps1",
+      "code/tb/input/visualizer/strict_contact_flash_review_20261002.md",
+      "code/tb/input/visualizer/strict_contact_flash_semantics_20261002.md",
+      "code/tb/input/visualizer/tb_bottom_exit_motion.sv",
+      "code/tb/input/visualizer/tb_flash_scan_latency.sv",
+      "code/tb/input/visualizer/tb_hit_flash_feedback.sv",
+      "code/tb/input/visualizer/tb_m3_visualizer.sv",
+      "code/tb/input/visualizer/tb_renderer_geometry_equiv.sv"
+    ],
+    "protected_formal_sha256": {
+      "code/rtl/audio/adsr_piano_envelope.sv": "775fec7f546a00ca7bf98f132cce8d5d92d80ca6094af8e9e14cb07cd54a2e9d",
+      "code/rtl/board/polyphonic_envelope_bank.sv": "813e0b726546c16344aa86eb39c02291315450a001ba613e3dbfc710885689da",
+      "code/rtl/input/button_event_converter/button_event_converter.sv": "f6befb9c7415c69da62f2083e22803eae93ebeac63b8903b3c1314c4e9e723f0",
+      "code/rtl/common/performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+      "code/rtl/board/electronic_piano_top.sv": "c75f4321c28753e851c26e6cb0810947a85e8f17ca61b28ae7e527a5ff765a5b",
+      "code/rtl/common/audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+      "code/constraints/electronic_piano.cst": "76037da27eabba7bf322d41ad8f90c16b1a72b549fc2ffb865b380bfbda35dcb",
+      "code/constraints/audio_timing.sdc": "849c8b374c366ea1cbe6f44b17f761adad90861e3b50a0baf3ade73c05f953f5",
+      "code/docs/模块接口规范.md": "5bcfd9d355fb76aafb798104ea517bc047534d0740273b78df74c0d16758f8e5"
+    },
+    "no_formalaudio_changes": true
+  },
+  "strict_source_hashes": {
+    "code/rtl/input/visualizer/m3_visualizer.sv": "c3940203be5616d3cb923552267d7485d494bfd0e6a5410d7a7f3651e1fd0d2a",
+    "code/rtl/input/visualizer/visual_hit_flash.sv": "1cd4cc1e3459a41ee26122bee014afd552b697e80c1900f658cc03a73ebe03e3",
+    "code/rtl/input/visualizer/visual_scene_renderer.sv": "8062253766925a3c6fce11aad820f51dfcf7444501164d53e95d817c3e62a8d1",
+    "code/rtl/input/visualizer/visual_score_tracker.sv": "7e5c630fddf3da60f5fe6bd67721736ee7624817355822dadc4a09dc4cffe0dc",
+    "code/scripts/run_m3_visualizer_sim.ps1": "edf0660815ba3a9441d32f3e3d312a2d6453fc4c28e68a0dd593a2ee17b6fbfa",
+    "code/tb/input/visualizer/strict_contact_flash_review_20261002.md": "52a34362ac11654b4d479f1323586da73cb3910b3198a334da5b4f00dfc801ab",
+    "code/tb/input/visualizer/strict_contact_flash_semantics_20261002.md": "0a1881ccb81b7c55742b5c7057e0a068ef16d90ea43237d2f555a7432c96cce4",
+    "code/tb/input/visualizer/tb_bottom_exit_motion.sv": "8ecdd3c61db78d28465ee580adc266c9102733328ad9d6fa6516fe832f54c2ed",
+    "code/tb/input/visualizer/tb_flash_scan_latency.sv": "cdf6ebbda29aa158f22e7df2f6a47be88e25e312ccb5dc2a490866c3dbfc4112",
+    "code/tb/input/visualizer/tb_hit_flash_feedback.sv": "776d3e2d7e04d2cdd119de8cd2b2260b783dd5ae1eee592b2de010a9b665d9d3",
+    "code/tb/input/visualizer/tb_m3_visualizer.sv": "97c52763bd0a08a3c923229a6f456d0e13deb008a2143e03aeee24b551cf8d09",
+    "code/tb/input/visualizer/tb_renderer_geometry_equiv.sv": "06dcc527f6de2b718fe3f7b7eaf4828278415fc0ba989bb122b53343683a3c09"
+  },
+  "independent_visual_runs": {
+    "strict_modules": {
+      "exit": 0,
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "code/scripts/run_m3_visualizer_sim.ps1"
+      ]
+    },
+    "renderer_geometry": {
+      "exit": 0,
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "code/tb/input/visualizer/run_renderer_geometry_equiv.ps1"
+      ]
+    },
+    "legacy_tracker": {
+      "exit": 0,
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "code/tb/input/visualizer/run_tracker_timing_equiv.ps1"
+      ]
+    },
+    "diagnostic_score": {
+      "exit": 0,
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "code/tb/input/visualizer/run_diagnostic_score_progress.ps1"
+      ]
+    },
+    "bridge_joint": {
+      "exit": 0,
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "code/scripts/run_visual_path_integration_sim.ps1"
+      ]
+    },
+    "original_strict_report_gate": {
+      "exit": 0,
+      "command": [
+        "D:/ProgramData/anaconda3/python.exe",
+        "-X",
+        "utf8",
+        "code/scripts/check_audio_visual_probe.py",
+        "D:/17/project_17/fpga_gowin/code/output/renderer_timing_20260930/code/output/strict_contact_audio_visual_20261002"
+      ]
+    }
+  },
+  "strict_behavior": {
+    "contact_only_video_received_NoteOn": true,
+    "early_or_late_one_frame_rejected": true,
+    "zero_velocity_wrong_no_press_no_flash": true,
+    "true_hit_to_flash_active_max_pixel_cycles": 1,
+    "flash_levels": "white/yellow/orange/low glow then extinguish,4 stage",
+    "scan_after_bottom_boundary": "cannot redraw past pixels, next bottom scan sees decayed stage; not guaranteed every hit visible white peak",
+    "visible_rising_source_unchanged": true
+  },
+  "combined_prepared_override": {
+    "scope": "ADSR pipeline+counter selected candidate+36cc8a2 strict flash in one isolated build",
+    "audio_baseline": "e5eb025ea37dfd7312b4a4e74e1a881c223dda1d",
+    "strict_visual_commit": "36cc8a2",
+    "ADSR_review": "V0153",
+    "counter_review": "V0151",
+    "formal_audio_modified": false,
+    "M1_M3_private_scope_notice_confirmed": false,
+    "changes": {
+      "adsr_piano_envelope.sv": {
+        "original_snapshot_SHA": "76067d02459b8cb9c52931bdb91890ad00adf085e9670a2231b987797d5426f9",
+        "tested_unrelocated_candidate_SHA": "a0b55c17fe6553704120c6662fd53bf3c94a418bb31eff318bd9b113f5f205b5",
+        "actual_build_SHA": "5a7209e2353b7f8af5d8a3c0b3f892c0d2d3c2ebf48868f78908036963980715",
+        "change": "reviewed output-only candidate, ROM path relocated"
+      },
+      "polyphonic_envelope_bank.sv": {
+        "original_snapshot_SHA": "353f7f9856ac9a6516a3e5eb44aff26643d30c8e33e2a4a36821de89c92df308",
+        "tested_unrelocated_candidate_SHA": "14c53df67892bfaac417abe87060b6ac3695c96c9c58d8e32bb6b00e429c6f94",
+        "actual_build_SHA": "16dc7f42b74c51a059be4a19fe028a6e733a8e664e2962417fb40a7f50444c1a",
+        "change": "reviewed output-only candidate, ROM path relocated"
+      },
+      "button_event_converter.sv": {
+        "original_snapshot_SHA": "f6befb9c7415c69da62f2083e22803eae93ebeac63b8903b3c1314c4e9e723f0",
+        "tested_unrelocated_candidate_SHA": "65c7978b2e1ce27fc09606cd87ee43fc1a078898acdd109490ca1909f89c0dd7",
+        "actual_build_SHA": "65c7978b2e1ce27fc09606cd87ee43fc1a078898acdd109490ca1909f89c0dd7",
+        "change": "reviewed output-only candidate, ROM path relocated"
+      }
+    },
+    "actual_input_SHA": {
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\sustain_control_contract_pkg.sv": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\audio_visual_coexistence_top.sv": "a76b05878053854f161318f9c963107d78b40d96cecd0650c9bf68ab2156ce56",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\reset_sync.sv": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\button_debouncer.sv": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\button_event_converter.sv": "65c7978b2e1ce27fc09606cd87ee43fc1a078898acdd109490ca1909f89c0dd7",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\system_status_counters.sv": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\uart_status_reporter.sv": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\uart_tx.sv": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\uart_rx.sv": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\midi_event_parser.sv": "bb0a47d42c84e0222da4bced78024a95b1c8be45409cec1ecb9a7db1df7d5a44",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\midi_input.sv": "9d07ee52cb8162f1d6edc1507a932205ed81c26dbdb9416726fc6068c86440bf",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\note_pitch.sv": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\simple_voice.sv": "95e56fcbf16000d6a5bbeb1dde50f1392e8397af2cf51aef6f8f0f1ff720a4c6",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\i2s_tx.sv": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\pcm_frame_buffer.sv": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\voice_allocator_4.sv": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\dds_oscillator.sv": "858694953cc4f3267926e0c33273d24bce48ff403bc875275fc2fbc72015ad93",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\piano_dds_oscillator.sv": "3bfd6f30ee8305e18ffd4285a2db898467ac7e3047414924a01e0b768111fcc0",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\adsr_piano_envelope.sv": "5a7209e2353b7f8af5d8a3c0b3f892c0d2d3c2ebf48868f78908036963980715",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\sustain_controller.sv": "a384c67742364c1e8efd1c8884f7b8172af021b14d5ae1a05174b37467304a1e",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\polyphonic_event_router.sv": "3a85d64a84447c1cbbf833150a6576c13b79e30a7d4a972c14707363a5f758f4",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\polyphonic_envelope_bank.sv": "16dc7f42b74c51a059be4a19fe028a6e733a8e664e2962417fb40a7f50444c1a",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\voice_gain_q15_candidate.sv": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\polyphonic_pcm_commit.sv": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\polyphonic_audio_core.sv": "00ea1d6cd02d79e16dad0a2f8c2adbaca6ce37a59e4c793423140edab687215e",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\pcm_mixer_4voice.sv": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\pcm_clip_counter.sv": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\staged_sources\\pcm_result_hold.sv": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\renderer_timing_20260930\\code\\output\\hdmi_link_probe\\vendor\\TMDS_PLL_800_600_60.v": "ededfd3e361c7e9b4523de6b3b50e00c98baed5b9900a361c606ab574376f9ba",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\renderer_timing_20260930\\code\\output\\hdmi_link_probe\\vendor\\DVI_TX_Top.v": "b378c6a41d06a14215dc9ec54ed20bfc91309a0bb1543c589246717da3aee2ab",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\visual_event_bridge.sv": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\video_scan_timing.sv": "0b7b3def84043ddd40ed2c1e237bb2d528a117e4fc15195d40b33b0fe78b2069",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\visual_mailbox_cdc.sv": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\visual_control_bridge.sv": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\input\\visualizer\\visual_live_state.sv": "ad5c124a1f621ef95524f998efc4ca7ed0d7840d8297af8a97cd1460f88f5938",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\input\\visualizer\\visual_score_tracker.sv": "7e5c630fddf3da60f5fe6bd67721736ee7624817355822dadc4a09dc4cffe0dc",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\input\\visualizer\\visual_scene_renderer.sv": "8062253766925a3c6fce11aad820f51dfcf7444501164d53e95d817c3e62a8d1",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\input\\visualizer\\visual_hit_flash.sv": "1cd4cc1e3459a41ee26122bee014afd552b697e80c1900f658cc03a73ebe03e3",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\input\\visualizer\\m3_visualizer.sv": "c3940203be5616d3cb923552267d7485d494bfd0e6a5410d7a7f3651e1fd0d2a",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\board\\audio_visual_display_probe.sv": "6eca6bb7a4adae483ec4c802530392d3545174b2946d64724081320b317d2390",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\audio_visual.cst": "b924a759b2810a3bcae5795223b461fc24dc80707bbfe4e67c4ce98a01ceda39",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\audio_visual.sdc": "c99d7b0afb6c83eee7431d00b25c857cad99e467f89e3a1c9151da3cb44d799d",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\audio_visual_coexistence_top.gprj": "2c37029559ae627a977196b2c56adda30ca538466c68d95349ab527ccafc5cae"
+    },
+    "active_constraints_SHA": {
+      "audio_visual.cst": "b924a759b2810a3bcae5795223b461fc24dc80707bbfe4e67c4ce98a01ceda39",
+      "audio_visual.sdc": "c99d7b0afb6c83eee7431d00b25c857cad99e467f89e3a1c9151da3cb44d799d"
+    }
+  },
+  "reproduced_input_identity": {
+    "count": 45,
+    "byte_identical": [
+      "audio_defs_pkg.sv",
+      "sustain_control_contract_pkg.sv",
+      "audio_visual_coexistence_top.sv",
+      "reset_sync.sv",
+      "button_debouncer.sv",
+      "button_event_converter.sv",
+      "performance_event_fifo.sv",
+      "system_status_counters.sv",
+      "uart_status_reporter.sv",
+      "uart_tx.sv",
+      "uart_rx.sv",
+      "midi_event_parser.sv",
+      "midi_input.sv",
+      "note_pitch.sv",
+      "i2s_tx.sv",
+      "pcm_frame_buffer.sv",
+      "voice_allocator_4.sv",
+      "polyphonic_event_router.sv",
+      "voice_gain_q15_candidate.sv",
+      "polyphonic_pcm_commit.sv",
+      "pcm_mixer_4voice.sv",
+      "pcm_clip_counter.sv",
+      "pcm_result_hold.sv",
+      "TMDS_PLL_800_600_60.v",
+      "DVI_TX_Top.v",
+      "visual_event_bridge.sv",
+      "video_scan_timing.sv",
+      "visual_mailbox_cdc.sv",
+      "visual_control_bridge.sv",
+      "visual_live_state.sv",
+      "visual_score_tracker.sv",
+      "visual_scene_renderer.sv",
+      "visual_hit_flash.sv",
+      "m3_visualizer.sv",
+      "audio_visual_display_probe.sv",
+      "audio_visual.cst",
+      "audio_visual.sdc"
+    ],
+    "path_only_relocated": [
+      "simple_voice.sv",
+      "dds_oscillator.sv",
+      "piano_dds_oscillator.sv",
+      "adsr_piano_envelope.sv",
+      "sustain_controller.sv",
+      "polyphonic_envelope_bank.sv",
+      "polyphonic_audio_core.sv",
+      "audio_visual_coexistence_top.gprj"
+    ],
+    "constraints_identical": true,
+    "three_audio_overrides_match_reviewed_generator": true,
+    "strict_visual_sources_match36cc8a2": true,
+    "physical_report_to_publish": "original one-build outputs, not reusing independently reproduced report"
+  },
+  "new_actual_combo_gate": {
+    "errors": [],
+    "facts": {
+      "visual_gate": {
+        "summary": {
+          "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+          "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+          "Numbers of Paths Analyzed": "22822",
+          "Numbers of Endpoints Analyzed": "18844",
+          "Numbers of Falling Endpoints": "4",
+          "Numbers of Setup Violated Endpoints": "0",
+          "Numbers of Hold Violated Endpoints": "0"
+        },
+        "bus_path_count": {
+          "u_event_bridge": 22,
+          "u_control/u_score_mailbox": 50
+        }
+      },
+      "audio_pins": 10,
+      "resources": {
+        "Logic": 15772,
+        "Register": 5989,
+        "DSP": 24,
+        "BSRAM": 8
+      },
+      "fmax_mhz": {
+        "sys_clk": 50.599,
+        "video_serial": 1122.018,
+        "video_pixel": 33.029
+      },
+      "exported_min_slack_ns": {
+        "Setup": 0.237,
+        "Hold": 0.001,
+        "Recovery": 1.076,
+        "Removal": 1.048
+      },
+      "latency_registers": 65,
+      "scope": "independent audio/visual STA only; not production top, monitor or silicon acceptance"
+    }
+  },
+  "actual_combo_per_domain_worst_paths": {
+    "sys_clk": [
+      "1",
+      "0.237",
+      "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[1]_4_s0/Q",
+      "u_button_event_converter/overflow_count_15_s0/D",
+      "sys_clk:[R]",
+      "sys_clk:[R]",
+      "20.000",
+      "0.009",
+      "18.690"
+    ],
+    "video_pixel": [
+      "1",
+      "9.724",
+      "u_visual/u_scan/pixel_x_9_s0/Q",
+      "u_visual/u_scene/u_score_tracker/hit_mem_6_s1/CE",
+      "video_pixel:[R]",
+      "video_pixel:[R]",
+      "40.000",
+      "0.000",
+      "29.964"
+    ],
+    "video_serial": [
+      "1",
+      "7.109",
+      "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+      "u_visual/u_serial_reset/sync_chain_1_s0/D",
+      "video_serial:[R]",
+      "video_serial:[R]",
+      "8.000",
+      "0.000",
+      "0.827"
+    ],
+    "Hold": [
+      "1",
+      "0.001",
+      "g_polyphonic.u_audio_core/u_commit/u_result_hold/pcm_left_17_s0/Q",
+      "g_polyphonic.u_audio_core/u_commit/u_frame_buffer/pending_left_17_s0/D",
+      "sys_clk:[R]",
+      "sys_clk:[R]",
+      "0.000",
+      "0.000",
+      "0.514"
+    ],
+    "Recovery": [
+      "1",
+      "1.076",
+      "u_visual/u_serial_reset/sync_chain_1_s0/Q",
+      "u_visual/u_video_tx/rgb2dvi_inst/u_OSER10_b/RESET",
+      "video_serial:[R]",
+      "video_serial:[F]",
+      "4.000",
+      "-0.015",
+      "2.788"
+    ],
+    "Removal": [
+      "1",
+      "1.048",
+      "u_reset_sync/sync_chain_1_s0/Q",
+      "g_polyphonic.u_audio_core/u_bank/g_lane[1].g_piano.u_dds/phase_acc_9_s0/CLEAR",
+      "sys_clk:[R]",
+      "sys_clk:[R]",
+      "0.000",
+      "-0.205",
+      "1.700"
+    ]
+  },
+  "system_min_engineering_goal_ns": 0.2,
+  "ideal_goal_ns": 0.5,
+  "system_min_engineering_goal_met": true,
+  "ideal_goal_met": false,
+  "combined_audio_compare": {
+    "checks": 14,
+    "cycles": 881249,
+    "PCM_frames": 845,
+    "nonzero": 799,
+    "modes": 75,
+    "physical_I2S_PA_every_cycle_matched": true,
+    "same_req_and_frame_adopted_PCM_matched": true,
+    "not_internal_UART_or_processing_peak_cycle_equivalence": true,
+    "small_raster64x48_behavior_only": true,
+    "physical_PnR640x480": true
+  },
+  "experimental_combo_fs": {
+    "filename": "audio_visual_coexistence_top.fs",
+    "sha256": "39ff3dfd4869794c4eb47bef2ffbde1d9e7885b83161bab9fb69d4789c74fcf9",
+    "bytes": 17818664,
+    "formal_release": false,
+    "hardware_tested": false
+  },
+  "physical_report_sha256": {
+    "code/output/adsr_strict_flash_combo_20261002/prepared/build.log": "6369913ffbfbbd85c6f1eb63706ecc2639390d4a6d3b0d1c30a6969a8eb342e3",
+    "code/output/adsr_strict_flash_combo_20261002/prepared/impl/pnr/audio_visual_coexistence_top_tr_content.html": "5c9b78c288cc617a0e045acab1f092fe5584981570cbcb799fbe6f5a766eed90",
+    "code/output/adsr_strict_flash_combo_20261002/prepared/impl/pnr/audio_visual_coexistence_top.rpt.txt": "0c63a6eff5e47cb4b76ee0b76bdb3971146114ca5f7b446df304435c3f2f180e",
+    "code/output/adsr_strict_flash_combo_20261002/prepared/impl/pnr/audio_visual_coexistence_top.pin.html": "4e01e0ccb2e64ccdc81814339551a9ff437137ae3ed99c14fa4e51eaf6dea091",
+    "code/output/adsr_strict_flash_combo_20261002/prepared/impl/gwsynthesis/audio_visual_coexistence_top_syn_rsc.xml": "b659807d66325ae763fb36f689e4411908b11648a9f08a8c87c8273dba3bfcdd"
+  },
+  "M3_new_notification": "pending user forwarding, not delivered",
+  "remaining": [
+    "confirm M1/M3 role handoff or M3 formal counter task before formal source replacement",
+    "same-version real keyboard strict-contact flash/audio sustain/reset tests",
+    "future PitchMod pipeline integratedSTA not measured here",
+    "system min+.237 improves but below ideal+.5, Hold+.001 still narrow"
+  ],
+  "reproduced_combo_audio_compare": {
+    "exit": 0,
+    "actual_new_entrypoint": "code/scripts/run_audio_visual_pipeline_compare.py",
+    "log_sha256": "12b053b40c9c4b0756345d87d4840da9ae629ce70ab19c4a7afc5b3f66847b40"
+  },
+  "report_corruption_checks": {
+    "exit": 0,
+    "rejected": [
+      "Setup",
+      "output delay",
+      "payload",
+      "latency"
+    ],
+    "log_sha256": "71a3c8c481827821c8657b58fae228d0631f599531e49df473fd7c04430b2fc9"
+  },
+  "new_tool_source_sha256": {
+    "code/scripts/prepare_adsr_visual_combo.py": "8477eb1bda695a8e837ca467cb2a0a4dbb9c8ee0a253e9a926354ff6a269cfbf",
+    "code/scripts/run_audio_visual_pipeline_compare.py": "0e4e24b81c9a643b6c4e874c0089d60bf4e84daef17c7ed8124d991b6a1ae037"
+  },
+  "repo_gate": {
+    "exit": 0,
+    "groups": 9,
+    "Python_files": 133,
+    "log_sha256": "d82b0061b71c309af4466bb2bca9a1bb1ed6a53d380ab6bccf76b4f75df86a8d"
+  }
+}

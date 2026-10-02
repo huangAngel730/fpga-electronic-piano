@@ -14,7 +14,7 @@ module m3_visualizer #(
     parameter integer PREVIEW_FRAMES = 120,
     parameter integer HIT_WINDOW_FRAMES = 6,
     parameter integer RISE_STEP = 4,
-    parameter integer HIT_FLASH_FRAMES = 6
+    parameter integer HIT_FLASH_FRAMES = 4
 ) (
     input logic pixel_clk,
     input logic video_rst_n,
@@ -63,6 +63,8 @@ module m3_visualizer #(
     wire hit_pulse;
     wire [6:0] hit_note_number;
     wire [127:0] flash_active;
+    wire [255:0] flash_level;
+    wire contact_mode_enabled=frame_start ? mode_request : display_mode;
     wire clear_flash=video_desync || live_desync_latched ||
         (performance_fire && event_data.event_type==audio_defs_pkg::EVENT_ALL_NOTES_OFF);
 
@@ -98,7 +100,7 @@ module m3_visualizer #(
         .SLOT_COUNT(SCORE_SLOT_COUNT), .FRAME_WIDTH(FRAME_WIDTH),
         .Y_WIDTH(Y_WIDTH), .PREVIEW_FRAMES(PREVIEW_FRAMES),
         .TRAVEL_Y(JUDGE_Y), .HIT_WINDOW_FRAMES(HIT_WINDOW_FRAMES),
-        .BOTTOM_EXIT_GEOMETRY(1'b1),.RASTER_HEIGHT(SCREEN_HEIGHT)
+        .BOTTOM_EXIT_GEOMETRY(1'b1),.RASTER_HEIGHT(SCREEN_HEIGHT),.STRICT_CONTACT(1'b1)
     ) u_score_tracker (
         .clk(pixel_clk), .rst_n(video_rst_n), .frame_start(frame_start),
         .score_valid(score_valid), .score_ready(score_ready),
@@ -107,7 +109,8 @@ module m3_visualizer #(
         .score_duration_valid(score_duration_valid),
         .score_duration_frames(score_duration_frames),
         .score_velocity(score_velocity),
-        .performance_fire(performance_fire), .performance_data(event_data),
+        .performance_fire(performance_fire), .match_enabled(contact_mode_enabled),
+        .performance_data(event_data),
         .video_desync(video_desync), .current_frame(current_frame),
         .slot_valid(score_slot_valid), .slot_note_id(score_slot_note_id),
         .slot_note_number(score_slot_note_number), .slot_y(score_slot_y),
@@ -119,7 +122,8 @@ module m3_visualizer #(
     visual_hit_flash #(.BASE_NOTE(BASE_NOTE),.NOTE_COUNT(NOTE_COUNT),.FLASH_FRAMES(HIT_FLASH_FRAMES)) u_hit_flash(
         .clk(pixel_clk),.rst_n(video_rst_n),.frame_start(frame_start),
         .enabled(display_mode),.clear(clear_flash),
-        .hit_pulse(hit_pulse),.hit_note_number(hit_note_number),.flash_active(flash_active));
+        .hit_pulse(hit_pulse),.hit_note_number(hit_note_number),
+        .flash_active(flash_active),.flash_level(flash_level));
 
     visual_scene_renderer #(
         .LIVE_SLOT_COUNT(LIVE_SLOT_COUNT),
@@ -137,7 +141,7 @@ module m3_visualizer #(
         .score_note_number(score_slot_note_number), .score_y(score_slot_y),
         .score_top_y(score_top_y),.score_end_y(score_end_y),
         .score_velocity(score_slot_velocity), .score_hit(score_slot_hit),
-        .score_miss(score_slot_miss), .flash_active(flash_active), .rgb_r(rgb_r), .rgb_g(rgb_g), .rgb_b(rgb_b)
+        .score_miss(score_slot_miss), .flash_active(flash_active), .flash_level(flash_level), .rgb_r(rgb_r), .rgb_g(rgb_g), .rgb_b(rgb_b)
     );
 
     // note_id is kept by the score tracker for same-note instances even though
