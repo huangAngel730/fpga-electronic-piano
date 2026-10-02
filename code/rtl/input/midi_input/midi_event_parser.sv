@@ -3,7 +3,8 @@
 // 把 MIDI 字节流转换成项目统一的 64 位演奏事件。
 //
 // 支持：Note On/Off、CC64、Pitch Bend/CC1、Velocity=0、Running Status、
-// F8..FF 实时字节穿插、System Common/SysEx 跳过，以及本地事件 FIFO。
+// F8..FF 实时字节穿插、System Common/SysEx 跳过、本地事件 FIFO，以及
+// Pitch/CC1 的1kHz合并与离散事件有界公平调度。
 //
 // 本模块只接收已经解码的 UART 字节，不绑定实体引脚，也不产生派生时钟。
 // -----------------------------------------------------------------------------
@@ -12,7 +13,8 @@
 module midi_event_parser #(
     parameter integer     LOCAL_FIFO_DEPTH = 8,
     parameter logic [3:0] SOURCE_ID         = 4'd0,
-    parameter integer     CLK_HZ           = 50_000_000
+    parameter integer     CLK_HZ           = 50_000_000,
+    parameter integer     MAX_DISCRETE_BURST = 8
 ) (
     input  logic                               clk,
     input  logic                               rst_n,
@@ -59,8 +61,12 @@ module midi_event_parser #(
     localparam integer CONTROL_INTERVAL = (CLK_HZ + 999) / 1000;
     localparam integer RATE_WIDTH = (CONTROL_INTERVAL <= 1) ? 1 :
                                    $clog2(CONTROL_INTERVAL);
+    localparam integer BURST_COUNT_WIDTH = (MAX_DISCRETE_BURST <= 1) ? 1 :
+                                           $clog2(MAX_DISCRETE_BURST + 1);
     logic [RATE_WIDTH-1:0] control_cooldown;
+    logic [BURST_COUNT_WIDTH-1:0] discrete_burst_count;
     logic [31:0] control_pending;
+    logic [31:0] effective_control_pending;
     logic [11:0] pending_value [0:31];
     logic [15:0] mod_sent_valid;
     logic [11:0] mod_sent_value [0:15];
@@ -77,7 +83,14 @@ module midi_event_parser #(
     wire parsed_discrete = parsed_event_valid && !parsed_control;
     logic selected_valid;
     logic [4:0] selected_index;
+    logic [11:0] selected_value;
     logic [4:0] scan_index;
+    logic parsed_control_keep_pending;
+    logic grant_control;
+    wire discrete_handshake = !control_locked &&
+        (fifo_count != {FIFO_COUNT_WIDTH{1'b0}}) && event_ready;
+    wire burst_limit_reached = (MAX_DISCRETE_BURST <= 1) ||
+        (discrete_burst_count >= (MAX_DISCRETE_BURST - 1));
     integer control_scan, control_reset;
 
     integer comb_fifo_index;
@@ -313,26 +326,61 @@ module midi_event_parser #(
         end
     end
 
-    // Round-robin within continuous controls; discrete FIFO has priority.
+    // Apply the current byte before arbitration. This prevents an update to the
+    // selected slot from being deferred forever by a continuous byte stream.
+    // A CC1 update that returns to the accepted/in-flight value cancels the
+    // unsent excursion before it can consume a grant.
     always_comb begin
+        effective_control_pending = control_pending;
+        parsed_control_keep_pending = 1'b0;
+        if (parsed_control) begin
+            parsed_control_keep_pending = !(
+                parsed_control_index[0] &&
+                ((control_locked && locked_index == parsed_control_index) ?
+                 (locked_event.control_value == parsed_event_data.control_value) :
+                 (mod_sent_valid[parsed_control_index[4:1]] &&
+                  mod_sent_value[parsed_control_index[4:1]] ==
+                      parsed_event_data.control_value)));
+            effective_control_pending[parsed_control_index] =
+                parsed_control_keep_pending;
+        end
+
         selected_valid = 1'b0;
         selected_index = '0;
+        selected_value = '0;
         scan_index = '0;
         for (control_scan = 0; control_scan < 32; control_scan = control_scan + 1) begin
             scan_index = round_robin_index + 5'(control_scan);
-            if (!selected_valid && control_pending[scan_index]) begin
+            if (!selected_valid && effective_control_pending[scan_index]) begin
                 selected_valid = 1'b1;
                 selected_index = scan_index;
             end
         end
+        if (selected_valid) begin
+            selected_value = pending_value[selected_index];
+            if (parsed_control && parsed_control_index == selected_index)
+                selected_value = parsed_event_data.control_value;
+        end
+
+        // A discrete event already presented to the receiver is never
+        // pre-empted. The continuous grant is locked on the same edge as the
+        // Nth successful discrete handshake, so the next presented event is
+        // the control and the bound cannot slip by one event.
+        grant_control = !control_locked && (control_cooldown == 0) &&
+            selected_valid &&
+            (((fifo_count == 0) && !parsed_discrete) ||
+             (discrete_handshake && burst_limit_reached));
     end
 
     // At most one locked control event; only unpresented slots may be merged.
     // Rate is measured from successful handshakes, so a stalled event cannot
-    // accumulate emission credits or produce a post-stall control burst.
+    // accumulate emission credits or produce a post-stall control burst. When
+    // an eligible control is waiting, at most MAX_DISCRETE_BURST successful
+    // discrete handshakes may pass before one continuous-control opportunity.
     always_ff @(posedge clk) begin
         if (!rst_n) begin
             control_cooldown <= '0;
+            discrete_burst_count <= '0;
             control_pending <= '0;
             mod_sent_valid <= '0;
             control_locked <= 1'b0;
@@ -350,14 +398,20 @@ module midi_event_parser #(
                 control_locked <= 1'b0;
                 locked_event <= '0;
                 control_cooldown <= RATE_WIDTH'(CONTROL_INTERVAL - 1);
+                discrete_burst_count <= '0;
                 if (locked_index[0]) begin
                     mod_sent_valid[locked_index[4:1]] <= 1'b1;
                     mod_sent_value[locked_index[4:1]] <= locked_event.control_value;
                 end
             end
-            if (!control_locked && fifo_count == 0 && !parsed_discrete &&
-                control_cooldown == 0 && selected_valid &&
-                !(parsed_control && parsed_control_index == selected_index)) begin
+            if (!control_locked) begin
+                if ((control_cooldown != 0) || !selected_valid) begin
+                    discrete_burst_count <= '0;
+                end else if (discrete_handshake && !burst_limit_reached) begin
+                    discrete_burst_count <= discrete_burst_count + 1'b1;
+                end
+            end
+            if (grant_control) begin
                 control_locked <= 1'b1;
                 locked_index <= selected_index;
                 locked_event <= '0;
@@ -367,7 +421,7 @@ module midi_event_parser #(
                 locked_event.channel <= selected_index[4:1];
                 locked_event.control_id <= selected_index[0] ?
                     CTRL_MODULATION : CTRL_PITCH_BEND;
-                locked_event.control_value <= pending_value[selected_index];
+                locked_event.control_value <= selected_value;
                 control_pending[selected_index] <= 1'b0;
                 round_robin_index <= selected_index + 5'd1;
             end
@@ -376,7 +430,10 @@ module midi_event_parser #(
                 // Compare against the same-item in-flight value when present;
                 // otherwise the last acknowledged CC1. Reverting an unsent
                 // change cancels it without erasing the immutable in-flight event.
-                if (parsed_control_index[0] &&
+                if (grant_control && parsed_control_index == selected_index) begin
+                    // The just-arrived newest value was captured by the lock.
+                    control_pending[parsed_control_index] <= 1'b0;
+                end else if (parsed_control_index[0] &&
                     ((control_locked && locked_index == parsed_control_index) ?
                      (locked_event.control_value == parsed_event_data.control_value) :
                      (mod_sent_valid[parsed_control_index[4:1]] &&

@@ -11,7 +11,8 @@ module midi_input #(
     parameter integer     CLK_HZ           = 50_000_000,
     parameter integer     MIDI_BAUD        = 31_250,
     parameter integer     LOCAL_FIFO_DEPTH = 8,
-    parameter logic [3:0] SOURCE_ID         = 4'd0
+    parameter logic [3:0] SOURCE_ID         = 4'd0,
+    parameter integer     MAX_DISCRETE_BURST = 8
 ) (
     input  logic                               clk,
     input  logic                               rst_n,
@@ -49,7 +50,8 @@ module midi_input #(
     midi_event_parser #(
         .LOCAL_FIFO_DEPTH (LOCAL_FIFO_DEPTH),
         .SOURCE_ID         (SOURCE_ID),
-        .CLK_HZ            (CLK_HZ)
+        .CLK_HZ            (CLK_HZ),
+        .MAX_DISCRETE_BURST(MAX_DISCRETE_BURST)
     ) u_midi_event_parser (
         .clk                       (clk),
         .rst_n                     (rst_n),
