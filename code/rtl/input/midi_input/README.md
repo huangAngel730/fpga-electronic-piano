@@ -158,7 +158,8 @@ parser 增加末尾 `CLK_HZ` 参数（默认 50 MHz），wrapper 传入已有 `C
 消息”，FIFO 负责“暂时排队”。它支持 Note On、Note Off、Note On 且 Velocity 为 0 时转成 Note Off、
 多条音符消息连续接收、基本 Running Status，以及插在消息任意位置的
 MIDI Real-Time 字节。2026-10-01 按公共接口 v1.6 支持 CC64 延音踏板，
-并补齐 Pitch Bend 和 CC1 Modulation；Aftertouch 和其他 CC 仍完整消费但不输出。
+并补齐 Pitch Bend 和 CC1 Modulation；2026-10-03补齐Program Change。
+Aftertouch和其他CC仍完整消费但不输出。
 
 标准 5 针 MIDI 是电流环接口，外部必须使用符合要求的隔离接收电路；如果
 接入模块输出为 5 V UART，还必须电平转换。不得把 5 V 信号或标准 MIDI 插座
@@ -177,6 +178,10 @@ MIDI Real-Time 字节。2026-10-01 按公共接口 v1.6 支持 CC64 延音踏板
 | `code/tb/input/tb_midi_control_queue.sv` | 合并、去重、全32待发槽、背压、混合离散FIFO和限速 |
 | `code/tb/input/tb_midi_controls_uart.sv` | 真实50MHz/31250串行线→midi_input控制事件 |
 | `code/scripts/run_midi_controls_sim.ps1` | 六组Icarus专项/真实限速/UART/Note及CC64回归，保留日志 |
+| `code/tb/input/tb_midi_control_fairness*.sv` | 有界调度及真实UART混合流自检 |
+| `code/scripts/run_midi_scheduler_sim.ps1` | ModelSim有界调度、全量回归及三种变异反例 |
+| `code/tb/input/tb_midi_program_change*.sv` | Program Change穷举、FIFO及真实UART自检 |
+| `code/scripts/run_midi_program_change_sim.ps1` | Program Change专项及A+B组合回归 |
 
 未修改顶层模块、公共包、公共 UART、约束文件和引脚资料。
 
@@ -388,7 +393,7 @@ E:\FPGA\Bpan\modelsim\modelsim1\win64
   在确认接收模块数据手册与开发板电气条件后完成。
 - 当前正式工程的 UART RX 引脚仍有板级电压属性待实物确认，本模块不能作为解除
   该硬件阻塞项的依据。
-- Pitch/CC1/CC64 输入解析已实现；Aftertouch和其他CC不扩展。
+- Pitch/CC1/CC64/Program Change输入解析已实现；Aftertouch和其他CC不扩展。
   Pitch/Mod数学与FCW由M1，accepted控制状态/正式接入/采样快照由M2。
   旧“未取得键盘/引脚待确认”描述为2026-09-18历史阶段，不覆盖最新仓库硬件事实。
 - 新增自检入口 `.\code\scripts\run_cc64_input_sim.ps1`，覆盖 16 通道×128 个值、
@@ -464,3 +469,34 @@ Note／CC64回归、加速与真实50MHz限速、真实31250-baud UART混合流�
 
 本轮只证明输入侧L2仿真，不代表Pitch／Mod已经接入音频，不包含Gowin综合、PnR、
 时序或实物输入验证；正式控制状态、帧快照和音频路由仍由M2负责。
+
+## 11. Program Change输入映射（2026-10-03）
+
+MIDI `Cn program`现在输出一个公共控制事件：
+
+```text
+event_type   = EVENT_CONTROL_CHANGE
+source_id    = 本midi_input实例的SOURCE_ID
+channel      = n
+control_id   = CTRL_VOICE_SELECT
+control_value= {5'd0, program[6:0]}
+其余字段     = 0
+```
+
+程序号0～127不缩放、不加1，也不直接把MIDI状态或原始CC编号当公共控制编号。
+`Cn`保持一数据字节Running Status语义，实时字节可穿插；重复相同程序号仍逐条输出。
+`Dn`通道压力仍只消费、不输出。Program Change进入Note／CC64共用的离散FIFO，
+保持到达顺序、背压稳定和原溢出规则，不参与Pitch／CC1的1kHz限速、合并或去重。
+
+专项入口：
+
+```powershell
+.\code\scripts\run_midi_program_change_sim.ps1
+.\code\scripts\run_midi_scheduler_sim.ps1
+```
+
+前者覆盖16通道×128程序号、两个来源、Running Status/Realtime、`Dn`和其他通道
+消息对齐、System Common/SysEx/坏字节/复位、重复值、FIFO满载及同拍出入队、真实
+50MHz/31250-baud UART，并包含Program→Note顺序和A项有界控制机会组合回归。
+后者再次回归Pitch／CC1、Note和CC64。这里只证明正确事件已经从MIDI输入模块输出；
+音色编号映射、实际音频切换、整机PnR和接线验收由M2负责。

@@ -2,7 +2,7 @@
 // midi_event_parser.sv
 // 把 MIDI 字节流转换成项目统一的 64 位演奏事件。
 //
-// 支持：Note On/Off、CC64、Pitch Bend/CC1、Velocity=0、Running Status、
+// 支持：Note On/Off、CC64、Program Change、Pitch Bend/CC1、Velocity=0、Running Status、
 // F8..FF 实时字节穿插、System Common/SysEx 跳过、本地事件 FIFO，以及
 // Pitch/CC1 的1kHz合并与离散事件有界公平调度。
 //
@@ -128,18 +128,26 @@ module midi_event_parser #(
         end
     endfunction
 
-    // 收齐两个数据字节后生成事件，使用冻结公共映射函数。
-    // 仅CC1/CC64受支持；原始CC编号不能直接用作公共control_id。
+    // 收齐通道消息的数据字节后生成事件，使用冻结公共映射/编号。
+    // Program Change保留原始程序号；CC原始编号不能直接用作公共control_id。
     always_comb begin
         parsed_event_valid = 1'b0;
         parsed_event_data  = '0;
 
         if (midi_byte_valid && !midi_byte_error && !sysex_active &&
             !midi_byte[7] && (system_data_remaining == 2'd0) &&
-            running_status[7] && !channel_message_has_one_data_byte(running_status[7:4]) &&
-            channel_data_pending) begin
-            if ((running_status[7:4] == 4'h8) ||
-                (running_status[7:4] == 4'h9)) begin
+            running_status[7]) begin
+            if (running_status[7:4] == 4'hC) begin
+                parsed_event_valid = 1'b1;
+                parsed_event_data.event_type = EVENT_CONTROL_CHANGE;
+                parsed_event_data.source_id = SOURCE_ID;
+                parsed_event_data.channel = running_status[3:0];
+                parsed_event_data.control_id = CTRL_VOICE_SELECT;
+                parsed_event_data.control_value = {5'd0, midi_byte[6:0]};
+            end else if (!channel_message_has_one_data_byte(running_status[7:4]) &&
+                         channel_data_pending &&
+                         ((running_status[7:4] == 4'h8) ||
+                          (running_status[7:4] == 4'h9))) begin
                 parsed_event_valid = 1'b1;
                 parsed_event_data  = audio_defs_pkg::make_note_event(
                     running_status[7:4] == 4'h9,
@@ -148,13 +156,17 @@ module midi_event_parser #(
                     first_data_byte,
                     audio_defs_pkg::midi_velocity_to_10bit(midi_byte[6:0])
                 );
-            end else if ((running_status[7:4] == 4'hB) &&
+            end else if (!channel_message_has_one_data_byte(running_status[7:4]) &&
+                         channel_data_pending &&
+                         (running_status[7:4] == 4'hB) &&
                          (first_data_byte == 7'h40)) begin
                 parsed_event_valid = 1'b1;
                 parsed_event_data = audio_defs_pkg::make_sustain_event(
                     SOURCE_ID, running_status[3:0], midi_byte[6:0]
                 );
-            end else if (running_status[7:4] == 4'hE) begin
+            end else if (!channel_message_has_one_data_byte(running_status[7:4]) &&
+                         channel_data_pending &&
+                         running_status[7:4] == 4'hE) begin
                 parsed_event_valid = 1'b1;
                 parsed_event_data.event_type = EVENT_PITCH_BEND;
                 parsed_event_data.source_id = SOURCE_ID;
@@ -162,7 +174,9 @@ module midi_event_parser #(
                 parsed_event_data.control_id = CTRL_PITCH_BEND;
                 parsed_event_data.control_value = midi_bend_to_12bit(
                     {midi_byte[6:0], first_data_byte});
-            end else if ((running_status[7:4] == 4'hB) &&
+            end else if (!channel_message_has_one_data_byte(running_status[7:4]) &&
+                         channel_data_pending &&
+                         (running_status[7:4] == 4'hB) &&
                          (first_data_byte == 7'h01)) begin
                 parsed_event_valid = 1'b1;
                 parsed_event_data.event_type = EVENT_CONTROL_CHANGE;
