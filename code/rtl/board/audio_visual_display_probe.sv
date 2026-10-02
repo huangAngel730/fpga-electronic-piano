@@ -3,7 +3,9 @@
 // automatic mode alternation are not a final UI or downloaded song.
 `timescale 1ns/1ps
 module audio_visual_display_probe #(
-    parameter integer MODE_PERIOD_CYCLES = 250_000_000
+    parameter integer MODE_PERIOD_CYCLES = 250_000_000,
+    parameter integer VIDEO_FRAME_SYS_CYCLES = 840_000,
+    parameter integer DIAG_SCORE_SPACING_FRAMES = 30
 ) (
     input logic sys_clk,sys_rst_n,
     input logic accepted_valid,
@@ -31,7 +33,8 @@ module audio_visual_display_probe #(
     wire video_score_duration_valid;
     wire [9:0] video_score_velocity;
     logic [15:0] score_seq;
-    logic mode_pending;
+    logic mode_pending, score_pending;
+    logic [31:0] diag_frame,diag_frame_cycles,score_due_frame,diag_hit_frame;
     wire [31:0] current_frame;
     wire [7:0] rgb_r,rgb_g,rgb_b;
     performance_event_t video_data;
@@ -39,12 +42,25 @@ module audio_visual_display_probe #(
     always_ff @(posedge sys_clk or negedge visual_rst_n) begin
         if (!visual_rst_n) begin
             sys_count <= 0; score_seq <= 0; mode_pending <= 0;
+            score_pending<=0;diag_frame<=0;diag_frame_cycles<=0;score_due_frame<=0;diag_hit_frame<=120;
         end else begin
             if (sys_count == MODE_PERIOD_CYCLES-1) begin
                 sys_count <= 0;
                 mode_pending <= 1;
             end else sys_count <= sys_count + 1'b1;
-            if (src_score_ready && control_sys_done) score_seq <= score_seq + 1'b1;
+            // Diagnostic-only local time: same 50MHz reference as raster PLL,
+            // 800*525 pixels at25MHz =840000 sys cycles. No pixel bus CDC read.
+            // Frame-reset release differs by a few cycles (<one frame).
+            if(diag_frame_cycles==VIDEO_FRAME_SYS_CYCLES-1)begin
+                diag_frame_cycles<=0;diag_frame<=diag_frame+1'b1;
+            end else diag_frame_cycles<=diag_frame_cycles+1'b1;
+            if(!score_pending && control_sys_done && diag_frame>=score_due_frame)begin
+                score_pending<=1;diag_hit_frame<=diag_frame+32'd120;
+            end
+            if(score_pending && src_score_ready && control_sys_done)begin
+                score_pending<=0;score_seq<=score_seq+1'b1;
+                score_due_frame<=diag_frame+DIAG_SCORE_SPACING_FRAMES;
+            end
             if (mode_pending && src_mode_ready) mode_pending <= 0;
         end
     end
@@ -62,10 +78,10 @@ module audio_visual_display_probe #(
         .sys_clk(sys_clk), .pixel_clk(pixel_clk), .rst_n(visual_rst_n),
         .src_mode_valid(mode_pending), .src_mode_ready(src_mode_ready),
         .video_mode_toggle_pulse(video_mode_pulse),
-        .src_score_valid(control_sys_done), .src_score_ready(src_score_ready),
+        .src_score_valid(score_pending && control_sys_done), .src_score_ready(src_score_ready),
         .src_score_note_id(score_seq),
         .src_score_note_number(7'd60+{4'd0,score_seq[2:0]}),
-        .src_score_hit_frame({16'd0,score_seq}+32'd120),
+        .src_score_hit_frame(diag_hit_frame),
         .src_score_duration_valid(score_seq[0]),
         .src_score_duration_frames(32'd30), .src_score_velocity(10'd600),
         .video_score_valid(video_score_valid), .video_score_ready(score_ready),

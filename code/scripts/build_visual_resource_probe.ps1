@@ -36,7 +36,7 @@ $common = @(
 ) | ForEach-Object { Join-Path $repoRoot ('code\rtl\common\' + $_) }
 $visual = @(
     'visual_live_state.sv', 'visual_score_tracker.sv',
-    'visual_scene_renderer.sv', 'm3_visualizer.sv'
+    'visual_scene_renderer.sv', 'visual_hit_flash.sv', 'm3_visualizer.sv'
 ) | ForEach-Object { Join-Path $m3 ('code\rtl\input\visualizer\' + $_) }
 $sources = @($common) + @($pll,$dvi) + @($visual) + @($source)
 foreach ($file in $sources) {

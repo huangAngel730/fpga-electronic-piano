@@ -10,7 +10,7 @@ module tb_renderer_geometry_equiv #(
     logic [127:0] keys=0;
     logic [7:0] lv=0, sv=0, hit=0, miss=0;
     logic [55:0] ln=0, sn=0;
-    logic [79:0] ly=0, sy=0, lvel=0, svel=0;
+    logic [79:0] ly=0, le=0, sy=0, st=0, se=0, lvel=0, svel=0;
     wire [23:0] actual;
     integer checks=0;
     integer seed=32'h173049;
@@ -18,9 +18,10 @@ module tb_renderer_geometry_equiv #(
         .NOTE_COUNT(N), .BASE_NOTE(BASE), .JUDGE_Y(JUDGE),
         .KEYBOARD_TOP(KEY_TOP)) dut (
         .data_enable(de),.pixel_x(x),.pixel_y(y),.display_mode(mode),
-        .desync_latched(desync),.key_down(keys),.live_valid(lv),
-        .live_note_number(ln),.live_y(ly),.live_velocity(lvel),
+        .desync_latched(desync),.key_down(keys),.flash_active(128'd0),.live_valid(lv),
+        .live_note_number(ln),.live_y(ly),.live_end_y(le),.live_velocity(lvel),
         .score_valid(sv),.score_note_number(sn),.score_y(sy),
+        .score_top_y(st),.score_end_y(se),
         .score_velocity(svel),.score_hit(hit),.score_miss(miss),
         .rgb_r(actual[23:16]),.rgb_g(actual[15:8]),.rgb_b(actual[7:0])
     );
@@ -34,20 +35,19 @@ module tb_renderer_geometry_equiv #(
                 lane=int'(x)*N/W;
                 left_x=lane*W/N; right_x=(lane+1)*W/N;
                 if(int'(x)==left_x) begin r=8'h18;g=8'h28;b=8'h3c;end
-                if(int'(y)>=JUDGE-1 && int'(y)<=JUDGE+1)
+                if(mode && int'(y)==H-1)
                     begin r=8'hf0;g=8'hb0;b=8'h30;end
                 // The original draw loop overwrites colors from low to high.
                 for(integer slot=0;slot<8;slot=slot+1) begin
                     note=mode ? int'(sn[slot*7+:7]) : int'(ln[slot*7+:7]);
                     left_x=(note-BASE)*W/N;
                     right_x=(note-BASE+1)*W/N;
-                    top_y=int'(sy[slot*10+:10])>=JUDGE ? 0 :
-                          JUDGE-int'(sy[slot*10+:10]);
+                    top_y=int'(st[slot*10+:10]);
                     if(note>=BASE && note<BASE+N && int'(x)>left_x &&
                        int'(x)+2<=right_x &&
                        ((!mode && lv[slot] && int'(y)>=int'(ly[slot*10+:10]) &&
-                        int'(y)<int'(ly[slot*10+:10])+10) ||
-                        (mode && sv[slot] && int'(y)>=top_y && int'(y)<top_y+12))) begin
+                        int'(y)<int'(le[slot*10+:10])) ||
+                        (mode && sv[slot] && int'(y)>=top_y && int'(y)<int'(se[slot*10+:10])))) begin
                         velocity=(mode ? int'(svel[slot*10+:10]) :
                                          int'(lvel[slot*10+:10])) >> 2;
                         if(!mode) begin
@@ -56,15 +56,6 @@ module tb_renderer_geometry_equiv #(
                         else if(miss[slot]) begin r=8'he8;g=8'h38;b=8'h38;end
                         else begin r=112+(velocity>>1);g=72+(velocity>>2);b=176+(velocity>>2);end
                     end
-                end
-                if(int'(y)>=KEY_TOP) begin
-                    note=BASE+lane;pitch=note%12;
-                    if(pitch==1 || pitch==3 || pitch==6 || pitch==8 || pitch==10)
-                        begin r=8'h18;g=8'h1c;b=8'h24;end
-                    else begin r=8'he8;g=8'he8;b=8'hdc;end
-                    if(keys[note]) begin r=8'h20;g=8'hc8;b=8'he8;end
-                    if(int'(x)==lane*W/N || int'(x)+1==(lane+1)*W/N)
-                        begin r=8'h04;g=8'h08;b=8'h10;end
                 end
                 if(desync && int'(y)<18) begin
                     if(x[4]) begin r=8'hff;g=8'h28;b=8'h28;end
@@ -96,7 +87,7 @@ module tb_renderer_geometry_equiv #(
         for(integer lane=0;lane<N;lane=lane+1) begin
             for(integer slot=0;slot<8;slot=slot+1) begin
                 ln[slot*7+:7]=7'(BASE+lane);sn[slot*7+:7]=7'(BASE+lane);
-                ly[slot*10+:10]=10'd9;sy[slot*10+:10]=10'(JUDGE);
+                ly[slot*10+:10]=10'd9;le[slot*10+:10]=10'd31;sy[slot*10+:10]=10'(JUDGE);st[slot*10+:10]=0;se[slot*10+:10]=12;
                 lvel[slot*10+:10]=10'(slot*146);svel[slot*10+:10]=10'(1023-slot*146);
             end
             for(integer ix=0;ix<W;ix=ix+1) begin
@@ -124,7 +115,7 @@ module tb_renderer_geometry_equiv #(
             lv=$random(seed);sv=$random(seed);hit=$random(seed);miss=$random(seed);
             for(integer slot=0;slot<8;slot=slot+1) begin
                 ln[slot*7+:7]=$random(seed);sn[slot*7+:7]=$random(seed);
-                ly[slot*10+:10]=$random(seed);sy[slot*10+:10]=$random(seed);
+                ly[slot*10+:10]=$random(seed);le[slot*10+:10]=$random(seed);sy[slot*10+:10]=$random(seed);st[slot*10+:10]=$random(seed);se[slot*10+:10]=$random(seed);
                 lvel[slot*10+:10]=$random(seed);svel[slot*10+:10]=$random(seed);
             end
             compare();

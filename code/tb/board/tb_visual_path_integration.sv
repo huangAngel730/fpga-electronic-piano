@@ -176,12 +176,12 @@ module tb_visual_path_integration;
             $fatal(1,"bridge duplicated or corrupted accepted Note On");
         checks = checks + 1;
         next_frame();
-        check_pixel(2, 40, 24'h20c8e8); // key lights only on coherent next frame
+        check_pixel(2, 40, 24'h87c7cb); // held bar appears only on coherent next frame
 
         send_note(0, 4'd2, 7'd60);
         wait(delivered_count == 2);
         next_frame();
-        check_pixel(2, 40, 24'he8e8dc);
+        check_pixel(2, 40, 24'h87c7cb);
         if (accepted_count != 2 || delivered_count != 2)
             $fatal(1,"note transfer count differs: %0d/%0d",accepted_count, delivered_count);
         checks = checks + 1;

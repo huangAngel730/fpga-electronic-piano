@@ -1,0 +1,492 @@
+{
+  "date": "2026-10-02",
+  "reviewer": "main M2",
+  "candidate_commit": "61903f0fb87dce876b99fe1528cbe0ddd12a97fa",
+  "dependency_commit": "7bd3068",
+  "source_code_analysis": "direct HDL source, not CodeGraph",
+  "input_receipt": {
+    "inputs": {
+      "count": 45,
+      "bad": []
+    },
+    "evidence_inputs": {
+      "count": 45,
+      "bad": []
+    },
+    "reports": {
+      "count": 15,
+      "bad": []
+    },
+    "original_audio": {
+      "count": 38,
+      "bad": []
+    },
+    "staged_audio": {
+      "count": 30,
+      "bad": []
+    },
+    "protected": {
+      "code/rtl/board/electronic_piano_top.sv": "c75f4321c28753e851c26e6cb0810947a85e8f17ca61b28ae7e527a5ff765a5b",
+      "code/rtl/common/audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+      "code/constraints/electronic_piano.cst": "76037da27eabba7bf322d41ad8f90c16b1a72b549fc2ffb865b380bfbda35dcb",
+      "code/docs/模块接口规范.md": "5bcfd9d355fb76aafb798104ea517bc047534d0740273b78df74c0d16758f8e5",
+      "code/rtl/board/polyphonic_envelope_bank.sv": "813e0b726546c16344aa86eb39c02291315450a001ba613e3dbfc710885689da",
+      "code/rtl/board/polyphonic_audio_core.sv": "b36b0838f1b8ba947d99cc6c48f91334f845aa7984f6d9d3b21cbe502512c995",
+      "code/rtl/common/visual_control_bridge.sv": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428",
+      "code/rtl/common/visual_event_bridge.sv": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c"
+    },
+    "delivery_fs": "1053cb5df2c55d5d50167b7952cbe8feb2f7dd08eb918cc4f388277135858e34",
+    "candidate": "61903f0fb87dce876b99fe1528cbe0ddd12a97fa",
+    "dependency": "7bd3068",
+    "audio_baseline": "e5eb025ea37dfd7312b4a4e74e1a881c223dda1d",
+    "source_paths": [
+      "code/rtl/board/audio_visual_display_probe.sv",
+      "code/rtl/input/visualizer/m3_visualizer.sv",
+      "code/rtl/input/visualizer/visual_hit_flash.sv",
+      "code/rtl/input/visualizer/visual_live_state.sv",
+      "code/rtl/input/visualizer/visual_scene_renderer.sv",
+      "code/rtl/input/visualizer/visual_score_tracker.sv",
+      "code/scripts/build_visual_full_path_probe.ps1",
+      "code/scripts/build_visual_resource_probe.ps1",
+      "code/scripts/check_visual_full_path_report.py",
+      "code/scripts/prepare_audio_visual_probe.py",
+      "code/scripts/run_m3_visualizer_sim.ps1",
+      "code/scripts/run_visual_path_integration_sim.ps1",
+      "code/tb/board/tb_audio_visual_coexistence.sv",
+      "code/tb/board/tb_visual_path_integration.sv",
+      "code/tb/board/verify_visual_direct_report.py",
+      "code/tb/input/visualizer/bottom_exit_review_20261002.md",
+      "code/tb/input/visualizer/bottom_exit_semantics_20261002.md",
+      "code/tb/input/visualizer/held_bar_flash_review_20261002.md",
+      "code/tb/input/visualizer/held_bar_semantics_20261002.md",
+      "code/tb/input/visualizer/run_diagnostic_score_progress.ps1",
+      "code/tb/input/visualizer/tb_bottom_exit_motion.sv",
+      "code/tb/input/visualizer/tb_diagnostic_score_progress.sv",
+      "code/tb/input/visualizer/tb_hit_flash_feedback.sv",
+      "code/tb/input/visualizer/tb_m3_visualizer.sv",
+      "code/tb/input/visualizer/tb_renderer_geometry_equiv.sv",
+      "code/tb/input/visualizer/tb_visual_live_state.sv"
+    ]
+  },
+  "regeneration": {
+    "input_count": 45,
+    "byte_identical_inputs": 37,
+    "absolute_source_paths_relocated": [
+      "simple_voice.sv",
+      "dds_oscillator.sv",
+      "piano_dds_oscillator.sv",
+      "adsr_piano_envelope.sv",
+      "sustain_controller.sv",
+      "polyphonic_envelope_bank.sv",
+      "polyphonic_audio_core.sv",
+      "audio_visual_coexistence_top.gprj"
+    ],
+    "GPRJ_resolved_inputs": [
+      {
+        "source_file": "audio_defs_pkg.sv",
+        "original_sha256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "replayed_sha256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064"
+      },
+      {
+        "source_file": "sustain_control_contract_pkg.sv",
+        "original_sha256": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+        "replayed_sha256": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2"
+      },
+      {
+        "source_file": "audio_visual_coexistence_top.sv",
+        "original_sha256": "a76b05878053854f161318f9c963107d78b40d96cecd0650c9bf68ab2156ce56",
+        "replayed_sha256": "a76b05878053854f161318f9c963107d78b40d96cecd0650c9bf68ab2156ce56"
+      },
+      {
+        "source_file": "reset_sync.sv",
+        "original_sha256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+        "replayed_sha256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777"
+      },
+      {
+        "source_file": "button_debouncer.sv",
+        "original_sha256": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+        "replayed_sha256": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32"
+      },
+      {
+        "source_file": "button_event_converter.sv",
+        "original_sha256": "f6befb9c7415c69da62f2083e22803eae93ebeac63b8903b3c1314c4e9e723f0",
+        "replayed_sha256": "f6befb9c7415c69da62f2083e22803eae93ebeac63b8903b3c1314c4e9e723f0"
+      },
+      {
+        "source_file": "performance_event_fifo.sv",
+        "original_sha256": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+        "replayed_sha256": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671"
+      },
+      {
+        "source_file": "system_status_counters.sv",
+        "original_sha256": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+        "replayed_sha256": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085"
+      },
+      {
+        "source_file": "uart_status_reporter.sv",
+        "original_sha256": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+        "replayed_sha256": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342"
+      },
+      {
+        "source_file": "uart_tx.sv",
+        "original_sha256": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+        "replayed_sha256": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925"
+      },
+      {
+        "source_file": "uart_rx.sv",
+        "original_sha256": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+        "replayed_sha256": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd"
+      },
+      {
+        "source_file": "midi_event_parser.sv",
+        "original_sha256": "bb0a47d42c84e0222da4bced78024a95b1c8be45409cec1ecb9a7db1df7d5a44",
+        "replayed_sha256": "bb0a47d42c84e0222da4bced78024a95b1c8be45409cec1ecb9a7db1df7d5a44"
+      },
+      {
+        "source_file": "midi_input.sv",
+        "original_sha256": "9d07ee52cb8162f1d6edc1507a932205ed81c26dbdb9416726fc6068c86440bf",
+        "replayed_sha256": "9d07ee52cb8162f1d6edc1507a932205ed81c26dbdb9416726fc6068c86440bf"
+      },
+      {
+        "source_file": "note_pitch.sv",
+        "original_sha256": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+        "replayed_sha256": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69"
+      },
+      {
+        "source_file": "simple_voice.sv",
+        "original_sha256": "732869df2b6b62bb94f2454baef089270716cf04e35a152b84ca58a8e5f8beaa",
+        "replayed_sha256": "f5e8292e0843c93ebc0d2832e622688587434ec62e091b1b5519ee620d0414d6"
+      },
+      {
+        "source_file": "i2s_tx.sv",
+        "original_sha256": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+        "replayed_sha256": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad"
+      },
+      {
+        "source_file": "pcm_frame_buffer.sv",
+        "original_sha256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+        "replayed_sha256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997"
+      },
+      {
+        "source_file": "voice_allocator_4.sv",
+        "original_sha256": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+        "replayed_sha256": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9"
+      },
+      {
+        "source_file": "dds_oscillator.sv",
+        "original_sha256": "5728b0771a7f0671bfcdfc83951c8d5e4d02d0eb18cea45ba69c9aefa7e840a3",
+        "replayed_sha256": "4107b81426de63c786294a97b33b6d4dab240a93fa58568f233a962ebfda72ff"
+      },
+      {
+        "source_file": "piano_dds_oscillator.sv",
+        "original_sha256": "06ee4b687cbdffb600fdcfdd40517d60cb8152fb559ab76258b476c63cb8c07c",
+        "replayed_sha256": "978d01a0d9b4db2e310b63cff1df034b1bde85e672e445e69c407b78d4659973"
+      },
+      {
+        "source_file": "adsr_piano_envelope.sv",
+        "original_sha256": "673eb92032a1e3fb01422dfa6018de086fd4af87e5be591fd3d482d6395b1c21",
+        "replayed_sha256": "f598358d03d7a30477453309c5011e015319bf4fbf51ee61b7b832de030874ab"
+      },
+      {
+        "source_file": "sustain_controller.sv",
+        "original_sha256": "71fd56e544e712d4e6d477b96604756bd6d9ea4528fd56436aac55f9dd445e6b",
+        "replayed_sha256": "d26a0f726708698a19938b6074a78bd5eeffe21f8962229ad6013ee9a04dfa2e"
+      },
+      {
+        "source_file": "polyphonic_event_router.sv",
+        "original_sha256": "3a85d64a84447c1cbbf833150a6576c13b79e30a7d4a972c14707363a5f758f4",
+        "replayed_sha256": "3a85d64a84447c1cbbf833150a6576c13b79e30a7d4a972c14707363a5f758f4"
+      },
+      {
+        "source_file": "polyphonic_envelope_bank.sv",
+        "original_sha256": "2b5d69a3e2ff0e41e97545ca8e7498b59370e217d87e0f852291313dc5a02ea6",
+        "replayed_sha256": "d666ce35f487d49471f3e7d6b297885ab185057e47ff7d369c0d6a0f90870d6a"
+      },
+      {
+        "source_file": "voice_gain_q15_candidate.sv",
+        "original_sha256": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+        "replayed_sha256": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3"
+      },
+      {
+        "source_file": "polyphonic_pcm_commit.sv",
+        "original_sha256": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+        "replayed_sha256": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a"
+      },
+      {
+        "source_file": "polyphonic_audio_core.sv",
+        "original_sha256": "2efa54593bc59534c54a538d2d19bba920f99ca7c79d2db85086254e314ee815",
+        "replayed_sha256": "7288f671411fc14fae8051a7f79cf8ed2cc8ceccf6c091c7e9ad1ac3350dbedd"
+      },
+      {
+        "source_file": "pcm_mixer_4voice.sv",
+        "original_sha256": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+        "replayed_sha256": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a"
+      },
+      {
+        "source_file": "pcm_clip_counter.sv",
+        "original_sha256": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+        "replayed_sha256": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca"
+      },
+      {
+        "source_file": "pcm_result_hold.sv",
+        "original_sha256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+        "replayed_sha256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f"
+      },
+      {
+        "source_file": "TMDS_PLL_800_600_60.v",
+        "original_sha256": "ededfd3e361c7e9b4523de6b3b50e00c98baed5b9900a361c606ab574376f9ba",
+        "replayed_sha256": "ededfd3e361c7e9b4523de6b3b50e00c98baed5b9900a361c606ab574376f9ba"
+      },
+      {
+        "source_file": "DVI_TX_Top.v",
+        "original_sha256": "b378c6a41d06a14215dc9ec54ed20bfc91309a0bb1543c589246717da3aee2ab",
+        "replayed_sha256": "b378c6a41d06a14215dc9ec54ed20bfc91309a0bb1543c589246717da3aee2ab"
+      },
+      {
+        "source_file": "visual_event_bridge.sv",
+        "original_sha256": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c",
+        "replayed_sha256": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c"
+      },
+      {
+        "source_file": "video_scan_timing.sv",
+        "original_sha256": "0b7b3def84043ddd40ed2c1e237bb2d528a117e4fc15195d40b33b0fe78b2069",
+        "replayed_sha256": "0b7b3def84043ddd40ed2c1e237bb2d528a117e4fc15195d40b33b0fe78b2069"
+      },
+      {
+        "source_file": "visual_mailbox_cdc.sv",
+        "original_sha256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c",
+        "replayed_sha256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c"
+      },
+      {
+        "source_file": "visual_control_bridge.sv",
+        "original_sha256": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428",
+        "replayed_sha256": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428"
+      },
+      {
+        "source_file": "visual_live_state.sv",
+        "original_sha256": "ad5c124a1f621ef95524f998efc4ca7ed0d7840d8297af8a97cd1460f88f5938",
+        "replayed_sha256": "ad5c124a1f621ef95524f998efc4ca7ed0d7840d8297af8a97cd1460f88f5938"
+      },
+      {
+        "source_file": "visual_score_tracker.sv",
+        "original_sha256": "e265c771d29c8d9312a7d632788c667a82a7062c398743eb94f7fcf9e22a2f7a",
+        "replayed_sha256": "e265c771d29c8d9312a7d632788c667a82a7062c398743eb94f7fcf9e22a2f7a"
+      },
+      {
+        "source_file": "visual_scene_renderer.sv",
+        "original_sha256": "e6709698169b6b96e23c81934be27c02c72d962473f87ba7ebf976d86a1e6822",
+        "replayed_sha256": "e6709698169b6b96e23c81934be27c02c72d962473f87ba7ebf976d86a1e6822"
+      },
+      {
+        "source_file": "visual_hit_flash.sv",
+        "original_sha256": "69f73273f97d3327491cbb0946cfc562b70845b236d3592c9d42e180e14cc22e",
+        "replayed_sha256": "69f73273f97d3327491cbb0946cfc562b70845b236d3592c9d42e180e14cc22e"
+      },
+      {
+        "source_file": "m3_visualizer.sv",
+        "original_sha256": "0fe4ba024ba83cc26e38bfd094769f6ea068e947e44ccc54542de93a981de0b2",
+        "replayed_sha256": "0fe4ba024ba83cc26e38bfd094769f6ea068e947e44ccc54542de93a981de0b2"
+      },
+      {
+        "source_file": "audio_visual_display_probe.sv",
+        "original_sha256": "6eca6bb7a4adae483ec4c802530392d3545174b2946d64724081320b317d2390",
+        "replayed_sha256": "6eca6bb7a4adae483ec4c802530392d3545174b2946d64724081320b317d2390"
+      },
+      {
+        "source_file": "audio_visual.cst",
+        "original_sha256": "b924a759b2810a3bcae5795223b461fc24dc80707bbfe4e67c4ce98a01ceda39",
+        "replayed_sha256": "b924a759b2810a3bcae5795223b461fc24dc80707bbfe4e67c4ce98a01ceda39"
+      },
+      {
+        "source_file": "audio_visual.sdc",
+        "original_sha256": "c99d7b0afb6c83eee7431d00b25c857cad99e467f89e3a1c9151da3cb44d799d",
+        "replayed_sha256": "c99d7b0afb6c83eee7431d00b25c857cad99e467f89e3a1c9151da3cb44d799d"
+      }
+    ],
+    "audio_Git_dependencies_identical": 38,
+    "audio_staged_entries": 30,
+    "effective_constraints_identical": {
+      "audio_visual.cst": "b924a759b2810a3bcae5795223b461fc24dc80707bbfe4e67c4ce98a01ceda39",
+      "audio_visual.sdc": "c99d7b0afb6c83eee7431d00b25c857cad99e467f89e3a1c9151da3cb44d799d"
+    },
+    "physical_reports": "new61903f0 candidate independently checked, not old6ade4c reports",
+    "M2_PnR_rerun": false,
+    "transport_relocation_not_new_bitstream": true
+  },
+  "source_sha256": {
+    "code/rtl/board/audio_visual_display_probe.sv": "6eca6bb7a4adae483ec4c802530392d3545174b2946d64724081320b317d2390",
+    "code/rtl/input/visualizer/m3_visualizer.sv": "0fe4ba024ba83cc26e38bfd094769f6ea068e947e44ccc54542de93a981de0b2",
+    "code/rtl/input/visualizer/visual_hit_flash.sv": "69f73273f97d3327491cbb0946cfc562b70845b236d3592c9d42e180e14cc22e",
+    "code/rtl/input/visualizer/visual_live_state.sv": "ad5c124a1f621ef95524f998efc4ca7ed0d7840d8297af8a97cd1460f88f5938",
+    "code/rtl/input/visualizer/visual_scene_renderer.sv": "e6709698169b6b96e23c81934be27c02c72d962473f87ba7ebf976d86a1e6822",
+    "code/rtl/input/visualizer/visual_score_tracker.sv": "e265c771d29c8d9312a7d632788c667a82a7062c398743eb94f7fcf9e22a2f7a",
+    "code/scripts/build_visual_full_path_probe.ps1": "89bc835742e5930856f2e5c6ff24dd5a727af955ff67866b46472843797f308a",
+    "code/scripts/build_visual_resource_probe.ps1": "2385e5096805d61da255d2326799e19b0a5f1ceb49e8e4de9bcd0acb61560b9d",
+    "code/scripts/check_visual_full_path_report.py": "1f1b60d4572f2a392962dd7806a834a7b0caad73d4ffede48e3ab504bdb386a0",
+    "code/scripts/prepare_audio_visual_probe.py": "f9b2e0add3c46b5979390dfdcdebc383e5ec3f8e728ea3c06fdbee9cbb877c57",
+    "code/scripts/run_m3_visualizer_sim.ps1": "7a8e3875a4d9780dbc718830d89b2bdd941f09564b6ce0be26bfbddbbcd63c7f",
+    "code/scripts/run_visual_path_integration_sim.ps1": "3847c7f90af4f15836952d3748759287dae3ef96a19a6843b55b3ed9723d1391",
+    "code/tb/board/tb_audio_visual_coexistence.sv": "29ba485fe806ec15bf92d502674122fec9c7a665548593335bab39db220c7569",
+    "code/tb/board/tb_visual_path_integration.sv": "f519749774d2f69554e0a35b04d40ea1ba1ba99f6a032e504bb50303996af806",
+    "code/tb/board/verify_visual_direct_report.py": "79482ade79b86e8ac3cb1d246112dfdba14cfaf17fb23300184a5565c41af0c3",
+    "code/tb/input/visualizer/bottom_exit_review_20261002.md": "6cd8c365ca525bb553dcbba0e918744c389b46bc85af3b8cd2858995e0f63203",
+    "code/tb/input/visualizer/bottom_exit_semantics_20261002.md": "e1cd51e76dbbb427d34d26f242f3d120d873318f5edb2d45de7511e3dac7befe",
+    "code/tb/input/visualizer/held_bar_flash_review_20261002.md": "bba2177546b8bc221d3a7fb35b3eb051c3fc6384add928182718b4001cf36b52",
+    "code/tb/input/visualizer/held_bar_semantics_20261002.md": "3e00d8666d85634a4d25fd8fa7e27785b72947d26af2e46801096d73d2bf5b88",
+    "code/tb/input/visualizer/run_diagnostic_score_progress.ps1": "1c475009a859a40d813ae0ea37665c04e5241f69d2473952a8dbfa906e478877",
+    "code/tb/input/visualizer/tb_bottom_exit_motion.sv": "6afc32181cf54a09e8a57d142a412e7530e08929b15898d2fae10c04c1d2f08a",
+    "code/tb/input/visualizer/tb_diagnostic_score_progress.sv": "6cd459c8c98cfecce74595bead33c2c3401bf9ff518741105a739298859e4db1",
+    "code/tb/input/visualizer/tb_hit_flash_feedback.sv": "bd302e681df5c65a848e6714c23b5bc3ea5d8c18d1e46f4b65a6b3a497c64b88",
+    "code/tb/input/visualizer/tb_m3_visualizer.sv": "4371b156b372b1830eb738c287859a03c87ba406d55cebeba8a8e0ba8a7c3ce1",
+    "code/tb/input/visualizer/tb_renderer_geometry_equiv.sv": "43c9f6781f1aee803bc5b23181288db01522b22f54127c74c92027b5d78cc7df",
+    "code/tb/input/visualizer/tb_visual_live_state.sv": "f31a38cf9815bed05ba8959add71562a1ad26f3bb4fb9784e0f0cb5649469e54"
+  },
+  "independent_runs": {
+    "modules": {
+      "exit": 0,
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "code/scripts/run_m3_visualizer_sim.ps1"
+      ]
+    },
+    "renderer_geometry": {
+      "exit": 0,
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "code/tb/input/visualizer/run_renderer_geometry_equiv.ps1"
+      ]
+    },
+    "legacy_tracker": {
+      "exit": 0,
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "code/tb/input/visualizer/run_tracker_timing_equiv.ps1"
+      ]
+    },
+    "diagnostic_score": {
+      "exit": 0,
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "code/tb/input/visualizer/run_diagnostic_score_progress.ps1"
+      ]
+    },
+    "bridge_joint": {
+      "exit": 0,
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "code/scripts/run_visual_path_integration_sim.ps1"
+      ]
+    },
+    "actual_report_gate": {
+      "exit": 0,
+      "command": [
+        "D:/ProgramData/anaconda3/python.exe",
+        "-X",
+        "utf8",
+        "code/scripts/check_audio_visual_probe.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\renderer_timing_20260930\\code\\output\\bottom_exit_audio_visual_20261002"
+      ]
+    },
+    "dedicated_report_negatives": {
+      "exit": 0,
+      "command": [
+        "D:/ProgramData/anaconda3/python.exe",
+        "-X",
+        "utf8",
+        "code/tb/board/verify_visual_direct_report.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\renderer_timing_20260930\\code\\output\\bottom_exit_audio_visual_20261002"
+      ]
+    },
+    "audio_report_negatives": {
+      "exit": 0,
+      "command": [
+        "D:/ProgramData/anaconda3/python.exe",
+        "-X",
+        "utf8",
+        "code/tb/board/verify_audio_visual_report.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\renderer_timing_20260930\\code\\output\\bottom_exit_audio_visual_20261002"
+      ]
+    }
+  },
+  "independent_log_sha256": {
+    "actual_report_gate.log": "a6b99bde9d0140465937b4782e89104b5cc9d528b741ead5a3cf8b447e28eb5e",
+    "audio_report_negatives.log": "71a3c8c481827821c8657b58fae228d0631f599531e49df473fd7c04430b2fc9",
+    "bridge_joint.log": "5e8d426b760c6887786fead2fd9dc98c5bcf25ac604eec08776ea41a46bc15ed",
+    "dedicated_report_negatives.log": "7ca62e057caeb36d0d362f5e0c3179cf022d6a7ccb3e7d8035fed3e74f4ef249",
+    "diagnostic_score.log": "203cd96acb1e86a3b85fdf708d01932145f6e24b5714876a0085716be15aad23",
+    "independent_coexistence.log": "12b053b40c9c4b0756345d87d4840da9ae629ce70ab19c4a7afc5b3f66847b40",
+    "legacy_tracker.log": "d93eea80a8a37f911deb30182209dc0791b367016b9ffb792f6e612d49b02042",
+    "modules.log": "f46cf0c12f2059ed03fffc5240ff9b51b152c871a407d1fe5464e8398fb9418c",
+    "prepare.log": "c787a21dc466d4d68e230c7123dae581e3a1164d91c1cb701bd7348567ccc8ec",
+    "renderer_geometry.log": "21cb5dfa97cd45390aa9c38b3ac76155dea617e579c119c0f5d750971bd3e935"
+  },
+  "raw_candidate_gate_facts": {
+    "visual_gate": {
+      "summary": {
+        "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+        "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+        "Numbers of Paths Analyzed": "21755",
+        "Numbers of Endpoints Analyzed": "18054",
+        "Numbers of Falling Endpoints": "4",
+        "Numbers of Setup Violated Endpoints": "0",
+        "Numbers of Hold Violated Endpoints": "0"
+      },
+      "bus_path_count": {
+        "u_event_bridge": 22,
+        "u_control/u_score_mailbox": 37
+      }
+    },
+    "audio_pins": 10,
+    "resources": {
+      "Logic": 16299,
+      "Register": 5808,
+      "DSP": 24,
+      "BSRAM": 8
+    },
+    "fmax_mhz": {
+      "sys_clk": 50.137,
+      "video_serial": 1296.595,
+      "video_pixel": 25.242
+    },
+    "exported_min_slack_ns": {
+      "Setup": 0.055,
+      "Hold": 0.001,
+      "Recovery": 1.087,
+      "Removal": 0.443
+    },
+    "latency_registers": 65,
+    "scope": "independent audio/visual STA only; not production top, monitor or silicon acceptance"
+  },
+  "levels": {
+    "independent_behavior": "L2 PASS",
+    "candidate_Gowin": "original new L5 reports independently reviewed; M2 did not repeat PnR",
+    "new_hardware": "not performed"
+  },
+  "M2_burned_board": false,
+  "full_audio_visual_hardware_accepted": false,
+  "original_video_received": false,
+  "velocity_loudness_hardware": "already accepted eb64f3f and083a07e/V0145; not reopen",
+  "scope": "independent diagnostic top candidate, no production shared interfaces/audio/CDC/effective constraints changed",
+  "remaining": [
+    "same-fs rising/falling/flash screen check",
+    "same-fs audio coexistence and reset recovery",
+    "diagnostic score only, not real song/menu",
+    "small timing margins; no long-term board stability claim"
+  ],
+  "repo_gate": {
+    "groups": 9,
+    "exit": 0,
+    "python_files": 123,
+    "log_sha256": "f6ef59bcda6acc4c7082eb329e0afa9acff92e15343d096d9f4d2113080d995a"
+  }
+}

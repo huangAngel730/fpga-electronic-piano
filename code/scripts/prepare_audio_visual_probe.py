@@ -121,7 +121,7 @@ def prepare(out, vendor):
         sources.append(path)
     for file in ("visual_event_bridge.sv", "video_scan_timing.sv", "visual_mailbox_cdc.sv", "visual_control_bridge.sv"):
         sources.append(ROOT / ("code/rtl/common/" + file))
-    for file in ("visual_live_state.sv", "visual_score_tracker.sv", "visual_scene_renderer.sv", "m3_visualizer.sv"):
+    for file in ("visual_live_state.sv", "visual_score_tracker.sv", "visual_scene_renderer.sv", "visual_hit_flash.sv", "m3_visualizer.sv"):
         sources.append(ROOT / ("code/rtl/input/visualizer/" + file))
     sources.append(ROOT / "code/rtl/board/audio_visual_display_probe.sv")
     cst = (snapshot / "code/constraints/electronic_piano.cst").read_text(encoding="utf-8")

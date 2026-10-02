@@ -18,6 +18,7 @@ module tb_audio_visual_coexistence #(parameter bit SMALL_RASTER=0);
     defparam dut.u_visual.MODE_PERIOD_CYCLES=SMALL_RASTER ? 10000 : 600000;
     // Optional short-display integration run; audio/MIDI clocks remain real.
     // The physical build always uses the unmodified default 640x480 raster.
+    defparam dut.u_visual.VIDEO_FRAME_SYS_CYCLES=SMALL_RASTER ? 10240 : 840000;
     defparam dut.u_visual.u_scan.H_ACTIVE=SMALL_RASTER ? 64 : 640;
     defparam dut.u_visual.u_scan.H_FRONT=SMALL_RASTER ? 4 : 16;
     defparam dut.u_visual.u_scan.H_SYNC=SMALL_RASTER ? 8 : 96;

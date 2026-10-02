@@ -15,10 +15,13 @@ try {
         'code\rtl\input\visualizer\visual_live_state.sv',
         'code\rtl\input\visualizer\visual_score_tracker.sv',
         'code\rtl\input\visualizer\visual_scene_renderer.sv',
+        'code\rtl\input\visualizer\visual_hit_flash.sv',
         'code\rtl\input\visualizer\m3_visualizer.sv',
         'code\tb\input\visualizer\tb_visual_live_state.sv',
         'code\tb\input\visualizer\tb_visual_score_tracker.sv',
-        'code\tb\input\visualizer\tb_m3_visualizer.sv'
+        'code\tb\input\visualizer\tb_m3_visualizer.sv',
+        'code\tb\input\visualizer\tb_hit_flash_feedback.sv',
+        'code\tb\input\visualizer\tb_bottom_exit_motion.sv'
     )
     $staged = @()
     for ($i = 0; $i -lt $sources.Count; $i++) {
@@ -28,7 +31,7 @@ try {
         Copy-Item -LiteralPath $source -Destination $dest
         $staged += $dest
     }
-    foreach ($top in @('tb_visual_live_state','tb_visual_score_tracker','tb_m3_visualizer')) {
+    foreach ($top in @('tb_visual_live_state','tb_visual_score_tracker','tb_m3_visualizer','tb_hit_flash_feedback','tb_bottom_exit_motion')) {
         $out = Join-Path $stage ($top + '.vvp')
         & $iverilog -g2012 -Wall -s $top -o $out @staged
         if ($LASTEXITCODE -ne 0) { throw "Compile failed: $top" }
