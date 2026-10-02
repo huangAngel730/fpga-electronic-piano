@@ -1,0 +1,53 @@
+{
+  "status": "PASS sample-model invariants only, NOT RTL simulation",
+  "max_pitch_error_cents": 0.0004689186538873114,
+  "coefficient_box_sample_bound": [
+    -8192,
+    8163
+  ],
+  "vectors": [
+    {
+      "note": 21,
+      "fcw": 2460658,
+      "samples": 2048,
+      "vector": "E:\\FPGA\\GAOYUNFPGA\\pop_repair\\v3\\design\\model_results\\osc_note21.mem",
+      "sha256": "b1c395b22b7e9a3c136a19eacfc32c25ada0e8e2ec6d4af776b570f6974000bf"
+    },
+    {
+      "note": 24,
+      "fcw": 2926232,
+      "samples": 2048,
+      "vector": "E:\\FPGA\\GAOYUNFPGA\\pop_repair\\v3\\design\\model_results\\osc_note24.mem",
+      "sha256": "5b112c90782e361c875e06c4f24bbc6499ebaefe2a9cdbc54ed84c8b636a400b"
+    },
+    {
+      "note": 36,
+      "fcw": 5852464,
+      "samples": 2048,
+      "vector": "E:\\FPGA\\GAOYUNFPGA\\pop_repair\\v3\\design\\model_results\\osc_note36.mem",
+      "sha256": "933452cfd0809d0b8e773d9ebdfe6550f4ce9a1cb275c7301cf211276c071d0e"
+    },
+    {
+      "note": 48,
+      "fcw": 11704929,
+      "samples": 2048,
+      "vector": "E:\\FPGA\\GAOYUNFPGA\\pop_repair\\v3\\design\\model_results\\osc_note48.mem",
+      "sha256": "6019797528f623f978bdca793bd8b3cf25b8909caa9e0f966692817bfc64e975"
+    },
+    {
+      "note": 57,
+      "fcw": 19685267,
+      "samples": 2048,
+      "vector": "E:\\FPGA\\GAOYUNFPGA\\pop_repair\\v3\\design\\model_results\\osc_note57.mem",
+      "sha256": "3a4bd11b7aeb38105d844991851281e64f21554e9c6d1d96a2a9b5c62cba1ca4"
+    }
+  ],
+  "checks": [
+    "88-note formal FCW",
+    "partial bound",
+    "amplitude floors",
+    "continuous phase",
+    "retrigger preserves current amplitude",
+    "V1 selection above 220Hz"
+  ]
+}
