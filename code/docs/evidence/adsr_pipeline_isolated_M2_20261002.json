@@ -1,0 +1,881 @@
+{
+  "date": "2026-10-02",
+  "reviewer": "M2",
+  "source_analysis": "direct HDL plus actual Icarus/Gowin; CodeGraph no HDL support",
+  "formal_ADSR_bank_modified": false,
+  "formal_counter_modified": false,
+  "formal_interfaces_constraints_modified": false,
+  "actual_board_programmed": false,
+  "M1_scope_notice_confirmed_sent": false,
+  "M3_scope_notice_confirmed_sent": false,
+  "candidate_acceptance": "isolated system-domain timing candidate and functional tests passed with stated bank scheduler contract; no formal/hardware release",
+  "pipeline": {
+    "stages": "registered delta -> registered reciprocal product -> sum/apply",
+    "NoteOn_event_to_initialization_sys_cycles": 4,
+    "NoteOff_event_to_initialization_sys_cycles": 2,
+    "pending_sample_limit": 1,
+    "new_event_over_already_accepted_pending_sample": "not generally equivalent to original standalone envelope; requires bank admission guard",
+    "minimum_sample_preparation_spacing": 5,
+    "bank_SETTLE_initial_counter": 6,
+    "bank_SNAPSHOT_initial_counter": 4,
+    "max_processing_cycles_observed": {
+      "candidate": 16,
+      "reference": 11
+    },
+    "PCM_frame_extra_latency": 0
+  },
+  "functional": {
+    "original_boundary": {
+      "checks": 27,
+      "samples": 33114
+    },
+    "original_model": {
+      "samples": 73210,
+      "max_delta_Q15": 1,
+      "tolerance_Q15": 2
+    },
+    "zero_slope": {
+      "checks": 5071,
+      "samples": 2883,
+      "max_delta_Q15": 1
+    },
+    "reference_contract": {
+      "checks": 1140894,
+      "samples": 295748,
+      "interruptions": 5,
+      "all1024_velocities": true,
+      "Q16_exact_at_settled_admitted_sample_boundaries": true
+    },
+    "bank": {
+      "checks": 30744,
+      "requests": 10086,
+      "ticks": 10085,
+      "results": 10083
+    },
+    "bank_event_admission_monitor": {
+      "cycles": 181657,
+      "events": 12,
+      "ticks": 10085,
+      "passed": true,
+      "scope": "actual directed lifecycle suite, not exhaustive formal proof"
+    },
+    "V1_PCM": {
+      "checks": 20288,
+      "frames": 10140,
+      "envelope_delta": 1,
+      "PCM24_delta": 512,
+      "limit": 1024
+    },
+    "sustain": {
+      "checks": 68249,
+      "frames": 4802
+    },
+    "fourvoice_capabilities": {
+      "checks": 296654,
+      "samples": 107364,
+      "velocity_RMS_ratio": 0.212454,
+      "voice_release_db": -74.87,
+      "missing_tone_ignore_velocity_negative_rejected": true
+    },
+    "dual_top": {
+      "checks": 14,
+      "sys_cycles": 881249,
+      "PCM_frames": 845,
+      "nonzero": 799,
+      "modes": 75,
+      "audio_pin_cycle_match": true,
+      "same_request_committed_PCM_match": true,
+      "frame_adopted_PCM_match": true,
+      "internal_pending_play_bus_cycle_match": false,
+      "initial_failure_retained": "pending play bus exposes next PCM at different commit cycles, physical and adopted PCM compared separately",
+      "internal_STAT_uart_and_latency_timing_not_bit_compared": true,
+      "small_raster64x48_behavior_only": true
+    },
+    "negatives": [
+      "missing/truncated ROM nonzero",
+      "mutated model trace nonzero",
+      "two pending sample pulses before preparation fatal"
+    ]
+  },
+  "actual_physical_reports": {
+    "pure_V1_with_parallel_counter": {
+      "summary": {
+        "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+        "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+        "Numbers of Paths Analyzed": "10900",
+        "Numbers of Endpoints Analyzed": "11724",
+        "Numbers of Falling Endpoints": "0",
+        "Numbers of Setup Violated Endpoints": "0",
+        "Numbers of Hold Violated Endpoints": "0"
+      },
+      "fmax": {
+        "sys_clk": "54.255(MHz)"
+      },
+      "worst_paths": {
+        "Setup": [
+          "1",
+          "1.569",
+          "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[0]_12_s0/Q",
+          "u_performance_event_fifo/entries[9].channel_3_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "17.367"
+        ],
+        "Hold": [
+          "1",
+          "0.001",
+          "g_polyphonic.u_audio_core/u_latency/elapsed_14_s0/Q",
+          "g_polyphonic.u_audio_core/u_latency/elapsed_15_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "0.000",
+          "0.000",
+          "0.514"
+        ],
+        "Recovery": [
+          "1",
+          "12.148",
+          "u_reset_sync/sync_chain_1_s0/Q",
+          "g_polyphonic.u_audio_core/u_bank/g_lane[1].u_envelope/n953_s0/RESET[0]",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "6.291"
+        ],
+        "Removal": [
+          "1",
+          "0.481",
+          "u_reset_sync/sync_chain_1_s0/Q",
+          "g_polyphonic.u_audio_core/u_bank/g_lane[1].u_envelope/level_q16_21_s0/CLEAR",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "0.000",
+          "-0.197",
+          "1.125"
+        ]
+      },
+      "resources": {
+        "Logic": 6739,
+        "Register": 3609,
+        "DSP": 24,
+        "BSRAM": 8
+      },
+      "audio_pin_count_verified": 10
+    },
+    "ADSR_only_V0148_visual_FAIL": {
+      "errors": [
+        "Numbers of Setup Violated Endpoints: 35",
+        "Numbers of Hold Violated Endpoints: 1180",
+        "missing/negative Recovery_Slack_Table",
+        "missing/negative second-stage path: u_event_bridge Hold",
+        "missing/negative second-stage path: u_control/u_score_mailbox Hold",
+        "missing/negative second-stage path: u_control/u_mode_mailbox Hold",
+        "clock Fmax not met: sys_clk",
+        "clock Fmax not met: video_pixel",
+        "missing/negative exported Setup",
+        "missing/negative exported Hold",
+        "missing/negative exported Recovery"
+      ],
+      "facts": {
+        "visual_gate": {
+          "summary": {
+            "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+            "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+            "Numbers of Paths Analyzed": "22056",
+            "Numbers of Endpoints Analyzed": "18722",
+            "Numbers of Falling Endpoints": "4",
+            "Numbers of Setup Violated Endpoints": "35",
+            "Numbers of Hold Violated Endpoints": "1180"
+          },
+          "bus_path_count": {
+            "u_event_bridge": 22,
+            "u_control/u_score_mailbox": 37
+          }
+        },
+        "audio_pins": 10,
+        "resources": {
+          "Logic": 16706,
+          "Register": 5944,
+          "DSP": 24,
+          "BSRAM": 8
+        },
+        "fmax_mhz": {
+          "sys_clk": 48.623,
+          "video_serial": 1296.595,
+          "video_pixel": 24.767
+        },
+        "exported_min_slack_ns": {
+          "Setup": -0.566,
+          "Hold": -0.498,
+          "Recovery": -0.229,
+          "Removal": 0.616
+        },
+        "latency_registers": 65,
+        "scope": "independent audio/visual STA only; not production top, monitor or silicon acceptance"
+      }
+    },
+    "ADSR_plus_parallel_counter_V0148_visual_PASS": {
+      "errors": [],
+      "facts": {
+        "visual_gate": {
+          "summary": {
+            "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+            "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+            "Numbers of Paths Analyzed": "21958",
+            "Numbers of Endpoints Analyzed": "18722",
+            "Numbers of Falling Endpoints": "4",
+            "Numbers of Setup Violated Endpoints": "0",
+            "Numbers of Hold Violated Endpoints": "0"
+          },
+          "bus_path_count": {
+            "u_event_bridge": 22,
+            "u_control/u_score_mailbox": 37
+          }
+        },
+        "audio_pins": 10,
+        "resources": {
+          "Logic": 17133,
+          "Register": 5944,
+          "DSP": 24,
+          "BSRAM": 8
+        },
+        "fmax_mhz": {
+          "sys_clk": 50.822,
+          "video_serial": 1122.018,
+          "video_pixel": 25.082
+        },
+        "exported_min_slack_ns": {
+          "Setup": 0.132,
+          "Hold": 0.001,
+          "Recovery": 1.035,
+          "Removal": 0.864
+        },
+        "latency_registers": 65,
+        "scope": "independent audio/visual STA only; not production top, monitor or silicon acceptance"
+      }
+    },
+    "combo_per_domain_paths": {
+      "sys_clk": [
+        "1",
+        "0.324",
+        "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[1]_7_s0/Q",
+        "u_button_event_converter/overflow_count_25_s0/D",
+        "sys_clk:[R]",
+        "sys_clk:[R]",
+        "20.000",
+        "0.495",
+        "18.117"
+      ],
+      "video_pixel": [
+        "1",
+        "0.132",
+        "u_visual/u_event_bridge/u_video_reset/sync_chain_1_s0/Q",
+        "u_visual/u_scene/u_score_tracker/miss_mem_1_s1/D",
+        "video_pixel:[R]",
+        "video_pixel:[R]",
+        "40.000",
+        "0.009",
+        "39.795"
+      ],
+      "video_serial": [
+        "1",
+        "7.109",
+        "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+        "u_visual/u_serial_reset/sync_chain_1_s0/D",
+        "video_serial:[R]",
+        "video_serial:[R]",
+        "8.000",
+        "0.000",
+        "0.827"
+      ],
+      "Hold": [
+        "1",
+        "0.001",
+        "u_uart_status_reporter/phase_0_s0/Q",
+        "u_uart_status_reporter/report_busy_s1/D",
+        "sys_clk:[R]",
+        "sys_clk:[R]",
+        "0.000",
+        "0.000",
+        "0.514"
+      ],
+      "Recovery": [
+        "1",
+        "1.035",
+        "u_visual/u_serial_reset/sync_chain_1_s0/Q",
+        "u_visual/u_video_tx/rgb2dvi_inst/u_OSER10_g/RESET",
+        "video_serial:[R]",
+        "video_serial:[F]",
+        "4.000",
+        "-0.015",
+        "2.829"
+      ],
+      "Removal": [
+        "1",
+        "0.864",
+        "u_reset_sync/sync_chain_1_s0/Q",
+        "g_polyphonic.u_audio_core/u_commit/u_frame_buffer/sample_req_s0/CLEAR",
+        "sys_clk:[R]",
+        "sys_clk:[R]",
+        "0.000",
+        "-0.197",
+        "1.508"
+      ]
+    }
+  },
+  "system_min_engineering_goal_ns": 0.2,
+  "system_min_goal_met_only_in_combo": true,
+  "global_worst_is_pixel_ns": 0.132,
+  "Hold_margin_ns": 0.001,
+  "not_current_inprogress_flash_fix": true,
+  "protected_formal_sha256": {
+    "code/rtl/audio/adsr_piano_envelope.sv": "775fec7f546a00ca7bf98f132cce8d5d92d80ca6094af8e9e14cb07cd54a2e9d",
+    "code/rtl/board/polyphonic_envelope_bank.sv": "813e0b726546c16344aa86eb39c02291315450a001ba613e3dbfc710885689da",
+    "code/rtl/input/button_event_converter/button_event_converter.sv": "f6befb9c7415c69da62f2083e22803eae93ebeac63b8903b3c1314c4e9e723f0",
+    "code/rtl/common/performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+    "code/rtl/board/electronic_piano_top.sv": "c75f4321c28753e851c26e6cb0810947a85e8f17ca61b28ae7e527a5ff765a5b",
+    "code/rtl/common/audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+    "code/constraints/electronic_piano.cst": "76037da27eabba7bf322d41ad8f90c16b1a72b549fc2ffb865b380bfbda35dcb",
+    "code/constraints/audio_timing.sdc": "849c8b374c366ea1cbe6f44b17f761adad90861e3b50a0baf3ade73c05f953f5",
+    "code/docs/模块接口规范.md": "5bcfd9d355fb76aafb798104ea517bc047534d0740273b78df74c0d16758f8e5",
+    "code/build/electronic_piano.gprj": "86e23c21853f725618e74e985935266ddd98af119db921fd8cad57bed84ef3d8"
+  },
+  "candidate_sha256": {
+    "adsr_pipeline.sv": "a0b55c17fe6553704120c6662fd53bf3c94a418bb31eff318bd9b113f5f205b5",
+    "bank_pipeline.sv": "14c53df67892bfaac417abe87060b6ac3695c96c9c58d8e32bb6b00e429c6f94"
+  },
+  "reproduction_sources_sha256": {
+    "code/scripts/run_adsr_pipeline_isolated.py": "ef75b47b61d33dfeef2b0dfdd9fd1adcbc46e24638a6a3aa065b050acf5bbbea",
+    "code/tb/audio/adsr_pipeline_isolated_candidate.patch": "27b90f5d20a92e0271e6a49d9988dfe696ad1514babd5a63e1c6941ec2b36b14",
+    "code/tb/audio/adsr_pipeline_candidate_baseline.json": "56e8ee838359f71b44d6c7f21ace326516fbfb67c0fad67b15512b03a637bec9",
+    "code/tb/audio/tb_adsr_pipeline_contract.sv": "eba1605a79bba09be647c8f56ad29d5b3868a32b2d55bd50966f43b60fb82645",
+    "code/tb/audio/tb_bank_adsr_pipeline_monitor.sv": "885c090ba2b6e08fdc32ac6c0b10f5febe106c306fe9ab80808d1ddaddc5c24d"
+  },
+  "reports_and_research_fs_sha256": {
+    "code/output/adsr_pipeline_20261002/audio_pipeline/impl/pnr/electronic_piano_top_tr_content.html": "fba0d596554340125cdf5d7d22b27866d72411666eb5498056deeec1395f403e",
+    "code/output/adsr_pipeline_20261002/audio_pipeline/impl/pnr/electronic_piano_top.rpt.txt": "b4334798ee3320a0c261ee915ecee2a1f99ac56e6133e147fa151feaf5c52491",
+    "code/output/adsr_pipeline_20261002/audio_pipeline/impl/pnr/electronic_piano_top.pin.html": "77ccd1a48ca66c91ceb75870c7732e234e42255660b9453d7d7d50af94519d5d",
+    "code/output/adsr_pipeline_20261002/audio_pipeline/impl/pnr/electronic_piano_top.fs": "20e5d6705b4144859240a743d4ac38fe272066f8ca07e88f14275e27a62c16f6",
+    "code/output/adsr_pipeline_20261002/audio_pipeline/build.log": "19abf21a86c7c9a8f816e0c89c8d8e86192c70a5fba7fa403899931a1fbeb83f",
+    "code/output/adsr_pipeline_20261002/audio_pipeline/override.json": "aa0e79772d0b3797dd63290408b47000fc18fe18efa00986a7832e8db0fcac7a",
+    "code/output/adsr_pipeline_20261002/audio_pipeline/impl/gwsynthesis/electronic_piano_top_syn_rsc.xml": "39e3dd5575da5b9e4d22befcf969aec88a7faec8841a1b7c67bdcd66e4371823",
+    "code/output/adsr_pipeline_20261002/visual_adsr_only/impl/pnr/audio_visual_coexistence_top_tr_content.html": "3668e845a5f1fc7a25be969eabcc8820d89fd0ef18f4a8c2ffeed22925624a8f",
+    "code/output/adsr_pipeline_20261002/visual_adsr_only/impl/pnr/audio_visual_coexistence_top.rpt.txt": "1a7bd615a88b012cd3cb717a838ed7f0535044166033b5e28ee8136421a6daae",
+    "code/output/adsr_pipeline_20261002/visual_adsr_only/impl/pnr/audio_visual_coexistence_top.pin.html": "7039f2c8f0b08009f46471b4450785459da8efb909d3962a71750e6d18787852",
+    "code/output/adsr_pipeline_20261002/visual_adsr_only/impl/pnr/audio_visual_coexistence_top.fs": "c741637e8607165b9f93afafccaa797016c0fa81daa20c549ab9384094928222",
+    "code/output/adsr_pipeline_20261002/visual_adsr_only/build.log": "3f62c2e81ef59d2a8029f252aa2016bf851667a99ed17d26760988a64e2cc447",
+    "code/output/adsr_pipeline_20261002/visual_adsr_only/override.json": "9b594921474fea7283eed7223751d663332766c33b4d2f554affe582afcd7bfa",
+    "code/output/adsr_pipeline_20261002/visual_adsr_only/impl/gwsynthesis/audio_visual_coexistence_top_syn_rsc.xml": "b2e9a93c9355c7a33f5f39ff468a4ad31f572c0e84b7f9be4c3d302be14d5865",
+    "code/output/adsr_pipeline_20261002/visual_pipeline/impl/pnr/audio_visual_coexistence_top_tr_content.html": "4763bb32344425c7f455f6b34a0a3d84f980216f49222627ab13d0d8e374b1e3",
+    "code/output/adsr_pipeline_20261002/visual_pipeline/impl/pnr/audio_visual_coexistence_top.rpt.txt": "4374a214115fbb7ab1e63d9b5ed05fdacde11798ccee0e528c30d5a7e427c5f5",
+    "code/output/adsr_pipeline_20261002/visual_pipeline/impl/pnr/audio_visual_coexistence_top.pin.html": "8f9f293293526f45d4fe18fc9816a21559603d2910b47a2d7296c0f1862ad401",
+    "code/output/adsr_pipeline_20261002/visual_pipeline/impl/pnr/audio_visual_coexistence_top.fs": "9faef04a312d50594a2511c4ee0fd2d96a9992deeb82b100beca297ccc8f7c48",
+    "code/output/adsr_pipeline_20261002/visual_pipeline/build.log": "4bf7135ef83effc917991c25631d5c98039a2129007bc7dab62e72284c98bbae",
+    "code/output/adsr_pipeline_20261002/visual_pipeline/override.json": "7f0d0d8347c0d1453946a30c0c8520e51b3bf025e5a1bced1faa403f8c25b514",
+    "code/output/adsr_pipeline_20261002/visual_pipeline/impl/gwsynthesis/audio_visual_coexistence_top_syn_rsc.xml": "8423beda2dc01cb55d4f5c268563687a86ba6c7dacc72ab5a5db20aae44e0b17"
+  },
+  "logs_sha256": {
+    "code/output/adsr_pipeline_20261002/bad_model_trace.log": "c61c0f33acef2e1ca47d1d11bc5559db021bea3f9cf739dcf642f92bc81d8b98",
+    "code/output/adsr_pipeline_20261002/contract_compile.log": "3267991c3b39dff04a5a37a5040cdfc3cc8e489a81fbce4d529279c5f5615469",
+    "code/output/adsr_pipeline_20261002/contract_run.log": "ecf1f9eb2407499c79fdd19d0e0ec75b947a054248ec795ce20cef523b0ea563",
+    "code/output/adsr_pipeline_20261002/missing_ROM.log": "80dfb29d51b6080e28a9729f74ed28fc57f0cbb81b5c9fdb0ba296689232bc32",
+    "code/output/adsr_pipeline_20261002/original_model_check.log": "a59d4d00836aeda4a24fe018a82629075ab13590396a57ce9884b3ab793914ec",
+    "code/output/adsr_pipeline_20261002/pending_retrigger_boundary.log": "c932bb938bd097626b056f797f505b6bdbe6bd8eecd4e9b42ca44f446cc1eb07",
+    "code/output/adsr_pipeline_20261002/pipeline_audio_compare.log": "58782eb18d1295f51f192760fe40ff2d5b3c187b199d03a34ade83e5057bf321",
+    "code/output/adsr_pipeline_20261002/pipeline_audio_compare_frames.log": "12b053b40c9c4b0756345d87d4840da9ae629ce70ab19c4a7afc5b3f66847b40",
+    "code/output/adsr_pipeline_20261002/repro_full.log": "4503a25088299ac5061771bb5ab396ea29173c0a63cecf31f8b4d0f863c96cd6",
+    "code/output/adsr_pipeline_20261002/run_piano_v1_audio_capabilities.py.log": "1f0210ec948ff21590e5b47f9e65b7414caf54c21857293dc84774d3a954dc97",
+    "code/output/adsr_pipeline_20261002/run_piano_v1_audio_core.py.log": "0699c0d0dbc3314e1f85827ac4e871289d33b53992cf40e363f98ba424c0589a",
+    "code/output/adsr_pipeline_20261002/run_sustain_audio_integration.py.log": "0fabd99999a1e5d30204d287c23ca22f594b892e81447cf0303cbdb3a5a1af0e",
+    "code/output/adsr_pipeline_20261002/run_t024_envelope_bank.py.log": "f70b04ba4e101511eae6027fefd10a730ff1e464ac513ac3aedce037892205d2",
+    "code/output/adsr_pipeline_20261002/short_ROM.log": "5e0ba613039ee144663b66b42065b0ccc277a5a9705660ecf98d019db9d04e41",
+    "code/output/adsr_pipeline_20261002/tb_adsr_model_trace.log": "935a09db61a5d3fc6a789ef18b93f0bd59889bcb94f472ca2153a2c41d73cffa",
+    "code/output/adsr_pipeline_20261002/tb_adsr_model_trace_compile.log": "5207dd889b0d8bab605d33617d5003c3a0043560d48d761b34b01a25d048b5bf",
+    "code/output/adsr_pipeline_20261002/tb_adsr_piano.log": "25ee31bb5d951662fbd79e2798c6c36cfa9792cc6b58b59d79d052d3f04239f1",
+    "code/output/adsr_pipeline_20261002/tb_adsr_piano_compile.log": "5207dd889b0d8bab605d33617d5003c3a0043560d48d761b34b01a25d048b5bf",
+    "code/output/adsr_pipeline_20261002/tb_adsr_zero_slope.log": "10c1e826ffb69b9cc2cc9da19efdc257ecc08860b082c612b07c6e69c45da308",
+    "code/output/adsr_pipeline_20261002/tb_adsr_zero_slope_compile.log": "5207dd889b0d8bab605d33617d5003c3a0043560d48d761b34b01a25d048b5bf",
+    "code/output/adsr_pipeline_20261002/too_fast_sample.log": "8ca31e2459f463a71ff627f836ca1ec46aabc8bc16436bec174f9b2b86ee8bf9",
+    "code/output/adsr_pipeline_20261002/zero_slope_model.log": "fd807f02727659b3266c23da690cbdbc258a3c1859abc77e8f1852eef0986d51",
+    "code/output/adsr_pipeline_20261002/zero_slope_run.log": "749da40773c4211a280b1099bb942504154806a514c3d5f877f159314b08e818",
+    "code/output/adsr_pipeline_20261002/repro_full/tb_adsr_pipeline_contract.log": "5b4279dd998c725735807bbcdc24896d861a815bc6a63a32873c643bc80fb5f8",
+    "code/output/adsr_pipeline_20261002/repro_full/run_t024_envelope_bank.py.log": "1c5e85bd0b5c3f5110de8b958b03ca82d0858abdbec4d76743603485a6542b16",
+    "code/output/adsr_pipeline_20261002/repro_full/run_piano_v1_audio_core.py.log": "4f18c5895d1fa812a587af2b0822693c9b60066bae6874cd42b895fbcd45fce0",
+    "code/output/adsr_pipeline_20261002/repro_full/run_sustain_audio_integration.py.log": "a4e8f82a30ecc2f93eeb3b6fcff0c58c527faa770530839e531bca1118579ebd",
+    "code/output/adsr_pipeline_20261002/repro_full/run_piano_v1_audio_capabilities.py.log": "ba3dcc795ec3409dc25424cafbc4d02c6f1c53cf28421a607c6d805b4d61a956",
+    "code/output/adsr_pipeline_20261002/bank_with_event_monitor/run.log": "a12d229e907c0cff78db528938d0c88dce0a3f0abe9dd6b002c81f88725842b1"
+  },
+  "full_reproduction_run": {
+    "formal_modified": false,
+    "formal_accepted": false,
+    "sources": {
+      "code/rtl/audio/adsr_piano_envelope.sv": {
+        "output": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\adsr_piano_envelope.sv",
+        "sha256": "a0b55c17fe6553704120c6662fd53bf3c94a418bb31eff318bd9b113f5f205b5"
+      },
+      "code/rtl/board/polyphonic_envelope_bank.sv": {
+        "output": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\polyphonic_envelope_bank.sv",
+        "sha256": "14c53df67892bfaac417abe87060b6ac3695c96c9c58d8e32bb6b00e429c6f94"
+      }
+    },
+    "runs": {
+      "tb_adsr_piano_compile": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_adsr_piano",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\tb_adsr_piano.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\adsr_piano_envelope.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\audio\\tb_adsr_piano.sv"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "dcb9d08450f701a4c9baec3b3f7b7112c7439fb868e0509a0a14d3fcf1d001ea"
+      },
+      "tb_adsr_piano": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\tb_adsr_piano.vvp",
+          "+VELOCITY_ROM_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\model\\generated\\wavetables\\velocity_gain_rom.mem",
+          "+TRACE=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\tb_adsr_piano.trace"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "25ee31bb5d951662fbd79e2798c6c36cfa9792cc6b58b59d79d052d3f04239f1"
+      },
+      "tb_adsr_model_trace_compile": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_adsr_model_trace",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\tb_adsr_model_trace.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\adsr_piano_envelope.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\audio\\tb_adsr_piano.sv"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "dcb9d08450f701a4c9baec3b3f7b7112c7439fb868e0509a0a14d3fcf1d001ea"
+      },
+      "tb_adsr_model_trace": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\tb_adsr_model_trace.vvp",
+          "+VELOCITY_ROM_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\model\\generated\\wavetables\\velocity_gain_rom.mem",
+          "+TRACE=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\tb_adsr_model_trace.trace"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "935a09db61a5d3fc6a789ef18b93f0bd59889bcb94f472ca2153a2c41d73cffa"
+      },
+      "tb_adsr_model_trace_model": {
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-X",
+          "utf8",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\audio\\check_adsr_model_trace.py",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\tb_adsr_model_trace.trace",
+          "--min-samples",
+          "26000"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "a59d4d00836aeda4a24fe018a82629075ab13590396a57ce9884b3ab793914ec"
+      },
+      "tb_adsr_zero_slope_compile": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_adsr_zero_slope",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\tb_adsr_zero_slope.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\adsr_piano_envelope.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\audio\\tb_adsr_zero_slope.sv"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "dcb9d08450f701a4c9baec3b3f7b7112c7439fb868e0509a0a14d3fcf1d001ea"
+      },
+      "tb_adsr_zero_slope": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\tb_adsr_zero_slope.vvp",
+          "+VELOCITY_ROM_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\model\\generated\\wavetables\\velocity_gain_rom.mem",
+          "+TRACE=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\tb_adsr_zero_slope.trace"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "749da40773c4211a280b1099bb942504154806a514c3d5f877f159314b08e818"
+      },
+      "tb_adsr_zero_slope_model": {
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-X",
+          "utf8",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\audio\\check_adsr_model_trace.py",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\tb_adsr_zero_slope.trace",
+          "--min-samples",
+          "2800"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "fd807f02727659b3266c23da690cbdbc258a3c1859abc77e8f1852eef0986d51"
+      },
+      "tb_adsr_pipeline_contract_compile": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_adsr_pipeline_contract",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\tb_adsr_pipeline_contract.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\adsr_piano_envelope.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\adsr_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\audio\\tb_adsr_pipeline_contract.sv"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "946e9f80111feb3057e15f2612a54c6f0af82a65f48b1b49e06eb5459ec47edc"
+      },
+      "tb_adsr_pipeline_contract": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\tb_adsr_pipeline_contract.vvp",
+          "+VELOCITY_ROM_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\model\\generated\\wavetables\\velocity_gain_rom.mem",
+          "+TRACE=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\tb_adsr_pipeline_contract.trace"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "5b4279dd998c725735807bbcdc24896d861a815bc6a63a32873c643bc80fb5f8"
+      },
+      "missing_ROM": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\tb_adsr_piano.vvp",
+          "+VELOCITY_ROM_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\missing.mem"
+        ],
+        "exit": 1,
+        "expected_success": false,
+        "log_sha256": "1d542b5f4e1ba7cbd89fd582c6908b7c4e47cae1facc512e01ca01cd48fcfcee"
+      },
+      "short_ROM": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\tb_adsr_piano.vvp",
+          "+VELOCITY_ROM_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\short.mem"
+        ],
+        "exit": 1,
+        "expected_success": false,
+        "log_sha256": "2bd7bff31663bfe3581ccb5d92c4f4859df9142e4912ecce0510ad9778e934d9"
+      },
+      "bad_model": {
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-X",
+          "utf8",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\audio\\check_adsr_model_trace.py",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\bad_model.trace"
+        ],
+        "exit": 1,
+        "expected_success": false,
+        "log_sha256": "c61c0f33acef2e1ca47d1d11bc5559db021bea3f9cf739dcf642f92bc81d8b98"
+      },
+      "run_t024_envelope_bank.py": {
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-X",
+          "utf8",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\run_t024_envelope_bank.py"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "1c5e85bd0b5c3f5110de8b958b03ca82d0858abdbec4d76743603485a6542b16"
+      },
+      "run_piano_v1_audio_core.py": {
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-X",
+          "utf8",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\run_piano_v1_audio_core.py"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "4f18c5895d1fa812a587af2b0822693c9b60066bae6874cd42b895fbcd45fce0"
+      },
+      "run_sustain_audio_integration.py": {
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-X",
+          "utf8",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\run_sustain_audio_integration.py"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "a4e8f82a30ecc2f93eeb3b6fcff0c58c527faa770530839e531bca1118579ebd"
+      },
+      "run_piano_v1_audio_capabilities.py": {
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-X",
+          "utf8",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\repro_full\\run_piano_v1_audio_capabilities.py"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "ba3dcc795ec3409dc25424cafbc4d02c6f1c53cf28421a607c6d805b4d61a956"
+      }
+    },
+    "physical_STA_done_by_this_entry": false,
+    "module_experiment_pass": true
+  },
+  "new_monitored_subsystem_step": "included in final_full_entrypoint_actual_run --subsystems and real PASS verified",
+  "limitations": [
+    "formalrole handoff pending",
+    "current candidate requires bank pending-sample admission contract",
+    "V0148 display reference, new strict flash not included",
+    "not analog delay or L6",
+    "ADSR-only audio/visual version fails; never release it",
+    "PR1014 retained, unchanged timing exceptions"
+  ],
+  "final_full_entrypoint_actual_run": {
+    "formal_modified": false,
+    "formal_accepted": false,
+    "sources": {
+      "code/rtl/audio/adsr_piano_envelope.sv": {
+        "output": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\adsr_piano_envelope.sv",
+        "sha256": "a0b55c17fe6553704120c6662fd53bf3c94a418bb31eff318bd9b113f5f205b5"
+      },
+      "code/rtl/board/polyphonic_envelope_bank.sv": {
+        "output": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\polyphonic_envelope_bank.sv",
+        "sha256": "14c53df67892bfaac417abe87060b6ac3695c96c9c58d8e32bb6b00e429c6f94"
+      }
+    },
+    "runs": {
+      "tb_adsr_piano_compile": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_adsr_piano",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\tb_adsr_piano.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\adsr_piano_envelope.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\audio\\tb_adsr_piano.sv"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "d7296c6099518640a63c93581c05650a4bcc186554876ad3a3e7117bbb09fd24"
+      },
+      "tb_adsr_piano": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\tb_adsr_piano.vvp",
+          "+VELOCITY_ROM_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\model\\generated\\wavetables\\velocity_gain_rom.mem",
+          "+TRACE=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\tb_adsr_piano.trace"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "25ee31bb5d951662fbd79e2798c6c36cfa9792cc6b58b59d79d052d3f04239f1"
+      },
+      "tb_adsr_model_trace_compile": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_adsr_model_trace",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\tb_adsr_model_trace.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\adsr_piano_envelope.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\audio\\tb_adsr_piano.sv"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "d7296c6099518640a63c93581c05650a4bcc186554876ad3a3e7117bbb09fd24"
+      },
+      "tb_adsr_model_trace": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\tb_adsr_model_trace.vvp",
+          "+VELOCITY_ROM_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\model\\generated\\wavetables\\velocity_gain_rom.mem",
+          "+TRACE=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\tb_adsr_model_trace.trace"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "935a09db61a5d3fc6a789ef18b93f0bd59889bcb94f472ca2153a2c41d73cffa"
+      },
+      "tb_adsr_model_trace_model": {
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-X",
+          "utf8",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\audio\\check_adsr_model_trace.py",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\tb_adsr_model_trace.trace",
+          "--min-samples",
+          "26000"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "a59d4d00836aeda4a24fe018a82629075ab13590396a57ce9884b3ab793914ec"
+      },
+      "tb_adsr_zero_slope_compile": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_adsr_zero_slope",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\tb_adsr_zero_slope.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\adsr_piano_envelope.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\audio\\tb_adsr_zero_slope.sv"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "d7296c6099518640a63c93581c05650a4bcc186554876ad3a3e7117bbb09fd24"
+      },
+      "tb_adsr_zero_slope": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\tb_adsr_zero_slope.vvp",
+          "+VELOCITY_ROM_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\model\\generated\\wavetables\\velocity_gain_rom.mem",
+          "+TRACE=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\tb_adsr_zero_slope.trace"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "749da40773c4211a280b1099bb942504154806a514c3d5f877f159314b08e818"
+      },
+      "tb_adsr_zero_slope_model": {
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-X",
+          "utf8",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\audio\\check_adsr_model_trace.py",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\tb_adsr_zero_slope.trace",
+          "--min-samples",
+          "2800"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "fd807f02727659b3266c23da690cbdbc258a3c1859abc77e8f1852eef0986d51"
+      },
+      "tb_adsr_pipeline_contract_compile": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_adsr_pipeline_contract",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\tb_adsr_pipeline_contract.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\adsr_piano_envelope.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\adsr_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\audio\\tb_adsr_pipeline_contract.sv"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "db802f8f84fe49b287f07255d9c62bdef6aae571d73ee370c22a9e2a0d6e88f6"
+      },
+      "tb_adsr_pipeline_contract": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\tb_adsr_pipeline_contract.vvp",
+          "+VELOCITY_ROM_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\model\\generated\\wavetables\\velocity_gain_rom.mem",
+          "+TRACE=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\tb_adsr_pipeline_contract.trace"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "5b4279dd998c725735807bbcdc24896d861a815bc6a63a32873c643bc80fb5f8"
+      },
+      "missing_ROM": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\tb_adsr_piano.vvp",
+          "+VELOCITY_ROM_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\missing.mem"
+        ],
+        "exit": 1,
+        "expected_success": false,
+        "log_sha256": "37bc4bcd0b95aa1957d66b54b4ff5f3e349bf682f7dbd21d4456ac868b89ded9"
+      },
+      "short_ROM": {
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\tb_adsr_piano.vvp",
+          "+VELOCITY_ROM_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\short.mem"
+        ],
+        "exit": 1,
+        "expected_success": false,
+        "log_sha256": "47c98dd1cf457f4e102efd56471dda68200314063b563849f5ad5b06ddf44936"
+      },
+      "bad_model": {
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-X",
+          "utf8",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\audio\\check_adsr_model_trace.py",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\bad_model.trace"
+        ],
+        "exit": 1,
+        "expected_success": false,
+        "log_sha256": "c61c0f33acef2e1ca47d1d11bc5559db021bea3f9cf739dcf642f92bc81d8b98"
+      },
+      "run_t024_envelope_bank.py": {
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-X",
+          "utf8",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\run_t024_envelope_bank.py"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "d2fbfd64a63b4aa6fd158941a4e63fd2294d8fd333abce5824bbc880b1c1987e"
+      },
+      "run_piano_v1_audio_core.py": {
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-X",
+          "utf8",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\run_piano_v1_audio_core.py"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "e09c88eee1c65cdfafc684b09d283d5154cbbcf60bc40a12f0911e616648d7cb"
+      },
+      "run_sustain_audio_integration.py": {
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-X",
+          "utf8",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\run_sustain_audio_integration.py"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "7ac6a3c8d57de846e7f3d0898bbfc061c5cd19afcc01161d1239b8ecd7ae61dc"
+      },
+      "run_piano_v1_audio_capabilities.py": {
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-X",
+          "utf8",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_pipeline_20261002\\final_repro_with_monitor\\run_piano_v1_audio_capabilities.py"
+        ],
+        "exit": 0,
+        "expected_success": true,
+        "log_sha256": "3808f26db5cd46779ac096eb6e9d9aa3fb8f970e8ce5986f237f3225362e5fcf"
+      }
+    },
+    "physical_STA_done_by_this_entry": false,
+    "module_experiment_pass": true
+  },
+  "final_bank_monitor_log_sha256": "98503893654a1b4b050ef0d8a3826dec985e90750be9ea9e5d09e0a9ba863471",
+  "repo_gate": {
+    "exit": 0,
+    "groups": 9,
+    "python_files": 131,
+    "log_sha256": "edcc7499dbd7a56bfba02fb7c2ae7796401161f8b17bcfe297284dbb6f984546"
+  }
+}

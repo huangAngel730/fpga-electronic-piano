@@ -1,0 +1,165 @@
+--- a/code/rtl/audio/adsr_piano_envelope.sv
++++ b/code/rtl/audio/adsr_piano_envelope.sv
+@@ -1,8 +1,10 @@
+ // T009 M2 implementation of the M1 piano envelope reference.
+ // sys_rst_n is asynchronous active-low; note_on/off are one-clock pulses.
+ // Output is unsigned Q1.15 in [0, 32767]. One tick advances one audio sample.
+-// Constant reciprocal products are evaluated at events; normal ticks add a
+-// signed Q16 step. ROM reads have two pipeline cycles before gain is consumed.
++// M2 isolated pipeline candidate: delta register -> product register -> apply.
++// NoteOn to Attack initialization E+4; NoteOff precompute E+2.
++// Events win over old in-flight work. One pending sample during preparation.
++// Normal sample ticks add the unchanged signed Q16 step; ROM is unchanged.
+ `timescale 1ns/1ps
+ module adsr_piano_envelope (
+     input logic sys_clk, sys_rst_n, sample_tick, note_on, note_off,
+@@ -16,13 +18,15 @@
+     localparam logic signed [25:0] ATTACK_RECIP_Q32 = 26'sd17895697;
+     localparam logic signed [25:0] LONG_RECIP_Q32 = 26'sd894785;
+     localparam logic [13:0] SUSTAIN_RATE_Q32 = 14'd13422;
+-    localparam logic [2:0] IDLE=0, LOAD_1=1, LOAD_2=2, ATTACK=3,
+-                           DECAY=4, SUSTAIN=5, RELEASE=6;
+-    logic [2:0] state;
++    localparam logic [3:0] IDLE=0, LOAD_1=1, LOAD_2=2, ATTACK=3,
++                           DECAY=4, SUSTAIN=5, RELEASE=6,
++                           LOAD_3=7, LOAD_4=8, RELEASE_1=9, RELEASE_2=10;
++    logic [3:0] state;
+     logic [31:0] level_q16, start_q16, peak_q16, sustain_q16;
+     logic signed [32:0] step_q16;
+     logic [12:0] elapsed;
+-    logic pending_tick, release_step_pending;
++    logic pending_tick;
++    logic [31:0] release_start_q16;
+     logic [9:0] rom_addr;
+     logic [15:0] rom_dout;
+     logic [15:0] gain_rom [0:1023];
+@@ -53,17 +57,19 @@
+     always_comb begin
+         case (state)
+             IDLE: state_out = 3'd0;
+-            LOAD_1, LOAD_2, ATTACK: state_out = 3'd1;
++            LOAD_1, LOAD_2, LOAD_3, LOAD_4, ATTACK: state_out = 3'd1;
+             DECAY: state_out = 3'd2;
+             SUSTAIN: state_out = 3'd3;
+-            RELEASE: state_out = 3'd4;
++            RELEASE_1, RELEASE_2, RELEASE: state_out = 3'd4;
+             default: state_out = 3'd0;
+         endcase
+     end
+     assign envelope_level = level_q16[31:16];
+     logic signed [32:0] step_delta;
+     logic signed [25:0] reciprocal;
+-    logic signed [58:0] step_product;
++    logic signed [32:0] step_delta_q;
++    logic signed [25:0] reciprocal_q;
++    logic signed [58:0] step_product_q;
+     logic signed [32:0] step_quotient;
+     logic signed [32:0] next_level;
+     logic signed [32:0] first_level;
+@@ -82,11 +88,21 @@
+         else if (state==ATTACK) begin
+             step_delta = $signed({1'b0,sustain_q16})-$signed({1'b0,peak_q16});
+         end
+-        step_product = step_delta * reciprocal;
+-        step_quotient = {{6{step_product[58]}},step_product[58:32]};
++        step_quotient = {{6{step_product_q[58]}},step_product_q[58:32]};
+         next_level = $signed({1'b0,level_q16})+step_q16;
+         first_level = $signed({1'b0,start_q16})+$signed(step_quotient);
+         sustain_drop = {1'b0,sustain_product_q} >> 32;
++    end
++    // Each stage has independent registers. No path spans subtract+multiply+add.
++    // Decay precompute is stable for the whole Attack between boundary ticks.
++    always_ff @(posedge sys_clk or negedge sys_rst_n) begin
++        if(!sys_rst_n) begin
++            step_delta_q <= 0; reciprocal_q <= LONG_RECIP_Q32; step_product_q <= 0;
++        end else begin
++            step_delta_q <= step_delta;
++            reciprocal_q <= reciprocal;
++            step_product_q <= step_delta_q * reciprocal_q;
++        end
+     end
+     // Audio requests are separated by many sys_clk cycles; one stage isolates
+     // the constant sustain multiplier from the sample update path.
+@@ -96,28 +112,31 @@
+     always_ff @(posedge sys_clk or negedge sys_rst_n) begin
+         if (!sys_rst_n) begin
+             state<=IDLE;level_q16<=0;start_q16<=0;peak_q16<=0;
+-            sustain_q16<=0;elapsed<=0;rom_addr<=0;step_q16<=0;pending_tick<=0;release_step_pending<=0;
++            sustain_q16<=0;elapsed<=0;rom_addr<=0;step_q16<=0;pending_tick<=0;release_start_q16<=0;
+         end else if (note_on) begin
+             rom_addr<=velocity;
+             // 任何状态重触发都保留当前电平作为起点（同步Python模型）
+             start_q16 <= level_q16;
+             elapsed<=0;
+             pending_tick<=sample_tick;
+-            release_step_pending<=0;
+             state<=LOAD_1;
+         end else if (note_off && state!=IDLE) begin
++            release_start_q16<=level_q16;
++            pending_tick<=sample_tick;
++            elapsed<=0;
++            state<=RELEASE_1;
++        end else if (state==RELEASE_1) begin
++            if(sample_tick) pending_tick<=1;
++            state<=RELEASE_2;
++        end else if (state==RELEASE_2) begin
+             step_q16<=step_quotient;
+-            // Finish an accepted same-edge sample on the next sys_clk.
+-            // One audio frame is ~1042 sys_clk cycles, so this preserves
+-            // sample ordering while breaking the multiply-to-output path.
+-            release_step_pending<=sample_tick;
+-            elapsed<=sample_tick ? 13'd1 : 13'd0;
++            if(pending_tick || sample_tick) begin
++                if($signed({1'b0,release_start_q16})+step_quotient<=0) level_q16<=0;
++                else level_q16<=$signed({1'b0,release_start_q16})+step_quotient;
++                elapsed<=1;
++            end else elapsed<=0;
+             pending_tick<=0;
+             state<=RELEASE;
+-        end else if (release_step_pending) begin
+-            release_step_pending<=0;
+-            if (next_level<=0) level_q16<=0;
+-            else level_q16<=next_level[31:0];
+         end else if (state==LOAD_1) begin
+             if (sample_tick) pending_tick<=1;
+             state<=LOAD_2;
+@@ -126,6 +145,12 @@
+             // M1 model: floor(13107 * gain / 32767); reciprocal approximation
+             // via power-of-two scaling differs by at most 1 Q15 LSB.
+             sustain_q16<=((((32'(rom_dout)*32'd13108))>>15))<<16;
++            if(sample_tick) pending_tick<=1;
++            state<=LOAD_3;
++        end else if(state==LOAD_3) begin
++            if(sample_tick) pending_tick<=1;
++            state<=LOAD_4;
++        end else if(state==LOAD_4) begin
+             step_q16<=step_quotient;
+             if (pending_tick || sample_tick) begin
+                 level_q16<=first_level[31:0];
+@@ -177,4 +202,10 @@
+             endcase
+         end
+     end
++    // synthesis translate_off
++    always @(posedge sys_clk) if(sys_rst_n && sample_tick && pending_tick &&
++       (state==LOAD_1 || state==LOAD_2 || state==LOAD_3 || state==LOAD_4 ||
++        state==RELEASE_1 || state==RELEASE_2) && !note_on && !note_off)
++        $fatal(1,"ADSR pipeline received two samples before event preparation settled");
++    // synthesis translate_on
+ endmodule
+--- a/code/rtl/board/polyphonic_envelope_bank.sv
++++ b/code/rtl/board/polyphonic_envelope_bank.sv
+@@ -89,11 +89,11 @@
+                     pending_req_id<=sample_req_id;phase<=WAIT_DISPATCH;
+                 end
+                 WAIT_DISPATCH: if(!dispatch_busy && !(|slot_note_on) && !(|slot_note_off)) begin
+-                    delay_count<=3;phase<=SETTLE;
++                    delay_count<=6;phase<=SETTLE;
+                 end
+                 SETTLE: if(delay_count==0) phase<=ADVANCE;
+                         else delay_count<=delay_count-1'b1;
+-                ADVANCE: begin phase<=SNAPSHOT;delay_count<=2;end
++                ADVANCE: begin phase<=SNAPSHOT;delay_count<=4;end
+                 SNAPSHOT: if(delay_count==0) begin
+                     result_req_id<=pending_req_id;result_envelopes<=envelopes;
+                     result_waves<=waves;
