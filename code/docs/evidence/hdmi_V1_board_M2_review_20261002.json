@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-02",
+  "source": "user-forwarded two M3 onsite reports; actual images visually inspected by M2",
+  "M2_onsite": false,
+  "HDMI": {
+    "photo_commit": "1507e2a",
+    "source_files_sha256": {
+      "code/software/hdmi_test/01_fixed_color.jpg.jpg": "979b4eac29d2719d821d0b39de53c36341cea37c844714dabcefd2582b27a131",
+      "code/software/hdmi_test/02_monitor_info.jpg.jpg": "c4844a7b6bab08c355ceba17007781c5e7d054690e3ead59fb4b29ff808b3fb3"
+    },
+    "fs": "hdmi_link_probe.fs",
+    "fs_sha256": "ce9560cbe6bf3bea38bbcb7c01ba7162c238c01cf70b828e3bd636f8369ef239",
+    "download": "SRAM",
+    "manifest_confirmed_by_M3": true,
+    "M2_file_hash_rechecked": true,
+    "monitor_model": "AOC Q27B35 per M3",
+    "visual_observation": "fixed full-screen blue image, OSD640(H)x480(V) SDR/31kHz/60Hz",
+    "fixed_color_output_passed": true,
+    "reset_recovery_verified": false,
+    "reset_process_video_received": false,
+    "photo_proves_exact_RGB": false,
+    "photo_proves_exact_refresh_or_long_term_stability": false,
+    "level": "L6 limited fixed-image and signal recognition; no complete HDMI acceptance"
+  },
+  "V1_audio": {
+    "design": "083a07e",
+    "fs": "electronic_piano_4voice_V1_sustain_20261001.fs",
+    "fs_sha256": "5944a031bc3d533c77ad801d4b63b1783c355e9874138db07278f11c2cf841c1",
+    "download": "SRAM",
+    "M2_fs_hash_rechecked": true,
+    "onsite_report_actions": [
+      "velocity loudness",
+      "four voices released independently",
+      "CC64 down/up held-key isolation",
+      "fifth-note steal and stale-key release",
+      "rapid low/high alternation",
+      "same-note retrigger in tail",
+      "stealing while sustain down",
+      "reset silence and recovery"
+    ],
+    "reported_actions_passed": true,
+    "no_obvious_or_repeatable_click_drop_hang_in_reported_tests": true,
+    "raw_listening_video_or_audio_received": false,
+    "quantified_transient_limit_proven": false,
+    "M1_NoteOn_swap_conditional_listening_covered": true,
+    "phase_wrap_or_ADSR_patch_activated": false,
+    "residual_feedback": "low-register sustained chords still have noticeable beating; reported as continuous sound not short click, no claim beats eliminated",
+    "level": "L6 limited same-version reported listening/actions"
+  },
+  "board_state_sequence": {
+    "exact_times_provided": false,
+    "earlier_HDMI_report": "last SRAM download HDMI probe; b60d99c restore not yet executed then",
+    "later_V1_report": "subsequent SRAM V1 design083a07e listening completed",
+    "latest_reported_download": "V1083a07e",
+    "b60d99c_restore_completion_inferred": false,
+    "current_board_remotely_verified": false
+  },
+  "not_proven": [
+    "HDMI reset recovery",
+    "HDMI full audio/video coexistence L6",
+    "Pitch/Mod audible effects",
+    "T031 analog end-to-end latency",
+    "long term stability",
+    "dynamic timbre switching"
+  ],
+  "production_RTL_ROM_interface_changed": false,
+  "new_build_or_download_by_M2": false,
+  "T025_T026_retest_paused": true,
+  "repo_gate": {
+    "result": "ALL PASS",
+    "python_syntax_files": 122,
+    "T007_T019": "PASS",
+    "log_sha256": "e45a774a8874e2974ff4408677ec9866b279b5a82964efd3f5471761b476e31e",
+    "scope": "existing repository checks only; no new physical test or timing build"
+  }
+}
