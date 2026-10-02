@@ -1,0 +1,109 @@
+{
+  "baseline": "0e29e22",
+  "m2_reference_commit": "ebdcecc",
+  "m2_publication_commit": "cab9f39",
+  "package_date": "2026-10-02",
+  "author": "M1",
+  "scope": "Pitch/Mod 算法模块与接口合同（任务书第二阶段）；不重写顶层/接口/CST/ADSR/音色；不改 dds_oscillator/note_pitch",
+  "verification_level": "L1+L3 离线通过；L2 TB 已随包未运行（本机无 iverilog）；L4/L5 未做（M2）",
+  "files": [
+    {
+      "path": "code/model/pitch_mod_model.py",
+      "operation": "add",
+      "baseline_sha256": null,
+      "new_sha256": "e5810e4fa520078b51f356fe2d6bd96d31ef007c82770d3bed90cfe89e7b665e",
+      "note": "黄金模型：Pitch/Mod FCW 定点参考，纯标准库"
+    },
+    {
+      "path": "code/model/generate_pitch_mod_luts.py",
+      "operation": "add",
+      "baseline_sha256": null,
+      "new_sha256": "dc5e12fddee7d83044e63d4c84b1822a9d43a45aa4e3ac5df4d80794327af813",
+      "note": "生成 OCT/SUB/LFO 三张 .mem"
+    },
+    {
+      "path": "code/model/generate_pitch_mod_vectors.py",
+      "operation": "add",
+      "baseline_sha256": null,
+      "new_sha256": "46d4a343540f829ead96ecbe90ec817cf56768f78e230febb6b8a96415770fc0",
+      "note": "生成 62273 条 RTL 黄金向量"
+    },
+    {
+      "path": "code/model/test_pitch_mod.py",
+      "operation": "add",
+      "baseline_sha256": null,
+      "new_sha256": "a6b3d22805df51ca7e6876621e19a786b658740de909c98f5da6349281aed30d",
+      "note": "25 项自检，失败非零退出"
+    },
+    {
+      "path": "code/model/check_rtl_equivalence.py",
+      "operation": "add",
+      "baseline_sha256": null,
+      "new_sha256": "8cbe071bdca9b7464885d2407e7d752f32399648c249bcdbd0542d7593035509",
+      "note": "按 RTL 位宽语义复刻并与向量逐条比对"
+    },
+    {
+      "path": "code/rtl/audio/pitch_mod_fcw.sv",
+      "operation": "add",
+      "baseline_sha256": null,
+      "new_sha256": "5708dedd7528a56373bc336025e8281bf61a7c797b768135ef8ee2d6ad5ef83d",
+      "note": "可综合 Pitch+Mod FCW 控制器（新增独立模块）"
+    },
+    {
+      "path": "code/tb/audio/tb_pitch_mod_fcw.sv",
+      "operation": "add",
+      "baseline_sha256": null,
+      "new_sha256": "98a2d26eed4042b29bd4e39434e42947a9a21da9b0bcdaefdad91ab32888f02b",
+      "note": "自检 TB，逐样本比对，失败 $fatal"
+    },
+    {
+      "path": "code/scripts/run_pitch_mod_tests.py",
+      "operation": "add",
+      "baseline_sha256": null,
+      "new_sha256": "6408118be09fdc8c09e6f2280c956a95f885b27855f2cdd2511e8e7569f8a9be",
+      "note": "一键运行器，含可选 iverilog 探测"
+    },
+    {
+      "path": "code/docs/test/Pitch_Mod_算法接口合同_2026-10-02.md",
+      "operation": "add",
+      "baseline_sha256": null,
+      "new_sha256": "e1392eaf037ba9f7c4c76f0558cae0bee01d3b8efddb9ddc897125501144b72c",
+      "note": "M2 接线接口合同"
+    },
+    {
+      "path": "code/model/generated/pitch_mod/oct_ratio_q16.mem",
+      "operation": "add",
+      "baseline_sha256": null,
+      "new_sha256": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d",
+      "note": "50x20bit 整数半音比 Q16"
+    },
+    {
+      "path": "code/model/generated/pitch_mod/sub_ratio_q16.mem",
+      "operation": "add",
+      "baseline_sha256": null,
+      "new_sha256": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9",
+      "note": "1024x20bit 分数半音比 Q16"
+    },
+    {
+      "path": "code/model/generated/pitch_mod/lfo_sine_q15.mem",
+      "operation": "add",
+      "baseline_sha256": null,
+      "new_sha256": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4",
+      "note": "1024x16bit 颤音正弦 Q15"
+    },
+    {
+      "path": "code/model/generated/pitch_mod/pitch_mod_vectors.txt",
+      "operation": "add",
+      "baseline_sha256": null,
+      "new_sha256": "619513900dce0c3e9f166d9cefa8f1dd4a7990c79ed839269dad431f4c807fe4",
+      "note": "62273 条黄金向量"
+    },
+    {
+      "path": "code/model/generated/pitch_mod/model_report.json",
+      "operation": "add",
+      "baseline_sha256": null,
+      "new_sha256": "b2e054ef144cdef23c1cceb9d975f476b39061cb19dd4ea5a2a528f2cf0d158a",
+      "note": "模型自检报告"
+    }
+  ]
+}

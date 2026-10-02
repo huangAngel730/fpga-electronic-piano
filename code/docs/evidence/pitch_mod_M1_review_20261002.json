@@ -1,0 +1,225 @@
+{
+  "review_date": "2026-10-02",
+  "baseline": "3ea7d54",
+  "package_sha256": "75b7a16a69568944905a42a8fb4097e4dbf090e67716a173a1243488c21397b4",
+  "package_name": "M1_Pitch_Mod_交付_20261002.zip",
+  "received_manifest": {
+    "baseline": "0e29e22",
+    "m2_reference_commit": "ebdcecc",
+    "m2_publication_commit": "cab9f39",
+    "package_date": "2026-10-02",
+    "author": "M1",
+    "scope": "Pitch/Mod 算法模块与接口合同（任务书第二阶段）；不重写顶层/接口/CST/ADSR/音色；不改 dds_oscillator/note_pitch",
+    "verification_level": "L1+L3 离线通过；L2 TB 已随包未运行（本机无 iverilog）；L4/L5 未做（M2）",
+    "files": [
+      {
+        "path": "code/model/pitch_mod_model.py",
+        "operation": "add",
+        "baseline_sha256": null,
+        "new_sha256": "e5810e4fa520078b51f356fe2d6bd96d31ef007c82770d3bed90cfe89e7b665e",
+        "note": "黄金模型：Pitch/Mod FCW 定点参考，纯标准库"
+      },
+      {
+        "path": "code/model/generate_pitch_mod_luts.py",
+        "operation": "add",
+        "baseline_sha256": null,
+        "new_sha256": "dc5e12fddee7d83044e63d4c84b1822a9d43a45aa4e3ac5df4d80794327af813",
+        "note": "生成 OCT/SUB/LFO 三张 .mem"
+      },
+      {
+        "path": "code/model/generate_pitch_mod_vectors.py",
+        "operation": "add",
+        "baseline_sha256": null,
+        "new_sha256": "46d4a343540f829ead96ecbe90ec817cf56768f78e230febb6b8a96415770fc0",
+        "note": "生成 62273 条 RTL 黄金向量"
+      },
+      {
+        "path": "code/model/test_pitch_mod.py",
+        "operation": "add",
+        "baseline_sha256": null,
+        "new_sha256": "a6b3d22805df51ca7e6876621e19a786b658740de909c98f5da6349281aed30d",
+        "note": "25 项自检，失败非零退出"
+      },
+      {
+        "path": "code/model/check_rtl_equivalence.py",
+        "operation": "add",
+        "baseline_sha256": null,
+        "new_sha256": "8cbe071bdca9b7464885d2407e7d752f32399648c249bcdbd0542d7593035509",
+        "note": "按 RTL 位宽语义复刻并与向量逐条比对"
+      },
+      {
+        "path": "code/rtl/audio/pitch_mod_fcw.sv",
+        "operation": "add",
+        "baseline_sha256": null,
+        "new_sha256": "5708dedd7528a56373bc336025e8281bf61a7c797b768135ef8ee2d6ad5ef83d",
+        "note": "可综合 Pitch+Mod FCW 控制器（新增独立模块）"
+      },
+      {
+        "path": "code/tb/audio/tb_pitch_mod_fcw.sv",
+        "operation": "add",
+        "baseline_sha256": null,
+        "new_sha256": "98a2d26eed4042b29bd4e39434e42947a9a21da9b0bcdaefdad91ab32888f02b",
+        "note": "自检 TB，逐样本比对，失败 $fatal"
+      },
+      {
+        "path": "code/scripts/run_pitch_mod_tests.py",
+        "operation": "add",
+        "baseline_sha256": null,
+        "new_sha256": "6408118be09fdc8c09e6f2280c956a95f885b27855f2cdd2511e8e7569f8a9be",
+        "note": "一键运行器，含可选 iverilog 探测"
+      },
+      {
+        "path": "code/docs/test/Pitch_Mod_算法接口合同_2026-10-02.md",
+        "operation": "add",
+        "baseline_sha256": null,
+        "new_sha256": "e1392eaf037ba9f7c4c76f0558cae0bee01d3b8efddb9ddc897125501144b72c",
+        "note": "M2 接线接口合同"
+      },
+      {
+        "path": "code/model/generated/pitch_mod/oct_ratio_q16.mem",
+        "operation": "add",
+        "baseline_sha256": null,
+        "new_sha256": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d",
+        "note": "50x20bit 整数半音比 Q16"
+      },
+      {
+        "path": "code/model/generated/pitch_mod/sub_ratio_q16.mem",
+        "operation": "add",
+        "baseline_sha256": null,
+        "new_sha256": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9",
+        "note": "1024x20bit 分数半音比 Q16"
+      },
+      {
+        "path": "code/model/generated/pitch_mod/lfo_sine_q15.mem",
+        "operation": "add",
+        "baseline_sha256": null,
+        "new_sha256": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4",
+        "note": "1024x16bit 颤音正弦 Q15"
+      },
+      {
+        "path": "code/model/generated/pitch_mod/pitch_mod_vectors.txt",
+        "operation": "add",
+        "baseline_sha256": null,
+        "new_sha256": "619513900dce0c3e9f166d9cefa8f1dd4a7990c79ed839269dad431f4c807fe4",
+        "note": "62273 条黄金向量"
+      },
+      {
+        "path": "code/model/generated/pitch_mod/model_report.json",
+        "operation": "add",
+        "baseline_sha256": null,
+        "new_sha256": "b2e054ef144cdef23c1cceb9d975f476b39061cb19dd4ea5a2a528f2cf0d158a",
+        "note": "模型自检报告"
+      }
+    ]
+  },
+  "all14_file_hashes_verified_before_and_after_tests": true,
+  "pycache_excluded": true,
+  "model_selftest": "25checks0failure",
+  "Python_semantics_vectors": 62273,
+  "real_Icarus_vectors_pass": 62273,
+  "additional_true_Nyquist_saturation_vectors_pass": 2,
+  "original62273_saturation_branch_vectors": 0,
+  "real_changed_expected_negative_rejected": true,
+  "candidate_integratable": false,
+  "formal_audio_RTL_or_GPRJ_modified": false,
+  "M1_implementation_modified": false,
+  "constants": {
+    "LFO_Hz": 5,
+    "depth_cents": 50,
+    "candidate_only_not_frozen": true,
+    "RTL_depth_parameter_actually_present": false
+  },
+  "blockers": [
+    "all3LUTreadmemh inside translate_off; original Gowin retains1register1LUT",
+    "NoteOn outside sample_enable advances phase, contradicts firstsamplezero/resetonly contract needed by current dispatcher",
+    "wrapper final result ignores vvp failure;TB emptyvectors pass;fcw_valid/stalls missing",
+    "contract bend0/range0 with anyMod exactbase false;must preserve independentMod andPitch",
+    "resource/latency estimation not verified; hardware transport-only synthesis predicts combcriticalpath needsM2pipelining"
+  ],
+  "original_Gowin_hierarchy": {
+    "name": "pitch_mod_fcw",
+    "Register": "1",
+    "Lut": "1",
+    "T_Register": "1(1)",
+    "T_Lut": "1(1)"
+  },
+  "transport_only_Gowin_hierarchy": {
+    "name": "pitch_mod_fcw",
+    "Register": "60",
+    "Alu": "17",
+    "Lut": "2058",
+    "MULTALU27X18": "1",
+    "MULT12X12": "1",
+    "MULT27X36": "2",
+    "T_Register": "60(60)",
+    "T_Alu": "17(17)",
+    "T_Lut": "2058(2058)",
+    "T_MULTALU27X18": "1(1)",
+    "T_MULT12X12": "1(1)",
+    "T_MULT27X36": "2(2)"
+  },
+  "transport_probe": {
+    "production_patch": false,
+    "purpose": "only move originalLUTreadmemh out of synthesis-off and make path constant in scratchoutput;math unchanged",
+    "Logic": 2075,
+    "Registers": 60,
+    "BSRAM": 0,
+    "multipliers": {
+      "MULTALU27X18": 1,
+      "MULT12X12": 1,
+      "MULT27X36": 2
+    },
+    "synthesis_default_constraint_mhz": 100,
+    "synthesis_estimated_Fmax_mhz": 37.188,
+    "PnR_STA_or_physical_Fmax_proven": false
+  },
+  "directed_observations": {
+    "NoteOn_without_sample_LFO_phase": 447392,
+    "bend0_Modmax_A4_sample2400_FCW": 40522165,
+    "A4_base_FCW": 39370534,
+    "range0_Modmax_still_vibrates_FCW": 40522165,
+    "NoteOn_nonzero_bend_FCW": 44189123,
+    "C8_max_combined_FCW": 1541004284,
+    "Nyquist_FCW": 2147483648,
+    "C8_does_not_trigger_saturation": true,
+    "fcw_valid_available_post_enable_edge": "E afterNBA; downstream edgeE+1, not postE+1 independent delay"
+  },
+  "gate_failures_reproduced": {
+    "emptyvectors_TB_exit": 0,
+    "emptyvectors_TB_passed_count": 0,
+    "runner_mocked_vvp_failure_main_exit": 0
+  },
+  "logs_sha256": {
+    "test_pitch_mod.py.log": "476767fd93f3d36cbbd20d85c85a61b5f2f68cd1c91f71b76c6487f9c5acb6e3",
+    "check_rtl_equivalence.py.log": "cce83f125a5a677b73c06e9fbbd303ab4c344a90cfd51432cac667412ac82043",
+    "compile_original.log": "7192dfbbdec20c35664283e0344675d091dac326e86764ca585a63660a326978",
+    "original_RTL.log": "f6465e73c313f15fb240861fd3ff4d86143aef8caf17ce9d13a01af2d5c9a5eb",
+    "directed.log": "c05a447b3fe2cb1eb7463f1d3e922279b7754cc9a0bca95be404a2c8f77ea63a",
+    "empty_vectors_negative.log": "6a62898470d54a33549e813052d367edd26df4f92afbe0e0dca87c90caefc196",
+    "runner_failure_gate.log": "729d960304687b788779faa01fad5e7ad9b1951f1567b125081eeb14d2f62698",
+    "wrong_expected_negative.log": "90a76e8b8060ff39e3dccb525aea4ab904b4cfc5ed57f85b56935ffcfd8e839e",
+    "true_saturation_RTL.log": "86065ddec56fa6ff128ae12b43e9389ffc7e9b2ac10f9c82633967df98c76024"
+  },
+  "synthesis_logs_sha256": {
+    "gowin_original_synth": "79dd4a5fe511faf4dba82e3eed2202f02214749c5aae5c21e280d970267a02c8",
+    "initialization_transport_probe": "23068235aabdac10444ba0cf1f322aa27aea4ba3d3d3b49c034cb0fc732ae6e8"
+  },
+  "L2_completed_by_M2": true,
+  "L4_original_algorithm_NOT_ACCEPTED": true,
+  "L5_or_L6": false,
+  "M1_model_report_rewritten_by_selftest": {
+    "isolated_receipt_json_restored_fromoriginalZIP": true,
+    "actual_generated_report_separately_saved": true,
+    "future_tests_execute_incopy": true
+  },
+  "T036_closed": false,
+  "T025_T026_retest_paused": true,
+  "repo_gate": {
+    "result": "ALL PASS",
+    "python_syntax_files": 122,
+    "T007_T019": "PASS",
+    "log_sha256": "e45a774a8874e2974ff4408677ec9866b279b5a82964efd3f5471761b476e31e",
+    "does_not_override_candidate_admission_failure": true
+  },
+  "review_script_sha256": "349a66c13102598eaa58c87598827b71e8c3514978261e9c2201e4c20fac263f"
+}
