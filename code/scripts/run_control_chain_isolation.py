@@ -25,7 +25,22 @@ def stage_candidates(folder: Path) -> dict:
     fifo_path = ROOT / "code/rtl/common/performance_event_fifo.sv"
     button_path = ROOT / "code/rtl/input/button_event_converter/button_event_converter.sv"
     fifo = fifo_path.read_text(encoding="utf-8")
-    button = button_path.read_text(encoding="utf-8")
+    current_button = button_path.read_text(encoding="utf-8")
+    accepted_parallel_sha = "65c7978b2e1ce27fc09606cd87ee43fc1a078898acdd109490ca1909f89c0dd7"
+    actual_button_sha = hashlib.sha256(current_button.encode("utf-8")).hexdigest()
+    frozen_button_commit = None
+    if actual_button_sha == accepted_parallel_sha:
+        # Production M3 counter is already optimized. Preserve the independent
+        # pre-optimization oracle, never compare a candidate with itself.
+        frozen_button_commit = "6aee959"
+        original = subprocess.check_output([
+            "git", "-C", str(ROOT), "show", frozen_button_commit + ":code/rtl/input/button_event_converter/button_event_converter.sv"
+        ])
+        if hashlib.sha256(original).hexdigest() != "f6befb9c7415c69da62f2083e22803eae93ebeac63b8903b3c1314c4e9e723f0":
+            raise ValueError("Frozen pre-optimization button oracle changed")
+        button = original.decode("utf-8")
+    else:
+        button = current_button
     bypass = "((count < DEPTH) || pop)"
     if fifo.count(bypass) != 1:
         raise ValueError("FIFO implementation changed; review the benchmark before replay")
@@ -55,6 +70,8 @@ def stage_candidates(folder: Path) -> dict:
                                 "overflow_increment = overflow_increment + 1'b1;")
     parallel = parallel.replace(old, """            if (overflow_increment != 0)
                 overflow_count <= overflow_result[overflow_increment];""")
+    if frozen_button_commit and parallel != current_button:
+        raise ValueError("Current accepted parallel counter does not match reproduced candidate")
     files = {
         "fifo_reference.sv": fifo.replace("module performance_event_fifo", "module fifo_reference", 1),
         "fifo_no_full_bypass.sv": fifo.replace("module performance_event_fifo", "module fifo_no_full_bypass", 1).replace(bypass, "(count < DEPTH)"),
@@ -65,6 +82,8 @@ def stage_candidates(folder: Path) -> dict:
     for name, source in files.items():
         (folder / name).write_text(source, encoding="utf-8", newline="\n")
     return {"formal_FIFO_sha256": sha(fifo_path), "formal_button_sha256": sha(button_path),
+            "independent_button_oracle_commit": frozen_button_commit,
+            "current_formal_counter_matches_reviewed_candidate": bool(frozen_button_commit),
             "generated_sha256": {name: sha(folder / name) for name in files}}
 
 
@@ -82,7 +101,7 @@ def main() -> int:
     record.update({"formal_RTL_modified": False, "deployment_accepted": False,
                    "counter_candidate_observation_delay": 0,
                    "handshake_or_queue_capacity_changed": False,
-                   "scope": "M2 experiment; M3 notice/acceptance needed before formal adoption"})
+                   "scope": "M2 experiment; current M3 formal acceptance recorded separately, not proof of full design STA"})
     if not args.generate_only:
         env = dict(os.environ)
         env["PATH"] = str(CAD / "lib") + os.pathsep + str(CAD / "bin") + os.pathsep + env["PATH"]

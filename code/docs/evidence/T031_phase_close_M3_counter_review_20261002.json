@@ -1,0 +1,117 @@
+{
+  "date": "2026-10-02",
+  "reviewer": "M2",
+  "M3_commit": "6055bb8633ca3c4f3e08a2990b3ebc36d80d481e",
+  "changed_files_count": 10,
+  "M3_formal_RTL_exact_candidate_sha256": "65c7978b2e1ce27fc09606cd87ee43fc1a078898acdd109490ca1909f89c0dd7",
+  "M2_actual_runs": {
+    "status": "PASS",
+    "scope": "L2 simulation only; no new synthesis/PnR or board test",
+    "source_inputs": {
+      "code\\rtl\\common\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+      "code\\rtl\\input\\button_event_converter\\button_event_converter.sv": "65c7978b2e1ce27fc09606cd87ee43fc1a078898acdd109490ca1909f89c0dd7",
+      "code\\rtl\\common\\performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+      "code\\tb\\input\\tb_button_event_converter.sv": "8297e6d7ec5e40b4f6b48eb2054c04e175bd18fcc9df8c7a807721d8f32dcd3e",
+      "code\\tb\\input\\button_counter_timing\\tb_button_counter_timing.sv": "aede854459c730d9aee49019e64c1b636c4ba3aa3c7e9976220e2bce06996ae1",
+      "code\\tb\\input\\button_counter_timing\\button_reference.sv": "49c492eedaf5d6fdf2a3d550f77d6063e8e28144b593a578420eafc20fb78e8a",
+      "code\\tb\\input\\button_counter_timing\\fifo_reference.sv": "16529dda59dff6b78209cbc281f0a0200dd1d4a7a1223e7c41ee7dc5d85b3d8d",
+      "code\\tb\\input\\button_counter_timing\\fifo_no_full_bypass.sv": "8621074d0396b02438a7614fbae90965db0bfa09f6d2fc9ebf16b1eb81164fce"
+    },
+    "oracle_provenance": {
+      "source_packet": "M3_按键计数正式落地_无需实物_6aee959_20261002",
+      "baseline_commit": "6aee959",
+      "original_button_sha256_LF": "f6befb9c7415c69da62f2083e22803eae93ebeac63b8903b3c1314c4e9e723f0",
+      "reviewed_candidate_sha256_LF": "65c7978b2e1ce27fc09606cd87ee43fc1a078898acdd109490ca1909f89c0dd7",
+      "files_sha256_LF": {
+        "button_reference.sv": "49c492eedaf5d6fdf2a3d550f77d6063e8e28144b593a578420eafc20fb78e8a",
+        "fifo_reference.sv": "16529dda59dff6b78209cbc281f0a0200dd1d4a7a1223e7c41ee7dc5d85b3d8d",
+        "fifo_no_full_bypass.sv": "8621074d0396b02438a7614fbae90965db0bfa09f6d2fc9ebf16b1eb81164fce"
+      },
+      "testbench_derivation": "Packet TB renamed; DUT directly uses production button_event_converter and performance_event_fifo. Frozen old button and FIFO remain independent oracles. No-full-bypass is a deliberately rejected control."
+    },
+    "runs": [
+      {
+        "depth": 3,
+        "local_depth": 2,
+        "checks": 100620,
+        "cycles": 20114,
+        "status": "PASS"
+      },
+      {
+        "depth": 32,
+        "local_depth": 2,
+        "checks": 102070,
+        "cycles": 20404,
+        "status": "PASS"
+      },
+      {
+        "depth": 3,
+        "local_depth": 1,
+        "checks": 100570,
+        "cycles": 20104,
+        "status": "PASS"
+      },
+      {
+        "depth": 32,
+        "local_depth": 4,
+        "checks": 102170,
+        "cycles": 20424,
+        "status": "PASS"
+      }
+    ],
+    "original_tb": "PASS",
+    "negative": [
+      {
+        "case": "reject_delayed_count",
+        "compile_exit": 0,
+        "run_exit": 1,
+        "expected_failure": "counter exactly same cycle",
+        "status": "REJECTED"
+      },
+      {
+        "case": "reject_no_full_bypass",
+        "compile_exit": 0,
+        "run_exit": 1,
+        "expected_failure": "counter candidate same ready",
+        "status": "REJECTED"
+      }
+    ],
+    "checks": 405430
+  },
+  "M2_actual_results_file_sha256": "6de5508f872cd364d64f19d5bb0bdf987b94b5501e0c24ba1cce291add1b16b5",
+  "M2_actual_runlog_sha256": "3ab6e5e6dc77e4d1418bbbb44de22cc9c7d91f1a38f4126e1026aee989471872",
+  "review_conclusion": "6055bb8 module-levelL2 accepted; no new integratedPnR or hardwarePASS",
+  "ModelSim": "M3 reported, M2 did not run ModelSim",
+  "source_update_by_M2": false,
+  "T031": {
+    "user_request_received": true,
+    "wording": "双方同意暂免实测、阶段收口",
+    "schedule": "no dual-channel delay test assigned in this phase",
+    "phase_closed": true,
+    "digital_simulation_evidence_preserved": "V0141 + original report, no rerun and no numeric change",
+    "actual_analog_output_latency_measured": false,
+    "board_latency_10ms_verified": false,
+    "claim_official_exemption": false,
+    "report_and_defense_unmeasured_numbers_allowed": false,
+    "restore_when": "现场要求提供证据时恢复补测，绑定同版码流/提交/SHA",
+    "phase_administrative_level": "L0安排，非L6性能验收"
+  },
+  "role_scope": "M2 owns nextintegrationandwholeSTA; M1ADSR scopehandoff not confirmed, remains separate",
+  "counter_generator_compatibility": {
+    "accepted_production_sha_recognized": true,
+    "original_oracle_frozen_commit": "6aee959",
+    "reproduced_checks": 202690,
+    "log_sha256": "f70a131177dedb3aa77aa233d27d015a7463933483cfb6fe074236c171e9e999"
+  },
+  "combo_preparation_after_current_counter": {
+    "exit": 0,
+    "log_sha256": "75f3afb5d08bcb08917a7649fc4cba9265a80ab0210b7e4b806cfb1844bde54d",
+    "physical_PnR_done": false
+  },
+  "repository_gate": {
+    "exit": 0,
+    "groups": 9,
+    "Python_files": 134,
+    "log_sha256": "5e9808d6ca03fc1517149ebfe88a034557d09887e78fa90f7a330620ca221200"
+  }
+}
