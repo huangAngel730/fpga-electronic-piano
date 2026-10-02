@@ -1,0 +1,2787 @@
+{
+  "date": "2026-10-02",
+  "baseline": "93b65c8",
+  "sender": "M1",
+  "signoff_received": true,
+  "original_filename": "M1_V1算法复核签收_20261002.md",
+  "original_sha256": "db6b44cfa60401ee721bdacdf273b3690260a42d98772109314d40742af7ef97",
+  "archived_LF_sha256": "db6b44cfa60401ee721bdacdf273b3690260a42d98772109314d40742af7ef97",
+  "accepted_signoff_scope": "V1 harmonic table/tuning/amplitude/brightness thresholds and original wrap-based attack-to-body algorithm; NoteOn swap transient conditional on same-bitstream listening",
+  "M1_validation_source": "M1 stated static/Python bit-exact reconstruction; not hardware/RTL waveform attachments",
+  "M2_numeric_recheck": {
+    "date": "2026-10-02",
+    "kind": "read-only independent numeric audit; not physical/RTL simulation",
+    "ROM_generator_exact": true,
+    "table_stats": [
+      {
+        "min": -8191,
+        "max": 8191,
+        "index0": 0
+      },
+      {
+        "min": -8191,
+        "max": 8191,
+        "index0": 0
+      },
+      {
+        "min": -8191,
+        "max": 8191,
+        "index0": 0
+      },
+      {
+        "min": -8191,
+        "max": 8191,
+        "index0": 0
+      }
+    ],
+    "same_phase_note_on_table_change": [
+      {
+        "before_table": 0,
+        "after_table": 1,
+        "max_same_phase_difference_LSB": 1683,
+        "mean_same_phase_difference_LSB": 586.09375,
+        "percent_nominal_single_voice_peak8192": 20.54443359375,
+        "percent_PCM16_full_scale32768_before_envelope": 5.1361083984375
+      },
+      {
+        "before_table": 1,
+        "after_table": 2,
+        "max_same_phase_difference_LSB": 1974,
+        "mean_same_phase_difference_LSB": 958.3828125,
+        "percent_nominal_single_voice_peak8192": 24.0966796875,
+        "percent_PCM16_full_scale32768_before_envelope": 6.024169921875
+      },
+      {
+        "before_table": 1,
+        "after_table": 3,
+        "max_same_phase_difference_LSB": 4255,
+        "mean_same_phase_difference_LSB": 2701.96875,
+        "percent_nominal_single_voice_peak8192": 51.94091796875,
+        "percent_PCM16_full_scale32768_before_envelope": 12.9852294921875
+      },
+      {
+        "before_table": 0,
+        "after_table": 2,
+        "max_same_phase_difference_LSB": 3292,
+        "mean_same_phase_difference_LSB": 1474.9921875,
+        "percent_nominal_single_voice_peak8192": 40.185546875,
+        "percent_PCM16_full_scale32768_before_envelope": 10.04638671875
+      },
+      {
+        "before_table": 0,
+        "after_table": 3,
+        "max_same_phase_difference_LSB": 5182,
+        "mean_same_phase_difference_LSB": 3024.15625,
+        "percent_nominal_single_voice_peak8192": 63.2568359375,
+        "percent_PCM16_full_scale32768_before_envelope": 15.814208984375
+      }
+    ],
+    "wrap_switches_checked": 264,
+    "wrap_switches_larger_than_old_table_natural_step": 0,
+    "wrap_switches_not_index0": 105,
+    "wrap_switches_not_same_sample_as_old_table": 105,
+    "transitions": [
+      {
+        "note": 21,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 1746,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 21,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1746,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 21,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1746,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 22,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 1648,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 22,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1648,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 22,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1648,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 23,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 1556,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 23,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1556,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 23,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1556,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 24,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 1468,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 24,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1468,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 24,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1468,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 25,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 1386,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 25,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1386,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 25,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 2771,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 26,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 1308,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 26,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1308,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 26,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 2616,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 27,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 1235,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 27,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1235,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 27,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 2469,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 28,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 1165,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 28,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1165,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 28,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 2330,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 29,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 1100,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 29,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1100,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 29,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 2200,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 30,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 1038,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 30,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1038,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 30,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 2076,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 31,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 980,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 31,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 980,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 31,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1960,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 32,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 925,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 32,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1850,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 32,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1850,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 33,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 873,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 33,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1746,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 33,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1746,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 34,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 824,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 34,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1648,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 34,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1648,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 35,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 778,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 35,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1556,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 35,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1556,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 36,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 734,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 36,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1468,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 36,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1468,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 37,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 693,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 37,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1386,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 37,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 2079,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 38,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 654,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 38,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1308,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 38,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1962,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 39,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 618,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 39,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1235,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 39,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1852,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 40,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 583,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 40,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1165,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 40,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1748,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 41,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 550,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 41,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1100,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 41,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1650,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 42,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 519,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 42,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1038,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 42,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1557,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 43,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 490,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 43,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 980,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 43,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1470,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 44,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 925,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 44,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1387,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 44,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1850,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 45,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 873,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 45,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1310,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 45,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1746,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 46,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 824,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 46,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1236,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 46,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1648,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 47,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 778,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 47,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1167,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 47,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1556,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 48,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 734,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 48,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1101,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 48,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1468,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 49,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 693,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 49,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1040,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 49,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1732,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 50,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 654,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 50,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 981,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 50,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1635,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 51,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 618,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 51,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1235,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 51,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1543,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 52,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 583,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 52,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1165,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 52,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1457,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 53,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 550,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 53,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1100,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 53,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1650,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 54,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 519,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 54,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1038,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 54,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1557,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 55,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 490,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 55,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 980,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 55,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1470,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 56,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 694,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 56,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1156,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 56,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1619,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 1636,
+        "switched_step_LSB": 1372,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 57,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 655,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 57,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1091,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 1627,
+        "switched_step_LSB": 1627,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 57,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1528,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 58,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 618,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 1627,
+        "switched_step_LSB": 1627,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 58,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1030,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 58,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1442,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 59,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 584,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 1636,
+        "switched_step_LSB": 1372,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 59,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 972,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 1627,
+        "switched_step_LSB": 1627,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 59,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1556,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 1636,
+        "switched_step_LSB": 1372,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 60,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 551,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 60,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1101,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 1627,
+        "switched_step_LSB": 1627,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 60,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1468,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 1627,
+        "switched_step_LSB": 1627,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 61,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 520,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 61,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1040,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 1636,
+        "switched_step_LSB": 1372,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 61,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1559,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 62,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 491,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 1636,
+        "switched_step_LSB": 1372,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 62,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 981,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 1627,
+        "switched_step_LSB": 1627,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 62,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1472,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 1636,
+        "switched_step_LSB": 1372,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 63,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 618,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 1636,
+        "switched_step_LSB": 1372,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 63,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1080,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 1627,
+        "switched_step_LSB": 1627,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 63,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1543,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 1627,
+        "switched_step_LSB": 1627,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 64,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 583,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 818,
+        "switched_step_LSB": 818,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 64,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1020,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 1636,
+        "switched_step_LSB": 1372,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 64,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1457,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 1636,
+        "switched_step_LSB": 1372,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 65,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 550,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 1627,
+        "switched_step_LSB": 1627,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 65,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 963,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 1636,
+        "switched_step_LSB": 1372,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 65,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1512,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 1627,
+        "switched_step_LSB": 1627,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 66,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 519,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 1627,
+        "switched_step_LSB": 1627,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 66,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1038,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 1627,
+        "switched_step_LSB": 1627,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 66,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1557,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 1627,
+        "switched_step_LSB": 1627,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 67,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 490,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 1627,
+        "switched_step_LSB": 1627,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 67,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 980,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 1627,
+        "switched_step_LSB": 1627,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 67,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1470,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 1636,
+        "switched_step_LSB": 1372,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 68,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 578,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 1627,
+        "switched_step_LSB": 1627,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 68,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1041,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 1636,
+        "switched_step_LSB": 1372,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 68,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1503,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 2445,
+        "switched_step_LSB": 2181,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 69,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 546,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 2445,
+        "switched_step_LSB": 2181,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 69,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 982,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 1627,
+        "switched_step_LSB": 1627,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 69,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1528,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 1636,
+        "switched_step_LSB": 1372,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 70,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 515,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 2416,
+        "switched_step_LSB": 2416,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 70,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1030,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 1627,
+        "switched_step_LSB": 1627,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 70,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1442,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 2445,
+        "switched_step_LSB": 2181,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 71,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 486,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 2416,
+        "switched_step_LSB": 2416,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 71,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 972,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 2416,
+        "switched_step_LSB": 2416,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 71,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1458,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 2416,
+        "switched_step_LSB": 2416,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 72,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 551,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 2445,
+        "switched_step_LSB": 2181,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 72,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1010,
+        "residual_phase_table_index": 2,
+        "natural_step_LSB": 2445,
+        "switched_step_LSB": 1923,
+        "difference_vs_old_table_same_new_phase_LSB": 522
+      },
+      {
+        "note": 72,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1468,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 2416,
+        "switched_step_LSB": 2416,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 73,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 520,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 2445,
+        "switched_step_LSB": 2181,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 73,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1040,
+        "residual_phase_table_index": 2,
+        "natural_step_LSB": 2445,
+        "switched_step_LSB": 1923,
+        "difference_vs_old_table_same_new_phase_LSB": 522
+      },
+      {
+        "note": 73,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1472,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 2416,
+        "switched_step_LSB": 2416,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 74,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 491,
+        "residual_phase_table_index": 2,
+        "natural_step_LSB": 3254,
+        "switched_step_LSB": 2732,
+        "difference_vs_old_table_same_new_phase_LSB": 522
+      },
+      {
+        "note": 74,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 981,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 2416,
+        "switched_step_LSB": 2416,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 74,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1472,
+        "residual_phase_table_index": 2,
+        "natural_step_LSB": 2445,
+        "switched_step_LSB": 1923,
+        "difference_vs_old_table_same_new_phase_LSB": 522
+      },
+      {
+        "note": 75,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 540,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 3178,
+        "switched_step_LSB": 3178,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 75,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1003,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 2416,
+        "switched_step_LSB": 2416,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 75,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1466,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 3234,
+        "switched_step_LSB": 2970,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 76,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 510,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 3234,
+        "switched_step_LSB": 2970,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 76,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 1020,
+        "residual_phase_table_index": 2,
+        "natural_step_LSB": 3254,
+        "switched_step_LSB": 2732,
+        "difference_vs_old_table_same_new_phase_LSB": 522
+      },
+      {
+        "note": 76,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1457,
+        "residual_phase_table_index": 2,
+        "natural_step_LSB": 2445,
+        "switched_step_LSB": 1923,
+        "difference_vs_old_table_same_new_phase_LSB": 522
+      },
+      {
+        "note": 77,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 482,
+        "residual_phase_table_index": 3,
+        "natural_step_LSB": 3234,
+        "switched_step_LSB": 2469,
+        "difference_vs_old_table_same_new_phase_LSB": 765
+      },
+      {
+        "note": 77,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 963,
+        "residual_phase_table_index": 3,
+        "natural_step_LSB": 3234,
+        "switched_step_LSB": 2469,
+        "difference_vs_old_table_same_new_phase_LSB": 765
+      },
+      {
+        "note": 77,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1444,
+        "residual_phase_table_index": 3,
+        "natural_step_LSB": 3234,
+        "switched_step_LSB": 2469,
+        "difference_vs_old_table_same_new_phase_LSB": 765
+      },
+      {
+        "note": 78,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 519,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 3178,
+        "switched_step_LSB": 3178,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 78,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 973,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 3178,
+        "switched_step_LSB": 3178,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 78,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1492,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 3178,
+        "switched_step_LSB": 3178,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 79,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 490,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 3178,
+        "switched_step_LSB": 3178,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 79,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 980,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 3234,
+        "switched_step_LSB": 2970,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 79,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1470,
+        "residual_phase_table_index": 2,
+        "natural_step_LSB": 3254,
+        "switched_step_LSB": 2732,
+        "difference_vs_old_table_same_new_phase_LSB": 522
+      },
+      {
+        "note": 80,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 521,
+        "residual_phase_table_index": 3,
+        "natural_step_LSB": 3234,
+        "switched_step_LSB": 2469,
+        "difference_vs_old_table_same_new_phase_LSB": 765
+      },
+      {
+        "note": 80,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 983,
+        "residual_phase_table_index": 2,
+        "natural_step_LSB": 3254,
+        "switched_step_LSB": 2732,
+        "difference_vs_old_table_same_new_phase_LSB": 522
+      },
+      {
+        "note": 80,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1445,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 3996,
+        "switched_step_LSB": 3732,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 81,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 491,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 3904,
+        "switched_step_LSB": 3904,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 81,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 982,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 3178,
+        "switched_step_LSB": 3178,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 81,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1473,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 3996,
+        "switched_step_LSB": 3732,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 82,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 515,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 3904,
+        "switched_step_LSB": 3904,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 82,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 979,
+        "residual_phase_table_index": 3,
+        "natural_step_LSB": 3234,
+        "switched_step_LSB": 2469,
+        "difference_vs_old_table_same_new_phase_LSB": 765
+      },
+      {
+        "note": 82,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1442,
+        "residual_phase_table_index": 2,
+        "natural_step_LSB": 4043,
+        "switched_step_LSB": 3521,
+        "difference_vs_old_table_same_new_phase_LSB": 522
+      },
+      {
+        "note": 83,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 486,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 3904,
+        "switched_step_LSB": 3904,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 83,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 972,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 3904,
+        "switched_step_LSB": 3904,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 83,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1458,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 3904,
+        "switched_step_LSB": 3904,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 84,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 505,
+        "residual_phase_table_index": 2,
+        "natural_step_LSB": 4805,
+        "switched_step_LSB": 4283,
+        "difference_vs_old_table_same_new_phase_LSB": 522
+      },
+      {
+        "note": 84,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 964,
+        "residual_phase_table_index": 4,
+        "natural_step_LSB": 4805,
+        "switched_step_LSB": 3815,
+        "difference_vs_old_table_same_new_phase_LSB": 990
+      },
+      {
+        "note": 84,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1468,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 4722,
+        "switched_step_LSB": 4458,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 85,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 520,
+        "residual_phase_table_index": 2,
+        "natural_step_LSB": 4805,
+        "switched_step_LSB": 4283,
+        "difference_vs_old_table_same_new_phase_LSB": 522
+      },
+      {
+        "note": 85,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 996,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 4722,
+        "switched_step_LSB": 4458,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 85,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1472,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 4587,
+        "switched_step_LSB": 4587,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 86,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 491,
+        "residual_phase_table_index": 4,
+        "natural_step_LSB": 5594,
+        "switched_step_LSB": 4604,
+        "difference_vs_old_table_same_new_phase_LSB": 990
+      },
+      {
+        "note": 86,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 981,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 4722,
+        "switched_step_LSB": 4458,
+        "difference_vs_old_table_same_new_phase_LSB": 264
+      },
+      {
+        "note": 86,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1472,
+        "residual_phase_table_index": 5,
+        "natural_step_LSB": 4722,
+        "switched_step_LSB": 3531,
+        "difference_vs_old_table_same_new_phase_LSB": 1191
+      },
+      {
+        "note": 87,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 502,
+        "residual_phase_table_index": 3,
+        "natural_step_LSB": 4832,
+        "switched_step_LSB": 4067,
+        "difference_vs_old_table_same_new_phase_LSB": 765
+      },
+      {
+        "note": 87,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 965,
+        "residual_phase_table_index": 5,
+        "natural_step_LSB": 5531,
+        "switched_step_LSB": 4340,
+        "difference_vs_old_table_same_new_phase_LSB": 1191
+      },
+      {
+        "note": 87,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1466,
+        "residual_phase_table_index": 2,
+        "natural_step_LSB": 5531,
+        "switched_step_LSB": 5009,
+        "difference_vs_old_table_same_new_phase_LSB": 522
+      },
+      {
+        "note": 88,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 510,
+        "residual_phase_table_index": 2,
+        "natural_step_LSB": 5531,
+        "switched_step_LSB": 5009,
+        "difference_vs_old_table_same_new_phase_LSB": 522
+      },
+      {
+        "note": 88,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 983,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 5220,
+        "switched_step_LSB": 5220,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 88,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1457,
+        "residual_phase_table_index": 5,
+        "natural_step_LSB": 5531,
+        "switched_step_LSB": 4340,
+        "difference_vs_old_table_same_new_phase_LSB": 1191
+      },
+      {
+        "note": 89,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 482,
+        "residual_phase_table_index": 6,
+        "natural_step_LSB": 5405,
+        "switched_step_LSB": 4043,
+        "difference_vs_old_table_same_new_phase_LSB": 1362
+      },
+      {
+        "note": 89,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 963,
+        "residual_phase_table_index": 6,
+        "natural_step_LSB": 5405,
+        "switched_step_LSB": 4043,
+        "difference_vs_old_table_same_new_phase_LSB": 1362
+      },
+      {
+        "note": 89,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1444,
+        "residual_phase_table_index": 6,
+        "natural_step_LSB": 6214,
+        "switched_step_LSB": 4852,
+        "difference_vs_old_table_same_new_phase_LSB": 1362
+      },
+      {
+        "note": 90,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 487,
+        "residual_phase_table_index": 3,
+        "natural_step_LSB": 5594,
+        "switched_step_LSB": 4829,
+        "difference_vs_old_table_same_new_phase_LSB": 765
+      },
+      {
+        "note": 90,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 973,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 5797,
+        "switched_step_LSB": 5797,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 90,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1460,
+        "residual_phase_table_index": 4,
+        "natural_step_LSB": 6356,
+        "switched_step_LSB": 5366,
+        "difference_vs_old_table_same_new_phase_LSB": 990
+      },
+      {
+        "note": 91,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 490,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 4275,
+        "switched_step_LSB": 4089,
+        "difference_vs_old_table_same_new_phase_LSB": 186
+      },
+      {
+        "note": 91,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 980,
+        "residual_phase_table_index": 3,
+        "natural_step_LSB": 4876,
+        "switched_step_LSB": 4327,
+        "difference_vs_old_table_same_new_phase_LSB": 549
+      },
+      {
+        "note": 91,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1470,
+        "residual_phase_table_index": 4,
+        "natural_step_LSB": 4376,
+        "switched_step_LSB": 3653,
+        "difference_vs_old_table_same_new_phase_LSB": 723
+      },
+      {
+        "note": 92,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 492,
+        "residual_phase_table_index": 7,
+        "natural_step_LSB": 4826,
+        "switched_step_LSB": 3638,
+        "difference_vs_old_table_same_new_phase_LSB": 1188
+      },
+      {
+        "note": 92,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 983,
+        "residual_phase_table_index": 5,
+        "natural_step_LSB": 4901,
+        "switched_step_LSB": 4014,
+        "difference_vs_old_table_same_new_phase_LSB": 887
+      },
+      {
+        "note": 92,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1445,
+        "residual_phase_table_index": 2,
+        "natural_step_LSB": 4826,
+        "switched_step_LSB": 4457,
+        "difference_vs_old_table_same_new_phase_LSB": 369
+      },
+      {
+        "note": 93,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 491,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 4653,
+        "switched_step_LSB": 4653,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 93,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 982,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 4751,
+        "switched_step_LSB": 4565,
+        "difference_vs_old_table_same_new_phase_LSB": 186
+      },
+      {
+        "note": 93,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1446,
+        "residual_phase_table_index": 5,
+        "natural_step_LSB": 5426,
+        "switched_step_LSB": 4539,
+        "difference_vs_old_table_same_new_phase_LSB": 887
+      },
+      {
+        "note": 94,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 490,
+        "residual_phase_table_index": 8,
+        "natural_step_LSB": 4751,
+        "switched_step_LSB": 3433,
+        "difference_vs_old_table_same_new_phase_LSB": 1318
+      },
+      {
+        "note": 94,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 979,
+        "residual_phase_table_index": 7,
+        "natural_step_LSB": 4826,
+        "switched_step_LSB": 3638,
+        "difference_vs_old_table_same_new_phase_LSB": 1188
+      },
+      {
+        "note": 94,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1442,
+        "residual_phase_table_index": 4,
+        "natural_step_LSB": 5413,
+        "switched_step_LSB": 4690,
+        "difference_vs_old_table_same_new_phase_LSB": 723
+      },
+      {
+        "note": 95,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 486,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 5086,
+        "switched_step_LSB": 5086,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 95,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 972,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 5640,
+        "switched_step_LSB": 5454,
+        "difference_vs_old_table_same_new_phase_LSB": 186
+      },
+      {
+        "note": 95,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1458,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 5207,
+        "switched_step_LSB": 5021,
+        "difference_vs_old_table_same_new_phase_LSB": 186
+      },
+      {
+        "note": 96,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 482,
+        "residual_phase_table_index": 4,
+        "natural_step_LSB": 5909,
+        "switched_step_LSB": 5186,
+        "difference_vs_old_table_same_new_phase_LSB": 723
+      },
+      {
+        "note": 96,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 964,
+        "residual_phase_table_index": 8,
+        "natural_step_LSB": 5848,
+        "switched_step_LSB": 4530,
+        "difference_vs_old_table_same_new_phase_LSB": 1318
+      },
+      {
+        "note": 96,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1445,
+        "residual_phase_table_index": 2,
+        "natural_step_LSB": 6191,
+        "switched_step_LSB": 5822,
+        "difference_vs_old_table_same_new_phase_LSB": 369
+      },
+      {
+        "note": 97,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 498,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 6048,
+        "switched_step_LSB": 5862,
+        "difference_vs_old_table_same_new_phase_LSB": 186
+      },
+      {
+        "note": 97,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 975,
+        "residual_phase_table_index": 10,
+        "natural_step_LSB": 6191,
+        "switched_step_LSB": 4655,
+        "difference_vs_old_table_same_new_phase_LSB": 1536
+      },
+      {
+        "note": 97,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1451,
+        "residual_phase_table_index": 8,
+        "natural_step_LSB": 6385,
+        "switched_step_LSB": 5067,
+        "difference_vs_old_table_same_new_phase_LSB": 1318
+      },
+      {
+        "note": 98,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 491,
+        "residual_phase_table_index": 8,
+        "natural_step_LSB": 6910,
+        "switched_step_LSB": 5592,
+        "difference_vs_old_table_same_new_phase_LSB": 1318
+      },
+      {
+        "note": 98,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 961,
+        "residual_phase_table_index": 9,
+        "natural_step_LSB": 6841,
+        "switched_step_LSB": 5406,
+        "difference_vs_old_table_same_new_phase_LSB": 1435
+      },
+      {
+        "note": 98,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1451,
+        "residual_phase_table_index": 4,
+        "natural_step_LSB": 6385,
+        "switched_step_LSB": 5662,
+        "difference_vs_old_table_same_new_phase_LSB": 723
+      },
+      {
+        "note": 99,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 483,
+        "residual_phase_table_index": 11,
+        "natural_step_LSB": 6599,
+        "switched_step_LSB": 4980,
+        "difference_vs_old_table_same_new_phase_LSB": 1619
+      },
+      {
+        "note": 99,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 965,
+        "residual_phase_table_index": 10,
+        "natural_step_LSB": 7274,
+        "switched_step_LSB": 5738,
+        "difference_vs_old_table_same_new_phase_LSB": 1536
+      },
+      {
+        "note": 99,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1447,
+        "residual_phase_table_index": 8,
+        "natural_step_LSB": 6910,
+        "switched_step_LSB": 5592,
+        "difference_vs_old_table_same_new_phase_LSB": 1318
+      },
+      {
+        "note": 100,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 492,
+        "residual_phase_table_index": 7,
+        "natural_step_LSB": 7442,
+        "switched_step_LSB": 6254,
+        "difference_vs_old_table_same_new_phase_LSB": 1188
+      },
+      {
+        "note": 100,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 965,
+        "residual_phase_table_index": 3,
+        "natural_step_LSB": 7145,
+        "switched_step_LSB": 6596,
+        "difference_vs_old_table_same_new_phase_LSB": 549
+      },
+      {
+        "note": 100,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1457,
+        "residual_phase_table_index": 11,
+        "natural_step_LSB": 7145,
+        "switched_step_LSB": 5526,
+        "difference_vs_old_table_same_new_phase_LSB": 1619
+      },
+      {
+        "note": 101,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 482,
+        "residual_phase_table_index": 13,
+        "natural_step_LSB": 6784,
+        "switched_step_LSB": 5051,
+        "difference_vs_old_table_same_new_phase_LSB": 1733
+      },
+      {
+        "note": 101,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 963,
+        "residual_phase_table_index": 13,
+        "natural_step_LSB": 7335,
+        "switched_step_LSB": 5602,
+        "difference_vs_old_table_same_new_phase_LSB": 1733
+      },
+      {
+        "note": 101,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1444,
+        "residual_phase_table_index": 12,
+        "natural_step_LSB": 7527,
+        "switched_step_LSB": 5842,
+        "difference_vs_old_table_same_new_phase_LSB": 1685
+      },
+      {
+        "note": 102,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 487,
+        "residual_phase_table_index": 7,
+        "natural_step_LSB": 7918,
+        "switched_step_LSB": 6730,
+        "difference_vs_old_table_same_new_phase_LSB": 1188
+      },
+      {
+        "note": 102,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 973,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 7119,
+        "switched_step_LSB": 7119,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 102,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1444,
+        "residual_phase_table_index": 11,
+        "natural_step_LSB": 8207,
+        "switched_step_LSB": 6588,
+        "difference_vs_old_table_same_new_phase_LSB": 1619
+      },
+      {
+        "note": 103,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 490,
+        "residual_phase_table_index": 3,
+        "natural_step_LSB": 5897,
+        "switched_step_LSB": 5398,
+        "difference_vs_old_table_same_new_phase_LSB": 499
+      },
+      {
+        "note": 103,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 965,
+        "residual_phase_table_index": 11,
+        "natural_step_LSB": 5701,
+        "switched_step_LSB": 4011,
+        "difference_vs_old_table_same_new_phase_LSB": 1690
+      },
+      {
+        "note": 103,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1455,
+        "residual_phase_table_index": 15,
+        "natural_step_LSB": 5818,
+        "switched_step_LSB": 3684,
+        "difference_vs_old_table_same_new_phase_LSB": 2134
+      },
+      {
+        "note": 104,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 492,
+        "residual_phase_table_index": 14,
+        "natural_step_LSB": 6260,
+        "switched_step_LSB": 4224,
+        "difference_vs_old_table_same_new_phase_LSB": 2036
+      },
+      {
+        "note": 104,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 968,
+        "residual_phase_table_index": 0,
+        "natural_step_LSB": 5876,
+        "switched_step_LSB": 5876,
+        "difference_vs_old_table_same_new_phase_LSB": 0
+      },
+      {
+        "note": 104,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1445,
+        "residual_phase_table_index": 4,
+        "natural_step_LSB": 5962,
+        "switched_step_LSB": 5300,
+        "difference_vs_old_table_same_new_phase_LSB": 662
+      },
+      {
+        "note": 105,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 491,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 6244,
+        "switched_step_LSB": 6077,
+        "difference_vs_old_table_same_new_phase_LSB": 167
+      },
+      {
+        "note": 105,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 969,
+        "residual_phase_table_index": 15,
+        "natural_step_LSB": 6547,
+        "switched_step_LSB": 4413,
+        "difference_vs_old_table_same_new_phase_LSB": 2134
+      },
+      {
+        "note": 105,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1446,
+        "residual_phase_table_index": 10,
+        "natural_step_LSB": 6768,
+        "switched_step_LSB": 5208,
+        "difference_vs_old_table_same_new_phase_LSB": 1560
+      },
+      {
+        "note": 106,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 490,
+        "residual_phase_table_index": 17,
+        "natural_step_LSB": 6359,
+        "switched_step_LSB": 4055,
+        "difference_vs_old_table_same_new_phase_LSB": 2304
+      },
+      {
+        "note": 106,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 966,
+        "residual_phase_table_index": 13,
+        "natural_step_LSB": 7030,
+        "switched_step_LSB": 5102,
+        "difference_vs_old_table_same_new_phase_LSB": 1928
+      },
+      {
+        "note": 106,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1442,
+        "residual_phase_table_index": 8,
+        "natural_step_LSB": 7070,
+        "switched_step_LSB": 5789,
+        "difference_vs_old_table_same_new_phase_LSB": 1281
+      },
+      {
+        "note": 107,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 486,
+        "residual_phase_table_index": 1,
+        "natural_step_LSB": 6714,
+        "switched_step_LSB": 6547,
+        "difference_vs_old_table_same_new_phase_LSB": 167
+      },
+      {
+        "note": 107,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 960,
+        "residual_phase_table_index": 5,
+        "natural_step_LSB": 7184,
+        "switched_step_LSB": 6361,
+        "difference_vs_old_table_same_new_phase_LSB": 823
+      },
+      {
+        "note": 107,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1446,
+        "residual_phase_table_index": 6,
+        "natural_step_LSB": 7264,
+        "switched_step_LSB": 6284,
+        "difference_vs_old_table_same_new_phase_LSB": 980
+      },
+      {
+        "note": 108,
+        "velocity": 256,
+        "nominal_attack_samples": 480,
+        "switch_sample": 482,
+        "residual_phase_table_index": 8,
+        "natural_step_LSB": 7674,
+        "switched_step_LSB": 6393,
+        "difference_vs_old_table_same_new_phase_LSB": 1281
+      },
+      {
+        "note": 108,
+        "velocity": 512,
+        "nominal_attack_samples": 960,
+        "switch_sample": 964,
+        "residual_phase_table_index": 17,
+        "natural_step_LSB": 7449,
+        "switched_step_LSB": 5145,
+        "difference_vs_old_table_same_new_phase_LSB": 2304
+      },
+      {
+        "note": 108,
+        "velocity": 1023,
+        "nominal_attack_samples": 1440,
+        "switch_sample": 1445,
+        "residual_phase_table_index": 4,
+        "natural_step_LSB": 7582,
+        "switched_step_LSB": 6920,
+        "difference_vs_old_table_same_new_phase_LSB": 662
+      }
+    ],
+    "window_less_than_one_period": {
+      "10": {
+        "first_note": 21,
+        "last_note": 43,
+        "note_count": 23
+      },
+      "20": {
+        "first_note": 21,
+        "last_note": 31,
+        "note_count": 11
+      },
+      "30": {
+        "first_note": 21,
+        "last_note": 24,
+        "note_count": 4
+      }
+    },
+    "A0_period_ms": 36.36363636363637,
+    "velocity200_example": {
+      "formal_ROM_Q15": 7555,
+      "legacy_sqrt_Q15": 14488,
+      "difference_as_percent_Q15_full_scale": 21.158482619708852
+    },
+    "brightness_threshold_gain_fractions": {
+      "256": 0.250068666646321,
+      "512": 0.40037232581560717,
+      "768": 0.6508682515945922
+    },
+    "source_hashes": {
+      "code\\model\\generated\\wavetables\\piano_band_4x256_8191.mem": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+      "code\\model\\piano_wavetable_gen.py": "6ab69eaefa8faee5d74e7503f8bfc867cea1dcf1f9900a1f4d54bd332ce9f702",
+      "code\\model\\generated\\wavetables\\velocity_gain_rom.mem": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+      "code\\rtl\\audio\\piano_dds_oscillator.sv": "941c6f1bb2e41cf9bd4433b9c22ab58c9ad7e041f32e96039de6eec8dc139fc1"
+    },
+    "limits": [
+      "same-index table differences are not actual mixed PCM steps or measured clicks",
+      "finite264 deterministic note/velocity cases not arbitrary retrigger/phase/allFCWs proof",
+      "M1 proposed pending-NoteOn patch not supplied or accepted as RTL",
+      "no audio/table/ADSR/new bitstream changed"
+    ]
+  },
+  "M1_V1_RTL_patch_received": false,
+  "NoteOn_swap_RTL_modified": false,
+  "ADSR_modified": false,
+  "new_Gowin_or_bitstream": false,
+  "new_board_test": false,
+  "proposed_wrap_on_NoteOn_not_approved": true,
+  "signoff_does_not_close_T027": true,
+  "remaining": [
+    "M3 actual same083a07e V1+CC64 listening incl rapid cross-register voice stealing",
+    "actual audible transient trigger before deciding patch",
+    "specific minimal patch plus note lifetime/reset/timing regression if triggered",
+    "dynamic timbre selection and finalT027 acceptance"
+  ],
+  "formal_10ms_T031_not_closed": true,
+  "repo_gate": {
+    "result": "ALL PASS",
+    "python_syntax_files": 121,
+    "T007_T019": "PASS",
+    "log_sha256": "d1b22b5542850fc23f3f47563827df8317122a2557fe737394d23fb9fac75969"
+  },
+  "numeric_rechecker_sha256": "a6e67f9c9c6f637072c9cb959bcab7b639e78143ad3111269d9d3e33475b2ea0"
+}
