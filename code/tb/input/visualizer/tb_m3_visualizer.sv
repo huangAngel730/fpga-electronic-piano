@@ -28,10 +28,12 @@ module tb_m3_visualizer;
     logic [55:0] target_live_note = '0;
     logic [79:0] target_live_velocity = '0;
     logic [79:0] target_live_y = '0;
+    logic [79:0] target_live_end_y = '0;
     logic [7:0] target_score_valid = '0;
     logic [55:0] target_score_note = '0;
     logic [79:0] target_score_velocity = '0;
     logic [79:0] target_score_y = '0;
+    logic [79:0] target_score_top_y='0,target_score_end_y='0;
     logic [7:0] target_score_hit = '0, target_score_missed = '0;
     logic [7:0] target_r, target_g, target_b;
     integer checks = 0;
@@ -72,12 +74,13 @@ module tb_m3_visualizer;
     ) target_renderer (
         .pixel_x(target_x), .pixel_y(target_y), .data_enable(target_de),
         .display_mode(target_mode), .desync_latched(target_desync),
-        .key_down(target_keys), .live_valid(target_live_valid),
+        .key_down(target_keys), .flash_active(128'd0), .live_valid(target_live_valid),
         .live_note_number(target_live_note),
-        .live_velocity(target_live_velocity), .live_y(target_live_y),
+        .live_velocity(target_live_velocity), .live_y(target_live_y), .live_end_y(target_live_end_y),
         .score_valid(target_score_valid),
         .score_note_number(target_score_note),
         .score_velocity(target_score_velocity), .score_y(target_score_y),
+        .score_top_y(target_score_top_y),.score_end_y(target_score_end_y),
         .score_hit(target_score_hit), .score_miss(target_score_missed),
         .rgb_r(target_r), .rgb_g(target_g), .rgb_b(target_b)
     );
@@ -130,19 +133,19 @@ module tb_m3_visualizer;
 
         send_note(1, 7'd60, 10'd900);
         sample_pixel(2, 40);
-        if ({r,g,b} === 24'h20c8e8) $fatal(1, "mid-frame key tearing");
+        if ({r,g,b} === 24'ha0e0d8) $fatal(1, "mid-frame key tearing");
         pulse_frame(); sample_pixel(2, 40);
-        if ({r,g,b} !== 24'h20c8e8) $fatal(1, "pressed key not highlighted");
+        if ({r,g,b} !== 24'ha0e0d8) $fatal(1, "held bar not rendered");
         checks = checks + 1;
 
         // A second complete frame must keep the latched visual state stable.
         pulse_frame(); sample_pixel(2, 40);
-        if ({r,g,b} !== 24'h20c8e8)
-            $fatal(1, "pressed key changed across continuous frames");
+        if ({r,g,b} !== 24'ha0e0d8)
+            $fatal(1, "held bar changed unexpectedly across frames");
         checks = checks + 1;
 
         send_note(0, 7'd60, 10'd0); pulse_frame(); sample_pixel(2, 40);
-        if ({r,g,b} === 24'h20c8e8) $fatal(1, "released key stayed highlighted");
+        if (dut.live_held != 0) $fatal(1, "released bar still held");
         checks = checks + 1;
 
         @(negedge clk); mode_toggle_pulse = 1;
@@ -161,8 +164,8 @@ module tb_m3_visualizer;
         score_velocity = 700;
         score_valid = 1;
         @(negedge clk); score_valid = 0;
-        // current=4, hit=7, preview=4 gives relative y=24, therefore
-        // screen y=JUDGE_Y-relative_y=8.
+        // Leading edge reaches bottom48 at hit, long tail trails by duration.
+        // One frame after enqueue, this score bar spans the upper screen.
         pulse_frame(); sample_pixel(34, 9);
         if ({r,g,b} == 24'h081020) $fatal(1, "falling score note not rendered");
         checks = checks + 1;
@@ -189,49 +192,21 @@ module tb_m3_visualizer;
         // Uneven 640/49 lane widths: preserve floor-division edge behavior.
         sample_target(0, 100, 1, 24'h18283c, "first lane line");
         sample_target(1, 100, 1, 24'h081020, "first lane interior");
-        sample_target(0, 420, 1, 24'h040810, "first key left border");
-        sample_target(1, 420, 1, 24'he8e8dc, "white key interior");
-        sample_target(12, 420, 1, 24'h040810, "first key right border");
-        sample_target(13, 420, 1, 24'he8e8dc, "fractional boundary pixel");
-        sample_target(14, 420, 1, 24'h181c24, "black key interior");
-        sample_target(639, 420, 1, 24'h040810, "last key right border");
-
-        target_keys[36] = 1'b1;
-        sample_target(1, 420, 1, 24'h20c8e8, "highlighted white key");
-        sample_target(0, 420, 1, 24'h040810, "highlight border priority");
-        target_keys = '0;
-
-        // Check every horizontal pixel because 640 is not divisible by 49.
-        // This is a direct behavioral reference to the removed divisions.
+        // Bottom area is background/grid now, never a keyboard or key highlight.
         for (x_probe = 0; x_probe < 640; x_probe = x_probe + 1) begin
             expected_lane = (x_probe * 49) / 640;
             expected_left = (expected_lane * 640) / 49;
-            expected_right = ((expected_lane + 1) * 640) / 49;
-            expected_note = 36 + expected_lane;
-            expected_pitch_class = expected_note % 12;
-            if (expected_pitch_class == 1 || expected_pitch_class == 3 ||
-                expected_pitch_class == 6 || expected_pitch_class == 8 ||
-                expected_pitch_class == 10)
-                expected_rgb = 24'h181c24;
-            else
-                expected_rgb = 24'he8e8dc;
-            if (x_probe == expected_left || x_probe + 1 == expected_right)
-                expected_rgb = 24'h040810;
-            target_x = x_probe;
-            target_y = 420;
-            target_de = 1'b1;
-            #1;
-            if ({target_r, target_g, target_b} !== expected_rgb)
-                $fatal(1,
-                    "target keyboard x=%0d got %06h expected %06h",
-                    x_probe, {target_r, target_g, target_b}, expected_rgb);
+            expected_rgb = (x_probe==expected_left) ? 24'h18283c : 24'h081020;
+            target_keys='1;
+            sample_target(x_probe,420,1,expected_rgb,"no keyboard below baseline");
         end
-        checks = checks + 640;
+        target_keys='0;
 
         target_live_valid[0] = 1'b1;
         target_live_note[0 +: 7] = 7'd36;
         target_live_velocity[0 +: 10] = 10'd900;
         target_live_y[0 +: 10] = 10'd100;
+        target_live_end_y[0 +: 10] = 10'd200;
         sample_target(1, 100, 1, 24'ha0e0d8, "scaled live-note color");
         sample_target(12, 100, 1, 24'h081020, "live-note right exclusion");
         // Higher-numbered slots retain the original draw-over priority.
@@ -239,6 +214,7 @@ module tb_m3_visualizer;
         target_live_note[49 +: 7] = 7'd36;
         target_live_velocity[70 +: 10] = 10'd100;
         target_live_y[70 +: 10] = 10'd100;
+        target_live_end_y[70 +: 10] = 10'd200;
         sample_target(1, 100, 1, 24'h3c7ca6, "slot-seven priority");
         target_live_valid = '0;
 
@@ -247,11 +223,13 @@ module tb_m3_visualizer;
         target_score_note[0 +: 7] = 7'd36;
         target_score_velocity[0 +: 10] = 10'd900;
         target_score_y[0 +: 10] = 10'd260;
+        target_score_top_y[0+:10]=100;target_score_end_y[0+:10]=112;
         sample_target(1, 100, 1, 24'he080e8, "scaled score-note color");
         target_score_valid[7] = 1'b1;
         target_score_note[49 +: 7] = 7'd36;
         target_score_velocity[70 +: 10] = 10'd100;
         target_score_y[70 +: 10] = 10'd260;
+        target_score_top_y[70+:10]=100;target_score_end_y[70+:10]=112;
         target_score_hit[7] = 1'b1;
         sample_target(1, 100, 1, 24'h30e870, "score slot-seven hit priority");
         target_score_hit[7] = 1'b0;

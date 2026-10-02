@@ -18,13 +18,16 @@ module visual_scene_renderer #(
     input logic display_mode,
     input logic desync_latched,
     input logic [127:0] key_down,
+    input logic [127:0] flash_active,
     input logic [LIVE_SLOT_COUNT-1:0] live_valid,
     input logic [(LIVE_SLOT_COUNT*7)-1:0] live_note_number,
     input logic [(LIVE_SLOT_COUNT*Y_WIDTH)-1:0] live_y,
+    input logic [(LIVE_SLOT_COUNT*Y_WIDTH)-1:0] live_end_y,
     input logic [(LIVE_SLOT_COUNT*10)-1:0] live_velocity,
     input logic [SCORE_SLOT_COUNT-1:0] score_valid,
     input logic [(SCORE_SLOT_COUNT*7)-1:0] score_note_number,
     input logic [(SCORE_SLOT_COUNT*Y_WIDTH)-1:0] score_y,
+    input logic [(SCORE_SLOT_COUNT*Y_WIDTH)-1:0] score_top_y,score_end_y,
     input logic [(SCORE_SLOT_COUNT*10)-1:0] score_velocity,
     input logic [SCORE_SLOT_COUNT-1:0] score_hit,
     input logic [SCORE_SLOT_COUNT-1:0] score_miss,
@@ -42,7 +45,7 @@ module visual_scene_renderer #(
     logic [7:0] live_pixel_match;
     logic [7:0] score_pixel_match;
     wire [NOTE_COUNT-1:0] lane_match, lane_body, lane_left, lane_right;
-    wire [NOTE_COUNT-1:0] lane_black, lane_key_down;
+    wire [NOTE_COUNT-1:0] flash_core,flash_glow;
     wire [6:0] lane_note_term [0:NOTE_COUNT-1];
     logic [6:0] pixel_note;
     integer lane_index;
@@ -57,6 +60,13 @@ module visual_scene_renderer #(
         localparam integer LEFT_X = k*SCREEN_WIDTH/NOTE_COUNT;
         localparam integer RIGHT_X = (k+1)*SCREEN_WIDTH/NOTE_COUNT;
         localparam integer NOTE = BASE_NOTE + k;
+        localparam integer CENTER_X=((2*k+1)*SCREEN_WIDTH)/(2*NOTE_COUNT);
+        localparam integer CORE_LEFT=(CENTER_X<2) ? 0 : CENTER_X-2;
+        localparam integer CORE_RIGHT=(CENTER_X+2>=SCREEN_WIDTH) ? SCREEN_WIDTH-1 : CENTER_X+2;
+        localparam integer GLOW_LEFT=(CENTER_X<4) ? 0 : CENTER_X-4;
+        localparam integer GLOW_RIGHT=(CENTER_X+4>=SCREEN_WIDTH) ? SCREEN_WIDTH-1 : CENTER_X+4;
+        assign flash_core[k]=flash_active[NOTE] && pixel_x>=CORE_LEFT && pixel_x<=CORE_RIGHT;
+        assign flash_glow[k]=flash_active[NOTE] && pixel_x>=GLOW_LEFT && pixel_x<=GLOW_RIGHT;
         assign lane_match[k] = pixel_x >= START_X && pixel_x < END_X;
         if (RIGHT_X >= LEFT_X + 3) begin : g_body
             assign lane_body[k] = lane_match[k] &&
@@ -71,10 +81,7 @@ module visual_scene_renderer #(
             assign lane_right[k] = 1'b0;
         end
         assign lane_note_term[k] = {7{lane_match[k]}} & 7'(NOTE);
-        assign lane_black[k] = lane_match[k] &&
-            (NOTE%12 == 1 || NOTE%12 == 3 || NOTE%12 == 6 ||
-             NOTE%12 == 8 || NOTE%12 == 10);
-        assign lane_key_down[k] = lane_match[k] && key_down[NOTE];
+
     end
     // Parallel one-hot decode; no variable multiplication or 128:1 key mux.
     always_comb begin
@@ -125,14 +132,12 @@ module visual_scene_renderer #(
             live_pixel_match[i] = live_valid[i] && pixel_note_body &&
                 live_note_number[i*7 +: 7] == pixel_note &&
                 int'(pixel_y) >= int'(live_y[i*Y_WIDTH +: Y_WIDTH]) &&
-                int'(pixel_y) < int'(live_y[i*Y_WIDTH +: Y_WIDTH]) + 10;
+                int'(pixel_y) < int'(live_end_y[i*Y_WIDTH +: Y_WIDTH]);
         for (i = 0; i < SCORE_SLOT_COUNT; i = i + 1)
             score_pixel_match[i] = score_valid[i] && pixel_note_body &&
                 score_note_number[i*7 +: 7] == pixel_note &&
-                int'(pixel_y) >= ((int'(score_y[i*Y_WIDTH +: Y_WIDTH]) >= JUDGE_Y) ?
-                    0 : JUDGE_Y - int'(score_y[i*Y_WIDTH +: Y_WIDTH])) &&
-                int'(pixel_y) < ((int'(score_y[i*Y_WIDTH +: Y_WIDTH]) >= JUDGE_Y) ?
-                    12 : JUDGE_Y - int'(score_y[i*Y_WIDTH +: Y_WIDTH]) + 12);
+                int'(pixel_y) >= int'(score_top_y[i*Y_WIDTH+:Y_WIDTH]) &&
+                int'(pixel_y) < int'(score_end_y[i*Y_WIDTH+:Y_WIDTH]);
     end
 
     always_comb begin
@@ -152,7 +157,7 @@ module visual_scene_renderer #(
                 rgb_b = 8'h3c;
             end
 
-            if (py >= JUDGE_Y-1 && py <= JUDGE_Y+1) begin
+            if (display_mode && py == SCREEN_HEIGHT-1) begin
                 rgb_r = 8'hf0;
                 rgb_g = 8'hb0;
                 rgb_b = 8'h30;
@@ -184,25 +189,14 @@ module visual_scene_renderer #(
                 end
             end
 
-            if (py >= KEYBOARD_TOP) begin
-                if (|lane_black) begin
-                    rgb_r = 8'h18;
-                    rgb_g = 8'h1c;
-                    rgb_b = 8'h24;
-                end else begin
-                    rgb_r = 8'he8;
-                    rgb_g = 8'he8;
-                    rgb_b = 8'hdc;
+            // Bottom-border spark independent of removed keyboard graphics.
+            // Constant boxes are clipped by active-area/data_enable above.
+            if(display_mode && !desync_latched)begin
+                if(py>=((SCREEN_HEIGHT>8) ? SCREEN_HEIGHT-8 : 0) && (|flash_glow))begin
+                    rgb_r=8'h30;rgb_g=8'hb0;rgb_b=8'hc8;
                 end
-                if (|lane_key_down) begin
-                    rgb_r = 8'h20;
-                    rgb_g = 8'hc8;
-                    rgb_b = 8'he8;
-                end
-                if (lane_left_edge || lane_right_edge) begin
-                    rgb_r = 8'h04;
-                    rgb_g = 8'h08;
-                    rgb_b = 8'h10;
+                if(py>=((SCREEN_HEIGHT>4) ? SCREEN_HEIGHT-4 : 0) && (|flash_core))begin
+                    rgb_r=8'hff;rgb_g=8'hff;rgb_b=8'he0;
                 end
             end
 

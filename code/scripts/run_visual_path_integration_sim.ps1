@@ -20,7 +20,7 @@ $src = @(
     (Join-Path $repoRoot 'code\rtl\common\video_scan_timing.sv')
 )
 foreach ($file in @('visual_live_state.sv','visual_score_tracker.sv',
-                    'visual_scene_renderer.sv','m3_visualizer.sv')) {
+                    'visual_scene_renderer.sv','visual_hit_flash.sv','m3_visualizer.sv')) {
     $src += Join-Path $visualRoot ('code\rtl\input\visualizer\'+$file)
 }
 $src += Join-Path $repoRoot 'code\tb\board\tb_visual_path_integration.sv'

@@ -40,6 +40,18 @@ def check(timing: str, pins: str) -> tuple[list[str], dict]:
     active = {r[2] for section, r in rows
               if section == "SDC_Report" and len(r) == 3
               and r[1] == "Actived"}
+    # Gowin numbers report_timing tables in active command order separately
+    # for each analysis type. The same endpoint pair can legitimately appear
+    # in both a dedicated report and a later all-clock report. Inspect its own
+    # table, not a union of every table (which mistakes duplicate reporting for
+    # duplicate physical paths and can use broad tables to hide missing ones).
+    report_commands = {
+        kind: [r[2] for section, r in rows
+               if section == "SDC_Report" and len(r) == 3
+               and r[1] == "Actived"
+               and r[2].startswith("report_timing -" + kind.lower() + " ")]
+        for kind in ("Setup", "Hold")
+    }
     clocks = {r[1]: r[3:5] for section, r in rows
               if section == "Clock_Report" and len(r) >= 5 and r[0].isdigit()}
     for name, expected in EXPECTED_CLOCKS.items():
@@ -70,8 +82,11 @@ def check(timing: str, pins: str) -> tuple[list[str], dict]:
                        f"[get_regs {{{prefix}/{second}_s0}}] -max_paths 1")
             if command not in active:
                 errors.append(f"inactive second-stage report: {prefix} {kind}")
+            commands = report_commands[kind]
+            table = (f"{kind}_Slack_Table{commands.index(command) + 1}"
+                     if command in commands else None)
             paths = [r for section, r in rows
-                     if section.startswith(kind + "_Slack_Table")
+                     if section == table
                      and len(r) >= 4 and r[0].isdigit()
                      and r[2] == f"{prefix}/{first}_s0/Q"
                      and r[3] == f"{prefix}/{second}_s0/D"]

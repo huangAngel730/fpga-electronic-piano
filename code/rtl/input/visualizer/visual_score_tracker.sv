@@ -13,7 +13,10 @@ module visual_score_tracker #(
     parameter integer Y_WIDTH            = 10,
     parameter integer PREVIEW_FRAMES     = 120,
     parameter integer TRAVEL_Y           = 400,
-    parameter integer HIT_WINDOW_FRAMES  = 6
+    parameter integer HIT_WINDOW_FRAMES  = 6,
+    parameter bit BOTTOM_EXIT_GEOMETRY = 1'b0,
+    parameter integer RASTER_HEIGHT = 480,
+    parameter integer MIN_NOTE_HEIGHT = 12
 ) (
     input  logic                                  clk,
     input  logic                                  rst_n,
@@ -37,9 +40,13 @@ module visual_score_tracker #(
     output logic [SLOT_COUNT*16-1:0]              slot_note_id,
     output logic [SLOT_COUNT*7-1:0]               slot_note_number,
     output logic [SLOT_COUNT*Y_WIDTH-1:0]         slot_y,
+    output logic [SLOT_COUNT*Y_WIDTH-1:0]         slot_top_y,
+    output logic [SLOT_COUNT*Y_WIDTH-1:0]         slot_end_y,
     output logic [SLOT_COUNT*10-1:0]              slot_velocity,
     output logic [SLOT_COUNT-1:0]                 slot_hit,
-    output logic [SLOT_COUNT-1:0]                 slot_miss
+    output logic [SLOT_COUNT-1:0]                 slot_miss,
+    output logic                                  hit_pulse,
+    output logic [6:0]                            hit_note_number
 );
 
     import audio_defs_pkg::*;
@@ -131,6 +138,96 @@ module visual_score_tracker #(
         end
     endfunction
 
+    // Coordinate helpers only for the new raster geometry. Comparisons and
+    // time differences remain full FRAME_WIDTH; narrow after saturation proof.
+    localparam integer HEIGHT_BITS = $clog2(RASTER_HEIGHT+64'd1);
+    localparam integer GEO_PRODUCT_BITS = REM_BITS + HEIGHT_BITS;
+    localparam integer GEO_DIV_BITS = (GEO_PRODUCT_BITS > DIVISOR_BITS) ? GEO_PRODUCT_BITS : DIVISOR_BITS;
+    localparam integer SHORT_EXIT_FRAMES = (MIN_NOTE_HEIGHT*PREVIEW_FRAMES + RASTER_HEIGHT-1)/RASTER_HEIGHT;
+
+    function automatic logic [FRAME_WIDTH-1:0] saturating_frame_add(
+        input logic [FRAME_WIDTH-1:0] stamp, offset
+    );
+        logic [FRAME_WIDTH:0] sum;
+        begin
+            sum={1'b0,stamp}+{1'b0,offset};
+            saturating_frame_add=sum[FRAME_WIDTH] ? {FRAME_WIDTH{1'b1}} : sum[FRAME_WIDTH-1:0];
+        end
+    endfunction
+
+    function automatic logic [Y_WIDTH-1:0] raster_distance(
+        input logic [FRAME_WIDTH-1:0] frames
+    );
+        logic [GEO_PRODUCT_BITS-1:0] product;
+        logic [GEO_PRODUCT_BITS-1:0] quotient;
+        begin
+            product='0;quotient='0;
+            if(frames>=PREVIEW_FRAMES)raster_distance=Y_WIDTH'(RASTER_HEIGHT);
+            else begin
+                if(RASTER_HEIGHT%PREVIEW_FRAMES==0)begin
+                    // Default480/120=4, a narrow shift/multiply, no divider.
+                    product=frames[REM_BITS-1:0]*GEO_PRODUCT_BITS'(RASTER_HEIGHT/PREVIEW_FRAMES);
+                    quotient=product;
+                end else begin
+                    product=frames[REM_BITS-1:0]*GEO_PRODUCT_BITS'(RASTER_HEIGHT);
+                    quotient=GEO_DIV_BITS'(product)/GEO_DIV_BITS'(PREVIEW_FRAMES);
+                end
+                raster_distance=Y_WIDTH'(quotient);
+            end
+        end
+    endfunction
+
+    function automatic logic [Y_WIDTH-1:0] front_end_y(
+        input logic [FRAME_WIDTH-1:0] now_frame, arrival
+    );
+        begin
+            if(now_frame>=arrival)front_end_y=Y_WIDTH'(RASTER_HEIGHT);
+            else front_end_y=Y_WIDTH'(RASTER_HEIGHT)-raster_distance(arrival-now_frame);
+        end
+    endfunction
+
+    function automatic logic [Y_WIDTH-1:0] short_top_y(
+        input logic [FRAME_WIDTH-1:0] now_frame, arrival
+    );
+        logic [Y_WIDTH-1:0] front,distance_after;
+        logic [Y_WIDTH:0] top_after;
+        begin
+            front=front_end_y(now_frame,arrival);
+            distance_after='0;top_after='0;
+            if(now_frame<arrival)short_top_y=front<MIN_NOTE_HEIGHT ? Y_WIDTH'(0) : front-Y_WIDTH'(MIN_NOTE_HEIGHT);
+            else begin
+                distance_after=raster_distance(now_frame-arrival);
+                top_after=(RASTER_HEIGHT-MIN_NOTE_HEIGHT)+{1'b0,distance_after};
+                short_top_y=top_after>=RASTER_HEIGHT ? Y_WIDTH'(RASTER_HEIGHT) : top_after[Y_WIDTH-1:0];
+            end
+        end
+    endfunction
+
+    function automatic logic [Y_WIDTH-1:0] bar_top_y(
+        input logic [FRAME_WIDTH-1:0] now_frame, arrival, duration,
+        input logic duration_valid
+    );
+        logic [Y_WIDTH-1:0] tail,short_top;
+        begin
+            short_top=short_top_y(now_frame,arrival);
+            tail=front_end_y(now_frame,saturating_frame_add(arrival,duration));
+            bar_top_y=(duration_valid && duration!=0 && tail<short_top) ? tail : short_top;
+        end
+    endfunction
+
+    function automatic logic [FRAME_WIDTH-1:0] retirement_frame(
+        input logic [FRAME_WIDTH-1:0] arrival, duration,
+        input logic duration_valid
+    );
+        logic [FRAME_WIDTH-1:0] retained;
+        begin
+            retained=FRAME_WIDTH'(HIT_WINDOW_FRAMES);
+            if(duration_valid && duration>retained)retained=duration;
+            if(SHORT_EXIT_FRAMES>retained)retained=FRAME_WIDTH'(SHORT_EXIT_FRAMES);
+            retirement_frame=saturating_frame_add(arrival,retained);
+        end
+    endfunction
+
     always_comb begin
         effective_frame = current_frame;
         if (frame_start) begin
@@ -200,6 +297,7 @@ module visual_score_tracker #(
         slot_note_id     = '0;
         slot_note_number = '0;
         slot_y           = '0;
+        slot_top_y='0;slot_end_y='0;
         slot_velocity    = '0;
         slot_hit         = '0;
         slot_miss        = '0;
@@ -216,6 +314,9 @@ module visual_score_tracker #(
                     note_number_mem[output_index];
                 slot_y[output_index*Y_WIDTH +: Y_WIDTH] =
                     calculate_y(current_frame, hit_frame_mem[output_index]);
+                slot_end_y[output_index*Y_WIDTH+:Y_WIDTH]=front_end_y(current_frame,hit_frame_mem[output_index]);
+                slot_top_y[output_index*Y_WIDTH+:Y_WIDTH]=bar_top_y(current_frame,hit_frame_mem[output_index],
+                    duration_frames_mem[output_index],duration_valid_mem[output_index]);
                 slot_velocity[output_index*10 +: 10] =
                     velocity_mem[output_index];
                 slot_hit[output_index]  = hit_mem[output_index];
@@ -228,6 +329,7 @@ module visual_score_tracker #(
     always_ff @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             current_frame <= {FRAME_WIDTH{1'b0}};
+            hit_pulse<=0;hit_note_number<=0;
             for (state_index = 0; state_index < SLOT_COUNT;
                  state_index = state_index + 1) begin
                 slot_used_mem[state_index]       <= 1'b0;
@@ -242,6 +344,7 @@ module visual_score_tracker #(
                 miss_mem[state_index]            <= 1'b0;
             end
         end else if (video_desync) begin
+            hit_pulse<=0;hit_note_number<=0;
             // Keep the absolute frame counter running, but discard all score
             // and judgement state.  Lost live events are never replayed.
             if (frame_start) begin
@@ -261,6 +364,7 @@ module visual_score_tracker #(
                 miss_mem[state_index]            <= 1'b0;
             end
         end else begin
+            hit_pulse<=0;
             if (frame_start) begin
                 current_frame <= effective_frame;
 
@@ -278,7 +382,13 @@ module visual_score_tracker #(
                             miss_mem[state_index]   <= 1'b1;
                         end
 
-                        if (duration_valid_mem[state_index]) begin
+                        if (BOTTOM_EXIT_GEOMETRY) begin
+                            // Drawing can end before this gate; late hits still
+                            // see the whole inclusive window. No extra motion hold.
+                            if(effective_frame>retirement_frame(hit_frame_mem[state_index],
+                                duration_frames_mem[state_index],duration_valid_mem[state_index]))
+                                slot_used_mem[state_index]<=1'b0;
+                        end else if (duration_valid_mem[state_index]) begin
                             if (effective_frame >
                                 (hit_frame_mem[state_index] +
                                  duration_frames_mem[state_index])) begin
@@ -295,6 +405,9 @@ module visual_score_tracker #(
             end
 
             if (match_valid && (match_error <= HIT_WINDOW_FRAMES)) begin
+                if(performance_data.velocity!=0)begin
+                    hit_pulse<=1;hit_note_number<=performance_data.note_number;
+                end
                 judged_mem[match_slot_index] <= 1'b1;
                 hit_mem[match_slot_index]    <= 1'b1;
                 miss_mem[match_slot_index]   <= 1'b0;
@@ -329,6 +442,9 @@ module visual_score_tracker #(
         if (PREVIEW_FRAMES < 1) begin
             $fatal(1, "visual_score_tracker PREVIEW_FRAMES must be positive");
         end
+        if(RASTER_HEIGHT<MIN_NOTE_HEIGHT || MIN_NOTE_HEIGHT<1 || RASTER_HEIGHT>65535 ||
+           RASTER_HEIGHT >= (64'd1<<Y_WIDTH))
+            $fatal(1,"bottom geometry outside coordinate width");
         if (TRAVEL_Y < 0 || TRAVEL_Y_64 >= (64'd1 << Y_WIDTH)) begin
             $fatal(1, "visual_score_tracker TRAVEL_Y does not fit Y_WIDTH");
         end
