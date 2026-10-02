@@ -68,7 +68,17 @@ module button_event_converter #(
 
     logic [FIFO_COUNT_WIDTH-1:0] fifo_count;
     logic [FIFO_COUNT_WIDTH-1:0] fifo_count_next;
-    logic [31:0]                 overflow_increment;
+    localparam integer MAX_DROP_PER_CYCLE = 2*BUTTON_COUNT;
+    localparam integer DROP_W = $clog2(MAX_DROP_PER_CYCLE+1);
+    logic [DROP_W-1:0] overflow_increment;
+    wire [31:0] overflow_result [0:MAX_DROP_PER_CYCLE];
+    assign overflow_result[0] = overflow_count;
+    // Parallel constant-increment adders depend only on registered count;
+    // the event/ready chain ends at a bounded selection mux, not carry logic.
+    for(genvar inc=1;inc<=MAX_DROP_PER_CYCLE;inc=inc+1) begin:g_overflow_result
+        wire [32:0] candidate_sum = {1'b0,overflow_count} + 33'(inc);
+        assign overflow_result[inc] = candidate_sum[32] ? 32'hffffffff : candidate_sum[31:0];
+    end
 
     integer comb_fifo_index;
     integer comb_button_index;
@@ -118,7 +128,7 @@ module button_event_converter #(
     // 因为输入脉冲不能反压，本地 FIFO 满时记录溢出，禁止静默丢失。
     always_comb begin
         fifo_count_next    = fifo_count;
-        overflow_increment = 32'd0;
+        overflow_increment = '0;
 
         for (comb_fifo_index = 0; comb_fifo_index < LOCAL_FIFO_DEPTH; comb_fifo_index = comb_fifo_index + 1) begin
             fifo_mem_next[comb_fifo_index] = fifo_mem[comb_fifo_index];
@@ -139,7 +149,7 @@ module button_event_converter #(
                         make_key_event(1'b1, comb_button_index);
                     fifo_count_next = fifo_count_next + 1'b1;
                 end else begin
-                    overflow_increment = overflow_increment + 32'd1;
+                    overflow_increment = overflow_increment + 1'b1;
                 end
             end
 
@@ -149,7 +159,7 @@ module button_event_converter #(
                         make_key_event(1'b0, comb_button_index);
                     fifo_count_next = fifo_count_next + 1'b1;
                 end else begin
-                    overflow_increment = overflow_increment + 32'd1;
+                    overflow_increment = overflow_increment + 1'b1;
                 end
             end
         end
@@ -169,13 +179,8 @@ module button_event_converter #(
             end
 
             // 溢出计数采用饱和方式，避免计数器回绕后掩盖历史错误。
-            if (overflow_increment != 32'd0) begin
-                if (overflow_count >= (32'hFFFF_FFFF - overflow_increment)) begin
-                    overflow_count <= 32'hFFFF_FFFF;
-                end else begin
-                    overflow_count <= overflow_count + overflow_increment;
-                end
-            end
+            if (overflow_increment != 0)
+                overflow_count <= overflow_result[overflow_increment];
         end
     end
 

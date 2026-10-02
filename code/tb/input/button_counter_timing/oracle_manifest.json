@@ -1,0 +1,12 @@
+{
+  "source_packet": "M3_按键计数正式落地_无需实物_6aee959_20261002",
+  "baseline_commit": "6aee959",
+  "original_button_sha256_LF": "f6befb9c7415c69da62f2083e22803eae93ebeac63b8903b3c1314c4e9e723f0",
+  "reviewed_candidate_sha256_LF": "65c7978b2e1ce27fc09606cd87ee43fc1a078898acdd109490ca1909f89c0dd7",
+  "files_sha256_LF": {
+    "button_reference.sv": "49c492eedaf5d6fdf2a3d550f77d6063e8e28144b593a578420eafc20fb78e8a",
+    "fifo_reference.sv": "16529dda59dff6b78209cbc281f0a0200dd1d4a7a1223e7c41ee7dc5d85b3d8d",
+    "fifo_no_full_bypass.sv": "8621074d0396b02438a7614fbae90965db0bfa09f6d2fc9ebf16b1eb81164fce"
+  },
+  "testbench_derivation": "Packet TB renamed; DUT directly uses production button_event_converter and performance_event_fifo. Frozen old button and FIFO remain independent oracles. No-full-bypass is a deliberately rejected control."
+}

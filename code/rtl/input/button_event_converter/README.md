@@ -151,3 +151,51 @@ PASS: tb_button_event_converter completed all checks
 上面这条 ModelSim 命令中的工具路径是 M3 本机路径，在别的机器上需先用环境变量 `MODELSIM_BIN` 覆盖；iverilog 路线不需要 ModelSim。
 
 **注意：本模块仍未使用音符查表法**，按键音符通过 `BASE_NOTE_NUMBER + 按键编号 * NOTE_STEP` 公式生成，因此只能直接表示等间隔音符排列。顶层两键（69、72）恰好可用；正式键盘必须改为查表。
+
+## 并行饱和计数（2026-10-02，M3）
+
+本次只替换内部计数计算结构，正式 RTL 与交接包唯一候选的 LF SHA-256 一致：
+`65c7978b2e1ce27fc09606cd87ee43fc1a078898acdd109490ca1909f89c0dd7`。
+
+每拍最多丢弃 `2*BUTTON_COUNT` 个事件，`overflow_increment` 因此使用
+`$clog2(2*BUTTON_COUNT+1)` 位。由已寄存的 `overflow_count` 并行预计算
+增量 1 至 `2*BUTTON_COUNT` 的 33 位加法结果；最高位为 1 时饱和到
+`32'hFFFF_FFFF`，否则取低 32 位。本拍事件处理只选择对应结果，减少
+ready→丢弃判定→32 位进位/饱和计算串行路径；**不是增加一拍流水线**。
+
+本拍入队、出队及丢弃判定仍在同一上升沿更新 FIFO 和计数：
+
+- 未丢弃时计数保持，复位时同拍清零，最大值保持饱和、不回绕。
+- 按键升序、同键按下先于释放、来源/通道/音高/力度和全部端口参数不变。
+- 本地 FIFO、`valid/ready` 保持及公共 FIFO 水位/最高水位时序不变。
+- 公共 FIFO 满队列同拍 pop 可接受新事件的旁路保持原样；去掉它会增加真实丢键。
+
+新增正式自检从当前生产 `button_event_converter` 与 `performance_event_fifo`
+取 DUT，旧版 `button_reference.sv`/`fifo_reference.sv` 为冻结独立 oracle，
+哈希和来源在 `code/tb/input/button_counter_timing/oracle_manifest.json`。
+`fifo_no_full_bypass.sv` 仅作应被拒绝的反例，不属于生产 RTL。
+没有把两份同源候选互相比对，也没有改 M2 已入库的实验入口。
+
+从仓库根目录执行（Python 3.10+、标准库及已有 Icarus；无需板卡）：
+
+```powershell
+python -B code/tb/input/button_counter_timing/run.py --selftest
+# 非默认工具路径时追加 --cad <oss-cad-suite目录>
+# 可追加 --output code/output/<全新ASCII目录>；已有目录拒绝覆盖
+.\code\scripts\check_repo.ps1
+```
+
+正式自检包含公共深度3/32、本地深度1/2/4、每组20000随机拍、每拍事件/
+ready/水位/最高水位/计数、丢弃增量0..4、八个跨字节进位与32位饱和种子、
+满队列pop并发、反压及复位；另用当前模块运行原
+`tb_button_event_converter.sv`（Icarus路线，TB未修改）。
+`--selftest` 还实际编译并拒绝“计数延后一拍”和“取消满pop旁路”的两个行为反例。
+不依赖外部 CallBack 目录，全部新日志留在忽略的 `code/output/`。
+
+本轮实际结果：附件原对照202690项PASS；正式四组405430项PASS、原TB在
+Icarus和原T022 ModelSim入口均PASS、两个反例正确非零退出，check_repo九组PASS。
+证据为 `code/output/button_counter_packet_20261002/`、
+`code/output/button_counter_formal_final_20261002/results.json`、该最终目录的
+`check_repo_final.log` 和 `original_t022_modelsim_final.log`。
+本次等级 **L2**；未新增整机综合/PnR、未作ADSR或严格闪光组合、未烧录/实物测试。
+整机时序与组合复核由M2接手，不能沿用旧隔离报告当作本次整机时序结果。
