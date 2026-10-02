@@ -1,0 +1,697 @@
+{
+  "date": "2026-10-02",
+  "reviewer": "M2",
+  "phase": "independent arithmetic pipeline and actual control_snapshot consumer, NOT production bank/DDS hookup",
+  "formal_algorithm_models_audio_interfaces_changed": false,
+  "new_board_image_released": false,
+  "programmed": false,
+  "ADSR_M1_and_counter_M3_private_scope_notices_confirmed": false,
+  "source_manifest": {
+    "baseline_M1_module_SHA": "45209b0b2251c9b3cba507feeaae71afcc00704d6bb300f18f522c3e94615ec5",
+    "control_snapshot_SHA": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+    "candidate_files_SHA": {
+      "pitch_mod_fcw_pipeline.sv": "bc14fab96206c2ec202e155995427573c7bf18ce0bc74e5f291e6bc531f8f772",
+      "pitch_mod_snapshot_pipeline.sv": "ea4aaad461e62eea360f8efebae60d3b2963e8515a0d6bb514e3b37c2895651b",
+      "tb_pitch_mod_pipeline.sv": "b576cb229278682d01dfbb690eb6c6fc1eea7ca84a2df0d9c121778cc3e2f304",
+      "tb_pitch_mod_snapshot_pipeline.sv": "f1653a2d0e29b4226f9f1497c06c5295a0ba2e9cc78a61d2903da74327eca36d",
+      "pitch_mod_pipeline_timing_probe.sv": "38d8351e270750f51da94bfcdcc92d542157b931e7930a56990df767f88416ad"
+    },
+    "formal_GPRJ_modified": false,
+    "public_types_or_ports_changed": false,
+    "defaults_not_newly_frozen": {
+      "LFO_Hz": 5,
+      "depth_q10": 512
+    },
+    "missing_explicit_ROM_path_fatal": true
+  },
+  "protected_formal_sha256": {
+    "code/rtl/audio/pitch_mod_fcw.sv": "45209b0b2251c9b3cba507feeaae71afcc00704d6bb300f18f522c3e94615ec5",
+    "code/rtl/audio/adsr_piano_envelope.sv": "775fec7f546a00ca7bf98f132cce8d5d92d80ca6094af8e9e14cb07cd54a2e9d",
+    "code/rtl/board/polyphonic_envelope_bank.sv": "813e0b726546c16344aa86eb39c02291315450a001ba613e3dbfc710885689da",
+    "code/rtl/input/button_event_converter/button_event_converter.sv": "f6befb9c7415c69da62f2083e22803eae93ebeac63b8903b3c1314c4e9e723f0",
+    "code/rtl/board/electronic_piano_top.sv": "c75f4321c28753e851c26e6cb0810947a85e8f17ca61b28ae7e527a5ff765a5b",
+    "code/rtl/common/audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+    "code/rtl/board/performance_control_snapshot.sv": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+    "code/build/electronic_piano.gprj": "86e23c21853f725618e74e985935266ddd98af119db921fd8cad57bed84ef3d8",
+    "code/constraints/audio_timing.sdc": "849c8b374c366ea1cbe6f44b17f761adad90861e3b50a0baf3ade73c05f953f5",
+    "code/constraints/electronic_piano.cst": "76037da27eabba7bf322d41ad8f90c16b1a72b549fc2ffb865b380bfbda35dcb",
+    "code/docs/模块接口规范.md": "5bcfd9d355fb76aafb798104ea517bc047534d0740273b78df74c0d16758f8e5"
+  },
+  "default_original_model_vectors": 62279,
+  "single_lane_checks_all4configs": 2927576,
+  "configs": [
+    {
+      "depth_max_q10": 512,
+      "LFO_INC": 447392
+    },
+    {
+      "depth_max_q10": 0,
+      "LFO_INC": 447392
+    },
+    {
+      "depth_max_q10": 256,
+      "LFO_INC": 447392
+    },
+    {
+      "depth_max_q10": 1023,
+      "LFO_INC": 1073741824,
+      "purpose": "phase-wrap and maximum-depth stress, not actual proposed5Hz mode"
+    }
+  ],
+  "latency": {
+    "input_capture_edge": "E",
+    "fcw_valid_after_NBA": "E+6",
+    "next_downstream_consumption_edge": "E+7",
+    "sys_clk_ns": 20,
+    "math_internal_latency_ns": 120,
+    "consumer_latched_result_after_NBA": "accepted_snapshot_edge+7",
+    "metadata_result_ready_handshake": "stable until ready; cancel drains in-flight, new launch blocked until drain; reset flushes",
+    "NoteOn": "resets LFO, old accepted output not auto-cancelled; scheduler must usegenerationID to discard replaced voice results",
+    "snapshot_valid_held_level_not_input_enable": true
+  },
+  "full_snapshot_joint_checks": 19663,
+  "snapshot_request_counts": {
+    "accepted": 218,
+    "normal_results": 210,
+    "cancelled": 7,
+    "reset_flushed": 1,
+    "consumed": 210
+  },
+  "scope_contracts": [
+    "request_base_fcw must match same snapshot source/channel/generation, supplied by locked bank, not arbitrary later live slot",
+    "fourLFOs independent; occupied lane advances on successful math request only",
+    "table arithmetic/truncation33bit fits tested MIDIbase and0..24range; not all arbitraryU32base guarantee",
+    "pipelinevalid latency exact, no X unknown masking or tolerance needed for FCW compare"
+  ],
+  "negative_mutations": {
+    "wrong_expected_1LSB": "reject",
+    "valid_1cycle_early": "reject",
+    "generationtag_1bit": "reject",
+    "missing_LFO_requested_with_complete_vector_args": "time0 candidate fatal"
+  },
+  "initial_test_failures": {
+    "token_count_bookkeeping": "original scoreboard countedalready-emitted laststage as resetcancel, no FCW/LFO/valid mismatches; corrected separately",
+    "generate_scope_variable_index": "initialTB elaborationfailure, converted toconstantgenvar wires",
+    "initial_missing_ROM_negative": "also missingVECTORS confounded reason; finalcase actual candidate explicitpathfatal, not reused as evidence"
+  },
+  "initial_fourlane_physical_FAIL": {
+    "summary": {
+      "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+      "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+      "Numbers of Paths Analyzed": "11408",
+      "Numbers of Endpoints Analyzed": "8927",
+      "Numbers of Falling Endpoints": "0",
+      "Numbers of Setup Violated Endpoints": "0",
+      "Numbers of Hold Violated Endpoints": "7"
+    },
+    "fmax": {
+      "sys_clk": "64.425(MHz)"
+    },
+    "worst_paths": {
+      "Setup": [
+        "1",
+        "4.478",
+        "stimulus_53_s0/Q",
+        "u_controls/control_mem_control_mem_8_5_s/DI[3]",
+        "sys_clk:[R]",
+        "sys_clk:[R]",
+        "20.000",
+        "-0.009",
+        "15.031"
+      ],
+      "Hold": [
+        "1",
+        "-0.122",
+        "u_fcw/g_lane[2].u_control/total_s2_7_s0/Q",
+        "u_fcw/g_lane[2].u_control/sub_lut_sub_lut_0_0_s/AD[11]",
+        "sys_clk:[R]",
+        "sys_clk:[R]",
+        "0.000",
+        "-0.197",
+        "0.310"
+      ],
+      "Recovery": [
+        "1",
+        "11.029",
+        "u_reset/sync_chain_1_s0/Q",
+        "u_fcw/g_lane[1].u_control/mult_135_s1/RESET[0]",
+        "sys_clk:[R]",
+        "sys_clk:[R]",
+        "20.000",
+        "0.009",
+        "7.961"
+      ],
+      "Removal": [
+        "1",
+        "0.457",
+        "u_reset/sync_chain_1_s0/Q",
+        "u_fcw/g_lane[2].u_control/lfo_phase_6_s0/CLEAR",
+        "sys_clk:[R]",
+        "sys_clk:[R]",
+        "0.000",
+        "-0.197",
+        "0.801"
+      ]
+    },
+    "resources": {
+      "Logic": 2665.0,
+      "Register": 2346.0,
+      "DSP": 22.0,
+      "BSRAM": 12.0
+    },
+    "missing_reported_classes": [],
+    "errors": [
+      "Numbers of Hold Violated Endpoints",
+      "Hold negative"
+    ],
+    "scope": "actual internal50MHz independent arithmetic/control snapshot probe; not formal fullpiano or externalI/O signoff",
+    "board_programmed": false
+  },
+  "single_lane_initial_physical": {
+    "summary": {
+      "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+      "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+      "Numbers of Paths Analyzed": "956",
+      "Numbers of Endpoints Analyzed": "848",
+      "Numbers of Falling Endpoints": "0",
+      "Numbers of Setup Violated Endpoints": "0",
+      "Numbers of Hold Violated Endpoints": "0"
+    },
+    "fmax": {
+      "sys_clk": "118.870(MHz)"
+    },
+    "worst_paths": {
+      "Setup": [
+        "1",
+        "11.588",
+        "oct_lut_oct_lut_0_0_s/DO[7]",
+        "n954_s1/A[22]",
+        "sys_clk:[R]",
+        "sys_clk:[R]",
+        "20.000",
+        "0.009",
+        "7.192"
+      ],
+      "Hold": [
+        "1",
+        "0.020",
+        "base_s1_18_s0/Q",
+        "base_s2_18_s0/D",
+        "sys_clk:[R]",
+        "sys_clk:[R]",
+        "0.000",
+        "-0.197",
+        "0.430"
+      ]
+    },
+    "resources": {
+      "Logic": 172.0,
+      "Register": 212.0,
+      "DSP": 5.5,
+      "BSRAM": 3.0
+    },
+    "missing_reported_classes": [
+      "Recovery",
+      "Removal"
+    ],
+    "errors": [],
+    "scope": "actual internal50MHz independent arithmetic/control snapshot probe; not formal fullpiano or externalI/O signoff",
+    "board_programmed": false
+  },
+  "address_encoding": {
+    "map": "x XORrotate_left1(x) XORrotate_left3(x),10bits",
+    "full_domain_inputs": 1024,
+    "unique_outputs": 1024,
+    "bijective": true,
+    "numerical_table_values_unchanged": true,
+    "new_pipeline_latency": false,
+    "initial_candidate_sha256": "ff841d4ce467e787a39256d613f5212703670136d3eb7625b47fbd7f044396f7",
+    "encoded_candidate_sha256": "7b4a1a619bf6e4a5beec35e7d3d904ef7eaeb631d945548b521310ab3d2df830",
+    "constraint_relaxed": false
+  },
+  "actual_final_reproduction": {
+    "formal_audio_modified": false,
+    "integrated_DDS_or_hardware_accepted": false,
+    "source_sha256": {
+      "baseline_M1_module_SHA": "45209b0b2251c9b3cba507feeaae71afcc00704d6bb300f18f522c3e94615ec5",
+      "control_snapshot_SHA": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+      "candidate_files_SHA": {
+        "pitch_mod_fcw_pipeline.sv": "bc14fab96206c2ec202e155995427573c7bf18ce0bc74e5f291e6bc531f8f772",
+        "pitch_mod_snapshot_pipeline.sv": "ea4aaad461e62eea360f8efebae60d3b2963e8515a0d6bb514e3b37c2895651b",
+        "tb_pitch_mod_pipeline.sv": "b576cb229278682d01dfbb690eb6c6fc1eea7ca84a2df0d9c121778cc3e2f304",
+        "tb_pitch_mod_snapshot_pipeline.sv": "f1653a2d0e29b4226f9f1497c06c5295a0ba2e9cc78a61d2903da74327eca36d"
+      },
+      "formal_GPRJ_modified": false,
+      "public_types_or_ports_changed": false,
+      "defaults_not_newly_frozen": {
+        "LFO_Hz": 5,
+        "depth_q10": 512
+      },
+      "missing_explicit_ROM_path_fatal": true
+    },
+    "runs": {
+      "generate_pitch_mod_luts.py": {
+        "exit": 0,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-X",
+          "utf8",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generate_pitch_mod_luts.py"
+        ],
+        "log_sha256": "489a0777467a04cb76421ac5653cf338f3e0be1f1de011899f1adab9d3bdbb3b",
+        "expected_success": true
+      },
+      "generate_pitch_mod_vectors.py": {
+        "exit": 0,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-X",
+          "utf8",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generate_pitch_mod_vectors.py"
+        ],
+        "log_sha256": "48ff590915e3a1a193aa15ce85f1581df268b570afe379a90f758dd0a4be85fa",
+        "expected_success": true
+      },
+      "default_compile": {
+        "exit": 0,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_pitch_mod_pipeline",
+          "-P",
+          "tb_pitch_mod_pipeline.DEPTH=512",
+          "-P",
+          "tb_pitch_mod_pipeline.INC=447392",
+          "-P",
+          "tb_pitch_mod_pipeline.RUN_VECTORS=1",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\default.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\audio\\pitch_mod_fcw.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\pitch_mod_pipeline_candidate\\pitch_mod_fcw_pipeline.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\pitch_mod_pipeline_candidate\\tb_pitch_mod_pipeline.sv"
+        ],
+        "log_sha256": "85a50f4821d4996361334311909e2fbc780d8b5b796dab35b94d8fc494177742",
+        "expected_success": true
+      },
+      "default": {
+        "exit": 0,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\default.vvp",
+          "+OCT_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\oct_ratio_q16.mem",
+          "+SUB_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\sub_ratio_q16.mem",
+          "+LFO_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\lfo_sine_q15.mem",
+          "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\pitch_mod_vectors.txt"
+        ],
+        "log_sha256": "3c0a0719608310733888ad49e37415c0451b72e060a5ccb3fa3876039625ca52",
+        "expected_success": true
+      },
+      "depth0_compile": {
+        "exit": 0,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_pitch_mod_pipeline",
+          "-P",
+          "tb_pitch_mod_pipeline.DEPTH=0",
+          "-P",
+          "tb_pitch_mod_pipeline.INC=447392",
+          "-P",
+          "tb_pitch_mod_pipeline.RUN_VECTORS=0",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\depth0.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\audio\\pitch_mod_fcw.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\pitch_mod_pipeline_candidate\\pitch_mod_fcw_pipeline.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\pitch_mod_pipeline_candidate\\tb_pitch_mod_pipeline.sv"
+        ],
+        "log_sha256": "85a50f4821d4996361334311909e2fbc780d8b5b796dab35b94d8fc494177742",
+        "expected_success": true
+      },
+      "depth0": {
+        "exit": 0,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\depth0.vvp",
+          "+OCT_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\oct_ratio_q16.mem",
+          "+SUB_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\sub_ratio_q16.mem",
+          "+LFO_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\lfo_sine_q15.mem",
+          "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\pitch_mod_vectors.txt"
+        ],
+        "log_sha256": "19d851d86a2260b4d75192529165b34533ec5f5d7316d5e681871288194508f0",
+        "expected_success": true
+      },
+      "depth256_compile": {
+        "exit": 0,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_pitch_mod_pipeline",
+          "-P",
+          "tb_pitch_mod_pipeline.DEPTH=256",
+          "-P",
+          "tb_pitch_mod_pipeline.INC=447392",
+          "-P",
+          "tb_pitch_mod_pipeline.RUN_VECTORS=0",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\depth256.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\audio\\pitch_mod_fcw.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\pitch_mod_pipeline_candidate\\pitch_mod_fcw_pipeline.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\pitch_mod_pipeline_candidate\\tb_pitch_mod_pipeline.sv"
+        ],
+        "log_sha256": "85a50f4821d4996361334311909e2fbc780d8b5b796dab35b94d8fc494177742",
+        "expected_success": true
+      },
+      "depth256": {
+        "exit": 0,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\depth256.vvp",
+          "+OCT_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\oct_ratio_q16.mem",
+          "+SUB_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\sub_ratio_q16.mem",
+          "+LFO_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\lfo_sine_q15.mem",
+          "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\pitch_mod_vectors.txt"
+        ],
+        "log_sha256": "288fd780a17d72cb701048969f68d612e47e006592de2249aa9d876b7640ceed",
+        "expected_success": true
+      },
+      "depth1023_compile": {
+        "exit": 0,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_pitch_mod_pipeline",
+          "-P",
+          "tb_pitch_mod_pipeline.DEPTH=1023",
+          "-P",
+          "tb_pitch_mod_pipeline.INC=1073741824",
+          "-P",
+          "tb_pitch_mod_pipeline.RUN_VECTORS=0",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\depth1023.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\audio\\pitch_mod_fcw.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\pitch_mod_pipeline_candidate\\pitch_mod_fcw_pipeline.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\pitch_mod_pipeline_candidate\\tb_pitch_mod_pipeline.sv"
+        ],
+        "log_sha256": "85a50f4821d4996361334311909e2fbc780d8b5b796dab35b94d8fc494177742",
+        "expected_success": true
+      },
+      "depth1023": {
+        "exit": 0,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\depth1023.vvp",
+          "+OCT_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\oct_ratio_q16.mem",
+          "+SUB_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\sub_ratio_q16.mem",
+          "+LFO_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\lfo_sine_q15.mem",
+          "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\pitch_mod_vectors.txt"
+        ],
+        "log_sha256": "9978172caa665118b9e706f6811811f3b7fc2b8549fb3296d96daf9c61089862",
+        "expected_success": true
+      },
+      "snapshot_compile": {
+        "exit": 0,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_pitch_mod_snapshot_pipeline",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\snapshot.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\board\\performance_control_snapshot.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\audio\\pitch_mod_fcw.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\pitch_mod_pipeline_candidate\\pitch_mod_fcw_pipeline.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\pitch_mod_pipeline_candidate\\pitch_mod_snapshot_pipeline.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\pitch_mod_pipeline_candidate\\tb_pitch_mod_snapshot_pipeline.sv"
+        ],
+        "log_sha256": "e7bb8a76c05ee3acdebcbbdd77bda0936e4743f40f02a2cb57e81d402200d9df",
+        "expected_success": true
+      },
+      "snapshot": {
+        "exit": 0,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\snapshot.vvp",
+          "+OCT_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\oct_ratio_q16.mem",
+          "+SUB_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\sub_ratio_q16.mem",
+          "+LFO_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\lfo_sine_q15.mem"
+        ],
+        "log_sha256": "a21989855a525b5c3f0dedc772dd1d414f99389be50e76e1f19adc3fcec25391",
+        "expected_success": true
+      },
+      "wrong_expected": {
+        "exit": 1,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\default.vvp",
+          "+OCT_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\oct_ratio_q16.mem",
+          "+SUB_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\sub_ratio_q16.mem",
+          "+LFO_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\lfo_sine_q15.mem",
+          "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\wrong_expected.txt"
+        ],
+        "log_sha256": "45cf7eb953b74490b82269fb67ebef3106e529b404b1b9ba33767913b1ccceb6",
+        "expected_success": false
+      },
+      "missing_ROM": {
+        "exit": 1,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\default.vvp",
+          "+OCT_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\oct_ratio_q16.mem",
+          "+SUB_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\sub_ratio_q16.mem",
+          "+LFO_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\missing.mem",
+          "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\pitch_mod_vectors.txt"
+        ],
+        "log_sha256": "02e759f34c88441d160773c9243becab8845de1df59a41ac2d50560b321707c3",
+        "expected_success": false
+      },
+      "wrong_valid_compile": {
+        "exit": 0,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_pitch_mod_pipeline",
+          "-P",
+          "tb_pitch_mod_pipeline.RUN_VECTORS=0",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\wrong_valid.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\audio\\pitch_mod_fcw.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\wrong_valid.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\pitch_mod_pipeline_candidate\\tb_pitch_mod_pipeline.sv"
+        ],
+        "log_sha256": "85a50f4821d4996361334311909e2fbc780d8b5b796dab35b94d8fc494177742",
+        "expected_success": true
+      },
+      "wrong_valid": {
+        "exit": 1,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\wrong_valid.vvp",
+          "+OCT_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\oct_ratio_q16.mem",
+          "+SUB_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\sub_ratio_q16.mem",
+          "+LFO_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\lfo_sine_q15.mem"
+        ],
+        "log_sha256": "8262ac693ffe9a0f0fa838d0a5704c241414473ea3ea8408bb25bcc731834a44",
+        "expected_success": false
+      },
+      "wrong_tag_compile": {
+        "exit": 0,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_pitch_mod_snapshot_pipeline",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\wrong_tag.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\board\\performance_control_snapshot.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\audio\\pitch_mod_fcw.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\pitch_mod_pipeline_candidate\\pitch_mod_fcw_pipeline.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\wrong_tag.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\pitch_mod_pipeline_candidate\\tb_pitch_mod_snapshot_pipeline.sv"
+        ],
+        "log_sha256": "e7bb8a76c05ee3acdebcbbdd77bda0936e4743f40f02a2cb57e81d402200d9df",
+        "expected_success": true
+      },
+      "wrong_tag": {
+        "exit": 1,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\wrong_tag.vvp",
+          "+OCT_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\oct_ratio_q16.mem",
+          "+SUB_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\sub_ratio_q16.mem",
+          "+LFO_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\lfo_sine_q15.mem"
+        ],
+        "log_sha256": "1517d46910afb146969f77c1b893a22745dc6d53577c13b78fe36cfd1db21ba9",
+        "expected_success": false
+      },
+      "actual_Gowin": {
+        "exit": 0,
+        "command": [
+          "D:\\Gowin\\Gowin_V1.9.11.03_Education\\Gowin_V1.9.11.03_Education_x64\\IDE\\bin\\gw_sh.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\fourlane_probe\\run.tcl"
+        ],
+        "log_sha256": "57eaa53a9f565b7e50f7582efd84f57a98901c116e76f8d0b678d707473f2df6",
+        "expected_success": true
+      }
+    },
+    "verdicts": {
+      "default": "PASS pitchmod pipeline DEPTH=512 INC=447392 vectors=62279 checks=965468 launches=84922 outputs=84784 cancelled=138 E+6",
+      "depth0": "PASS pitchmod pipeline DEPTH=0 INC=447392 vectors=0 checks=654036 launches=22643 outputs=22505 cancelled=138 E+6",
+      "depth256": "PASS pitchmod pipeline DEPTH=256 INC=447392 vectors=0 checks=654036 launches=22643 outputs=22505 cancelled=138 E+6",
+      "depth1023": "PASS pitchmod pipeline DEPTH=1023 INC=1073741824 vectors=0 checks=654036 launches=22643 outputs=22505 cancelled=138 E+6",
+      "snapshot": "PASS actual control_snapshot to4lane FCW pipeline checks=19663 launches=218 outputs=210 cancelled=7 consumed=210"
+    },
+    "constant_ROM_address_bijection_entries": 1024,
+    "actual_fourlane_internal_STA": {
+      "summary": {
+        "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+        "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+        "Numbers of Paths Analyzed": "11411",
+        "Numbers of Endpoints Analyzed": "8927",
+        "Numbers of Falling Endpoints": "0",
+        "Numbers of Setup Violated Endpoints": "0",
+        "Numbers of Hold Violated Endpoints": "0"
+      },
+      "worst_paths": {
+        "Setup": [
+          "1",
+          "3.214",
+          "stimulus_54_s0/Q",
+          "u_controls/control_mem_control_mem_1_6_s/DI[1]",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "-0.019",
+          "16.305"
+        ],
+        "Hold": [
+          "1",
+          "0.075",
+          "u_fcw/g_lane[3].u_control/lfo_phase_12_s0/Q",
+          "u_fcw/g_lane[3].u_control/lfo_phase_12_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "0.000",
+          "0.000",
+          "0.300"
+        ],
+        "Recovery": [
+          "1",
+          "10.562",
+          "u_reset/sync_chain_1_s0/Q",
+          "u_fcw/g_lane[0].u_control/mult_135_s1/RESET[0]",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "-0.009",
+          "8.448"
+        ],
+        "Removal": [
+          "1",
+          "1.479",
+          "u_reset/sync_chain_1_s0/Q",
+          "u_fcw/g_lane[3].u_control/lfo_phase_31_s0/CLEAR",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "0.000",
+          "0.000",
+          "1.626"
+        ]
+      },
+      "fmax": {
+        "sys_clk": "59.572(MHz)"
+      },
+      "resources": {
+        "Logic": 2696.0,
+        "Register": 2346.0,
+        "DSP": 22.0,
+        "BSRAM": 12.0
+      },
+      "external_IOfullpiano_signoff": false
+    },
+    "functional_candidate_pass": true
+  },
+  "final_actual_physical_input_manifest": {
+    "scope": "internal fourlane+control state probe only; NEVER PROGRAM, autoassigned remainingI/O",
+    "inputs": {
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\reset_sync.sv": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\board\\performance_control_snapshot.sv": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\fourlane_probe\\pitch_mod_fcw_pipeline.sv": "8cb9a8700c9c7c7eca9f9759145407d51afb51fb2618a112784f6e6598047f0f",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\fourlane_probe\\pitch_mod_snapshot_pipeline.sv": "388c166da171dd83161a2c98bf243c7b41756b485255544b274ef4951b9c6f9f",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\fourlane_probe\\timing_probe.sv": "38d8351e270750f51da94bfcdcc92d542157b931e7930a56990df767f88416ad",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\fourlane_probe\\probe.cst": "a14f464ba5397f8db209e1e61670633eecd414045fceaab06b5f2a88f9c30fbf",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\fourlane_probe\\probe.sdc": "8897e89343afcb248fa058cbc22a1f0efc3dcd18e60b235d10bb5635e6063558",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\lfo_sine_q15.mem": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\oct_ratio_q16.mem": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_pipeline_20261002\\final_reproduce\\model\\generated\\pitch_mod\\sub_ratio_q16.mem": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9"
+    }
+  },
+  "final_reference_matrix": "goldenPython62k default plus accepted source exact latency/LFO scoreboard all configs; param variants stress acceptedRTL semantics, no newaudibility/5Hzclaims",
+  "physical_notes": [
+    "singleprobeRecoveryRemoval not reported; not claimedpositive",
+    "finalfourprobeReset_sync meansallSetupHoldRecoveryRemovalclassesarepresent/nonnegative",
+    "probe uses serialinput/readback wrapper andautoassigned non-clockports; internalSTA not productionpins/externalI/O",
+    "ROM3perlane /12fourlane, DSP5.5single /22probe actualphysicalcost; not simple sumestimate finalpiano",
+    "finalFmax59.572/Setup3.214/Hold.075/Recovery10.562/Removal1.479, no violations; worstSetup probe-stimulus tocontrolmemory, not finalbankpath",
+    "originalHold7/-0.122 kept, finaladdresspermutation has hardwarelogic andconstantROMreorder, not keepbuffer or timingexception",
+    "noformalGPRJorPCM/DDS FCW hookup, noPitchMod audioL6"
+  ],
+  "report_and_research_fs_sha256": {
+    "code/output/pitch_mod_pipeline_20261002/physical/impl/pnr/pipeline_tr_content.html": "66138ce2de6ed27ddf9fd1d0f62559d827ac60c2a6aa7f2b67efd6e715dee1a5",
+    "code/output/pitch_mod_pipeline_20261002/physical/impl/pnr/pipeline.rpt.txt": "186dbf6bc4e47bb999c9306087bfc4364f52834e984ff2a0deae21e307fcda05",
+    "code/output/pitch_mod_pipeline_20261002/physical/impl/pnr/pipeline.pin.html": "489092453dd844a3bfe55534e86634510df37a6b16358eb606dc061608ff81a7",
+    "code/output/pitch_mod_pipeline_20261002/physical/impl/pnr/pipeline.fs": "7bf32986f327864bebe0f418b351a95520aba508946e6ff41f5783c39d590d33",
+    "code/output/pitch_mod_pipeline_20261002/physical/impl/gwsynthesis/pipeline_syn_rsc.xml": "2cfaab3e2d3d105ba419fece6d908a0d645670734204edaea4577a3b0731c0ec",
+    "code/output/pitch_mod_pipeline_20261002/fourlane_physical/impl/pnr/fourlane_pipeline_tr_content.html": "e013849ea5d0c90857ca574534656148b75f1dce83864572a4eb86db1da28bbc",
+    "code/output/pitch_mod_pipeline_20261002/fourlane_physical/impl/pnr/fourlane_pipeline.rpt.txt": "d3d69687013ae5fdfa0a29b2dd0f4741abdb450e3e906ce71c8c1be8b80b0202",
+    "code/output/pitch_mod_pipeline_20261002/fourlane_physical/impl/pnr/fourlane_pipeline.pin.html": "8015a5e698fca643bdfc3f95f3a54a8103ec74c03be84e339a66d85ec04ee3c2",
+    "code/output/pitch_mod_pipeline_20261002/fourlane_physical/impl/pnr/fourlane_pipeline.fs": "d871b2795370133a8373b9ff1b8d8eaf6440a869bc326b714d0bf6e96d7dd98e",
+    "code/output/pitch_mod_pipeline_20261002/fourlane_physical/impl/gwsynthesis/fourlane_pipeline_syn_rsc.xml": "949876d8fd8a8ee60054ae119d8c1e87cff068969de54a9fd2c92a82ffd707ac",
+    "code/output/pitch_mod_pipeline_20261002/fourlane_encoded_physical/impl/pnr/fourlane_pipeline_tr_content.html": "3d134145a27b202a81da5d00177de4938bce340fd6226b23b36a556c45477a83",
+    "code/output/pitch_mod_pipeline_20261002/fourlane_encoded_physical/impl/pnr/fourlane_pipeline.rpt.txt": "4a33f82715633a4c9ede0ababae108367e5a18f19819d69e15e0d2d6ec984799",
+    "code/output/pitch_mod_pipeline_20261002/fourlane_encoded_physical/impl/pnr/fourlane_pipeline.pin.html": "d2ff16a8fc64ea22823dfabb831ecc6d22b2950ed47efbc9288bd69288947af4",
+    "code/output/pitch_mod_pipeline_20261002/fourlane_encoded_physical/impl/pnr/fourlane_pipeline.fs": "542f0327d359f30feb2161478316654bafce104cf1053d0c6e94f404a171c88f",
+    "code/output/pitch_mod_pipeline_20261002/fourlane_encoded_physical/impl/gwsynthesis/fourlane_pipeline_syn_rsc.xml": "9bf445b2e068397e2f96ded48b7cdb5c010ecaba61ab44758d348b89f94ac973",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/fourlane_probe/impl/pnr/fourlane_pipeline_tr_content.html": "afe6be3945c23544ff5dea85a83c4723b5d7423c5ebdd1a22a6f081bcae6e9a0",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/fourlane_probe/impl/pnr/fourlane_pipeline.rpt.txt": "3c3d9df034a9f4cdda7dc7a5dc2a3eaccd62e585cf8a7fa3dcd8a467d75c84f3",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/fourlane_probe/impl/pnr/fourlane_pipeline.pin.html": "af438672f031346069e89260ced21a1ec2e0930e8f25aaedd3bcc54baf2eb9e8",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/fourlane_probe/impl/pnr/fourlane_pipeline.fs": "f9036ae68c8ced06cbfb4784774808439c1d0f9da0ab8d120fb06ab6c6265b18",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/fourlane_probe/impl/gwsynthesis/fourlane_pipeline_syn_rsc.xml": "9bf445b2e068397e2f96ded48b7cdb5c010ecaba61ab44758d348b89f94ac973"
+  },
+  "actual_final_log_sha256": {
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/actual_Gowin.log": "57eaa53a9f565b7e50f7582efd84f57a98901c116e76f8d0b678d707473f2df6",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/default.log": "3c0a0719608310733888ad49e37415c0451b72e060a5ccb3fa3876039625ca52",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/default_compile.log": "85a50f4821d4996361334311909e2fbc780d8b5b796dab35b94d8fc494177742",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/depth0.log": "19d851d86a2260b4d75192529165b34533ec5f5d7316d5e681871288194508f0",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/depth0_compile.log": "85a50f4821d4996361334311909e2fbc780d8b5b796dab35b94d8fc494177742",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/depth1023.log": "9978172caa665118b9e706f6811811f3b7fc2b8549fb3296d96daf9c61089862",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/depth1023_compile.log": "85a50f4821d4996361334311909e2fbc780d8b5b796dab35b94d8fc494177742",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/depth256.log": "288fd780a17d72cb701048969f68d612e47e006592de2249aa9d876b7640ceed",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/depth256_compile.log": "85a50f4821d4996361334311909e2fbc780d8b5b796dab35b94d8fc494177742",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/generate_pitch_mod_luts.py.log": "489a0777467a04cb76421ac5653cf338f3e0be1f1de011899f1adab9d3bdbb3b",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/generate_pitch_mod_vectors.py.log": "48ff590915e3a1a193aa15ce85f1581df268b570afe379a90f758dd0a4be85fa",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/missing_ROM.log": "02e759f34c88441d160773c9243becab8845de1df59a41ac2d50560b321707c3",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/snapshot.log": "a21989855a525b5c3f0dedc772dd1d414f99389be50e76e1f19adc3fcec25391",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/snapshot_compile.log": "e7bb8a76c05ee3acdebcbbdd77bda0936e4743f40f02a2cb57e81d402200d9df",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/wrong_expected.log": "45cf7eb953b74490b82269fb67ebef3106e529b404b1b9ba33767913b1ccceb6",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/wrong_tag.log": "1517d46910afb146969f77c1b893a22745dc6d53577c13b78fe36cfd1db21ba9",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/wrong_tag_compile.log": "e7bb8a76c05ee3acdebcbbdd77bda0936e4743f40f02a2cb57e81d402200d9df",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/wrong_valid.log": "8262ac693ffe9a0f0fa838d0a5704c241414473ea3ea8408bb25bcc731834a44",
+    "code/output/pitch_mod_pipeline_20261002/final_reproduce/wrong_valid_compile.log": "85a50f4821d4996361334311909e2fbc780d8b5b796dab35b94d8fc494177742"
+  },
+  "reproduction_entry_sha256": "2ac6fc3abde8a6c980045fcd0f8382b55f388cee308a130b3412690479934328",
+  "M1_stage_acceptance_note": "pending user forwarding, not delivered",
+  "repository_gate": {
+    "exit": 0,
+    "groups": 9,
+    "Python_files": 134,
+    "log_sha256": "5e9808d6ca03fc1517149ebfe88a034557d09887e78fa90f7a330620ca221200"
+  }
+}
