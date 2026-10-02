@@ -1,0 +1,229 @@
+{
+  "date": "2026-10-02",
+  "reviewer": "M2",
+  "receipt": {
+    "archive_sha256": "4575935bc5c9a44c3934c4d37f0ff762a321f65c938a249b28baffa8c2602753",
+    "archive_bytes": 116772,
+    "files": [
+      {
+        "path": "code/rtl/audio/pitch_mod_fcw.sv",
+        "hash": "45209b0b2251c9b3cba507feeaae71afcc00704d6bb300f18f522c3e94615ec5",
+        "manifest_matches": true,
+        "same_as_M2_exact_replacement": true
+      },
+      {
+        "path": "code/model/pitch_mod_model.py",
+        "hash": "759f9e2f2b471f44b9267ea9f5a1ddded98e9be3da01efaa76d000ceed49d46e",
+        "manifest_matches": true,
+        "same_as_M2_exact_replacement": false
+      },
+      {
+        "path": "code/model/generate_pitch_mod_vectors.py",
+        "hash": "7efcc3e9b20824dd6e7dbf4bbab25805f25fbeb3fc460bc224c8c0d032a6723d",
+        "manifest_matches": true,
+        "same_as_M2_exact_replacement": false
+      },
+      {
+        "path": "code/tb/audio/tb_pitch_mod_fcw.sv",
+        "hash": "d045dfdcc2e9a6124714f46e36c38f3ed00dbe1f2b2ce6204873d026077b80cd",
+        "manifest_matches": true,
+        "same_as_M2_exact_replacement": true
+      },
+      {
+        "path": "code/scripts/run_pitch_mod_tests.py",
+        "hash": "f940f7d5f6f1abfe475eead97af956907785e0b62f7a17b35beadd61d846fa36",
+        "manifest_matches": true,
+        "same_as_M2_exact_replacement": true
+      }
+    ],
+    "helpers_identical": true,
+    "DELIVERY_present": true,
+    "actual_member_count": 16
+  },
+  "accepted_independent_algorithm_source": true,
+  "accepted_for_50MHz_formal_chain": false,
+  "M1_confirmed_exact_patch_applied": true,
+  "source_import": {
+    "source_files": {
+      "code/rtl/audio/pitch_mod_fcw.sv": "45209b0b2251c9b3cba507feeaae71afcc00704d6bb300f18f522c3e94615ec5",
+      "code/model/pitch_mod_model.py": "759f9e2f2b471f44b9267ea9f5a1ddded98e9be3da01efaa76d000ceed49d46e",
+      "code/model/generate_pitch_mod_vectors.py": "7efcc3e9b20824dd6e7dbf4bbab25805f25fbeb3fc460bc224c8c0d032a6723d",
+      "code/tb/audio/tb_pitch_mod_fcw.sv": "d045dfdcc2e9a6124714f46e36c38f3ed00dbe1f2b2ce6204873d026077b80cd",
+      "code/scripts/run_pitch_mod_tests.py": "f940f7d5f6f1abfe475eead97af956907785e0b62f7a17b35beadd61d846fa36",
+      "code/model/generate_pitch_mod_luts.py": "dc5e12fddee7d83044e63d4c84b1822a9d43a45aa4e3ac5df4d80794327af813",
+      "code/model/test_pitch_mod.py": "a6b3d22805df51ca7e6876621e19a786b658740de909c98f5da6349281aed30d",
+      "code/model/check_rtl_equivalence.py": "8cbe071bdca9b7464885d2407e7d752f32399648c249bcdbd0542d7593035509"
+    },
+    "rom_sources": {
+      "oct_ratio_q16.mem": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d",
+      "sub_ratio_q16.mem": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9",
+      "lfo_sine_q15.mem": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4"
+    },
+    "three_exact_replacements_matches": true,
+    "formal_GPRJ_or_audio_core_changed": false,
+    "source_library_received_only": true
+  },
+  "real_run_results": {
+    "complete_received_runner": {
+      "exit": 0,
+      "command": [
+        "D:/ProgramData/anaconda3/python.exe",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\scripts\\run_pitch_mod_tests.py"
+      ],
+      "log_sha256": "beca6f308b0d6e5e26d3611d5a5ed0df6caa2105dce34e5991d0ea16a8b3ba05"
+    },
+    "contract_compile": {
+      "exit": 0,
+      "command": [
+        "D:/Gowin/oss-cad-suite/bin/iverilog.exe",
+        "-g2012",
+        "-s",
+        "tb_pitch_mod_noteon_contract_review",
+        "-o",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\contract.vvp",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\rtl\\audio\\pitch_mod_fcw.sv",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\audio\\tb_pitch_mod_noteon_contract_review.sv"
+      ],
+      "log_sha256": "fc5ca4b5744e55264b63b0d90aeb2892c75e41786e314f45a4ec98d6fd77f162"
+    },
+    "contract": {
+      "exit": 0,
+      "command": [
+        "D:/Gowin/oss-cad-suite/bin/vvp.exe",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\logs\\tb_pitch_mod.vvp",
+        "+OCT_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\oct_ratio_q16.mem",
+        "+SUB_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\sub_ratio_q16.mem",
+        "+LFO_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\lfo_sine_q15.mem"
+      ],
+      "log_sha256": "581a7f9d6cfc9c507d63de6b53de74164fd8d0c54cdb8766af049f8082e3707a"
+    },
+    "empty": {
+      "exit": 1,
+      "command": [
+        "D:/Gowin/oss-cad-suite/bin/vvp.exe",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\logs\\tb_pitch_mod.vvp",
+        "+OCT_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\oct_ratio_q16.mem",
+        "+SUB_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\sub_ratio_q16.mem",
+        "+LFO_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\lfo_sine_q15.mem",
+        "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\empty_vectors.txt"
+      ],
+      "log_sha256": "08a501d2a7448acef5538443f36e11be855a87019471c10502f0b6d6a331f341"
+    },
+    "missing6": {
+      "exit": 1,
+      "command": [
+        "D:/Gowin/oss-cad-suite/bin/vvp.exe",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\logs\\tb_pitch_mod.vvp",
+        "+OCT_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\oct_ratio_q16.mem",
+        "+SUB_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\sub_ratio_q16.mem",
+        "+LFO_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\lfo_sine_q15.mem",
+        "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\missing6_vectors.txt"
+      ],
+      "log_sha256": "c5da61b6db9c4e5aab4ba1dc04959c3afdd9afca0e7bc2b2b4ef92ee2942b4a9"
+    },
+    "malformed": {
+      "exit": 1,
+      "command": [
+        "D:/Gowin/oss-cad-suite/bin/vvp.exe",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\logs\\tb_pitch_mod.vvp",
+        "+OCT_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\oct_ratio_q16.mem",
+        "+SUB_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\sub_ratio_q16.mem",
+        "+LFO_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\lfo_sine_q15.mem",
+        "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\malformed_vectors.txt"
+      ],
+      "log_sha256": "8a94c163d056a95516a2d626b5e42e14eddb3e057fd599b8fea0fdb2fecd69ff"
+    },
+    "unknown": {
+      "exit": 1,
+      "command": [
+        "D:/Gowin/oss-cad-suite/bin/vvp.exe",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\logs\\tb_pitch_mod.vvp",
+        "+OCT_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\oct_ratio_q16.mem",
+        "+SUB_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\sub_ratio_q16.mem",
+        "+LFO_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\lfo_sine_q15.mem",
+        "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\unknown_vectors.txt"
+      ],
+      "log_sha256": "a53615aaf447ee417879480736d66e646b013292b199240d6943c5581d864c59"
+    },
+    "extra": {
+      "exit": 1,
+      "command": [
+        "D:/Gowin/oss-cad-suite/bin/vvp.exe",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\logs\\tb_pitch_mod.vvp",
+        "+OCT_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\oct_ratio_q16.mem",
+        "+SUB_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\sub_ratio_q16.mem",
+        "+LFO_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\lfo_sine_q15.mem",
+        "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\extra_vectors.txt"
+      ],
+      "log_sha256": "321c75ea724637d886559728fa75c42b57f1803a49244e37ffd0d3ece92bdac4"
+    },
+    "wrong_expected": {
+      "exit": 1,
+      "command": [
+        "D:/Gowin/oss-cad-suite/bin/vvp.exe",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\logs\\tb_pitch_mod.vvp",
+        "+OCT_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\oct_ratio_q16.mem",
+        "+SUB_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\sub_ratio_q16.mem",
+        "+LFO_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\execution\\code\\model\\generated\\pitch_mod\\lfo_sine_q15.mem",
+        "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_final2_review_20261002\\wrong_expected_vectors.txt"
+      ],
+      "log_sha256": "8a72796f2816125a29a795d0fc75b5473e7034a6eb17233a9a4ce7942570c49a"
+    }
+  },
+  "imported_runner": {
+    "exit": 0,
+    "log_sha256": "81730569fd5074ec7d4ee8ea125474ed85b17bf1a1c8531d5ef5ece8e26e7362",
+    "no_ERROR_FATAL": true
+  },
+  "ROM_generator_two_runs_byte_identical": true,
+  "standalone_Gowin": {
+    "tool": "V1.9.11.03 Education",
+    "device": "GW5AT-LV60PG484AC1/I0",
+    "top": "pitch_mod_fcw",
+    "actual_syn_exit": 0,
+    "Logic": 2093,
+    "Register": 60,
+    "BSRAM": 0,
+    "MULTALU27X18": 1,
+    "MULT12X12": 1,
+    "MULT27X36": 2,
+    "estimated_Fmax_MHz": 37.222,
+    "default_report_clock_constraint_MHz": 100,
+    "not_PnR_or_50MHz_STA": true,
+    "report_sha256": "eabeedc767b14254a154aca0f3e69bf705808cb911903392aeeb1ac194a2ab87",
+    "log_sha256": "fbc10931278accc58eeac150922585fa518a7f4d002a135f5e6a51eca8a55526",
+    "tool_cache_log_warning": "IDE/cache/sh.log not open; captured actual build/log/report retained"
+  },
+  "protected_sha256": {
+    "code/build/electronic_piano.gprj": "86e23c21853f725618e74e985935266ddd98af119db921fd8cad57bed84ef3d8",
+    "code/rtl/board/electronic_piano_top.sv": "c75f4321c28753e851c26e6cb0810947a85e8f17ca61b28ae7e527a5ff765a5b",
+    "code/rtl/board/polyphonic_envelope_bank.sv": "813e0b726546c16344aa86eb39c02291315450a001ba613e3dbfc710885689da",
+    "code/rtl/board/polyphonic_audio_core.sv": "b36b0838f1b8ba947d99cc6c48f91334f845aa7984f6d9d3b21cbe502512c995",
+    "code/rtl/audio/adsr_piano_envelope.sv": "775fec7f546a00ca7bf98f132cce8d5d92d80ca6094af8e9e14cb07cd54a2e9d",
+    "code/rtl/common/audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+    "code/constraints/electronic_piano.cst": "76037da27eabba7bf322d41ad8f90c16b1a72b549fc2ffb865b380bfbda35dcb",
+    "code/constraints/audio_timing.sdc": "849c8b374c366ea1cbe6f44b17f761adad90861e3b50a0baf3ade73c05f953f5",
+    "code/docs/模块接口规范.md": "5bcfd9d355fb76aafb798104ea517bc047534d0740273b78df74c0d16758f8e5"
+  },
+  "bitstream_or_board_test": false,
+  "known_doc_corrections": {
+    "strings": "ordinary module-scope string under simulation protection; not automatic initial-block strings",
+    "baseline_ZIP_SHA_correct": "66c650ce11483a1e77336a33869ce5f45b6537ec3a1fd88c01bf2214a61a368a",
+    "original_DELIVERY_and_changes_preserved": true,
+    "actual_archive_contains": 16,
+    "source_member_count_claimed": 7
+  },
+  "constants": "5Hz and512Q10 remain candidate defaults not new user-frozen constants",
+  "formal_audio_effects_completed": false,
+  "ADSR_pipeline_role_notice": "not confirmed sent; no ADSR modification",
+  "M1_acceptance_handoff": "pending user forwarding, not delivered",
+  "formal_source_registered_level": "L2 plus standalone synthesis L4, no L5/L6",
+  "repo_gate": {
+    "exit": 0,
+    "groups": 9,
+    "python_files": 130,
+    "log_sha256": "847297266fdda8d78676c8e056c28244242b0c26bb9600141cb413ff76e80cf4"
+  }
+}
