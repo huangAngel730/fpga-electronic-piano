@@ -1,0 +1,1103 @@
+{
+  "date": "2026-10-02",
+  "reviewer": "M2",
+  "source_analysis": "direct HDL source plus actual Icarus/Gowin; CodeGraph HDL not used",
+  "baseline_audio": "e5eb025",
+  "fixed_visual_baseline": "70d0a9b / V0148 geometry, not in-progress flash fix",
+  "formal_sources_changed": false,
+  "algorithm_curves_or_PitchMod_changed": false,
+  "board_programmed": false,
+  "formal_optimization_complete": false,
+  "no_full_bypass": {
+    "depths": [
+      3,
+      32
+    ],
+    "baseline_drop": 0,
+    "candidate_added_drop": 1,
+    "DEPTH32_delivered_baseline_candidate": [
+      35,
+      34
+    ],
+    "accepted": false
+  },
+  "delayed_counter": {
+    "observation_delay_sys_clocks": 1,
+    "handshake_delay": 0,
+    "functional_checks": [
+      100380,
+      101830
+    ],
+    "pure_audio_actual_report": {
+      "summary": {
+        "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+        "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+        "Numbers of Paths Analyzed": "10415",
+        "Numbers of Endpoints Analyzed": "11065",
+        "Numbers of Falling Endpoints": "0",
+        "Numbers of Setup Violated Endpoints": "0",
+        "Numbers of Hold Violated Endpoints": "0"
+      },
+      "fmax": {
+        "sys_clk": "50.050(MHz)"
+      },
+      "worst_paths": {
+        "Setup": [
+          "1",
+          "0.020",
+          "g_polyphonic.u_audio_core/u_bank/g_lane[0].u_envelope/level_q16_2_s0/Q",
+          "g_polyphonic.u_audio_core/u_bank/g_lane[0].u_envelope/n590_s0/B[30]",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "-0.009",
+          "18.356"
+        ],
+        "Hold": [
+          "1",
+          "0.001",
+          "g_polyphonic.u_audio_core/u_bank/g_lane[2].u_envelope/rom_addr_9_s0/Q",
+          "g_polyphonic.u_audio_core/u_bank/g_lane[2].u_envelope/gain_rom_gain_rom_0_0_s/AD[13]",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "0.000",
+          "0.000",
+          "0.536"
+        ],
+        "Recovery": [
+          "1",
+          "12.665",
+          "u_reset_sync/sync_chain_1_s0/Q",
+          "g_polyphonic.u_audio_core/u_bank/g_lane[3].u_envelope/n724_s0/RESET[0]",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "5.774"
+        ],
+        "Removal": [
+          "1",
+          "0.319",
+          "u_reset_sync/sync_chain_1_s0/Q",
+          "g_polyphonic.u_audio_core/u_bank/u_events/u_allocator/slots[1].note_5_s0/CLEAR",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "0.000",
+          "-0.197",
+          "0.963"
+        ]
+      },
+      "scope": "actual isolated candidate pure audio PnR, no formal deployment",
+      "resources": {
+        "Logic": 6357,
+        "Register": 3476,
+        "DSP": 24,
+        "BSRAM": 8
+      },
+      "exported_counter_endpoint_paths": [],
+      "all_clock_TNS": [],
+      "criterion_setup_min_0_2_ns": false,
+      "audio_pin_count_verified": 10,
+      "active_constraint_sha256": {
+        "audio_timing.sdc": "849c8b374c366ea1cbe6f44b17f761adad90861e3b50a0baf3ade73c05f953f5",
+        "electronic_piano.cst": "76037da27eabba7bf322d41ad8f90c16b1a72b549fc2ffb865b380bfbda35dcb"
+      }
+    },
+    "accepted": false,
+    "reason": "pure audio setup+.020ns, below+.2 engineering threshold and new observation timing"
+  },
+  "parallel_counter": {
+    "observation_delay": 0,
+    "handshake_delay": 0,
+    "functional_checks": [
+      100620,
+      102070
+    ],
+    "counter_increments_checked": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "carry_and_saturation_seeds": [
+      "00000000",
+      "000000FE",
+      "0000FFFE",
+      "00FFFFFE",
+      "7FFFFFFE",
+      "FFFFFFFC",
+      "FFFFFFFE",
+      "FFFFFFFF"
+    ],
+    "actual_pure_audio": {
+      "summary": {
+        "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+        "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+        "Numbers of Paths Analyzed": "10428",
+        "Numbers of Endpoints Analyzed": "11056",
+        "Numbers of Falling Endpoints": "0",
+        "Numbers of Setup Violated Endpoints": "0",
+        "Numbers of Hold Violated Endpoints": "0"
+      },
+      "fmax": {
+        "sys_clk": "51.214(MHz)"
+      },
+      "worst_paths": {
+        "Setup": [
+          "1",
+          "0.474",
+          "g_polyphonic.u_audio_core/u_bank/g_lane[0].u_envelope/level_q16_2_s0/Q",
+          "g_polyphonic.u_audio_core/u_bank/g_lane[0].u_envelope/n590_s0/B[28]",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "17.704"
+        ],
+        "Hold": [
+          "1",
+          "0.001",
+          "g_polyphonic.u_audio_core/u_latency/elapsed_25_s0/Q",
+          "g_polyphonic.u_audio_core/u_latency/elapsed_25_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "0.000",
+          "0.000",
+          "0.514"
+        ],
+        "Recovery": [
+          "1",
+          "11.623",
+          "u_reset_sync/sync_chain_1_s0/Q",
+          "g_polyphonic.u_audio_core/u_bank/g_lane[1].u_envelope/n724_s0/RESET[0]",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "6.816"
+        ],
+        "Removal": [
+          "1",
+          "0.403",
+          "u_reset_sync/sync_chain_1_s0/Q",
+          "g_polyphonic.u_audio_core/u_bank/g_lane[1].u_envelope/rom_addr_8_s0/CLEAR",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "0.000",
+          "-0.197",
+          "1.047"
+        ]
+      },
+      "scope": "actual isolated candidate pure audio PnR, no formal deployment",
+      "resources": {
+        "Logic": 6458,
+        "Register": 3473,
+        "DSP": 24,
+        "BSRAM": 8
+      },
+      "exported_counter_endpoint_paths": [
+        [
+          "2",
+          "0.611",
+          "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[3]_0_s0/Q",
+          "u_button_event_converter/overflow_count_9_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "18.316"
+        ],
+        [
+          "3",
+          "0.672",
+          "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[3]_0_s0/Q",
+          "u_button_event_converter/overflow_count_29_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "18.255"
+        ],
+        [
+          "5",
+          "0.726",
+          "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[3]_0_s0/Q",
+          "u_button_event_converter/overflow_count_10_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "18.201"
+        ],
+        [
+          "8",
+          "0.838",
+          "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[3]_0_s0/Q",
+          "u_button_event_converter/overflow_count_23_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "18.089"
+        ],
+        [
+          "11",
+          "0.916",
+          "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[3]_0_s0/Q",
+          "u_button_event_converter/overflow_count_19_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "18.020"
+        ],
+        [
+          "13",
+          "0.925",
+          "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[3]_0_s0/Q",
+          "u_button_event_converter/overflow_count_16_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "18.011"
+        ],
+        [
+          "15",
+          "0.969",
+          "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[3]_0_s0/Q",
+          "u_button_event_converter/overflow_count_26_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "17.968"
+        ],
+        [
+          "16",
+          "0.992",
+          "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[3]_0_s0/Q",
+          "u_button_event_converter/overflow_count_7_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "17.944"
+        ],
+        [
+          "17",
+          "0.993",
+          "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[3]_0_s0/Q",
+          "u_button_event_converter/overflow_count_20_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "-0.009",
+          "17.952"
+        ],
+        [
+          "18",
+          "0.997",
+          "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[3]_0_s0/Q",
+          "u_button_event_converter/overflow_count_12_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "17.930"
+        ],
+        [
+          "19",
+          "1.061",
+          "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[3]_0_s0/Q",
+          "u_button_event_converter/overflow_count_6_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "17.866"
+        ],
+        [
+          "23",
+          "1.156",
+          "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[3]_0_s0/Q",
+          "u_button_event_converter/overflow_count_4_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "17.780"
+        ],
+        [
+          "24",
+          "1.186",
+          "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[3]_0_s0/Q",
+          "u_button_event_converter/overflow_count_5_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "17.741"
+        ]
+      ],
+      "all_clock_TNS": [],
+      "criterion_setup_min_0_2_ns": true,
+      "audio_pin_count_verified": 10,
+      "active_constraint_sha256": {
+        "audio_timing.sdc": "849c8b374c366ea1cbe6f44b17f761adad90861e3b50a0baf3ade73c05f953f5",
+        "electronic_piano.cst": "76037da27eabba7bf322d41ad8f90c16b1a72b549fc2ffb865b380bfbda35dcb"
+      }
+    },
+    "actual_audio_visual_tool_gate": {
+      "errors": [],
+      "facts": {
+        "visual_gate": {
+          "summary": {
+            "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+            "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+            "Numbers of Paths Analyzed": "21593",
+            "Numbers of Endpoints Analyzed": "18054",
+            "Numbers of Falling Endpoints": "4",
+            "Numbers of Setup Violated Endpoints": "0",
+            "Numbers of Hold Violated Endpoints": "0"
+          },
+          "bus_path_count": {
+            "u_event_bridge": 22,
+            "u_control/u_score_mailbox": 37
+          }
+        },
+        "audio_pins": 10,
+        "resources": {
+          "Logic": 16393,
+          "Register": 5808,
+          "DSP": 24,
+          "BSRAM": 8
+        },
+        "fmax_mhz": {
+          "sys_clk": 50.405,
+          "video_serial": 1296.595,
+          "video_pixel": 25.716
+        },
+        "exported_min_slack_ns": {
+          "Setup": 0.161,
+          "Hold": 0.0,
+          "Recovery": 1.076,
+          "Removal": 0.059
+        },
+        "latency_registers": 65,
+        "scope": "independent audio/visual STA only; not production top, monitor or silicon acceptance"
+      }
+    },
+    "optimization_acceptance": {
+      "worst_paths": {
+        "Setup": [
+          "1",
+          "0.161",
+          "g_polyphonic.u_audio_core/u_bank/g_lane[3].u_envelope/level_q16_2_s0/Q",
+          "g_polyphonic.u_audio_core/u_bank/g_lane[3].u_envelope/n590_s0/B[30]",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "-0.019",
+          "18.225"
+        ],
+        "Hold": [
+          "1",
+          "0.000",
+          "u_midi_input/u_midi_event_parser/running_status_1_s0/Q",
+          "u_midi_input/u_midi_event_parser/fifo_mem[6].channel_1_s1/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "0.000",
+          "-0.190",
+          "0.715"
+        ],
+        "Recovery": [
+          "1",
+          "1.076",
+          "u_visual/u_serial_reset/sync_chain_1_s0/Q",
+          "u_visual/u_video_tx/rgb2dvi_inst/u_OSER10_b/RESET",
+          "video_serial:[R]",
+          "video_serial:[F]",
+          "4.000",
+          "-0.015",
+          "2.788"
+        ],
+        "Removal": [
+          "1",
+          "0.059",
+          "u_visual/u_event_bridge/u_sys_reset/sync_chain_1_s0/Q",
+          "u_visual/u_event_bridge/rd_ptr_0_s1/CLEAR",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "0.000",
+          "-0.004",
+          "0.510"
+        ]
+      },
+      "per_clock_Setup": {
+        "sys_clk": [
+          "1",
+          "0.161",
+          "g_polyphonic.u_audio_core/u_bank/g_lane[3].u_envelope/level_q16_2_s0/Q",
+          "g_polyphonic.u_audio_core/u_bank/g_lane[3].u_envelope/n590_s0/B[30]",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "-0.019",
+          "18.225"
+        ],
+        "video_pixel": [
+          "1",
+          "1.115",
+          "u_visual/u_scan/pixel_x_2_s0/Q",
+          "u_visual/u_scene/u_score_tracker/hit_mem_7_s1/CE",
+          "video_pixel:[R]",
+          "video_pixel:[R]",
+          "40.000",
+          "-0.009",
+          "38.583"
+        ],
+        "video_serial": [
+          "1",
+          "7.229",
+          "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+          "u_visual/u_serial_reset/sync_chain_1_s0/D",
+          "video_serial:[R]",
+          "video_serial:[R]",
+          "8.000",
+          "0.000",
+          "0.480"
+        ]
+      },
+      "exported_counter_paths": [
+        [
+          "5",
+          "0.236",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_16_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.681"
+        ],
+        [
+          "6",
+          "0.275",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_3_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.642"
+        ],
+        [
+          "7",
+          "0.275",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_25_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.642"
+        ],
+        [
+          "8",
+          "0.282",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_8_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "18.397"
+        ],
+        [
+          "9",
+          "0.282",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_18_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "18.397"
+        ],
+        [
+          "10",
+          "0.282",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_31_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "18.397"
+        ],
+        [
+          "11",
+          "0.284",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_5_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "18.642"
+        ],
+        [
+          "12",
+          "0.284",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_11_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "18.642"
+        ],
+        [
+          "13",
+          "0.320",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_7_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.604"
+        ],
+        [
+          "14",
+          "0.329",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_15_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "-0.476",
+          "19.084"
+        ],
+        [
+          "15",
+          "0.329",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_9_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "18.607"
+        ],
+        [
+          "16",
+          "0.329",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_10_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "18.607"
+        ],
+        [
+          "17",
+          "0.329",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_18_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "18.604"
+        ],
+        [
+          "18",
+          "0.331",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_19_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "-0.476",
+          "19.081"
+        ],
+        [
+          "19",
+          "0.336",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_6_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "18.600"
+        ],
+        [
+          "20",
+          "0.341",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_27_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.576"
+        ],
+        [
+          "21",
+          "0.351",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_8_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "18.576"
+        ],
+        [
+          "23",
+          "0.393",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_21_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.525"
+        ],
+        [
+          "25",
+          "0.406",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_20_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.511"
+        ],
+        [
+          "27",
+          "0.427",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_23_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "18.500"
+        ],
+        [
+          "28",
+          "0.430",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_12_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "-0.476",
+          "18.982"
+        ],
+        [
+          "33",
+          "0.447",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_0_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.470"
+        ],
+        [
+          "34",
+          "0.456",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_26_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "18.480"
+        ],
+        [
+          "36",
+          "0.465",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_7_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.205"
+        ],
+        [
+          "37",
+          "0.465",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_27_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.205"
+        ],
+        [
+          "38",
+          "0.485",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_29_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "18.451"
+        ],
+        [
+          "42",
+          "0.514",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_22_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "-0.467",
+          "18.889"
+        ],
+        [
+          "43",
+          "0.517",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_3_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.152"
+        ],
+        [
+          "44",
+          "0.517",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_20_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.152"
+        ],
+        [
+          "45",
+          "0.517",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_24_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.152"
+        ],
+        [
+          "46",
+          "0.517",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_25_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.152"
+        ],
+        [
+          "49",
+          "0.533",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_14_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "-0.486",
+          "18.889"
+        ],
+        [
+          "50",
+          "0.539",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_24_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.379"
+        ],
+        [
+          "54",
+          "0.559",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_4_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.111"
+        ],
+        [
+          "55",
+          "0.559",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_13_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.111"
+        ],
+        [
+          "56",
+          "0.559",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_21_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.111"
+        ],
+        [
+          "58",
+          "0.564",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_31_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "18.363"
+        ],
+        [
+          "59",
+          "0.591",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_4_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.326"
+        ],
+        [
+          "60",
+          "0.591",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_13_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.019",
+          "18.326"
+        ],
+        [
+          "63",
+          "0.652",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_2_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "18.027"
+        ],
+        [
+          "64",
+          "0.652",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_23_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "18.027"
+        ],
+        [
+          "65",
+          "0.656",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_6_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "18.032"
+        ],
+        [
+          "66",
+          "0.656",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_9_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "18.032"
+        ],
+        [
+          "67",
+          "0.656",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_10_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "18.032"
+        ],
+        [
+          "68",
+          "0.656",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_26_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "18.032"
+        ],
+        [
+          "69",
+          "0.656",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_29_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.000",
+          "18.032"
+        ],
+        [
+          "71",
+          "0.667",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_5_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "18.012"
+        ],
+        [
+          "72",
+          "0.667",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_11_s0/CE",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "0.009",
+          "18.012"
+        ],
+        [
+          "77",
+          "0.743",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_17_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "-0.467",
+          "18.660"
+        ],
+        [
+          "78",
+          "0.751",
+          "u_i2s_tx/bclk_acc_1_s0/Q",
+          "u_button_event_converter/overflow_count_28_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "-0.467",
+          "18.653"
+        ]
+      ],
+      "system_setup_min_goal_0_2_ns_met": false,
+      "Hold_positive_margin_claimed": false,
+      "accepted_for_formal_deployment": false
+    },
+    "dual_top_audio_comparison": "14 checks,881249 cycles845PCM799nonzero75mode changes; reference uses separate original button converter",
+    "accepted": false,
+    "reason": "system Setup+.161ns below+.2 engineering minimum; Hold rounded0.000ns, no positive margin claim"
+  },
+  "criteria": {
+    "target_system_setup_ns": 0.5,
+    "minimum_system_setup_ns": 0.2,
+    "nature": "M2 project engineering objective, not Gowin/vendor standard",
+    "no_new_timing_exceptions": true
+  },
+  "candidate_sha256": "65c7978b2e1ce27fc09606cd87ee43fc1a078898acdd109490ca1909f89c0dd7",
+  "reproducible_generator_exactly_matches_PnR_candidate": true,
+  "active_constraint_sha256": {
+    "code/output/control_chain_isolation_20261002/audio_parallel/audio_timing.sdc": "849c8b374c366ea1cbe6f44b17f761adad90861e3b50a0baf3ade73c05f953f5",
+    "code/output/control_chain_isolation_20261002/audio_parallel/electronic_piano.cst": "76037da27eabba7bf322d41ad8f90c16b1a72b549fc2ffb865b380bfbda35dcb",
+    "code/output/control_chain_isolation_20261002/visual_parallel/audio_visual.cst": "b924a759b2810a3bcae5795223b461fc24dc80707bbfe4e67c4ce98a01ceda39",
+    "code/output/control_chain_isolation_20261002/visual_parallel/audio_visual.sdc": "c99d7b0afb6c83eee7431d00b25c857cad99e467f89e3a1c9151da3cb44d799d"
+  },
+  "protected_formal_sha256": {
+    "code/rtl/common/performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+    "code/rtl/input/button_event_converter/button_event_converter.sv": "f6befb9c7415c69da62f2083e22803eae93ebeac63b8903b3c1314c4e9e723f0",
+    "code/rtl/audio_out/i2s_tx.sv": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+    "code/rtl/board/electronic_piano_top.sv": "c75f4321c28753e851c26e6cb0810947a85e8f17ca61b28ae7e527a5ff765a5b"
+  },
+  "log_sha256": {
+    "code/output/control_chain_isolation_20261002/compile_3.log": "6fe90e21ec07543296a84f0c7757a0317fe809ecbaa734cfb4fa229196d07abb",
+    "code/output/control_chain_isolation_20261002/compile_32.log": "6fe90e21ec07543296a84f0c7757a0317fe809ecbaa734cfb4fa229196d07abb",
+    "code/output/control_chain_isolation_20261002/dual_top_compare.log": "12b053b40c9c4b0756345d87d4840da9ae629ce70ab19c4a7afc5b3f66847b40",
+    "code/output/control_chain_isolation_20261002/parallel_compile_3.log": "0d03c8e98353fb5deacf91aad4c8fcfd102fad1b32924146d8589499d348c685",
+    "code/output/control_chain_isolation_20261002/parallel_compile_32.log": "0d03c8e98353fb5deacf91aad4c8fcfd102fad1b32924146d8589499d348c685",
+    "code/output/control_chain_isolation_20261002/parallel_dual_top_compare.log": "12b053b40c9c4b0756345d87d4840da9ae629ce70ab19c4a7afc5b3f66847b40",
+    "code/output/control_chain_isolation_20261002/parallel_run_3.log": "7eafcb55bd9140763ed665871b602b8f2d1c8ffe8f2749e8c8f6c074b31fafa9",
+    "code/output/control_chain_isolation_20261002/parallel_run_32.log": "3d0317c7f005cdda390e16953c7e73fba570f9fa63788526cda92b0d4ceedaa6",
+    "code/output/control_chain_isolation_20261002/prepare_visual.log": "c787a21dc466d4d68e230c7123dae581e3a1164d91c1cb701bd7348567ccc8ec",
+    "code/output/control_chain_isolation_20261002/reproducible_functional.log": "65461de9ae26b68d5bed2d3b54cba5850faa4eaba6ba5ffef7705ee15d68dc72",
+    "code/output/control_chain_isolation_20261002/reproducible_with_carry_tests.log": "f70a131177dedb3aa77aa233d27d015a7463933483cfb6fe074236c171e9e999",
+    "code/output/control_chain_isolation_20261002/run_3.log": "30446eedf69efe41a53e9ac9702a219b25b504bce54b17eb63e9a3364f33571a",
+    "code/output/control_chain_isolation_20261002/run_32.log": "96a9c2fb252d9c3a6ec8dd5b249c2645711d09590fd6d20c50ec37a422fe58d6",
+    "code/output/control_chain_isolation_20261002/audio_build/build.log": "90fc9f80feab9614ced4066bf70aee49c77124a7905df309187a13e822bc16db",
+    "code/output/control_chain_isolation_20261002/audio_parallel/build.log": "057943317576ead88bfc51d0e44d30094847b9321545d84b62181b49a94c45dc",
+    "code/output/control_chain_isolation_20261002/visual_parallel/build.log": "717a6884fd7f1fe1b1506368c99ba85b47bcec57f5ccefde4865175d9208ea28",
+    "code/output/control_chain_isolation_20261002/visual_parallel/gate_review.log": "b9259bf16480459546a45bdc7cc92aced0ff0769cc05945974ec054df8c01d1b"
+  },
+  "report_and_experimental_fs_sha256": {
+    "code/output/control_chain_isolation_20261002/audio_build/impl/pnr/electronic_piano_top_tr_content.html": "a317adb9f36fcf69dcf579e453c1fea607f39d7f32cdea40af360c62b165560a",
+    "code/output/control_chain_isolation_20261002/audio_build/impl/pnr/electronic_piano_top.rpt.txt": "fd347eefde0d7ea88f3f93b79815f8d2d98ede464c64653e0ba07138a7e1d384",
+    "code/output/control_chain_isolation_20261002/audio_build/impl/pnr/electronic_piano_top.pin.html": "76b25544d7abc43df0e33b7ea1f5c0f687737c2cd2810e0eff4a00ea0d9c3a61",
+    "code/output/control_chain_isolation_20261002/audio_build/impl/pnr/electronic_piano_top.fs": "0310ae7f130f11d028f2d7d149aa5bbef7e83a3b42db1cac226addc685bd5431",
+    "code/output/control_chain_isolation_20261002/audio_build/impl/gwsynthesis/electronic_piano_top_syn_rsc.xml": "bbcceae886469375a96fb730c04cf8238bc8245a182625baef342beec02b98fa",
+    "code/output/control_chain_isolation_20261002/audio_parallel/impl/pnr/electronic_piano_top_tr_content.html": "1e8eb63db61d2307b4685e273b91a9bbd5c64aa2456677725a491816c0140574",
+    "code/output/control_chain_isolation_20261002/audio_parallel/impl/pnr/electronic_piano_top.rpt.txt": "6b186ace347faae45491f8b9396198afc1c7b731e2b9811b816b729e41a9da15",
+    "code/output/control_chain_isolation_20261002/audio_parallel/impl/pnr/electronic_piano_top.pin.html": "7d32f72ea03409adc4a3ae83fe9f1dae8ede28cb4fb9eda842f2a8cef2d2759e",
+    "code/output/control_chain_isolation_20261002/audio_parallel/impl/pnr/electronic_piano_top.fs": "ddeeb64e668c6878c0a2ab82954be16784828c0a6bc55fc26e4f9dbe710dc57e",
+    "code/output/control_chain_isolation_20261002/audio_parallel/impl/gwsynthesis/electronic_piano_top_syn_rsc.xml": "e06d9a2e2b3a9ed0b6fda0ee1f592bfd4011ac86f755d179dc3258e480134ae5",
+    "code/output/control_chain_isolation_20261002/visual_parallel/impl/pnr/audio_visual_coexistence_top_tr_content.html": "d22af0eac373e9e1a6aa44a15bad95b25e3ca1ea4380fcad0a15dc72ffa38529",
+    "code/output/control_chain_isolation_20261002/visual_parallel/impl/pnr/audio_visual_coexistence_top.rpt.txt": "54d7d591dcd599997240ad9e626db391a9c321b88b36f6df12870ffb6854f192",
+    "code/output/control_chain_isolation_20261002/visual_parallel/impl/pnr/audio_visual_coexistence_top.pin.html": "e6bf5c5958e49bb1db179ad0fbe1131490d150552cf3190ebc1a3a0a1dd4fe48",
+    "code/output/control_chain_isolation_20261002/visual_parallel/impl/pnr/audio_visual_coexistence_top.fs": "197ec769a4937189e38797588791e981d608a66b54e50f8287b7e9966245da8c",
+    "code/output/control_chain_isolation_20261002/visual_parallel/impl/gwsynthesis/audio_visual_coexistence_top_syn_rsc.xml": "b9162a50b345468d7c8539295c9d09277df3e3f5fa595dc285c6aba577c8aaba"
+  },
+  "M1_next_scope": "ADSR step_delta multiplier first_level path pipeline, not started; requires user private scope handoff before formal modification",
+  "M3_handoff": "pending user forwarding, not delivered; candidate never overwrote owned file",
+  "L6": "not performed, no experimental fs released to M3",
+  "repro_source_sha256": {
+    "code/scripts/run_control_chain_isolation.py": "192d9221f88b39e3082332a8c0331e9ac9c50a8673945842d10c2f00b6a85561",
+    "code/tb/common/tb_control_chain_counter_compare.sv": "2d0d0526918e9128660600235924e0b878b75b294978560383e9a3b01d47622d"
+  },
+  "repo_gate": {
+    "exit": 0,
+    "groups": 9,
+    "Python_files": 124,
+    "log_sha256": "fb02073dfc3e62465b41ae9ff7ea6bf6406ce74a8cdc9251aea738c236f998d3"
+  }
+}
