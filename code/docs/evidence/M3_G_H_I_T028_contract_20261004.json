@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-04",
+  "baseline": "7dc0ad12980726452c44c19cca8ac88ccf40d250",
+  "status": "prepared, pending user forward; no M3 notification presumed",
+  "parent": "T028 independent module V0169; necessary integration preparation, not generic T016/T029",
+  "tasks": [
+    {
+      "id": "G",
+      "priority": 1,
+      "job": "independent synthesizable PCM24 delay transaction adapter candidate",
+      "write": [
+        "code/tb/board/m3_delay_transaction_candidate/**",
+        "code/scripts/run_m3_delay_transaction_candidate.py"
+      ],
+      "module": "m3_delay_transaction_adapter",
+      "clock_hz": 50000000,
+      "DEPTH_default": 1024,
+      "ports": {
+        "inputs": {
+          "clk": "1",
+          "rst_n": "1 active-low async assert, caller sync release",
+          "cancel": "1 synchronous transaction-only cancellation",
+          "request_valid": "1 held until handshake",
+          "request_id": "32 unsigned",
+          "request_pcm": "24 signed mono",
+          "delay_samples": "16 unsigned",
+          "dry_gain": "15 unsigned",
+          "wet_gain": "15 unsigned",
+          "feedback": "15 unsigned",
+          "result_ready": "1"
+        },
+        "outputs": {
+          "request_ready": "1",
+          "result_valid": "1",
+          "result_id": "32 unsigned",
+          "result_pcm": "24 signed mono"
+        }
+      },
+      "rules": [
+        "request_valid&&request_ready starts exactly one sample_enable pulse; freeze id and all parameters",
+        "no second request while waiting for E+2 result; >=4cycles between accepted launches",
+        "capture raw valid only once, hold tagged PCM stable under backpressure",
+        "cancel wins over request/result handshake; immediately invalidate held result, stop accepting until old E+2 work drained",
+        "cancel does not reset delay history or rollback accepted sample; accepted raw algorithm advances/writes once even if result discarded, document this candidate semantics",
+        "rst_n clears valid/id/result and effects logical history; do not make audio clear/timbre/global panic policy",
+        "delay0 remains DEPTH-loop history, not bypass",
+        "no FIFO or extra capacity; one outstanding request and one held output"
+      ],
+      "negative": [
+        "duplicate accepted sample starts",
+        "corrupt result id",
+        "ignored cancel or stale valid leak"
+      ],
+      "formal_connection": "not production wiring; M2 must review all cancel semantics before final adoption"
+    },
+    {
+      "id": "H",
+      "priority": 2,
+      "job": "test-only real mixer to delay candidate to PCM frame-buffer acceptance",
+      "write": [
+        "code/tb/board/m3_delay_pcm_acceptance/**",
+        "code/scripts/run_m3_delay_pcm_acceptance.py"
+      ],
+      "depends": "G reviewed local candidate interface, no formal module edit",
+      "chain": "real existing V1/CC64/PitchMod bank + original Q15 gain + real4voice mixer -> G mono adapter -> actual PCM result hold/frame buffer",
+      "rules": [
+        "use TB wiring wrapper only, no changes to existing core/commit/bank",
+        "current stereo identical mono source may duplicate effected PCM to L/R only in TB, explicitly label mono effect, do not claim independent stereo",
+        "request once per frame and continue zero-input samples after allvoices retire, so delay history/tail progresses",
+        "independent integer recurrence based on accepted effect request PCM/params, not import same delay model as only oracle",
+        "all normal PCM frames >=512 at1041/1042cycles, no accidental underrun",
+        "depth16 and1024 effects impulse/feedback/multivoice wet+drysaturation, preserved non-effect reference when no math effect required",
+        "cancel before/after raw commit and reset dirty history, demonstrate accepted-history-not-rollback, per-frame tag and duplicate protection",
+        "no arbitrary claims on musical frequency from PCM values; no analog delay/no-pop/board claim"
+      ],
+      "negative": [
+        "wrong frame id accepted",
+        "off-by-one effect read/write address",
+        "bypass wet contribution or drop delayed tail"
+      ],
+      "no_new_policies": [
+        "no effect public control id mapping",
+        "no Program timbre/CC123/watchdog",
+        "no parameter-smoothing algorithm"
+      ]
+    },
+    {
+      "id": "I",
+      "priority": 3,
+      "job": "bounded actual Gowin delay RAM-depth synthesis check",
+      "write": [
+        "code/tb/board/m3_delay_memory_probe/**",
+        "code/scripts/run_m3_delay_memory_probe.py"
+      ],
+      "DUT": "exact accepted V0169 delay_effect.sv, readonly",
+      "DEPTHs": [
+        1024,
+        4096,
+        16384
+      ],
+      "scope": "one synthesis run per depth, no PnR or seed search, not generalized resource planning",
+      "rules": [
+        "probe must keep nonzero PCM/wet/feedback/parameters and outputs live; no constant zero optimizations or missing ROM",
+        "no DUT reset/RAM rewrite; simply report actual inferred memory structure",
+        "use GW5AT-LV60PG484AC1/I0 exactB revision and actual Gowin version, include20ns SDC",
+        "register full source/tool/options/report SHA; Logic/FF/BSRAM/RAM16/DSP primitive counts separate, missing data means unknown not0",
+        "expected max delay=(DEPTH-1)/48000seconds; delay0 means fullDepth history; engineering cost calculation is planning not timing evidence",
+        "if resource overflow/tool errors, preserve failed logs and stop that case, no hidden shallower substitution",
+        "if localGowin unavailable, provide exact reproducible entry and state no synthesis done; do not block G/H"
+      ],
+      "excluded": [
+        "new registered clock/top/CST",
+        "audio board bitstream",
+        "Gowin PnR/STA or fullsystem totals extrapolated from probes"
+      ]
+    }
+  ],
+  "readonly_source_sha256": {
+    "code/rtl/audio/delay_effect.sv": "3e31669f268d5fa93ec64dc33dbc8f8bb5490d80ecbbb83bb9695a05f703d0bd",
+    "code/rtl/board/polyphonic_audio_core.sv": "b36b0838f1b8ba947d99cc6c48f91334f845aa7984f6d9d3b21cbe502512c995",
+    "code/rtl/board/polyphonic_pcm_commit.sv": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+    "code/rtl/audio_out/pcm_frame_buffer.sv": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+    "code/rtl/audio_out/pcm_result_hold.sv": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+    "code/tb/board/pitch_mod_bank_integration_candidate/polyphonic_envelope_bank.sv": "bf0da7888140f69d8777bf1625769402be85de677ac7eb34f6ef934ad8f42f00",
+    "code/tb/board/pitch_mod_bank_integration_candidate/polyphonic_event_router.sv": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+    "code/docs/test/M1_T028_final_delivery_20261003/module_acceptance_contract.json": "462f26842bcc991aa2948f178c0de7d0987ce48bf709ef3d0d52de702968820e",
+    "code/model/delay_effect_fixed.py": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+    "code/scripts/run_m3_midi_pcm_acceptance.py": "c456f6635c7fb72499ec26a4fcd3ce980fafaaac58c63eaae1c9b9bd0d314b9e",
+    "code/tb/board/m3_midi_pcm_acceptance/scoreboard.py": "8088931dcb6020515c2960ca73577e0857d2e822b0c83acc835a49c08a173691"
+  },
+  "global_exclusions": [
+    "production RTL/model/ADSR/bank/router",
+    "public package/top/GPRJ/CST/SDC/interface docs",
+    "shared V/D/T tables",
+    "visual and STAT",
+    "subagents or new windows"
+  ],
+  "delivery": "G,H,I separate develop commits with respective validation counts/levels and repo9gate. No original A-F repeated. M2 assigns validation numbers after review.",
+  "handoff": "pending user forward, not delivered"
+}

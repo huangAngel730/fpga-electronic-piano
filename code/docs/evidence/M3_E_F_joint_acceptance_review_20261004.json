@@ -1,0 +1,526 @@
+{
+  "date": "2026-10-04",
+  "reviewer": "M2",
+  "source_commits": {
+    "E_function": "de68038",
+    "E_burst16_review": "c1a24af",
+    "F_joint_acceptance": "45e4cff"
+  },
+  "source_and_original_evidence_review": {
+    "date": "2026-10-04",
+    "archive_SHA256": "c5a62c9617999721fe347b5644dafcb490dfb3d0d8bf29cf85aab37177c60b78",
+    "attachments_verified": 77,
+    "sourcefiles_verified": 8,
+    "E_burst16_generated_TB_SHA": "f699d9eeb73b5d39b9e838d44c5926aa60ff1630527c7c623fb387ec1c0fa2db",
+    "E_M3_original_ModelSim_evidence_passed": true,
+    "E_M2_generated_TB_and_baseline_recreated": true,
+    "M2_full_E_RTL_rerun": false,
+    "F_M2_independent_capture_reference": {
+      "reset_cancelled_requests": 1,
+      "reset_epochs": 4,
+      "frame_edges": 2487,
+      "frame_requests": 2487,
+      "bank_captures": 2487,
+      "control_snapshots": 2487,
+      "fcw_results": 2486,
+      "dds_advances": 2486,
+      "pcm_commits": 2486,
+      "normal_pcm": 2484,
+      "uart_bytes": 103,
+      "normal_input_events": 34,
+      "accepted_events": 68,
+      "note_on_pulses": 14,
+      "nonzero_pcm": 2301,
+      "nonzero_control_lane_results": 3734,
+      "uart_completions_at_frame_edge": 2,
+      "fixture_input_events": 34,
+      "fixture_phase_pcm": 2,
+      "full_pop_push": 1,
+      "control_stall_cycles": 59,
+      "sample_edge_events": 6,
+      "center_bank_comparisons": 697,
+      "rtl_assertions": 7777277,
+      "identities": 8,
+      "scenarios": [
+        "accepted_only",
+        "center512",
+        "fifo_pressure",
+        "four_voices",
+        "held_controls",
+        "pedal_steal",
+        "pedal_tail_controls",
+        "program_transport",
+        "recovered",
+        "release_controls",
+        "release_retrigger",
+        "reset_compute",
+        "reset_partial",
+        "reset_pending",
+        "sample_edge",
+        "steal_old_off",
+        "velocity_zero"
+      ]
+    },
+    "F_received_source_identity": [
+      {
+        "path": "code/rtl/common/audio_defs_pkg.sv",
+        "M3_raw_SHA": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "M2_raw_SHA": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/common/uart_rx.sv",
+        "M3_raw_SHA": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+        "M2_raw_SHA": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/common/performance_event_fifo.sv",
+        "M3_raw_SHA": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+        "M2_raw_SHA": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/input/midi_input/midi_event_parser.sv",
+        "M3_raw_SHA": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+        "M2_raw_SHA": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/input/midi_input/midi_input.sv",
+        "M3_raw_SHA": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710",
+        "M2_raw_SHA": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/board/performance_control_snapshot.sv",
+        "M3_raw_SHA": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+        "M2_raw_SHA": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/board/polyphonic_audio_core.sv",
+        "M3_raw_SHA": "b36b0838f1b8ba947d99cc6c48f91334f845aa7984f6d9d3b21cbe502512c995",
+        "M2_raw_SHA": "b36b0838f1b8ba947d99cc6c48f91334f845aa7984f6d9d3b21cbe502512c995",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/board/polyphonic_pcm_commit.sv",
+        "M3_raw_SHA": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+        "M2_raw_SHA": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/tb/board/pitch_mod_bank_integration_candidate/polyphonic_event_router.sv",
+        "M3_raw_SHA": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+        "M2_raw_SHA": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/tb/board/pitch_mod_bank_integration_candidate/polyphonic_envelope_bank.sv",
+        "M3_raw_SHA": "bf0da7888140f69d8777bf1625769402be85de677ac7eb34f6ef934ad8f42f00",
+        "M2_raw_SHA": "bf0da7888140f69d8777bf1625769402be85de677ac7eb34f6ef934ad8f42f00",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/tb/board/pitch_mod_bank_integration_candidate/source_manifest.json",
+        "M3_raw_SHA": "0b21ae6268ea97befc56a171191375d58995e255712069203a7e244de69e6463",
+        "M2_raw_SHA": "0b21ae6268ea97befc56a171191375d58995e255712069203a7e244de69e6463",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/tb/board/pitch_mod_pipeline_candidate/pitch_mod_fcw_pipeline.sv",
+        "M3_raw_SHA": "bc14fab96206c2ec202e155995427573c7bf18ce0bc74e5f291e6bc531f8f772",
+        "M2_raw_SHA": "bc14fab96206c2ec202e155995427573c7bf18ce0bc74e5f291e6bc531f8f772",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/tb/board/pitch_mod_pipeline_candidate/pitch_mod_snapshot_pipeline.sv",
+        "M3_raw_SHA": "ea4aaad461e62eea360f8efebae60d3b2963e8515a0d6bb514e3b37c2895651b",
+        "M2_raw_SHA": "ea4aaad461e62eea360f8efebae60d3b2963e8515a0d6bb514e3b37c2895651b",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/audio/voice_allocator_4.sv",
+        "M3_raw_SHA": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+        "M2_raw_SHA": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/audio/piano_dds_oscillator.sv",
+        "M3_raw_SHA": "941c6f1bb2e41cf9bd4433b9c22ab58c9ad7e041f32e96039de6eec8dc139fc1",
+        "M2_raw_SHA": "941c6f1bb2e41cf9bd4433b9c22ab58c9ad7e041f32e96039de6eec8dc139fc1",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/input/sustain_control/sustain_controller.sv",
+        "M3_raw_SHA": "dd244b99b06eaa2ed7e7deda1c08aeb119f002bff939ce5941e5e81a559cbc4e",
+        "M2_raw_SHA": "dd244b99b06eaa2ed7e7deda1c08aeb119f002bff939ce5941e5e81a559cbc4e",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/board/sustain_controller_ports.svh",
+        "M3_raw_SHA": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d",
+        "M2_raw_SHA": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/board/sustain_control_contract_pkg.sv",
+        "M3_raw_SHA": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+        "M2_raw_SHA": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/scripts/run_adsr_pipeline_isolated.py",
+        "M3_raw_SHA": "ef75b47b61d33dfeef2b0dfdd9fd1adcbc46e24638a6a3aa065b050acf5bbbea",
+        "M2_raw_SHA": "ef75b47b61d33dfeef2b0dfdd9fd1adcbc46e24638a6a3aa065b050acf5bbbea",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/tb/audio/adsr_pipeline_isolated_candidate.patch",
+        "M3_raw_SHA": "27b90f5d20a92e0271e6a49d9988dfe696ad1514babd5a63e1c6941ec2b36b14",
+        "M2_raw_SHA": "27b90f5d20a92e0271e6a49d9988dfe696ad1514babd5a63e1c6941ec2b36b14",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/tb/audio/adsr_pipeline_candidate_baseline.json",
+        "M3_raw_SHA": "56e8ee838359f71b44d6c7f21ace326516fbfb67c0fad67b15512b03a637bec9",
+        "M2_raw_SHA": "56e8ee838359f71b44d6c7f21ace326516fbfb67c0fad67b15512b03a637bec9",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/scripts/run_pitch_mod_bank_integration_candidate.py",
+        "M3_raw_SHA": "44d647c96190f142131012a6a168e915c73f3ef940fb32dc2d499465b7750bf3",
+        "M2_raw_SHA": "44d647c96190f142131012a6a168e915c73f3ef940fb32dc2d499465b7750bf3",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/model/pitch_mod_model.py",
+        "M3_raw_SHA": "759f9e2f2b471f44b9267ea9f5a1ddded98e9be3da01efaa76d000ceed49d46e",
+        "M2_raw_SHA": "759f9e2f2b471f44b9267ea9f5a1ddded98e9be3da01efaa76d000ceed49d46e",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/model/generated/pitch_mod/oct_ratio_q16.mem",
+        "M3_raw_SHA": "65185caf2722c98cd5406ecff0819f8b011cbbe6a5b9ae1974d3a03f4cf15fbd",
+        "M2_raw_SHA": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d",
+        "raw_equal": false,
+        "verified_newline_only_if_different": true
+      },
+      {
+        "path": "code/model/generated/pitch_mod/sub_ratio_q16.mem",
+        "M3_raw_SHA": "9530577dfbc9b901d83abaa1a6f1c929241f7c092b5fc556b106b0c8bffc984e",
+        "M2_raw_SHA": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9",
+        "raw_equal": false,
+        "verified_newline_only_if_different": true
+      },
+      {
+        "path": "code/model/generated/pitch_mod/lfo_sine_q15.mem",
+        "M3_raw_SHA": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060",
+        "M2_raw_SHA": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4",
+        "raw_equal": false,
+        "verified_newline_only_if_different": true
+      },
+      {
+        "path": "code/model/generated/wavetables/piano_band_4x256_8191.mem",
+        "M3_raw_SHA": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+        "M2_raw_SHA": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/model/generated/wavetables/velocity_gain_rom.mem",
+        "M3_raw_SHA": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+        "M2_raw_SHA": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/tb/board/m3_control_chain_acceptance/scoreboard.py",
+        "M3_raw_SHA": "3a139b5c836dc34c49f9aa0686b41ccdd98a701223bf7144f4ad6753f27e5cf1",
+        "M2_raw_SHA": "3a139b5c836dc34c49f9aa0686b41ccdd98a701223bf7144f4ad6753f27e5cf1",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/tb/board/m3_control_chain_acceptance/tb_control_chain.sv",
+        "M3_raw_SHA": "882e3baf3551ca248d40bc1f2e3852c8147052e977de1818b9c79e0f122b27b4",
+        "M2_raw_SHA": "882e3baf3551ca248d40bc1f2e3852c8147052e977de1818b9c79e0f122b27b4",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/audio/dds_oscillator.sv",
+        "M3_raw_SHA": "3cd758e28da8f76a30da38cb2dfcd458db5743d4ea4f38e072a43d7f83719f04",
+        "M2_raw_SHA": "3cd758e28da8f76a30da38cb2dfcd458db5743d4ea4f38e072a43d7f83719f04",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/common/note_pitch.sv",
+        "M3_raw_SHA": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+        "M2_raw_SHA": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/audio/adsr_piano_envelope.sv",
+        "M3_raw_SHA": "775fec7f546a00ca7bf98f132cce8d5d92d80ca6094af8e9e14cb07cd54a2e9d",
+        "M2_raw_SHA": "775fec7f546a00ca7bf98f132cce8d5d92d80ca6094af8e9e14cb07cd54a2e9d",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/mixer/pcm_mixer_4voice.sv",
+        "M3_raw_SHA": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+        "M2_raw_SHA": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/audio_out/pcm_result_hold.sv",
+        "M3_raw_SHA": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+        "M2_raw_SHA": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/audio_out/pcm_frame_buffer.sv",
+        "M3_raw_SHA": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+        "M2_raw_SHA": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/common/pcm_clip_counter.sv",
+        "M3_raw_SHA": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+        "M2_raw_SHA": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/common/system_status_counters.sv",
+        "M3_raw_SHA": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+        "M2_raw_SHA": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      },
+      {
+        "path": "code/rtl/board/voice_gain_q15_candidate.sv",
+        "M3_raw_SHA": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+        "M2_raw_SHA": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+        "raw_equal": true,
+        "verified_newline_only_if_different": false
+      }
+    ],
+    "F_ADSR_generated_sources_exactly_reproduced": true,
+    "F_actual_original_capture_SHA": "48f5db4dcae724bb3512494d93c49d5bf937ef1703f2dcefeaad7d237c697506",
+    "F_original_RTL_negative_cases": [
+      {
+        "name": "dds_base_bypass",
+        "capture_rejected": true,
+        "M2_rejection": "line 6717: D 772954 743 02ca69860217345601c20d2f016534c3: DDS adjusted FCW bypass",
+        "M3_original_expected_behavior_reason": "line 6717: D 772954 743 02ca69860217345601c20d2f016534c3: DDS adjusted FCW bypass",
+        "new_RTL_run": false
+      },
+      {
+        "name": "wrong_pcm_frame",
+        "capture_rejected": true,
+        "M2_rejection": "missing END capture",
+        "M3_original_expected_behavior_reason": "PCM frame tag mismatch",
+        "new_RTL_run": false
+      },
+      {
+        "name": "early_control",
+        "capture_rejected": true,
+        "M2_rejection": "missing END capture",
+        "M3_original_expected_behavior_reason": "control updated before public FIFO acceptance",
+        "new_RTL_run": false
+      }
+    ],
+    "F_M2_12_evidence_preflight_checks": [
+      {
+        "name": "empty",
+        "passed": true,
+        "rejection": "missing END capture",
+        "cli_exit_code": 1
+      },
+      {
+        "name": "missing_end",
+        "passed": true,
+        "rejection": "missing END capture",
+        "cli_exit_code": 1
+      },
+      {
+        "name": "truncated",
+        "passed": true,
+        "rejection": "missing END capture",
+        "cli_exit_code": 1
+      },
+      {
+        "name": "only_end",
+        "passed": true,
+        "rejection": "line 1: END 2486 2301 1 59 6 697 34 34 7777277: PCM coverage totals",
+        "cli_exit_code": 1
+      },
+      {
+        "name": "missing_scenario",
+        "passed": true,
+        "rejection": "line 22653: END 2486 2301 1 59 6 697 34 34 7777277: missing required scenario/source/channel",
+        "cli_exit_code": 1
+      },
+      {
+        "name": "wrong_pcm",
+        "passed": true,
+        "rejection": "line 10: M 45 1 000001 000000 0: independent Q15 floor PCM mix",
+        "cli_exit_code": 1
+      },
+      {
+        "name": "wrong_fcw",
+        "passed": true,
+        "rejection": "line 7: F 37 1 0 0000 0000 00000000000000000000000000000000 00000000000000000000000000000001: independent FCW reference",
+        "cli_exit_code": 1
+      },
+      {
+        "name": "wrong_frame",
+        "passed": true,
+        "rejection": "line 10: M 45 2 000000 000000 0: PCM committed wrong frame tag",
+        "cli_exit_code": 1
+      },
+      {
+        "name": "unknown_value",
+        "passed": true,
+        "rejection": "line 10: M 45 1 xxxxxx 000000 0: invalid literal for int() with base 16: 'xxxxxx'",
+        "cli_exit_code": 1
+      },
+      {
+        "name": "malformed",
+        "passed": true,
+        "rejection": "line 10: UNKNOWN 45 1 000000 000000 0: malformed capture record",
+        "cli_exit_code": 1
+      },
+      {
+        "name": "missing_rom",
+        "passed": true,
+        "rejection": "[Errno 2] No such file or directory: 'D:\\\\17\\\\project_17\\\\fpga_gowin\\\\code\\\\output\\\\t009_zip2_review_20260930\\\\code\\\\output\\\\M3_E_F_evidence_review_20261004\\\\F_independent_negative12\\\\missing_rom\\\\code\\\\model\\\\generated\\\\pitch_mod\\\\sub_ratio_q16.mem'"
+      },
+      {
+        "name": "missing_source",
+        "passed": true,
+        "rejection": "[Errno 2] No such file or directory: 'D:\\\\17\\\\project_17\\\\fpga_gowin\\\\code\\\\output\\\\t009_zip2_review_20260930\\\\code\\\\output\\\\M3_E_F_evidence_review_20261004\\\\F_independent_negative12\\\\missing_source\\\\code\\\\rtl\\\\common\\\\uart_rx.sv'"
+      }
+    ],
+    "M2_full_F_RTL_rerun": false,
+    "scope": "M3 original L2 evidence reviewed plus M2 independent original-capture integer reference/L3 and input guards; not new ModelSim RTL simulation or STA",
+    "no_source_changes": true,
+    "three_original_F_mutant_source_hashes_recreated": true
+  },
+  "E_function_already_accepted": "V0170",
+  "E_current_same_combo_STA_already_recorded": "V0171, systemSetup0.017/Hold0.000, not0.5ns engineering goal",
+  "scope_E_this_turn": "c1a24af burst16 generated TB and original M3 logs/sha verified; no new E RTL run",
+  "scope_F_this_turn": "read original source identified ModelSim evidence, independently recalculate positive and supplied mutant capture and run12 guards; not new full RTL simulation",
+  "ADSR_wave_oracle_limit": "PCM arithmetic/DDSPHASE/FCW independent; ADSR envelope/table selection sampled from real bank, not a new full ADSR or timbre model",
+  "F_counts": {
+    "reset_cancelled_requests": 1,
+    "reset_epochs": 4,
+    "frame_edges": 2487,
+    "frame_requests": 2487,
+    "bank_captures": 2487,
+    "control_snapshots": 2487,
+    "fcw_results": 2486,
+    "dds_advances": 2486,
+    "pcm_commits": 2486,
+    "normal_pcm": 2484,
+    "uart_bytes": 103,
+    "normal_input_events": 34,
+    "accepted_events": 68,
+    "note_on_pulses": 14,
+    "nonzero_pcm": 2301,
+    "nonzero_control_lane_results": 3734,
+    "uart_completions_at_frame_edge": 2,
+    "fixture_input_events": 34,
+    "fixture_phase_pcm": 2,
+    "full_pop_push": 1,
+    "control_stall_cycles": 59,
+    "sample_edge_events": 6,
+    "center_bank_comparisons": 697,
+    "rtl_assertions": 7777277,
+    "identities": 8,
+    "scenarios": [
+      "accepted_only",
+      "center512",
+      "fifo_pressure",
+      "four_voices",
+      "held_controls",
+      "pedal_steal",
+      "pedal_tail_controls",
+      "program_transport",
+      "recovered",
+      "release_controls",
+      "release_retrigger",
+      "reset_compute",
+      "reset_partial",
+      "reset_pending",
+      "sample_edge",
+      "steal_old_off",
+      "velocity_zero"
+    ]
+  },
+  "complete_DIN_message_vs_UART_label": "103 physical UART bytes,34 parsed normal events, fixture34 synthetic events accounted separately; no claim new physical keyboard or FPGA measurements",
+  "public_source_modified": false,
+  "full_Gowin_or_STA_run_by_this_turn": false,
+  "board_test": false,
+  "new_tasks": {
+    "date": "2026-10-04",
+    "tasks": "G transactionadapter candidate, H delayedPCM commit tests, I three depth synthesis only",
+    "handed_to_user_before_E_F_review": true,
+    "actual_M3_notification": "pending user forward, not delivered",
+    "implementation_started": false
+  },
+  "background_pending_mask_trial": "user allowed original routing job to continue in background; no polling/adoption/programming in E/F review",
+  "log_SHA": {
+    "F_independent_negative12\\empty.log": "8e450ed0d2b414ec6d899b38464e5e80746d4a2dceed8fedfb4bd7e79adb4473",
+    "F_independent_negative12\\malformed.log": "0d8b04e4d3ba2a53a7f82af54b39ba68495f057de3665da4aaa8a0b9cef89634",
+    "F_independent_negative12\\missing_end.log": "8e450ed0d2b414ec6d899b38464e5e80746d4a2dceed8fedfb4bd7e79adb4473",
+    "F_independent_negative12\\missing_scenario.log": "6a3e4be7e3eee5f1e2cea54dad57d04c5332dd7c6ac4e1be6c44a04180001952",
+    "F_independent_negative12\\only_end.log": "022f77e1a9c8e7ca7b6807ba8c278250dc7ee228c6a6cba38132dc1bc93081de",
+    "F_independent_negative12\\truncated.log": "8e450ed0d2b414ec6d899b38464e5e80746d4a2dceed8fedfb4bd7e79adb4473",
+    "F_independent_negative12\\unknown_value.log": "8603bedd0f94461ab8f7e90900dfe0fa88f881c1eca05cc0b11c668d713583b3",
+    "F_independent_negative12\\wrong_fcw.log": "97be556bb7a8d1019ef0465e37ebe7d50fcd602a29fc3fbc8f4907c16714eb04",
+    "F_independent_negative12\\wrong_frame.log": "30631fdaae0feeee8ca7cbe427536639c57d9ecdb3ff82c2b16c673e42e88b9a",
+    "F_independent_negative12\\wrong_pcm.log": "0638aa1a59ed064207b4a1c09fdcffe927f76e8c9f78a3e71f8b6c03633f43dc"
+  },
+  "source_input_before_review": {
+    "code/rtl/input/midi_input/midi_event_parser.sv": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+    "code/scripts/run_midi_scheduler_timing_review.py": "73029eac16272eb530e93123051f6e8cb29828bc2bb8ce659298ca95201fe49c",
+    "code/tb/input/midi_scheduler_timing/README.md": "85683fda3818b74ef0e0e79059306ad5d0f6e4b3d09a0a14c8fa1b6eb773c512",
+    "code/scripts/run_m3_midi_pcm_acceptance.py": "c456f6635c7fb72499ec26a4fcd3ce980fafaaac58c63eaae1c9b9bd0d314b9e",
+    "code/tb/board/m3_midi_pcm_acceptance/tb_midi_pcm.sv": "549355b1addb50c9248a9c726e45045f1ffadb6072806ad1319107043a978356",
+    "code/tb/board/m3_midi_pcm_acceptance/scoreboard.py": "8088931dcb6020515c2960ca73577e0857d2e822b0c83acc835a49c08a173691",
+    "code/tb/board/m3_midi_pcm_acceptance/test_capture.py": "ed6b42c82227a2df085691a3b4d07ad879c419d9c9c9a928e98edd18a83ea52f",
+    "code/tb/board/m3_midi_pcm_acceptance/README.md": "02a9cde694c39656de9b41b70db04c492e9cea464891f2c6ce5b93a682f8c377"
+  }
+}
