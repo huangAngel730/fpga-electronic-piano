@@ -1,0 +1,12 @@
+{
+  "seed": 20261003,
+  "seed_per_depth": "same exact seed20261003, reinitialized for each depth",
+  "depths": [16, 1024],
+  "random_parameter_samples_each_depth": 2048,
+  "continuous_history": "4*depth+128 directed samples, then2048 random samples without reset",
+  "launch_spacing": "4..8 system cycles",
+  "lifecycle": "reset before E+1/E+2/E+3 and after dirty long-tail history; live inputs all change every non-sampling clock",
+  "zero_delay": "pending unless explicit confirmed modulo_depth_old contract",
+  "mutants": ["1LSB output", "valid one cycle late", "write pointer advances by2"],
+  "fail_closed": ["missing source/contract/vector file", "empty vectors", "malformed record", "count mismatch", "unknown output", "timeout"]
+}

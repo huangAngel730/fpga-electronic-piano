@@ -1,0 +1,17 @@
+{
+  "status": "diagnostic_not_accepted",
+  "basis": "3f62a12 M2 task contract; only verifier self-validation, NOT a corrected M1 delivery",
+  "module": "delay_effect",
+  "pcm_bits": 24,
+  "gain_bits": 15,
+  "product_shift": 15,
+  "rounding": "arithmetic_floor",
+  "sum_policy": "shift_each_product_then_add",
+  "feedback_policy": "pcm_plus_shifted_feedback",
+  "saturation": "signed_pcm24",
+  "latency_cycles": 2,
+  "minimum_launch_spacing_cycles": 4,
+  "reset": "async_output_valid_clear_and_logical_history_zero",
+  "depths": [16, 1024],
+  "zero_delay_policy": "pending"
+}
