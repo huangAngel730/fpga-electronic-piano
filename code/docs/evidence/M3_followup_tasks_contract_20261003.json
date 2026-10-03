@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-03",
+  "baseline": "6bef0149b0e419f4978537de43b1be817f28990a",
+  "status": "prepared; pending user forward, M3 not notified",
+  "tasks": [
+    {
+      "id": "C",
+      "name": "T028修正版到件最终复跑",
+      "owner": "M3",
+      "depends_on": "M1 corrected T028 RTL/model/contract delivery",
+      "use_existing": "12c598c",
+      "scope": "only rerun code/scripts/run_m3_delay_acceptance.py against M1 supplied SHA; do not edit existing verifier unless a concrete false-pass is found and report it first",
+      "acceptance": [
+        "verify RTL/model/contract hashes before run",
+        "depth16 and depth1024 lifecycle checks and all negative mutants pass",
+        "report exact cycle/output/random counts and simulator/exit status",
+        "if zero-delay contract absent, mark it pending; do not invent semantics"
+      ],
+      "excluded": [
+        "formal RTL edit",
+        "M1 algorithm decision",
+        "Gowin/PnR",
+        "board/audio test",
+        "new duplicate vectors"
+      ],
+      "write_allowlist": [
+        "code/output only; no source write required"
+      ]
+    },
+    {
+      "id": "D",
+      "name": "最终Gowin工程来源与陈旧候选审计",
+      "owner": "M3",
+      "scope": "independent audit runner and README only",
+      "write_allowlist": [
+        "code/scripts/run_m3_integration_provenance_audit.py",
+        "code/tb/board/m3_integration_provenance/**"
+      ],
+      "inputs": [
+        "GPRJ path",
+        "manifest JSON supplied by M2",
+        "optional final project directory"
+      ],
+      "checks": [
+        "every GPRJ source path exists and SHA matches supplied manifest",
+        "formal source paths do not point into code/output or frozen candidate copies",
+        "no duplicate basename resolves to multiple enabled source files unless manifest explicitly allows it",
+        "required current formal inputs are present: button counter, MIDI parser/input, common 32 FIFO, control snapshot and selected audio/visual modules",
+        "ROM paths resolve and SHA match manifest",
+        "CST/SDC paths are present and match manifest",
+        "report parser/ADSR/strict-flash/counter source identity separately",
+        "fail closed on missing manifest, missing file, stale SHA, duplicate source or output-only candidate"
+      ],
+      "expected_current_hashes": {
+        "code/rtl/input/button_event_converter/button_event_converter.sv": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1",
+        "code/rtl/input/midi_input/midi_event_parser.sv": "cfd4c33e91ba06a73c89dedb66b8636dc0c1bd1778ae454714325207424c28c4",
+        "code/rtl/input/midi_input/midi_input.sv": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710",
+        "code/rtl/common/performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+        "code/rtl/board/performance_control_snapshot.sv": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87"
+      },
+      "negative_cases": [
+        "old parser SHA",
+        "output-only button candidate",
+        "missing ROM",
+        "duplicate parser source",
+        "CST/SDC mismatch"
+      ],
+      "excluded": [
+        "modifying GPRJ/RTL/CST/SDC",
+        "PnR or timing claim",
+        "audio effect correctness",
+        "board test"
+      ],
+      "delivery": [
+        "separate commit",
+        "runner returns nonzero for every negative case",
+        "README gives command and L0/L1 scope",
+        "no generated vendor build directories committed"
+      ]
+    }
+  ],
+  "handoff": "pending user forward; not delivered"
+}
