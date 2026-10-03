@@ -1,0 +1,215 @@
+{
+  "date": "2026-10-03",
+  "M3_commits": {
+    "A": "d57467d",
+    "B": "12c598c"
+  },
+  "reviewer": "M2",
+  "A": {
+    "source_review": "completed; intended DUT chain and non-tautological Python oracle inspected",
+    "M3_reported_results": {
+      "consumed_requests": 858,
+      "identities": 256,
+      "program_ids": 128,
+      "mutants_rejected": 3,
+      "level": "L2 ModelSim, M3 executed"
+    },
+    "M2_independent_status": "not accepted as independently rerun; pending original M3 evidence review",
+    "attempts": [
+      {
+        "command": [
+          "D:/ProgramData/anaconda3/python.exe",
+          "-X",
+          "utf8",
+          "code/scripts/run_m3_control_chain_acceptance.py",
+          "--simulator",
+          "icarus",
+          "--timeout",
+          "180"
+        ],
+        "exit": 1
+      },
+      {
+        "command": [
+          "D:/ProgramData/anaconda3/python.exe",
+          "-X",
+          "utf8",
+          "code/scripts/run_m3_control_chain_acceptance.py",
+          "--simulator",
+          "modelsim",
+          "--modelsim",
+          "D:/altera/13.1/modelsim_ase/win32aloem",
+          "--timeout",
+          "240"
+        ],
+        "exit": 1,
+        "single_retry_after_icarus_wall_clock_timeout": true
+      }
+    ],
+    "attempt_detail": "Icarus wall-clock timeout180s, capture progressing through cycle176237 without PASS; one retry ModelSim10.1d failed width-cast syntax; no source patching and no further retries"
+  },
+  "B": {
+    "disposition": "independent verifier readiness accepted, not M1 corrected algorithm acceptance",
+    "M2_actual_evidence": {
+      "rtl_path": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\t028_M1_review_20261003\\review\\diagnostic_limit_width_only.sv",
+      "rtl_sha256": "ffae158bb503a331d2b4f652004a2823c07451e3f883eea4c4d86735373910de",
+      "contract_path": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\audio\\m3_delay_acceptance\\diagnostic_contract.json",
+      "contract_sha256": "86c4b901892791d1221ccf040f23b771732df37232684357274aaf62238b4c42",
+      "contract": {
+        "status": "diagnostic_not_accepted",
+        "basis": "3f62a12 M2 task contract; only verifier self-validation, NOT a corrected M1 delivery",
+        "module": "delay_effect",
+        "pcm_bits": 24,
+        "gain_bits": 15,
+        "product_shift": 15,
+        "rounding": "arithmetic_floor",
+        "sum_policy": "shift_each_product_then_add",
+        "feedback_policy": "pcm_plus_shifted_feedback",
+        "saturation": "signed_pcm24",
+        "latency_cycles": 2,
+        "minimum_launch_spacing_cycles": 4,
+        "reset": "async_output_valid_clear_and_logical_history_zero",
+        "depths": [
+          16,
+          1024
+        ],
+        "zero_delay_policy": "pending"
+      },
+      "verifier_sha256": {
+        "code/scripts/run_m3_delay_acceptance.py": "c4f03ee0cc69c3131a2986fb7c7c56bc2c2668599e33deb3cd1d29d04ec20ccd",
+        "code/tb/audio/m3_delay_acceptance/vectors.py": "5e9864df43e05d329f77b880a49f6bd5eeb7fc216ba62e3e4613c15b0e1e3deb",
+        "code/tb/audio/m3_delay_acceptance/tb_delay_acceptance.sv": "2b7570562e1d3c64b8e212b8a246e3b44cf57d699310b84486adea3c3cd7ac52",
+        "code/tb/audio/m3_delay_acceptance/manifest.json": "203888f175e6a0649b3466b26dc1b731c06ee7cba8f5ca9932fdb3ded81b9b6e"
+      },
+      "simulator_version": "Icarus Verilog version 14.0 (devel) (s20260301-431-ga690e3a03-dirty)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 14.0 (devel) (s20260301-431-ga690e3a03-dirty)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 14.0 (devel) (s20260301-431-ga690e3a03-dirty)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 14.0 (devel) (s20260301-431-ga690e3a03-dirty)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n",
+      "seed": 20261003,
+      "depths": {
+        "16": {
+          "launched": 2454,
+          "valid": 2452,
+          "random_parameters": 2048,
+          "reset_scenarios": 5,
+          "zero_delay_samples": 0,
+          "uninterrupted_wraps": 12,
+          "positive_output_saturation": 191,
+          "negative_output_saturation": 44,
+          "positive_feedback_saturation": 289,
+          "negative_feedback_saturation": 136,
+          "cycles": 13944,
+          "vectors_sha256": "8f3fb8422a1c5bee21cf4dda18ee49514d6f01c7e21ac487989e79f517a75ab5",
+          "positive_capture_sha256": "63278dd7a03cb06838952c2b2cb4b3a89bacc0010be8f56ccfbf00eb23cd5e88"
+        },
+        "1024": {
+          "launched": 10518,
+          "valid": 10516,
+          "random_parameters": 2048,
+          "reset_scenarios": 5,
+          "zero_delay_samples": 0,
+          "uninterrupted_wraps": 4,
+          "positive_output_saturation": 1428,
+          "negative_output_saturation": 235,
+          "positive_feedback_saturation": 1584,
+          "negative_feedback_saturation": 291,
+          "cycles": 46160,
+          "vectors_sha256": "e3ed8410a3ba6dc81228ca3a9fc4dd2303a53de71bbf2afacda98b03dae75376",
+          "positive_capture_sha256": "ab657424c323c65b9d4056acabf84970aeaaefb66c2105ce4bf3a0674cf25aca"
+        }
+      },
+      "mutants": {
+        "one_lsb": "compile success + behavioral rejection",
+        "late_valid": "compile success + behavioral rejection",
+        "wrong_pointer": "compile success + behavioral rejection"
+      },
+      "input_rejections": {
+        "missing_rtl": "actual public CLI rejected missing file",
+        "missing_contract": "actual public CLI rejected missing file",
+        "wrong_contract_timing": "public CLI rejected latency3",
+        "empty": "Python and actual RTL TB rejected",
+        "malformed": "Python and actual RTL TB rejected",
+        "count_mismatch": "Python and actual RTL TB rejected",
+        "missing_vectors": "actual TB rejected",
+        "empty_capture": "independent capture parser rejected",
+        "capture_count": "independent capture parser rejected",
+        "malformed_capture": "independent capture parser rejected",
+        "unknown_capture": "independent capture parser rejected",
+        "unknown_output": "actual TB rejected X output",
+        "timeout": "actual nonterminating simulator killed/rejected"
+      },
+      "result": "VERIFIER_READY_ALGORITHM_PENDING",
+      "zero_delay": "pending; no zero-delay acceptance claim",
+      "logs_sha256": {
+        "missing_contract.log": "5023bd799e8f48aac334faa6e3721b4bb93cbacbc51bd0927a2167f7c6eb2e8c",
+        "missing_rtl.log": "5ff4bc966f3175786bf93f208423ae8c8ba2d8553371975a5556c4e4923dd052",
+        "tool_version.log": "aeb3df4be50d9832e476f35a64a30e9b93ca04aee51dbad71f60d799e49a4b51",
+        "wrong_contract_timing.log": "b357b1f1e8f6bb08b4203dd3c86cc99384de2bb85c595bacef8a7bc7d9b43ee8",
+        "depth1024/compile.log": "7b5633f0de2f0e38932c3fcb84d910e4ca5dad70f84a8f629510d92327521c3f",
+        "depth1024/run.log": "80233669b7107c8a05b7ebe62ac04848fc25ddbd4d3b10fa77faea6abbf43a83",
+        "depth16/compile.log": "803f94982dd96f6c8db4d7e55d719188442655f603645c44c4baffbe1e0bd4c1",
+        "depth16/count_mismatch.log": "15dbe348bc7b8d7016fd5955c3b9679b02483e02660ebc4fd51c2df580f7c4c8",
+        "depth16/empty.log": "16f39958e53719f67a8ccf2626197cedbca12e1fecb26fc794dd1cdfbd553c80",
+        "depth16/hang_compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "depth16/late_valid.log": "14597273b535451f4016f081498af6940fd10502a1002d6f540b67acfb0431ee",
+        "depth16/late_valid_compile.log": "423ca1df4cfed53c47c9232714a18d0c0265291e76d7e939c6e0cc22719f88f5",
+        "depth16/malformed.log": "4c05a47092954408daa64790b0bb503c025cc9e0b0667e8d2caf0b21e612f836",
+        "depth16/missing_vectors.log": "0ab1bc30456d74acd16b50642f610f7799483f133e6159d638f714cae70401bc",
+        "depth16/one_lsb.log": "cce0a9fa9f582bed11221c300a391ee358359f7319281cb1b80f6cd86ce00c0d",
+        "depth16/one_lsb_compile.log": "1397125215d05176ef811f0cf059ae8e25b5769734c457d1a6f2caaf29de0e5e",
+        "depth16/run.log": "1b4b3b9fa5b23a5da2d5ea43c1e89709408eb3bf417f1acd546d0a9630e99faa",
+        "depth16/unknown_compile.log": "8b7c79acb5050f53beaf7ca6b137b4f4755b90b2f103587dc9da2ccbaa12ca28",
+        "depth16/unknown_output.log": "c765480d1643a74026731402e5076122adfa629483b82a7436d6badae0acf29b",
+        "depth16/wrong_pointer.log": "25447f8f4c6ae68292d8d43e55000a3700d2c5e0b404820d1eb169359b308e0b",
+        "depth16/wrong_pointer_compile.log": "1a5fe2a9a116220c98c2e84fe47cb8ee0521ba00f489daef59a8caa710f2cf0d"
+      }
+    },
+    "original_failed_RTL_refused": {
+      "exit": 1,
+      "original_source_not_modified": true,
+      "arithmetic_fault_rejected": true
+    },
+    "zero_delay": "pending; excluded from acceptance",
+    "RTL_used": "diagnostic ff ae... original exact SHA listed in B evidence; explicitly --diagnostic-only"
+  },
+  "source_hashes": {
+    "code\\scripts\\run_m3_control_chain_acceptance.py": "c8ec71e238a8518ba4d341545dfc32af6e204553c0ab1f90c98e0a04f17ac33d",
+    "code\\scripts\\run_m3_delay_acceptance.py": "c4f03ee0cc69c3131a2986fb7c7c56bc2c2668599e33deb3cd1d29d04ec20ccd",
+    "code\\tb\\board\\m3_control_chain_acceptance\\scoreboard.py": "3a139b5c836dc34c49f9aa0686b41ccdd98a701223bf7144f4ad6753f27e5cf1",
+    "code\\tb\\board\\m3_control_chain_acceptance\\tb_control_chain.sv": "882e3baf3551ca248d40bc1f2e3852c8147052e977de1818b9c79e0f122b27b4",
+    "code\\tb\\audio\\m3_delay_acceptance\\vectors.py": "5e9864df43e05d329f77b880a49f6bd5eeb7fc216ba62e3e4613c15b0e1e3deb",
+    "code\\tb\\audio\\m3_delay_acceptance\\tb_delay_acceptance.sv": "2b7570562e1d3c64b8e212b8a246e3b44cf57d699310b84486adea3c3cd7ac52"
+  },
+  "log_hashes": {
+    "A_independent.log": "28756f5118c13ebb9fa857204735544cd6ad898ec224f63b1989ff99b3bd605e",
+    "A_modelsim_retry.log": "33bd337fa726d6204fe1ec6a0ab70aaaefa8362bd69c992949a8ebccfd99af32",
+    "B_diagnostic.log": "e9602db6179689aba403ffc9a36c046671732de0ce0468feb4907aa1dbee06cb",
+    "B_original_rejected.log": "4dd6b2e9f6ebf21f430850cc74ca110e80be5476c72a17aa8954f863c33d6fc7"
+  },
+  "formal_source_modified": false,
+  "Gowin_or_whole_system_STA": false,
+  "board_test": false,
+  "rom_word_identity": [
+    {
+      "path": "code/model/generated/pitch_mod/oct_ratio_q16.mem",
+      "expected_sha256": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d",
+      "actual_sha256": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d",
+      "byte_identical": true,
+      "value_words_identical": true,
+      "words": 50
+    },
+    {
+      "path": "code/model/generated/pitch_mod/sub_ratio_q16.mem",
+      "expected_sha256": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9",
+      "actual_sha256": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9",
+      "byte_identical": true,
+      "value_words_identical": true,
+      "words": 1024
+    },
+    {
+      "path": "code/model/generated/pitch_mod/lfo_sine_q15.mem",
+      "expected_sha256": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4",
+      "actual_sha256": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4",
+      "byte_identical": true,
+      "value_words_identical": true,
+      "words": 1024
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "date": "2026-10-03",
-  "baseline": "6bef0149b0e419f4978537de43b1be817f28990a",
+  "baseline": "12c598c",
   "status": "prepared; pending user forward, M3 not notified",
   "tasks": [
     {
@@ -31,7 +31,7 @@
       "id": "D",
       "name": "最终Gowin工程来源与陈旧候选审计",
       "owner": "M3",
-      "scope": "independent audit runner and README only",
+      "scope": "lightweight standalone verifier reusing existing approved hash manifests; no new build system or duplicate STA/resource parser",
       "write_allowlist": [
         "code/scripts/run_m3_integration_provenance_audit.py",
         "code/tb/board/m3_integration_provenance/**"
@@ -39,17 +39,20 @@
       "inputs": [
         "GPRJ path",
         "manifest JSON supplied by M2",
-        "optional final project directory"
+        "optional final project directory",
+        "--repo-root relocation for D/E workspace compatibility",
+        "explicit enabled feature roles and manifest scope"
       ],
       "checks": [
         "every GPRJ source path exists and SHA matches supplied manifest",
-        "formal source paths do not point into code/output or frozen candidate copies",
+        "reject unapproved output-only sources in production scope; explicitly approved isolated inputs allowed only with isolated label",
         "no duplicate basename resolves to multiple enabled source files unless manifest explicitly allows it",
-        "required current formal inputs are present: button counter, MIDI parser/input, common 32 FIFO, control snapshot and selected audio/visual modules",
+        "required feature roles are supplied by M2 approved manifest; do not require features not yet enabled or guess unfinished module policies",
         "ROM paths resolve and SHA match manifest",
         "CST/SDC paths are present and match manifest",
         "report parser/ADSR/strict-flash/counter source identity separately",
-        "fail closed on missing manifest, missing file, stale SHA, duplicate source or output-only candidate"
+        "fail closed on missing manifest, missing file, stale SHA, duplicate source or output-only candidate",
+        "every enabled project source is covered exactly once by independently approved manifest; raw byte SHA exact, do not normalize line endings silently"
       ],
       "expected_current_hashes": {
         "code/rtl/input/button_event_converter/button_event_converter.sv": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1",
@@ -69,7 +72,9 @@
         "modifying GPRJ/RTL/CST/SDC",
         "PnR or timing claim",
         "audio effect correctness",
-        "board test"
+        "board test",
+        "derive expected SHA automatically from current working files and claim independently approved",
+        "blanket rejection of explicitly approved isolated staged inputs"
       ],
       "delivery": [
         "separate commit",
@@ -79,5 +84,7 @@
       ]
     }
   ],
-  "handoff": "pending user forward; not delivered"
+  "handoff": "pending user forward; not delivered",
+  "baseline_scope": "contains A d57467d and B12c598c; final production inputs wait M2 manifest",
+  "M3_A_receipt_evidence_requested": "send original ModelSim capture/evidence/logs for M2 review, not repeat implementation"
 }
