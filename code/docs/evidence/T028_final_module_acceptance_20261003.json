@@ -1,0 +1,345 @@
+{
+  "date": "2026-10-03",
+  "owner": "M1",
+  "reviewer": "M2",
+  "archive_sha256": "df5bc32d3dba9e44229ddddabaab16d2c681c712b36adacab0469da65e3eff5d",
+  "five_delivery_file_hashes": [
+    {
+      "path": "code/rtl/audio/delay_effect.sv",
+      "expected": "3e31669f268d5fa93ec64dc33dbc8f8bb5490d80ecbbb83bb9695a05f703d0bd",
+      "actual": "3e31669f268d5fa93ec64dc33dbc8f8bb5490d80ecbbb83bb9695a05f703d0bd",
+      "match": true
+    },
+    {
+      "path": "code/tb/audio/tb_delay_effect.sv",
+      "expected": "a7df2bd20025a6e4030519f361089e2fe976808b252496c6a0c08e6dca5688e7",
+      "actual": "a7df2bd20025a6e4030519f361089e2fe976808b252496c6a0c08e6dca5688e7",
+      "match": true
+    },
+    {
+      "path": "code/model/generate_delay_vectors.py",
+      "expected": "7e458e787a9b1b6f4d56c0b2008675a9289768df917c7f6669bac379eb995f49",
+      "actual": "7e458e787a9b1b6f4d56c0b2008675a9289768df917c7f6669bac379eb995f49",
+      "match": true
+    },
+    {
+      "path": "code/model/delay_effect_fixed.py",
+      "expected": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+      "actual": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+      "match": true
+    },
+    {
+      "path": "code/docs/test/T028_延迟效果器算法合同.md",
+      "expected": "10e1f288f625bdf1405bbaf16afe340bd8573d18a51d1e67bdb51c7bfb306445",
+      "actual": "10e1f288f625bdf1405bbaf16afe340bd8573d18a51d1e67bdb51c7bfb306445",
+      "match": true
+    }
+  ],
+  "received_repository_sources": [
+    {
+      "path": "code/rtl/audio/delay_effect.sv",
+      "delivery_raw_sha256": "3e31669f268d5fa93ec64dc33dbc8f8bb5490d80ecbbb83bb9695a05f703d0bd",
+      "repository_LF_sha256": "3e31669f268d5fa93ec64dc33dbc8f8bb5490d80ecbbb83bb9695a05f703d0bd",
+      "normalization": "CRLF to LF only",
+      "algorithm_modified": false
+    },
+    {
+      "path": "code/tb/audio/tb_delay_effect.sv",
+      "delivery_raw_sha256": "a7df2bd20025a6e4030519f361089e2fe976808b252496c6a0c08e6dca5688e7",
+      "repository_LF_sha256": "a7df2bd20025a6e4030519f361089e2fe976808b252496c6a0c08e6dca5688e7",
+      "normalization": "CRLF to LF only",
+      "algorithm_modified": false
+    },
+    {
+      "path": "code/model/generate_delay_vectors.py",
+      "delivery_raw_sha256": "7e458e787a9b1b6f4d56c0b2008675a9289768df917c7f6669bac379eb995f49",
+      "repository_LF_sha256": "7e458e787a9b1b6f4d56c0b2008675a9289768df917c7f6669bac379eb995f49",
+      "normalization": "CRLF to LF only",
+      "algorithm_modified": false
+    },
+    {
+      "path": "code/model/delay_effect_fixed.py",
+      "delivery_raw_sha256": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+      "repository_LF_sha256": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+      "normalization": "CRLF to LF only",
+      "algorithm_modified": false
+    },
+    {
+      "path": "code/docs/test/T028_延迟效果器算法合同.md",
+      "delivery_raw_sha256": "10e1f288f625bdf1405bbaf16afe340bd8573d18a51d1e67bdb51c7bfb306445",
+      "repository_LF_sha256": "10e1f288f625bdf1405bbaf16afe340bd8573d18a51d1e67bdb51c7bfb306445",
+      "normalization": "CRLF to LF only",
+      "algorithm_modified": false
+    }
+  ],
+  "patch_match": {
+    "generator_exact_text_equal_to_M2_V0166": true,
+    "TB_exact_text_equal_to_M2_V0166": true
+  },
+  "original_delivery_results": [
+    {
+      "name": "model5",
+      "exit": 0,
+      "expected_success": true,
+      "log_sha256": "95e898692e524092d9e55e1322a5841c3ce6173e45b744207c94c2de39b79f99",
+      "command": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\code\\model\\delay_effect_fixed.py"
+      ]
+    },
+    {
+      "name": "generate555",
+      "exit": 0,
+      "expected_success": true,
+      "log_sha256": "c6d53a84afaa1e78b859aacfe66e0daa3d5b65fc5e8f22d6590ce48137184f5d",
+      "command": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\code\\model\\generate_delay_vectors.py"
+      ]
+    },
+    {
+      "name": "compile_original",
+      "exit": 0,
+      "expected_success": true,
+      "log_sha256": "d77d0fa2838582cb0ef528f8bc532103086c734f51c8dd6a4fda2c116a7d27cb",
+      "command": [
+        "D:/Gowin/oss-cad-suite/bin/iverilog.exe",
+        "-g2012",
+        "-s",
+        "tb_delay_effect",
+        "-o",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\logs\\original.vvp",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\code\\rtl\\audio\\delay_effect.sv",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\code\\tb\\audio\\tb_delay_effect.sv"
+      ]
+    },
+    {
+      "name": "original_555_pass",
+      "exit": 0,
+      "expected_success": true,
+      "log_sha256": "25e025307369acafda69dceeb27b63185e6a2866cb0c57453b089da708c0ff7c",
+      "command": [
+        "D:/Gowin/oss-cad-suite/bin/vvp.exe",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\logs\\original.vvp",
+        "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\code\\model\\generated\\delay_effect\\delay_effect_vectors.txt"
+      ]
+    },
+    {
+      "name": "reject_empty",
+      "exit": 1,
+      "expected_success": false,
+      "log_sha256": "d521abc4b8ad54c3696332f49345b2ad20b45a097dc1ba88719d7ebab68acee2",
+      "command": [
+        "D:/Gowin/oss-cad-suite/bin/vvp.exe",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\logs\\original.vvp",
+        "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\logs\\empty.txt"
+      ]
+    },
+    {
+      "name": "reject_malformed",
+      "exit": 1,
+      "expected_success": false,
+      "log_sha256": "f15dd2af031918bc202f9bf907a67ba53a82cf2c75f58866e8ee262895735578",
+      "command": [
+        "D:/Gowin/oss-cad-suite/bin/vvp.exe",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\logs\\original.vvp",
+        "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\logs\\malformed.txt"
+      ]
+    },
+    {
+      "name": "reject_truncated",
+      "exit": 1,
+      "expected_success": false,
+      "log_sha256": "64dbc8d15abbaade30afe3f3f0d7e12dffd546bb61f65b5673d22a649d1d7981",
+      "command": [
+        "D:/Gowin/oss-cad-suite/bin/vvp.exe",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\logs\\original.vvp",
+        "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\logs\\truncated.txt"
+      ]
+    },
+    {
+      "name": "reject_bad_reset",
+      "exit": 1,
+      "expected_success": false,
+      "log_sha256": "5c3c1ff4e19562a6e4e9b10b3113389aaa81e012b498c8f635ef6c45b42bcce8",
+      "command": [
+        "D:/Gowin/oss-cad-suite/bin/vvp.exe",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\logs\\original.vvp",
+        "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\logs\\bad_reset.txt"
+      ]
+    },
+    {
+      "name": "M3_final_lifecycle_with_zero_wrap",
+      "exit": 0,
+      "expected_success": true,
+      "log_sha256": "f0c2aa07e4b1dda17cd42a5a8810a645178a7454cbcbf7b03071245bc2202cfb",
+      "command": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\scripts\\run_m3_delay_acceptance.py",
+        "--rtl",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\code\\rtl\\audio\\delay_effect.sv",
+        "--contract",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\accepted_current_module_contract.json"
+      ]
+    }
+  ],
+  "original555_pass": true,
+  "regenerated_vectors_byte_identical": true,
+  "explicit_reset_offsets": [
+    0,
+    7,
+    257,
+    282,
+    290,
+    315,
+    345,
+    355
+  ],
+  "independent_lifecycle": {
+    "rtl_path": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\code\\rtl\\audio\\delay_effect.sv",
+    "rtl_sha256": "3e31669f268d5fa93ec64dc33dbc8f8bb5490d80ecbbb83bb9695a05f703d0bd",
+    "contract_path": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_final_M1_review_20261003\\accepted_current_module_contract.json",
+    "contract_sha256": "95fdaf1d4da70a50adad5d40746dffb98355fa63ee8252298ba4a610741b27cd",
+    "contract": {
+      "status": "corrected_candidate",
+      "basis": "M1 final df5bc32d current contract section3.6: delay0 reads one DEPTH-loop old history, not bypass; validation limited to existing implementation, launch spacing>=4",
+      "module": "delay_effect",
+      "pcm_bits": 24,
+      "gain_bits": 15,
+      "product_shift": 15,
+      "rounding": "arithmetic_floor",
+      "sum_policy": "shift_each_product_then_add",
+      "feedback_policy": "pcm_plus_shifted_feedback",
+      "saturation": "signed_pcm24",
+      "latency_cycles": 2,
+      "minimum_launch_spacing_cycles": 4,
+      "reset": "async_output_valid_clear_and_logical_history_zero",
+      "depths": [
+        16,
+        1024
+      ],
+      "zero_delay_policy": "modulo_depth_old"
+    },
+    "verifier_sha256": {
+      "code/scripts/run_m3_delay_acceptance.py": "c4f03ee0cc69c3131a2986fb7c7c56bc2c2668599e33deb3cd1d29d04ec20ccd",
+      "code/tb/audio/m3_delay_acceptance/vectors.py": "5e9864df43e05d329f77b880a49f6bd5eeb7fc216ba62e3e4613c15b0e1e3deb",
+      "code/tb/audio/m3_delay_acceptance/tb_delay_acceptance.sv": "2b7570562e1d3c64b8e212b8a246e3b44cf57d699310b84486adea3c3cd7ac52",
+      "code/tb/audio/m3_delay_acceptance/manifest.json": "203888f175e6a0649b3466b26dc1b731c06ee7cba8f5ca9932fdb3ded81b9b6e"
+    },
+    "simulator_version": "Icarus Verilog version 14.0 (devel) (s20260301-431-ga690e3a03-dirty)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 14.0 (devel) (s20260301-431-ga690e3a03-dirty)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 14.0 (devel) (s20260301-431-ga690e3a03-dirty)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 14.0 (devel) (s20260301-431-ga690e3a03-dirty)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n",
+    "seed": 20261003,
+    "depths": {
+      "16": {
+        "launched": 2521,
+        "valid": 2519,
+        "random_parameters": 2048,
+        "reset_scenarios": 6,
+        "zero_delay_samples": 67,
+        "uninterrupted_wraps": 12,
+        "positive_output_saturation": 190,
+        "negative_output_saturation": 44,
+        "positive_feedback_saturation": 288,
+        "negative_feedback_saturation": 136,
+        "cycles": 14216,
+        "vectors_sha256": "57cc2af94681da1ca6adbf64e4a8c4de3d4446183ba381ff86918ec69e7db5f5",
+        "positive_capture_sha256": "ed4f05f868b449f8cd1338d366a39a07a0dc2c84b19a9cb8f8824c56e371d71c"
+      },
+      "1024": {
+        "launched": 14617,
+        "valid": 14615,
+        "random_parameters": 2048,
+        "reset_scenarios": 6,
+        "zero_delay_samples": 4099,
+        "uninterrupted_wraps": 4,
+        "positive_output_saturation": 1426,
+        "negative_output_saturation": 234,
+        "positive_feedback_saturation": 1582,
+        "negative_feedback_saturation": 290,
+        "cycles": 62560,
+        "vectors_sha256": "ca4df93236fa5c72ab6e407f0d638f1d62f8518f711218da3a793d6f16351ab5",
+        "positive_capture_sha256": "6dd79687d313a2d257174f726d2b94bcb503d02bdff42477d933849001dcaa51"
+      }
+    },
+    "mutants": {
+      "one_lsb": "compile success + behavioral rejection",
+      "late_valid": "compile success + behavioral rejection",
+      "wrong_pointer": "compile success + behavioral rejection"
+    },
+    "input_rejections": {
+      "missing_rtl": "actual public CLI rejected missing file",
+      "missing_contract": "actual public CLI rejected missing file",
+      "wrong_contract_timing": "public CLI rejected latency3",
+      "empty": "Python and actual RTL TB rejected",
+      "malformed": "Python and actual RTL TB rejected",
+      "count_mismatch": "Python and actual RTL TB rejected",
+      "missing_vectors": "actual TB rejected",
+      "empty_capture": "independent capture parser rejected",
+      "capture_count": "independent capture parser rejected",
+      "malformed_capture": "independent capture parser rejected",
+      "unknown_capture": "independent capture parser rejected",
+      "unknown_output": "actual TB rejected X output",
+      "timeout": "actual nonterminating simulator killed/rejected"
+    },
+    "result": "CORRECTED_CANDIDATE_L2_PASS_PENDING_M2_REVIEW",
+    "zero_delay": "explicit modulo_depth_old tested",
+    "logs_sha256": {
+      "missing_contract.log": "aafaa093c0366735b09d5ce141c9d7414c917754795ef88ce22d79c0cc9ae3b7",
+      "missing_rtl.log": "b74baddbb9f6978f79a6eb8804ea255514485b3038b16077c8d7356a128e71ba",
+      "tool_version.log": "aeb3df4be50d9832e476f35a64a30e9b93ca04aee51dbad71f60d799e49a4b51",
+      "wrong_contract_timing.log": "b357b1f1e8f6bb08b4203dd3c86cc99384de2bb85c595bacef8a7bc7d9b43ee8",
+      "depth1024/compile.log": "0bc7ffc0349510213b7e91da2a0ec3dde549821f87c3944a4149dc33959a13f6",
+      "depth1024/run.log": "c4e960beb616e16c5321c715892c464b5721491031f6167a7d55e0438eddc8d6",
+      "depth16/compile.log": "fe99f6facd8bfa4e37be0ca19859a1e874e35111348e1b094602824327db6fa9",
+      "depth16/count_mismatch.log": "15dbe348bc7b8d7016fd5955c3b9679b02483e02660ebc4fd51c2df580f7c4c8",
+      "depth16/empty.log": "16f39958e53719f67a8ccf2626197cedbca12e1fecb26fc794dd1cdfbd553c80",
+      "depth16/hang_compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "depth16/late_valid.log": "14597273b535451f4016f081498af6940fd10502a1002d6f540b67acfb0431ee",
+      "depth16/late_valid_compile.log": "6400b3fb9b505afe0116657d559781bce2e980c44e6b0346dc4bbd4e249a0c04",
+      "depth16/malformed.log": "4c05a47092954408daa64790b0bb503c025cc9e0b0667e8d2caf0b21e612f836",
+      "depth16/missing_vectors.log": "0ab1bc30456d74acd16b50642f610f7799483f133e6159d638f714cae70401bc",
+      "depth16/one_lsb.log": "cce0a9fa9f582bed11221c300a391ee358359f7319281cb1b80f6cd86ce00c0d",
+      "depth16/one_lsb_compile.log": "a84fff1b0176682f741371d46563bde17d299e42d9c36ae8568ece4f00fa912e",
+      "depth16/run.log": "40ecfcbdc7e391cc8a2ed485595e5c3a918efc22dd98f79ea288f340104da51b",
+      "depth16/unknown_compile.log": "cdd4b1afe965c7a74b43ec3037498b9f8909803872fa499ae5013a50f40641e2",
+      "depth16/unknown_output.log": "c765480d1643a74026731402e5076122adfa629483b82a7436d6badae0acf29b",
+      "depth16/wrong_pointer.log": "25447f8f4c6ae68292d8d43e55000a3700d2c5e0b404820d1eb169359b308e0b",
+      "depth16/wrong_pointer_compile.log": "13625203f58f77789c2477858253f67ef47cb0abfdcd62268d76c8b9d88deea2"
+    }
+  },
+  "independent_total_counts": {
+    "cycles": 76776,
+    "valid_outputs": 17134,
+    "random_parameters": 4096,
+    "zero_delay_parameter_samples": 4166
+  },
+  "source_logic_unchanged_vs_prior_accepted_core": true,
+  "zero_policy": "existing modulo_depth_old confirmed by M1 algorithm contract section3.6; not actual0latency or bypass",
+  "remaining_nonblocking_doc_note": "model process docstring retains old no-delay phrase; accepted M1 section3.6 and actual tests are authoritative; did not alter M1 source or request another algorithm rewrite",
+  "module_disposition": "accepted and received as an independent module in repository; not in production GPRJ or audio chain",
+  "C_followup": "M2 used existing M3 B/C acceptance entry to finish corrected delivery verification; no M3 duplicate 76776-cycle task required",
+  "whole_T028_status": "in progress: production placement, final memory budget, parameter smoothing/no-pop, Gowin PnR/STA and board effects outstanding",
+  "new_Gowin_or_PnR_this_turn": false,
+  "shared_top_pkg_CST_SDC_modified": false,
+  "GPRJ_modified": false,
+  "board_test": false,
+  "notification": "pending user forward, not delivered",
+  "log_sha256": {
+    "compile_original.log": "d77d0fa2838582cb0ef528f8bc532103086c734f51c8dd6a4fda2c116a7d27cb",
+    "generate555.log": "c6d53a84afaa1e78b859aacfe66e0daa3d5b65fc5e8f22d6590ce48137184f5d",
+    "M3_final_lifecycle_with_zero_wrap.log": "f0c2aa07e4b1dda17cd42a5a8810a645178a7454cbcbf7b03071245bc2202cfb",
+    "model5.log": "95e898692e524092d9e55e1322a5841c3ce6173e45b744207c94c2de39b79f99",
+    "original_555_pass.log": "25e025307369acafda69dceeb27b63185e6a2866cb0c57453b089da708c0ff7c",
+    "received_LF_555.log": "7130ac6d260f25d0e12e3c62b5ca47484c4788a15c71080203195a795fe13c53",
+    "received_LF_compile.log": "e140d12a4bf003a80f65c50ead707158f5367f85e71569e603a4b34feabb8460",
+    "reject_bad_reset.log": "5c3c1ff4e19562a6e4e9b10b3113389aaa81e012b498c8f635ef6c45b42bcce8",
+    "reject_empty.log": "d521abc4b8ad54c3696332f49345b2ad20b45a097dc1ba88719d7ebab68acee2",
+    "reject_malformed.log": "f15dd2af031918bc202f9bf907a67ba53a82cf2c75f58866e8ee262895735578",
+    "reject_truncated.log": "64dbc8d15abbaade30afe3f3f0d7e12dffd546bb61f65b5673d22a649d1d7981"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "task": "T028_延迟效果器_M2两文件补丁",
+  "baseline": "M1_T028_延迟效果器_修正_20261003（初版）",
+  "baseline_sha256": "b5f5fdb28a2fcd6a41e0b8903ce0b34f6ad3a550bdf8661f20c6c361e6e5eb35",
+  "m2_review": "V0166",
+  "m2_review_commit": "05b73e2",
+  "package_date": "2026-10-03",
+  "author": "M1",
+  "scope": "M2两文件补丁：七列格式+reset_before+说明统一",
+  "issues_fixed": [
+    "七列格式：reset_before标记场景间硬件复位",
+    "TB驱动：检测reset_before并实际复位DUT",
+    "说明统一：时序E→E+2，公式括号，场景数25",
+    "delay=0澄清：读整DEPTH圈前，非真正零延迟"
+  ],
+  "verification": {
+    "model_checks": "5/5 PASS",
+    "vectors": "555/555 PASS (M2用原始RTL验证)",
+    "core_60104": "非零延迟核心通过",
+    "rtl_simulation": "M2执行（本机无Icarus）"
+  },
+  "files": [
+    {
+      "path": "code/rtl/audio/delay_effect.sv",
+      "operation": "update",
+      "sha256": "3e31669f268d5fa93ec64dc33dbc8f8bb5490d80ecbbb83bb9695a05f703d0bd",
+      "note": "M2补丁：时序说明E→E+2+公式括号"
+    },
+    {
+      "path": "code/tb/audio/tb_delay_effect.sv",
+      "operation": "update",
+      "sha256": "a7df2bd20025a6e4030519f361089e2fe976808b252496c6a0c08e6dca5688e7",
+      "note": "M2补丁：七列驱动+reset_before标记"
+    },
+    {
+      "path": "code/model/generate_delay_vectors.py",
+      "operation": "update",
+      "sha256": "7e458e787a9b1b6f4d56c0b2008675a9289768df917c7f6669bac379eb995f49",
+      "note": "M2补丁：七列格式+场景间复位标记"
+    },
+    {
+      "path": "code/model/delay_effect_fixed.py",
+      "operation": "update",
+      "sha256": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+      "note": "M2补丁：delay=0说明澄清"
+    },
+    {
+      "path": "code/docs/test/T028_延迟效果器算法合同.md",
+      "operation": "update",
+      "sha256": "10e1f288f625bdf1405bbaf16afe340bd8573d18a51d1e67bdb51c7bfb306445",
+      "note": "M2补丁：说明统一+场景数量25条"
+    }
+  ]
+}
