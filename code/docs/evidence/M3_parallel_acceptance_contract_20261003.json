@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-03",
+  "baseline": "74158b6899b2a0c4c0baea9281b882a35a7fc370",
+  "status": "prepared; pending user forward, M3 not notified",
+  "roles": {
+    "M1": "T028 algorithm, golden model, correction and zero-delay contract",
+    "M2": "production wiring, snapshots, voice identity policy, resources and STA",
+    "M3": "two isolated independent acceptance tasks, tests only"
+  },
+  "tasks": [
+    {
+      "id": "A",
+      "priority": 1,
+      "parent_tasks": [
+        "T036",
+        "T027"
+      ],
+      "job": "latest MIDI + common FIFO + control snapshot + four-lane FCW end-to-end simulation",
+      "write_allowlist": [
+        "code/tb/board/m3_control_chain_acceptance/**",
+        "code/scripts/run_m3_control_chain_acceptance.py"
+      ],
+      "inputs": [
+        "code/rtl/common/audio_defs_pkg.sv",
+        "code/rtl/common/uart_rx.sv",
+        "code/rtl/common/performance_event_fifo.sv",
+        "code/rtl/input/midi_input/midi_input.sv",
+        "code/rtl/input/midi_input/midi_event_parser.sv",
+        "code/rtl/board/performance_control_snapshot.sv",
+        "code/tb/board/pitch_mod_pipeline_candidate/pitch_mod_fcw_pipeline.sv",
+        "code/tb/board/pitch_mod_pipeline_candidate/pitch_mod_snapshot_pipeline.sv",
+        "code/model/pitch_mod_model.py",
+        "code/model/generate_pitch_mod_luts.py",
+        "code/model/generated/pitch_mod/oct_ratio_q16.mem",
+        "code/model/generated/pitch_mod/sub_ratio_q16.mem",
+        "code/model/generated/pitch_mod/lfo_sine_q15.mem",
+        "code/tb/board/tb_control_snapshot_schedule.sv",
+        "code/tb/board/pitch_mod_pipeline_candidate/tb_pitch_mod_snapshot_pipeline.sv",
+        "code/tb/board/pitch_mod_pipeline_candidate/README.md"
+      ],
+      "system_clock_hz": 50000000,
+      "audio_request_cadence": "1041/1042 cycles",
+      "public_fifo_depth": 32,
+      "event_reference_update": "actual common output valid&&ready, never parser presentation alone",
+      "discrete_reference": "preserve per-source Note/CC64/Program order; do not force control-vs-discrete arrival order",
+      "base_fcw": "testbench freezes all four base FCW on accepted control-snapshot request E, holds until FCW-snapshot consumer handshake; live bases may subsequently change",
+      "voice_metadata": "testbench fixture only; no replacement production voice router; reset/steal fixtures labeled simulated metadata",
+      "program_policy": "assert raw source/channel/program event; must not alter Pitch/Mod table; no timbre mapping invented",
+      "negative_mutants": [
+        "held snapshot_valid used as sample_enable (extra LFO advances)",
+        "use live rather than frozen base FCW",
+        "corrupt request id or generation in result"
+      ],
+      "minimums": {
+        "completed_consumed_requests": 512,
+        "covered_source_channel_identities": 256,
+        "nonzero_pitch_or_mod_results": 128,
+        "result_stall_cycles": 32
+      },
+      "excluded": [
+        "formal top",
+        "router/ADSR/DDS/PCM output",
+        "Gowin/PnR",
+        "silicon/audio-effects claim"
+      ]
+    },
+    {
+      "id": "B",
+      "priority": 2,
+      "parent_tasks": [
+        "T028"
+      ],
+      "job": "independent fixed-point delay acceptance infrastructure for M1 corrected delivery",
+      "write_allowlist": [
+        "code/tb/audio/m3_delay_acceptance/**",
+        "code/scripts/run_m3_delay_acceptance.py"
+      ],
+      "source_state": "M1 original delivery failed V0159, not imported; task must accept explicit --rtl and --contract paths and SHA them",
+      "golden_reference": "independent signed PCM24; floor products >>15 then 25-bit sums and PCM24 saturation; no import M1 DelayEffectFixed",
+      "inputs": "signed24 PCM, unsigned15 gains, param snapshot at accepted sample_enable",
+      "launch_spacing_cycles": 4,
+      "latency_check": "current three-register-stage diagnostic E accept, valid E+2 after NBA; require M1 corrected contract agrees",
+      "zero_delay_policy": "no new decision: existing modulo-buffer diagnostic reads one whole depth earlier after wrap; proposed changes wait M1/user contract",
+      "minimums": {
+        "depths": [
+          16,
+          1024
+        ],
+        "wraps_each_depth": 3,
+        "random_seed": 20261003,
+        "randomized_parameter_samples": 2048
+      },
+      "negative_mutants": [
+        "1LSB output fault",
+        "valid one cycle late",
+        "wrong write pointer or dirty-reset history"
+      ],
+      "required_input_rejections": [
+        "missing files",
+        "empty vectors",
+        "malformed record",
+        "count mismatch",
+        "unknown X output",
+        "timeout"
+      ],
+      "excluded": [
+        "rewrite M1 RTL/model",
+        "change DSP/BSRAM architecture",
+        "parameter click-free claim",
+        "production insertion",
+        "Gowin/PnR",
+        "board test"
+      ]
+    }
+  ],
+  "source_hashes": {
+    "code/rtl/common/audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+    "code/rtl/common/uart_rx.sv": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+    "code/rtl/common/performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+    "code/rtl/input/midi_input/midi_input.sv": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710",
+    "code/rtl/input/midi_input/midi_event_parser.sv": "cfd4c33e91ba06a73c89dedb66b8636dc0c1bd1778ae454714325207424c28c4",
+    "code/rtl/board/performance_control_snapshot.sv": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+    "code/tb/board/pitch_mod_pipeline_candidate/pitch_mod_fcw_pipeline.sv": "bc14fab96206c2ec202e155995427573c7bf18ce0bc74e5f291e6bc531f8f772",
+    "code/tb/board/pitch_mod_pipeline_candidate/pitch_mod_snapshot_pipeline.sv": "ea4aaad461e62eea360f8efebae60d3b2963e8515a0d6bb514e3b37c2895651b",
+    "code/model/pitch_mod_model.py": "759f9e2f2b471f44b9267ea9f5a1ddded98e9be3da01efaa76d000ceed49d46e",
+    "code/model/generate_pitch_mod_luts.py": "dc5e12fddee7d83044e63d4c84b1822a9d43a45aa4e3ac5df4d80794327af813",
+    "code/model/generated/pitch_mod/oct_ratio_q16.mem": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d",
+    "code/model/generated/pitch_mod/sub_ratio_q16.mem": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9",
+    "code/model/generated/pitch_mod/lfo_sine_q15.mem": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4",
+    "code/tb/board/tb_control_snapshot_schedule.sv": "6ba634209292073f254a9370b78eff8b8bf0d8689f626f8dd1c1ee5a8292b0e0",
+    "code/tb/board/pitch_mod_pipeline_candidate/tb_pitch_mod_snapshot_pipeline.sv": "f1653a2d0e29b4226f9f1497c06c5295a0ba2e9cc78a61d2903da74327eca36d",
+    "code/tb/board/pitch_mod_pipeline_candidate/README.md": "527242323cacd93eae6c7620b84b3512558b9d7777e411945bea243bf652356f"
+  },
+  "no_new_task_number": true,
+  "delivery": "two separate commits on develop, local logs stay output, check_repo all PASS before push; M2 assigns verification numbers only after review/fetch",
+  "handoff": "pending user forward; not delivered"
+}
