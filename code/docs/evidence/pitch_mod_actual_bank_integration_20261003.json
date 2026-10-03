@@ -400,7 +400,8 @@
   "priority_recommendation": {
     "M3_before_nonblocking_D_audit": "fix registered-pending RR selection late input path, after exact private scope notice",
     "M2_parallel": "control metadata/FCW short paths and serializer reset Recovery; coordinate next same-build STA",
-    "stable_version": "retain existing production; do not release generated failed fs"
+    "stable_version": "retain existing production; do not release generated failed fs",
+    "M3_next": "D implementation received; do not repeat. Next task is parser Setup chain, only after new explicit user-forwarded scope notice."
   },
   "publication_gate_single_retry": {
     "passed": true,
@@ -411,5 +412,29 @@
     "exit": 0,
     "log_sha256": "dd6e879e0bce96d3989e51d6ea0750b45517c80f8cf50a41fd181b4433b8cd04",
     "no_source_or_gate_changes_between_attempts": true
+  },
+  "remote_D_receipt": {
+    "commit": "26c6ab5",
+    "state": "received, not independently accepted in this round",
+    "integration_method": "ordinary merge preserving original commits; rebase rejected and not executed"
+  },
+  "golden_model_sha256": "759f9e2f2b471f44b9267ea9f5a1ddded98e9be3da01efaa76d000ceed49d46e",
+  "unchanged_include_header_sha256": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d",
+  "accepted_ROM_inputs": {
+    "code\\output\\pitch_mod_bank_integration_20261003\\run3\\lfo.mem": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4",
+    "code\\output\\pitch_mod_bank_integration_20261003\\run3\\oct.mem": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d",
+    "code\\output\\pitch_mod_bank_integration_20261003\\run3\\sub.mem": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9",
+    "code\\output\\pitch_mod_bank_integration_20261003\\run3\\velocity.mem": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+    "code\\output\\pitch_mod_bank_integration_20261003\\run3\\wave.mem": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1"
+  },
+  "final_publication_gate_after_M3_D": {
+    "passed": true,
+    "groups": 9,
+    "Python_files": 142,
+    "T007": true,
+    "T019": true,
+    "exit": 0,
+    "log_sha256": "0efbff15d80168f1740a82bb6e707f93381906317e97e3bf529fbb6f2cca6a84",
+    "D_module_source_test_not_claimed": true
   }
 }
