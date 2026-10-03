@@ -29,7 +29,8 @@ $sourcePaths = @(
     'code/tb/input/tb_midi_control_fairness.sv',
     'code/tb/input/tb_midi_control_fairness_uart.sv'
 )
-$parserText = Get-Content -LiteralPath (Join-Path $repoRoot $sourcePaths[2]) -Raw
+# Explicit decoding also protects UTF-8 RTL comments in mutant copies on PS5.1.
+$parserText = Get-Content -LiteralPath (Join-Path $repoRoot $sourcePaths[2]) -Raw -Encoding UTF8
 
 function Invoke-RtlTest {
     param(

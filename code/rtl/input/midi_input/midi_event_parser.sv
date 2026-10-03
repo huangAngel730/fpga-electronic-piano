@@ -66,7 +66,6 @@ module midi_event_parser #(
     logic [RATE_WIDTH-1:0] control_cooldown;
     logic [BURST_COUNT_WIDTH-1:0] discrete_burst_count;
     logic [31:0] control_pending;
-    logic [31:0] effective_control_pending;
     logic [11:0] pending_value [0:31];
     logic [15:0] mod_sent_valid;
     logic [11:0] mod_sent_value [0:15];
@@ -84,14 +83,49 @@ module midi_event_parser #(
     logic selected_valid;
     logic [4:0] selected_index;
     logic [11:0] selected_value;
-    logic [4:0] scan_index;
     logic parsed_control_keep_pending;
     logic grant_control;
     wire discrete_handshake = !control_locked &&
         (fifo_count != {FIFO_COUNT_WIDTH{1'b0}}) && event_ready;
     wire burst_limit_reached = (MAX_DISCRETE_BURST <= 1) ||
         (discrete_burst_count >= (MAX_DISCRETE_BURST - 1));
-    integer control_scan, control_reset;
+    integer control_reset;
+
+    // Precompute the first TWO candidates from registered state only. Rotate
+    // the pending bitmap into RR order, then use a five-level priority tree.
+    // No current-byte decode/CC1 cancellation enters this tree. The second
+    // candidate is needed if this byte cancels the old first candidate.
+    wire [31:0] registered_rr_pending =
+        32'({control_pending, control_pending} >> round_robin_index);
+    wire first_valid_tree [1:63];
+    wire second_valid_tree [1:63];
+    wire [4:0] first_rank_tree [1:63];
+    wire [4:0] second_rank_tree [1:63];
+    generate
+        for (genvar slot = 0; slot < 32; slot = slot + 1) begin : g_rr_leaf
+            assign first_valid_tree[32 + slot] = registered_rr_pending[slot];
+            assign first_rank_tree[32 + slot] = 5'(slot);
+            assign second_valid_tree[32 + slot] = 1'b0;
+            assign second_rank_tree[32 + slot] = '0;
+        end
+        for (genvar node = 1; node < 32; node = node + 1) begin : g_rr_branch
+            assign first_valid_tree[node] =
+                first_valid_tree[2*node] || first_valid_tree[2*node+1];
+            assign first_rank_tree[node] = first_valid_tree[2*node] ?
+                first_rank_tree[2*node] : first_rank_tree[2*node+1];
+            assign second_valid_tree[node] = second_valid_tree[2*node] ||
+                (first_valid_tree[2*node] && first_valid_tree[2*node+1]) ||
+                second_valid_tree[2*node+1];
+            assign second_rank_tree[node] = second_valid_tree[2*node] ?
+                second_rank_tree[2*node] : (first_valid_tree[2*node] ?
+                first_rank_tree[2*node+1] : second_rank_tree[2*node+1]);
+        end
+    endgenerate
+    wire [4:0] old_first_index = round_robin_index + first_rank_tree[1];
+    wire [4:0] old_second_index = round_robin_index + second_rank_tree[1];
+    wire [11:0] old_first_value = pending_value[old_first_index];
+    wire [11:0] old_second_value = pending_value[old_second_index];
+    wire [4:0] parsed_control_rank = parsed_control_index - round_robin_index;
 
     integer comb_fifo_index;
     integer seq_fifo_index;
@@ -345,7 +379,6 @@ module midi_event_parser #(
     // A CC1 update that returns to the accepted/in-flight value cancels the
     // unsent excursion before it can consume a grant.
     always_comb begin
-        effective_control_pending = control_pending;
         parsed_control_keep_pending = 1'b0;
         if (parsed_control) begin
             parsed_control_keep_pending = !(
@@ -355,25 +388,32 @@ module midi_event_parser #(
                  (mod_sent_valid[parsed_control_index[4:1]] &&
                   mod_sent_value[parsed_control_index[4:1]] ==
                       parsed_event_data.control_value)));
-            effective_control_pending[parsed_control_index] =
-                parsed_control_keep_pending;
         end
 
         selected_valid = 1'b0;
         selected_index = '0;
         selected_value = '0;
-        scan_index = '0;
-        for (control_scan = 0; control_scan < 32; control_scan = control_scan + 1) begin
-            scan_index = round_robin_index + 5'(control_scan);
-            if (!selected_valid && effective_control_pending[scan_index]) begin
-                selected_valid = 1'b1;
-                selected_index = scan_index;
-            end
+        if (first_valid_tree[1]) begin
+            selected_valid = 1'b1;
+            selected_index = old_first_index;
+            selected_value = old_first_value;
         end
-        if (selected_valid) begin
-            selected_value = pending_value[selected_index];
-            if (parsed_control && parsed_control_index == selected_index)
+        // One byte can change only one slot. Insertion/newest-value capture
+        // competes with the old first; cancellation of that first falls back
+        // to the old second. Other updates cannot change the winner.
+        if (parsed_control) begin
+            if (parsed_control_keep_pending &&
+                (!first_valid_tree[1] ||
+                 parsed_control_rank <= first_rank_tree[1])) begin
+                selected_valid = 1'b1;
+                selected_index = parsed_control_index;
                 selected_value = parsed_event_data.control_value;
+            end else if (!parsed_control_keep_pending && first_valid_tree[1] &&
+                         parsed_control_index == old_first_index) begin
+                selected_valid = second_valid_tree[1];
+                selected_index = second_valid_tree[1] ? old_second_index : 5'd0;
+                selected_value = second_valid_tree[1] ? old_second_value : 12'd0;
+            end
         end
 
         // A discrete event already presented to the receiver is never
