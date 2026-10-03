@@ -1,0 +1,11 @@
+{
+  "seed": 20261003,
+  "deterministic": true,
+  "clock_hz": 50000000,
+  "parser_source_ids": [0, 9],
+  "real_uart": {"source_id": 3, "baud": 31250, "cycles_per_bit": 1600},
+  "competing_source": "TB event producer populates all256 source/channel control identities; not a production router",
+  "scenarios": ["real UART mixed messages", "dual byte parser mixed pressure + FIFO full", "all128 raw Program ids", "256 accepted control identities + invalid ranges", "same-edge write-through and unaccepted control", "held result and held next snapshot", "same/separate-cycle note_on", "576 samples alternating1041/1042", "cancel8 FCW stages", "reset4 snapshot and8 FCW stages"],
+  "oracle": "independent FIFO handshake scoreboard + accepted M1 PitchModVoice; no second RTL reference",
+  "mutants": ["held_valid_lfo", "live_base", "corrupt_tag"]
+}
