@@ -1,0 +1,529 @@
+{
+  "date": "2026-10-03",
+  "verification_id": "V0161",
+  "baseline": "V0158 / f8054b5 candidate composition",
+  "trial": "0.550ns system hold uncertainty, one Gowin run",
+  "assessment": {
+    "date": "2026-10-03",
+    "scope": "one Hold guardband routing experiment; fixed V0158 B sources, not latest production parser/PitchMod/effects",
+    "reports": {
+      "baseline": {
+        "per_clock_tns": [
+          [
+            "sys_clk",
+            "Setup",
+            "0.000",
+            "0"
+          ],
+          [
+            "sys_clk",
+            "Hold",
+            "0.000",
+            "0"
+          ],
+          [
+            "video_serial",
+            "Setup",
+            "0.000",
+            "0"
+          ],
+          [
+            "video_serial",
+            "Hold",
+            "0.000",
+            "0"
+          ],
+          [
+            "video_pixel",
+            "Setup",
+            "0.000",
+            "0"
+          ],
+          [
+            "video_pixel",
+            "Hold",
+            "0.000",
+            "0"
+          ]
+        ],
+        "min_pulse_width_slack_ns": 2.327,
+        "active_sdc": [
+          "create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]",
+          "create_generated_clock -name video_pixel -source [get_ports {sys_clk}] -master_clock sys_clk -multiply_by 1 -divide_by 2 [get_pins {u_visual/u_video_pll/PLLA_inst/CLKOUT1}]",
+          "create_generated_clock -name video_serial -source [get_ports {sys_clk}] -master_clock sys_clk -multiply_by 5 -divide_by 2 [get_pins {u_visual/u_video_pll/PLLA_inst/CLKOUT0}]",
+          "report_timing -hold -from [get_regs {u_visual/u_control/u_mode_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/ack_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_control/u_mode_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/req_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_control/u_score_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/ack_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_control/u_score_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/req_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_event_bridge/ack_meta_s0}] -to [get_regs {u_visual/u_event_bridge/ack_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_event_bridge/desync_meta_s0}] -to [get_regs {u_visual/u_event_bridge/video_desync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_event_bridge/req_meta_s0}] -to [get_regs {u_visual/u_event_bridge/req_sync_s0}] -max_paths 1",
+          "report_timing -hold -from_clock [get_clocks {sys_clk}] -to_clock [get_clocks {sys_clk}] -max_paths 10 -max_common_paths 1",
+          "report_timing -hold -from_clock [get_clocks {video_pixel}] -to_clock [get_clocks {video_pixel}] -max_paths 10 -max_common_paths 1",
+          "report_timing -hold -from_clock [get_clocks {video_serial}] -to_clock [get_clocks {video_serial}] -max_paths 10 -max_common_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_mode_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/ack_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_mode_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/req_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/ack_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/payload_hold*}] -to [get_regs {u_visual/u_control/u_score_mailbox/dst_data*}] -max_paths 128 -max_common_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/req_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_event_bridge/ack_meta_s0}] -to [get_regs {u_visual/u_event_bridge/ack_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_event_bridge/desync_meta_s0}] -to [get_regs {u_visual/u_event_bridge/video_desync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_event_bridge/payload_hold*}] -to [get_regs {u_visual/u_event_bridge/video_data*}] -max_paths 128 -max_common_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_event_bridge/req_meta_s0}] -to [get_regs {u_visual/u_event_bridge/req_sync_s0}] -max_paths 1",
+          "report_timing -setup -from_clock [get_clocks {sys_clk}] -to_clock [get_clocks {sys_clk}] -max_paths 80 -max_common_paths 1",
+          "report_timing -setup -from_clock [get_clocks {video_pixel}] -to_clock [get_clocks {video_pixel}] -max_paths 80 -max_common_paths 1",
+          "report_timing -setup -from_clock [get_clocks {video_serial}] -to_clock [get_clocks {video_serial}] -max_paths 80 -max_common_paths 1",
+          "set_clock_uncertainty -hold 0.500 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]",
+          "set_clock_uncertainty -setup 1.000 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]",
+          "set_false_path -from [get_ports {sys_rst_n}]",
+          "set_false_path -to [get_pins {u_visual/u_control/u_mode_mailbox/ack_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_control/u_mode_mailbox/req_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_control/u_score_mailbox/ack_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_control/u_score_mailbox/req_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_event_bridge/ack_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_event_bridge/desync_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_event_bridge/req_meta_s0/D}]",
+          "set_max_delay -from [get_regs {u_visual/u_control/u_score_mailbox/payload_hold*}] -to [get_regs {u_visual/u_control/u_score_mailbox/dst_data*}] 10.000",
+          "set_max_delay -from [get_regs {u_visual/u_event_bridge/payload_hold*}] -to [get_regs {u_visual/u_event_bridge/video_data*}] 10.000",
+          "set_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_bclk}]",
+          "set_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_din}]",
+          "set_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_lrck}]",
+          "set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_bclk}]",
+          "set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_din}]",
+          "set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_lrck}]"
+        ],
+        "summary": {
+          "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+          "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+          "Numbers of Paths Analyzed": "22926",
+          "Numbers of Endpoints Analyzed": "18844",
+          "Numbers of Falling Endpoints": "4",
+          "Numbers of Setup Violated Endpoints": "0",
+          "Numbers of Hold Violated Endpoints": "0"
+        },
+        "per_clock_worst": {
+          "Setup": {
+            "sys_clk": {
+              "slack_ns": 1.102,
+              "from": "u_i2s_tx/bclk_acc_0_s0/Q",
+              "to": "u_visual/u_event_bridge/queue[28].channel_0_s1/CE",
+              "launch": "sys_clk:[R]",
+              "capture": "sys_clk:[R]",
+              "section": "Setup_Slack_Table10",
+              "clock_skew_ns": 0.0,
+              "data_path_ns": 17.586
+            },
+            "video_pixel": {
+              "slack_ns": 14.19,
+              "from": "u_visual/u_scene/u_score_tracker/hit_frame_mem[6]_13_s1/Q",
+              "to": "u_visual/dvi_b_7_s0/D",
+              "launch": "video_pixel:[R]",
+              "capture": "video_pixel:[R]",
+              "section": "Setup_Slack_Table11",
+              "clock_skew_ns": 0.0,
+              "data_path_ns": 25.746
+            },
+            "video_serial": {
+              "slack_ns": 7.229,
+              "from": "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+              "to": "u_visual/u_serial_reset/sync_chain_1_s0/D",
+              "launch": "video_serial:[R]",
+              "capture": "video_serial:[R]",
+              "section": "Setup_Slack_Table12",
+              "clock_skew_ns": 0.0,
+              "data_path_ns": 0.48
+            }
+          },
+          "Hold": {
+            "sys_clk": {
+              "slack_ns": 0.001,
+              "from": "u_uart_status_reporter/interval_count_22_s0/Q",
+              "to": "u_uart_status_reporter/interval_count_22_s0/D",
+              "launch": "sys_clk:[R]",
+              "capture": "sys_clk:[R]",
+              "section": "Hold_Slack_Table8",
+              "clock_skew_ns": 0.0,
+              "data_path_ns": 0.514
+            },
+            "video_pixel": {
+              "slack_ns": 0.275,
+              "from": "u_visual/u_scene/u_hit_flash/count_q[37]_0_s1/Q",
+              "to": "u_visual/u_scene/u_hit_flash/count_q[37]_0_s1/D",
+              "launch": "video_pixel:[R]",
+              "capture": "video_pixel:[R]",
+              "section": "Hold_Slack_Table9",
+              "clock_skew_ns": 0.0,
+              "data_path_ns": 0.3
+            },
+            "video_serial": {
+              "slack_ns": 0.275,
+              "from": "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+              "to": "u_visual/u_serial_reset/sync_chain_1_s0/D",
+              "launch": "video_serial:[R]",
+              "capture": "video_serial:[R]",
+              "section": "Hold_Slack_Table10",
+              "clock_skew_ns": 0.0,
+              "data_path_ns": 0.222
+            }
+          },
+          "Recovery": {
+            "video_serial": {
+              "slack_ns": 1.061,
+              "from": "u_visual/u_serial_reset/sync_chain_1_s0/Q",
+              "to": "u_visual/u_video_tx/rgb2dvi_inst/u_OSER10_g/RESET",
+              "launch": "video_serial:[R]",
+              "capture": "video_serial:[F]",
+              "section": "Recovery_Slack_Table",
+              "clock_skew_ns": -0.015,
+              "data_path_ns": 2.803
+            }
+          },
+          "Removal": {
+            "sys_clk": {
+              "slack_ns": 0.518,
+              "from": "u_reset_sync/sync_chain_1_s0/Q",
+              "to": "g_polyphonic.u_audio_core/u_bank/u_events/held_event.velocity_2_s0/CLEAR",
+              "launch": "sys_clk:[R]",
+              "capture": "sys_clk:[R]",
+              "section": "Removal_Slack_Table",
+              "clock_skew_ns": -0.197,
+              "data_path_ns": 1.162
+            }
+          }
+        },
+        "original_gate_errors": [],
+        "facts": {
+          "visual_gate": {
+            "summary": {
+              "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+              "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+              "Numbers of Paths Analyzed": "22926",
+              "Numbers of Endpoints Analyzed": "18844",
+              "Numbers of Falling Endpoints": "4",
+              "Numbers of Setup Violated Endpoints": "0",
+              "Numbers of Hold Violated Endpoints": "0"
+            },
+            "bus_path_count": {
+              "u_event_bridge": 22,
+              "u_control/u_score_mailbox": 50
+            }
+          },
+          "audio_pins": 10,
+          "resources": {
+            "Logic": 15680,
+            "Register": 5989,
+            "DSP": 24,
+            "BSRAM": 8
+          },
+          "fmax_mhz": {
+            "sys_clk": 52.917,
+            "video_serial": 1296.595,
+            "video_pixel": 38.744
+          },
+          "exported_min_slack_ns": {
+            "Setup": 1.102,
+            "Hold": 0.001,
+            "Recovery": 1.061,
+            "Removal": 0.518
+          },
+          "latency_registers": 65,
+          "scope": "independent audio/visual STA only; not production top, monitor or silicon acceptance"
+        },
+        "timing_report_sha256": "2cbe3d9100dad07442bd4e6fbc725c5865b4512da619b7269d4b98b2643e4750"
+      },
+      "strict_trial": {
+        "per_clock_tns": [
+          [
+            "sys_clk",
+            "Setup",
+            "0.000",
+            "0"
+          ],
+          [
+            "sys_clk",
+            "Hold",
+            "0.000",
+            "0"
+          ],
+          [
+            "video_serial",
+            "Setup",
+            "0.000",
+            "0"
+          ],
+          [
+            "video_serial",
+            "Hold",
+            "0.000",
+            "0"
+          ],
+          [
+            "video_pixel",
+            "Setup",
+            "0.000",
+            "0"
+          ],
+          [
+            "video_pixel",
+            "Hold",
+            "0.000",
+            "0"
+          ]
+        ],
+        "min_pulse_width_slack_ns": 2.327,
+        "active_sdc": [
+          "create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]",
+          "create_generated_clock -name video_pixel -source [get_ports {sys_clk}] -master_clock sys_clk -multiply_by 1 -divide_by 2 [get_pins {u_visual/u_video_pll/PLLA_inst/CLKOUT1}]",
+          "create_generated_clock -name video_serial -source [get_ports {sys_clk}] -master_clock sys_clk -multiply_by 5 -divide_by 2 [get_pins {u_visual/u_video_pll/PLLA_inst/CLKOUT0}]",
+          "report_timing -hold -from [get_regs {u_visual/u_control/u_mode_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/ack_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_control/u_mode_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/req_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_control/u_score_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/ack_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_control/u_score_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/req_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_event_bridge/ack_meta_s0}] -to [get_regs {u_visual/u_event_bridge/ack_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_event_bridge/desync_meta_s0}] -to [get_regs {u_visual/u_event_bridge/video_desync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_event_bridge/req_meta_s0}] -to [get_regs {u_visual/u_event_bridge/req_sync_s0}] -max_paths 1",
+          "report_timing -hold -from_clock [get_clocks {sys_clk}] -to_clock [get_clocks {sys_clk}] -max_paths 10 -max_common_paths 1",
+          "report_timing -hold -from_clock [get_clocks {video_pixel}] -to_clock [get_clocks {video_pixel}] -max_paths 10 -max_common_paths 1",
+          "report_timing -hold -from_clock [get_clocks {video_serial}] -to_clock [get_clocks {video_serial}] -max_paths 10 -max_common_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_mode_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/ack_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_mode_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/req_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/ack_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/payload_hold*}] -to [get_regs {u_visual/u_control/u_score_mailbox/dst_data*}] -max_paths 128 -max_common_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/req_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_event_bridge/ack_meta_s0}] -to [get_regs {u_visual/u_event_bridge/ack_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_event_bridge/desync_meta_s0}] -to [get_regs {u_visual/u_event_bridge/video_desync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_event_bridge/payload_hold*}] -to [get_regs {u_visual/u_event_bridge/video_data*}] -max_paths 128 -max_common_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_event_bridge/req_meta_s0}] -to [get_regs {u_visual/u_event_bridge/req_sync_s0}] -max_paths 1",
+          "report_timing -setup -from_clock [get_clocks {sys_clk}] -to_clock [get_clocks {sys_clk}] -max_paths 80 -max_common_paths 1",
+          "report_timing -setup -from_clock [get_clocks {video_pixel}] -to_clock [get_clocks {video_pixel}] -max_paths 80 -max_common_paths 1",
+          "report_timing -setup -from_clock [get_clocks {video_serial}] -to_clock [get_clocks {video_serial}] -max_paths 80 -max_common_paths 1",
+          "set_clock_uncertainty -hold 0.550 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]",
+          "set_clock_uncertainty -setup 1.000 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]",
+          "set_false_path -from [get_ports {sys_rst_n}]",
+          "set_false_path -to [get_pins {u_visual/u_control/u_mode_mailbox/ack_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_control/u_mode_mailbox/req_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_control/u_score_mailbox/ack_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_control/u_score_mailbox/req_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_event_bridge/ack_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_event_bridge/desync_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_event_bridge/req_meta_s0/D}]",
+          "set_max_delay -from [get_regs {u_visual/u_control/u_score_mailbox/payload_hold*}] -to [get_regs {u_visual/u_control/u_score_mailbox/dst_data*}] 10.000",
+          "set_max_delay -from [get_regs {u_visual/u_event_bridge/payload_hold*}] -to [get_regs {u_visual/u_event_bridge/video_data*}] 10.000",
+          "set_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_bclk}]",
+          "set_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_din}]",
+          "set_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_lrck}]",
+          "set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_bclk}]",
+          "set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_din}]",
+          "set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_lrck}]"
+        ],
+        "summary": {
+          "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+          "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+          "Numbers of Paths Analyzed": "22926",
+          "Numbers of Endpoints Analyzed": "18844",
+          "Numbers of Falling Endpoints": "4",
+          "Numbers of Setup Violated Endpoints": "0",
+          "Numbers of Hold Violated Endpoints": "0"
+        },
+        "per_clock_worst": {
+          "Setup": {
+            "sys_clk": {
+              "slack_ns": 1.102,
+              "from": "u_i2s_tx/bclk_acc_0_s0/Q",
+              "to": "u_visual/u_event_bridge/queue[28].channel_0_s1/CE",
+              "launch": "sys_clk:[R]",
+              "capture": "sys_clk:[R]",
+              "section": "Setup_Slack_Table10",
+              "clock_skew_ns": 0.0,
+              "data_path_ns": 17.586
+            },
+            "video_pixel": {
+              "slack_ns": 14.19,
+              "from": "u_visual/u_scene/u_score_tracker/hit_frame_mem[6]_13_s1/Q",
+              "to": "u_visual/dvi_b_7_s0/D",
+              "launch": "video_pixel:[R]",
+              "capture": "video_pixel:[R]",
+              "section": "Setup_Slack_Table11",
+              "clock_skew_ns": 0.0,
+              "data_path_ns": 25.746
+            },
+            "video_serial": {
+              "slack_ns": 7.229,
+              "from": "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+              "to": "u_visual/u_serial_reset/sync_chain_1_s0/D",
+              "launch": "video_serial:[R]",
+              "capture": "video_serial:[R]",
+              "section": "Setup_Slack_Table12",
+              "clock_skew_ns": 0.0,
+              "data_path_ns": 0.48
+            }
+          },
+          "Hold": {
+            "sys_clk": {
+              "slack_ns": 0.001,
+              "from": "u_button_debouncer/debounce_counter_debounce_counter_RAMREG_0_G[3]_s1/Q",
+              "to": "u_button_debouncer/debounce_counter_debounce_counter_RAMREG_0_G[4]_s1/D",
+              "launch": "sys_clk:[R]",
+              "capture": "sys_clk:[R]",
+              "section": "Hold_Slack_Table8",
+              "clock_skew_ns": 0.0,
+              "data_path_ns": 0.576
+            },
+            "video_pixel": {
+              "slack_ns": 0.275,
+              "from": "u_visual/u_scene/u_hit_flash/count_q[37]_0_s1/Q",
+              "to": "u_visual/u_scene/u_hit_flash/count_q[37]_0_s1/D",
+              "launch": "video_pixel:[R]",
+              "capture": "video_pixel:[R]",
+              "section": "Hold_Slack_Table9",
+              "clock_skew_ns": 0.0,
+              "data_path_ns": 0.3
+            },
+            "video_serial": {
+              "slack_ns": 0.275,
+              "from": "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+              "to": "u_visual/u_serial_reset/sync_chain_1_s0/D",
+              "launch": "video_serial:[R]",
+              "capture": "video_serial:[R]",
+              "section": "Hold_Slack_Table10",
+              "clock_skew_ns": 0.0,
+              "data_path_ns": 0.222
+            }
+          },
+          "Recovery": {
+            "video_serial": {
+              "slack_ns": 1.061,
+              "from": "u_visual/u_serial_reset/sync_chain_1_s0/Q",
+              "to": "u_visual/u_video_tx/rgb2dvi_inst/u_OSER10_g/RESET",
+              "launch": "video_serial:[R]",
+              "capture": "video_serial:[F]",
+              "section": "Recovery_Slack_Table",
+              "clock_skew_ns": -0.015,
+              "data_path_ns": 2.803
+            }
+          },
+          "Removal": {
+            "sys_clk": {
+              "slack_ns": 0.468,
+              "from": "u_reset_sync/sync_chain_1_s0/Q",
+              "to": "g_polyphonic.u_audio_core/u_bank/u_events/held_event.velocity_2_s0/CLEAR",
+              "launch": "sys_clk:[R]",
+              "capture": "sys_clk:[R]",
+              "section": "Removal_Slack_Table",
+              "clock_skew_ns": -0.197,
+              "data_path_ns": 1.162
+            }
+          }
+        },
+        "original_gate_errors": [
+          "formal audio clock uncertainty missing: hold"
+        ],
+        "facts": {
+          "visual_gate": {
+            "summary": {
+              "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+              "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+              "Numbers of Paths Analyzed": "22926",
+              "Numbers of Endpoints Analyzed": "18844",
+              "Numbers of Falling Endpoints": "4",
+              "Numbers of Setup Violated Endpoints": "0",
+              "Numbers of Hold Violated Endpoints": "0"
+            },
+            "bus_path_count": {
+              "u_event_bridge": 22,
+              "u_control/u_score_mailbox": 50
+            }
+          },
+          "audio_pins": 10,
+          "resources": {
+            "Logic": 15680,
+            "Register": 5989,
+            "DSP": 24,
+            "BSRAM": 8
+          },
+          "fmax_mhz": {
+            "sys_clk": 52.917,
+            "video_serial": 1296.595,
+            "video_pixel": 38.744
+          },
+          "exported_min_slack_ns": {
+            "Setup": 1.102,
+            "Hold": 0.001,
+            "Recovery": 1.061,
+            "Removal": 0.468
+          },
+          "latency_registers": 65,
+          "scope": "independent audio/visual STA only; not production top, monitor or silicon acceptance"
+        },
+        "timing_report_sha256": "12f0a9c7acf71f30dc14f201542cc6773fcc3fa39a6b2d0f27b4118041c156ea"
+      }
+    },
+    "strict_gate_errors": [],
+    "original_condition_hold": {
+      "method": "inference on unchanged same routed sys_clk-to-sys_clk paths, not an independent STA run",
+      "strict_tool_report_ns": 0.001,
+      "uncertainty_delta_ns": 0.05,
+      "inferred_original_condition_ns": 0.051,
+      "conservative_display_rounding_lower_bound_ns": 0.0505,
+      "generated_clock_and_CDC_reports_not_adjusted": true,
+      "raw_reports_never_edited": true,
+      "original_condition_STA_actually_run": false
+    },
+    "resource_delta": {
+      "Logic": 0,
+      "Register": 0,
+      "DSP": 0,
+      "BSRAM": 0
+    },
+    "comparison": {
+      "system_setup_delta_ns": 0.0,
+      "pixel_setup_delta_ns": 0.0,
+      "system_hold_improvement_under_original_uncertainty_inferred_ns": 0.05,
+      "actual_strict_removal_delta_ns": -0.05,
+      "actual_routes_compared": true,
+      "power_not_measured": true,
+      "functional_simulation_reused_only_by_exact_RTL_ROM_hash_identity": "V0158; no logic changes and no duplicate million-check regression claimed"
+    },
+    "criteria": {
+      "all_strict_timing_CDC_interface_gates_pass": true,
+      "original_condition_system_hold_lower_bound_at_least0_050": true,
+      "system_setup_at_least0_500": true,
+      "no_resource_increase": true,
+      "all_original_inputs_and_ROM_hashes_unchanged": true,
+      "only_agreed_constraint_command_changed": true,
+      "routing_options_unchanged": true
+    },
+    "meets_numeric_screen": true,
+    "disposition": "eligible experimental routing candidate; formal adoption still requires exact accepted constraints and final integrated STA",
+    "pnr_runs": 1,
+    "no_second_PnR_or_seed_search": true,
+    "formal_RTL_and_constraints_changed": false,
+    "programmed": false,
+    "trial_released_for_board_testing": false,
+    "artifact_sha256": {
+      "build.log": "484092f964764d50355a4e6604af2a42757fd49e05fdefc1ebd43602964e2659",
+      "impl/pnr/cmd.do": "550a4908e74ae3c0c2f07c11b8f9efe747cc198d37e4f848accd953ae6dfd399",
+      "impl/pnr/audio_visual_coexistence_top_tr_content.html": "12f0a9c7acf71f30dc14f201542cc6773fcc3fa39a6b2d0f27b4118041c156ea",
+      "impl/pnr/audio_visual_coexistence_top.rpt.txt": "abbfc82ffecd9b8eafc25af8070190d2c57a9e576de49cfdc6c459e809cc271e",
+      "impl/pnr/audio_visual_coexistence_top.pin.html": "8364177f45e4e8974d42bb2064aaeb60a7f2b4156cb9d0f413daaaf3d4c5f667",
+      "research_only_fs": "53f843071e51ac2564e5167ec0a75e09642fa5db1f8e7f7c32a4768b58748445"
+    },
+    "manifest_sha256": "c860039a2d142cdd94ccc4e1156225c1f33ab1009da27c4321e5b6574a7b1985"
+  },
+  "artifacts": {
+    "code\\output\\hold_guardband_20261003\\experiment_manifest.json": "c860039a2d142cdd94ccc4e1156225c1f33ab1009da27c4321e5b6574a7b1985",
+    "code\\output\\hold_guardband_20261003\\constraint_only.patch": "d245181890025668ec2c7d96e2d1cf25d2ec0cdc32ab838dfb87aa2eea7723eb",
+    "code\\output\\hold_guardband_20261003\\C_hold055\\build.log": "484092f964764d50355a4e6604af2a42757fd49e05fdefc1ebd43602964e2659",
+    "code\\output\\hold_guardband_20261003\\C_hold055\\build_exit.txt": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+    "code\\output\\hold_guardband_20261003\\C_hold055\\audio_visual_coexistence_top.gprj": "fb84e933c46c12f71ac50d0facfb6d65f03ce0c00ed541fce000eca891421abc",
+    "code\\output\\hold_guardband_20261003\\C_hold055\\audio_visual_hold055.sdc": "7298efd5c8666d8357f08a48eaa2d9e075240a67d0881b6c98928bddbb9f5c9f",
+    "code\\output\\hold_guardband_20261003\\C_hold055\\impl\\pnr\\audio_visual_coexistence_top_tr_content.html": "12f0a9c7acf71f30dc14f201542cc6773fcc3fa39a6b2d0f27b4118041c156ea",
+    "code\\output\\hold_guardband_20261003\\C_hold055\\impl\\pnr\\audio_visual_coexistence_top.rpt.txt": "abbfc82ffecd9b8eafc25af8070190d2c57a9e576de49cfdc6c459e809cc271e",
+    "code\\output\\hold_guardband_20261003\\C_hold055\\impl\\pnr\\audio_visual_coexistence_top.pin.html": "8364177f45e4e8974d42bb2064aaeb60a7f2b4156cb9d0f413daaaf3d4c5f667",
+    "code\\output\\hold_guardband_20261003\\C_hold055\\impl\\pnr\\audio_visual_coexistence_top.fs": "53f843071e51ac2564e5167ec0a75e09642fa5db1f8e7f7c32a4768b58748445"
+  },
+  "formal_baseline_retained": true,
+  "adoption": "candidate for final integrated STA; not production replacement",
+  "tool_manual": "SUG940-2.0E and SUG100-4.4.2E local Gowin manuals",
+  "report_sha256": "da99d883ced7c44d30d66306c6a2363584b3108af87700b30474220f627846d2"
+}
