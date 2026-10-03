@@ -154,7 +154,8 @@ PASS: tb_button_event_converter completed all checks
 
 ## 并行饱和计数（2026-10-02，M3）
 
-本次只替换内部计数计算结构，正式 RTL 与交接包唯一候选的 LF SHA-256 一致：
+以下为6055bb8阶段的历史实现与验证；当前实现见末尾“计数末端选择”。
+当时只替换内部计数计算结构，正式 RTL 与交接包唯一候选的 LF SHA-256 一致：
 `65c7978b2e1ce27fc09606cd87ee43fc1a078898acdd109490ca1909f89c0dd7`。
 
 每拍最多丢弃 `2*BUTTON_COUNT` 个事件，`overflow_increment` 因此使用
@@ -199,3 +200,50 @@ Icarus和原T022 ModelSim入口均PASS、两个反例正确非零退出，check_
 `check_repo_final.log` 和 `original_t022_modelsim_final.log`。
 本次等级 **L2**；未新增整机综合/PnR、未作ADSR或严格闪光组合、未烧录/实物测试。
 整机时序与组合复核由M2接手，不能沿用旧隔离报告当作本次整机时序结果。
+
+## 计数末端选择（2026-10-03，M3）
+
+按M2发布的52106a2／V0158唯一补丁，从6055bb8计数基线正式落地。
+当前生产RTL的LF SHA-256为
+`04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1`，
+与附件批准候选和实际被测试DUT逐字节一致。
+
+令当前FIFO占用为q、本拍按下和释放脉冲总数为n、容量为D，提前计算
+no-pop分支`max(q+n-D, 0)`与pop分支`max(q-1+n-D, 0)`的丢弃数量及对应
+32位饱和值；q=0时保护减法，避免未使用的pop分支下溢。TOTAL_W预留增长位，
+DROP_W容纳0至`2*BUTTON_COUNT`。同键同时按下和释放仍算两条事件。
+
+`event_valid && event_ready`只选择最后的32位计数结果；无丢弃时写回旧计数。
+计数寄存器没有新增ready派生使能或pending级，**不加拍**，丢弃仍在发生的
+同一上升沿计入。FIFO入队/出队、容量、事件字段、按键升序、同键先按下再释放、
+背压保持、复位及公共FIFO满pop旁路保持6055bb8语义。
+
+仓库内可重复运行：
+
+```powershell
+python -X utf8 code/tb/input/button_counter_timing/run.py --selftest
+python -X utf8 code/scripts/run_button_tail_select_experiment.py --output code/output/tail_select_newrun
+.\code\scripts\run_t022_sim.ps1
+.\code\scripts\check_repo.ps1
+```
+
+第二条使用冻结6055bb8独立参考和批准补丁生成候选，只写全新output目录，
+不覆盖生产源码或启动PnR。正式源码身份还由交接包`verify_production.py`
+校验：先比较生产文件与批准候选，再复跑独立参考，最后比较实际编译DUT与生产文件。
+原`run.py --selftest`两个错误变异在新写法下仍有效，保留原测试；批准候选专项
+另覆盖pop分支未减1，未删除原稳定性、容量或同拍计数断言。
+
+本次实际复跑：四组随机压力405430项、六组60032个穷举用例804364项，
+合计1209794项PASS；原T022自检Icarus与ModelSim均PASS。计数晚一拍、pop分支
+未减1、取消公共满pop旁路三个可编译错误变异全部非零拒收。Yosys优化后generic
+网表审计通过：两支预计算不依赖ready，计数寄存器无EN，D端为最终pop选择器。
+附件入口确认生产源码与实际编译DUT完全一致；原正式`run.py --selftest`
+405430项及两个反例亦PASS。`check_repo.ps1`九组全部PASS、退出0，
+完整门禁日志为下面正式落地目录中的`check_repo.log`。
+
+实际日志保存在`code/output/tail_select_formal_20261003_m3/`和
+`code/output/button_counter_tail_formal_20261003_m3/`。本次正式落地等级L2；
+M2已有冻结A/B工程L5证据见
+`code/docs/按键计数末端选择_有限AB试验与采用建议_2026-10-03.md`／V0158。
+该实验的系统Setup +1.102ns只绑定原冻结组合；最新parser等功能组合的STA由M2
+继续执行。本次未重新整机PnR、未烧录、未做实物测试。
