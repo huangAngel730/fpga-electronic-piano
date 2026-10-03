@@ -11,3 +11,5 @@ TB通过真实字节/valid/error/ready/reset输入对照完整事件、FIFO水�
 已实跑结果：四配置各256193拍PASS，成功事件28637/35793/32857/42002，控制3045/2950/6/9794。
 M2另一项从de68038两段未修改的实际组合源码提取选择器，与独立Python线性oracle400384案例及三个可编译行为反例，已实跑，原代码/向量/日志保留忽略output/M3_parser_de68038_review_20261003/independent_selector。
 本目录只保存短miter，不新增第二份生产选择实现；完整源码切片和参考SHA在本次evidence。M3原完整miter入口run_midi_scheduler_equivalence.py与附件ModelSim日志仍单独注明原执行者。
+
+实际执行的TB原始CRLF文件仍保留在output；本目录按.gitattributes使用LF，两者仅换行不同，运行raw SHA和Git LF SHA分别列在source_manifest，不能说两者字节相同。

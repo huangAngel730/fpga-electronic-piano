@@ -879,7 +879,7 @@
     "source changes require fresh final-combo STA",
     "M3 original long ModelSim runs only evidence reviewed"
   ],
-  "followup": "M3 E specific large Setup failure repaired; F can proceed on exact de68038 parser. M2 owns final integration and residual timing-margin decision; no unrequested extra parser redesign.",
+  "followup": "E signed off for this repair. F45e4cff and burst16c1a24af received, separate review pending; do not reassign or repeat. M2 owns final integration and engineering margin.",
   "notification": "pending user forward, not delivered",
   "readme_miter_SHA": "6956a2552333916d011631c604e5d9c2a02be4054af94678ec84f985bafee23d",
   "evidence_hashes": {
@@ -889,5 +889,28 @@
     "independent_full_miter\\results.json": "c5513d300fa67b1fa30eb4818c1b053516e3c6188e4eada5f94b736ec200f96d",
     "full_DUT_regressions\\results.json": "0ffd006d54cea53d0539b538f86515d8bff2d94cfbc90b4ff520955d88a9f98b",
     "physical_AB_preflight.json": "f31014a913e896848a38d17b0dfb048049777323dd45960e842b6df99c650cbb"
+  },
+  "preserved_miter_identity": {
+    "date": "2026-10-03",
+    "baseline_commit": "3d6430e",
+    "baseline_parser_SHA": "cfd4c33e91ba06a73c89dedb66b8636dc0c1bd1778ae454714325207424c28c4",
+    "candidate_commit": "de68038",
+    "candidate_parser_SHA": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+    "testbench_SHA": "dce9c1df856aecf065e52d2e759148fa2b632113fc0bf53bf7f4ca62a87d9230",
+    "independently_executed_tb_bytes_preserved": false,
+    "cycle_count_each_config": 256193,
+    "config_count": 4,
+    "no_new_RTL_or_M3_TB_edits": true,
+    "meaning": "M2 bounded full DUT miter only; not M3 original long trace or STA",
+    "executed_raw_TB_sha256": "6956a2552333916d011631c604e5d9c2a02be4054af94678ec84f985bafee23d",
+    "repository_LF_TB_sha256": "dce9c1df856aecf065e52d2e759148fa2b632113fc0bf53bf7f4ca62a87d9230",
+    "independently_executed_tb_text_preserved_after_LF_normalization": true,
+    "note": "Original executed CRLF bytes remain in output; Git tracks LF per gitattributes. Both raw hashes recorded; no semantic TB changes."
+  },
+  "remote_followups_received_not_reviewed": {
+    "c1a24af": "burst16 supplementary test received, no result accepted in this review",
+    "45e4cff": "real UART to PCM F test received, not independently reviewed yet",
+    "no_production_RTL_changes_in_followups": true,
+    "physical_source_sha_still_matches_de68038": true
   }
 }
