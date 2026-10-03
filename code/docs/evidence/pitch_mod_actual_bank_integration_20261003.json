@@ -1,0 +1,415 @@
+{
+  "date": "2026-10-03",
+  "reviewer": "M2",
+  "scope": "actual audio-bank integration candidate; no formal writes; no board release",
+  "functional": {
+    "scope": "actual bank/router/DDS/ADSR and PCM integration candidate only",
+    "formal_modified": false,
+    "source_hashes": {
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\note_pitch.sv": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\board\\sustain_control_contract_pkg.sv": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\input\\sustain_control\\sustain_controller.sv": "dd244b99b06eaa2ed7e7deda1c08aeb119f002bff939ce5941e5e81a559cbc4e",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\pitch_mod_bank_integration_candidate\\polyphonic_event_router.sv": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\pitch_mod_bank_integration_candidate\\polyphonic_envelope_bank.sv": "bf0da7888140f69d8777bf1625769402be85de677ac7eb34f6ef934ad8f42f00",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\run3\\bank_reference.sv": "0038e845ce33b595790a53563c12898d0dd0e1f8ec4cc9c79d758cc73ffcffb6",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\board\\performance_control_snapshot.sv": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\pitch_mod_pipeline_candidate\\pitch_mod_fcw_pipeline.sv": "bc14fab96206c2ec202e155995427573c7bf18ce0bc74e5f291e6bc531f8f772",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\pitch_mod_pipeline_candidate\\pitch_mod_snapshot_pipeline.sv": "ea4aaad461e62eea360f8efebae60d3b2963e8515a0d6bb514e3b37c2895651b",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\audio\\dds_oscillator.sv": "3cd758e28da8f76a30da38cb2dfcd458db5743d4ea4f38e072a43d7f83719f04",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\audio\\piano_dds_oscillator.sv": "941c6f1bb2e41cf9bd4433b9c22ab58c9ad7e041f32e96039de6eec8dc139fc1",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\run3\\adsr\\adsr_piano_envelope.sv": "a0b55c17fe6553704120c6662fd53bf3c94a418bb31eff318bd9b113f5f205b5",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\board\\polyphonic_pcm_commit.sv": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\mixer\\pcm_mixer_4voice.sv": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\audio_out\\pcm_result_hold.sv": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\audio_out\\pcm_frame_buffer.sv": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\pcm_clip_counter.sv": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\system_status_counters.sv": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\board\\voice_gain_q15_candidate.sv": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\board\\polyphonic_audio_core.sv": "b36b0838f1b8ba947d99cc6c48f91334f845aa7984f6d9d3b21cbe502512c995"
+    },
+    "allocator_original_sha": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+    "generated_allocator_sha": "6b67eb3d708adf41a29da5f25455c5a034eb909c7f5aa3235f441ab4dfd3194b",
+    "runs": {
+      "allocator_lower": {
+        "exit": 0,
+        "log_sha": "e484393c6d0e9a06a000cd480baf17e4c5717d70cb9d8f796fa4dbe044984235"
+      },
+      "bank_compile": {
+        "exit": 0,
+        "log_sha": "0725b52e44e3c094e784a457e020e44e9fea6a907c5c56e8ca378d329e2d8f11"
+      },
+      "bank_run": {
+        "exit": 0,
+        "log_sha": "9f4b0884ebf4e0ffd7df71c0e581c1e3c59f30e6f038d62b420f3d1d16651e90"
+      },
+      "broken_tag_compile": {
+        "exit": 0,
+        "log_sha": "0725b52e44e3c094e784a457e020e44e9fea6a907c5c56e8ca378d329e2d8f11"
+      },
+      "broken_tag": {
+        "exit": 1,
+        "log_sha": "a3222177cca1a88c8356276238cd721687ce855c21b03abf1ff245c6e946597a"
+      },
+      "live_fcw_compile": {
+        "exit": 0,
+        "log_sha": "0725b52e44e3c094e784a457e020e44e9fea6a907c5c56e8ca378d329e2d8f11"
+      },
+      "live_fcw": {
+        "exit": 1,
+        "log_sha": "eb729ddd18f6e2d928be4908d0a41a7c6ac93c24536f35bb71c41c5b486c0509"
+      },
+      "PCM_compile": {
+        "exit": 0,
+        "log_sha": "aa326f249eace237782e73bdd7065af687f56e58caa89d12c4f71104edbb261c"
+      },
+      "PCM_run": {
+        "exit": 0,
+        "log_sha": "0dba414590d965099be02aeec373ec46e0320f77db462fa0fa99619a401dbc7c"
+      }
+    },
+    "independent_model": {
+      "captures": 1896,
+      "math_results": 1893,
+      "bank_results": 1886,
+      "nonzero_controls": 4353,
+      "dds_ticks": 1892,
+      "cancelled_frames": 7,
+      "RTL_summary": [
+        502188,
+        1886,
+        1892,
+        784
+      ]
+    }
+  },
+  "physical": {
+    "scope": "isolated integration of actual four-voice bank/V1/CC64/PitchMod + latest MIDI + strict visual",
+    "raw_original_gate_errors": [
+      "Numbers of Setup Violated Endpoints: 430",
+      "Numbers of Hold Violated Endpoints: 2770",
+      "missing/negative Recovery_Slack_Table",
+      "missing/negative second-stage path: u_control/u_score_mailbox Hold",
+      "formal audio clock uncertainty missing: hold",
+      "audio ROM footprint is not 8 BSRAM",
+      "clock Fmax not met: sys_clk",
+      "missing/negative exported Setup",
+      "missing/negative exported Hold",
+      "missing/negative exported Recovery"
+    ],
+    "validated_intended_changes": {
+      "Hold_uncertainty_ns": 0.55,
+      "BSRAM_expected": 20
+    },
+    "errors": [
+      "Numbers of Setup Violated Endpoints: 430",
+      "Numbers of Hold Violated Endpoints: 2770",
+      "missing/negative Recovery_Slack_Table",
+      "missing/negative second-stage path: u_control/u_score_mailbox Hold",
+      "clock Fmax not met: sys_clk",
+      "missing/negative exported Setup",
+      "missing/negative exported Hold",
+      "missing/negative exported Recovery",
+      "per-domain timing endpoints/TNS failed"
+    ],
+    "timing_pass": false,
+    "facts": {
+      "visual_gate": {
+        "summary": {
+          "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+          "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+          "Numbers of Paths Analyzed": "31112",
+          "Numbers of Endpoints Analyzed": "27998",
+          "Numbers of Falling Endpoints": "4",
+          "Numbers of Setup Violated Endpoints": "430",
+          "Numbers of Hold Violated Endpoints": "2770"
+        },
+        "bus_path_count": {
+          "u_event_bridge": 23,
+          "u_control/u_score_mailbox": 50
+        }
+      },
+      "audio_pins": 10,
+      "resources": {
+        "Logic": 19711,
+        "Register": 8671,
+        "DSP": 46,
+        "BSRAM": 20
+      },
+      "fmax_mhz": {
+        "sys_clk": 35.878,
+        "video_serial": 1296.596,
+        "video_pixel": 35.035
+      },
+      "exported_min_slack_ns": {
+        "Setup": -7.872,
+        "Hold": -0.39,
+        "Recovery": -0.334,
+        "Removal": 0.643
+      },
+      "latency_registers": 65,
+      "scope": "independent audio/visual STA only; not production top, monitor or silicon acceptance"
+    },
+    "per_clock_worst": {
+      "Setup": {
+        "sys_clk": [
+          "1",
+          "-7.872",
+          "u_midi_input/u_midi_event_parser/system_data_remaining_0_s0/Q",
+          "u_midi_input/u_midi_event_parser/locked_event.control_value_10_s3/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "20.000",
+          "-0.009",
+          "26.818"
+        ],
+        "video_pixel": [
+          "1",
+          "11.457",
+          "u_visual/u_scene/u_score_tracker/current_frame_1_s0/Q",
+          "u_visual/u_scene/u_score_tracker/hit_mem_2_s1/CE",
+          "video_pixel:[R]",
+          "video_pixel:[R]",
+          "40.000",
+          "0.000",
+          "28.231"
+        ],
+        "video_serial": [
+          "1",
+          "7.229",
+          "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+          "u_visual/u_serial_reset/sync_chain_1_s0/D",
+          "video_serial:[R]",
+          "video_serial:[R]",
+          "8.000",
+          "0.000",
+          "0.480"
+        ]
+      },
+      "Hold": {
+        "sys_clk": [
+          "1",
+          "-0.390",
+          "g_polyphonic.u_audio_core/u_bank/u_controls/snapshot_id_15_s0/Q",
+          "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/held_id_15_s0/D",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "0.000",
+          "-0.197",
+          "0.382"
+        ],
+        "video_pixel": [
+          "1",
+          "0.275",
+          "u_visual/u_scene/u_hit_flash/count_q[42]_2_s1/Q",
+          "u_visual/u_scene/u_hit_flash/count_q[42]_2_s1/D",
+          "video_pixel:[R]",
+          "video_pixel:[R]",
+          "0.000",
+          "0.000",
+          "0.300"
+        ],
+        "video_serial": [
+          "1",
+          "0.275",
+          "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+          "u_visual/u_serial_reset/sync_chain_1_s0/D",
+          "video_serial:[R]",
+          "video_serial:[R]",
+          "0.000",
+          "0.000",
+          "0.222"
+        ]
+      },
+      "Recovery": {
+        "video_serial": [
+          "1",
+          "-0.334",
+          "u_visual/u_serial_reset/sync_chain_1_s0/Q",
+          "u_visual/u_video_tx/rgb2dvi_inst/u_OSER10_clk/RESET",
+          "video_serial:[R]",
+          "video_serial:[F]",
+          "4.000",
+          "-0.009",
+          "4.191"
+        ]
+      },
+      "Removal": {
+        "sys_clk": [
+          "4",
+          "0.927",
+          "u_reset_sync/sync_chain_1_s0/Q",
+          "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[2].u_control/base_s3_2_s0/CLEAR",
+          "sys_clk:[R]",
+          "sys_clk:[R]",
+          "0.000",
+          "-0.201",
+          "1.625"
+        ]
+      }
+    },
+    "global_worst_paths": {
+      "Setup": [
+        "1",
+        "-7.872",
+        "u_midi_input/u_midi_event_parser/system_data_remaining_0_s0/Q",
+        "u_midi_input/u_midi_event_parser/locked_event.control_value_10_s3/D",
+        "sys_clk:[R]",
+        "sys_clk:[R]",
+        "20.000",
+        "-0.009",
+        "26.818"
+      ],
+      "Hold": [
+        "1",
+        "-0.390",
+        "g_polyphonic.u_audio_core/u_bank/u_controls/snapshot_id_15_s0/Q",
+        "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/held_id_15_s0/D",
+        "sys_clk:[R]",
+        "sys_clk:[R]",
+        "0.000",
+        "-0.197",
+        "0.382"
+      ],
+      "Recovery": [
+        "1",
+        "-0.334",
+        "u_visual/u_serial_reset/sync_chain_1_s0/Q",
+        "u_visual/u_video_tx/rgb2dvi_inst/u_OSER10_clk/RESET",
+        "video_serial:[R]",
+        "video_serial:[F]",
+        "4.000",
+        "-0.009",
+        "4.191"
+      ],
+      "Removal": [
+        "1",
+        "0.643",
+        "u_visual/u_serial_reset/sync_chain_1_s0/Q",
+        "u_visual/u_video_tx/rgb2dvi_inst/TMDS8b10b_inst_b/c0_d_s0/PRESET",
+        "video_serial:[R]",
+        "video_pixel:[R]",
+        "0.000",
+        "0.000",
+        "0.625"
+      ]
+    },
+    "per_clock_TNS": [
+      [
+        "sys_clk",
+        "Setup",
+        "-731.089",
+        "427"
+      ],
+      [
+        "sys_clk",
+        "Hold",
+        "-380.434",
+        "2770"
+      ],
+      [
+        "video_serial",
+        "Setup",
+        "-0.808",
+        "3"
+      ],
+      [
+        "video_serial",
+        "Hold",
+        "0.000",
+        "0"
+      ],
+      [
+        "video_pixel",
+        "Setup",
+        "0.000",
+        "0"
+      ],
+      [
+        "video_pixel",
+        "Hold",
+        "0.000",
+        "0"
+      ]
+    ],
+    "min_pulse_width_slack": 2.24,
+    "artifact_sha256": {
+      "impl\\pnr\\audio_visual_coexistence_top_tr_content.html": "583a193a005a30bd5bf9279f16700843a259e7e7b5c4c51a77dcf363a3e6215b",
+      "build.log": "2bc41ccbb6b315abd1d8b0d8299a4d7d1c04ce1e9d0eeb0df31813741dc57c5e",
+      "impl\\pnr\\audio_visual_coexistence_top.rpt.txt": "374e554f09f968a4e962b098f70d54d4ba90391042482086e2dab8b95e91c050",
+      "impl\\pnr\\audio_visual_coexistence_top.pin.html": "9c01070a723cc961d93f23c3abb091d562c22d7f7252c800c86f77f7a6413833",
+      "impl\\pnr\\cmd.do": "061c95818c39bb2a696dc509590637ca193bca2819650a5e9ccda0b2edf05f15",
+      "FAILED_OR_RESEARCH_ONLY.fs": "fcdb1b763ff3735cb9d70579913b0a115b913eb7404f572647c30abe8f9e919b"
+    },
+    "manifest_sha256": "08d48c7b744d75f1b6a52cc5f4b4eb6a0c99d1e31e9cec4e3c75209e59e0ad85",
+    "formal_RTL_modified": false,
+    "board_bitstream_released": false,
+    "programmed": false,
+    "disposition": "FAIL: retain previous approved production; do not program generated .fs"
+  },
+  "simulation_vs_PnR_candidate_ROM_path_only_delta": {
+    "polyphonic_envelope_bank.sv": true,
+    "polyphonic_event_router.sv": true
+  },
+  "current_candidate_source_hashes": {
+    "polyphonic_envelope_bank.sv": "bf0da7888140f69d8777bf1625769402be85de677ac7eb34f6ef934ad8f42f00",
+    "polyphonic_event_router.sv": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+    "tb_pitch_mod_audio_commit.sv": "bd70897d6b0fbf989475b8c75dbf670028c88377c05cf485389ad22ff8acb450",
+    "tb_pitch_mod_bank_integration.sv": "9457f273641af91abda949ff58e75283fbba4e6213384f6e39cfbfbebfa44628"
+  },
+  "reuse_note": "784 compare samples use reviewed ADSR-pipeline bank as no-control reference; not claim cycle-exact unmodified production envelope",
+  "functional_counts": {
+    "bank_checks": 502188,
+    "bank_consumed": 1886,
+    "model_nonzero_control_lanes": 4353,
+    "no_control_reference_samples": 784,
+    "PCM_frames": 560,
+    "PCM_nonzero_frames": 560,
+    "PCM_checks": 3394,
+    "max_request_to_commit_cycles": 30,
+    "intentional_frame_cancels": 7,
+    "behavioral_mutants_rejected": 2
+  },
+  "tool_exit_is_not_timing_acceptance": true,
+  "timing_disposition": "FAIL: old official sources/bitstreams retained; generated fs not deliverable",
+  "blockers": {
+    "M3_input": "32-slot update-dependent RR selection chain, min Setup -7.872ns",
+    "M2_clock_control": "snapshot/request tag short paths min Hold -0.390ns; Recovery -0.334ns"
+  },
+  "notifications": {
+    "M3_parser_scope": "prepared; pending user forward",
+    "M1_ADSR_pipeline": "prepared; pending user forward",
+    "interface_group": "prepared; not posted"
+  },
+  "not_done": [
+    "production top/GPRJ application",
+    "L5 timing closure",
+    "board sound/PitchMod verification",
+    "T028",
+    "Program timbre mapping"
+  ],
+  "scope_file": "code/tb/board/pitch_mod_bank_integration_candidate/source_manifest.json",
+  "publication_gate_attempt1": {
+    "passed": false,
+    "failure": "T007 tb_key_to_tone exit1; no fresh run.log produced",
+    "hypothesis": "runtime timeout of unchanged production regression; no current assertion failure evidence",
+    "retry_budget": 1,
+    "log_sha256": "b78a83322b458eda248e235aa4162a625699028730e136a0d9537ace4cabb756",
+    "formal_sources_changed": false
+  },
+  "priority_recommendation": {
+    "M3_before_nonblocking_D_audit": "fix registered-pending RR selection late input path, after exact private scope notice",
+    "M2_parallel": "control metadata/FCW short paths and serializer reset Recovery; coordinate next same-build STA",
+    "stable_version": "retain existing production; do not release generated failed fs"
+  },
+  "publication_gate_single_retry": {
+    "passed": true,
+    "groups": 9,
+    "Python_files": 141,
+    "T007": true,
+    "T019": true,
+    "exit": 0,
+    "log_sha256": "dd6e879e0bce96d3989e51d6ea0750b45517c80f8cf50a41fd181b4433b8cd04",
+    "no_source_or_gate_changes_between_attempts": true
+  }
+}

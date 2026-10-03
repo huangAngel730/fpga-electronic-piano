@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-03",
+  "scope": "M2 isolated actual bank/router PitchMod + V1/CC64, production untouched",
+  "candidate_files": {
+    "code\\tb\\board\\pitch_mod_bank_integration_candidate\\polyphonic_envelope_bank.sv": "bf0da7888140f69d8777bf1625769402be85de677ac7eb34f6ef934ad8f42f00",
+    "code\\tb\\board\\pitch_mod_bank_integration_candidate\\polyphonic_event_router.sv": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+    "code\\tb\\board\\pitch_mod_bank_integration_candidate\\tb_pitch_mod_audio_commit.sv": "bd70897d6b0fbf989475b8c75dbf670028c88377c05cf485389ad22ff8acb450",
+    "code\\tb\\board\\pitch_mod_bank_integration_candidate\\tb_pitch_mod_bank_integration.sv": "9457f273641af91abda949ff58e75283fbba4e6213384f6e39cfbfbebfa44628"
+  },
+  "baseline_files": {
+    "code/rtl/board/polyphonic_event_router.sv": "3a85d64a84447c1cbbf833150a6576c13b79e30a7d4a972c14707363a5f758f4",
+    "code/rtl/board/polyphonic_envelope_bank.sv": "813e0b726546c16344aa86eb39c02291315450a001ba613e3dbfc710885689da",
+    "code/rtl/board/polyphonic_audio_core.sv": "b36b0838f1b8ba947d99cc6c48f91334f845aa7984f6d9d3b21cbe502512c995",
+    "code/rtl/audio/adsr_piano_envelope.sv": "775fec7f546a00ca7bf98f132cce8d5d92d80ca6094af8e9e14cb07cd54a2e9d",
+    "code/rtl/audio/piano_dds_oscillator.sv": "941c6f1bb2e41cf9bd4433b9c22ab58c9ad7e041f32e96039de6eec8dc139fc1",
+    "code/rtl/common/audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064"
+  },
+  "existing_pipeline_files": {
+    "code/rtl/board/performance_control_snapshot.sv": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+    "code/tb/board/pitch_mod_pipeline_candidate/pitch_mod_fcw_pipeline.sv": "bc14fab96206c2ec202e155995427573c7bf18ce0bc74e5f291e6bc531f8f772",
+    "code/tb/board/pitch_mod_pipeline_candidate/pitch_mod_snapshot_pipeline.sv": "ea4aaad461e62eea360f8efebae60d3b2963e8515a0d6bb514e3b37c2895651b"
+  },
+  "formal_router_interface_group_notice_required_before_apply": true,
+  "ADSR_cross_role_notice_not_assumed_delivered": true,
+  "MIDI_parser_current_not_modified": true,
+  "Program_timbre_policy_not_changed": true,
+  "T028_not_integrated": true
+}
