@@ -1,0 +1,159 @@
+{
+  "date": "2026-10-03",
+  "reviewer": "M2",
+  "commits": {
+    "A": "2fdc3136f22a9a110f54ed47adbd08bdb8fe03dd",
+    "B": "3d6430edcd03f78dd47c5db1f3a6415153cbc20f"
+  },
+  "head_at_review": "52106a2",
+  "disposition": "accepted input-side L2, no audio/whole-system/board claim",
+  "original_tb_results": [
+    {
+      "name": "tb_midi_controls",
+      "compile_exit": 0,
+      "sim_exit": 0,
+      "pass_marker": true
+    },
+    {
+      "name": "tb_midi_control_queue",
+      "compile_exit": 0,
+      "sim_exit": 0,
+      "pass_marker": true
+    },
+    {
+      "name": "tb_midi_controls_uart",
+      "compile_exit": 0,
+      "sim_exit": 0,
+      "pass_marker": true
+    },
+    {
+      "name": "tb_midi_input",
+      "compile_exit": 0,
+      "sim_exit": 0,
+      "pass_marker": true
+    },
+    {
+      "name": "tb_midi_cc64",
+      "compile_exit": 0,
+      "sim_exit": 0,
+      "pass_marker": true
+    }
+  ],
+  "additional_results": [
+    {
+      "name": "tb_midi_control_fairness_independent",
+      "top": "tb_midi_control_fairness",
+      "tb": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\midi_AB_M2_review_20261003\\tb_midi_control_fairness_icarus_adapter.sv",
+      "sim_exit": 0,
+      "expected_failure": false,
+      "accepted": true,
+      "tb_sha256": "ec4ce62f203d1ee07ad8749ed4f5ebd47a033e6a7637100aa7c3e1d36605fc82"
+    },
+    {
+      "name": "tb_midi_program_change_independent",
+      "top": "tb_midi_program_change",
+      "tb": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\midi_AB_M2_review_20261003\\tb_midi_program_change_icarus_adapter.sv",
+      "sim_exit": 0,
+      "expected_failure": false,
+      "accepted": true,
+      "tb_sha256": "4524c0164844a8ac343bd9925c979decc8c9715887cf4cbea938262fc1bf23f2"
+    },
+    {
+      "name": "tb_midi_program_change_uart_independent",
+      "top": "tb_midi_program_change_uart",
+      "tb": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\input\\tb_midi_program_change_uart.sv",
+      "sim_exit": 0,
+      "expected_failure": false,
+      "accepted": true,
+      "tb_sha256": "e292eb400fac89a566e66aa27bad9afaf1b595e31048a51cad6c36c3089bb1c1"
+    },
+    {
+      "name": "tb_midi_control_fairness_uart_independent",
+      "top": "tb_midi_control_fairness_uart",
+      "tb": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\midi_AB_M2_review_20261003\\tb_midi_control_fairness_uart_icarus_adapter.sv",
+      "sim_exit": 0,
+      "expected_failure": false,
+      "accepted": true,
+      "tb_sha256": "f3487fa459187c97f4026f9a06519b00b5dfd8ffc826fcd00db866bc9ca54fb3"
+    },
+    {
+      "name": "tb_midi_control_queue_50m",
+      "top": "tb_midi_control_queue",
+      "tb": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\input\\tb_midi_control_queue.sv",
+      "sim_exit": 0,
+      "expected_failure": false,
+      "accepted": true,
+      "tb_sha256": "4bd702fc1d32a6d730bbce07a0556ca55ab719ce65d014bf1dfd2af27596a014"
+    },
+    {
+      "name": "tb_midi_control_fairness_50m",
+      "top": "tb_midi_control_fairness",
+      "tb": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\midi_AB_M2_review_20261003\\tb_midi_control_fairness_icarus_adapter.sv",
+      "sim_exit": 0,
+      "expected_failure": false,
+      "accepted": true,
+      "tb_sha256": "ec4ce62f203d1ee07ad8749ed4f5ebd47a033e6a7637100aa7c3e1d36605fc82"
+    },
+    {
+      "name": "old_starvation_negative",
+      "top": "tb_midi_control_fairness",
+      "tb": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\midi_AB_M2_review_20261003\\tb_midi_control_fairness_icarus_adapter.sv",
+      "sim_exit": 1,
+      "expected_failure": true,
+      "accepted": true,
+      "tb_sha256": "ec4ce62f203d1ee07ad8749ed4f5ebd47a033e6a7637100aa7c3e1d36605fc82"
+    },
+    {
+      "name": "stalled_payload_mutation_negative",
+      "top": "tb_midi_control_fairness",
+      "tb": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\midi_AB_M2_review_20261003\\tb_midi_control_fairness_icarus_adapter.sv",
+      "sim_exit": 1,
+      "expected_failure": true,
+      "accepted": true,
+      "tb_sha256": "ec4ce62f203d1ee07ad8749ed4f5ebd47a033e6a7637100aa7c3e1d36605fc82"
+    },
+    {
+      "name": "no_rate_limit_negative",
+      "top": "tb_midi_control_queue",
+      "tb": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\input\\tb_midi_control_queue.sv",
+      "sim_exit": 1,
+      "expected_failure": true,
+      "accepted": true,
+      "tb_sha256": "4bd702fc1d32a6d730bbce07a0556ca55ab719ce65d014bf1dfd2af27596a014"
+    }
+  ],
+  "positive_configurations": 11,
+  "negative_mutants_rejected": 3,
+  "original_dut_modified": false,
+  "simulator_adapter": {
+    "scope": "three output-only TB copies; pure packed-struct accessors replace direct array element field references",
+    "reason": "Icarus internal assertion elab_expr.cc:3088 base_index.size()+1 == net->packed_dimensions()",
+    "formal_tb_modified": false,
+    "functions_pure": true,
+    "patch": "icarus_tb_adapter.patch"
+  },
+  "source_hashes": {
+    "code\\rtl\\common\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+    "code\\rtl\\common\\uart_rx.sv": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+    "code\\rtl\\input\\midi_input\\midi_event_parser.sv": "cfd4c33e91ba06a73c89dedb66b8636dc0c1bd1778ae454714325207424c28c4",
+    "code\\rtl\\input\\midi_input\\midi_input.sv": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710",
+    "code\\tb\\input\\tb_midi_control_fairness.sv": "6376fae346fac732fd2f5e2c50c5e6f84b92dfa1f8e3c79eb097df3f9f5fd973",
+    "code\\tb\\input\\tb_midi_program_change.sv": "0dd0883fc20a35f46a1ef67f98ff7031328f5ee622683152ae138abe96159995",
+    "code\\tb\\input\\tb_midi_control_fairness_uart.sv": "baa5dc00f8f01c2da1b266a9f3a3bef15c8f608b8bbc90fcc2ede433746abac0"
+  },
+  "repository_gate": {
+    "groups": 9,
+    "passed": true,
+    "Python_files": 135,
+    "T007": true,
+    "T019": true,
+    "log_sha256": "31877974a4c35eb9b491a9cc40474fc7cab980de77151c800798d30823f9f231"
+  },
+  "not_done": [
+    "Gowin synthesis",
+    "whole-system PnR/STA",
+    "production audio FCW/LFO/timbre integration",
+    "silicon verification"
+  ],
+  "handoff": "pending user forward"
+}
