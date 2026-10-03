@@ -1,0 +1,226 @@
+{
+  "date": "2026-10-03",
+  "local_work_directory": "code/output/M2_mainline_handoff_20261003",
+  "reviewer": "M2",
+  "tasks": {
+    "background_mask": {
+      "status": "running as of initial check; no final STA observed",
+      "process_id": 77428,
+      "user_explicitly_allowed_background": true,
+      "candidate_adopted": false,
+      "no_stop_no_restart": true,
+      "not_mixed_with_this_publication": true
+    },
+    "actual_source_provenance": {
+      "basis": {
+        "project_sha_from_reconstruction": "90820cab5d21cf17f2bb65788d0aec2d30497232e4c35b66ec93790039c525a0",
+        "received_V0171_project_sha": "90820cab5d21cf17f2bb65788d0aec2d30497232e4c35b66ec93790039c525a0",
+        "existing_approved_manifest_sha": "1e29e550b129176e06fe609631229ae7c03a22ed3ad9ac4652f0705c7a234a36",
+        "existing_timing_report_sha": "9fa87d0528de96e7ecc6dd4d015fcf15f8d0ba5c0006850604f99e3dab6f4271",
+        "file_count": 55,
+        "expected_SHA_origin": "prior accepted static source_manifest, V0171 artifact identities, Git header and independently reconstituted project; not fresh actual hashes as expected",
+        "production_approval": false
+      },
+      "manifest_count": 56,
+      "enabled_sources_constraints": 47,
+      "ROMs": 7,
+      "implicit_includes": 2,
+      "exact_expected_hashes_match": true,
+      "include_Git_identity": [
+        {
+          "actual_include": "code/output/adsr_strict_flash_combo_20261002/prepared/audio_snapshot/code/rtl/common/sine_table.svh",
+          "frozen_git_commit": "e5eb025",
+          "frozen_git_path": "code/rtl/common/sine_table.svh",
+          "expected_SHA": "969fc7d1036e359fc55c3b0ca18eaf3c8a123a146ed95c32a81e52ee10519cca",
+          "exact_bytes_equal": true
+        },
+        {
+          "actual_include": "code/output/adsr_strict_flash_combo_20261002/prepared/audio_snapshot/code/rtl/board/sustain_controller_ports.svh",
+          "frozen_git_commit": "e5eb025",
+          "frozen_git_path": "code/rtl/board/sustain_controller_ports.svh",
+          "expected_SHA": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d",
+          "exact_bytes_equal": true
+        }
+      ],
+      "source_audit_attempts": [
+        {
+          "result": "FAIL",
+          "error": {
+            "code": "unapproved_dependency",
+            "message": "synthesis dependency missing from independent manifest",
+            "source": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\simple_voice.sv",
+            "reference": "D:/17/project_17/fpga_gowin/code/output/t009_zip2_review_20260930/code/output/adsr_strict_flash_combo_20261002/prepared/audio_snapshot/code/rtl/common/sine_table.svh",
+            "actual_path": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\audio_snapshot\\code\\rtl\\common\\sine_table.svh",
+            "expected_kind": "include"
+          }
+        },
+        {
+          "result": "FAIL",
+          "error": {
+            "code": "unapproved_dependency",
+            "message": "synthesis dependency missing from independent manifest",
+            "source": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\sustain_controller.sv",
+            "reference": "D:/17/project_17/fpga_gowin/code/output/t009_zip2_review_20260930/code/output/adsr_strict_flash_combo_20261002/prepared/audio_snapshot/code/rtl/board/sustain_controller_ports.svh",
+            "actual_path": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\adsr_strict_flash_combo_20261002\\prepared\\audio_snapshot\\code\\rtl\\board\\sustain_controller_ports.svh",
+            "expected_kind": "include"
+          }
+        },
+        {
+          "result": "FAIL",
+          "error": {
+            "code": "encrypted_source",
+            "message": "encrypted HDL needs a separate approved dependency inspection; unsupported here",
+            "actual_path": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\DVI_TX_Top.v"
+          }
+        }
+      ],
+      "final_audit_disposition": "BLOCKED BY UNCHECKABLE ENCRYPTED_VHDL_VENDOR_INTERNAL_DEPENDENCIES, not complete provenance PASS",
+      "vendor_ip": "DVI_TX_Top.v",
+      "did_not_modify_auditor_or_exempt_encrypted_source": true,
+      "manifest_SHA": "19d21b48f5940ca83fa9958db9af1461dce872ec29b9b175f958eb21eac9f64a",
+      "provenance_scope": "isolated V0171 source identities, not production manifest"
+    },
+    "formal_patch_preflight": {
+      "files": [
+        {
+          "path": "code/build/electronic_piano.gprj",
+          "existing_SHA": "86e23c21853f725618e74e985935266ddd98af119db921fd8cad57bed84ef3d8",
+          "proposed_SHA": "7c5bd47607f5fde947c69516084a94f296f2b4a7f0e239b213aba70fad7b3c2a",
+          "action": "update"
+        },
+        {
+          "path": "code/docs/模块接口规范.md",
+          "existing_SHA": "5bcfd9d355fb76aafb798104ea517bc047534d0740273b78df74c0d16758f8e5",
+          "proposed_SHA": "7330b0013286f2f7476bfc60426f25db8bc5e77a7c2f91ea8dfb1f80152c025a",
+          "action": "update"
+        },
+        {
+          "path": "code/rtl/audio/adsr_piano_envelope.sv",
+          "existing_SHA": "775fec7f546a00ca7bf98f132cce8d5d92d80ca6094af8e9e14cb07cd54a2e9d",
+          "proposed_SHA": "a0b55c17fe6553704120c6662fd53bf3c94a418bb31eff318bd9b113f5f205b5",
+          "action": "update"
+        },
+        {
+          "path": "code/rtl/board/pitch_mod_fcw_pipeline.sv",
+          "existing_SHA": null,
+          "proposed_SHA": "bc14fab96206c2ec202e155995427573c7bf18ce0bc74e5f291e6bc531f8f772",
+          "action": "add"
+        },
+        {
+          "path": "code/rtl/board/pitch_mod_snapshot_pipeline.sv",
+          "existing_SHA": null,
+          "proposed_SHA": "ea4aaad461e62eea360f8efebae60d3b2963e8515a0d6bb514e3b37c2895651b",
+          "action": "add"
+        },
+        {
+          "path": "code/rtl/board/polyphonic_envelope_bank.sv",
+          "existing_SHA": "813e0b726546c16344aa86eb39c02291315450a001ba613e3dbfc710885689da",
+          "proposed_SHA": "bf0da7888140f69d8777bf1625769402be85de677ac7eb34f6ef934ad8f42f00",
+          "action": "update"
+        },
+        {
+          "path": "code/rtl/board/polyphonic_event_router.sv",
+          "existing_SHA": "3a85d64a84447c1cbbf833150a6576c13b79e30a7d4a972c14707363a5f758f4",
+          "proposed_SHA": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+          "action": "update"
+        },
+        {
+          "path": "code/scripts/build_electronic_piano.ps1",
+          "existing_SHA": "18574d10ba744b1fd1eded369e5bce9ca7020a53c74617e37c2803196ba531df",
+          "proposed_SHA": "d0f03be4ab68ee0ce4abd448a096cb7bfcf56f5f3a1049778d6fc56cd7391cdb",
+          "action": "update"
+        }
+      ],
+      "git_apply_check_exit": 0,
+      "patch_applied": false,
+      "requires_group_before_apply": [
+        "code/docs/模块接口规范.md"
+      ],
+      "requires_user_private_M1_notice_before_apply": [
+        "code/rtl/audio/adsr_piano_envelope.sv"
+      ],
+      "no_top_pkg_CST_SDC_edit": true,
+      "no_T028_Program_mapping": true,
+      "new_control_ROM_staging_prepared": true,
+      "draft_patch_SHA": "508bf7ded4b3faab9b3cc6f3444b5442ce998f4edfa2033a21232d177aa31ff6"
+    },
+    "actual_formal_top_copy_rehearsal": {
+      "passed": true,
+      "scope": "existing production top from staged proposed patch, actual UART and PCM simulation; not applied formal changes or new STA",
+      "source_sha256": {
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\sustain_control_contract_pkg.sv": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\electronic_piano_top.sv": "c75f4321c28753e851c26e6cb0810947a85e8f17ca61b28ae7e527a5ff765a5b",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\reset_sync.sv": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\button_debouncer.sv": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\button_event_converter.sv": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\system_status_counters.sv": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\uart_status_reporter.sv": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\uart_tx.sv": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\uart_rx.sv": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\midi_event_parser.sv": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\midi_input.sv": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\note_pitch.sv": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\simple_voice.sv": "eab4974b0315c75a8076b21afea1dade122fecbcc672eb0802ba0e358a1bf274",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\i2s_tx.sv": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\pcm_frame_buffer.sv": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\dds_oscillator.sv": "bf93ff09e7181c9f8abeefbbc0722f078814cb8e71d73fb9b122cc5451bfd637",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\piano_dds_oscillator.sv": "330b8ace81769e48de541701d9a57ba370706dedf424849daff6406d8e4c8381",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\adsr_piano_envelope.sv": "253675217cc15b5128a2e6c98c86ea0a4f0ddda829139c02947467c1d379ea9c",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\sustain_controller.sv": "dd244b99b06eaa2ed7e7deda1c08aeb119f002bff939ce5941e5e81a559cbc4e",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\polyphonic_event_router.sv": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\polyphonic_envelope_bank.sv": "6b1efce6dd73b898acc99f622f435401982dc8aa1e930c56a49508c31d231b8e",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\voice_gain_q15_candidate.sv": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\polyphonic_pcm_commit.sv": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\polyphonic_audio_core.sv": "cf2a9160988ec1b8fa6f0fdaf9c8fe1e8aae6a17753acade69f4ba792a6f3fd7",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\pcm_mixer_4voice.sv": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\pcm_clip_counter.sv": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\pcm_result_hold.sv": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\performance_control_snapshot.sv": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\pitch_mod_fcw_pipeline.sv": "136375997b79957ec40a75d0ce7f740d1409974aa87aea4f6a5369024149a0af",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\production_patch_rehearsal\\sources\\pitch_mod_snapshot_pipeline.sv": "10f6de020c6a758fb536a4509f9217784798c5aed57046200762b20f6ff0d9e7"
+      },
+      "testbench_sha": "814a4a340e518e91cb0dec6cdb7cfaa04eed8affa2d9e260958297b9f443165a",
+      "PASS": "PASS production-path patch rehearsal checks=18 results=546 changed=337 nonzeroPCMcycles=468752",
+      "patch_applied": false
+    },
+    "M1_private_handoff": {
+      "path": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\私发M1_M3协作成果与T028后续范围.txt",
+      "message_SHA": "cd6526c3395fb8e54c4a8259826e87a3f224e5d0620981bb7c944f208340f949",
+      "M3_completed": [
+        "delay verifier V0162 and final module acceptance V0169",
+        "F UART-PCM evidence V0173",
+        "parser E V0170/STA V0171"
+      ],
+      "M3_not_started_not_reported_done": [
+        "G",
+        "H",
+        "I"
+      ],
+      "delivered_to_M1": false
+    },
+    "group_notice": {
+      "path": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M2_mainline_handoff_20261003\\群通知_正式接入8文件范围.txt",
+      "delivered": false,
+      "formal_private_contract_patch_applied": false
+    }
+  },
+  "existing_source_and_stable_bitstreams_overwritten": false,
+  "new_Gowin_PnR_or_STArun": false,
+  "board_test": false,
+  "rehearsal_TB_byte_identity": {
+    "executed_raw_SHA": "814a4a340e518e91cb0dec6cdb7cfaa04eed8affa2d9e260958297b9f443165a",
+    "Git_LF_SHA": "2008fb8193b76fa17034235d4e127304589a24be2132fe1ece11876e15494816",
+    "no_semantic_edits": true
+  },
+  "artifact_SHA": {
+    "formal_audio_integration_NOT_APPLIED.patch": "508bf7ded4b3faab9b3cc6f3444b5442ce998f4edfa2033a21232d177aa31ff6",
+    "formal_patch_scope.json": "c45f0f6db93bd69355fca515725b909e295804841c6e3bea781b0888f09e71bd",
+    "V0171_exact_include_approved_manifest.json": "19d21b48f5940ca83fa9958db9af1461dce872ec29b9b175f958eb21eac9f64a",
+    "V0171_exact_include_source_audit.json": "995a291f2ed4dc5458691d71367f3d87f39a3bc8cb6a0f357d7d098964ba7479",
+    "result.json": "9fac2ba3073b4d94200c09646bf8a511215f122c6873694631d299a9b15af652",
+    "compile.log": "e0098d5749b68af37746f6592f82cbb1fd681af0721da0d04974e3abf69befea",
+    "run.log": "2daeb08587917eb113cc573a8210f3f7f36e4237e47eade9806d4c15e18ca729"
+  }
+}
