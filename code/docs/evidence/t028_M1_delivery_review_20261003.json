@@ -1,0 +1,123 @@
+{
+  "date": "2026-10-03",
+  "reviewer": "M2",
+  "scope": "isolated delivery review, not formal audio integration",
+  "archive_sha256": "cb5ab16195ce7af5ee1b6bb4682371c30def3bdda81020ee4a511519f8ee9529",
+  "source_files": [
+    {
+      "path": "code/model/delay_effect_fixed.py",
+      "operation": "new",
+      "sha256": "77efb72a23b53b50a51e9b7528448d32faf80313f05604f52494422441a784a9",
+      "note": "定点黄金模型，bit-exact，5项自检"
+    },
+    {
+      "path": "code/model/generate_delay_vectors.py",
+      "operation": "new",
+      "sha256": "15f8ad6e856559d7afdd6f4a6cdbc3977df74f30af60fc9565e53f4f18281d25",
+      "note": "向量生成器，555条，8场景"
+    },
+    {
+      "path": "code/rtl/audio/delay_effect.sv",
+      "operation": "new",
+      "sha256": "cb9e160dad18c644042b0913fbcf8c275c0453455d4262a0c4e8984bb5381839",
+      "note": "独立RTL，3级流水，DEPTH参数化"
+    },
+    {
+      "path": "code/tb/audio/tb_delay_effect.sv",
+      "operation": "new",
+      "sha256": "0a06a7af1109e8cffb10f510de656ba7d3ae8e1124daba6dccb48d3f18b4474b",
+      "note": "逐样本自检TB"
+    },
+    {
+      "path": "code/docs/test/T028_延迟效果器算法合同.md",
+      "operation": "new",
+      "sha256": "a948074976d62337c542b026cbc10db8d4213c9f9db66b813652210263aefab4",
+      "note": "算法合同：干湿混合/反馈/舍入/饱和/旁路/复位"
+    }
+  ],
+  "hash_matches": 5,
+  "hash_total": 5,
+  "model_selftest": {
+    "passed": 5,
+    "returncode": 0
+  },
+  "vectors": {
+    "count": 555,
+    "regenerated_byte_identical": true
+  },
+  "original_rtl_compile_returncode": 0,
+  "original_tb": {
+    "returncode": 1,
+    "valid_missing": 555
+  },
+  "original_empty_vectors": {
+    "returncode": 0,
+    "claimed_pass_count": 0,
+    "verdict": "false acceptance"
+  },
+  "original_independent_tb": {
+    "correct_output_capture_with_scenario_reset": {
+      "samples": 555,
+      "mismatches": 550,
+      "returncode": 1
+    },
+    "boundary_samples": 2096,
+    "boundary_mismatches": 2016
+  },
+  "root_cause": "25-bit comparison context promotes -24'sd8388608 to +8388608",
+  "diagnostic_copy": {
+    "sha256": "ffae158bb503a331d2b4f652004a2823c07451e3f883eea4c4d86735373910de",
+    "changes": "four saturation comparison constants use 25-bit signed literals only",
+    "formal_source_changed": false,
+    "scenario_reset_samples_pass": 555,
+    "boundary_samples_pass": 2096,
+    "output_latency": "accept E, valid after NBA at E+2, one-cycle pulse",
+    "in_flight_reset_pass": true,
+    "without_scenario_resets": {
+      "samples": 555,
+      "mismatches": 228,
+      "returncode": 1
+    },
+    "one_lsb_mutant": {
+      "detected": true,
+      "mismatches": 1,
+      "returncode": 1
+    }
+  },
+  "zero_delay_wrap": {
+    "depth": 16,
+    "dry": 0,
+    "wet": 16384,
+    "feedback": 0,
+    "impulse_input_at_sample0": 2000,
+    "output_at_sample0": 0,
+    "output_at_sample16": 1000,
+    "output_at_sample32": 0,
+    "scope": "actual Icarus with diagnostic-only constant-width fix, independently modeled"
+  },
+  "original_gowin_synthesis": {
+    "tool": "Gowin V1.9.11.03 Education",
+    "device": "GW5AT-LV60PG484AC1/I0",
+    "device_version": "B",
+    "top": "delay_effect",
+    "depth": 1024,
+    "returncode": 0,
+    "Logic": 698,
+    "Register": 81,
+    "BSRAM": 2,
+    "RAM16SDP1": 64,
+    "MULTALU27X18": 3,
+    "active_sdc": false,
+    "timing_scope": "synthesis estimate only; no PnR/STA; default 100 MHz is not a project clock acceptance"
+  },
+  "disposition": "not accepted; M1 arithmetic/TB/contract correction required",
+  "not_done": [
+    "production integration",
+    "PnR",
+    "whole-system STA",
+    "board test",
+    "parameter-switch pop validation"
+  ],
+  "handoff": "pending user forward; not delivered",
+  "verification_level": "original L1 model pass / L2 failed; original standalone L3 synthesis completed only"
+}
