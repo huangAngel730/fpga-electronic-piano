@@ -1,0 +1,267 @@
+{
+  "date": "2026-10-03",
+  "reviewer": "M2",
+  "archive_sha256": "b5f5fdb28a2fcd6a41e0b8903ce0b34f6ad3a550bdf8661f20c6c361e6e5eb35",
+  "five_declared_hashes": [
+    {
+      "path": "code/rtl/audio/delay_effect.sv",
+      "expected": "f45744f79a7f6795753b66cd8ca56541cb65052bb3edd5c105349ab7edce72f2",
+      "actual": "f45744f79a7f6795753b66cd8ca56541cb65052bb3edd5c105349ab7edce72f2",
+      "match": true
+    },
+    {
+      "path": "code/tb/audio/tb_delay_effect.sv",
+      "expected": "7e642da2bd32f101bd5c07f23e6ccf39487b67516756107f9fd48401f8a90c40",
+      "actual": "7e642da2bd32f101bd5c07f23e6ccf39487b67516756107f9fd48401f8a90c40",
+      "match": true
+    },
+    {
+      "path": "code/model/generate_delay_vectors.py",
+      "expected": "69b48f98217f213d772f10ba4126aa4841f1d1bdb1c7eea07a6ccb9c70ed2958",
+      "actual": "69b48f98217f213d772f10ba4126aa4841f1d1bdb1c7eea07a6ccb9c70ed2958",
+      "match": true
+    },
+    {
+      "path": "code/model/delay_effect_fixed.py",
+      "expected": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+      "actual": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+      "match": true
+    },
+    {
+      "path": "code/docs/test/T028_延迟效果器算法合同.md",
+      "expected": "39df78fbc39a9d644702cfcde280aed002677c4aed68433483cb67071e43d708",
+      "actual": "39df78fbc39a9d644702cfcde280aed002677c4aed68433483cb67071e43d708",
+      "match": true
+    }
+  ],
+  "original_delivery_run": [
+    {
+      "name": "model5",
+      "exit": 0,
+      "command": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_corrected_M1_review_20261003\\code\\model\\delay_effect_fixed.py"
+      ]
+    },
+    {
+      "name": "generate555",
+      "exit": 0,
+      "command": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_corrected_M1_review_20261003\\code\\model\\generate_delay_vectors.py"
+      ]
+    },
+    {
+      "name": "compile_original",
+      "exit": 0,
+      "command": [
+        "D:/Gowin/oss-cad-suite/bin/iverilog.exe",
+        "-g2012",
+        "-s",
+        "tb_delay_effect",
+        "-o",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_corrected_M1_review_20261003\\logs\\original.vvp",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_corrected_M1_review_20261003\\code\\rtl\\audio\\delay_effect.sv",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_corrected_M1_review_20261003\\code\\tb\\audio\\tb_delay_effect.sv"
+      ]
+    },
+    {
+      "name": "original555",
+      "exit": 1,
+      "command": [
+        "D:/Gowin/oss-cad-suite/bin/vvp.exe",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_corrected_M1_review_20261003\\logs\\original.vvp",
+        "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_corrected_M1_review_20261003\\code\\model\\generated\\delay_effect\\delay_effect_vectors.txt"
+      ]
+    },
+    {
+      "name": "empty_negative",
+      "exit": 1,
+      "command": [
+        "D:/Gowin/oss-cad-suite/bin/vvp.exe",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_corrected_M1_review_20261003\\logs\\original.vvp",
+        "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_corrected_M1_review_20261003\\logs\\empty.txt"
+      ]
+    },
+    {
+      "name": "M3_independent_corrected_candidate",
+      "exit": 0,
+      "command": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\scripts\\run_m3_delay_acceptance.py",
+        "--rtl",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_corrected_M1_review_20261003\\code\\rtl\\audio\\delay_effect.sv",
+        "--contract",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_corrected_M1_review_20261003\\candidate_contract_zero_pending.json"
+      ]
+    }
+  ],
+  "model_tests_pass": 5,
+  "vector_regeneration_byte_identical": true,
+  "original555_mismatches": 228,
+  "scene_reset_fix_missing": {
+    "generator_changes": "docstrings/comments only; every model reset preexisted in old source",
+    "vector_columns": 6,
+    "hardware_reset_encoded": false,
+    "old_and_new_555_bytes_identical": true
+  },
+  "actual_corrected_rtl_independent": {
+    "rtl_path": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_corrected_M1_review_20261003\\code\\rtl\\audio\\delay_effect.sv",
+    "rtl_sha256": "f45744f79a7f6795753b66cd8ca56541cb65052bb3edd5c105349ab7edce72f2",
+    "contract_path": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T028_corrected_M1_review_20261003\\candidate_contract_zero_pending.json",
+    "contract_sha256": "6562cb5c589f5231e966263a1e8f6a3ad4649fa08ac33ca8763c7365492d1246",
+    "contract": {
+      "status": "corrected_candidate",
+      "basis": "Actual M1 corrected ZIP b5f5fdb2; arithmetic nonzero-delay lifecycle validation only; zero semantics pending due inconsistent prose",
+      "module": "delay_effect",
+      "pcm_bits": 24,
+      "gain_bits": 15,
+      "product_shift": 15,
+      "rounding": "arithmetic_floor",
+      "sum_policy": "shift_each_product_then_add",
+      "feedback_policy": "pcm_plus_shifted_feedback",
+      "saturation": "signed_pcm24",
+      "latency_cycles": 2,
+      "minimum_launch_spacing_cycles": 4,
+      "reset": "async_output_valid_clear_and_logical_history_zero",
+      "depths": [
+        16,
+        1024
+      ],
+      "zero_delay_policy": "pending"
+    },
+    "verifier_sha256": {
+      "code/scripts/run_m3_delay_acceptance.py": "c4f03ee0cc69c3131a2986fb7c7c56bc2c2668599e33deb3cd1d29d04ec20ccd",
+      "code/tb/audio/m3_delay_acceptance/vectors.py": "5e9864df43e05d329f77b880a49f6bd5eeb7fc216ba62e3e4613c15b0e1e3deb",
+      "code/tb/audio/m3_delay_acceptance/tb_delay_acceptance.sv": "2b7570562e1d3c64b8e212b8a246e3b44cf57d699310b84486adea3c3cd7ac52",
+      "code/tb/audio/m3_delay_acceptance/manifest.json": "203888f175e6a0649b3466b26dc1b731c06ee7cba8f5ca9932fdb3ded81b9b6e"
+    },
+    "simulator_version": "Icarus Verilog version 14.0 (devel) (s20260301-431-ga690e3a03-dirty)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 14.0 (devel) (s20260301-431-ga690e3a03-dirty)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 14.0 (devel) (s20260301-431-ga690e3a03-dirty)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 14.0 (devel) (s20260301-431-ga690e3a03-dirty)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n",
+    "seed": 20261003,
+    "depths": {
+      "16": {
+        "launched": 2454,
+        "valid": 2452,
+        "random_parameters": 2048,
+        "reset_scenarios": 5,
+        "zero_delay_samples": 0,
+        "uninterrupted_wraps": 12,
+        "positive_output_saturation": 191,
+        "negative_output_saturation": 44,
+        "positive_feedback_saturation": 289,
+        "negative_feedback_saturation": 136,
+        "cycles": 13944,
+        "vectors_sha256": "8f3fb8422a1c5bee21cf4dda18ee49514d6f01c7e21ac487989e79f517a75ab5",
+        "positive_capture_sha256": "63278dd7a03cb06838952c2b2cb4b3a89bacc0010be8f56ccfbf00eb23cd5e88"
+      },
+      "1024": {
+        "launched": 10518,
+        "valid": 10516,
+        "random_parameters": 2048,
+        "reset_scenarios": 5,
+        "zero_delay_samples": 0,
+        "uninterrupted_wraps": 4,
+        "positive_output_saturation": 1428,
+        "negative_output_saturation": 235,
+        "positive_feedback_saturation": 1584,
+        "negative_feedback_saturation": 291,
+        "cycles": 46160,
+        "vectors_sha256": "e3ed8410a3ba6dc81228ca3a9fc4dd2303a53de71bbf2afacda98b03dae75376",
+        "positive_capture_sha256": "ab657424c323c65b9d4056acabf84970aeaaefb66c2105ce4bf3a0674cf25aca"
+      }
+    },
+    "mutants": {
+      "one_lsb": "compile success + behavioral rejection",
+      "late_valid": "compile success + behavioral rejection",
+      "wrong_pointer": "compile success + behavioral rejection"
+    },
+    "input_rejections": {
+      "missing_rtl": "actual public CLI rejected missing file",
+      "missing_contract": "actual public CLI rejected missing file",
+      "wrong_contract_timing": "public CLI rejected latency3",
+      "empty": "Python and actual RTL TB rejected",
+      "malformed": "Python and actual RTL TB rejected",
+      "count_mismatch": "Python and actual RTL TB rejected",
+      "missing_vectors": "actual TB rejected",
+      "empty_capture": "independent capture parser rejected",
+      "capture_count": "independent capture parser rejected",
+      "malformed_capture": "independent capture parser rejected",
+      "unknown_capture": "independent capture parser rejected",
+      "unknown_output": "actual TB rejected X output",
+      "timeout": "actual nonterminating simulator killed/rejected"
+    },
+    "result": "CORRECTED_CANDIDATE_L2_PASS_PENDING_M2_REVIEW",
+    "zero_delay": "pending; no zero-delay acceptance claim",
+    "logs_sha256": {
+      "missing_contract.log": "91b88eb0a5bb271ec136ab288672cac020793da75024097476c8dc82af88c005",
+      "missing_rtl.log": "0b017f5027e5ac7345347fc1dacc2f413032a3ca795b70b17b811d1c80aa9ee5",
+      "tool_version.log": "aeb3df4be50d9832e476f35a64a30e9b93ca04aee51dbad71f60d799e49a4b51",
+      "wrong_contract_timing.log": "b357b1f1e8f6bb08b4203dd3c86cc99384de2bb85c595bacef8a7bc7d9b43ee8",
+      "depth1024/compile.log": "58f9b2fa2135579b8050a5238a6bd3e6d0e1eaf687f41557561b007f0eacf7a6",
+      "depth1024/run.log": "80233669b7107c8a05b7ebe62ac04848fc25ddbd4d3b10fa77faea6abbf43a83",
+      "depth16/compile.log": "20d75f79a717931b94dce342ced90b0be21c2e3ba64a0bce959ca174155b2d55",
+      "depth16/count_mismatch.log": "15dbe348bc7b8d7016fd5955c3b9679b02483e02660ebc4fd51c2df580f7c4c8",
+      "depth16/empty.log": "16f39958e53719f67a8ccf2626197cedbca12e1fecb26fc794dd1cdfbd553c80",
+      "depth16/hang_compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "depth16/late_valid.log": "14597273b535451f4016f081498af6940fd10502a1002d6f540b67acfb0431ee",
+      "depth16/late_valid_compile.log": "a3e6d0b51750d427f884e42d225cdc8dee04b5f0102d126d5a4213d08bad931e",
+      "depth16/malformed.log": "4c05a47092954408daa64790b0bb503c025cc9e0b0667e8d2caf0b21e612f836",
+      "depth16/missing_vectors.log": "0ab1bc30456d74acd16b50642f610f7799483f133e6159d638f714cae70401bc",
+      "depth16/one_lsb.log": "cce0a9fa9f582bed11221c300a391ee358359f7319281cb1b80f6cd86ce00c0d",
+      "depth16/one_lsb_compile.log": "6126eea588130c4d337cf58f8d9772215c99c81540c61e1911fef75fd1d605f8",
+      "depth16/run.log": "1b4b3b9fa5b23a5da2d5ea43c1e89709408eb3bf417f1acd546d0a9630e99faa",
+      "depth16/unknown_compile.log": "83af485a15744fa931e995e9cfe1e6ce61bc5e5c39259dee0826012d4e0b5487",
+      "depth16/unknown_output.log": "c765480d1643a74026731402e5076122adfa629483b82a7436d6badae0acf29b",
+      "depth16/wrong_pointer.log": "25447f8f4c6ae68292d8d43e55000a3700d2c5e0b404820d1eb169359b308e0b",
+      "depth16/wrong_pointer_compile.log": "2479d83eb89062c131468c1055e5ecc7db3d8b9a302eac02c9426a3e1e4cd55b"
+    }
+  },
+  "independent_scope": "exact M1 corrected RTL nonzero delay with explicit pending zero policy, no diagnostic RTL patch",
+  "independent_counts": {
+    "cycles": 60104,
+    "valid_outputs": 12968,
+    "random_parameter_samples": 4096,
+    "zero_delay_samples": 0
+  },
+  "minimal_patch": {
+    "file_scope": [
+      "code/model/generate_delay_vectors.py",
+      "code/tb/audio/tb_delay_effect.sv"
+    ],
+    "changes": "seven-field explicit reset-before vector and matching hardware reset, exact555/early malformed failure/timeout",
+    "unmodified_M1_RTL": true,
+    "patched555_pass": true,
+    "empty_malformed_truncated_rejected": true,
+    "patch_sha256": "aa3f136f7e5b104eaec7c411e457a129944c2c2e398604759e073181302633c5",
+    "formal_source_changed": false
+  },
+  "contract_pending": {
+    "zero_delay": "actual modulo-depth recurrence reads old loop data, while model method and contract still say no delay; not user-frozen zero-mode policy",
+    "RTL_comment_latency": "header still says1cycle; actual TB and contract2cycles"
+  },
+  "disposition": "arithmetic core nonzero-delay lifecycle verified; whole package acceptance pending minimal test-chain and prose fix",
+  "production_integration": false,
+  "new_Gowin_PnR": false,
+  "board_test": false,
+  "notification": "pending user forward; not delivered",
+  "log_sha256": {
+    "compile_original.log": "b04ce383452ad07db7fe774bd83f34d754eae5674cf440442594bedcc754c14b",
+    "empty_negative.log": "107d6bfeb87da8116f05f0358d4ddee878358f0cf1c3e72a03c0a3535996f6e0",
+    "generate555.log": "66ed5bec742f57822db2311f527e74bd68d69df82485a55b499fe7e7458368ca",
+    "M3_independent_corrected_candidate.log": "622383abac7d599c0064253c94cceb877004e30c1f5085936a86b61373e91f0e",
+    "model5.log": "95e898692e524092d9e55e1322a5841c3ce6173e45b744207c94c2de39b79f99",
+    "original555.log": "ff0f4def35764e3393874fc83ea5ee640904ce46cf5f8afcd82fdc7d61c08e09",
+    "patched_empty.log": "0cbf942362e6e5237907d950e8f696475c6cb14fdbbd1b361cfae02fd29cb7c2",
+    "patched_malformed.log": "27cf19923e5221a119e30d6c840b8d71f0676b16fbae9afc147f0a13a5d12972",
+    "patched_truncated.log": "66353910e8ce77283cd1823c31d5b5412d0edc5d09f3543e47053c673488e2f3",
+    "reset_marker_555.log": "23b0857f5ddca67038acbcbd806f47b9402aacce0e19143478d5300acc940718",
+    "reset_marker_compile.log": "b04ce383452ad07db7fe774bd83f34d754eae5674cf440442594bedcc754c14b",
+    "reset_marker_generate.log": "1b766bfb0d67cdb6d82d9ace558ce591c0f50addb70b7edaf4edc7735c67ddd7"
+  }
+}
