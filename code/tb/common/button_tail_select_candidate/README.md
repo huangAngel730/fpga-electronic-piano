@@ -1,0 +1,11 @@
+# M2按键计数末端选择隔离候选
+
+基线6055bb8，正式M3 button源码不覆盖。candidate.patch仅计数路径：独立计算当前脉冲数、no-pop/pop丢失数和饱和结果，ready只经真实pop选择末级32bit结果；无丢弃分支选旧值，无ready衍生计数CE。FIFO存储和事件次序保持，计数/握手不加拍。
+
+tb_button_tail_select使用冻结6055bb8的独立button_reference对照，当前公共FIFO不变；保留故意取消满pop旁路的应拒绝实验。tb_tail_select_exhaustive检查合法occupancy/全部脉冲/ready/八计数边界及分支ready独立、postclock存储次序。
+
+本轮A/B仅一次固定ADSR+严格闪光实际构建。候选是否采用由gate/delta决定，不以测试runnerexit0冒充物理采用。单纯Mathematicalcycleequivalence不代表功耗或新功能最终时序通过。
+
+复现使用run_button_tail_select_experiment.py，默认功能/反例/实际通用优化网表依赖审计；--reports读取已经生成的两个原始Gowin报告，不自动重做PnR或烧录。厂商Gowin网表加密，Yosys依赖检查是优化后的generic源结构证据，不能说解密/直接检查过最终Gowin结构。原物理路径导出是有界集合，未列计数endpoint不等于证明所有物理路径不存在。
+
+正式落地由M3按范围交接后应用，M2继续整合最终源身份/回归/时序。未来PitchMod/效果器接入仍新做全量STA，不按独立模块数字推预算。

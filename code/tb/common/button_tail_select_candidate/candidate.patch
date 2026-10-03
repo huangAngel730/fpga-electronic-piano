@@ -1,0 +1,86 @@
+--- a/code/rtl/input/button_event_converter/button_event_converter.sv
++++ b/code/rtl/input/button_event_converter/button_event_converter.sv
+@@ -70,7 +70,13 @@
+     logic [FIFO_COUNT_WIDTH-1:0] fifo_count_next;
+     localparam integer MAX_DROP_PER_CYCLE = 2*BUTTON_COUNT;
+     localparam integer DROP_W = $clog2(MAX_DROP_PER_CYCLE+1);
+-    logic [DROP_W-1:0] overflow_increment;
++    localparam integer TOTAL_W =
++        ((FIFO_COUNT_WIDTH > DROP_W) ? FIFO_COUNT_WIDTH : DROP_W) + 1;
++    logic [DROP_W-1:0] incoming_count, drops_no_pop, drops_with_pop;
++    logic [TOTAL_W-1:0] total_no_pop, total_with_pop;
++    logic [31:0] count_no_pop, count_with_pop;
++    wire counter_pop = event_valid && event_ready;
++    integer pulse_index;
+     wire [31:0] overflow_result [0:MAX_DROP_PER_CYCLE];
+     assign overflow_result[0] = overflow_count;
+     // Parallel constant-increment adders depend only on registered count;
+@@ -78,6 +84,30 @@
+     for(genvar inc=1;inc<=MAX_DROP_PER_CYCLE;inc=inc+1) begin:g_overflow_result
+         wire [32:0] candidate_sum = {1'b0,overflow_count} + 33'(inc);
+         assign overflow_result[inc] = candidate_sum[32] ? 32'hffffffff : candidate_sum[31:0];
++    end
++
++    // Both branches depend ONLY on registered occupancy/count and input
++    // pulses. The late ready handshake selects the final 32-bit value.
++    // No ready-dependent counter CE and no additional sequential stage.
++    always_comb begin
++        incoming_count = '0;
++        for (pulse_index = 0; pulse_index < BUTTON_COUNT; pulse_index = pulse_index + 1) begin
++            incoming_count = incoming_count + DROP_W'(button_press_pulse[pulse_index]);
++            incoming_count = incoming_count + DROP_W'(button_release_pulse[pulse_index]);
++        end
++        total_no_pop = TOTAL_W'(fifo_count) + TOTAL_W'(incoming_count);
++        total_with_pop = total_no_pop;
++        // The pop branch is reachable only if the FIFO is nonempty. Guard
++        // the subtraction anyway so empty occupancy can never underflow.
++        if (fifo_count != 0) total_with_pop = total_no_pop - TOTAL_W'(1);
++        drops_no_pop = '0;
++        drops_with_pop = '0;
++        if (total_no_pop > TOTAL_W'(LOCAL_FIFO_DEPTH))
++            drops_no_pop = DROP_W'(total_no_pop - TOTAL_W'(LOCAL_FIFO_DEPTH));
++        if (total_with_pop > TOTAL_W'(LOCAL_FIFO_DEPTH))
++            drops_with_pop = DROP_W'(total_with_pop - TOTAL_W'(LOCAL_FIFO_DEPTH));
++        count_no_pop = overflow_result[drops_no_pop];
++        count_with_pop = overflow_result[drops_with_pop];
+     end
+ 
+     integer comb_fifo_index;
+@@ -128,7 +158,6 @@
+     // 因为输入脉冲不能反压，本地 FIFO 满时记录溢出，禁止静默丢失。
+     always_comb begin
+         fifo_count_next    = fifo_count;
+-        overflow_increment = '0;
+ 
+         for (comb_fifo_index = 0; comb_fifo_index < LOCAL_FIFO_DEPTH; comb_fifo_index = comb_fifo_index + 1) begin
+             fifo_mem_next[comb_fifo_index] = fifo_mem[comb_fifo_index];
+@@ -148,8 +177,6 @@
+                     fifo_mem_next[fifo_count_next] =
+                         make_key_event(1'b1, comb_button_index);
+                     fifo_count_next = fifo_count_next + 1'b1;
+-                end else begin
+-                    overflow_increment = overflow_increment + 1'b1;
+                 end
+             end
+ 
+@@ -158,8 +185,6 @@
+                     fifo_mem_next[fifo_count_next] =
+                         make_key_event(1'b0, comb_button_index);
+                     fifo_count_next = fifo_count_next + 1'b1;
+-                end else begin
+-                    overflow_increment = overflow_increment + 1'b1;
+                 end
+             end
+         end
+@@ -179,8 +204,9 @@
+             end
+ 
+             // 溢出计数采用饱和方式，避免计数器回绕后掩盖历史错误。
+-            if (overflow_increment != 0)
+-                overflow_count <= overflow_result[overflow_increment];
++            // With no drop, the selected table entry is the old count.
++            // Unconditional assignment avoids a late ready-derived enable.
++            overflow_count <= counter_pop ? count_with_pop : count_no_pop;
+         end
+     end
+ 

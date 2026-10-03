@@ -1,0 +1,1027 @@
+{
+  "date": "2026-10-03",
+  "reviewer": "M2",
+  "baseline_converter_commit": "6055bb8",
+  "baseline_frozen_combo": "V0154/f87766f with V0153 ADSR/bank and36cc8a2 strictvisual",
+  "purpose": "one bounded tail-select counter experiment per user approved plan",
+  "source_manifest": {
+    "date": "2026-10-03",
+    "baseline_commit": "6055bb8633ca3c4f3e08a2990b3ebc36d80d481e",
+    "baseline_path": "code/rtl/input/button_event_converter/button_event_converter.sv",
+    "baseline_sha256": "65c7978b2e1ce27fc09606cd87ee43fc1a078898acdd109490ca1909f89c0dd7",
+    "candidate_sha256": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1",
+    "files_sha256": {
+      "candidate.patch": "82fcb8cd4602ddaabd5ac719bce3db15d7008c8a74631680d0205e3154587d1f",
+      "tb_button_tail_select.sv": "ee366c00a9c1b7bfd3d00529aaa98209023a0f67f56e04c018dffbbfe0d5f0d9",
+      "tb_tail_select_exhaustive.sv": "ccb49d93ebd056294984b8100bb890926e75fbcc1b7839a22c90598231a8db97"
+    },
+    "formal_M3_RTL_modified": false,
+    "adoption_scope": "single output-onlyA/B isolatedcomparison; formalM3sourcehandoffrequired",
+    "counter_latency_added_sys_cycles": 0
+  },
+  "generic_ready_dependency_audit": {
+    "optimized_generic_branches_independent_of_ready": [
+      "drops_no_pop",
+      "drops_with_pop",
+      "count_no_pop",
+      "count_with_pop"
+    ],
+    "counter_register_has_ready_enable": false,
+    "final_counter_D_is_pop_mux": true,
+    "evidence_scope": "actual Yosys optimized generic netlist, NOT decrypted Gowin implementation"
+  },
+  "actual_functional_reproduction": {
+    "formal_module_changed": false,
+    "latency_added": 0,
+    "candidate_sha256": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1",
+    "runs": {
+      "D3_L2_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_button_tail_select",
+          "-P",
+          "tb_button_tail_select.DEPTH=3",
+          "-P",
+          "tb_button_tail_select.LOCAL=2",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\D3_L2.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\performance_event_fifo.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_baseline_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_tail_select.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\input\\button_counter_timing\\fifo_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\input\\button_counter_timing\\fifo_no_full_bypass.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\button_tail_select_candidate\\tb_button_tail_select.sv"
+        ],
+        "log_sha256": "24f85adceaee91686e5de5ebce99a2b6dfbc0f2080c4fb6c12f3b66f4dc74c9d"
+      },
+      "D3_L2": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\D3_L2.vvp"
+        ],
+        "log_sha256": "f82b9316d003fe78b719b58e87d046e91e1ec9b7b565bd4d0fdd9e27f3483831"
+      },
+      "D32_L2_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_button_tail_select",
+          "-P",
+          "tb_button_tail_select.DEPTH=32",
+          "-P",
+          "tb_button_tail_select.LOCAL=2",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\D32_L2.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\performance_event_fifo.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_baseline_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_tail_select.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\input\\button_counter_timing\\fifo_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\input\\button_counter_timing\\fifo_no_full_bypass.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\button_tail_select_candidate\\tb_button_tail_select.sv"
+        ],
+        "log_sha256": "24f85adceaee91686e5de5ebce99a2b6dfbc0f2080c4fb6c12f3b66f4dc74c9d"
+      },
+      "D32_L2": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\D32_L2.vvp"
+        ],
+        "log_sha256": "9cf2f5d487fba3a5376f50515617375640224b571908734f4e095db300c97e12"
+      },
+      "D3_L1_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_button_tail_select",
+          "-P",
+          "tb_button_tail_select.DEPTH=3",
+          "-P",
+          "tb_button_tail_select.LOCAL=1",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\D3_L1.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\performance_event_fifo.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_baseline_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_tail_select.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\input\\button_counter_timing\\fifo_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\input\\button_counter_timing\\fifo_no_full_bypass.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\button_tail_select_candidate\\tb_button_tail_select.sv"
+        ],
+        "log_sha256": "24f85adceaee91686e5de5ebce99a2b6dfbc0f2080c4fb6c12f3b66f4dc74c9d"
+      },
+      "D3_L1": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\D3_L1.vvp"
+        ],
+        "log_sha256": "3bced8389ec57a67d80c1d09c6ef82445afca53beb144e841fb43bd0273db715"
+      },
+      "D32_L4_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_button_tail_select",
+          "-P",
+          "tb_button_tail_select.DEPTH=32",
+          "-P",
+          "tb_button_tail_select.LOCAL=4",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\D32_L4.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\performance_event_fifo.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_baseline_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_tail_select.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\input\\button_counter_timing\\fifo_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\input\\button_counter_timing\\fifo_no_full_bypass.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\button_tail_select_candidate\\tb_button_tail_select.sv"
+        ],
+        "log_sha256": "24f85adceaee91686e5de5ebce99a2b6dfbc0f2080c4fb6c12f3b66f4dc74c9d"
+      },
+      "D32_L4": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\D32_L4.vvp"
+        ],
+        "log_sha256": "b764d7f003431142a3a38414541eb732207af6ddc890cf01c5758a901b179749"
+      },
+      "B2_L4_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_tail_select_exhaustive",
+          "-P",
+          "tb_tail_select_exhaustive.BUTTONS=2",
+          "-P",
+          "tb_tail_select_exhaustive.LOCAL=4",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\B2_L4.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_baseline_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_tail_select.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\button_tail_select_candidate\\tb_tail_select_exhaustive.sv"
+        ],
+        "log_sha256": "2e09448d832bd930e659e89d6a2be112bf0821dc5526da92eae5c820505f95bc"
+      },
+      "B2_L4": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\B2_L4.vvp"
+        ],
+        "log_sha256": "06882984ad8a1bc81ca7fb99b7c22a3da46a4daa08765120ba11b690dea1618d"
+      },
+      "B1_L1_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_tail_select_exhaustive",
+          "-P",
+          "tb_tail_select_exhaustive.BUTTONS=1",
+          "-P",
+          "tb_tail_select_exhaustive.LOCAL=1",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\B1_L1.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_baseline_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_tail_select.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\button_tail_select_candidate\\tb_tail_select_exhaustive.sv"
+        ],
+        "log_sha256": "2e09448d832bd930e659e89d6a2be112bf0821dc5526da92eae5c820505f95bc"
+      },
+      "B1_L1": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\B1_L1.vvp"
+        ],
+        "log_sha256": "dbc2b22fe93482289cbd227c976ff7cefde97a6ecf3e968145acc58ecc42d1ea"
+      },
+      "B2_L1_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_tail_select_exhaustive",
+          "-P",
+          "tb_tail_select_exhaustive.BUTTONS=2",
+          "-P",
+          "tb_tail_select_exhaustive.LOCAL=1",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\B2_L1.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_baseline_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_tail_select.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\button_tail_select_candidate\\tb_tail_select_exhaustive.sv"
+        ],
+        "log_sha256": "2e09448d832bd930e659e89d6a2be112bf0821dc5526da92eae5c820505f95bc"
+      },
+      "B2_L1": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\B2_L1.vvp"
+        ],
+        "log_sha256": "5150d00ab674ba804b96737657b7577e4f8b97e6ff4c672b4fc3a2e5d0e7d9b9"
+      },
+      "B2_L2_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_tail_select_exhaustive",
+          "-P",
+          "tb_tail_select_exhaustive.BUTTONS=2",
+          "-P",
+          "tb_tail_select_exhaustive.LOCAL=2",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\B2_L2.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_baseline_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_tail_select.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\button_tail_select_candidate\\tb_tail_select_exhaustive.sv"
+        ],
+        "log_sha256": "2e09448d832bd930e659e89d6a2be112bf0821dc5526da92eae5c820505f95bc"
+      },
+      "B2_L2": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\B2_L2.vvp"
+        ],
+        "log_sha256": "f60709503483d5b4d74a0de0ae0154c25fee4be318a5c73f00bea99e824c8525"
+      },
+      "B4_L4_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_tail_select_exhaustive",
+          "-P",
+          "tb_tail_select_exhaustive.BUTTONS=4",
+          "-P",
+          "tb_tail_select_exhaustive.LOCAL=4",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\B4_L4.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_baseline_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_tail_select.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\button_tail_select_candidate\\tb_tail_select_exhaustive.sv"
+        ],
+        "log_sha256": "2e09448d832bd930e659e89d6a2be112bf0821dc5526da92eae5c820505f95bc"
+      },
+      "B4_L4": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\B4_L4.vvp"
+        ],
+        "log_sha256": "057072c8e1b201f5c71c9fd04376e7983de97b549d844329ebde12835392c230"
+      },
+      "B4_L8_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_tail_select_exhaustive",
+          "-P",
+          "tb_tail_select_exhaustive.BUTTONS=4",
+          "-P",
+          "tb_tail_select_exhaustive.LOCAL=8",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\B4_L8.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_baseline_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_tail_select.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\button_tail_select_candidate\\tb_tail_select_exhaustive.sv"
+        ],
+        "log_sha256": "2e09448d832bd930e659e89d6a2be112bf0821dc5526da92eae5c820505f95bc"
+      },
+      "B4_L8": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\B4_L8.vvp"
+        ],
+        "log_sha256": "8b11ea4a03af37c7e5a93a66e0ef1f1b155630f2a28e82d1d73ff04ba3f40dda"
+      },
+      "original_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_button_event_converter",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\original.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_tail_select.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\input\\tb_button_event_converter.sv"
+        ],
+        "log_sha256": "e6323a45404da4edd45ad4341d26a809b3971f3a3b844d483328e24e2fb56c05"
+      },
+      "original_T022": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\original.vvp"
+        ],
+        "log_sha256": "488973cd81915ac2842cdbb8d1fe7377295d8e3ee2c0ce66cb64ab5a8532522a"
+      },
+      "delayed_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_button_tail_select",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\delayed.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\performance_event_fifo.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_baseline_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\delayed.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\input\\button_counter_timing\\fifo_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\input\\button_counter_timing\\fifo_no_full_bypass.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\button_tail_select_candidate\\tb_button_tail_select.sv"
+        ],
+        "log_sha256": "58abd2592143c5136782b5f66600813b3a5974c7ba7c23fc828d273be0b9ddff"
+      },
+      "delayed": {
+        "exit": 1,
+        "expected_success": false,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\delayed.vvp"
+        ],
+        "log_sha256": "c42a55cf198de14721cf857c24d916eef6219ba02860800626d9738084a06ae8"
+      },
+      "wrong_pop_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_button_tail_select",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\wrong_pop.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\performance_event_fifo.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_baseline_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\wrong_pop.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\input\\button_counter_timing\\fifo_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\input\\button_counter_timing\\fifo_no_full_bypass.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\button_tail_select_candidate\\tb_button_tail_select.sv"
+        ],
+        "log_sha256": "804a554c30ab7fe1081df74214da9cca54f00ba50b74f8dcc20750101855162e"
+      },
+      "wrong_pop": {
+        "exit": 1,
+        "expected_success": false,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\wrong_pop.vvp"
+        ],
+        "log_sha256": "1e5d984dc92b50fd8f6a1a2020c8c8666d4d6c8df346c5c68d86bd1d30f12813"
+      },
+      "no_full_pop_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_button_tail_select",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\no_full_pop.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\wrong_fifo.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\button_baseline_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\no_full_pop.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\input\\button_counter_timing\\fifo_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\input\\button_counter_timing\\fifo_no_full_bypass.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\button_tail_select_candidate\\tb_button_tail_select.sv"
+        ],
+        "log_sha256": "d00a77a3aaca481a5e318ea3833236fe8c653d1c736aa1a05b23407a979c6b1f"
+      },
+      "no_full_pop": {
+        "exit": 1,
+        "expected_success": false,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\no_full_pop.vvp"
+        ],
+        "log_sha256": "ac498cbdb27e0be8777d81f17bf3ca0d0f55e2c38e3c6c2f65160d307a33177c"
+      },
+      "generic_netlist": {
+        "exit": 0,
+        "expected_success": true,
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\yosys.exe",
+          "-Q",
+          "-T",
+          "-s",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\audit.ys"
+        ],
+        "log_sha256": "db63f1e16c572a633c2f4faa1f067c4539b77c8031427088b4160ff49198c3af"
+      }
+    },
+    "scoreboard_verdicts": [
+      "PASS button_counter_timing depth=3 checks=100620 cycles=20114: no-bypass rejected; parallel counter fully cycle-equivalent",
+      "PASS button_counter_timing depth=32 checks=102070 cycles=20404: no-bypass rejected; parallel counter fully cycle-equivalent",
+      "PASS button_counter_timing depth=3 checks=100570 cycles=20104: no-bypass rejected; parallel counter fully cycle-equivalent",
+      "PASS button_counter_timing depth=32 checks=102170 cycles=20424: no-bypass rejected; parallel counter fully cycle-equivalent"
+    ],
+    "exhaustive_verdicts": [
+      "PASS tailselect exhaustive BUTTONS=2 LOCAL=4 cases=1280 checks=14082",
+      "PASS tailselect exhaustive BUTTONS=1 LOCAL=1 cases=128 checks=1026",
+      "PASS tailselect exhaustive BUTTONS=2 LOCAL=1 cases=512 checks=4098",
+      "PASS tailselect exhaustive BUTTONS=2 LOCAL=2 cases=768 checks=6914",
+      "PASS tailselect exhaustive BUTTONS=4 LOCAL=4 cases=20480 checks=225282",
+      "PASS tailselect exhaustive BUTTONS=4 LOCAL=8 cases=36864 checks=552962"
+    ],
+    "ready_dependency_audit": {
+      "optimized_generic_branches_independent_of_ready": [
+        "drops_no_pop",
+        "drops_with_pop",
+        "count_no_pop",
+        "count_with_pop"
+      ],
+      "counter_register_has_ready_enable": false,
+      "final_counter_D_is_pop_mux": true,
+      "evidence_scope": "actual Yosys optimized generic netlist, NOT decrypted Gowin implementation"
+    },
+    "functional_exact": true,
+    "AB_adoption": {
+      "reports": {
+        "A": {
+          "errors": [],
+          "facts": {
+            "visual_gate": {
+              "summary": {
+                "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+                "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+                "Numbers of Paths Analyzed": "22822",
+                "Numbers of Endpoints Analyzed": "18844",
+                "Numbers of Falling Endpoints": "4",
+                "Numbers of Setup Violated Endpoints": "0",
+                "Numbers of Hold Violated Endpoints": "0"
+              },
+              "bus_path_count": {
+                "u_event_bridge": 22,
+                "u_control/u_score_mailbox": 50
+              }
+            },
+            "audio_pins": 10,
+            "resources": {
+              "Logic": 15772,
+              "Register": 5989,
+              "DSP": 24,
+              "BSRAM": 8
+            },
+            "fmax_mhz": {
+              "sys_clk": 50.599,
+              "video_serial": 1122.018,
+              "video_pixel": 33.029
+            },
+            "exported_min_slack_ns": {
+              "Setup": 0.237,
+              "Hold": 0.001,
+              "Recovery": 1.076,
+              "Removal": 1.048
+            },
+            "latency_registers": 65,
+            "scope": "independent audio/visual STA only; not production top, monitor or silicon acceptance"
+          },
+          "per_clock_setup": {
+            "sys_clk": [
+              "1",
+              "0.237",
+              "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[1]_4_s0/Q",
+              "u_button_event_converter/overflow_count_15_s0/D",
+              "sys_clk:[R]",
+              "sys_clk:[R]",
+              "20.000",
+              "0.009",
+              "18.690"
+            ],
+            "video_pixel": [
+              "1",
+              "9.724",
+              "u_visual/u_scan/pixel_x_9_s0/Q",
+              "u_visual/u_scene/u_score_tracker/hit_mem_6_s1/CE",
+              "video_pixel:[R]",
+              "video_pixel:[R]",
+              "40.000",
+              "0.000",
+              "29.964"
+            ],
+            "video_serial": [
+              "1",
+              "7.109",
+              "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+              "u_visual/u_serial_reset/sync_chain_1_s0/D",
+              "video_serial:[R]",
+              "video_serial:[R]",
+              "8.000",
+              "0.000",
+              "0.827"
+            ]
+          },
+          "timing_report_sha256": "61822bf0b70cce935f4e23089c4c0744dae3253d4eedc395ad9ca60f88d25691"
+        },
+        "B": {
+          "errors": [],
+          "facts": {
+            "visual_gate": {
+              "summary": {
+                "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+                "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+                "Numbers of Paths Analyzed": "22926",
+                "Numbers of Endpoints Analyzed": "18844",
+                "Numbers of Falling Endpoints": "4",
+                "Numbers of Setup Violated Endpoints": "0",
+                "Numbers of Hold Violated Endpoints": "0"
+              },
+              "bus_path_count": {
+                "u_event_bridge": 22,
+                "u_control/u_score_mailbox": 50
+              }
+            },
+            "audio_pins": 10,
+            "resources": {
+              "Logic": 15680,
+              "Register": 5989,
+              "DSP": 24,
+              "BSRAM": 8
+            },
+            "fmax_mhz": {
+              "sys_clk": 52.917,
+              "video_serial": 1296.595,
+              "video_pixel": 38.744
+            },
+            "exported_min_slack_ns": {
+              "Setup": 1.102,
+              "Hold": 0.001,
+              "Recovery": 1.061,
+              "Removal": 0.518
+            },
+            "latency_registers": 65,
+            "scope": "independent audio/visual STA only; not production top, monitor or silicon acceptance"
+          },
+          "per_clock_setup": {
+            "sys_clk": [
+              "1",
+              "1.102",
+              "u_i2s_tx/bclk_acc_0_s0/Q",
+              "u_visual/u_event_bridge/queue[28].channel_0_s1/CE",
+              "sys_clk:[R]",
+              "sys_clk:[R]",
+              "20.000",
+              "0.000",
+              "17.586"
+            ],
+            "video_pixel": [
+              "1",
+              "14.190",
+              "u_visual/u_scene/u_score_tracker/hit_frame_mem[6]_13_s1/Q",
+              "u_visual/dvi_b_7_s0/D",
+              "video_pixel:[R]",
+              "video_pixel:[R]",
+              "40.000",
+              "0.000",
+              "25.746"
+            ],
+            "video_serial": [
+              "1",
+              "7.229",
+              "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+              "u_visual/u_serial_reset/sync_chain_1_s0/D",
+              "video_serial:[R]",
+              "video_serial:[R]",
+              "8.000",
+              "0.000",
+              "0.480"
+            ]
+          },
+          "timing_report_sha256": "2cbe3d9100dad07442bd4e6fbc725c5865b4512da619b7269d4b98b2643e4750"
+        }
+      },
+      "system_setup_delta_ns": 0.865,
+      "resource_delta": {
+        "Logic": -92,
+        "Register": 0,
+        "DSP": 0,
+        "BSRAM": 0
+      },
+      "criteria": {
+        "functional_exact": true,
+        "system_setup_delta_at_least0_1": true,
+        "logic_increase_at_most128": true,
+        "Register_DSP_BSRAM_not_increased": true,
+        "all_original_timing_interfaces_pass": true
+      },
+      "adopt_candidate": true,
+      "selection_policy": "one fixed A and one fixed B; no seeds or alternative RTL trials",
+      "formal_M3_module_applied": false
+    },
+    "prepared_AB": {
+      "project_folders": [
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\A_baseline",
+        "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\portable_reproduce\\B_tail_select"
+      ],
+      "prepared_only": true,
+      "PnR_runs_performed": 0,
+      "all_other_inputs_share_identical_paths": true,
+      "no_seed_search": true
+    }
+  },
+  "functional_totals": {
+    "random_FIFO_pair_comparison_checks": 405430,
+    "exhaustive_parameter_cases": 60032,
+    "exhaustive_checks": 804364,
+    "combined_checks": 1209794,
+    "formal2keys_local4_cases": 1280,
+    "exact_count_latency_added": 0,
+    "newregisters_orqueuecapacity": 0
+  },
+  "actual_builds": {
+    "A_baseline": {
+      "run_all_exit": 0,
+      "build_count": 1
+    },
+    "B_tail_select": {
+      "run_all_exit": 0,
+      "build_count": 1
+    },
+    "seed_search": false,
+    "RTL_revisions_PnR_tested": 1
+  },
+  "fair_project_input_audit": {
+    "filelist_nodes": 44,
+    "manifest_items_with_project": 45,
+    "soleconverter_difference": [
+      [
+        {
+          "path": "D:/17/project_17/fpga_gowin/code/output/t009_zip2_review_20260930/code/output/button_counter_tail_select_20261003/button_baseline_6055bb8.sv",
+          "type": "file.verilog",
+          "enable": "1"
+        },
+        {
+          "path": "D:/17/project_17/fpga_gowin/code/output/t009_zip2_review_20260930/code/output/button_counter_tail_select_20261003/button_tail_select.sv",
+          "type": "file.verilog",
+          "enable": "1"
+        }
+      ]
+    ],
+    "identical_non_converter_filepaths": 43,
+    "unchanged_CST_sha256": "b924a759b2810a3bcae5795223b461fc24dc80707bbfe4e67c4ce98a01ceda39",
+    "unchanged_SDC_sha256": "c99d7b0afb6c83eee7431d00b25c857cad99e467f89e3a1c9151da3cb44d799d",
+    "A_builds_allowed": 1,
+    "B_builds_allowed": 1,
+    "no_seed_search": true
+  },
+  "physical_comparison": {
+    "reports": {
+      "A": {
+        "errors": [],
+        "facts": {
+          "visual_gate": {
+            "summary": {
+              "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+              "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+              "Numbers of Paths Analyzed": "22822",
+              "Numbers of Endpoints Analyzed": "18844",
+              "Numbers of Falling Endpoints": "4",
+              "Numbers of Setup Violated Endpoints": "0",
+              "Numbers of Hold Violated Endpoints": "0"
+            },
+            "bus_path_count": {
+              "u_event_bridge": 22,
+              "u_control/u_score_mailbox": 50
+            }
+          },
+          "audio_pins": 10,
+          "resources": {
+            "Logic": 15772,
+            "Register": 5989,
+            "DSP": 24,
+            "BSRAM": 8
+          },
+          "fmax_mhz": {
+            "sys_clk": 50.599,
+            "video_serial": 1122.018,
+            "video_pixel": 33.029
+          },
+          "exported_min_slack_ns": {
+            "Setup": 0.237,
+            "Hold": 0.001,
+            "Recovery": 1.076,
+            "Removal": 1.048
+          },
+          "latency_registers": 65,
+          "scope": "independent audio/visual STA only; not production top, monitor or silicon acceptance"
+        },
+        "per_clock_setup": {
+          "sys_clk": [
+            "1",
+            "0.237",
+            "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[1]_4_s0/Q",
+            "u_button_event_converter/overflow_count_15_s0/D",
+            "sys_clk:[R]",
+            "sys_clk:[R]",
+            "20.000",
+            "0.009",
+            "18.690"
+          ],
+          "video_pixel": [
+            "1",
+            "9.724",
+            "u_visual/u_scan/pixel_x_9_s0/Q",
+            "u_visual/u_scene/u_score_tracker/hit_mem_6_s1/CE",
+            "video_pixel:[R]",
+            "video_pixel:[R]",
+            "40.000",
+            "0.000",
+            "29.964"
+          ],
+          "video_serial": [
+            "1",
+            "7.109",
+            "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+            "u_visual/u_serial_reset/sync_chain_1_s0/D",
+            "video_serial:[R]",
+            "video_serial:[R]",
+            "8.000",
+            "0.000",
+            "0.827"
+          ]
+        },
+        "timing_report_sha256": "61822bf0b70cce935f4e23089c4c0744dae3253d4eedc395ad9ca60f88d25691"
+      },
+      "B": {
+        "errors": [],
+        "facts": {
+          "visual_gate": {
+            "summary": {
+              "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+              "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+              "Numbers of Paths Analyzed": "22926",
+              "Numbers of Endpoints Analyzed": "18844",
+              "Numbers of Falling Endpoints": "4",
+              "Numbers of Setup Violated Endpoints": "0",
+              "Numbers of Hold Violated Endpoints": "0"
+            },
+            "bus_path_count": {
+              "u_event_bridge": 22,
+              "u_control/u_score_mailbox": 50
+            }
+          },
+          "audio_pins": 10,
+          "resources": {
+            "Logic": 15680,
+            "Register": 5989,
+            "DSP": 24,
+            "BSRAM": 8
+          },
+          "fmax_mhz": {
+            "sys_clk": 52.917,
+            "video_serial": 1296.595,
+            "video_pixel": 38.744
+          },
+          "exported_min_slack_ns": {
+            "Setup": 1.102,
+            "Hold": 0.001,
+            "Recovery": 1.061,
+            "Removal": 0.518
+          },
+          "latency_registers": 65,
+          "scope": "independent audio/visual STA only; not production top, monitor or silicon acceptance"
+        },
+        "per_clock_setup": {
+          "sys_clk": [
+            "1",
+            "1.102",
+            "u_i2s_tx/bclk_acc_0_s0/Q",
+            "u_visual/u_event_bridge/queue[28].channel_0_s1/CE",
+            "sys_clk:[R]",
+            "sys_clk:[R]",
+            "20.000",
+            "0.000",
+            "17.586"
+          ],
+          "video_pixel": [
+            "1",
+            "14.190",
+            "u_visual/u_scene/u_score_tracker/hit_frame_mem[6]_13_s1/Q",
+            "u_visual/dvi_b_7_s0/D",
+            "video_pixel:[R]",
+            "video_pixel:[R]",
+            "40.000",
+            "0.000",
+            "25.746"
+          ],
+          "video_serial": [
+            "1",
+            "7.229",
+            "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+            "u_visual/u_serial_reset/sync_chain_1_s0/D",
+            "video_serial:[R]",
+            "video_serial:[R]",
+            "8.000",
+            "0.000",
+            "0.480"
+          ]
+        },
+        "timing_report_sha256": "2cbe3d9100dad07442bd4e6fbc725c5865b4512da619b7269d4b98b2643e4750"
+      }
+    },
+    "system_setup_delta_ns": 0.865,
+    "resource_delta": {
+      "Logic": -92,
+      "Register": 0,
+      "DSP": 0,
+      "BSRAM": 0
+    },
+    "criteria": {
+      "functional_exact": true,
+      "system_setup_delta_at_least0_1": true,
+      "logic_increase_at_most128": true,
+      "Register_DSP_BSRAM_not_increased": true,
+      "all_original_timing_interfaces_pass": true
+    },
+    "adopt_candidate": true,
+    "selection_policy": "one fixed A and one fixed B; no seeds or alternative RTL trials",
+    "formal_M3_module_applied": false
+  },
+  "stop_after_one_A_one_B": true,
+  "adopt_isolated_candidate_recommended": true,
+  "production_M3_converter_applied": false,
+  "public_interface_clock_reset_samplerate_altered": false,
+  "strict_FIFO_order_capacity_unchanged": true,
+  "hardware_programmed": false,
+  "hardware_verified": false,
+  "whole_piano_future_PitchMod_effect_chain_STA_proven": false,
+  "power_or_actual_boarddynamic_switching_measured": false,
+  "post_synthesis_structure_boundary": {
+    "Yosys_optimized_generic_netlist_actually_audited": true,
+    "Gowin_vendor_netlist_encrypted": true,
+    "Gowin_fullcone_decrypted_or_directly_traversed": false,
+    "vendor_exported_setup_counter_paths_within_bound": 0,
+    "absence_from_exported_path_subset_is_not_allpathabsenceproof": true,
+    "new_worst_sys_path": "BCLKacc0 -> displayeventqueue28.channel0.CE",
+    "physical_globalSTA_actualPASS": true
+  },
+  "B_old_audio_frame_equivalence": {
+    "checks": 14,
+    "cycles": 881249,
+    "PCM_frames": 845,
+    "nonzero_frames": 799,
+    "modes": 75,
+    "I2S_PA_percycle_match": true,
+    "same_request_and_frame_adoptedPCM_match": true,
+    "audio_underrun": 0,
+    "small_raster64x48_testonly": true,
+    "actual_PnR640x480": true,
+    "log_sha256": "12b053b40c9c4b0756345d87d4840da9ae629ce70ab19c4a7afc5b3f66847b40"
+  },
+  "secondary_margin_changes": {
+    "Hold_ns_A_B": [
+      0.001,
+      0.001
+    ],
+    "Recovery_ns_A_B": [
+      1.076,
+      1.061
+    ],
+    "Removal_ns_A_B": [
+      1.048,
+      0.518
+    ],
+    "bothPASS": true
+  },
+  "frozen_sources_do_not_include_latest_parser": {
+    "new_received_commits": [
+      "2fdc313",
+      "3d6430e"
+    ],
+    "latestparser_orfutureeffects_not_used_in_AB": true,
+    "await_separateM2reviewandnewintegratedSTA": true
+  },
+  "formal_protected_sha256": {
+    "code/rtl/input/button_event_converter/button_event_converter.sv": "65c7978b2e1ce27fc09606cd87ee43fc1a078898acdd109490ca1909f89c0dd7",
+    "code/rtl/common/performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+    "code/rtl/audio/adsr_piano_envelope.sv": "775fec7f546a00ca7bf98f132cce8d5d92d80ca6094af8e9e14cb07cd54a2e9d",
+    "code/rtl/board/polyphonic_envelope_bank.sv": "813e0b726546c16344aa86eb39c02291315450a001ba613e3dbfc710885689da",
+    "code/rtl/board/electronic_piano_top.sv": "c75f4321c28753e851c26e6cb0810947a85e8f17ca61b28ae7e527a5ff765a5b",
+    "code/rtl/common/audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+    "code/constraints/electronic_piano.cst": "76037da27eabba7bf322d41ad8f90c16b1a72b549fc2ffb865b380bfbda35dcb",
+    "code/constraints/audio_timing.sdc": "849c8b374c366ea1cbe6f44b17f761adad90861e3b50a0baf3ade73c05f953f5",
+    "code/docs/模块接口规范.md": "5bcfd9d355fb76aafb798104ea517bc047534d0740273b78df74c0d16758f8e5"
+  },
+  "actual_report_and_researchFS_sha256": {
+    "code/output/button_counter_tail_select_20261003/A_baseline/build.log": "97f1d1a0c0b93b40bdac958a8bfd64f57e8111d3ae2ab01ae11081a658169494",
+    "code/output/button_counter_tail_select_20261003/A_baseline/input_manifest.json": "c77de3e4ab9dffe8dae3e5e8c4e657d1938e489c76f9778010386a4ded1831a9",
+    "code/output/button_counter_tail_select_20261003/A_baseline/audio_visual_coexistence_top.gprj": "693cf5b8efda27fbc09d428bb24e3e5dffab731d4e8ceca852f938f997398e31",
+    "code/output/button_counter_tail_select_20261003/A_baseline/impl/pnr/audio_visual_coexistence_top_tr_content.html": "61822bf0b70cce935f4e23089c4c0744dae3253d4eedc395ad9ca60f88d25691",
+    "code/output/button_counter_tail_select_20261003/A_baseline/impl/pnr/audio_visual_coexistence_top.rpt.txt": "0550c5d739c1fcb30087eabe1b16c2b477803334eae545727e22e6d9a2b2bb5e",
+    "code/output/button_counter_tail_select_20261003/A_baseline/impl/pnr/audio_visual_coexistence_top.pin.html": "dd4d7016e6024e3035f175da83b2efc0c28dfe22a5d1bb44fb89257360350774",
+    "code/output/button_counter_tail_select_20261003/A_baseline/impl/pnr/audio_visual_coexistence_top.fs": "103b0d36bf8a83815a8ebead2886ffa00748cd7c4ac5ba1e4603bdf2ac6c9b37",
+    "code/output/button_counter_tail_select_20261003/A_baseline/impl/gwsynthesis/audio_visual_coexistence_top_syn_rsc.xml": "b659807d66325ae763fb36f689e4411908b11648a9f08a8c87c8273dba3bfcdd",
+    "code/output/button_counter_tail_select_20261003/B_tail_select/build.log": "b31a0675a0b0295a67e44cf7dde0b211f1ad1cda82278b5ca8db0f824b4063cb",
+    "code/output/button_counter_tail_select_20261003/B_tail_select/input_manifest.json": "6715cf4a653d6a17c7c2e62c82508c497101647cdb5cc08574be13136e72c5d2",
+    "code/output/button_counter_tail_select_20261003/B_tail_select/audio_visual_coexistence_top.gprj": "eb81826e1b98d942e5b3680c89ede999f7476cc00f84e1545f8f3c9b087d3ea7",
+    "code/output/button_counter_tail_select_20261003/B_tail_select/impl/pnr/audio_visual_coexistence_top_tr_content.html": "2cbe3d9100dad07442bd4e6fbc725c5865b4512da619b7269d4b98b2643e4750",
+    "code/output/button_counter_tail_select_20261003/B_tail_select/impl/pnr/audio_visual_coexistence_top.rpt.txt": "13493c77b97a694c150dcb7897e931ad6f457029a1de7844ca97ab888a49584d",
+    "code/output/button_counter_tail_select_20261003/B_tail_select/impl/pnr/audio_visual_coexistence_top.pin.html": "ecc4bb32b826a882eb23e9a06c7d57b42a98d3906e6c78c0c0c85346c1352678",
+    "code/output/button_counter_tail_select_20261003/B_tail_select/impl/pnr/audio_visual_coexistence_top.fs": "a593465ed685807329ee9f531a0b79ae74ba717cbdfd351a708fd1a72a9bbb43",
+    "code/output/button_counter_tail_select_20261003/B_tail_select/impl/gwsynthesis/audio_visual_coexistence_top_syn_rsc.xml": "af4f1bc126b9e2c6b56d130891116fec71317507eb7e90450f69a0ba0df6611c"
+  },
+  "final_test_logs_sha256": {
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/B1_L1.log": "dbc2b22fe93482289cbd227c976ff7cefde97a6ecf3e968145acc58ecc42d1ea",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/B1_L1_compile.log": "2e09448d832bd930e659e89d6a2be112bf0821dc5526da92eae5c820505f95bc",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/B2_L1.log": "5150d00ab674ba804b96737657b7577e4f8b97e6ff4c672b4fc3a2e5d0e7d9b9",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/B2_L1_compile.log": "2e09448d832bd930e659e89d6a2be112bf0821dc5526da92eae5c820505f95bc",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/B2_L2.log": "f60709503483d5b4d74a0de0ae0154c25fee4be318a5c73f00bea99e824c8525",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/B2_L2_compile.log": "2e09448d832bd930e659e89d6a2be112bf0821dc5526da92eae5c820505f95bc",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/B2_L4.log": "06882984ad8a1bc81ca7fb99b7c22a3da46a4daa08765120ba11b690dea1618d",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/B2_L4_compile.log": "2e09448d832bd930e659e89d6a2be112bf0821dc5526da92eae5c820505f95bc",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/B4_L4.log": "057072c8e1b201f5c71c9fd04376e7983de97b549d844329ebde12835392c230",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/B4_L4_compile.log": "2e09448d832bd930e659e89d6a2be112bf0821dc5526da92eae5c820505f95bc",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/B4_L8.log": "8b11ea4a03af37c7e5a93a66e0ef1f1b155630f2a28e82d1d73ff04ba3f40dda",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/B4_L8_compile.log": "2e09448d832bd930e659e89d6a2be112bf0821dc5526da92eae5c820505f95bc",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/D32_L2.log": "9cf2f5d487fba3a5376f50515617375640224b571908734f4e095db300c97e12",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/D32_L2_compile.log": "24f85adceaee91686e5de5ebce99a2b6dfbc0f2080c4fb6c12f3b66f4dc74c9d",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/D32_L4.log": "b764d7f003431142a3a38414541eb732207af6ddc890cf01c5758a901b179749",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/D32_L4_compile.log": "24f85adceaee91686e5de5ebce99a2b6dfbc0f2080c4fb6c12f3b66f4dc74c9d",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/D3_L1.log": "3bced8389ec57a67d80c1d09c6ef82445afca53beb144e841fb43bd0273db715",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/D3_L1_compile.log": "24f85adceaee91686e5de5ebce99a2b6dfbc0f2080c4fb6c12f3b66f4dc74c9d",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/D3_L2.log": "f82b9316d003fe78b719b58e87d046e91e1ec9b7b565bd4d0fdd9e27f3483831",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/D3_L2_compile.log": "24f85adceaee91686e5de5ebce99a2b6dfbc0f2080c4fb6c12f3b66f4dc74c9d",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/delayed.log": "c42a55cf198de14721cf857c24d916eef6219ba02860800626d9738084a06ae8",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/delayed_compile.log": "58abd2592143c5136782b5f66600813b3a5974c7ba7c23fc828d273be0b9ddff",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/generic_netlist.log": "db63f1e16c572a633c2f4faa1f067c4539b77c8031427088b4160ff49198c3af",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/no_full_pop.log": "ac498cbdb27e0be8777d81f17bf3ca0d0f55e2c38e3c6c2f65160d307a33177c",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/no_full_pop_compile.log": "d00a77a3aaca481a5e318ea3833236fe8c653d1c736aa1a05b23407a979c6b1f",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/original_compile.log": "e6323a45404da4edd45ad4341d26a809b3971f3a3b844d483328e24e2fb56c05",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/original_T022.log": "488973cd81915ac2842cdbb8d1fe7377295d8e3ee2c0ce66cb64ab5a8532522a",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/wrong_pop.log": "1e5d984dc92b50fd8f6a1a2020c8c8666d4d6c8df346c5c68d86bd1d30f12813",
+    "code/output/button_counter_tail_select_20261003/portable_reproduce/wrong_pop_compile.log": "804a554c30ab7fe1081df74214da9cca54f00ba50b74f8dcc20750101855162e"
+  },
+  "candidate_patch_apply_check": "git apply --check passes on current6055bb8 converter, productionfile NOT written",
+  "M3_formal_handoff": "pending user forwarding; not delivered",
+  "nextaction": "M3apply approved patch inownedfile andrerunownmodulechecks; M2finalnewparser/ADSR/strictflashintegratedSTA; neverprogramAorBprobeasformalrelease",
+  "repository_gate": {
+    "exit": 0,
+    "groups": 9,
+    "Python_files": 135,
+    "log_sha256": "31877974a4c35eb9b491a9cc40474fc7cab980de77151c800798d30823f9f231",
+    "after_sync_latestM3parser": true
+  }
+}
