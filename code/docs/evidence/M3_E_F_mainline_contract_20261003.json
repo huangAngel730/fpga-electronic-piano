@@ -1,0 +1,196 @@
+{
+  "date": "2026-10-03",
+  "baseline_commit": "3ad065064a8d68a6e4020e095a7e35bc82b355c0",
+  "status": "prepared, pending user forward; no member notification inferred",
+  "scope": "two bounded main-line tasks, no new T numbers",
+  "supersedes": {
+    "A": "original evidence accepted V0168; do not repeat",
+    "B_C": "T028 independent module and corrected lifecycle accepted V0169; do not repeat",
+    "D": "source-audit verifier accepted V0167; no new audit framework"
+  },
+  "tasks": [
+    {
+      "id": "E",
+      "priority": 1,
+      "name": "MIDI continuous scheduler Setup critical-path repair",
+      "task_relation": "continuation of existing V0165 parser notice, not a second optimization assignment",
+      "owner": "M3",
+      "write_allowlist": [
+        "code/rtl/input/midi_input/midi_event_parser.sv",
+        "code/rtl/input/midi_input/README.md",
+        "code/tb/input/midi_scheduler_timing/**",
+        "code/scripts/run_midi_scheduler_timing_review.py"
+      ],
+      "evidence": {
+        "setup_ns": -7.872,
+        "system_fmax_mhz": 35.878,
+        "from": "u_midi_input/u_midi_event_parser/system_data_remaining_0_s0/Q",
+        "to": "u_midi_input/u_midi_event_parser/locked_event.control_value_10_s3/D",
+        "data_path_ns": 26.818
+      },
+      "must_preserve": [
+        "cycle-exact event_valid/event_data/handshake/FIFO diagnostics relative to 3ad0650 parser",
+        "MAX_DISCRETE_BURST8 bound on eligible actual handshakes",
+        "aggregate1kHz",
+        "32-slot RR",
+        "current-byte selected slot latest-value capture",
+        "CC1 dedup/cancel",
+        "stable stalled payload",
+        "Note/CC64/Program FIFO order"
+      ],
+      "reference": "freeze old parser from 3ad0650 by exact SHA and rename only module in scratch; do not reference the modified candidate as its own oracle",
+      "algorithm_options": [
+        "precompute first and second candidate from registered pending/RR then resolve one parsed update at last stage",
+        "single bounded balanced priority tree preserving exact RR selection"
+      ],
+      "tests": [
+        "all32RR starts",
+        "empty/full/onehot/sparse/dense pending states",
+        "first/second winner deletion by dedup",
+        "new earlier slot insertion",
+        "update old/current/locked slot at eighth handshake",
+        "cooldown0/1",
+        "ready random/stalled",
+        "reset",
+        "MAX_DISCRETE_BURST1/8/16 legal configurations",
+        "original input regression and genuine compiled behavioral mutants"
+      ],
+      "clock_pipeline_changes": "stop and explain if cycles/latency/state interface change; do not auto-add registers or relax constraints",
+      "M2_responsibility": [
+        "complete combo PnR/STA",
+        "control short-path Hold",
+        "serializer Recovery"
+      ],
+      "no_stage_status_oversell": "M3 L2 and structure review only; no claim final timing PASS"
+    },
+    {
+      "id": "F",
+      "priority": 2,
+      "name": "real UART/public FIFO/allocator/V1/CC64/PitchMod to PCM joint acceptance",
+      "owner": "M3 test-only assistance to M1/M2",
+      "write_allowlist": [
+        "code/tb/board/m3_midi_pcm_acceptance/**",
+        "code/scripts/run_m3_midi_pcm_acceptance.py"
+      ],
+      "dut_chain": "actual uart_rx/midi_input -> performance_event_fifo depth32 -> candidate polyphonic_audio_core/real allocator/router/sustain/ADSR/DDS/FCW pipeline -> actual PCM commit/frame buffer",
+      "readonly_dependencies": [
+        "code/rtl/common/audio_defs_pkg.sv",
+        "code/rtl/common/uart_rx.sv",
+        "code/rtl/common/performance_event_fifo.sv",
+        "code/rtl/input/midi_input/midi_event_parser.sv",
+        "code/rtl/input/midi_input/midi_input.sv",
+        "code/rtl/board/performance_control_snapshot.sv",
+        "code/rtl/board/polyphonic_audio_core.sv",
+        "code/rtl/board/polyphonic_pcm_commit.sv",
+        "code/tb/board/pitch_mod_bank_integration_candidate/polyphonic_event_router.sv",
+        "code/tb/board/pitch_mod_bank_integration_candidate/polyphonic_envelope_bank.sv",
+        "code/tb/board/pitch_mod_bank_integration_candidate/source_manifest.json",
+        "code/tb/board/pitch_mod_pipeline_candidate/pitch_mod_fcw_pipeline.sv",
+        "code/tb/board/pitch_mod_pipeline_candidate/pitch_mod_snapshot_pipeline.sv",
+        "code/rtl/audio/voice_allocator_4.sv",
+        "code/rtl/audio/piano_dds_oscillator.sv",
+        "code/rtl/input/sustain_control/sustain_controller.sv",
+        "code/rtl/board/sustain_controller_ports.svh",
+        "code/rtl/board/sustain_control_contract_pkg.sv",
+        "code/scripts/run_adsr_pipeline_isolated.py",
+        "code/tb/audio/adsr_pipeline_isolated_candidate.patch",
+        "code/tb/audio/adsr_pipeline_candidate_baseline.json",
+        "code/scripts/run_pitch_mod_bank_integration_candidate.py",
+        "code/model/pitch_mod_model.py",
+        "code/model/generated/pitch_mod/oct_ratio_q16.mem",
+        "code/model/generated/pitch_mod/sub_ratio_q16.mem",
+        "code/model/generated/pitch_mod/lfo_sine_q15.mem",
+        "code/model/generated/wavetables/piano_band_4x256_8191.mem",
+        "code/model/generated/wavetables/velocity_gain_rom.mem",
+        "code/tb/board/m3_control_chain_acceptance/scoreboard.py",
+        "code/tb/board/m3_control_chain_acceptance/tb_control_chain.sv"
+      ],
+      "required_source_selection": "candidate bank/router in tb/board/pitch_mod_bank_integration_candidate, not old production bank; ADSR uses existing M2 reviewed patch generated into output; all outputs source SHA recorded",
+      "uart": "50MHz,31250,8N1, idle high; normal MIDI bytes at physical wire timing; not internal forced state",
+      "sample_schedule": "use documented legal1041/1042-cycle cadence, record frame_id; no T031 simulated-latency claims",
+      "oracle": "accepted common FIFO output events drive independent source/channel control reference; M1 PitchModVoice FCW reference plus raw PCM Q15 floor/mixer integer reference, real source tags",
+      "voice_fixture_forbidden": "no replacement handwritten voice allocator; reference may inspect real accepted slot identity as diagnostic only; allocation outcomes tested explicitly",
+      "required_scenarios": [
+        "same- and different-channel four voices",
+        "fifth voice steal and old NoteOff isolation",
+        "velocity0 NoteOff",
+        "note Release retrigger",
+        "CC64 held/release/stolen voice",
+        "Pitch/CC1 while note-held/release",
+        "event lands near sample snapshot edge",
+        "common FIFO full+pop/push using explicit marked synthetic competitor/backpressure setup",
+        "reset while UART partial/FCW computing/result pending and resume",
+        "no control center initial bank-frame equivalence",
+        "Program transported but no timbre policy or actual switch claim"
+      ],
+      "minimums": {
+        "normal_PCM_frames": 512,
+        "actual_successful_note_controls_each_type": 1,
+        "nonzero_control_lane_results": 128,
+        "no_accidental_audio_underrun": true
+      },
+      "negative_mutants": [
+        "use base rather than adjustedFCW at DDS",
+        "mis-tag current frame commit",
+        "control state updates before common FIFO handshake"
+      ],
+      "mutant_rules": "original source copied into output only; every mutant must compile then expected behavior reason reject; timeout alone not accepted as correct negative",
+      "physical_limits": "no false zero-overflow guarantee under unlimited forced input; bound normal DIN rate, deliberately injected overflow separate expected evidence",
+      "scope_exclusions": [
+        "I2S/PT8211 repeated T005 testing",
+        "T028 activation",
+        "Program timbre mapping",
+        "new algorithm or resource structure",
+        "production RTL/top/pkg/CST/SDC/GPRJ changes",
+        "Gowin/PnR",
+        "board tests"
+      ]
+    }
+  ],
+  "global_write_exclusions": [
+    "shared numbering tables",
+    "production audio algorithms",
+    "top",
+    "pkg",
+    "CST",
+    "SDC",
+    "GPRJ",
+    "visual code",
+    "STAT software"
+  ],
+  "source_sha256": {
+    "code/rtl/common/audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+    "code/rtl/common/uart_rx.sv": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+    "code/rtl/common/performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+    "code/rtl/input/midi_input/midi_event_parser.sv": "cfd4c33e91ba06a73c89dedb66b8636dc0c1bd1778ae454714325207424c28c4",
+    "code/rtl/input/midi_input/midi_input.sv": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710",
+    "code/rtl/board/performance_control_snapshot.sv": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+    "code/rtl/board/polyphonic_audio_core.sv": "b36b0838f1b8ba947d99cc6c48f91334f845aa7984f6d9d3b21cbe502512c995",
+    "code/rtl/board/polyphonic_pcm_commit.sv": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+    "code/tb/board/pitch_mod_bank_integration_candidate/polyphonic_event_router.sv": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+    "code/tb/board/pitch_mod_bank_integration_candidate/polyphonic_envelope_bank.sv": "bf0da7888140f69d8777bf1625769402be85de677ac7eb34f6ef934ad8f42f00",
+    "code/tb/board/pitch_mod_bank_integration_candidate/source_manifest.json": "0b21ae6268ea97befc56a171191375d58995e255712069203a7e244de69e6463",
+    "code/tb/board/pitch_mod_pipeline_candidate/pitch_mod_fcw_pipeline.sv": "bc14fab96206c2ec202e155995427573c7bf18ce0bc74e5f291e6bc531f8f772",
+    "code/tb/board/pitch_mod_pipeline_candidate/pitch_mod_snapshot_pipeline.sv": "ea4aaad461e62eea360f8efebae60d3b2963e8515a0d6bb514e3b37c2895651b",
+    "code/rtl/audio/voice_allocator_4.sv": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+    "code/rtl/audio/piano_dds_oscillator.sv": "941c6f1bb2e41cf9bd4433b9c22ab58c9ad7e041f32e96039de6eec8dc139fc1",
+    "code/rtl/input/sustain_control/sustain_controller.sv": "dd244b99b06eaa2ed7e7deda1c08aeb119f002bff939ce5941e5e81a559cbc4e",
+    "code/rtl/board/sustain_controller_ports.svh": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d",
+    "code/rtl/board/sustain_control_contract_pkg.sv": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+    "code/scripts/run_adsr_pipeline_isolated.py": "ef75b47b61d33dfeef2b0dfdd9fd1adcbc46e24638a6a3aa065b050acf5bbbea",
+    "code/tb/audio/adsr_pipeline_isolated_candidate.patch": "27b90f5d20a92e0271e6a49d9988dfe696ad1514babd5a63e1c6941ec2b36b14",
+    "code/tb/audio/adsr_pipeline_candidate_baseline.json": "56e8ee838359f71b44d6c7f21ace326516fbfb67c0fad67b15512b03a637bec9",
+    "code/scripts/run_pitch_mod_bank_integration_candidate.py": "44d647c96190f142131012a6a168e915c73f3ef940fb32dc2d499465b7750bf3",
+    "code/model/pitch_mod_model.py": "759f9e2f2b471f44b9267ea9f5a1ddded98e9be3da01efaa76d000ceed49d46e",
+    "code/model/generated/pitch_mod/oct_ratio_q16.mem": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d",
+    "code/model/generated/pitch_mod/sub_ratio_q16.mem": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9",
+    "code/model/generated/pitch_mod/lfo_sine_q15.mem": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4",
+    "code/model/generated/wavetables/piano_band_4x256_8191.mem": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+    "code/model/generated/wavetables/velocity_gain_rom.mem": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+    "code/tb/board/m3_control_chain_acceptance/scoreboard.py": "3a139b5c836dc34c49f9aa0686b41ccdd98a701223bf7144f4ad6753f27e5cf1",
+    "code/tb/board/m3_control_chain_acceptance/tb_control_chain.sv": "882e3baf3551ca248d40bc1f2e3852c8147052e977de1818b9c79e0f122b27b4"
+  },
+  "delivery": "E and F separate commits to develop, exact commands/logs/negative reasons/claimed level and gaps; repo gates all pass; M2 assigns V numbers after review",
+  "parallel_policy": "M3 develops E then F, not authorize new Codex windows/subagents; M2 can fix Hold/Recovery concurrently; no simultaneous edits to parser by M2",
+  "handoff": "pending user forward, not delivered"
+}
