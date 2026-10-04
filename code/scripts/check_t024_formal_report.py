@@ -9,7 +9,10 @@ spec=importlib.util.spec_from_file_location('sta_rows',ROOT/'code/scripts/check_
 module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('build',type=Path);args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('build',type=Path)
+    parser.add_argument('--expected-bsram',type=int,choices=(8,16),default=8,
+                        help='8 for released V1, 16 for reviewed T027 dynamic V1+triangle')
+    args=parser.parse_args()
     folder=args.build/'impl/pnr';name='electronic_piano'
     rows=module.Rows();rows.feed((folder/(name+'_tr_content.html')).read_text(encoding='utf-8'))
     summary={r[0]:r[1] for sec,r in rows.rows if sec=='STA_Tool_Run_Summary' and len(r)==2}
@@ -35,7 +38,9 @@ def main():
         else:resources[kind]=int(found[0][0])
     # Current unshared 4-DDS/4-envelope/4-gain structure. Future resource
     # optimization needs reviewed expectations, not blindly reused thresholds.
-    if resources.get('BSRAM',0)!=8 or resources.get('DSP',0)!=24:errors.append('Unexpected four-lane ROM/multiplier footprint; reject missing-ROM optimization')
+    if resources.get('BSRAM')!=args.expected_bsram or resources.get('DSP')!=24:
+        errors.append('Unexpected four-lane ROM/multiplier footprint: expected '
+                      +str(args.expected_bsram)+' BSRAM and 24 DSP; reject missing-ROM optimization')
     found=re.search(r'--Logic Register as Latch\s*\|\s*(\d+)/',usage)
     if not found or found[1]!='0':errors.append('Latch-free not proven')
     pins=module.Rows();pins.feed((folder/(name+'.pin.html')).read_text(encoding='utf-8'))
@@ -62,6 +67,12 @@ def main():
             latency_registers=int(latency[0][1])
             if latency_registers<65:
                 errors.append('Latency counter registers missing: expected elapsed32+peak32+active1')
+        triangle=[r for _,r in hierarchy.rows if r and
+                  r[0].split(' (')[0].endswith('|--u_triangle')]
+        if args.expected_bsram==16 and len(triangle)!=4:
+            errors.append('T027 requires four retained triangle oscillator instances')
+        if args.expected_bsram==8 and triangle:
+            errors.append('V1-only build unexpectedly retains T027 triangle instances')
     if not (folder/(name+'.fs')).is_file():errors.append('Missing FS')
     info={'latency_counter_registers':latency_registers,'resources':resources,'fmax_mhz':fmax,'worst_slack_ns':slack,'setup_hold_violated_endpoints':0 if not errors else None,'pins_checked':len(expected),'scope':'formal audio/STAT STA only; no hardware verification'}
     for error in errors:print('FAIL formal T024:',error)
