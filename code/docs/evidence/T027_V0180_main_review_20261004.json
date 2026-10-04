@@ -1,0 +1,276 @@
+{
+  "date": "2026-10-04",
+  "accepted_scope": "stage candidate, formal enable and hardware not accepted",
+  "original_verification_id": "V0180",
+  "candidate_commit": "dece12c",
+  "registration_commit": "1817c66",
+  "main_HEAD": "2068c97",
+  "observed_origin_develop": "dfa9a8d",
+  "actual_bank_core_runs": {
+    "run_t027_dynamic_bank.py": {
+      "exit": 0,
+      "log_sha": "73ad9737429651e97353b76879dbde0d9849a260a640d35f6597e6422a2b17af"
+    },
+    "run_t027_dynamic_core.py": {
+      "exit": 0,
+      "log_sha": "d50d20d8627a577e44852e271d1cf469195c1152fafe6cf9ff0c2a76d3cf9cf0"
+    }
+  },
+  "compiled_behavior_mutants": {
+    "lose_source_isolation": {
+      "compile_exit": 0,
+      "run_exit": 1,
+      "expected_behavior_rejection": "FATAL: D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T027_main_M2_review_20261004\\source_snapshot_final\\code\\tb\\board\\tb_t027_dynamic_bank.sv:52: T027 lane=0 addr=0 timbre=1 exp=0 got=818 checks=1027 samples=0\r\n       Time: 1080000  Scope: tb_t027_dynamic_bank.check\r\n",
+      "mutant_sha": "526d91e860842cc14125dd35a8e17712168585ba3af03f7c28ae59604cbef51d"
+    },
+    "unsupported_program_wrap": {
+      "compile_exit": 0,
+      "run_exit": 1,
+      "expected_behavior_rejection": "FATAL: D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\T027_main_M2_review_20261004\\source_snapshot_final\\code\\tb\\board\\tb_t027_dynamic_bank.sv:52: T027 lane=0 addr=546 timbre=0 exp=-468 got=-1088 checks=1615 samples=98\r\n       Time: 31060000  Scope: tb_t027_dynamic_bank.check\r\n",
+      "mutant_sha": "ce5764ab5a5ab214f628231ac09348fb2bff7b79fb7b5a85ba57f84d2c99196f"
+    }
+  },
+  "original_physical_source_report_review": {
+    "source_commit": "dece12c",
+    "physical_inputs_verified": 34,
+    "source_identity": [
+      {
+        "input": "code/rtl/board/electronic_piano_top.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/output/t027_formal_dryrun/electronic_piano_top.sv",
+        "source_sha": "c75f4321c28753e851c26e6cb0810947a85e8f17ca61b28ae7e527a5ff765a5b",
+        "actual_sha": "fb3aba0246ee3bd71a123cc954cb05df8c3236605310ae17310ac1420cae908a"
+      },
+      {
+        "input": "code/rtl/common/audio_defs_pkg.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/common/audio_defs_pkg.sv",
+        "source_sha": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "actual_sha": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064"
+      },
+      {
+        "input": "code/rtl/common/reset_sync.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/common/reset_sync.sv",
+        "source_sha": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+        "actual_sha": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777"
+      },
+      {
+        "input": "code/rtl/input/button_debouncer/button_debouncer.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/input/button_debouncer/button_debouncer.sv",
+        "source_sha": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+        "actual_sha": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32"
+      },
+      {
+        "input": "code/rtl/input/button_event_converter/button_event_converter.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/input/button_event_converter/button_event_converter.sv",
+        "source_sha": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1",
+        "actual_sha": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1"
+      },
+      {
+        "input": "code/rtl/common/performance_event_fifo.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/common/performance_event_fifo.sv",
+        "source_sha": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+        "actual_sha": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671"
+      },
+      {
+        "input": "code/rtl/common/system_status_counters.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/common/system_status_counters.sv",
+        "source_sha": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+        "actual_sha": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085"
+      },
+      {
+        "input": "code/rtl/board/uart_status_reporter.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/board/uart_status_reporter.sv",
+        "source_sha": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+        "actual_sha": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342"
+      },
+      {
+        "input": "code/rtl/common/uart_tx.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/common/uart_tx.sv",
+        "source_sha": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+        "actual_sha": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925"
+      },
+      {
+        "input": "code/rtl/common/uart_rx.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/common/uart_rx.sv",
+        "source_sha": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+        "actual_sha": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd"
+      },
+      {
+        "input": "code/rtl/input/midi_input/midi_event_parser.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/input/midi_input/midi_event_parser.sv",
+        "source_sha": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+        "actual_sha": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6"
+      },
+      {
+        "input": "code/rtl/input/midi_input/midi_input.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/input/midi_input/midi_input.sv",
+        "source_sha": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710",
+        "actual_sha": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710"
+      },
+      {
+        "input": "code/rtl/common/note_pitch.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/common/note_pitch.sv",
+        "source_sha": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+        "actual_sha": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69"
+      },
+      {
+        "input": "code/rtl/common/simple_voice.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/common/simple_voice.sv",
+        "source_sha": "eab4974b0315c75a8076b21afea1dade122fecbcc672eb0802ba0e358a1bf274",
+        "actual_sha": "eab4974b0315c75a8076b21afea1dade122fecbcc672eb0802ba0e358a1bf274"
+      },
+      {
+        "input": "code/rtl/audio_out/i2s_tx.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/audio_out/i2s_tx.sv",
+        "source_sha": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+        "actual_sha": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad"
+      },
+      {
+        "input": "code/rtl/audio_out/pcm_frame_buffer.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/audio_out/pcm_frame_buffer.sv",
+        "source_sha": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+        "actual_sha": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997"
+      },
+      {
+        "input": "code/constraints/electronic_piano.cst",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/constraints/electronic_piano.cst",
+        "source_sha": "76037da27eabba7bf322d41ad8f90c16b1a72b549fc2ffb865b380bfbda35dcb",
+        "actual_sha": "76037da27eabba7bf322d41ad8f90c16b1a72b549fc2ffb865b380bfbda35dcb"
+      },
+      {
+        "input": "code/constraints/audio_timing.sdc",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/constraints/audio_timing.sdc",
+        "source_sha": "849c8b374c366ea1cbe6f44b17f761adad90861e3b50a0baf3ade73c05f953f5",
+        "actual_sha": "849c8b374c366ea1cbe6f44b17f761adad90861e3b50a0baf3ade73c05f953f5"
+      },
+      {
+        "input": "code/rtl/audio/voice_allocator_4.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/audio/voice_allocator_4.sv",
+        "source_sha": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+        "actual_sha": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9"
+      },
+      {
+        "input": "code/rtl/audio/dds_oscillator.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/output/t027_formal_dryrun/dds_oscillator.sv",
+        "source_sha": "3cd758e28da8f76a30da38cb2dfcd458db5743d4ea4f38e072a43d7f83719f04",
+        "actual_sha": "42c59d6f32b9ec7ce05e9ab44444c8392435b95eab4fa2b971813db3c4365d43"
+      },
+      {
+        "input": "code/rtl/audio/piano_dds_oscillator.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/output/t027_formal_dryrun/piano_dds_oscillator.sv",
+        "source_sha": "941c6f1bb2e41cf9bd4433b9c22ab58c9ad7e041f32e96039de6eec8dc139fc1",
+        "actual_sha": "215dbac2aefbaab83ad343db5a0617ee9e283b37e5a358b44f34e1eeb0b96a78"
+      },
+      {
+        "input": "code/rtl/audio/adsr_piano_envelope.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/output/t027_formal_dryrun/adsr_piano_envelope.sv",
+        "source_sha": "775fec7f546a00ca7bf98f132cce8d5d92d80ca6094af8e9e14cb07cd54a2e9d",
+        "actual_sha": "33926a9079f50e582f88a46d7b69bc2e61e8d7d9ab5169baa8f093789599f7bd"
+      },
+      {
+        "input": "code/rtl/board/sustain_control_contract_pkg.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/board/sustain_control_contract_pkg.sv",
+        "source_sha": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+        "actual_sha": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2"
+      },
+      {
+        "input": "code/rtl/input/sustain_control/sustain_controller.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/output/t027_formal_dryrun/sustain_controller.sv",
+        "source_sha": "dd244b99b06eaa2ed7e7deda1c08aeb119f002bff939ce5941e5e81a559cbc4e",
+        "actual_sha": "c5462db13bdb38f5aea67326b1d2d64b093ab8c438f8941b89323cd93628227f"
+      },
+      {
+        "input": "code/rtl/board/polyphonic_event_router.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/board/polyphonic_event_router.sv",
+        "source_sha": "9127599d895f59907bba751fa38052ec40070ee241c2ec3a8629bf9ff627f9b1",
+        "actual_sha": "9127599d895f59907bba751fa38052ec40070ee241c2ec3a8629bf9ff627f9b1"
+      },
+      {
+        "input": "code/rtl/board/polyphonic_envelope_bank.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/output/t027_formal_dryrun/polyphonic_envelope_bank.sv",
+        "source_sha": "a9ac7a73ad1a3bd4e586f31a9e8bec3fac5a173ce956d05e420a41c48fca7119",
+        "actual_sha": "4a9bcd49544c537ba5928cbfa201092e92f634d14eb5b50719361dd575562cd4"
+      },
+      {
+        "input": "code/rtl/board/voice_gain_q15_candidate.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/board/voice_gain_q15_candidate.sv",
+        "source_sha": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+        "actual_sha": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3"
+      },
+      {
+        "input": "code/rtl/board/polyphonic_pcm_commit.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/board/polyphonic_pcm_commit.sv",
+        "source_sha": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+        "actual_sha": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a"
+      },
+      {
+        "input": "code/rtl/board/polyphonic_audio_core.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/output/t027_formal_dryrun/polyphonic_audio_core.sv",
+        "source_sha": "ac70e4c3c913f73fdad7dbf1d8c06db32201452f4c10ab017c6a71cc307fd80a",
+        "actual_sha": "be89d4f672ca0433954837a9127fe3656a59415362cc6849979ba19c408cd443"
+      },
+      {
+        "input": "code/rtl/mixer/pcm_mixer_4voice.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/mixer/pcm_mixer_4voice.sv",
+        "source_sha": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+        "actual_sha": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a"
+      },
+      {
+        "input": "code/rtl/common/pcm_clip_counter.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/common/pcm_clip_counter.sv",
+        "source_sha": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+        "actual_sha": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca"
+      },
+      {
+        "input": "code/rtl/audio_out/pcm_result_hold.sv",
+        "physical_path": "D:/17/project_17/fpga_gowin/code/output/t027_completion_20261004/code/rtl/audio_out/pcm_result_hold.sv",
+        "source_sha": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+        "actual_sha": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f"
+      }
+    ],
+    "all_ROM_exact": true,
+    "report_facts": {
+      "resources": {
+        "Logic": 8237,
+        "Register": 4593,
+        "DSP": 24,
+        "BSRAM": 16
+      },
+      "worst_ns": {
+        "Setup": 0.026,
+        "Hold": 0.001,
+        "Recovery": 12.426,
+        "Removal": 0.822
+      },
+      "fmax_mhz": "50.064(MHz)",
+      "setup_hold_violated_endpoints": [
+        "0",
+        "0"
+      ]
+    },
+    "physical_pins": {
+      "sys_clk": "V22",
+      "sys_rst_n": "AA13",
+      "midi_rx": "R17",
+      "uart_tx": "U15",
+      "i2s_bclk": "Y17",
+      "i2s_lrck": "AB17",
+      "i2s_din": "AA16",
+      "pa_en": "AB16"
+    },
+    "report_errors": [],
+    "no_new_PnR": true,
+    "source_peer_outputs_unchanged": true,
+    "raw_reports_SHA": {
+      "build.log": "d74412b13819cc3cc9f5b6a247293340d49f8b810b984a6eee80703b9ea70deb",
+      "electronic_piano.rpt.txt": "6e471e0fd86dff18f250aab20ea595db3750df3b7d00d0113736d7305fbe03a6",
+      "electronic_piano_tr_content.html": "e1a9b4bb339ae0b7b1a54f3df983407d135d030a55ae2ba4e17eecefb82b6f26",
+      "cmd.do": "fc8c266406de17a02bac085f791587fee82a7035c7b120323d3c12e20544ee89"
+    },
+    "fs_not_approved": true
+  },
+  "formal_files_applied": false,
+  "T027_complete": false,
+  "peer_outputs_modified": false,
+  "notifications_forwarded": false,
+  "I_dfa9a8d_reviewed_here": false
+}

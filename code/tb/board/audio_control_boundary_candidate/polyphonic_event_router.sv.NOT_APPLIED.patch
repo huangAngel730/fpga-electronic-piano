@@ -1,0 +1,14 @@
+--- a/code/tb/board/pitch_mod_bank_integration_candidate/polyphonic_event_router.sv
++++ b/code/tb/board/pitch_mod_bank_integration_candidate/polyphonic_event_router.sv
+@@ -8,0 +9 @@
++    input logic identity_hold, // private sample lease; queues retirement, does not discard it
+@@ -62,2 +63,2 @@
+-    assign dispatch_busy=rst_n && (state!=IDLE || release_valid || retire_valid);
+-    assign event_ready=rst_n && state==IDLE && sample_owner_ready && !release_valid && !retire_valid;
++    assign dispatch_busy=rst_n && (state!=IDLE || (!identity_hold && (release_valid || retire_valid)));
++    assign event_ready=rst_n && state==IDLE && sample_owner_ready && !identity_hold && !release_valid && !retire_valid;
+@@ -124,2 +125,2 @@
+-                    if(release_valid)begin release_index<=0;state<=RELEASE_SCAN;end
+-                    else if(retire_valid)begin target_slot<=retire_slot;state<=RETIRE;end
++                    if(!identity_hold && release_valid)begin release_index<=0;state<=RELEASE_SCAN;end
++                    else if(!identity_hold && retire_valid)begin target_slot<=retire_slot;state<=RETIRE;end

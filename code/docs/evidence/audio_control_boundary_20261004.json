@@ -1,0 +1,123 @@
+{
+  "date": "2026-10-04",
+  "source_head": "2068c97",
+  "scope": "audio control boundary isolation, no T027 peer modification",
+  "level": "actual isolated L2/L3/L5, optimization rejected",
+  "source_manifest": {
+    "date": "2026-10-04",
+    "scope": "isolated private sample identity lease and registered authorization; no production write",
+    "original_sources": {
+      "polyphonic_event_router.sv": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+      "polyphonic_envelope_bank.sv": "bf0da7888140f69d8777bf1625769402be85de677ac7eb34f6ef934ad8f42f00"
+    },
+    "candidate_sha": {
+      "polyphonic_envelope_bank.sv": "0160a0adfd14689e6ca6ad66cc3db6d806372f4d1538b51d2a7e37db7ef4ccff",
+      "polyphonic_event_router.sv": "3235c0391c6ca85464b309c136fb98753deb78097342a0812c965e8b2620990f"
+    },
+    "added_internal_cycles": 1,
+    "added_guard_bits": 10,
+    "clock_hz": 50000000,
+    "frame_deadline_cycles_min": 1041,
+    "frozen_control_and_FCW_per_request": true,
+    "parser_variant": "de68038 unchanged",
+    "reference": "approved PitchMod bank source, source/calendar used not identical internal phase assertion",
+    "adoption": {
+      "setup_target_ns": 0.5,
+      "minimum_global_setup_improvement_ns": 0.1,
+      "max_additional_logic": 256,
+      "max_additional_register": 256,
+      "DSP_BSRAM_no_increase": true,
+      "all_domain_gates": true,
+      "Hold_Recovery_Removal_not_worse": true,
+      "max_physical_trials": 1,
+      "physical_timeout_seconds": 1800
+    },
+    "T027_peer_files_modified": false,
+    "no_ADSR_math_change": true
+  },
+  "functional_summary": {
+    "captures": 1900,
+    "math_results": 1897,
+    "bank_results": 1888,
+    "nonzero_controls": 4359,
+    "dds_ticks": 1894,
+    "cancelled_frames": 8,
+    "RTL_summary": [
+      605802,
+      1888,
+      1894,
+      785
+    ]
+  },
+  "normal_pcm_frames": 560,
+  "normal_pcm_checks": 3394,
+  "normal_pcm_max_cycles": 31,
+  "retirement_lease_checks": 126630,
+  "retirement_lease_results": 5063,
+  "timing_before": {
+    "Setup": 0.017,
+    "Hold": 0.0,
+    "Recovery": 1.113,
+    "Removal": 0.869
+  },
+  "timing_after": {
+    "Setup": 0.011,
+    "Hold": 0.0,
+    "Recovery": 0.999,
+    "Removal": 0.873
+  },
+  "fmax_after": {
+    "sys_clk": 50.028,
+    "video_serial": 1122.018,
+    "video_pixel": 38.734
+  },
+  "resource_delta": {
+    "Logic": -377,
+    "Register": 9,
+    "DSP": 0,
+    "BSRAM": 0
+  },
+  "criteria": {
+    "functional_complete": true,
+    "repository_gate_pass": true,
+    "actual_all_domain_timing_CDC_pins": true,
+    "setup_target": false,
+    "setup_improvement": false,
+    "logic_cost": true,
+    "register_cost": true,
+    "DSP_BSRAM_not_increased": true,
+    "hold_recovery_removal_not_worse": false,
+    "old_private_base_preserved": true
+  },
+  "adopt": false,
+  "physical_trials": 1,
+  "early_preflight_tool_failed_before_project_load": true,
+  "elapsed_seconds": 409.03,
+  "formal_changed": false,
+  "programmed": false,
+  "raw_assessment_relative_path": "code/output/audio_control_boundary_20261004/physical_assessment.json",
+  "raw_assessment_sha": "545cdadaeaf650a59d0b24756436572ce0858d2e5c7bfb3b7aa1eb08faa03cbb",
+  "scope_audit": {
+    "date": "2026-10-04",
+    "checks": {
+      "reference_polyphonic_event_router.sv": true,
+      "reference_polyphonic_envelope_bank.sv": true,
+      "candidate_polyphonic_envelope_bank.sv": true,
+      "candidate_polyphonic_event_router.sv": true,
+      "production_code/rtl/board/electronic_piano_top.sv": true,
+      "production_code/rtl/common/audio_defs_pkg.sv": true,
+      "production_code/constraints/electronic_piano.cst": true,
+      "production_code/rtl/audio/adsr_piano_envelope.sv": true,
+      "production_code/rtl/input/midi_input/midi_event_parser.sv": true
+    },
+    "formal_top_pkg_CST_ADSR_parser_unchanged": true,
+    "all_true": true,
+    "source_Git_HEAD": "2068c97",
+    "private_header_change_requires_later_peer_merge": true,
+    "T027_peer_files_not_written": true,
+    "functional_complete": true,
+    "normal_PCM_max_processing_cycles": 31,
+    "new_internal_stage": "VERIFY9",
+    "retirement_queue_drain_verified_real_samples": 5063
+  }
+}

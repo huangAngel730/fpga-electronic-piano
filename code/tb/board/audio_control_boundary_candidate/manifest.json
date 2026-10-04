@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-04",
+  "scope": "isolated private sample identity lease and registered authorization; no production write",
+  "original_sources": {
+    "polyphonic_event_router.sv": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+    "polyphonic_envelope_bank.sv": "bf0da7888140f69d8777bf1625769402be85de677ac7eb34f6ef934ad8f42f00"
+  },
+  "candidate_sha": {
+    "polyphonic_envelope_bank.sv": "0160a0adfd14689e6ca6ad66cc3db6d806372f4d1538b51d2a7e37db7ef4ccff",
+    "polyphonic_event_router.sv": "3235c0391c6ca85464b309c136fb98753deb78097342a0812c965e8b2620990f"
+  },
+  "added_internal_cycles": 1,
+  "added_guard_bits": 10,
+  "clock_hz": 50000000,
+  "frame_deadline_cycles_min": 1041,
+  "frozen_control_and_FCW_per_request": true,
+  "parser_variant": "de68038 unchanged",
+  "reference": "approved PitchMod bank source, source/calendar used not identical internal phase assertion",
+  "adoption": {
+    "setup_target_ns": 0.5,
+    "minimum_global_setup_improvement_ns": 0.1,
+    "max_additional_logic": 256,
+    "max_additional_register": 256,
+    "DSP_BSRAM_no_increase": true,
+    "all_domain_gates": true,
+    "Hold_Recovery_Removal_not_worse": true,
+    "max_physical_trials": 1,
+    "physical_timeout_seconds": 1800
+  },
+  "T027_peer_files_modified": false,
+  "no_ADSR_math_change": true
+}
