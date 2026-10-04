@@ -4,6 +4,7 @@
 module polyphonic_audio_core #(
     // Build-time selection only; no new MIDI control/event/public top port.
     parameter integer PIANO_TIMBRE_ENABLE = 1,
+    parameter bit DYNAMIC_TIMBRE_ENABLE = 1'b0,
     parameter WAVE_ROM_FILE = PIANO_TIMBRE_ENABLE ?
         "model/generated/wavetables/piano_band_4x256_8191.mem" :
         "model/generated/wavetables/sine_1024_8192.mem"
@@ -24,7 +25,8 @@ module polyphonic_audio_core #(
     wire [3:0] bank_occupied;
     wire [11:0] bank_states;
     wire [95:0] voices;
-    polyphonic_envelope_bank #(.PIANO_TIMBRE_ENABLE(PIANO_TIMBRE_ENABLE),.WAVE_ROM_FILE(WAVE_ROM_FILE)) u_bank (
+    polyphonic_envelope_bank #(.PIANO_TIMBRE_ENABLE(PIANO_TIMBRE_ENABLE),
+        .DYNAMIC_TIMBRE_ENABLE(DYNAMIC_TIMBRE_ENABLE),.WAVE_ROM_FILE(WAVE_ROM_FILE)) u_bank (
         .clk(clk),.rst_n(rst_n),.event_valid(event_valid),.event_ready(event_ready),.event_data(event_data),
         .frame_tick(frame_tick),.sample_req(sample_req),.sample_req_id(sample_req_id),.calc_ready(calc_ready),
         .result_valid(bank_valid),.result_ready(bank_ready),.result_req_id(bank_id),
