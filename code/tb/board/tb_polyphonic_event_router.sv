@@ -6,6 +6,7 @@ module tb_polyphonic_event_router;
     logic [63:0] event_data=0;logic [3:0] release_done=0;
     wire event_ready,dispatch_busy;wire [3:0] slot_note_on,slot_note_off,slot_occupied,slot_releasing;
     wire [39:0] slot_velocity;wire [127:0] slot_fcw;wire [31:0] slot_notes,active_voice_count;
+    wire [3:0] slot_timbre;
     polyphonic_event_router dut(.*);
     integer checks=0,on_count=0,off_count=0;
     task automatic check(input logic ok,input string label);

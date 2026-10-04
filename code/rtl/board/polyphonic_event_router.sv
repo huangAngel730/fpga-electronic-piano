@@ -4,7 +4,7 @@
 // event_ready applies backpressure while dispatching; sample_owner_ready lets
 // the PCM scheduler defer events during an in-flight sample generation.
 `timescale 1ns/1ps
-module polyphonic_event_router (
+module polyphonic_event_router #(parameter bit DYNAMIC_TIMBRE_ENABLE=1'b0) (
     input logic clk, rst_n, sample_owner_ready,
     input logic event_valid,
     output wire event_ready, dispatch_busy,
@@ -14,6 +14,7 @@ module polyphonic_event_router (
     output logic [39:0] slot_velocity,
     output logic [127:0] slot_fcw,
     output logic [31:0] slot_notes,
+    output logic [3:0] slot_timbre, // per-lane sine=0/triangle=1; latched on Note On
     output wire [31:0] active_voice_count
 );
     import audio_defs_pkg::*;
@@ -21,11 +22,12 @@ module polyphonic_event_router (
     localparam logic [3:0] IDLE=0, ALLOC_SEND=1, ALLOC_APPLY=2,
         CTRL_ON=3, CTRL_OFF=4, CTRL_PEDAL=5, CTRL_PANIC=6,
         RELEASE_SCAN=7, RELEASE_SEND=8, RELEASE_APPLY=9,
-        RELEASE_ACK=10, RETIRE=11, IGNORE_EVENT=12;
+        RELEASE_ACK=10, RETIRE=11, IGNORE_EVENT=12, CTRL_TIMBRE=13;
     logic [3:0] state;
     performance_event_t held_event;
     wire performance_event_t incoming=event_data;
     logic [15:0] slot_sources,slot_channels;
+    logic program_timbre [0:255]; // source_id:channel -> next Note On only
     logic [31:0] slot_generation [0:3];
     logic [3:0] retire_pending;
     logic [31:0] retire_generation [0:3];
@@ -101,7 +103,8 @@ module polyphonic_event_router (
         if(!rst_n)begin
             state<=IDLE;held_event<='0;target_slot<=0;release_index<=0;
             slot_note_on<=0;slot_note_off<=0;slot_occupied<=0;slot_releasing<=0;
-            slot_velocity<=0;slot_fcw<=0;slot_notes<=0;slot_sources<=0;slot_channels<=0;
+            slot_velocity<=0;slot_fcw<=0;slot_notes<=0;slot_timbre<=0;slot_sources<=0;slot_channels<=0;
+            for(integer p=0;p<256;p++) program_timbre[p]<=1'b0;
             retire_pending<=0;
             for(integer i=0;i<4;i++)begin slot_generation[i]<=0;retire_generation[i]<=0;end
         end else begin
@@ -122,7 +125,10 @@ module polyphonic_event_router (
                                 (incoming.event_type==EVENT_NOTE_ON && incoming.velocity==0))begin
                             if(match_valid)begin target_slot<=match_slot;state<=CTRL_OFF;end
                             else state<=IGNORE_EVENT;
-                        end else if(incoming.event_type==EVENT_CONTROL_CHANGE && incoming.control_id==CTRL_SUSTAIN)state<=CTRL_PEDAL;
+                        end else if(DYNAMIC_TIMBRE_ENABLE && incoming.event_type==EVENT_CONTROL_CHANGE &&
+                                incoming.control_id==CTRL_VOICE_SELECT &&
+                                incoming.control_value<=12'd1)state<=CTRL_TIMBRE;
+                        else if(incoming.event_type==EVENT_CONTROL_CHANGE && incoming.control_id==CTRL_SUSTAIN)state<=CTRL_PEDAL;
                         else if(incoming.event_type==EVENT_ALL_NOTES_OFF)state<=CTRL_PANIC;
                         else state<=IGNORE_EVENT;
                     end
@@ -132,6 +138,8 @@ module polyphonic_event_router (
                     target_slot<=allocated_slot;retire_pending[allocated_slot]<=0;
                     slot_occupied[allocated_slot]<=1;slot_releasing[allocated_slot]<=0;
                     slot_velocity[10*allocated_slot+:10]<=held_event.velocity;
+                    slot_timbre[allocated_slot]<= DYNAMIC_TIMBRE_ENABLE ?
+                        program_timbre[{held_event.source_id,held_event.channel}] : 1'b0;
                     slot_fcw[32*allocated_slot+:32]<=held_fcw;
                     slot_notes[8*allocated_slot+:8]<={1'b0,held_event.note_number};
                     slot_sources[4*allocated_slot+:4]<=held_event.source_id;
@@ -140,6 +148,10 @@ module polyphonic_event_router (
                     state<=CTRL_ON;
                 end
                 CTRL_ON:if(cmd_ready)begin slot_note_on[target_slot]<=1;state<=IDLE;end
+                CTRL_TIMBRE:begin
+                    program_timbre[{held_event.source_id,held_event.channel}]<=held_event.control_value[0];
+                    state<=IDLE;
+                end
                 CTRL_OFF,CTRL_PEDAL,CTRL_PANIC:if(cmd_ready)state<=IDLE;
                 RELEASE_SCAN:begin
                     if(release_index==4)state<=RELEASE_ACK;
