@@ -1,0 +1,71 @@
+--- a/code/rtl/input/midi_input/midi_event_parser.sv
++++ b/code/rtl/input/midi_input/midi_event_parser.sv
+@@ -85,0 +86,2 @@
++    logic [31:0] selected_mask;
++    wire [31:0] control_pending_next;
+@@ -103,0 +106,5 @@
++    // Parallel one-hot grants in RR rank coordinates. These are combinational
++    // masks, not new registers or state. The binary rank remains for payload
++    // reading and the unchanged round-robin update only.
++    wire [31:0] first_mask_tree [1:63];
++    wire [31:0] second_mask_tree [1:63];
+@@ -109,0 +117,2 @@
++            assign first_mask_tree[32 + slot] = 32'd1 << slot;
++            assign second_mask_tree[32 + slot] = 32'd0;
+@@ -121,0 +131,5 @@
++            assign first_mask_tree[node] = first_valid_tree[2*node] ?
++                first_mask_tree[2*node] : first_mask_tree[2*node+1];
++            assign second_mask_tree[node] = second_valid_tree[2*node] ?
++                second_mask_tree[2*node] : (first_valid_tree[2*node] ?
++                first_mask_tree[2*node+1] : second_mask_tree[2*node+1]);
+@@ -128,0 +143,19 @@
++    // Rotate masks back to absolute slots without passing through the binary
++    // winner index. For RR=0 this is a 32-bit shift of a repeated bitmap.
++    wire [5:0] rr_mask_shift = 6'd32 - {1'b0, round_robin_index};
++    wire [31:0] old_first_mask = first_valid_tree[1] ?
++        32'({first_mask_tree[1], first_mask_tree[1]} >> rr_mask_shift) : 32'd0;
++    wire [31:0] old_second_mask = second_valid_tree[1] ?
++        32'({second_mask_tree[1], second_mask_tree[1]} >> rr_mask_shift) : 32'd0;
++    wire [31:0] parsed_update_mask;
++    for(genvar update_slot=0; update_slot<32; update_slot++) begin:g_pending_mask
++        assign parsed_update_mask[update_slot] = parsed_control &&
++            parsed_control_index == 5'(update_slot);
++        // Same-edge parsed updates supersede prior pending state, but an
++        // actually granted same-slot newest value is already consumed.
++        assign control_pending_next[update_slot] =
++            parsed_update_mask[update_slot] ?
++                (parsed_control_keep_pending && !(grant_control && selected_mask[update_slot])) :
++                (control_pending[update_slot] && !(grant_control && selected_mask[update_slot]));
++    end
++
+@@ -395,0 +429 @@
++        selected_mask = 32'd0;
+@@ -399,0 +434 @@
++            selected_mask = old_first_mask;
+@@ -410,0 +446 @@
++                selected_mask = parsed_update_mask;
+@@ -415,0 +452 @@
++                selected_mask = old_second_mask;
+@@ -448,0 +486 @@
++            control_pending <= control_pending_next;
+@@ -479 +516,0 @@
+-                control_pending[selected_index] <= 1'b0;
+@@ -484,16 +521,2 @@
+-                // Compare against the same-item in-flight value when present;
+-                // otherwise the last acknowledged CC1. Reverting an unsent
+-                // change cancels it without erasing the immutable in-flight event.
+-                if (grant_control && parsed_control_index == selected_index) begin
+-                    // The just-arrived newest value was captured by the lock.
+-                    control_pending[parsed_control_index] <= 1'b0;
+-                end else if (parsed_control_index[0] &&
+-                    ((control_locked && locked_index == parsed_control_index) ?
+-                     (locked_event.control_value == parsed_event_data.control_value) :
+-                     (mod_sent_valid[parsed_control_index[4:1]] &&
+-                      mod_sent_value[parsed_control_index[4:1]] ==
+-                          parsed_event_data.control_value))) begin
+-                    control_pending[parsed_control_index] <= 1'b0;
+-                end else begin
+-                    control_pending[parsed_control_index] <= 1'b1;
+-                end
++                // Pending changes are evaluated in the parallel per-slot
++                // equations, preserving the original parsed-update priority.

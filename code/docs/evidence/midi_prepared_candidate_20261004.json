@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-04",
+  "scope": "one frozen V0171 parser-only physical experiment",
+  "level": "L2/L5 isolated exact-version; no board release",
+  "decision": "REJECT optimization; retain baseline",
+  "functional_review_sha": "adcfc58f97110efa13cd58a6ebb8253dbb4cd7396ea9c75b68cff4e40ad4219f",
+  "baseline": {
+    "resources": {
+      "Logic": 19534,
+      "Register": 8674,
+      "DSP": 46,
+      "BSRAM": 20
+    },
+    "slack": {
+      "Setup": 0.017,
+      "Hold": 0.0,
+      "Recovery": 1.113,
+      "Removal": 0.869
+    },
+    "fmax": {
+      "sys_clk": 50.043,
+      "video_serial": 1122.018,
+      "video_pixel": 37.472
+    }
+  },
+  "candidate": {
+    "resources": {
+      "Logic": 19307,
+      "Register": 8707,
+      "DSP": 46,
+      "BSRAM": 20
+    },
+    "slack": {
+      "Setup": 0.001,
+      "Hold": 0.0,
+      "Recovery": 1.087,
+      "Removal": 0.781
+    },
+    "fmax": {
+      "sys_clk": 50.003,
+      "video_serial": 1296.595,
+      "video_pixel": 37.825
+    },
+    "worst_setup": [
+      "1",
+      "0.001",
+      "g_polyphonic.u_audio_core/u_bank/u_events/slot_generation[0]_3_s0/Q",
+      "g_polyphonic.u_audio_core/u_bank/g_lane[1].u_envelope/n711_s0/B[10]",
+      "sys_clk:[R]",
+      "sys_clk:[R]",
+      "20.000",
+      "0.009",
+      "18.177"
+    ]
+  },
+  "criteria": {
+    "repository_gate_pass": true,
+    "functional_pass": true,
+    "all_timing_CDC_pin_gates": true,
+    "setup_target": false,
+    "setup_improvement": false,
+    "Logic_cost": true,
+    "register_cost": true,
+    "DSP_BSRAM_same_or_less": true,
+    "hold_recovery_removal_not_worse": false,
+    "formal_unchanged": true
+  },
+  "production_changed": false,
+  "programmed": false,
+  "physical_trials": 1,
+  "elapsed_seconds": 731.39,
+  "raw_assessment_path": "code\\output\\midi_prepared_candidate_20261004\\physical_assessment.json",
+  "raw_assessment_sha": "d8cf2a60e68bc652201a05744adbbaa7411805334ac28fd3f3e854326c7afb27"
+}
