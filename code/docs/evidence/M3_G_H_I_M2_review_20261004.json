@@ -1,0 +1,194 @@
+{
+  "date": "2026-10-04",
+  "commits": {
+    "G": "877cc9fe593c937210bc9c2f0816ef98ee7147a6",
+    "H": "6b10a8e0498a5e5feefa3dbf35b22e815d96f64a",
+    "I": "45fe0ab2507132fb56f01550a008825dfc3819b7"
+  },
+  "identity": {
+    "zip_sha256": "f375294fb1038e007642f1fd23a5bb2befc18ea8321945747dd0c3bc54659fda",
+    "source_files": 13,
+    "source_mismatches": [],
+    "artifact_files": 105,
+    "artifact_mismatches": [
+      "manifest.json"
+    ]
+  },
+  "G_counts": {
+    "16": {
+      "cycles": 6287,
+      "depth": 16,
+      "accepted": 1106,
+      "consumed": 939,
+      "cancelled": 162,
+      "raw_writes": 1103,
+      "stalls": 366,
+      "resets": 8,
+      "drained": 71,
+      "saturations": 319,
+      "reset_drops": 5
+    },
+    "1024": {
+      "cycles": 20767,
+      "depth": 1024,
+      "accepted": 3757,
+      "consumed": 3206,
+      "cancelled": 540,
+      "raw_writes": 3753,
+      "stalls": 1117,
+      "resets": 16,
+      "drained": 244,
+      "saturations": 290,
+      "reset_drops": 11
+    }
+  },
+  "H_counts": {
+    "16": {
+      "depth": 16,
+      "cancelled_history_writes": 2,
+      "reset_epochs": 2,
+      "reset_dropped_results": 1,
+      "frame_edges": 5489,
+      "bank_gain_mixer_results": 5488,
+      "mixer_clips": 16,
+      "fourvoice_inputs": 5335,
+      "accepted_samples": 5488,
+      "effect_clips": 27,
+      "dry_only_requests": 16,
+      "impulse_requests": 2,
+      "raw_writes": 5487,
+      "result_consumed": 5483,
+      "expected_pcm_commits": 5483,
+      "pcm_commits": 5483,
+      "normal_frames": 512,
+      "zero_voice_requests": 80,
+      "nonzero_tail_results": 80,
+      "fixture_feedback_results": 34,
+      "cancelled_results": 4,
+      "intentional_missing_frames": 4
+    },
+    "1024": {
+      "depth": 1024,
+      "cancelled_history_writes": 2,
+      "reset_epochs": 2,
+      "reset_dropped_results": 1,
+      "frame_edges": 6497,
+      "bank_gain_mixer_results": 6496,
+      "mixer_clips": 16,
+      "fourvoice_inputs": 5335,
+      "accepted_samples": 6496,
+      "effect_clips": 14,
+      "dry_only_requests": 16,
+      "impulse_requests": 2,
+      "raw_writes": 6495,
+      "result_consumed": 6491,
+      "expected_pcm_commits": 6491,
+      "pcm_commits": 6491,
+      "normal_frames": 512,
+      "zero_voice_requests": 1088,
+      "nonzero_tail_results": 1088,
+      "fixture_feedback_results": 34,
+      "cancelled_results": 4,
+      "intentional_missing_frames": 4
+    }
+  },
+  "I": "contract mismatch 10ns; 50MHz one correction per depth permitted, not executed by M2",
+  "G_actual_RTL": {
+    "tool": "Icarus actual fresh RTL execution",
+    "candidate_source_sha": "0aa489ac1b1394d882f61a71572ab2454ce1911d562bc5f6be2a9b46aa486fd6",
+    "runs": {
+      "depth16": {
+        "compile_exit": 0,
+        "run_exit": 0,
+        "counts": {
+          "cycles": 6287,
+          "depth": 16,
+          "accepted": 1106,
+          "consumed": 939,
+          "cancelled": 162,
+          "raw_writes": 1103,
+          "stalls": 366,
+          "resets": 8,
+          "drained": 71,
+          "saturations": 319,
+          "reset_drops": 5
+        }
+      },
+      "depth1024": {
+        "compile_exit": 0,
+        "run_exit": 0,
+        "counts": {
+          "cycles": 20767,
+          "depth": 1024,
+          "accepted": 3757,
+          "consumed": 3206,
+          "cancelled": 540,
+          "raw_writes": 3753,
+          "stalls": 1117,
+          "resets": 16,
+          "drained": 244,
+          "saturations": 290,
+          "reset_drops": 11
+        }
+      },
+      "duplicate": {
+        "compile_exit": 0,
+        "run_exit": 0,
+        "independent_checker_rejection": "duplicate sample launch cycle=11"
+      },
+      "wrong_id": {
+        "compile_exit": 0,
+        "run_exit": 0,
+        "independent_checker_rejection": "result id corruption cycle=10"
+      },
+      "ignore_cancel": {
+        "compile_exit": 0,
+        "run_exit": 0,
+        "independent_checker_rejection": "cancel/valid admission mismatch cycle=13"
+      }
+    },
+    "level": "isolated L2/L3; no Gowin/board claim"
+  },
+  "H_second_reference": {
+    "16": {
+      "resets": 2,
+      "frames": 5489,
+      "mixed": 5488,
+      "accepted": 5488,
+      "writes": 5487,
+      "consumed": 5483,
+      "commits": 5483,
+      "normal_frames": 512,
+      "zero_voice": 80,
+      "nonzero_tail": 80,
+      "cancelled": 4
+    },
+    "1024": {
+      "resets": 2,
+      "frames": 6497,
+      "mixed": 6496,
+      "accepted": 6496,
+      "writes": 6495,
+      "consumed": 6491,
+      "commits": 6491,
+      "normal_frames": 512,
+      "zero_voice": 1088,
+      "nonzero_tail": 1088,
+      "cancelled": 4
+    },
+    "negative_wrong_address": "rejected",
+    "negative_missing_wet": "rejected"
+  },
+  "I_checker_tests": 10,
+  "formal_modified": false,
+  "board_tested": false,
+  "T028_closed": false,
+  "notices_forwarded": false,
+  "evidence_paths": [
+    "code\\output\\M3_G_H_I_review_20261004\\independent_capture_review.json",
+    "code\\output\\M3_G_H_I_review_20261004\\H_source_ROM_review.json",
+    "code\\output\\M3_G_H_I_review_20261004\\H_public_CLI_checks.json"
+  ],
+  "repository_gate_exit": 0,
+  "repository_gate_checks": 9
+}
