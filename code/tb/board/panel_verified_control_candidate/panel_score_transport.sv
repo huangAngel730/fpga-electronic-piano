@@ -13,7 +13,9 @@ module panel_score_transport #(parameter integer DEPTH=16)(
  assign command_ready=rst_n && !transport_fault && (count<DEPTH || pop);
  wire push=command_valid&&command_ready;
  assign timeline_tick=rst_n && !transport_fault && frame_start && next_mode && next_state==RUNNING && !restart_now;
- assign match_enabled=rst_n && !transport_fault && display_mode && transport_state==RUNNING;
+ assign match_enabled=rst_n && !transport_fault &&
+     (frame_start ? (next_mode && next_state==RUNNING && !restart_now) :
+                    (display_mode && transport_state==RUNNING));
  always_comb begin
   next_mode=display_mode;next_state=transport_state;restart_now=0;
   if(transport_fault)begin next_state=PAUSED;end

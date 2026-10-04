@@ -17,10 +17,26 @@ def main():
     cli = argparse.ArgumentParser(description=__doc__)
     cli.add_argument("--output", type=Path, required=True)
     cli.add_argument("--quick", action="store_true")
+    cli.add_argument("--resume-score-boundary", action="store_true", help="recheck changed score files; hash-verify and reuse all other measured runs")
     args = cli.parse_args()
     out = args.output.resolve()
     out.relative_to(ROOT / "code/output")
-    out.mkdir(parents=True, exist_ok=False)
+    old = None
+    if args.resume_score_boundary:
+        old = json.loads((out / "evidence.json").read_text(encoding="utf-8"))
+        if not old["passed"] or not old["full_gate"] or args.quick:
+            raise ValueError("cannot resume incomplete input evidence")
+        allowed = {"code/tb/board/panel_verified_control_candidate/panel_score_transport.sv",
+                   "code/tb/board/panel_verified_control_candidate/tb_panel_score_transport.sv"}
+        for name, value in old["sources_sha"].items():
+            if Path(name).as_posix() not in allowed and sha(ROOT / name) != value:
+                raise ValueError("unrelated source changed " + name)
+        backup = out / "evidence_before_score_boundary.json"
+        if backup.exists():
+            raise ValueError("do not repeat boundary recovery")
+        backup.write_bytes((out / "evidence.json").read_bytes())
+    else:
+        out.mkdir(parents=True, exist_ok=False)
     env = os.environ.copy()
     env["PATH"] = str(CAD / "lib") + ";" + str(CAD / "bin") + ";" + env["PATH"]
     env["PYTHONDONTWRITEBYTECODE"] = "1"
@@ -29,6 +45,15 @@ def main():
     record = {"scope": "isolated verified panel input and transport tests; no formal top/PnR", "full_gate": not args.quick, "passed": False, "volume_math_signed_off": False}
     def run(name, command, cwd, success=True, marker=None, timeout=220):
         log = cwd / (name + ".log")
+        if old is not None and not name.startswith("score_"):
+            prior = old["runs"].get(name)
+            if not prior or sha(log) != prior["log_sha"] or (prior["exit"] == 0) != success:
+                raise ValueError("cannot reuse tested prefix " + name)
+            if marker and marker not in log.read_text(encoding="utf-8", errors="replace"):
+                raise ValueError("old behavior marker missing " + name)
+            runs[name] = {**prior, "reused_source_and_log_identity": True}
+            print("REUSE measured unchanged run", name, flush=True)
+            return
         with log.open("wb") as stream:
             result = subprocess.run(list(map(str, command)), cwd=cwd, env=env,
                                     stdout=stream, stderr=subprocess.STDOUT, timeout=timeout)
@@ -39,8 +64,9 @@ def main():
         if (result.returncode == 0) != success or marker and marker not in text:
             raise RuntimeError("unexpected behavioral result " + name)
     def test(name, top, files, marker, params=(), success=True):
-        folder = out / name
-        folder.mkdir()
+        folder = out / ("score_boundary_verified" if old is not None and name == "score" else name)
+        if old is None or name == "score":
+            folder.mkdir()
         image = folder / "test.vvp"
         run(name + "_compile", [CAD / "bin/iverilog.exe", "-g2012", "-s", top,
                                *params, "-o", image, defs, *files], folder)
@@ -78,7 +104,12 @@ def main():
             if before not in text:
                 raise ValueError("mutant anchor missing " + name)
             path = out / (name + ".sv")
-            path.write_text(text.replace(before, after), encoding="utf-8", newline="\n")
+            generated = text.replace(before, after).encode("utf-8")
+            if old is not None:
+                if path.read_bytes() != generated:
+                    raise ValueError("mutant source identity changed " + name)
+            else:
+                path.write_bytes(generated)
             bench = "tb_panel_mod_volume_isolation" if name == "false_mod_cancel" else "tb_panel_verified_input"
             test(name, bench, [path, INPUT / (bench + ".sv")], reason, success=False)
         if not args.quick:
@@ -92,6 +123,7 @@ def main():
             bench.write_text(original_tb.replace("i==3?3:8", "i==3?16:8"), encoding="utf-8", newline="\n")
             test("disabled_miter", "tb_m2_parser_miter", [parser, reference, bench], "lane=3")
         record["passed"] = True
+        record["score_boundary_rerun_after_two_source_changes"] = old is not None
         print("PASS isolated panel full_gate=" + str(not args.quick) + "; volume math remains proposed; no bitstream", flush=True)
         return 0
     finally:
