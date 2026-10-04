@@ -15,7 +15,7 @@ import subprocess
 import sys
 import xml.etree.ElementTree as ET
 
-from run_m3_delay_transaction_candidate import ROOT, load_module, output_dir, sha, source_identity
+from run_m3_delay_transaction_candidate import CONTRACT, ROOT, load_module, output_dir, sha
 
 sys.dont_write_bytecode = True
 BENCH = ROOT / "code/tb/board/m3_delay_memory_probe"
@@ -23,6 +23,29 @@ PART = "GW5AT-LV60PG484AC1/I0"
 DEVICE = "GW5AT-60B"
 VARIANT = "gw5at60b-002"
 DEPTHS = (1024, 4096, 16384)
+PROBE_SHA256 = "ece4917989b0b299423432142ca5dff53e5146089ea531a92d806078da837606"
+
+
+def source_identity():
+    """I only: freeze the accepted DUT/probe, not unrelated evolving G/H inputs."""
+    contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
+    relative = "code/rtl/audio/delay_effect.sv"
+    identity = {relative: contract["readonly_source_sha256"][relative],
+                "code/tb/board/m3_delay_memory_probe/m3_delay_memory_probe.sv": PROBE_SHA256}
+    for relative, expected in identity.items():
+        if sha(ROOT / relative) != expected:
+            raise ValueError("I frozen source SHA changed: " + relative)
+    return identity
+
+
+def validate_correction_tool(tool):
+    if tool is None or tool.name.lower() != "gowinsynthesis.exe":
+        raise ValueError("clock correction requires explicit existing native GowinSynthesis.exe")
+
+
+def stop_after_case(case):
+    """Never spend the next depth's one-shot allowance after a failed case."""
+    return case["synthesis_executed"] and case["status"] != "synthesis_completed"
 
 
 def tool_path(explicit):
@@ -96,7 +119,11 @@ def main():
     cli.add_argument("--tool", type=Path)
     cli.add_argument("--prepare-only", action="store_true", help="no synthesis claim")
     cli.add_argument("--review-existing", type=Path, help="recheck archived one-shot synthesis, NEVER rerun tools")
+    cli.add_argument("--native-clock-correction", action="store_true",
+                     help="M2-authorized one additional run/depth; 1024 must pass before deeper runs")
     args = cli.parse_args()
+    if args.native_clock_correction and (not args.tool or args.prepare_only or args.review_existing):
+        cli.error("--native-clock-correction requires --tool, without prepare/review")
     out = output_dir(args.output, "m3_delay_memory_")
     evidence = dict(scope="I synthesis-only exact original delay, no STA/full-system/500ms claim",
                     part=PART, device=DEVICE, variant=VARIANT, clock_ns=20,
@@ -109,6 +136,10 @@ def main():
             "code/scripts/run_m3_delay_transaction_candidate.py",
             "code/scripts/check_t009_fusion_report.py",
             "code/tb/board/m3_delay_memory_probe/test_report.py")}
+        if args.native_clock_correction:
+            validate_correction_tool(tool)
+            evidence["authorization"] = "M2 correction: at most one additional synthesis per fixed depth, stop on failure"
+            evidence["depth_order"] = list(DEPTHS)
         if args.review_existing:
             review_existing(args.review_existing.resolve(), out, evidence)
             return 0 if evidence["passed"] else 1
@@ -116,6 +147,8 @@ def main():
         probe = BENCH / "m3_delay_memory_probe.sv"
         evidence["original_sha256"] = sha(original)
         evidence["probe_template_sha256"] = sha(probe)
+        # Archive the exact executed entry, including options and stop policy.
+        shutil.copyfile(Path(__file__), out / "driver_executed.py")
         if tool:
             evidence["tool"] = str(tool)
             evidence["tool_binary_sha256"] = sha(tool)
@@ -174,7 +207,7 @@ def main():
                     case["exit_code"] = process.returncode
                 except subprocess.TimeoutExpired:
                     case["exit_code"] = 124
-                report_files = [p for p in folder.rglob("*") if p.is_file() and p.suffix.lower() in (".log", ".rpt", ".html", ".txt", ".vg")]
+                report_files = [p for p in folder.rglob("*") if p.is_file() and p.suffix.lower() in (".log", ".rpt", ".html", ".txt", ".vg", ".xml")]
                 case["reports_sha256"] = {p.relative_to(folder).as_posix(): sha(p) for p in report_files}
                 raw = log.read_text(encoding="utf-8", errors="replace")
                 # Nonzero/error/timeout can NEVER become resource PASS.
@@ -188,10 +221,17 @@ def main():
                 case["unexecuted_reason"] = "Gowin synthesis CLI unavailable; reproducible inputs/commands only"
             evidence["cases"].append(case)
             print("I", depth, case["status"], flush=True)
+            (out / "evidence.json").write_text(json.dumps(evidence, indent=2) + "\n", encoding="utf-8")
+            if stop_after_case(case):
+                evidence["stopped_after_depth"] = depth
+                evidence["unexecuted_depths"] = [d for d in DEPTHS if d > depth]
+                print("STOP I: failed synthesis/report; remaining depths not executed", flush=True)
+                break
         if source_identity() != evidence["readonly_sources"]:
             raise ValueError("original inputs changed during I")
         evidence["prepared"] = True
-        evidence["passed"] = all(c["status"] == "synthesis_completed" for c in evidence["cases"])
+        evidence["passed"] = len(evidence["cases"]) == len(DEPTHS) and all(
+            c["status"] == "synthesis_completed" for c in evidence["cases"])
     except (OSError, ValueError, RuntimeError, subprocess.SubprocessError) as error:
         evidence["error"] = str(error)
         print("FAIL I:", error)

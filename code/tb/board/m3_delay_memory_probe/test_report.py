@@ -68,6 +68,18 @@ class ReportTests(unittest.TestCase):
     def test_missing_ram_stays_unknown(self):
         self.assertEqual(self.review(HTML.replace("RAM16SDP1", "absent"))["resources"]["RAM16"], "unknown")
 
+    def test_native_correction_tool_required(self):
+        probe.validate_correction_tool(Path("GowinSynthesis.exe"))
+        for tool in (None, Path("gw_sh.exe")):
+            with self.assertRaises(ValueError):
+                probe.validate_correction_tool(tool)
+
+    def test_failed_first_depth_stops(self):
+        for status in ("contract_report_failed", "synthesis_failed", "missing_report_failed"):
+            self.assertTrue(probe.stop_after_case(dict(synthesis_executed=True, status=status)))
+        self.assertFalse(probe.stop_after_case(dict(synthesis_executed=True, status="synthesis_completed")))
+        self.assertFalse(probe.stop_after_case(dict(synthesis_executed=False, status="prepared_not_run")))
+
 
 if __name__ == "__main__":
     unittest.main()
