@@ -574,7 +574,7 @@ endfunction
         assign status_clip_count=0;
         assign core_max_processing_cycles=0;
       end else begin:g_polyphonic
-        polyphonic_audio_core u_audio_core(
+        polyphonic_audio_core #(.DYNAMIC_TIMBRE_ENABLE(1'b1)) u_audio_core(
           .clk(sys_clk),.rst_n(rst_sync_n),.event_valid(shared_event_valid),
           .event_ready(shared_event_ready),.event_data(shared_event_data),.frame_tick(i2s_frame_tick),
           .play_left(buffered_left),.play_right(buffered_right),.pending_valid(pending_valid),

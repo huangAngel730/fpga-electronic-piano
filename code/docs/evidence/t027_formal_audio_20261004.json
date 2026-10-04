@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-04",
+  "scope": "formal T027 audio source+GPRJ actual Gowin build, no physical programming",
+  "base": "07b9d47",
+  "tool": "Gowin V1.9.11.03 Education",
+  "part": "GW5AT-LV60PG484AC1/I0",
+  "clocks": "sys_clk 50 MHz / SDC 20 ns",
+  "fs_sha256": "3c5da54dba4a42c16a9e7f962152c6158b74948ced7624306b4034e0acd7098c",
+  "resources": {
+    "Logic": 8237,
+    "Register": 4593,
+    "DSP": 24,
+    "BSRAM": 16
+  },
+  "fmax_mhz": 50.064,
+  "worst_slack_ns": {
+    "Setup": 0.026,
+    "Hold": 0.001,
+    "Recovery": 12.426,
+    "Removal": 0.822
+  },
+  "input_sha256": {
+    "code/rtl/board/electronic_piano_top.sv": "fb3aba0246ee3bd71a123cc954cb05df8c3236605310ae17310ac1420cae908a",
+    "code/rtl/board/polyphonic_event_router.sv": "9127599d895f59907bba751fa38052ec40070ee241c2ec3a8629bf9ff627f9b1",
+    "code/rtl/board/polyphonic_envelope_bank.sv": "a9ac7a73ad1a3bd4e586f31a9e8bec3fac5a173ce956d05e420a41c48fca7119",
+    "code/rtl/board/polyphonic_audio_core.sv": "ac70e4c3c913f73fdad7dbf1d8c06db32201452f4c10ab017c6a71cc307fd80a",
+    "code/rtl/board/piano_triangle_voice.sv": "6bf8ebc9514ce65e56d43d2b2c23cdba00192568b6d6a9014ac9e22e991ee1b4",
+    "code/rtl/audio/timbre_oscillator.sv": "6918f4d5e5129aae0dc38286f88d6fb536083ecfcd000fea63e89fe5d38e6a39",
+    "code/rtl/audio/piano_dds_oscillator.sv": "941c6f1bb2e41cf9bd4433b9c22ab58c9ad7e041f32e96039de6eec8dc139fc1",
+    "code/rtl/input/midi_input/midi_event_parser.sv": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+    "code/build/electronic_piano.gprj": "0cca0b9494486f4ef70b09cd59f1dc9fabca10ab3fa8a26914fa0d24fb055b57",
+    "code/scripts/build_electronic_piano.ps1": "ec223f84387165010c7b93c1e5ede2fbd549efb79ce31add47757e130a5735ed",
+    "code/scripts/check_t024_formal_report.py": "e7478ffb4171786a0eadb633e4850f297e645fae3bbfd0e28416946a24c57e61",
+    "code/constraints/electronic_piano.cst": "76037da27eabba7bf322d41ad8f90c16b1a72b549fc2ffb865b380bfbda35dcb",
+    "code/constraints/audio_timing.sdc": "849c8b374c366ea1cbe6f44b17f761adad90861e3b50a0baf3ade73c05f953f5",
+    "code/model/generated/triangle_wavetable.hex": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+    "code/model/generated/sine_wavetable.hex": "1abfd5c47759cd4089f4b39069b3ff0ab388838502b325d9ef7d9e01549ec7f4",
+    "code/model/generated/wavetables/piano_band_4x256_8191.mem": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+    "code/model/generated/wavetables/velocity_gain_rom.mem": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+    "code/tb/board/tb_t027_midi_program_top.sv": "0e726dc1d6dc47b32313e14a0743f535172308a40f7278d1a4764695e948816b",
+    "code/scripts/run_t027_midi_program_top.py": "69892832fab4d997c893a62c5bfc8df65d44f0e4d7dca4219f82c99934b0851f"
+  },
+  "formal_artifact_sha256": {
+    "formal_fs": "3c5da54dba4a42c16a9e7f962152c6158b74948ced7624306b4034e0acd7098c",
+    "pnr_resources": "6f972631d081143d03c27888926860951e8d75543eee23c97328979c43c42bd0",
+    "pnr_timing": "c2bc9e8ae5afbac0a8d8240e0ab1fe7bdfcc0fb960afff68bb75c0d0f1a036ca",
+    "pin_report": "8d4e6dd18ba7c5b9e4f0e45e80a4ff06aa9545b2dbcb344ca8b99164673c333e",
+    "synthesis_hierarchy": "516d032a43870f6a65bb266bf195e390abc3aea4064087755f9b673c1c5a1c33"
+  },
+  "negative_check": "same 16-BSRAM report rejected by legacy --expected-bsram 8 gate",
+  "run_commands": [
+    "python -X utf8 code/scripts/run_t027_dynamic_bank.py",
+    "python -X utf8 code/scripts/run_t027_dynamic_core.py",
+    "python -X utf8 code/scripts/run_t027_midi_program_top.py",
+    ".\\code\\scripts\\build_electronic_piano.ps1 -Flow bitstream"
+  ],
+  "not_claimed": [
+    "M1 Program0 V1 versus original sine policy acceptance",
+    "T027 formal board L6 or loudspeaker spectrogram",
+    "multi-feature PitchMod/effects integration",
+    "engineering timing margin >=0.5ns"
+  ]
+}

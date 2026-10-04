@@ -137,6 +137,13 @@ if ($isMainProject) {
                 if (-not (Test-Path -LiteralPath $rom)) { throw "Missing ROM: $rom" }
                 $sourceText = $sourceText.Replace('model/generated/wavetables/' + $name,$rom.Replace('\','/'))
             }
+            foreach ($name in @('sine_wavetable.hex','triangle_wavetable.hex')) {
+                $rom = Join-Path $repoRoot ('code/model/generated/' + $name)
+                if (-not (Test-Path -LiteralPath $rom)) { throw "Missing ROM: $rom" }
+                $sourceText = $sourceText.Replace('model/generated/' + $name,$rom.Replace('\','/'))
+                # The M1 oscillator has bare filenames as its parameter defaults.
+                $sourceText = $sourceText.Replace('"' + $name + '"',('"' + $rom.Replace('\','/') + '"'))
+            }
             if ($sourceText -ne [IO.File]::ReadAllText($inputFile)) {
                 $generated = Join-Path $stagedDir ([IO.Path]::GetFileName($inputFile))
                 [IO.File]::WriteAllText($generated,$sourceText,[Text.UTF8Encoding]::new($false))
@@ -199,7 +206,11 @@ if (Test-Path -LiteralPath $impl) {
 }
 
 if ($isMainProject -and $Flow -ne 'synth' -and $rc -eq 0) {
-    & python -X utf8 (Join-Path $PSScriptRoot 'check_t024_formal_report.py') $projectDir
+    $topSource = Join-Path $repoRoot 'code/rtl/board/electronic_piano_top.sv'
+    $dynamicPattern = "polyphonic_audio_core\s*#\(\.DYNAMIC_TIMBRE_ENABLE\(1'b1\)\)\s*u_audio_core\("
+    $expectedBsram = 8
+    if ([IO.File]::ReadAllText($topSource) -match $dynamicPattern) { $expectedBsram = 16 }
+    & python -X utf8 (Join-Path $PSScriptRoot 'check_t024_formal_report.py') $projectDir --expected-bsram $expectedBsram
     if ($LASTEXITCODE -ne 0) { $rc = 1 }
 }
 exit $rc
