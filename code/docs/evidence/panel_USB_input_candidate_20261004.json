@@ -139,12 +139,12 @@
     "code\\tb\\input\\panel_verified_candidate\\tb_panel_verified_input.sv": "48d3f22acac84b6ba0ad3de540d4636c7667aa39d7b182210e51d1be1f4fd42b",
     "code\\tb\\board\\panel_verified_control_candidate\\panel_demo_score.sv": "dc11cb575fbeb47f342ab9be0938b4b65700360a7c77da86efbf89faf9939be2",
     "code\\tb\\board\\panel_verified_control_candidate\\panel_master_volume_proposal.sv": "1791bb06d7df56d23551a538af042841d19b9346b6ca03d9a1dacefcb4d1efe9",
-    "code\\tb\\board\\panel_verified_control_candidate\\panel_score_transport.sv": "aa240a96451bcfcae7227c888c578478bbde42494797da4d5128c819c4a4d2d7",
+    "code\\tb\\board\\panel_verified_control_candidate\\panel_score_transport.sv": "afe46ebb0916e8bb66cd8e1df255b165e3047bee39388ab584454fbe2c74ab58",
     "code\\tb\\board\\panel_verified_control_candidate\\panel_visual_command_bridge.sv": "81893a0167ebd41731cf65aac5450c0a3f59a37b0e72fffa7584ffe17ec4da27",
     "code\\tb\\board\\panel_verified_control_candidate\\polyphonic_envelope_bank.sv": "689d736df990e6c9bc6f4f8a1aa44eb855bcfa410206503ae60feef79ac9b61e",
     "code\\tb\\board\\panel_verified_control_candidate\\polyphonic_event_router.sv": "1e5519a9c4500b5054b63a11cecfaf61d2f27cd82cc0b242ffabcc9fb59be616",
     "code\\tb\\board\\panel_verified_control_candidate\\tb_panel_master_volume.sv": "3c4af91ed9a4746e1a6ffe8431a19dc9a3716b6b578bb6478d994af02135ea47",
-    "code\\tb\\board\\panel_verified_control_candidate\\tb_panel_score_transport.sv": "c25ae89d0df496e4e08fa848dc80d1a290892503a086e02711d7871f2fe4a318",
+    "code\\tb\\board\\panel_verified_control_candidate\\tb_panel_score_transport.sv": "b5aa620f7317edf6fe1b15d4441e5b803b590af53f34542e07bcba63517bdc81",
     "code\\tb\\board\\panel_verified_control_candidate\\tb_panel_shared_timbre.sv": "2749e1c17266f0050e73b8e16fc99d5339651c30014b04d6be080c2c7ed4721c",
     "code\\tb\\board\\panel_verified_control_candidate\\tb_panel_visual_command_bridge.sv": "85ed13879f75cd5a92f824a800da60f242fa176458192e36750541a5655bcd1d",
     "code\\tb\\board\\panel_verified_control_candidate\\visual_score_tracker_transport.sv": "3ff45211c9e436072b3e8ada73df3bfc6d60c99e7fde4f7c819b6d939700ae07"
@@ -171,10 +171,12 @@
     "assertions": 23627
   },
   "score_transport": {
-    "checks": 26,
+    "checks": 30,
     "scanframes": 77,
     "restarts": 2,
-    "loaded_cues": 32
+    "loaded_cues": 32,
+    "pause_same_frame_judgement_cancelled": true,
+    "explicit_fault_pauses": true
   },
   "CDC": {
     "checks": 22,
@@ -198,7 +200,9 @@
   "board_L6_claim": false,
   "notifications_forwarded": false,
   "public_full_runner_pass": true,
-  "full_runner_evidence_sha": "263a70eed6c75604a7c61f6f72bcde7555c26448862f7f961b41a1034c6245df",
+  "full_runner_evidence_sha": "f73c435d0157bf75264ba677b169eb2252a981e6eece5d99f385bc2a8955cd32",
   "public_full_runner_runs": 24,
-  "compiled_negative_variants": 4
+  "compiled_negative_variants": 4,
+  "verification_ids": "V0185/V0186",
+  "changed_score_only_rerun_with_other_source_log_SHA_check": true
 }
