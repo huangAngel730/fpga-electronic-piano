@@ -1,0 +1,204 @@
+{
+  "date": "2026-10-04",
+  "CSV_evidence": {
+    "date": "2026-10-04",
+    "branch": "origin/develop",
+    "commit": "2a439630f54df7cdf48c28f2828fb5fb68f44591",
+    "evidence_scope": "USB MIDI output plus user-confirmed momentary physical operation; no DIN/FPGA/audio L6 claim",
+    "files": {
+      "K1_Volume.csv": {
+        "sha256": "1243420868967579d9a5dcc821812afe72c6442822e799a6f6acc013db252fdc",
+        "rows": 279,
+        "human_channel": 1,
+        "protocol_channel": 0,
+        "controllers": {
+          "7": {
+            "count": 279,
+            "min": 0,
+            "max": 127,
+            "distinct": 127
+          }
+        }
+      },
+      "B1_B2_B3_B4_B5_B6.csv": {
+        "sha256": "04622f6c64595e730147d704ec749b2d0e411dc0f3b3ce282f2ef98d42a09cc2",
+        "rows": 30,
+        "human_channel": 1,
+        "protocol_channel": 0,
+        "controllers": {
+          "25": {
+            "count": 6,
+            "min": 0,
+            "max": 127,
+            "distinct": 2
+          },
+          "26": {
+            "count": 8,
+            "min": 0,
+            "max": 127,
+            "distinct": 2
+          },
+          "27": {
+            "count": 4,
+            "min": 0,
+            "max": 127,
+            "distinct": 2
+          },
+          "28": {
+            "count": 4,
+            "min": 0,
+            "max": 127,
+            "distinct": 2
+          },
+          "29": {
+            "count": 4,
+            "min": 0,
+            "max": 127,
+            "distinct": 2
+          },
+          "30": {
+            "count": 4,
+            "min": 0,
+            "max": 127,
+            "distinct": 2
+          }
+        },
+        "button_edges": {
+          "25": {
+            "presses": 3,
+            "releases": 3,
+            "repeated_same_state_rows": 0,
+            "final_pressed": false,
+            "release_to_next_press_ms": [
+              1350.0,
+              829.0
+            ]
+          },
+          "26": {
+            "presses": 4,
+            "releases": 4,
+            "repeated_same_state_rows": 0,
+            "final_pressed": false,
+            "release_to_next_press_ms": [
+              2.0,
+              488.0,
+              2238.0
+            ]
+          },
+          "27": {
+            "presses": 2,
+            "releases": 2,
+            "repeated_same_state_rows": 0,
+            "final_pressed": false,
+            "release_to_next_press_ms": [
+              940.0
+            ]
+          },
+          "28": {
+            "presses": 2,
+            "releases": 2,
+            "repeated_same_state_rows": 0,
+            "final_pressed": false,
+            "release_to_next_press_ms": [
+              537.0
+            ]
+          },
+          "29": {
+            "presses": 2,
+            "releases": 2,
+            "repeated_same_state_rows": 0,
+            "final_pressed": false,
+            "release_to_next_press_ms": [
+              481.0
+            ]
+          },
+          "30": {
+            "presses": 2,
+            "releases": 2,
+            "repeated_same_state_rows": 0,
+            "final_pressed": false,
+            "release_to_next_press_ms": [
+              595.0
+            ]
+          }
+        }
+      }
+    },
+    "total_messages": 309,
+    "start_time": "2026-10-04T21:04:28.102000",
+    "end_time": "2026-10-04T21:06:05.482000",
+    "raw_fields_verified_all": true,
+    "long_debounce_window_added": false
+  },
+  "original_parser_base": "de68038/834887a9",
+  "source_files": {
+    "code\\tb\\input\\panel_verified_candidate\\midi_event_parser.sv": "f0d6c29a060bbdc3336dd090496471e6ba47db3db81e3798b9a5b458da743851",
+    "code\\tb\\input\\panel_verified_candidate\\midi_input_panel_candidate.sv": "890d8a9c24cd3adfedea082be866f0195749ee708f59954bb1dbd5b90e3c5682",
+    "code\\tb\\input\\panel_verified_candidate\\tb_panel_mod_volume_isolation.sv": "a14e441cced22813aa81b3abf5fd008c5daa487986c52ee9ae917c4076ac3af6",
+    "code\\tb\\input\\panel_verified_candidate\\tb_panel_uart.sv": "7ddba021d28dfc59c391d727498d242171eb58e2c35bc653e377178cebcdb71d",
+    "code\\tb\\input\\panel_verified_candidate\\tb_panel_verified_input.sv": "48d3f22acac84b6ba0ad3de540d4636c7667aa39d7b182210e51d1be1f4fd42b",
+    "code\\tb\\board\\panel_verified_control_candidate\\panel_demo_score.sv": "dc11cb575fbeb47f342ab9be0938b4b65700360a7c77da86efbf89faf9939be2",
+    "code\\tb\\board\\panel_verified_control_candidate\\panel_master_volume_proposal.sv": "1791bb06d7df56d23551a538af042841d19b9346b6ca03d9a1dacefcb4d1efe9",
+    "code\\tb\\board\\panel_verified_control_candidate\\panel_score_transport.sv": "aa240a96451bcfcae7227c888c578478bbde42494797da4d5128c819c4a4d2d7",
+    "code\\tb\\board\\panel_verified_control_candidate\\panel_visual_command_bridge.sv": "81893a0167ebd41731cf65aac5450c0a3f59a37b0e72fffa7584ffe17ec4da27",
+    "code\\tb\\board\\panel_verified_control_candidate\\polyphonic_envelope_bank.sv": "689d736df990e6c9bc6f4f8a1aa44eb855bcfa410206503ae60feef79ac9b61e",
+    "code\\tb\\board\\panel_verified_control_candidate\\polyphonic_event_router.sv": "1e5519a9c4500b5054b63a11cecfaf61d2f27cd82cc0b242ffabcc9fb59be616",
+    "code\\tb\\board\\panel_verified_control_candidate\\tb_panel_master_volume.sv": "3c4af91ed9a4746e1a6ffe8431a19dc9a3716b6b578bb6478d994af02135ea47",
+    "code\\tb\\board\\panel_verified_control_candidate\\tb_panel_score_transport.sv": "c25ae89d0df496e4e08fa848dc80d1a290892503a086e02711d7871f2fe4a318",
+    "code\\tb\\board\\panel_verified_control_candidate\\tb_panel_shared_timbre.sv": "2749e1c17266f0050e73b8e16fc99d5339651c30014b04d6be080c2c7ed4721c",
+    "code\\tb\\board\\panel_verified_control_candidate\\tb_panel_visual_command_bridge.sv": "85ed13879f75cd5a92f824a800da60f242fa176458192e36750541a5655bcd1d",
+    "code\\tb\\board\\panel_verified_control_candidate\\visual_score_tracker_transport.sv": "3ff45211c9e436072b3e8ada73df3bfc6d60c99e7fde4f7c819b6d939700ae07"
+  },
+  "isolated_enabled_tests_Hz": [
+    64000,
+    50000000
+  ],
+  "button_actions_checks": 81,
+  "CSV_B1_B2_B3_actions": 9,
+  "default_disabled_miter_cycles_per_configuration": 256193,
+  "default_disabled_configs": 4,
+  "real_UART_simulation": {
+    "clock": 50000000,
+    "baud": 31250,
+    "format": "8N1",
+    "PASS": true,
+    "directions": 4,
+    "Notes": 2,
+    "Volumes": 2
+  },
+  "B1_Program_CC64_bank": {
+    "samples": 3766,
+    "assertions": 23627
+  },
+  "score_transport": {
+    "checks": 26,
+    "scanframes": 77,
+    "restarts": 2,
+    "loaded_cues": 32
+  },
+  "CDC": {
+    "checks": 22,
+    "video_overflow_fail_closed": true,
+    "no_audio_ready_feedback": true
+  },
+  "K1_proposal": {
+    "checks": 5288,
+    "PCMcases": 1000,
+    "format": "unsignedQ1.16",
+    "unity": 65536,
+    "max_step": 128,
+    "max_full_transition_samples": 512,
+    "M1_approved": false
+  },
+  "public_interface_published": false,
+  "formal_production_sources_modified": false,
+  "original4controls308dbab_applied": false,
+  "panel_bitstream_generated": false,
+  "vendor_STA_new": false,
+  "board_L6_claim": false,
+  "notifications_forwarded": false,
+  "public_full_runner_pass": true,
+  "full_runner_evidence_sha": "263a70eed6c75604a7c61f6f72bcde7555c26448862f7f961b41a1034c6245df",
+  "public_full_runner_runs": 24,
+  "compiled_negative_variants": 4
+}
