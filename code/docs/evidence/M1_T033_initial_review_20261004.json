@@ -1,0 +1,192 @@
+{
+  "date": "2026-10-04",
+  "identity": {
+    "zip_sha": "926fbf9bb9bae71de57fe094f54eb9c6b3179b911de705ebd290fe56cea397a3",
+    "package": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M1_T033_review_20261004\\receipt\\M1_T033_架构评估_20261004",
+    "python_cache_excluded": true,
+    "all_declared_new_hashes_missing": true
+  },
+  "original_model_tests": 6,
+  "selftest_exit": 0,
+  "budget_exit": 0,
+  "original_new_files_sha": {
+    "code/model/t033_architecture_budget.py": "a4caf438608d5e2309c42c5cb83845ed9a1633ba120e34ca915790b6693c984e",
+    "code/model/test_t033_architecture_budget.py": "17fa62253255cf92560db2726bf7c0739daf6c1e8954ed8687e7bedf55671179",
+    "code/docs/test/T033_架构评估报告.md": "51a53b6f40557a006a9ea81e4cb5323688c10c4024dffa075778c456be6299ba"
+  },
+  "original_declared_new_SHA_missing": [
+    "code/model/t033_architecture_budget.py",
+    "code/model/test_t033_architecture_budget.py",
+    "code/docs/test/T033_架构评估报告.md"
+  ],
+  "independent_boundary_probes": {
+    "hybrid_4": {
+      "cycles": 3,
+      "LUT": 2920,
+      "FF": 800,
+      "DSP": 0,
+      "BSRAM_kB": 2.0
+    },
+    "hybrid_8": {
+      "cycles": 4,
+      "LUT": 2920,
+      "FF": 928,
+      "DSP": 0,
+      "BSRAM_kB": 2.0
+    },
+    "hybrid_16": {
+      "cycles": 6,
+      "LUT": 2920,
+      "FF": 1184,
+      "DSP": 0,
+      "BSRAM_kB": 2.0
+    },
+    "hybrid_32": {
+      "cycles": 10,
+      "LUT": 2920,
+      "FF": 1696,
+      "DSP": 0,
+      "BSRAM_kB": 2.0
+    },
+    "boundary_cycles": {
+      "1040": {
+        "model_fraction": 0.9980806142034548,
+        "model_denominator": 1042,
+        "short_frame_1041_fraction": 0.9990393852065321,
+        "resource_only_safe": true,
+        "fits_shortest_frame_before_any_guard": true
+      },
+      "1041": {
+        "model_fraction": 0.9990403071017274,
+        "model_denominator": 1042,
+        "short_frame_1041_fraction": 1.0,
+        "resource_only_safe": true,
+        "fits_shortest_frame_before_any_guard": true
+      },
+      "1042": {
+        "model_fraction": 1.0,
+        "model_denominator": 1042,
+        "short_frame_1041_fraction": 1.0009606147934678,
+        "resource_only_safe": true,
+        "fits_shortest_frame_before_any_guard": false
+      }
+    },
+    "invalid_configurations": [
+      {
+        "case": "parallel_0",
+        "rejected": false,
+        "cycles": 1,
+        "LUT": 270,
+        "FF": 202
+      },
+      {
+        "case": "parallel_negative",
+        "rejected": false,
+        "cycles": 1,
+        "LUT": -280,
+        "FF": 152
+      },
+      {
+        "case": "timeshared_0",
+        "rejected": false,
+        "cycles": 2,
+        "LUT": 920,
+        "FF": 302
+      },
+      {
+        "case": "hybrid_0voices",
+        "rejected": false,
+        "cycles": 2,
+        "LUT": 2920,
+        "FF": 672
+      },
+      {
+        "case": "hybrid_0units",
+        "rejected": true,
+        "exception": "ZeroDivisionError",
+        "message": "integer division or modulo by zero"
+      },
+      {
+        "case": "hybrid_negativeunits",
+        "rejected": false,
+        "cycles": -4,
+        "LUT": -330,
+        "FF": 378
+      }
+    ],
+    "unknown_resources_supported": false,
+    "II_latency_fields_present": false,
+    "mixer_topology": {
+      "4": {
+        "tree_adder_nodes_N_minus1": 3,
+        "model_depth": 2,
+        "mixer_estimated_LUT": 100,
+        "model_counts_each_node": false
+      },
+      "8": {
+        "tree_adder_nodes_N_minus1": 7,
+        "model_depth": 3,
+        "mixer_estimated_LUT": 150,
+        "model_counts_each_node": false
+      },
+      "16": {
+        "tree_adder_nodes_N_minus1": 15,
+        "model_depth": 4,
+        "mixer_estimated_LUT": 200,
+        "model_counts_each_node": false
+      },
+      "32": {
+        "tree_adder_nodes_N_minus1": 31,
+        "model_depth": 5,
+        "mixer_estimated_LUT": 250,
+        "model_counts_each_node": false
+      }
+    },
+    "received_file_hashes": {
+      "code/model/t033_architecture_budget.py": "a4caf438608d5e2309c42c5cb83845ed9a1633ba120e34ca915790b6693c984e",
+      "code/model/test_t033_architecture_budget.py": "17fa62253255cf92560db2726bf7c0739daf6c1e8954ed8687e7bedf55671179",
+      "code/docs/test/T033_架构评估报告.md": "51a53b6f40557a006a9ea81e4cb5323688c10c4024dffa075778c456be6299ba"
+    },
+    "manifest_hash_missing": [
+      "code/model/t033_architecture_budget.py",
+      "code/model/test_t033_architecture_budget.py",
+      "code/docs/test/T033_架构评估报告.md"
+    ],
+    "report_path_mismatch": {
+      "authorized": "code/docs/test/T033_声部扩展架构评估.md",
+      "received": "code/docs/test/T033_架构评估报告.md",
+      "scope_expansion_material": false
+    },
+    "source_math_evidence": {
+      "current_adsr_contains_product": [
+        [
+          85,
+          "step_product = step_delta * reciprocal;"
+        ],
+        [
+          94,
+          "sustain_product_q <= level_q16[30:0] * SUSTAIN_RATE_Q32;"
+        ],
+        [
+          126,
+          "// M1 model: floor(13107 * gain / 32767); reciprocal approximation"
+        ]
+      ],
+      "current_Q15_gain_contains_product": [
+        [
+          13,
+          "wire signed [32:0] product = wave_sample * positive_gain;"
+        ]
+      ],
+      "actual_previous_isolated_combo_DSP": 46,
+      "DSP_mapping_assumption_of_shared_architecture": "unknown, cannot infer0"
+    }
+  },
+  "approved_architecture": null,
+  "approved_voice_scale": null,
+  "RTL_authorized": false,
+  "stage_signed_off": false,
+  "hardware_tools_executed": 0,
+  "M1_sources_modified": false,
+  "user_notice_forwarded": false
+}
