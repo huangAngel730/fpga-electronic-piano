@@ -1,0 +1,46 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+87(145) 
+ 
+8.3 Command Description 
+8.3.1 add_file 
+Adds design files to the project. 
+Syntax  
+add_file [-type] [-disable] [-h/--help] <file> 
+Usage 
+Name 
+Description  
+[-type] 
+Specifies the type of design file to add 
+[-disable] 
+Disables the file 
+[-h/--help] 
+Displays help information 
+<file> 
+File(s) to add 
+Type  
+Project 
+Description  
+When adding design files, two types of file path separators / or \\ are 
+supported on Windows and Linux systems. Both relative and absolute 
+paths are supported. In Gowin Software, the relative path is relative to the 
+current project directory, and in command line mode, it is relative to the 
+path from which gw_sh is launched. 
+Parameter 
+ <file>: The design file(s) to be added. Multiple files can be specified, 
+separated by spaces. 
+ [-type <type>]: The add_file command will automatically determine the 
+file type based on the file extension. Alternatively, this option can be 
+used to explicitly specify the file type. Supported file types include 
+verilog, vhdl, sv, vg, cst, sdc, gao, gpa, gsc, etc. 
+ [-disable]: Disables the added files. The disabled files are only added to 
+the file list and are excluded from implementation processes. Related 
+command: set_file_enable. 
+ [-h/--help]: Displays help information. 
+Example 
+add_file abc.v 
+add_file -type vhdl 1.vhd 2.vhdl 3.vhd 
+add_file D:/gowin_project/top.v 
+add_file D:\\gowin_project\\top.v 

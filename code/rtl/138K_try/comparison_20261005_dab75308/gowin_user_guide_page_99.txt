@@ -1,0 +1,51 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+88(145) 
+ 
+8.3.2 create_ipc 
+Creates IPC file with default configuration. 
+Syntax 
+create_ipc -name <ipName> -module_name <moduleName> 
+[-language <arg>] [-file_name <fileName>] [-dir <path>] [-force] 
+Usage 
+Name 
+Description  
+-name 
+IP name 
+-module_name 
+The module name of the IP to be created 
+[-language] 
+Language for the IP file, template file, and simulation file 
+[-file_name] 
+IP file name 
+[-dir] 
+The path to generate the IP 
+[-force] 
+Overwrites existing files 
+Type 
+IPFlow 
+Description  
+This command is used to create an IPC file for the IP core in the IP 
+Core Generator. 
+Parameter 
+ -name <ipName>: Specifies the name of the IP, and the name can be 
+obtained from the IP Core Generator. 
+ -module_name <moduleName>: Specifies the module name of the IP 
+to be created. 
+ [-language <arg>]: Specifies the language of the generated IP files, 
+template files, and simulation files (Verilog/VHDL). If not specified, the 
+default is Verilog. 
+ [-file_name <fileName>]: Specifies the name of the generated IP file. If 
+not specified, it will be the same as the name specified by the 
+module_name. 
+ [-dir <path>]: Specifies the directory path to generate the IP. If not 
+specified, it will be generated into the current project's src folder. 
+ [-force]: Overwrite existing files. 
+Example 
+In the following example, the IP core specified by -name is created in 
+the current project's src folder, and the module name, language, and file 
+name is specified. 
+create_ip -name fifo -module_name FIFO_Top -language Verilog 
+-file_name fifo 

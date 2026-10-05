@@ -1,0 +1,62 @@
+4 Gowin Software Usage 
+ 4.3 Edit a Project 
+ 
+SUG100-4.4.2E 
+52(145) 
+ 
+Device  
+Background Programming Value 
+OFF by default 
+ 
+Background Programming values and using considerations are 
+described as follows. 
+- 
+OFF: Off Background Programming, if the device is GW2AN-18X 
+or GW2AN-9X, "Use MSPI as regular" in the "Dual-Purpose Pin" 
+dialog box is unchecked and non-configurable. 
+- 
+JTAG: Use JTAG mode for background programming 
+- 
+I2C: Use I2C mode for background programming: For 
+GW1N-1P5/GW1N-2/GW1NR-2 devices in version B, "I2C Slave 
+Address (Hex)" is used to set the address of the I2C device, with 
+the value range of 00~7F, as shown in Figure 4-30. After selecting 
+I2C, "Use JTAG as regular IO" in the "Dual-Purpose Pin" dialog box 
+is unchecked and not configurable. For 
+GW1N-2/GW1N-1P5/GW1NR-2 devices in version C, when using 
+I2C mode for background programming, there is no option "I2C 
+Slave Address (Hex)" in the configuration dialog box; and "Use 
+RECONFIG as regular IO" is unchecked and non-configurable in 
+the "Dual-Purpose Pin" dialog box. 
+- 
+GoConfig: Use goConfig IP for background programming. 
+- 
+UserLogic: Use internal logic for background programming. 
+- 
+I2C/JTAG/SSPI/QSSPI: Use I2C/JTAG/SSPI/QSSPI mode for 
+background programming.  
+- 
+JTAG/SSPI/QSSPI: Use JTAG/SSPI/QSSPI mode for background 
+programming. 
+- 
+For GW2AN-18X/GW2AN-9X devices, when GoConfig, UserLogic, 
+or I2C/JTAG/SSPI/QSSPI is selected, the option "HOTBOOT" will 
+be displayed in the dialog box, optional and unchecked by default, 
+as shown Figure 4-31. 
+- 
+For GW5A(S)(T)-138/GW5A(R)-25 devices, when UserLogic or 
+JTAG/SSPI/QSSPI is selected, the option "HOTBOOT" will be 
+displayed in the dialog box, optional and unchecked by default, as 
+shown Figure 4-31. 
+- 
+For GW1N-1P5/GW1N-2/GW1NR-2 in version B, if the I2C is 
+included in the two switched configuration items, Synthesize and 
+Place & Route will be changed to expired; for 
+GW1N-2/GW1NR-2/GW1N-1P5 in version C, if the I2C is included 
+in the two switched configuration items, only Place & Route will be 
+changed to expired. 
+- 
+For GW2AN-18X/GW2AN-9X, if the configuration items GoConfig 
+and UserLogic are switched with I2C/JTAG/SSPI/QSSPI and OFF, 
+Synthesize and Place & Route will be changed to expired, 
+otherwise only Place & Route will be changed to expired. 

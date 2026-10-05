@@ -1,0 +1,47 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+133(145) 
+ 
+Example 
+set_option -multiboot_address_width 32 
+-multiboot_spi_flash_address  
+Specifies SPI Flash address. 
+Syntax 
+-multiboot_spi_flash_address <value> 
+Usage 
+Name 
+Description  
+<value> 
+SPI Flash address. 
+Type 
+Project 
+Description  
+Specifies the SPI Flash address. The SPI Flash address refers to the 
+start address of the bitstream file to be loaded during the next multiboot, 
+with the default value of 000000. 
+Parameter 
+< value>: SPI Flash address. 
+Example 
+set_option -multiboot_spi_flash_address 000110 
+-multiboot_mode  
+Configures SPI Flash address access mode. 
+Syntax 
+-multiboot_mode <single | fast | dual | quad> 
+Usage 
+Name 
+Description  
+< single|fast|dual|quad > 
+single: Uses single mode 
+fast: Uses fast mode 
+dual: Uses gedual mode 
+quad: Uses gequad mode 
+Type 
+Project 
+Description  
+Configures SPI Flash address access mode, and the default is single. 
+Parameter 
+<single | fast | dual | quad>: SPI Flash address access mode. 
+Example 
+set_option -multiboot_mode single  

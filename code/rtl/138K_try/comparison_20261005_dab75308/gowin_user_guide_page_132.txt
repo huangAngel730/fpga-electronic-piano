@@ -1,0 +1,46 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+121(145) 
+ 
+Syntax 
+-use_i2c_as_gpio <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Uses as I2C-related pins. 
+1: Multiplexes as general IO pins. 
+Type 
+Project 
+Description  
+Multiplexes I2C-related pins as general IO pins, and the default is 0. 
+Parameter 
+<0|1>: Enable control for multiplexing I2C-related pins as general IO 
+pins. 
+Example 
+set_option -use_i2c_as_gpio 1 
+BitStream Property Configuration 
+-bit_format   
+Specifies the format of the generated bitstream file content. 
+Syntax 
+-bit_format <txt|bin> 
+Usage 
+Name 
+Description  
+<txt|bin> 
+The format of the bitstream file content. 
+Type 
+Project 
+Description  
+Used to specify the format of the generated bitstream file content. 
+Parameter 
+<txt|bin>: the format of the generated bitstream file content. 
+Example 
+set_option -bit_format txt 
+-bit_crc_check  
+Cyclic redundancy check. 
+Syntax 
+-bit_crc_check <0|1> 
+Usage 

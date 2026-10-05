@@ -1,0 +1,48 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+104(145) 
+ 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Enables I/O insertion 
+1: Disables I/O insertion 
+Type 
+Project 
+Description  
+Enables or disables I/O insertion. The default is 0. 
+Parameter 
+<0|1>: Enables or disables I/O insertion. 
+Example 
+set_option -disable_io_insertion 1 
+-looplimit <value>  
+The loop limit value of default compiler in RTL. 
+Syntax 
+-looplimit <value> 
+Usage 
+Name 
+Description  
+<value> 
+Looplimit value 
+Type 
+Project 
+Description  
+The loop limit value of default compiler in RTL, with the default value 
+being 2000. 
+Parameter 
+<value>: The loop limit value of default compiler in RTL. 
+Example 
+set_option -looplimit 1000 
+-maxfan <value>  
+Set fanout value. 
+Syntax 
+-maxfan <value> 
+Usage 
+Name 
+Description  
+<value> 
+Maxfan value 
+Type 

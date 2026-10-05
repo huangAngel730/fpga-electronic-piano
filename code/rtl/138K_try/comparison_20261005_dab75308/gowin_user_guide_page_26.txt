@@ -1,0 +1,40 @@
+3 Gowin Software GUI 
+ 3.7 Source File Editing Area 
+ 
+SUG100-4.4.2E 
+15(145) 
+ 
+<topmodule_name>_sim.v. If VHDL selected, the two files are 
+<topmodule_name>_gowin.vhdp and <topmodule_name>_sim.v.  
+<topmodule_name>_gowin.vp and <topmodule_name>_gowin.vhdp are 
+pack file and can be used by others. <topmodule_name>_sim.v is a 
+flattened plain netlist that can be used for internal simulation. 
+<topmodule_name>_sim.v is a flattened plain netlist that can be used for 
+internal simulation. 
+Note! 
+In the project, if there are multiple modules that instantiate the same sub module, the 
+files generated after packing these modules separately will have the definition of the 
+sub module. If the generated files are used in the same project, it reports an error that 
+the sub module is repeatedly defined, which needs to be avoided. 
+3.6.4 Search Function 
+When a project is open and contains many design files, you can click 
+the search icon in the Hierarchy window to search by module name or file 
+name. Various options are available during the search, such as "Use wild 
+cards" or "Match exactly". The dialog box is as shown in Figure 3-7. 
+Figure 3-7 Search Function  
+ 
+3.7 Source File Editing Area 
+You can view, edit and highlight source files in the source file edit area. 
+The source file editing area shows different files, including new files or 
+opened files, the generated files after synthesis or Place & Route, and it 
+also shows "Start Page" and "Design Summary". 
+If the file is displayed in the editing area and a modification is 
+performed on the file externally, "File Changed" will pop up in the file editing 
+area. Select "Reload" to reload the file. 
+Click "File > Close", or click the icon "
+" in the file editing area to 
+close current files. 
+Click "File > Close All" to close all the files in the file editing area. 
+Open a file, and you can open "Find & Replace" dialog box by shortcut 
+Ctrl+F or clicking "Find & Replace" in the toolbar. There are three options in 
+"Find All": Current File, Open Files, and Current Project, as shown in Figure 

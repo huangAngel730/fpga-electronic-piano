@@ -1,0 +1,47 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+117(145) 
+ 
+Example 
+set_option -correct_hold_violation 1 
+-inc_place <0|auto|file>  
+Incremental placement. 
+Syntax 
+-inc_place <0|auto|file> 
+Usage 
+Name 
+Description  
+<0|auto|file > 
+0: Disables incremental placement. 
+auto: Automatic incremental placement. 
+file: Specifies a *.p file for incremental placement. 
+Type 
+Project 
+Description  
+Enabling this option allows incremental placement. The default value is 
+0. 
+Parameter 
+<0|auto|file >: Enable control for incremental placement. 
+Example 
+set_option -inc_place auto 
+ -inc_pnr <0|auto|file>  
+Incremental place & route. 
+Syntax 
+-inc_pnr <0|auto|file> 
+Usage 
+Name 
+Description  
+<0|auto|file > 
+0: Disables incremental place & route. 
+auto: Automatic incremental place & route. 
+file: Specifies a *.p file for incremental place & route.  
+Type 
+Project 
+Description  
+Enabling this option allows incremental place & route. The default 
+value is 0. 
+Parameter 
+<0|auto|file >: Enable control for incremental place & route. 
+Example 

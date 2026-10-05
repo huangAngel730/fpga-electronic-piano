@@ -1,0 +1,1150 @@
+{
+  "baseline": {
+    "errors": [],
+    "summary": {
+      "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+      "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+      "Numbers of Paths Analyzed": "31133",
+      "Numbers of Endpoints Analyzed": "28085",
+      "Numbers of Falling Endpoints": "4",
+      "Numbers of Setup Violated Endpoints": "0",
+      "Numbers of Hold Violated Endpoints": "0"
+    },
+    "clocks": {
+      "sys_clk": {
+        "period_ns": 20.0,
+        "frequency_mhz": 50.0
+      },
+      "video_pixel": {
+        "period_ns": 40.0,
+        "frequency_mhz": 25.0
+      },
+      "video_serial": {
+        "period_ns": 8.0,
+        "frequency_mhz": 125.0
+      }
+    },
+    "fmax_mhz": {
+      "sys_clk": 50.062,
+      "video_pixel": 37.877,
+      "video_serial": 1101.928
+    },
+    "per_clock_worst_paths": {
+      "sys_clk": {
+        "Setup": {
+          "slack_ns": 0.025,
+          "from": "u_midi_input/u_midi_event_parser/control_pending_28_s1/Q",
+          "to": "u_midi_input/u_midi_event_parser/control_pending_4_s1/CE"
+        },
+        "Hold": {
+          "slack_ns": 0.0,
+          "from": "u_midi_input/u_midi_event_parser/fifo_mem[2].control_id_0_s1/Q",
+          "to": "u_midi_input/u_midi_event_parser/fifo_mem[1].control_id_0_s1/D"
+        }
+      },
+      "video_pixel": {
+        "Setup": {
+          "slack_ns": 13.599,
+          "from": "u_visual/u_scene/u_score_tracker/current_frame_1_s0/Q",
+          "to": "u_visual/u_scene/u_score_tracker/hit_mem_3_s1/CE"
+        },
+        "Hold": {
+          "slack_ns": 0.275,
+          "from": "u_visual/u_scene/u_hit_flash/count_q[38]_1_s1/Q",
+          "to": "u_visual/u_scene/u_hit_flash/count_q[38]_1_s1/D"
+        }
+      },
+      "video_serial": {
+        "Setup": {
+          "slack_ns": 7.092,
+          "from": "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+          "to": "u_visual/u_serial_reset/sync_chain_1_s0/D"
+        },
+        "Hold": {
+          "slack_ns": 0.37,
+          "from": "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+          "to": "u_visual/u_serial_reset/sync_chain_1_s0/D"
+        }
+      }
+    },
+    "per_clock_TNS": {
+      "sys_clk": {
+        "Setup": {
+          "TNS_ns": 0.0,
+          "violated_endpoints": 0
+        },
+        "Hold": {
+          "TNS_ns": 0.0,
+          "violated_endpoints": 0
+        }
+      },
+      "video_pixel": {
+        "Setup": {
+          "TNS_ns": 0.0,
+          "violated_endpoints": 0
+        },
+        "Hold": {
+          "TNS_ns": 0.0,
+          "violated_endpoints": 0
+        }
+      },
+      "video_serial": {
+        "Setup": {
+          "TNS_ns": 0.0,
+          "violated_endpoints": 0
+        },
+        "Hold": {
+          "TNS_ns": 0.0,
+          "violated_endpoints": 0
+        }
+      }
+    },
+    "global_worst_paths": {
+      "Setup": {
+        "slack_ns": 0.025,
+        "from": "u_midi_input/u_midi_event_parser/control_pending_28_s1/Q",
+        "to": "u_midi_input/u_midi_event_parser/control_pending_4_s1/CE"
+      },
+      "Hold": {
+        "slack_ns": 0.0,
+        "from": "u_midi_input/u_midi_event_parser/fifo_mem[2].control_id_0_s1/Q",
+        "to": "u_midi_input/u_midi_event_parser/fifo_mem[1].control_id_0_s1/D"
+      }
+    },
+    "recovery_removal_worst_paths": {
+      "Recovery": {
+        "slack_ns": 0.873,
+        "from": "u_visual/u_serial_reset/sync_chain_1_s0/Q",
+        "to": "u_visual/u_video_tx/rgb2dvi_inst/u_OSER10_r/RESET"
+      },
+      "Removal": {
+        "slack_ns": 0.008,
+        "from": "u_visual/u_event_bridge/u_sys_reset/sync_chain_1_s0/Q",
+        "to": "u_visual/u_event_bridge/wr_ptr_0_s1/CLEAR"
+      }
+    },
+    "resources": {
+      "Logic": {
+        "used": 19531,
+        "available": 138240
+      },
+      "Register": {
+        "used": 8674,
+        "available": 139095
+      },
+      "DSP": {
+        "used": 46,
+        "available": 298
+      },
+      "BSRAM": {
+        "used": 20,
+        "available": 340
+      }
+    },
+    "metadata": {
+      "Tool Version": "V1.9.11.03 Education",
+      "Part Number": "GW5AST-LV138PG484AC1/I0",
+      "Device": "GW5AST-138",
+      "Device Version": "C",
+      "Created Time": "Mon Oct  5 15:39:48 2026"
+    },
+    "active_SDC": [
+      "create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]",
+      "create_generated_clock -name video_pixel -source [get_ports {sys_clk}] -master_clock sys_clk -multiply_by 1 -divide_by 2 [get_pins {u_visual/u_video_pll/PLLA_inst/CLKOUT1}]",
+      "create_generated_clock -name video_serial -source [get_ports {sys_clk}] -master_clock sys_clk -multiply_by 5 -divide_by 2 [get_pins {u_visual/u_video_pll/PLLA_inst/CLKOUT0}]",
+      "report_timing -hold -from [get_regs {u_visual/u_control/u_mode_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/ack_sync_s0}] -max_paths 1",
+      "report_timing -hold -from [get_regs {u_visual/u_control/u_mode_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/req_sync_s0}] -max_paths 1",
+      "report_timing -hold -from [get_regs {u_visual/u_control/u_score_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/ack_sync_s0}] -max_paths 1",
+      "report_timing -hold -from [get_regs {u_visual/u_control/u_score_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/req_sync_s0}] -max_paths 1",
+      "report_timing -hold -from [get_regs {u_visual/u_event_bridge/ack_meta_s0}] -to [get_regs {u_visual/u_event_bridge/ack_sync_s0}] -max_paths 1",
+      "report_timing -hold -from [get_regs {u_visual/u_event_bridge/desync_meta_s0}] -to [get_regs {u_visual/u_event_bridge/video_desync_s0}] -max_paths 1",
+      "report_timing -hold -from [get_regs {u_visual/u_event_bridge/req_meta_s0}] -to [get_regs {u_visual/u_event_bridge/req_sync_s0}] -max_paths 1",
+      "report_timing -hold -from_clock [get_clocks {sys_clk}] -to_clock [get_clocks {sys_clk}] -max_paths 10 -max_common_paths 1",
+      "report_timing -hold -from_clock [get_clocks {video_pixel}] -to_clock [get_clocks {video_pixel}] -max_paths 10 -max_common_paths 1",
+      "report_timing -hold -from_clock [get_clocks {video_serial}] -to_clock [get_clocks {video_serial}] -max_paths 10 -max_common_paths 1",
+      "report_timing -setup -from [get_regs {u_visual/u_control/u_mode_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/ack_sync_s0}] -max_paths 1",
+      "report_timing -setup -from [get_regs {u_visual/u_control/u_mode_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/req_sync_s0}] -max_paths 1",
+      "report_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/ack_sync_s0}] -max_paths 1",
+      "report_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/payload_hold*}] -to [get_regs {u_visual/u_control/u_score_mailbox/dst_data*}] -max_paths 128 -max_common_paths 1",
+      "report_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/req_sync_s0}] -max_paths 1",
+      "report_timing -setup -from [get_regs {u_visual/u_event_bridge/ack_meta_s0}] -to [get_regs {u_visual/u_event_bridge/ack_sync_s0}] -max_paths 1",
+      "report_timing -setup -from [get_regs {u_visual/u_event_bridge/desync_meta_s0}] -to [get_regs {u_visual/u_event_bridge/video_desync_s0}] -max_paths 1",
+      "report_timing -setup -from [get_regs {u_visual/u_event_bridge/payload_hold*}] -to [get_regs {u_visual/u_event_bridge/video_data*}] -max_paths 128 -max_common_paths 1",
+      "report_timing -setup -from [get_regs {u_visual/u_event_bridge/req_meta_s0}] -to [get_regs {u_visual/u_event_bridge/req_sync_s0}] -max_paths 1",
+      "report_timing -setup -from_clock [get_clocks {sys_clk}] -to_clock [get_clocks {sys_clk}] -max_paths 80 -max_common_paths 1",
+      "report_timing -setup -from_clock [get_clocks {video_pixel}] -to_clock [get_clocks {video_pixel}] -max_paths 80 -max_common_paths 1",
+      "report_timing -setup -from_clock [get_clocks {video_serial}] -to_clock [get_clocks {video_serial}] -max_paths 80 -max_common_paths 1",
+      "set_clock_uncertainty -hold 0.550 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]",
+      "set_clock_uncertainty -setup 1.000 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]",
+      "set_false_path -from [get_ports {sys_rst_n}]",
+      "set_false_path -to [get_pins {u_visual/u_control/u_mode_mailbox/ack_meta_s0/D}]",
+      "set_false_path -to [get_pins {u_visual/u_control/u_mode_mailbox/req_meta_s0/D}]",
+      "set_false_path -to [get_pins {u_visual/u_control/u_score_mailbox/ack_meta_s0/D}]",
+      "set_false_path -to [get_pins {u_visual/u_control/u_score_mailbox/req_meta_s0/D}]",
+      "set_false_path -to [get_pins {u_visual/u_event_bridge/ack_meta_s0/D}]",
+      "set_false_path -to [get_pins {u_visual/u_event_bridge/desync_meta_s0/D}]",
+      "set_false_path -to [get_pins {u_visual/u_event_bridge/req_meta_s0/D}]",
+      "set_max_delay -from [get_regs {u_visual/u_control/u_score_mailbox/payload_hold*}] -to [get_regs {u_visual/u_control/u_score_mailbox/dst_data*}] 10.000",
+      "set_max_delay -from [get_regs {u_visual/u_event_bridge/payload_hold*}] -to [get_regs {u_visual/u_event_bridge/video_data*}] 10.000",
+      "set_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_bclk}]",
+      "set_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_din}]",
+      "set_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_lrck}]",
+      "set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_bclk}]",
+      "set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_din}]",
+      "set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_lrck}]"
+    ],
+    "not_a_pin_CDC_IP_or_hardware_acceptance_gate": true,
+    "min_pulse_width_slack_ns": 1.825,
+    "CDC_second_stage_slacks": {
+      "u_visual/u_event_bridge/ack_meta->ack_sync:Setup": 16.749,
+      "u_visual/u_event_bridge/ack_meta->ack_sync:Hold": 0.445,
+      "u_visual/u_event_bridge/req_meta->req_sync:Setup": 39.114,
+      "u_visual/u_event_bridge/req_meta->req_sync:Hold": 0.335,
+      "u_visual/u_event_bridge/desync_meta->video_desync:Setup": 39.114,
+      "u_visual/u_event_bridge/desync_meta->video_desync:Hold": 0.335,
+      "u_visual/u_control/u_score_mailbox/ack_meta->ack_sync:Setup": 17.65,
+      "u_visual/u_control/u_score_mailbox/ack_meta->ack_sync:Hold": 0.022,
+      "u_visual/u_control/u_score_mailbox/req_meta->req_sync:Setup": 39.114,
+      "u_visual/u_control/u_score_mailbox/req_meta->req_sync:Hold": 0.335,
+      "u_visual/u_control/u_mode_mailbox/ack_meta->ack_sync:Setup": 17.103,
+      "u_visual/u_control/u_mode_mailbox/ack_meta->ack_sync:Hold": 0.281,
+      "u_visual/u_control/u_mode_mailbox/req_meta->req_sync:Setup": 39.092,
+      "u_visual/u_control/u_mode_mailbox/req_meta->req_sync:Hold": 0.37
+    },
+    "CDC_surviving_payload_path_counts": {
+      "u_visual/u_event_bridge": 23,
+      "u_visual/u_control/u_score_mailbox": 50
+    },
+    "pins": {
+      "sys_clk": {
+        "Port Name": "sys_clk",
+        "Diff Pair": "-",
+        "Loc./Bank": "V22/4",
+        "Constraint": "Y",
+        "Dir.": "in",
+        "Site": "IOB104[B]",
+        "CFG": "EMCCLK",
+        "IO Type": "LVCMOS33",
+        "Drive": "OFF",
+        "Pull Mode": "NONE",
+        "PCI Clamp": "OFF",
+        "Hysteresis": "ON",
+        "Open Drain": "OFF",
+        "Vref": "OFF",
+        "Single Resistor": "OFF",
+        "Diff Resistor": "OFF",
+        "BankVccio": "3.3",
+        "Pull Strength": "MEDIUM",
+        "Ctle": "NONE"
+      },
+      "sys_rst_n": {
+        "Port Name": "sys_rst_n",
+        "Diff Pair": "-",
+        "Loc./Bank": "AA13/5",
+        "Constraint": "Y",
+        "Dir.": "in",
+        "Site": "IOB89[A]",
+        "CFG": "-",
+        "IO Type": "LVCMOS33",
+        "Drive": "OFF",
+        "Pull Mode": "UP",
+        "PCI Clamp": "OFF",
+        "Hysteresis": "ON",
+        "Open Drain": "OFF",
+        "Vref": "OFF",
+        "Single Resistor": "OFF",
+        "Diff Resistor": "OFF",
+        "BankVccio": "3.3",
+        "Pull Strength": "MEDIUM",
+        "Ctle": "NONE"
+      },
+      "key_n[0]": {
+        "Port Name": "key_n[0]",
+        "Diff Pair": "-",
+        "Loc./Bank": "AB13/5",
+        "Constraint": "Y",
+        "Dir.": "in",
+        "Site": "IOB89[B]",
+        "CFG": "-",
+        "IO Type": "LVCMOS33",
+        "Drive": "OFF",
+        "Pull Mode": "UP",
+        "PCI Clamp": "OFF",
+        "Hysteresis": "ON",
+        "Open Drain": "OFF",
+        "Vref": "OFF",
+        "Single Resistor": "OFF",
+        "Diff Resistor": "OFF",
+        "BankVccio": "3.3",
+        "Pull Strength": "MEDIUM",
+        "Ctle": "NONE"
+      },
+      "key_n[1]": {
+        "Port Name": "key_n[1]",
+        "Diff Pair": "-",
+        "Loc./Bank": "Y12/5",
+        "Constraint": "Y",
+        "Dir.": "in",
+        "Site": "IOB60[B]",
+        "CFG": "SGCLKC_6/BPLL0_C_IN0/BPLL1_C_IN0",
+        "IO Type": "LVCMOS33",
+        "Drive": "OFF",
+        "Pull Mode": "UP",
+        "PCI Clamp": "OFF",
+        "Hysteresis": "ON",
+        "Open Drain": "OFF",
+        "Vref": "OFF",
+        "Single Resistor": "OFF",
+        "Diff Resistor": "OFF",
+        "BankVccio": "3.3",
+        "Pull Strength": "MEDIUM",
+        "Ctle": "NONE"
+      },
+      "midi_rx": {
+        "Port Name": "midi_rx",
+        "Diff Pair": "-",
+        "Loc./Bank": "R17/4",
+        "Constraint": "Y",
+        "Dir.": "in",
+        "Site": "IOB144[B]",
+        "CFG": "D16",
+        "IO Type": "LVCMOS33",
+        "Drive": "OFF",
+        "Pull Mode": "UP",
+        "PCI Clamp": "OFF",
+        "Hysteresis": "ON",
+        "Open Drain": "OFF",
+        "Vref": "OFF",
+        "Single Resistor": "OFF",
+        "Diff Resistor": "OFF",
+        "BankVccio": "3.3",
+        "Pull Strength": "MEDIUM",
+        "Ctle": "NONE"
+      },
+      "i2s_bclk": {
+        "Port Name": "i2s_bclk",
+        "Diff Pair": "-",
+        "Loc./Bank": "Y17/5",
+        "Constraint": "Y",
+        "Dir.": "out",
+        "Site": "IOB91[A]",
+        "CFG": "-",
+        "IO Type": "LVCMOS33",
+        "Drive": "8",
+        "Pull Mode": "NONE",
+        "PCI Clamp": "OFF",
+        "Hysteresis": "OFF",
+        "Open Drain": "OFF",
+        "Vref": "OFF",
+        "Single Resistor": "OFF",
+        "Diff Resistor": "OFF",
+        "BankVccio": "3.3",
+        "Pull Strength": "MEDIUM",
+        "Ctle": "NONE"
+      },
+      "i2s_lrck": {
+        "Port Name": "i2s_lrck",
+        "Diff Pair": "-",
+        "Loc./Bank": "AB17/5",
+        "Constraint": "Y",
+        "Dir.": "out",
+        "Site": "IOB80[B]",
+        "CFG": "-",
+        "IO Type": "LVCMOS33",
+        "Drive": "8",
+        "Pull Mode": "NONE",
+        "PCI Clamp": "OFF",
+        "Hysteresis": "OFF",
+        "Open Drain": "OFF",
+        "Vref": "OFF",
+        "Single Resistor": "OFF",
+        "Diff Resistor": "OFF",
+        "BankVccio": "3.3",
+        "Pull Strength": "MEDIUM",
+        "Ctle": "NONE"
+      },
+      "i2s_din": {
+        "Port Name": "i2s_din",
+        "Diff Pair": "-",
+        "Loc./Bank": "AA16/5",
+        "Constraint": "Y",
+        "Dir.": "out",
+        "Site": "IOB78[B]",
+        "CFG": "-",
+        "IO Type": "LVCMOS33",
+        "Drive": "8",
+        "Pull Mode": "NONE",
+        "PCI Clamp": "OFF",
+        "Hysteresis": "OFF",
+        "Open Drain": "OFF",
+        "Vref": "OFF",
+        "Single Resistor": "OFF",
+        "Diff Resistor": "OFF",
+        "BankVccio": "3.3",
+        "Pull Strength": "MEDIUM",
+        "Ctle": "NONE"
+      },
+      "pa_en": {
+        "Port Name": "pa_en",
+        "Diff Pair": "-",
+        "Loc./Bank": "AB16/5",
+        "Constraint": "Y",
+        "Dir.": "out",
+        "Site": "IOB80[A]",
+        "CFG": "-",
+        "IO Type": "LVCMOS33",
+        "Drive": "8",
+        "Pull Mode": "NONE",
+        "PCI Clamp": "OFF",
+        "Hysteresis": "OFF",
+        "Open Drain": "OFF",
+        "Vref": "OFF",
+        "Single Resistor": "OFF",
+        "Diff Resistor": "OFF",
+        "BankVccio": "3.3",
+        "Pull Strength": "MEDIUM",
+        "Ctle": "NONE"
+      },
+      "uart_tx": {
+        "Port Name": "uart_tx",
+        "Diff Pair": "-",
+        "Loc./Bank": "U15/5",
+        "Constraint": "Y",
+        "Dir.": "out",
+        "Site": "IOB68[A]",
+        "CFG": "SGCLKT_7/BPLL0_T_FB1/BPLL1_T_FB1",
+        "IO Type": "LVCMOS33",
+        "Drive": "8",
+        "Pull Mode": "UP",
+        "PCI Clamp": "OFF",
+        "Hysteresis": "OFF",
+        "Open Drain": "OFF",
+        "Vref": "OFF",
+        "Single Resistor": "OFF",
+        "Diff Resistor": "OFF",
+        "BankVccio": "3.3",
+        "Pull Strength": "MEDIUM",
+        "Ctle": "NONE"
+      },
+      "tmds_clk_p": {
+        "Port Name": "tmds_clk_p",
+        "Diff Pair": "tmds_clk_n",
+        "Loc./Bank": "G15,G16/3",
+        "Constraint": "Y",
+        "Dir.": "out",
+        "Site": "IOR105",
+        "CFG": "-",
+        "IO Type": "LVDS25",
+        "Drive": "3.5",
+        "Pull Mode": "NONE",
+        "PCI Clamp": "OFF",
+        "Hysteresis": "OFF",
+        "Open Drain": "NONE",
+        "Vref": "OFF",
+        "Single Resistor": "OFF",
+        "Diff Resistor": "OFF",
+        "BankVccio": "3.3",
+        "Pull Strength": "MEDIUM",
+        "Ctle": "NONE"
+      },
+      "tmds_data_p[0]": {
+        "Port Name": "tmds_data_p[0]",
+        "Diff Pair": "tmds_data_n[0]",
+        "Loc./Bank": "J14,H14/3",
+        "Constraint": "Y",
+        "Dir.": "out",
+        "Site": "IOR103",
+        "CFG": "-",
+        "IO Type": "LVDS25",
+        "Drive": "3.5",
+        "Pull Mode": "NONE",
+        "PCI Clamp": "OFF",
+        "Hysteresis": "OFF",
+        "Open Drain": "NONE",
+        "Vref": "OFF",
+        "Single Resistor": "OFF",
+        "Diff Resistor": "OFF",
+        "BankVccio": "3.3",
+        "Pull Strength": "MEDIUM",
+        "Ctle": "NONE"
+      },
+      "tmds_data_p[1]": {
+        "Port Name": "tmds_data_p[1]",
+        "Diff Pair": "tmds_data_n[1]",
+        "Loc./Bank": "J15,H15/3",
+        "Constraint": "Y",
+        "Dir.": "out",
+        "Site": "IOR101",
+        "CFG": "-",
+        "IO Type": "LVDS25",
+        "Drive": "3.5",
+        "Pull Mode": "NONE",
+        "PCI Clamp": "OFF",
+        "Hysteresis": "OFF",
+        "Open Drain": "NONE",
+        "Vref": "OFF",
+        "Single Resistor": "OFF",
+        "Diff Resistor": "OFF",
+        "BankVccio": "3.3",
+        "Pull Strength": "MEDIUM",
+        "Ctle": "NONE"
+      },
+      "tmds_data_p[2]": {
+        "Port Name": "tmds_data_p[2]",
+        "Diff Pair": "tmds_data_n[2]",
+        "Loc./Bank": "K17,J17/3",
+        "Constraint": "Y",
+        "Dir.": "out",
+        "Site": "IOR58",
+        "CFG": "-",
+        "IO Type": "LVDS25",
+        "Drive": "3.5",
+        "Pull Mode": "NONE",
+        "PCI Clamp": "OFF",
+        "Hysteresis": "OFF",
+        "Open Drain": "NONE",
+        "Vref": "OFF",
+        "Single Resistor": "OFF",
+        "Diff Resistor": "OFF",
+        "BankVccio": "3.3",
+        "Pull Strength": "MEDIUM",
+        "Ctle": "NONE"
+      }
+    },
+    "CDC_not_full_unoptimized_bus_coverage": true,
+    "normalized_PnR_options": [
+      "-bit",
+      "-tr",
+      "-ph",
+      "-timing",
+      "-cst_error",
+      "-convert_sdp32_36_to_sdp16_18",
+      "-place_option 0",
+      "-route_option 1",
+      "-clock_route_order 0",
+      "-correct_hold 1",
+      "-route_maxfan 23",
+      "-global_freq 100.000"
+    ],
+    "PnR_option_differences": {
+      "added": [],
+      "removed": [],
+      "explicit_allowed_architecture_only_extras": []
+    },
+    "device_cfg_matches_original": true,
+    "device_cfg_matches_allowed_profile": true,
+    "explicit_allowed_device_cfg_changes": [],
+    "offline_report_gate_passed": true,
+    "hardware_acceptance": false,
+    "engineering_margin_0p5ns_passed": false,
+    "serial_reset_fixed_location_readback": {
+      "u_visual/u_serial_reset/sync_chain_0_s0": {
+        "expected": "R44C168[1][A]",
+        "observed": [
+          "R44C168[1][A]"
+        ]
+      },
+      "u_visual/u_serial_reset/sync_chain_1_s0": {
+        "expected": "R44C168[1][B]",
+        "observed": [
+          "R44C168[1][B]"
+        ]
+      }
+    }
+  },
+  "results": [
+    {
+      "errors": [
+        "missing/nonzero violation count: Numbers of Hold Violated Endpoints",
+        "nonzero TNS/endpoints: sys_clk Hold"
+      ],
+      "summary": {
+        "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+        "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+        "Numbers of Paths Analyzed": "31572",
+        "Numbers of Endpoints Analyzed": "28412",
+        "Numbers of Falling Endpoints": "4",
+        "Numbers of Setup Violated Endpoints": "0",
+        "Numbers of Hold Violated Endpoints": "1"
+      },
+      "clocks": {
+        "sys_clk": {
+          "period_ns": 20.0,
+          "frequency_mhz": 50.0
+        },
+        "video_pixel": {
+          "period_ns": 40.0,
+          "frequency_mhz": 25.0
+        },
+        "video_serial": {
+          "period_ns": 8.0,
+          "frequency_mhz": 125.0
+        }
+      },
+      "fmax_mhz": {
+        "sys_clk": 50.017,
+        "video_pixel": 33.106,
+        "video_serial": 1279.999
+      },
+      "per_clock_worst_paths": {
+        "sys_clk": {
+          "Setup": {
+            "slack_ns": 0.007,
+            "from": "u_midi_input/u_midi_event_parser/round_robin_index_0_s0/Q",
+            "to": "u_midi_input/u_midi_event_parser/prepared_value2_10_s1/RESET"
+          },
+          "Hold": {
+            "slack_ns": -0.0,
+            "from": "g_polyphonic.u_audio_core/u_latency/max_processing_cycles_27_s0/Q",
+            "to": "u_uart_status_reporter/snapshot[6]_27_s0/D"
+          }
+        },
+        "video_pixel": {
+          "Setup": {
+            "slack_ns": 9.794,
+            "from": "u_visual/u_scene/u_score_tracker/duration_frames_mem[4]_4_s3/Q",
+            "to": "u_visual/dvi_b_5_s0/D"
+          },
+          "Hold": {
+            "slack_ns": 0.275,
+            "from": "u_visual/u_scene/u_hit_flash/count_q[21]_1_s1/Q",
+            "to": "u_visual/u_scene/u_hit_flash/count_q[21]_1_s1/D"
+          }
+        },
+        "video_serial": {
+          "Setup": {
+            "slack_ns": 7.219,
+            "from": "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+            "to": "u_visual/u_serial_reset/sync_chain_1_s0/D"
+          },
+          "Hold": {
+            "slack_ns": 0.275,
+            "from": "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+            "to": "u_visual/u_serial_reset/sync_chain_1_s0/D"
+          }
+        }
+      },
+      "per_clock_TNS": {
+        "sys_clk": {
+          "Setup": {
+            "TNS_ns": 0.0,
+            "violated_endpoints": 0
+          },
+          "Hold": {
+            "TNS_ns": -0.0,
+            "violated_endpoints": 1
+          }
+        },
+        "video_pixel": {
+          "Setup": {
+            "TNS_ns": 0.0,
+            "violated_endpoints": 0
+          },
+          "Hold": {
+            "TNS_ns": 0.0,
+            "violated_endpoints": 0
+          }
+        },
+        "video_serial": {
+          "Setup": {
+            "TNS_ns": 0.0,
+            "violated_endpoints": 0
+          },
+          "Hold": {
+            "TNS_ns": 0.0,
+            "violated_endpoints": 0
+          }
+        }
+      },
+      "global_worst_paths": {
+        "Setup": {
+          "slack_ns": 0.007,
+          "from": "u_midi_input/u_midi_event_parser/round_robin_index_0_s0/Q",
+          "to": "u_midi_input/u_midi_event_parser/prepared_value2_10_s1/RESET"
+        },
+        "Hold": {
+          "slack_ns": -0.0,
+          "from": "g_polyphonic.u_audio_core/u_latency/max_processing_cycles_27_s0/Q",
+          "to": "u_uart_status_reporter/snapshot[6]_27_s0/D"
+        }
+      },
+      "recovery_removal_worst_paths": {
+        "Recovery": {
+          "slack_ns": 1.091,
+          "from": "u_visual/u_serial_reset/sync_chain_1_s0/Q",
+          "to": "u_visual/u_video_tx/rgb2dvi_inst/u_OSER10_clk/RESET"
+        },
+        "Removal": {
+          "slack_ns": 0.005,
+          "from": "u_visual/u_event_bridge/u_sys_reset/sync_chain_1_s0/Q",
+          "to": "u_visual/u_control/u_score_mailbox/payload_hold_51_s0/CLEAR"
+        }
+      },
+      "resources": {
+        "Logic": {
+          "used": 19732,
+          "available": 138240
+        },
+        "Register": {
+          "used": 8757,
+          "available": 139095
+        },
+        "DSP": {
+          "used": 46,
+          "available": 298
+        },
+        "BSRAM": {
+          "used": 20,
+          "available": 340
+        }
+      },
+      "metadata": {
+        "Tool Version": "V1.9.11.03 Education",
+        "Part Number": "GW5AST-LV138PG484AC1/I0",
+        "Device": "GW5AST-138",
+        "Device Version": "C",
+        "Created Time": "Mon Oct  5 16:43:32 2026"
+      },
+      "active_SDC": [
+        "create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]",
+        "create_generated_clock -name video_pixel -source [get_ports {sys_clk}] -master_clock sys_clk -multiply_by 1 -divide_by 2 [get_pins {u_visual/u_video_pll/PLLA_inst/CLKOUT1}]",
+        "create_generated_clock -name video_serial -source [get_ports {sys_clk}] -master_clock sys_clk -multiply_by 5 -divide_by 2 [get_pins {u_visual/u_video_pll/PLLA_inst/CLKOUT0}]",
+        "report_timing -hold -from [get_regs {u_visual/u_control/u_mode_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/ack_sync_s0}] -max_paths 1",
+        "report_timing -hold -from [get_regs {u_visual/u_control/u_mode_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/req_sync_s0}] -max_paths 1",
+        "report_timing -hold -from [get_regs {u_visual/u_control/u_score_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/ack_sync_s0}] -max_paths 1",
+        "report_timing -hold -from [get_regs {u_visual/u_control/u_score_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/req_sync_s0}] -max_paths 1",
+        "report_timing -hold -from [get_regs {u_visual/u_event_bridge/ack_meta_s0}] -to [get_regs {u_visual/u_event_bridge/ack_sync_s0}] -max_paths 1",
+        "report_timing -hold -from [get_regs {u_visual/u_event_bridge/desync_meta_s0}] -to [get_regs {u_visual/u_event_bridge/video_desync_s0}] -max_paths 1",
+        "report_timing -hold -from [get_regs {u_visual/u_event_bridge/req_meta_s0}] -to [get_regs {u_visual/u_event_bridge/req_sync_s0}] -max_paths 1",
+        "report_timing -hold -from_clock [get_clocks {sys_clk}] -to_clock [get_clocks {sys_clk}] -max_paths 10 -max_common_paths 1",
+        "report_timing -hold -from_clock [get_clocks {video_pixel}] -to_clock [get_clocks {video_pixel}] -max_paths 10 -max_common_paths 1",
+        "report_timing -hold -from_clock [get_clocks {video_serial}] -to_clock [get_clocks {video_serial}] -max_paths 10 -max_common_paths 1",
+        "report_timing -setup -from [get_regs {u_visual/u_control/u_mode_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/ack_sync_s0}] -max_paths 1",
+        "report_timing -setup -from [get_regs {u_visual/u_control/u_mode_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/req_sync_s0}] -max_paths 1",
+        "report_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/ack_sync_s0}] -max_paths 1",
+        "report_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/payload_hold*}] -to [get_regs {u_visual/u_control/u_score_mailbox/dst_data*}] -max_paths 128 -max_common_paths 1",
+        "report_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/req_sync_s0}] -max_paths 1",
+        "report_timing -setup -from [get_regs {u_visual/u_event_bridge/ack_meta_s0}] -to [get_regs {u_visual/u_event_bridge/ack_sync_s0}] -max_paths 1",
+        "report_timing -setup -from [get_regs {u_visual/u_event_bridge/desync_meta_s0}] -to [get_regs {u_visual/u_event_bridge/video_desync_s0}] -max_paths 1",
+        "report_timing -setup -from [get_regs {u_visual/u_event_bridge/payload_hold*}] -to [get_regs {u_visual/u_event_bridge/video_data*}] -max_paths 128 -max_common_paths 1",
+        "report_timing -setup -from [get_regs {u_visual/u_event_bridge/req_meta_s0}] -to [get_regs {u_visual/u_event_bridge/req_sync_s0}] -max_paths 1",
+        "report_timing -setup -from_clock [get_clocks {sys_clk}] -to_clock [get_clocks {sys_clk}] -max_paths 80 -max_common_paths 1",
+        "report_timing -setup -from_clock [get_clocks {video_pixel}] -to_clock [get_clocks {video_pixel}] -max_paths 80 -max_common_paths 1",
+        "report_timing -setup -from_clock [get_clocks {video_serial}] -to_clock [get_clocks {video_serial}] -max_paths 80 -max_common_paths 1",
+        "set_clock_uncertainty -hold 0.550 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]",
+        "set_clock_uncertainty -setup 1.000 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]",
+        "set_false_path -from [get_ports {sys_rst_n}]",
+        "set_false_path -to [get_pins {u_visual/u_control/u_mode_mailbox/ack_meta_s0/D}]",
+        "set_false_path -to [get_pins {u_visual/u_control/u_mode_mailbox/req_meta_s0/D}]",
+        "set_false_path -to [get_pins {u_visual/u_control/u_score_mailbox/ack_meta_s0/D}]",
+        "set_false_path -to [get_pins {u_visual/u_control/u_score_mailbox/req_meta_s0/D}]",
+        "set_false_path -to [get_pins {u_visual/u_event_bridge/ack_meta_s0/D}]",
+        "set_false_path -to [get_pins {u_visual/u_event_bridge/desync_meta_s0/D}]",
+        "set_false_path -to [get_pins {u_visual/u_event_bridge/req_meta_s0/D}]",
+        "set_max_delay -from [get_regs {u_visual/u_control/u_score_mailbox/payload_hold*}] -to [get_regs {u_visual/u_control/u_score_mailbox/dst_data*}] 10.000",
+        "set_max_delay -from [get_regs {u_visual/u_event_bridge/payload_hold*}] -to [get_regs {u_visual/u_event_bridge/video_data*}] 10.000",
+        "set_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_bclk}]",
+        "set_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_din}]",
+        "set_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_lrck}]",
+        "set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_bclk}]",
+        "set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_din}]",
+        "set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_lrck}]"
+      ],
+      "not_a_pin_CDC_IP_or_hardware_acceptance_gate": true,
+      "min_pulse_width_slack_ns": 1.825,
+      "CDC_second_stage_slacks": {
+        "u_visual/u_event_bridge/ack_meta->ack_sync:Setup": 17.305,
+        "u_visual/u_event_bridge/ack_meta->ack_sync:Hold": 0.196,
+        "u_visual/u_event_bridge/req_meta->req_sync:Setup": 39.092,
+        "u_visual/u_event_bridge/req_meta->req_sync:Hold": 0.37,
+        "u_visual/u_event_bridge/desync_meta->video_desync:Setup": 38.797,
+        "u_visual/u_event_bridge/desync_meta->video_desync:Hold": 0.525,
+        "u_visual/u_control/u_score_mailbox/ack_meta->ack_sync:Setup": 16.635,
+        "u_visual/u_control/u_score_mailbox/ack_meta->ack_sync:Hold": 0.481,
+        "u_visual/u_control/u_score_mailbox/req_meta->req_sync:Setup": 39.114,
+        "u_visual/u_control/u_score_mailbox/req_meta->req_sync:Hold": 0.335,
+        "u_visual/u_control/u_mode_mailbox/ack_meta->ack_sync:Setup": 17.305,
+        "u_visual/u_control/u_mode_mailbox/ack_meta->ack_sync:Hold": 0.196,
+        "u_visual/u_control/u_mode_mailbox/req_meta->req_sync:Setup": 39.114,
+        "u_visual/u_control/u_mode_mailbox/req_meta->req_sync:Hold": 0.335
+      },
+      "CDC_surviving_payload_path_counts": {
+        "u_visual/u_event_bridge": 23,
+        "u_visual/u_control/u_score_mailbox": 50
+      },
+      "pins": {
+        "sys_clk": {
+          "Port Name": "sys_clk",
+          "Diff Pair": "-",
+          "Loc./Bank": "V22/4",
+          "Constraint": "Y",
+          "Dir.": "in",
+          "Site": "IOB104[B]",
+          "CFG": "EMCCLK",
+          "IO Type": "LVCMOS33",
+          "Drive": "OFF",
+          "Pull Mode": "NONE",
+          "PCI Clamp": "OFF",
+          "Hysteresis": "ON",
+          "Open Drain": "OFF",
+          "Vref": "OFF",
+          "Single Resistor": "OFF",
+          "Diff Resistor": "OFF",
+          "BankVccio": "3.3",
+          "Pull Strength": "MEDIUM",
+          "Ctle": "NONE"
+        },
+        "sys_rst_n": {
+          "Port Name": "sys_rst_n",
+          "Diff Pair": "-",
+          "Loc./Bank": "AA13/5",
+          "Constraint": "Y",
+          "Dir.": "in",
+          "Site": "IOB89[A]",
+          "CFG": "-",
+          "IO Type": "LVCMOS33",
+          "Drive": "OFF",
+          "Pull Mode": "UP",
+          "PCI Clamp": "OFF",
+          "Hysteresis": "ON",
+          "Open Drain": "OFF",
+          "Vref": "OFF",
+          "Single Resistor": "OFF",
+          "Diff Resistor": "OFF",
+          "BankVccio": "3.3",
+          "Pull Strength": "MEDIUM",
+          "Ctle": "NONE"
+        },
+        "key_n[0]": {
+          "Port Name": "key_n[0]",
+          "Diff Pair": "-",
+          "Loc./Bank": "AB13/5",
+          "Constraint": "Y",
+          "Dir.": "in",
+          "Site": "IOB89[B]",
+          "CFG": "-",
+          "IO Type": "LVCMOS33",
+          "Drive": "OFF",
+          "Pull Mode": "UP",
+          "PCI Clamp": "OFF",
+          "Hysteresis": "ON",
+          "Open Drain": "OFF",
+          "Vref": "OFF",
+          "Single Resistor": "OFF",
+          "Diff Resistor": "OFF",
+          "BankVccio": "3.3",
+          "Pull Strength": "MEDIUM",
+          "Ctle": "NONE"
+        },
+        "key_n[1]": {
+          "Port Name": "key_n[1]",
+          "Diff Pair": "-",
+          "Loc./Bank": "Y12/5",
+          "Constraint": "Y",
+          "Dir.": "in",
+          "Site": "IOB60[B]",
+          "CFG": "SGCLKC_6/BPLL0_C_IN0/BPLL1_C_IN0",
+          "IO Type": "LVCMOS33",
+          "Drive": "OFF",
+          "Pull Mode": "UP",
+          "PCI Clamp": "OFF",
+          "Hysteresis": "ON",
+          "Open Drain": "OFF",
+          "Vref": "OFF",
+          "Single Resistor": "OFF",
+          "Diff Resistor": "OFF",
+          "BankVccio": "3.3",
+          "Pull Strength": "MEDIUM",
+          "Ctle": "NONE"
+        },
+        "midi_rx": {
+          "Port Name": "midi_rx",
+          "Diff Pair": "-",
+          "Loc./Bank": "R17/4",
+          "Constraint": "Y",
+          "Dir.": "in",
+          "Site": "IOB144[B]",
+          "CFG": "D16",
+          "IO Type": "LVCMOS33",
+          "Drive": "OFF",
+          "Pull Mode": "UP",
+          "PCI Clamp": "OFF",
+          "Hysteresis": "ON",
+          "Open Drain": "OFF",
+          "Vref": "OFF",
+          "Single Resistor": "OFF",
+          "Diff Resistor": "OFF",
+          "BankVccio": "3.3",
+          "Pull Strength": "MEDIUM",
+          "Ctle": "NONE"
+        },
+        "i2s_bclk": {
+          "Port Name": "i2s_bclk",
+          "Diff Pair": "-",
+          "Loc./Bank": "Y17/5",
+          "Constraint": "Y",
+          "Dir.": "out",
+          "Site": "IOB91[A]",
+          "CFG": "-",
+          "IO Type": "LVCMOS33",
+          "Drive": "8",
+          "Pull Mode": "NONE",
+          "PCI Clamp": "OFF",
+          "Hysteresis": "OFF",
+          "Open Drain": "OFF",
+          "Vref": "OFF",
+          "Single Resistor": "OFF",
+          "Diff Resistor": "OFF",
+          "BankVccio": "3.3",
+          "Pull Strength": "MEDIUM",
+          "Ctle": "NONE"
+        },
+        "i2s_lrck": {
+          "Port Name": "i2s_lrck",
+          "Diff Pair": "-",
+          "Loc./Bank": "AB17/5",
+          "Constraint": "Y",
+          "Dir.": "out",
+          "Site": "IOB80[B]",
+          "CFG": "-",
+          "IO Type": "LVCMOS33",
+          "Drive": "8",
+          "Pull Mode": "NONE",
+          "PCI Clamp": "OFF",
+          "Hysteresis": "OFF",
+          "Open Drain": "OFF",
+          "Vref": "OFF",
+          "Single Resistor": "OFF",
+          "Diff Resistor": "OFF",
+          "BankVccio": "3.3",
+          "Pull Strength": "MEDIUM",
+          "Ctle": "NONE"
+        },
+        "i2s_din": {
+          "Port Name": "i2s_din",
+          "Diff Pair": "-",
+          "Loc./Bank": "AA16/5",
+          "Constraint": "Y",
+          "Dir.": "out",
+          "Site": "IOB78[B]",
+          "CFG": "-",
+          "IO Type": "LVCMOS33",
+          "Drive": "8",
+          "Pull Mode": "NONE",
+          "PCI Clamp": "OFF",
+          "Hysteresis": "OFF",
+          "Open Drain": "OFF",
+          "Vref": "OFF",
+          "Single Resistor": "OFF",
+          "Diff Resistor": "OFF",
+          "BankVccio": "3.3",
+          "Pull Strength": "MEDIUM",
+          "Ctle": "NONE"
+        },
+        "pa_en": {
+          "Port Name": "pa_en",
+          "Diff Pair": "-",
+          "Loc./Bank": "AB16/5",
+          "Constraint": "Y",
+          "Dir.": "out",
+          "Site": "IOB80[A]",
+          "CFG": "-",
+          "IO Type": "LVCMOS33",
+          "Drive": "8",
+          "Pull Mode": "NONE",
+          "PCI Clamp": "OFF",
+          "Hysteresis": "OFF",
+          "Open Drain": "OFF",
+          "Vref": "OFF",
+          "Single Resistor": "OFF",
+          "Diff Resistor": "OFF",
+          "BankVccio": "3.3",
+          "Pull Strength": "MEDIUM",
+          "Ctle": "NONE"
+        },
+        "uart_tx": {
+          "Port Name": "uart_tx",
+          "Diff Pair": "-",
+          "Loc./Bank": "U15/5",
+          "Constraint": "Y",
+          "Dir.": "out",
+          "Site": "IOB68[A]",
+          "CFG": "SGCLKT_7/BPLL0_T_FB1/BPLL1_T_FB1",
+          "IO Type": "LVCMOS33",
+          "Drive": "8",
+          "Pull Mode": "UP",
+          "PCI Clamp": "OFF",
+          "Hysteresis": "OFF",
+          "Open Drain": "OFF",
+          "Vref": "OFF",
+          "Single Resistor": "OFF",
+          "Diff Resistor": "OFF",
+          "BankVccio": "3.3",
+          "Pull Strength": "MEDIUM",
+          "Ctle": "NONE"
+        },
+        "tmds_clk_p": {
+          "Port Name": "tmds_clk_p",
+          "Diff Pair": "tmds_clk_n",
+          "Loc./Bank": "G15,G16/3",
+          "Constraint": "Y",
+          "Dir.": "out",
+          "Site": "IOR105",
+          "CFG": "-",
+          "IO Type": "LVDS25",
+          "Drive": "3.5",
+          "Pull Mode": "NONE",
+          "PCI Clamp": "OFF",
+          "Hysteresis": "OFF",
+          "Open Drain": "NONE",
+          "Vref": "OFF",
+          "Single Resistor": "OFF",
+          "Diff Resistor": "OFF",
+          "BankVccio": "3.3",
+          "Pull Strength": "MEDIUM",
+          "Ctle": "NONE"
+        },
+        "tmds_data_p[0]": {
+          "Port Name": "tmds_data_p[0]",
+          "Diff Pair": "tmds_data_n[0]",
+          "Loc./Bank": "J14,H14/3",
+          "Constraint": "Y",
+          "Dir.": "out",
+          "Site": "IOR103",
+          "CFG": "-",
+          "IO Type": "LVDS25",
+          "Drive": "3.5",
+          "Pull Mode": "NONE",
+          "PCI Clamp": "OFF",
+          "Hysteresis": "OFF",
+          "Open Drain": "NONE",
+          "Vref": "OFF",
+          "Single Resistor": "OFF",
+          "Diff Resistor": "OFF",
+          "BankVccio": "3.3",
+          "Pull Strength": "MEDIUM",
+          "Ctle": "NONE"
+        },
+        "tmds_data_p[1]": {
+          "Port Name": "tmds_data_p[1]",
+          "Diff Pair": "tmds_data_n[1]",
+          "Loc./Bank": "J15,H15/3",
+          "Constraint": "Y",
+          "Dir.": "out",
+          "Site": "IOR101",
+          "CFG": "-",
+          "IO Type": "LVDS25",
+          "Drive": "3.5",
+          "Pull Mode": "NONE",
+          "PCI Clamp": "OFF",
+          "Hysteresis": "OFF",
+          "Open Drain": "NONE",
+          "Vref": "OFF",
+          "Single Resistor": "OFF",
+          "Diff Resistor": "OFF",
+          "BankVccio": "3.3",
+          "Pull Strength": "MEDIUM",
+          "Ctle": "NONE"
+        },
+        "tmds_data_p[2]": {
+          "Port Name": "tmds_data_p[2]",
+          "Diff Pair": "tmds_data_n[2]",
+          "Loc./Bank": "K17,J17/3",
+          "Constraint": "Y",
+          "Dir.": "out",
+          "Site": "IOR58",
+          "CFG": "-",
+          "IO Type": "LVDS25",
+          "Drive": "3.5",
+          "Pull Mode": "NONE",
+          "PCI Clamp": "OFF",
+          "Hysteresis": "OFF",
+          "Open Drain": "NONE",
+          "Vref": "OFF",
+          "Single Resistor": "OFF",
+          "Diff Resistor": "OFF",
+          "BankVccio": "3.3",
+          "Pull Strength": "MEDIUM",
+          "Ctle": "NONE"
+        }
+      },
+      "CDC_not_full_unoptimized_bus_coverage": true,
+      "normalized_PnR_options": [
+        "-bit",
+        "-tr",
+        "-ph",
+        "-timing",
+        "-cst_error",
+        "-convert_sdp32_36_to_sdp16_18",
+        "-place_option 0",
+        "-route_option 1",
+        "-clock_route_order 0",
+        "-correct_hold 1",
+        "-route_maxfan 23",
+        "-global_freq 100.000"
+      ],
+      "PnR_option_differences": {
+        "added": [],
+        "removed": [],
+        "explicit_allowed_architecture_only_extras": []
+      },
+      "device_cfg_matches_original": true,
+      "device_cfg_matches_allowed_profile": true,
+      "explicit_allowed_device_cfg_changes": [],
+      "offline_report_gate_passed": false,
+      "hardware_acceptance": false,
+      "engineering_margin_0p5ns_passed": false,
+      "serial_reset_fixed_location_readback": {
+        "u_visual/u_serial_reset/sync_chain_0_s0": {
+          "expected": "R44C168[1][A]",
+          "observed": [
+            "R44C168[1][A]"
+          ]
+        },
+        "u_visual/u_serial_reset/sync_chain_1_s0": {
+          "expected": "R44C168[1][B]",
+          "observed": [
+            "R44C168[1][B]"
+          ]
+        }
+      },
+      "label": "C_payload_buffer",
+      "receipt": {
+        "started": "2026-10-05T16:39:23.771175+08:00",
+        "command": [
+          "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\gowin_1_9_11_03\\IDE\\bin\\gw_sh.exe",
+          "run.tcl"
+        ],
+        "cwd": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer",
+        "state": "finished",
+        "timeout_s": 1800,
+        "programmed": false,
+        "pid": 108860,
+        "finished": "2026-10-05T16:43:33.987840+08:00",
+        "exit_code": 0,
+        "build_log_SHA256": "0dff78203527860bb6112156411a61e49b7df29420b8625d9e4c517bdbdbc706"
+      },
+      "functional_passed": true,
+      "programmed": false,
+      "formal_repo_written": false,
+      "artifact_SHA256": {
+        "impl/pnr/audio_visual_coexistence_top.pin.html": "4bfdc1de6491b927aad08efaaa4f9df051c2a25138008aa448d7ba75d56fe49c",
+        "impl/pnr/audio_visual_coexistence_top.power.html": "fa2e7bfa1f9c4b6a0600a3936b646c199a05230c0a04deeb2ed9fee50e255dde",
+        "impl/pnr/audio_visual_coexistence_top.rpt.html": "b555a642c250420a3fee064d2fd1fe46942255bed7304c69b2f09100fe319e14",
+        "impl/pnr/audio_visual_coexistence_top.tr.html": "aa2b1a06377a0905cdf8f814301f0f667f73f1a26dddff70742f0b879b46c407",
+        "impl/pnr/audio_visual_coexistence_top_tr_cata.html": "dddc75bdde57804efdca6801e02d320ed5d3cf04429ce7cc768b1862223f51ef",
+        "impl/pnr/audio_visual_coexistence_top_tr_content.html": "c3b29cb171982794842425f3d56b61f513038387ca2b88f6590b42d20b3698d3",
+        "impl/pnr/cmd.do": "d410f95953da4022001020f5023886f7e1382c3e304cd92900485ff0521d8779",
+        "impl/pnr/device.cfg": "79ba1b7ed107b7e76bd3e27dbc482c595c63451857ae30252a0207364397112c",
+        "impl/pnr/audio_visual_coexistence_top.rpt.txt": "bfabe5f0a9eacf983da85186c6c9c45d246caece05d627ad06342888b9de7f68",
+        "build.log": "0dff78203527860bb6112156411a61e49b7df29420b8625d9e4c517bdbdbc706"
+      }
+    }
+  ],
+  "pending": [
+    {
+      "label": "D_rotation_pipeline",
+      "state": "running"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+4 Gowin Software Usage 
+ 4.3 Edit a Project 
+ 
+SUG100-4.4.2E 
+33(145) 
+ 
+Place & Route 
+Place & Route includes General, Voltage, Place, Route, Unused Pin 
+and Dual-purpose Pin, and the detailed descriptions are shown in Table 
+4-1. 
+Table 4-1 PnR Configuration Options 
+Option 
+Description 
+General 
+Set PnR parameters 
+Voltage 
+Set the voltage VCCX 
+Place 
+Set placement parameters 
+Route 
+Set route parameters 
+Unused Pin  
+Used to set different IO atrributes for unused GPIOs 
+Dual-Purpose Pin 
+Used to configure the I/O corresponding to the package in 
+the selected device, mainly for configuring dual-purpose 
+pins. 
+ 
+Reset all to default: Reset all configurations on the page to the default 
+values.  
+General 
+The General configuration is as shown in Figure 4-21. 
+Figure 4-21 Place & Route Configuration 
+ 
+ 
+The descriptions of options in Figure 4-21 are as follows. 
+ Generate SDF File: Generate a standard delay format file with the 
+extension .sdf for netlist timing simulation after PnR, and the default 
+value is False. For the usage, see chapter 7 Simulation Files. 
+ Generate IBIS File: Generate the file specified by the input/output 
+buffer information, with the extension .ibs, and the default is False. 

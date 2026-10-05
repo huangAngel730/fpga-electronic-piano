@@ -1,0 +1,48 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+97(145) 
+ 
+Example 
+saveto project.tcl 
+saveto -all_options project.tcl 
+saveto -all_options D:/gowin_project/project.tcl 
+saveto -all_options D:\\gowin_project\\project.tcl 
+8.3.15 set_device 
+Sets device part number. 
+Syntax 
+set_device [-device_version <value>] [-h/--help ] <part number> 
+Usage 
+Name 
+Description  
+[-device_version <value>] 
+Sets device version 
+[-h/--help] 
+Displays help information 
+<part number> 
+Sets device part number 
+Type 
+Project 
+Description  
+Sets device part number. 
+Parameter 
+ <part number>: Specifies the part number of the target device, such as 
+GW1N-UV4LQ144C6/I5. 
+ [-device_version <value>]: Specifies the device version. Supported 
+values are NA|B|C|D. 
+ [-h/--help]: Displays help information. 
+Example 
+set_device GW1N-LV1CS30C6/I5 
+set_device –device_version C GW1N-UV4LQ144C6/I5 
+8.3.16 set_file_enable 
+Sets file enable properties. 
+Syntax 
+set_file_enable <file> <true|false> [-h/--help]  
+Usage 
+Name 
+Description  
+<file> 
+Specifies the design file to be set 
+<true|false> 
+Whether the file can be used or not 

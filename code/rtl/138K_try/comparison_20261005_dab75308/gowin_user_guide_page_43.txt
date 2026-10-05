@@ -1,0 +1,34 @@
+4 Gowin Software Usage 
+ 4.3 Edit a Project 
+ 
+SUG100-4.4.2E 
+32(145) 
+ 
+Figure 4-20 GowinSynthesis Configuration Options 
+ 
+ 
+The detailed descriptions are shown below. 
+ Top Module/Entity: Specify top module/entity. 
+ Include Path: Specify include path. 
+ TclPre: Management file that specifies the software version; when 
+synthesizing, it automatically changes the version number and date, so 
+the running design version can be easily found. 
+ Verilog Language: System Verilog 2017, Verilog 2001 and Verilog 95, 
+and the default is Verilog 2001. This option is displayed on the interface 
+only when a design file in VHDL format is detected in the current 
+project. 
+ VHDL Language: VHDL 1993, VHDL 2008, and VHDL 2019; and the 
+default is VHDL1993. The option is displayed in the interface only when 
+VHDL format design files are detected in the current project. 
+ Looplimit: Set the loop limit value of the default editor in RTL, and the 
+default Value is 2000. 
+ Show All Warnings: All warnings will be printed during synthesis if this 
+option is checked, which is not checked by default. 
+ Disable Insert Pad: Whether to insert I/O buffer to the post-synthesis 
+netlist, not checked by default. 
+ Ram R/W Check: If there is a read or write conflict in RAM, check this 
+option and bypass logic will be inserted around RAM to prevent 
+simulation mismatches. If this option is disabled, bypass logic will not 
+be generated, unchecked by default. 
+Note! 
+For the details, see SUG550, GowinSynthesis User Guide.  

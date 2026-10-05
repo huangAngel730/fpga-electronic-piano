@@ -1,0 +1,47 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+95(145) 
+ 
+8.3.11 rm_file 
+Removes design files. 
+Syntax 
+rm_file [-h/--help ] <files> 
+Usage 
+Name 
+Description  
+<-files> 
+Design files to be removed 
+[-h/--help] 
+Displays help information 
+Type 
+Project 
+Description  
+Removes design files; and for the file path format, see 8.3.1 add_file. 
+Parameter 
+ <-files> Specifies the design files to be removed. Multiple files can be 
+specified, separated by spaces. 
+ [-h/--help]: Displays help information. 
+Example 
+rm_file a.v 
+rm_file a.v b.v c.v 
+rm_file D:/gowin_project/top.v 
+rm_file D:\\gowin_project\\top.v 
+8.3.12 run 
+Runs flows. 
+Syntax 
+run [-h/--help] <syn/pnr/all> 
+Usage 
+Name 
+Description  
+<syn/pnr/all> 
+Specifies the name of the flow to be run 
+[-h/--help] 
+Displays help information 
+Type 
+Project 
+Description  
+Runs a specified flow or all flows. 
+Parameter 
+ <syn/pnr/all>: Specifies the name of the flow to be run. The available 

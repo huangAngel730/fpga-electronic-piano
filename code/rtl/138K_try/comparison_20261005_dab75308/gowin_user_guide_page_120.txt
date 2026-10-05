@@ -1,0 +1,47 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+109(145) 
+ 
+Syntax 
+-gen_verilog_sim_netlist <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Do not generate *.vo file. 
+1: Generates *.vo file. 
+Type 
+Project 
+Description  
+Specifies whether Place & Route generates a Verilog timing simulation 
+model file named *.vo, and the default is 0. 
+Parameter 
+<0|1>: Generates enable control for the Verilog timing simulation model 
+file. 
+Example 
+set_option -gen_verilog_sim_netlist 1 
+-gen_vhdl_sim_netlist   
+Generates VHDL timing simulation model file or not. 
+Syntax 
+-gen_vhdl_sim_netlist <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Do not generate *.vho file. 
+1: Generates *.vho file. 
+Type 
+Project 
+Description  
+Specifies whether Place & Route generates a VHDL timing simulation 
+model file named *.vho, and the default is 0. 
+Parameter 
+<0|1>: Generates enable control for the VHDL timing simulation model 
+file. 
+Example 
+set_option -gen_vhdl_sim_netlist 1 
+-show_init_in_vo  
+Adds default initial values to the instances in the timing simulation 
+model file. 

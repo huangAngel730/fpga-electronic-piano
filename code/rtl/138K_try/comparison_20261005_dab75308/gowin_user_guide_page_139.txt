@@ -1,0 +1,48 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+128(145) 
+ 
+Name 
+Description  
+<0|1> 
+auto: Automatically enables the SEU handler after the chip 
+wakes up. 
+userlogic: Uses logic to enable or stop the SEU handler. 
+Type 
+Project 
+Description  
+Selects the mode for booting or stopping the SEU Handler, and the 
+default is auto. 
+Parameter 
+< auto|userlogic>: The mode for booting or stopping the SEU Handler. 
+Example 
+set_option -seu_handler_mode userlogic 
+-seu_handler_checksum   
+Enables SEU processing, checking, calculation, and comparison. 
+Syntax 
+-seu_handler_checksum <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Disables SEU processing, checking, calculation, and 
+comparison. 
+1: Enables SEU processing, checking, calculation, and 
+comparison. 
+Type 
+Project 
+Description  
+Enables SEU processing, checking, calculation, and comparison, and 
+the default is 0. 
+Parameter 
+<0|1>: Enables control for SEU processing, checking, calculation, and 
+comparison. 
+Example 
+set_option -seu_handler_checksum 1 
+-error_detection   
+Enables error detection only. 
+Syntax 
+-error_detection <0|1> 
+Usage 

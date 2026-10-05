@@ -1,0 +1,47 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+136(145) 
+ 
+Usage 
+Name 
+Description  
+< single|fast|dual|quad > 
+single: Usagesingle mode 
+fast: Usagefast mode 
+dual: Usagedual mode 
+quad: Usagequad mode 
+Type 
+Project 
+Description  
+Configures SPI Flash address access mode, and the default is single. 
+Parameter 
+< single | fast | dual | quad >: SPI Flash address access mode. 
+Example 
+set_option -mspijump_mode single  
+-program_done_bypass   
+Forward new bitstream. 
+Syntax 
+-program_done_bypass <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Disables this function. 
+1: Enables this function. 
+Type 
+Project 
+Description  
+After configuring this option, when the internal signal of Done Final is 
+activated, the external Done Pin will remain low, allowing the new bitstream 
+to be forwarded after the current bitstream is loaded. The default value is 0. 
+Parameter 
+<0|1>: Enable control for forwarding new bitstream. 
+Example 
+set_option -program_done_bypass 1 
+-power_on_reset_monitor <0|1> 
+Power on reset. 
+Syntax 
+-power_on_reset_monitor <0|1> 
+Usage 

@@ -1,0 +1,31 @@
+9 Tcl Commands 
+ 9.1 Start Command Line Mode 
+ 
+SUG100-4.4.2E 
+85(145) 
+ 
+8 Tcl Commands 
+    Gowin Software supports command line mode. In the following 
+description, the content in <> must be specified, and the content in [] is 
+optional. When creating file names, special characters such as /, *, - and 
+space are not supported. Additionally, when specifying an IP module_name, 
+names starting with a digit are prohibited. 
+8.1 Start Command Line Mode 
+8.1.1 gw_sh.exe 
+Syntax 
+ Command: Take Windows system as an example, start 
+\x.x\IDE\bin\gw_sh.exe under the installation directory. 
+ Parameter: 
+     [script file] 
+Parameter is null: Enter the command line console mode directly. 
+script file: Execute a specified script file, optional. 
+Application Examples: 
+ # Start Command Line mode 
+ gw_sh.exe  
+ #Execute script file; for the examples, you can see the section Tcl 
+Quick Start in SUG918, Gowin Software Quick Start Guide. 
+ gw_sh.exe script_file 
+8.2 Command 
+8.2.1 Command Type 
+IPFlow 
+Project 

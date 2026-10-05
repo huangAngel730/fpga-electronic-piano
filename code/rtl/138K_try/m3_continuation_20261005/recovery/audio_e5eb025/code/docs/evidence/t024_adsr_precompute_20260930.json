@@ -1,0 +1,84 @@
+{
+  "date": "2026-09-30",
+  "baseline_git": "e6f6638 plus uncommitted approved integration",
+  "scope": "isolated single-condition ADSR precompute candidate; original M1 file unchanged",
+  "patch": "compute peak-to-sustain reciprocal step throughout ATTACK instead of qualifying with sample_tick/elapsed; latch point unchanged",
+  "authority": "M2 timing probe; cross-role file application needs user private forwarding to M1 per repo policy",
+  "formal_adsr_sha256": "d65566e839f1b51b39c670167d27498ad38acbf02ff1270d98a1e48db97a69b9",
+  "candidate_normalized_sha256": "775fec7f546a00ca7bf98f132cce8d5d92d80ca6094af8e9e14cb07cd54a2e9d",
+  "candidate_build_sha256": "f9cef52aadc7321a38a54ed7fef836de9d8a8bc885157a9b5e7bb6e67404c66d",
+  "equivalence": {
+    "sys_clk_cycles": 381447,
+    "audio_ticks": 35066,
+    "events": 322,
+    "comparison": "envelope and public state every cycle, including reset/coincident On Off tick/Release/retrigger/random input",
+    "pass": true
+  },
+  "existing_regressions": {
+    "fourlane_bank_checks": 30744,
+    "audio_core_checks": 20287,
+    "python_model_frames": 10140,
+    "max_envelope_error_q15": 1,
+    "max_pcm_error_pcm24": 512
+  },
+  "baseline_sta": {
+    "resources": {
+      "Logic": 4741,
+      "Register": 2573,
+      "DSP": 24,
+      "BSRAM": 8
+    },
+    "fmax_mhz": [
+      "50.092(MHz)"
+    ],
+    "worst_slack_ns": {
+      "Setup": 0.037,
+      "Hold": 0.002,
+      "Recovery": 11.845,
+      "Removal": 0.774
+    },
+    "setup_hold_violated_endpoints": 0,
+    "pins_checked": 10,
+    "scope": "formal audio/STAT STA only; no hardware verification"
+  },
+  "candidate_sta": {
+    "resources": {
+      "Logic": 4730,
+      "Register": 2573,
+      "DSP": 24,
+      "BSRAM": 8
+    },
+    "fmax_mhz": [
+      "50.929(MHz)"
+    ],
+    "worst_slack_ns": {
+      "Setup": 0.365,
+      "Hold": 0.001,
+      "Recovery": 12.652,
+      "Removal": 0.69
+    },
+    "setup_hold_violated_endpoints": 0,
+    "pins_checked": 10,
+    "scope": "formal audio/STAT STA only; no hardware verification"
+  },
+  "all_other_project_inputs_identical": true,
+  "reports_sha256": {
+    "code/output/t024_adsr_precompute_20260930/checked_summary.json": "19b206834099ea8183f7bfa9e434cf863e552f0d2cbac2c1b0e195d4c74dd26e",
+    "code/output/t024_adsr_precompute_20260930/impl/pnr/electronic_piano_tr_content.html": "487d56e4e474750ddd5bee1cfb12e229c09eef256a5509d36cba08640829fb8c",
+    "code/output/t024_adsr_precompute_20260930/impl/pnr/electronic_piano.rpt.txt": "f0ba5157828debe03c3eaefb33e885a807f2153888123277ec38e134478d8861",
+    "code/output/t024_adsr_precompute_20260930/impl/pnr/electronic_piano.pin.html": "92fd141020016225d8a1a26c7a4ddf07d68bee01ce6687c801501fd09913a9d1",
+    "code/output/t024_adsr_precompute_20260930/impl/pnr/electronic_piano.fs": "b453ce6f08c1ec51940536f0faeb04022530d4418950bbe76a9a831e87334880",
+    "code/output/t024_adsr_precompute_20260930/build.log": "40966788dce957bb16f20df7d8020db5f2a595df9b525461047b8de3da9a8793",
+    "code/output/t024_adsr_precompute_20260930/equivalence.log": "15c90812924c5d9f1216ae0aa8052ed2a869c85e8587455fccf4c026563f5037",
+    "code/output/t024_adsr_precompute_20260930/tb_equivalence.sv": "ce2a866b64dc62e236cf792920426f7669bff468e0113b51c50837060949c93c",
+    "code/output/t024_adsr_precompute_20260930/candidate_patch.diff": "63e470291c770bd4902cb5fdbb2eff9fa6771c0f3127d5e239e7e83c3fcf0f89",
+    "code/output/t024_adsr_precompute_20260930/audio_test/audio.trace": "1069611d240f3a5947632ce9ddaf7e52cc8907e6d8557557222b84aff78e6f33",
+    "code/output/t024_adsr_precompute_20260930/run_t024_audio_core.py.log": "e519dedb017239dc86ba544614288fc19b4ddc8544c2863f13d40fec462339b3",
+    "code/output/t024_adsr_precompute_20260930/run_t024_envelope_bank.py.log": "8322c2a1f414474e0b55bcfcc6091d6e9945e4b36bb848df6f62bd51a6e028da"
+  },
+  "warnings": "PR1014 and duplicate u_latency optimized remain; no ROM failure or swept waveform arithmetic warnings",
+  "submitted": false,
+  "applied_to_formal_source": false,
+  "programmed": false,
+  "stable_hardware_claim": false
+}

@@ -1,0 +1,48 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+122(145) 
+ 
+Name 
+Description  
+<0|1> 
+0: Disables cyclic redundancy check. 
+1: Enables cyclic redundancy check. 
+Type 
+Project 
+Description  
+Enables CRC for the bitstream file. The default is 1. 
+Parameter 
+<0|1>: Enables CRC for the bitstream file. 
+Example 
+set_option -bit_crc_check 1 
+-bit_compress   
+Compresses the bitstream file. 
+Syntax 
+-bit_compress <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Do not compress the bitstream file. 
+1: Compresses the bitstream file. 
+Type 
+Project 
+Description  
+Compresses the generated bitstream file. The default value is 1. 
+Parameter 
+<0|1>: Compresses the bitstream file. 
+Example 
+set_option -bit_compress 1 
+-bit_encrypt  
+Encrypts the bitstream file. 
+Syntax 
+-bit_encrypt <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Do not encrypt the bitstream file. 
+1: Encrypts the bitstream file. 
+Type 

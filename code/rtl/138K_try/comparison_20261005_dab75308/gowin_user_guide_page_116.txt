@@ -1,0 +1,46 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+105(145) 
+ 
+Project 
+Description  
+Set the fanout value for input ports, nets, or register output ports, with 
+the default value being 10000. 
+Parameter 
+<value>: The fanout value for input ports, nets, or register output ports.  
+Example 
+set_option -maxfan 5000 
+-rw_check_on_ram   
+Insert bypass logic around RAM. 
+Syntax 
+-rw_check_on_ram <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Disable 
+1: Enable 
+Type 
+Project 
+Description  
+If there are read or write conflicts in RAM, enabling this option will 
+insert bypass logic around the RAM to prevent simulation mismatches, with 
+the default being 0. 
+Parameter 
+<0|1>: Enables or disables the insertion of bypass logic around RAM.  
+Example 
+set_option -rw_check_on_ram 1 
+Place & Route Property Configuration 
+-vccx  
+Specifies vccx value. 
+Syntax 
+-vccx <value> 
+Usage 
+Name 
+Description  
+<value> 
+Specifies vccx value 
+Type 
+Project 

@@ -1,0 +1,49 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+129(145) 
+ 
+Name 
+Description  
+<0|1> 
+0: Disables error detection. 
+1: Enables error detection only. 
+Type 
+Project 
+Description  
+Enables error detection only, and the default is 0. 
+Parameter 
+<0|1>: Enables control for error detection only. 
+Example 
+set_option -error_detection 1 
+-error_detection_correction   
+Enables error detection and correction. 
+Syntax 
+-error_detection_correction <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Disables error detection and correction. 
+1: Enables error detection and correction. 
+Type 
+Project 
+Description  
+Enables error detection and correction, and the default is 0.  
+Parameter 
+<0|1>: Enables control for error detection and correction. 
+Example 
+set_option -error_detection_correction 1 
+-stop_seu_handler   
+Stops SEU Handler. 
+Syntax 
+-stop_seu_handler <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Do not stop the SEU Handler when an uncorrectable ECC 
+error or CRC checksum mismatch is detected. 
+1: Stops the SEU Handler when an uncorrectable ECC error 
+or CRC checksum mismatch is detected. 

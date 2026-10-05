@@ -1,0 +1,246 @@
+{
+  "scope": "isolated integration of actual four-voice bank/V1/CC64/PitchMod + latest MIDI + strict visual",
+  "raw_original_gate_errors": [
+    "formal audio clock uncertainty missing: hold",
+    "audio ROM footprint is not 8 BSRAM"
+  ],
+  "validated_intended_changes": {
+    "Hold_uncertainty_ns": 0.55,
+    "BSRAM_expected": 20
+  },
+  "errors": [],
+  "timing_pass": true,
+  "facts": {
+    "visual_gate": {
+      "summary": {
+        "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+        "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+        "Numbers of Paths Analyzed": "31133",
+        "Numbers of Endpoints Analyzed": "28085",
+        "Numbers of Falling Endpoints": "4",
+        "Numbers of Setup Violated Endpoints": "0",
+        "Numbers of Hold Violated Endpoints": "0"
+      },
+      "bus_path_count": {
+        "u_event_bridge": 23,
+        "u_control/u_score_mailbox": 50
+      }
+    },
+    "audio_pins": 10,
+    "resources": {
+      "Logic": 19534,
+      "Register": 8674,
+      "DSP": 46,
+      "BSRAM": 20
+    },
+    "fmax_mhz": {
+      "sys_clk": 50.043,
+      "video_serial": 1122.018,
+      "video_pixel": 37.472
+    },
+    "exported_min_slack_ns": {
+      "Setup": 0.017,
+      "Hold": 0.0,
+      "Recovery": 1.113,
+      "Removal": 0.869
+    },
+    "latency_registers": 65,
+    "scope": "independent audio/visual STA only; not production top, monitor or silicon acceptance"
+  },
+  "per_clock_worst": {
+    "Setup": {
+      "sys_clk": [
+        "1",
+        "0.017",
+        "u_midi_input/u_midi_event_parser/round_robin_index_0_s0/Q",
+        "u_midi_input/u_midi_event_parser/control_pending_28_s1/CE",
+        "sys_clk:[R]",
+        "sys_clk:[R]",
+        "20.000",
+        "0.000",
+        "18.671"
+      ],
+      "video_pixel": [
+        "1",
+        "13.314",
+        "u_visual/u_scene/u_score_tracker/current_frame_0_s1/Q",
+        "u_visual/u_scene/u_score_tracker/hit_mem_7_s1/CE",
+        "video_pixel:[R]",
+        "video_pixel:[R]",
+        "40.000",
+        "0.000",
+        "26.375"
+      ],
+      "video_serial": [
+        "1",
+        "7.109",
+        "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+        "u_visual/u_serial_reset/sync_chain_1_s0/D",
+        "video_serial:[R]",
+        "video_serial:[R]",
+        "8.000",
+        "0.000",
+        "0.827"
+      ]
+    },
+    "Hold": {
+      "sys_clk": [
+        "1",
+        "0.000",
+        "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[1].u_control/base_s0_4_s0/Q",
+        "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[1].u_control/base_s1_4_s0/D",
+        "sys_clk:[R]",
+        "sys_clk:[R]",
+        "0.000",
+        "0.004",
+        "0.559"
+      ],
+      "video_pixel": [
+        "1",
+        "0.275",
+        "u_visual/u_scene/u_hit_flash/count_q[13]_0_s3/Q",
+        "u_visual/u_scene/u_hit_flash/count_q[13]_0_s3/D",
+        "video_pixel:[R]",
+        "video_pixel:[R]",
+        "0.000",
+        "0.000",
+        "0.300"
+      ],
+      "video_serial": [
+        "1",
+        "0.380",
+        "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+        "u_visual/u_serial_reset/sync_chain_1_s0/D",
+        "video_serial:[R]",
+        "video_serial:[R]",
+        "0.000",
+        "0.000",
+        "0.393"
+      ]
+    },
+    "Recovery": {
+      "video_serial": [
+        "15",
+        "1.113",
+        "u_visual/u_serial_reset/sync_chain_1_s0/Q",
+        "u_visual/u_video_tx/rgb2dvi_inst/u_OSER10_g/RESET",
+        "video_serial:[R]",
+        "video_serial:[F]",
+        "4.000",
+        "-0.015",
+        "2.751"
+      ]
+    },
+    "Removal": {
+      "sys_clk": [
+        "1",
+        "0.869",
+        "u_reset_sync/sync_chain_1_s0/Q",
+        "g_polyphonic.u_audio_core/u_bank/g_lane[3].g_piano.u_dds/phase_acc_18_s0/CLEAR",
+        "sys_clk:[R]",
+        "sys_clk:[R]",
+        "0.000",
+        "-0.201",
+        "1.567"
+      ]
+    }
+  },
+  "global_worst_paths": {
+    "Setup": [
+      "1",
+      "0.017",
+      "u_midi_input/u_midi_event_parser/round_robin_index_0_s0/Q",
+      "u_midi_input/u_midi_event_parser/control_pending_28_s1/CE",
+      "sys_clk:[R]",
+      "sys_clk:[R]",
+      "20.000",
+      "0.000",
+      "18.671"
+    ],
+    "Hold": [
+      "1",
+      "0.000",
+      "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[1].u_control/base_s0_4_s0/Q",
+      "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[1].u_control/base_s1_4_s0/D",
+      "sys_clk:[R]",
+      "sys_clk:[R]",
+      "0.000",
+      "0.004",
+      "0.559"
+    ],
+    "Recovery": [
+      "15",
+      "1.113",
+      "u_visual/u_serial_reset/sync_chain_1_s0/Q",
+      "u_visual/u_video_tx/rgb2dvi_inst/u_OSER10_g/RESET",
+      "video_serial:[R]",
+      "video_serial:[F]",
+      "4.000",
+      "-0.015",
+      "2.751"
+    ],
+    "Removal": [
+      "1",
+      "0.869",
+      "u_reset_sync/sync_chain_1_s0/Q",
+      "g_polyphonic.u_audio_core/u_bank/g_lane[3].g_piano.u_dds/phase_acc_18_s0/CLEAR",
+      "sys_clk:[R]",
+      "sys_clk:[R]",
+      "0.000",
+      "-0.201",
+      "1.567"
+    ]
+  },
+  "per_clock_TNS": [
+    [
+      "sys_clk",
+      "Setup",
+      "0.000",
+      "0"
+    ],
+    [
+      "sys_clk",
+      "Hold",
+      "0.000",
+      "0"
+    ],
+    [
+      "video_serial",
+      "Setup",
+      "0.000",
+      "0"
+    ],
+    [
+      "video_serial",
+      "Hold",
+      "0.000",
+      "0"
+    ],
+    [
+      "video_pixel",
+      "Setup",
+      "0.000",
+      "0"
+    ],
+    [
+      "video_pixel",
+      "Hold",
+      "0.000",
+      "0"
+    ]
+  ],
+  "min_pulse_width_slack": 2.327,
+  "artifact_sha256": {
+    "impl\\pnr\\audio_visual_coexistence_top_tr_content.html": "9fa87d0528de96e7ecc6dd4d015fcf15f8d0ba5c0006850604f99e3dab6f4271",
+    "build.log": "66d66da61c8d1d287dc76058d8aa77d6c792593cda4b41299926acd88ab19981",
+    "impl\\pnr\\audio_visual_coexistence_top.rpt.txt": "e7cef10bb1fbec6a57d268ed929f90279a9c7d06210d9b905ac8a38ff6bf42cc",
+    "impl\\pnr\\audio_visual_coexistence_top.pin.html": "fc4fb53e5b6e9ef03e2d02b21046803fb934d1eeef4efb61182fdde046513784",
+    "impl\\pnr\\cmd.do": "531208d2c6c69c16b87a38c354238508fc340b407094e23100ac8aa0c7e8d35f",
+    "FAILED_OR_RESEARCH_ONLY.fs": "10e1e8b9511b9d871fc8dbc6a016dd3f29a9e5125a6fbb8b9d4395803bb63e5b"
+  },
+  "manifest_sha256": "1e29e550b129176e06fe609631229ae7c03a22ed3ad9ac4652f0705c7a234a36",
+  "formal_RTL_modified": false,
+  "board_bitstream_released": false,
+  "programmed": false,
+  "disposition": "experimental timing candidate only; formal notice/acceptance still required"
+}

@@ -1,0 +1,39 @@
+{
+  "evidence_integrity_passed": true,
+  "does_not_override_STA_failure": true,
+  "candidates": [
+    {
+      "label": "G_pll_core40",
+      "actual_functional_checks": 1855,
+      "full_tool_build_completed": true,
+      "strict_STA_gate_passed": false,
+      "hold_violated_endpoints": 3,
+      "actual_clock_MHz": {
+        "system": 40,
+        "pixel": 25,
+        "serial": 125
+      }
+    },
+    {
+      "label": "H_pll_core40_route2",
+      "actual_functional_checks": 1855,
+      "full_tool_build_completed": true,
+      "strict_STA_gate_passed": false,
+      "hold_violated_endpoints": 1,
+      "actual_clock_MHz": {
+        "system": 40,
+        "pixel": 25,
+        "serial": 125
+      }
+    }
+  ],
+  "protected_previous_files": 1263,
+  "protected_G_files": 172,
+  "formal_repo_written": false,
+  "programmed": false,
+  "simulation_limitations": [
+    "DVI boundary stub; no TMDS verification",
+    "Icarus-only include/allocator syntax adapters",
+    "LOCK loss is injected, not hardware measurement"
+  ]
+}

@@ -1,0 +1,50 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+91(145) 
+ 
+Description 
+Specifies the IP objects in the current project. 
+Parameter 
+<module_name>: Specifies the module name of the IP object, which 
+can be one or multiple. 
+Example 
+In the following example, a single IP object in the current project is 
+specified. 
+get_ips FIFO_Top 
+In the following example, multiple IP objects in the current project are 
+specified. 
+get_ips FIFO_Top FIFO_Top_1 
+See also 
+ generate_target 
+ list_property 
+ report_property 
+ set_property 
+8.3.6 import_files 
+Copies files or directories to the current project. 
+Syntax 
+import_files [-file <file>] [-dir <path>] [-fileList <fileList>] [-force] 
+[-h/--help] 
+Usage 
+Name 
+Description  
+[-file] 
+Specifies the file(s) to copy 
+[-dir] 
+Specifies the path to copy from 
+[-fileList] 
+Specifies a file list. 
+[-force] 
+Overwrites existing files with the same name 
+[-h/--help] 
+Displays help information 
+Type 
+Project 
+Description  
+Copy files or directories to the current project path /src. The values for 
+-file, -dir, and -fileList can be absolute or relative paths. If a tcl script is 
+executed via gwsh.exe, the relative path is based on the tcl script's path. If 
+the import_files command is executed via the console window in Gowin 
+Software, the relative path is based on the current working directory (pwd). 
+If no options are specified after import_files, it defaults to copying all files 

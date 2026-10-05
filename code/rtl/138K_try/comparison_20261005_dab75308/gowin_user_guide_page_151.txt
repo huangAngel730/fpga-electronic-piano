@@ -1,0 +1,46 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+140(145) 
+ 
+ <objects>: Specifies one or more IP objects for which the option is to be 
+configured. A single object is specified using [get_ips module_name]. 
+To specify multiple objects, use [get_ips module_name0 
+module_name1 …]. 
+Example 
+The -dict option is used to specify multiple properties in the current 
+design at once: 
+set_property -dict {CONFIG.Data_Width 16 CONFIG.Write_Depth 
+1024 CONFIG.Read_Depth 1024} [get_ips FIFO_Top] 
+Use name, value, objects to specify a single property in the current 
+design: 
+set_property CONFIG.Data_Width {16} [get_ips FIFO_Top] 
+This example shows how to set a property value that contains a 
+hyphen ("-") or spaces: 
+set_property {CONFIG.Almost_Full_Type} {Full-Single Threshold 
+Constant Parameter} [get_ips FIFO_Top] 
+Note! 
+In some cases, the option value may contain special characters, such as a hyphen ("-") 
+or spaces, which could cause the value to be incorrectly parsed. In such cases, it is 
+necessary to enclose the option value in curly braces {}. 
+See also 
+ list_property 
+ report_property 
+8.3.21 source 
+ In tcl command editor window of Gowin Software, or after launching 
+command-line mode, this command can be used to execute a tcl script. For 
+file path formats, see 8.3.1 add_file. 
+Syntax 
+source <file> 
+Usage 
+Name 
+Description  
+<file> 
+The tcl script to be executed. 
+Type 
+IPFlow, Project 
+Description  
+Sets different IO properties for unused GPIOs. 
+Parameter 
+<file>: The tcl script to be executed. 

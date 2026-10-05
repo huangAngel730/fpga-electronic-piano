@@ -1,0 +1,50 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+124(145) 
+ 
+Parameter 
+<0|1>: Security bit enable control. 
+Example 
+set_option -bit_security 1 
+-bit_incl_bsram_init   
+Prints initial values of BSRAM to the Bitstream file. 
+Syntax 
+-bit_incl_bsram_init <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Do not print initial values of BSRAM to the Bitstream 
+file； 
+1: Prints initial values of BSRAM to the Bitstream file. 
+Type 
+Project 
+Description  
+This option is used to control whether the initial values of BSRAM are 
+printed into the bitstream file. The default value is 1. For GW1N and GW2A 
+devices, when this option is set to 1, all positions of the BSRAM will have 
+their initial values printed in the bitstream file, and the initial values of 
+unoccupied BSRAM positions are printed as 0. For GW5A(N)(S)(R)(T) 
+devices, when this option is set to 1, all initial values of BSRAM in the same 
+column as the occupied BSRAM will be printed to the bitstream file, and the 
+initial values of unoccupied BSRAM positions in that column are printed as 
+0. 
+Parameter 
+<0|1>: Enable control for printing initial values of BSRAM to the 
+Bitstream file. 
+Example 
+set_option -bit_incl_bsram_init 1 
+-bg_programming   
+Background programming function. 
+Syntax 
+-bg_programming <off | jtag | i2c | goconfig | userlogic | 
+i2c_jtag_sspi_qsspi | jtag_sspi_qsspi> 
+Usage 
+Name 
+Description  
+<off|jtag|i2c|goconfig|userlogic| 
+i2c_jtag_sspi_qsspi|jtag_sspi_qsspi> 
+Off: Do not use background 
+programming function. 

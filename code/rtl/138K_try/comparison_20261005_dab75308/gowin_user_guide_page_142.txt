@@ -1,0 +1,48 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+131(145) 
+ 
+Name 
+Description  
+<0|1> 
+0: Disables error injection. 
+1: Enables error injection. 
+Type 
+Project 
+Description  
+Enables error injection, and the default is 0 
+Parameter 
+<0|1>: Enables control for error injection. 
+Example 
+set_option -error_injection 1 
+-ext_cclk   
+Enables external primary configuration clock. 
+Syntax 
+-ext_cclk <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Disables external primary configuration clock. 
+1: Enables external primary configuration clock. 
+Type 
+Project 
+Description  
+Enables external primary configuration clock. The default is 0. 
+Parameter 
+<0|1>: Enable control for external primary configuration clock. 
+Example 
+set_option -ext_cclk 1 
+-ext_cclk_div   
+Sets the frequency divider parameter. 
+Syntax 
+-ext_cclk_div <value> 
+Usage 
+Name 
+Description  
+<value> 
+Frequency divider Parameter 
+Type 
+Project 

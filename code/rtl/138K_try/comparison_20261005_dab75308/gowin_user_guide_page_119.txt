@@ -1,0 +1,47 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+108(145) 
+ 
+-gen_posp    
+Whether to generate a device placement file. 
+Syntax 
+-gen_posp <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Do not generate *.posp file. 
+1: Generates *.posp file. 
+Type 
+Project 
+Description  
+Specifies whether Place & Route generates a device placement file 
+named *.posp, which contains only BSRAM placement information. The 
+default value is 0. 
+Parameter 
+<0|1>: Generates device placement file enable control. 
+Example 
+set_option -gen_posp 1 
+-gen_text_timing_rpt  
+Generate a timing report in text format. 
+Syntax 
+-gen_text_timing_rpt <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Do not generate *.tr file. 
+1: Generates *.tr file. 
+Type 
+Project 
+Description  
+Specifies whether Place & Route generates a timing report in text 
+format with the filename *.tr. The default value is 0. 
+Parameter 
+<0|1>: Generates a text-format timing report enable control. 
+Example 
+set_option -gen_text_timing_rpt 1 
+-gen_verilog_sim_netlist  
+Specifies whether to generate a Verilog timing simulation model file. 

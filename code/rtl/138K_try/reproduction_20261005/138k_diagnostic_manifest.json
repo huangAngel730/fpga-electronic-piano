@@ -1,0 +1,834 @@
+[
+  {
+    "label": "138K_B_frozen_constraints",
+    "device_before": {
+      "id": "gw5at60b-002",
+      "name": "GW5AT-60B",
+      "pn": "GW5AT-LV60PG484AC1/I0"
+    },
+    "device_after": {
+      "id": "gw5ast138b-011",
+      "name": "GW5AST-138B",
+      "pn": "GW5AST-LV138PG484AC1/I0"
+    },
+    "files": [
+      {
+        "name": "audio_defs_pkg.sv",
+        "control_SHA256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "target_SHA256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\audio_defs_pkg.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "sustain_control_contract_pkg.sv",
+        "control_SHA256": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+        "target_SHA256": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\sustain_control_contract_pkg.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "audio_visual_coexistence_top.sv",
+        "control_SHA256": "a76b05878053854f161318f9c963107d78b40d96cecd0650c9bf68ab2156ce56",
+        "target_SHA256": "a76b05878053854f161318f9c963107d78b40d96cecd0650c9bf68ab2156ce56",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\audio_visual_coexistence_top.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "reset_sync.sv",
+        "control_SHA256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+        "target_SHA256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\reset_sync.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "button_debouncer.sv",
+        "control_SHA256": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+        "target_SHA256": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\button_debouncer.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "button_event_converter.sv",
+        "control_SHA256": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1",
+        "target_SHA256": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\button_event_converter.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "performance_event_fifo.sv",
+        "control_SHA256": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+        "target_SHA256": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\performance_event_fifo.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "system_status_counters.sv",
+        "control_SHA256": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+        "target_SHA256": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\system_status_counters.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "uart_status_reporter.sv",
+        "control_SHA256": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+        "target_SHA256": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\uart_status_reporter.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "uart_tx.sv",
+        "control_SHA256": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+        "target_SHA256": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\uart_tx.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "uart_rx.sv",
+        "control_SHA256": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+        "target_SHA256": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\uart_rx.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "midi_event_parser.sv",
+        "control_SHA256": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+        "target_SHA256": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\midi_event_parser.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "midi_input.sv",
+        "control_SHA256": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710",
+        "target_SHA256": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\midi_input.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "note_pitch.sv",
+        "control_SHA256": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+        "target_SHA256": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\note_pitch.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "simple_voice.sv",
+        "control_SHA256": "28120309b93a3182f39fb1b2151acda9ad548a2ac1cf8a25f9bcbfa917e918fd",
+        "target_SHA256": "b4eae4d19047df2a6691e3c9d8544d3a36e8770cf2489f4608a882083d210d0a",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\simple_voice.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "i2s_tx.sv",
+        "control_SHA256": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+        "target_SHA256": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\i2s_tx.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "pcm_frame_buffer.sv",
+        "control_SHA256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+        "target_SHA256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\pcm_frame_buffer.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "voice_allocator_4.sv",
+        "control_SHA256": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+        "target_SHA256": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\voice_allocator_4.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "dds_oscillator.sv",
+        "control_SHA256": "210c7afa80653fcea33432052bc88bf333134c8394df1d46dc8a9ed7f7e16bc6",
+        "target_SHA256": "0192c6cb068169b1c3cbf058d8d1b8eb7ffbb7aeb1cc30c4729aa26dc93d0ac0",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\dds_oscillator.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "piano_dds_oscillator.sv",
+        "control_SHA256": "437cddf31efb53bae93a0a1a6e61dda1b2d48a360d160fcc8ef807e87e5b5b99",
+        "target_SHA256": "c1216da9c2f2279be74b31ff00aa247ed730421661ccb9b4f805e039eefea804",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\piano_dds_oscillator.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "adsr_piano_envelope.sv",
+        "control_SHA256": "b5460ea93be447395db1f08159a12054fd998f90984bd48d4fce55abb8308d41",
+        "target_SHA256": "c0ca93a2c5c50e0a96b37502f3f585fada4b1f7b7cb5ef69f252cd7b30673d8c",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\adsr_piano_envelope.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "sustain_controller.sv",
+        "control_SHA256": "c281583e3d7820c7cefbff9085f0c4359390aa93e9cf449f6ee848544cd3a28d",
+        "target_SHA256": "32075dbeef0c556bf978c7a476b65776290418a479915c43251ff5e7cdc934a8",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\sustain_controller.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "polyphonic_event_router.sv",
+        "control_SHA256": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+        "target_SHA256": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\polyphonic_event_router.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "polyphonic_envelope_bank.sv",
+        "control_SHA256": "649498147bb7137df81b7729a66284901811039f93776d9979a0fe5654c653d7",
+        "target_SHA256": "cd0ef53eca03d2eee462571675d42fbc42e3ab511598c27d602e16ccdaa38f80",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\polyphonic_envelope_bank.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "voice_gain_q15_candidate.sv",
+        "control_SHA256": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+        "target_SHA256": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\voice_gain_q15_candidate.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "polyphonic_pcm_commit.sv",
+        "control_SHA256": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+        "target_SHA256": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\polyphonic_pcm_commit.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "polyphonic_audio_core.sv",
+        "control_SHA256": "9c76ed73528ac7583f076fb8d97d2b5e15cab04b8d80403b6bd5b14f348cf74d",
+        "target_SHA256": "c8fe89bb4236d3f3fdb60cc4be311dd77f7c119a37d7ae29f96fd6c3e9d35891",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\polyphonic_audio_core.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "pcm_mixer_4voice.sv",
+        "control_SHA256": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+        "target_SHA256": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\pcm_mixer_4voice.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "pcm_clip_counter.sv",
+        "control_SHA256": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+        "target_SHA256": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\pcm_clip_counter.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "pcm_result_hold.sv",
+        "control_SHA256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+        "target_SHA256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\pcm_result_hold.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "TMDS_PLL_800_600_60.v",
+        "control_SHA256": "f200d66f1b0bc108d5c7c0027622fec6423a553572e1cdb6590901c83edde6ec",
+        "target_SHA256": "f200d66f1b0bc108d5c7c0027622fec6423a553572e1cdb6590901c83edde6ec",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\TMDS_PLL_800_600_60.v",
+        "non_path_identity": true
+      },
+      {
+        "name": "visual_event_bridge.sv",
+        "control_SHA256": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c",
+        "target_SHA256": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\visual_event_bridge.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "video_scan_timing.sv",
+        "control_SHA256": "0b7b3def84043ddd40ed2c1e237bb2d528a117e4fc15195d40b33b0fe78b2069",
+        "target_SHA256": "0b7b3def84043ddd40ed2c1e237bb2d528a117e4fc15195d40b33b0fe78b2069",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\video_scan_timing.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "visual_mailbox_cdc.sv",
+        "control_SHA256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c",
+        "target_SHA256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\visual_mailbox_cdc.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "visual_control_bridge.sv",
+        "control_SHA256": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428",
+        "target_SHA256": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\visual_control_bridge.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "visual_live_state.sv",
+        "control_SHA256": "ad5c124a1f621ef95524f998efc4ca7ed0d7840d8297af8a97cd1460f88f5938",
+        "target_SHA256": "ad5c124a1f621ef95524f998efc4ca7ed0d7840d8297af8a97cd1460f88f5938",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\visual_live_state.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "visual_score_tracker.sv",
+        "control_SHA256": "7e5c630fddf3da60f5fe6bd67721736ee7624817355822dadc4a09dc4cffe0dc",
+        "target_SHA256": "7e5c630fddf3da60f5fe6bd67721736ee7624817355822dadc4a09dc4cffe0dc",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\visual_score_tracker.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "visual_scene_renderer.sv",
+        "control_SHA256": "8062253766925a3c6fce11aad820f51dfcf7444501164d53e95d817c3e62a8d1",
+        "target_SHA256": "8062253766925a3c6fce11aad820f51dfcf7444501164d53e95d817c3e62a8d1",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\visual_scene_renderer.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "visual_hit_flash.sv",
+        "control_SHA256": "1cd4cc1e3459a41ee26122bee014afd552b697e80c1900f658cc03a73ebe03e3",
+        "target_SHA256": "1cd4cc1e3459a41ee26122bee014afd552b697e80c1900f658cc03a73ebe03e3",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\visual_hit_flash.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "m3_visualizer.sv",
+        "control_SHA256": "c3940203be5616d3cb923552267d7485d494bfd0e6a5410d7a7f3651e1fd0d2a",
+        "target_SHA256": "c3940203be5616d3cb923552267d7485d494bfd0e6a5410d7a7f3651e1fd0d2a",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\m3_visualizer.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "audio_visual_display_probe.sv",
+        "control_SHA256": "6eca6bb7a4adae483ec4c802530392d3545174b2946d64724081320b317d2390",
+        "target_SHA256": "6eca6bb7a4adae483ec4c802530392d3545174b2946d64724081320b317d2390",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\audio_visual_display_probe.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "audio_visual.cst",
+        "control_SHA256": "b924a759b2810a3bcae5795223b461fc24dc80707bbfe4e67c4ce98a01ceda39",
+        "target_SHA256": "b924a759b2810a3bcae5795223b461fc24dc80707bbfe4e67c4ce98a01ceda39",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\constraints\\audio_visual.cst",
+        "non_path_identity": true
+      },
+      {
+        "name": "audio_visual_hold055.sdc",
+        "control_SHA256": "7298efd5c8666d8357f08a48eaa2d9e075240a67d0881b6c98928bddbb9f5c9f",
+        "target_SHA256": "7298efd5c8666d8357f08a48eaa2d9e075240a67d0881b6c98928bddbb9f5c9f",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\constraints\\audio_visual_hold055.sdc",
+        "non_path_identity": true
+      },
+      {
+        "name": "performance_control_snapshot.sv",
+        "control_SHA256": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+        "target_SHA256": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\performance_control_snapshot.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "pitch_mod_fcw_pipeline.sv",
+        "control_SHA256": "5aaa5614a982f44d0f0d660c33f755cc6cf146adde2f6bcbbaa6ae36fab24b01",
+        "target_SHA256": "34aa04ebe101a34733637253a34371372a49537683fd685117ad8651d3661af8",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\pitch_mod_fcw_pipeline.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "pitch_mod_snapshot_pipeline.sv",
+        "control_SHA256": "b7f55c3e2fcab7b365c7da19951a0f8596e23ad74ce0943c8fcf883ed5a7d125",
+        "target_SHA256": "c1bb5328a7993d55f670584cffe8715e5f07a90a56912f1f0401dea118430808",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\pitch_mod_snapshot_pipeline.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "lfo_sine_q15.mem",
+        "control_SHA256": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4",
+        "target_SHA256": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\rom\\lfo_sine_q15.mem",
+        "non_path_identity": true
+      },
+      {
+        "name": "oct_ratio_q16.mem",
+        "control_SHA256": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d",
+        "target_SHA256": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\rom\\oct_ratio_q16.mem",
+        "non_path_identity": true
+      },
+      {
+        "name": "piano_band_4x256_8191.mem",
+        "control_SHA256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+        "target_SHA256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\rom\\piano_band_4x256_8191.mem",
+        "non_path_identity": true
+      },
+      {
+        "name": "sine_1024_32767.mem",
+        "control_SHA256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060",
+        "target_SHA256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\rom\\sine_1024_32767.mem",
+        "non_path_identity": true
+      },
+      {
+        "name": "sine_1024_8192.mem",
+        "control_SHA256": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2",
+        "target_SHA256": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\rom\\sine_1024_8192.mem",
+        "non_path_identity": true
+      },
+      {
+        "name": "sub_ratio_q16.mem",
+        "control_SHA256": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9",
+        "target_SHA256": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\rom\\sub_ratio_q16.mem",
+        "non_path_identity": true
+      },
+      {
+        "name": "velocity_gain_rom.mem",
+        "control_SHA256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+        "target_SHA256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\rom\\velocity_gain_rom.mem",
+        "non_path_identity": true
+      },
+      {
+        "name": "sine_table.svh",
+        "control_SHA256": "969fc7d1036e359fc55c3b0ca18eaf3c8a123a146ed95c32a81e52ee10519cca",
+        "target_SHA256": "969fc7d1036e359fc55c3b0ca18eaf3c8a123a146ed95c32a81e52ee10519cca",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\include\\sine_table.svh",
+        "non_path_identity": true
+      },
+      {
+        "name": "sustain_controller_ports.svh",
+        "control_SHA256": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d",
+        "target_SHA256": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\include\\sustain_controller_ports.svh",
+        "non_path_identity": true
+      },
+      {
+        "name": "DVI_TX_Top.v",
+        "control_SHA256": "162f68cab4262f8a3acae17f2fc66b6d9ef403815fd5ebeeecf30b59d88e203c",
+        "target_SHA256": "162f68cab4262f8a3acae17f2fc66b6d9ef403815fd5ebeeecf30b59d88e203c",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_frozen_constraints\\sources\\DVI_TX_Top.v",
+        "non_path_identity": true
+      }
+    ],
+    "CST_SDC_unchanged": true,
+    "IP_source_unchanged": true,
+    "scope": "Device-only diagnostic, NOT electrically adapted or board-release design",
+    "known_board_voltage_mismatch": [
+      "sys_rst_n",
+      "key_n[0]",
+      "key_n[1]"
+    ],
+    "fixed_PLL_and_reset_locations_not_removed": true
+  },
+  {
+    "label": "138K_C_frozen_constraints",
+    "device_before": {
+      "id": "gw5at60b-002",
+      "name": "GW5AT-60B",
+      "pn": "GW5AT-LV60PG484AC1/I0"
+    },
+    "device_after": {
+      "id": "gw5ast138c-007",
+      "name": "GW5AST-138C",
+      "pn": "GW5AST-LV138PG484AC1/I0"
+    },
+    "files": [
+      {
+        "name": "audio_defs_pkg.sv",
+        "control_SHA256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "target_SHA256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\audio_defs_pkg.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "sustain_control_contract_pkg.sv",
+        "control_SHA256": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+        "target_SHA256": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\sustain_control_contract_pkg.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "audio_visual_coexistence_top.sv",
+        "control_SHA256": "a76b05878053854f161318f9c963107d78b40d96cecd0650c9bf68ab2156ce56",
+        "target_SHA256": "a76b05878053854f161318f9c963107d78b40d96cecd0650c9bf68ab2156ce56",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\audio_visual_coexistence_top.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "reset_sync.sv",
+        "control_SHA256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+        "target_SHA256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\reset_sync.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "button_debouncer.sv",
+        "control_SHA256": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+        "target_SHA256": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\button_debouncer.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "button_event_converter.sv",
+        "control_SHA256": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1",
+        "target_SHA256": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\button_event_converter.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "performance_event_fifo.sv",
+        "control_SHA256": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+        "target_SHA256": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\performance_event_fifo.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "system_status_counters.sv",
+        "control_SHA256": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+        "target_SHA256": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\system_status_counters.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "uart_status_reporter.sv",
+        "control_SHA256": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+        "target_SHA256": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\uart_status_reporter.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "uart_tx.sv",
+        "control_SHA256": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+        "target_SHA256": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\uart_tx.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "uart_rx.sv",
+        "control_SHA256": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+        "target_SHA256": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\uart_rx.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "midi_event_parser.sv",
+        "control_SHA256": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+        "target_SHA256": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\midi_event_parser.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "midi_input.sv",
+        "control_SHA256": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710",
+        "target_SHA256": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\midi_input.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "note_pitch.sv",
+        "control_SHA256": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+        "target_SHA256": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\note_pitch.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "simple_voice.sv",
+        "control_SHA256": "28120309b93a3182f39fb1b2151acda9ad548a2ac1cf8a25f9bcbfa917e918fd",
+        "target_SHA256": "b9e73a0afffadb9bd13bb70eaaff776d0ef7702e545b091f62cf1c081eebd3d8",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\simple_voice.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "i2s_tx.sv",
+        "control_SHA256": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+        "target_SHA256": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\i2s_tx.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "pcm_frame_buffer.sv",
+        "control_SHA256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+        "target_SHA256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\pcm_frame_buffer.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "voice_allocator_4.sv",
+        "control_SHA256": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+        "target_SHA256": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\voice_allocator_4.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "dds_oscillator.sv",
+        "control_SHA256": "210c7afa80653fcea33432052bc88bf333134c8394df1d46dc8a9ed7f7e16bc6",
+        "target_SHA256": "2d40e1bd07163014219f4e672cd3e80ada27a9b994e653c2b1fc596907b2cbd2",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\dds_oscillator.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "piano_dds_oscillator.sv",
+        "control_SHA256": "437cddf31efb53bae93a0a1a6e61dda1b2d48a360d160fcc8ef807e87e5b5b99",
+        "target_SHA256": "f05e8aaf020cf4aa4d026e816647fce4bd561d8498989689a9a5cc21732f97c5",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\piano_dds_oscillator.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "adsr_piano_envelope.sv",
+        "control_SHA256": "b5460ea93be447395db1f08159a12054fd998f90984bd48d4fce55abb8308d41",
+        "target_SHA256": "4fa1a1c3eb0a1b6559fc84210bdcacbd885c28c92c3890b8d94b168e69e36dc5",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\adsr_piano_envelope.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "sustain_controller.sv",
+        "control_SHA256": "c281583e3d7820c7cefbff9085f0c4359390aa93e9cf449f6ee848544cd3a28d",
+        "target_SHA256": "cae85b2318a26c4707565176f575e5e313bb6c88a5aebabecb60e0cec43b97a7",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\sustain_controller.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "polyphonic_event_router.sv",
+        "control_SHA256": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+        "target_SHA256": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\polyphonic_event_router.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "polyphonic_envelope_bank.sv",
+        "control_SHA256": "649498147bb7137df81b7729a66284901811039f93776d9979a0fe5654c653d7",
+        "target_SHA256": "122bfe9d17543c1c15bf956100b08fc7d92bb14984f27fda50a4dc4d13dc15a3",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\polyphonic_envelope_bank.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "voice_gain_q15_candidate.sv",
+        "control_SHA256": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+        "target_SHA256": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\voice_gain_q15_candidate.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "polyphonic_pcm_commit.sv",
+        "control_SHA256": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+        "target_SHA256": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\polyphonic_pcm_commit.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "polyphonic_audio_core.sv",
+        "control_SHA256": "9c76ed73528ac7583f076fb8d97d2b5e15cab04b8d80403b6bd5b14f348cf74d",
+        "target_SHA256": "396d70cfa89ab8ae385816fd5e3778fa151c770306057a08c2b43874dfae2ff0",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\polyphonic_audio_core.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "pcm_mixer_4voice.sv",
+        "control_SHA256": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+        "target_SHA256": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\pcm_mixer_4voice.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "pcm_clip_counter.sv",
+        "control_SHA256": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+        "target_SHA256": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\pcm_clip_counter.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "pcm_result_hold.sv",
+        "control_SHA256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+        "target_SHA256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\pcm_result_hold.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "TMDS_PLL_800_600_60.v",
+        "control_SHA256": "f200d66f1b0bc108d5c7c0027622fec6423a553572e1cdb6590901c83edde6ec",
+        "target_SHA256": "f200d66f1b0bc108d5c7c0027622fec6423a553572e1cdb6590901c83edde6ec",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\TMDS_PLL_800_600_60.v",
+        "non_path_identity": true
+      },
+      {
+        "name": "visual_event_bridge.sv",
+        "control_SHA256": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c",
+        "target_SHA256": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\visual_event_bridge.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "video_scan_timing.sv",
+        "control_SHA256": "0b7b3def84043ddd40ed2c1e237bb2d528a117e4fc15195d40b33b0fe78b2069",
+        "target_SHA256": "0b7b3def84043ddd40ed2c1e237bb2d528a117e4fc15195d40b33b0fe78b2069",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\video_scan_timing.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "visual_mailbox_cdc.sv",
+        "control_SHA256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c",
+        "target_SHA256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\visual_mailbox_cdc.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "visual_control_bridge.sv",
+        "control_SHA256": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428",
+        "target_SHA256": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\visual_control_bridge.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "visual_live_state.sv",
+        "control_SHA256": "ad5c124a1f621ef95524f998efc4ca7ed0d7840d8297af8a97cd1460f88f5938",
+        "target_SHA256": "ad5c124a1f621ef95524f998efc4ca7ed0d7840d8297af8a97cd1460f88f5938",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\visual_live_state.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "visual_score_tracker.sv",
+        "control_SHA256": "7e5c630fddf3da60f5fe6bd67721736ee7624817355822dadc4a09dc4cffe0dc",
+        "target_SHA256": "7e5c630fddf3da60f5fe6bd67721736ee7624817355822dadc4a09dc4cffe0dc",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\visual_score_tracker.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "visual_scene_renderer.sv",
+        "control_SHA256": "8062253766925a3c6fce11aad820f51dfcf7444501164d53e95d817c3e62a8d1",
+        "target_SHA256": "8062253766925a3c6fce11aad820f51dfcf7444501164d53e95d817c3e62a8d1",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\visual_scene_renderer.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "visual_hit_flash.sv",
+        "control_SHA256": "1cd4cc1e3459a41ee26122bee014afd552b697e80c1900f658cc03a73ebe03e3",
+        "target_SHA256": "1cd4cc1e3459a41ee26122bee014afd552b697e80c1900f658cc03a73ebe03e3",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\visual_hit_flash.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "m3_visualizer.sv",
+        "control_SHA256": "c3940203be5616d3cb923552267d7485d494bfd0e6a5410d7a7f3651e1fd0d2a",
+        "target_SHA256": "c3940203be5616d3cb923552267d7485d494bfd0e6a5410d7a7f3651e1fd0d2a",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\m3_visualizer.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "audio_visual_display_probe.sv",
+        "control_SHA256": "6eca6bb7a4adae483ec4c802530392d3545174b2946d64724081320b317d2390",
+        "target_SHA256": "6eca6bb7a4adae483ec4c802530392d3545174b2946d64724081320b317d2390",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\audio_visual_display_probe.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "audio_visual.cst",
+        "control_SHA256": "b924a759b2810a3bcae5795223b461fc24dc80707bbfe4e67c4ce98a01ceda39",
+        "target_SHA256": "b924a759b2810a3bcae5795223b461fc24dc80707bbfe4e67c4ce98a01ceda39",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\constraints\\audio_visual.cst",
+        "non_path_identity": true
+      },
+      {
+        "name": "audio_visual_hold055.sdc",
+        "control_SHA256": "7298efd5c8666d8357f08a48eaa2d9e075240a67d0881b6c98928bddbb9f5c9f",
+        "target_SHA256": "7298efd5c8666d8357f08a48eaa2d9e075240a67d0881b6c98928bddbb9f5c9f",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\constraints\\audio_visual_hold055.sdc",
+        "non_path_identity": true
+      },
+      {
+        "name": "performance_control_snapshot.sv",
+        "control_SHA256": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+        "target_SHA256": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\performance_control_snapshot.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "pitch_mod_fcw_pipeline.sv",
+        "control_SHA256": "5aaa5614a982f44d0f0d660c33f755cc6cf146adde2f6bcbbaa6ae36fab24b01",
+        "target_SHA256": "62a702a76757e89ec5159e4165b593017ae6e9585f54efcef3d5958098d00f4a",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\pitch_mod_fcw_pipeline.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "pitch_mod_snapshot_pipeline.sv",
+        "control_SHA256": "b7f55c3e2fcab7b365c7da19951a0f8596e23ad74ce0943c8fcf883ed5a7d125",
+        "target_SHA256": "2f6ea64c4c7639136f30f61b3854ed66ac65f4c44c5545f580b065f69d8bd796",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\pitch_mod_snapshot_pipeline.sv",
+        "non_path_identity": true
+      },
+      {
+        "name": "lfo_sine_q15.mem",
+        "control_SHA256": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4",
+        "target_SHA256": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\rom\\lfo_sine_q15.mem",
+        "non_path_identity": true
+      },
+      {
+        "name": "oct_ratio_q16.mem",
+        "control_SHA256": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d",
+        "target_SHA256": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\rom\\oct_ratio_q16.mem",
+        "non_path_identity": true
+      },
+      {
+        "name": "piano_band_4x256_8191.mem",
+        "control_SHA256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+        "target_SHA256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\rom\\piano_band_4x256_8191.mem",
+        "non_path_identity": true
+      },
+      {
+        "name": "sine_1024_32767.mem",
+        "control_SHA256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060",
+        "target_SHA256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\rom\\sine_1024_32767.mem",
+        "non_path_identity": true
+      },
+      {
+        "name": "sine_1024_8192.mem",
+        "control_SHA256": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2",
+        "target_SHA256": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\rom\\sine_1024_8192.mem",
+        "non_path_identity": true
+      },
+      {
+        "name": "sub_ratio_q16.mem",
+        "control_SHA256": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9",
+        "target_SHA256": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\rom\\sub_ratio_q16.mem",
+        "non_path_identity": true
+      },
+      {
+        "name": "velocity_gain_rom.mem",
+        "control_SHA256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+        "target_SHA256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\rom\\velocity_gain_rom.mem",
+        "non_path_identity": true
+      },
+      {
+        "name": "sine_table.svh",
+        "control_SHA256": "969fc7d1036e359fc55c3b0ca18eaf3c8a123a146ed95c32a81e52ee10519cca",
+        "target_SHA256": "969fc7d1036e359fc55c3b0ca18eaf3c8a123a146ed95c32a81e52ee10519cca",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\include\\sine_table.svh",
+        "non_path_identity": true
+      },
+      {
+        "name": "sustain_controller_ports.svh",
+        "control_SHA256": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d",
+        "target_SHA256": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\include\\sustain_controller_ports.svh",
+        "non_path_identity": true
+      },
+      {
+        "name": "DVI_TX_Top.v",
+        "control_SHA256": "162f68cab4262f8a3acae17f2fc66b6d9ef403815fd5ebeeecf30b59d88e203c",
+        "target_SHA256": "162f68cab4262f8a3acae17f2fc66b6d9ef403815fd5ebeeecf30b59d88e203c",
+        "target": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_C_frozen_constraints\\sources\\DVI_TX_Top.v",
+        "non_path_identity": true
+      }
+    ],
+    "CST_SDC_unchanged": true,
+    "IP_source_unchanged": true,
+    "scope": "Device-only diagnostic, NOT electrically adapted or board-release design",
+    "known_board_voltage_mismatch": [
+      "sys_rst_n",
+      "key_n[0]",
+      "key_n[1]"
+    ],
+    "fixed_PLL_and_reset_locations_not_removed": true
+  }
+]

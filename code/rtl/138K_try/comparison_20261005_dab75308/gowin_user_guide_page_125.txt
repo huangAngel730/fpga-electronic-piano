@@ -1,0 +1,48 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+114(145) 
+ 
+Syntax 
+-oreg_in_iob <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Do not place registers connected to output/tristate 
+buffers to IOB. 
+1: Place registers connected to output/tristate buffers 
+to IOB. 
+Type 
+Project 
+Description  
+Enabling this option will cause Place & Route to place registers 
+connected to output/tristate buffers to IOB. The default value is 1. 
+Parameter 
+<0|1>: Enable control for place registers connected to output/tristate 
+buffers to IOB. 
+Example 
+set_option -oreg_in_iob 1 
+-ioreg_in_iob   
+Place registers connected to bidirectional buffers to IOB. 
+Syntax 
+-ioreg_in_iob <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Do not place registers connected to bidirectional buffers to 
+IOB. 
+1: Place registers connected to bidirectional buffers to IOB. 
+Type 
+Project 
+Description  
+Enabling this option will cause Place & Route to place registers 
+connected to bidirectional buffers in IOB. The default value is 1. 
+Parameter 
+<0|1>: Enable control for placing registers connected to bidirectional 
+buffers to IOB. 
+Example 
+set_option -ioreg_in_iob 1 
+-replicate_resources   

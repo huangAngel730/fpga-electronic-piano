@@ -1,0 +1,47 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+120(145) 
+ 
+-use_done_as_gpio  
+Multiplexes DONE-related pins as general IO pins. 
+Syntax 
+-use_done_as_gpio <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Uses as DONE-dedicated pins. 
+1: Multiplexes as general IO pins. 
+Type 
+Project 
+Description  
+Multiplexes DONE-related pins as general IO pins, and the default is 0. 
+Parameter 
+<0|1>: Enable control for multiplexing DONE-related pins as general IO 
+pins. 
+Example 
+set_option -use_ done_as_gpio 1 
+-use_reconfign_as_gpio  
+Multiplexes RECONFIG_N-related pins as general IO pins. 
+Syntax 
+-use_ reconfign_as_gpio <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Uses as RECONFIG_N-related pins. 
+1: Multiplexes as general IO pins. 
+Type 
+Project 
+Description  
+Multiplexes RECONFIG_N-related pins as general IO pins, and the 
+default is 0. 
+Parameter 
+<0|1>: Enable control for multiplexing RECONFIG_N-related pins as 
+general IO pins. 
+Example 
+set_option -use_reconfign_as_gpio 1 
+-use_i2c_as_gpio  
+Multiplexes I2C-related pins as general IO pins. 

@@ -1,0 +1,57 @@
+{
+  "evidence_audit_passed": true,
+  "all_physical_trials_completed": true,
+  "audit_does_not_override_STA_failures": true,
+  "trials": [
+    {
+      "label": "E_fixed_slot_next",
+      "functional_passed": true,
+      "STA_gate_passed": true,
+      "new_registers": 0,
+      "public_latency_cycles_added": 0,
+      "oracle_cases": 303104,
+      "completed_build_receipt": {
+        "started": "2026-10-05T18:55:57.082588+08:00",
+        "command": [
+          "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\gowin_1_9_11_03\\IDE\\bin\\gw_sh.exe",
+          "run.tcl"
+        ],
+        "cwd": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next",
+        "state": "finished",
+        "timeout_s": 1800,
+        "programmed": false,
+        "pid": 149392,
+        "finished": "2026-10-05T18:59:07.428179+08:00",
+        "exit_code": 0,
+        "build_log_SHA256": "92d0654e2f84268a21772c5911233cfb536f55519e4a99ff12522c085788e655"
+      }
+    },
+    {
+      "label": "F_absolute_rr",
+      "functional_passed": true,
+      "STA_gate_passed": false,
+      "new_registers": 0,
+      "public_latency_cycles_added": 0,
+      "oracle_cases": 274560,
+      "completed_build_receipt": {
+        "started": "2026-10-05T18:59:37.493495+08:00",
+        "command": [
+          "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\gowin_1_9_11_03\\IDE\\bin\\gw_sh.exe",
+          "run.tcl"
+        ],
+        "cwd": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr",
+        "state": "finished",
+        "timeout_s": 1800,
+        "programmed": false,
+        "pid": 138336,
+        "finished": "2026-10-05T19:02:45.822511+08:00",
+        "exit_code": 0,
+        "build_log_SHA256": "35b08e7a0d511000895e958cd516e703978f41ae561a95b7376366112388fe58"
+      }
+    }
+  ],
+  "formal_repo_written": false,
+  "programmed": false,
+  "previous_artifact_hashes_checked": 992,
+  "first_two_E_functional_runs_failed_coverage_gate_preserved": true
+}

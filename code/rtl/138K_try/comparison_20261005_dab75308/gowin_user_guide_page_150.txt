@@ -1,0 +1,50 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+139(145) 
+ 
+Type 
+Project 
+Description  
+Sets different IO properties for unused GPIOs. 
+Parameter 
+<default|open_drain>: Sets different IO properties for unused GPIOs. 
+Example 
+set_option -unused_pin open_drain 
+Note! 
+For a detailed explanation of Unused Pin-related options, see Unused Pin in Section 
+4.3.3 of this document. 
+8.3.20 set_property 
+Sets the properties of an object. 
+Syntax 
+set_property [-dict <args>] <name> <value> <objects> 
+Usage 
+Name 
+Description  
+[-dict] 
+A property list of (name/value) pairs to be set. 
+<name> 
+The name of the property to be set. Not applicable when 
+using -dict.  
+<value> 
+The value of the property to be set. Not applicable when 
+using -dict. 
+<objects> 
+The object of the property to be set. 
+Type 
+IPFlow 
+Description  
+Configure options and their corresponding values for specified IP 
+object. 
+Parameter 
+ [-dict]: Specifies a dictionary containing multiple pairs of options and 
+their corresponding values. Each pair is defined as (<name> <value>), 
+and multiple pairs are separated by spaces. The dictionary should be 
+enclosed in curly braces {}. 
+ <name>: Specifies the name of the option to be configured. The 
+description is in the form of CONFIG.property, and the property refers 
+to the option name. 
+ <value>: Specifies the value for the corresponding option. The value 
+needs to be valid according to the property type. If the option value is a 
+string, it should follow the original form. 

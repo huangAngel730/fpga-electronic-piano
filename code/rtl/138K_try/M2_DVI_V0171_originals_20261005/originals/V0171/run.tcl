@@ -1,0 +1,4 @@
+open_project {D:/17/project_17/fpga_gowin/code/output/t009_zip2_review_20260930/code/output/M3_parser_de68038_review_20261003/physical_parser_only/audio_visual_coexistence_top.gprj}
+set_option -top_module audio_visual_coexistence_top
+set_option -verilog_std sysv2017
+run all

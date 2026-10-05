@@ -1,0 +1,47 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+112(145) 
+ 
+-rpt_auto_place_io_info  
+Reports auto-placed IO location information. 
+Syntax 
+-rpt_auto_place_io_info <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Auto-placed IO location information will not be reported. 
+1: Auto-placed IO location information will be reported. 
+Type 
+Project 
+Description  
+Reports auto-placed IO location information when running Place & 
+Route. The default value is 0. 
+Parameter 
+<0|1>: Enable control for reporting auto-plzaced IO location 
+information. 
+Example 
+set_option -cst_warn_to_error 1 
+-place_option  
+Placement algorithm option. 
+Syntax 
+-place_option <0|1|2|3|4> 
+Usage 
+Name 
+Description  
+<0|1|2|3|4> 
+0: Uses the default placement algorithm. 
+1: Uses placement algorithm 1. 
+2: Uses placement algorithm 2.  
+3: Uses placement algorithm 3. 
+4: Uses placement algorithm 4. 
+Type 
+Project 
+Description  
+Placement algorithm option. The default value is 0. 
+Parameter 
+<0|1|2|3|4>: Placement algorithm option。 
+Example 
+set_option -place_option 1 

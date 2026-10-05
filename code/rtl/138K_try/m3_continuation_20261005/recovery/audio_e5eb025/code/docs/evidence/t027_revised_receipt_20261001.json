@@ -1,0 +1,191 @@
+{
+  "scope": "M2 receipt validation, no formal DDS replacement",
+  "checks": {
+    "ROM_reproduction_and_8192_endpoints": true,
+    "four_instance_RTL_scoreboard": true,
+    "wrong_PCM_LSB_rejected": true,
+    "actual_four_independent_timbres": true,
+    "actual_frequency_error_below_one_cent": true
+  },
+  "m1_tests": {
+    "test_t027_timbre.py": {
+      "exit_code": 0,
+      "assertion_counts": {
+        "test_wavetable_generation": 10,
+        "test_harmonic_difference": 3,
+        "test_timbre_switching": 0,
+        "test_fundamental_frequency_invariance": 0,
+        "test_polyphony_independence": 0
+      },
+      "invokes_rtl_simulator": false
+    },
+    "test_t027_rtl.py": {
+      "exit_code": 0,
+      "assertion_counts": {
+        "test_frequency_accuracy": 0,
+        "test_polyphony_independent_timbre": 2,
+        "test_release_waveform_continuity": 0,
+        "test_timbre_latch_on_note_on": 0,
+        "test_phase_continuity": 0
+      },
+      "invokes_rtl_simulator": false
+    }
+  },
+  "source_sha256": {
+    "code\\model\\t027_timbre_model.py": "46350ddce87e7afd46d674ea8effc0421c0bf26c90711a0c3b1e151f481af406",
+    "code\\model\\test_t027_timbre.py": "59f34db503c97e20ebd0285bfa8b3218d8d5511dff164d9edcedec82f428d297",
+    "code\\model\\test_t027_rtl.py": "678e029480958ba958fdc014a9871b349dd3c1a166f5788d60e5fee7338f020c",
+    "code\\model\\generate_t027_roms.py": "43ad807f7c1658808068d90a100de392472135a38227c96e77feccc38c66758d",
+    "code\\rtl\\audio\\timbre_oscillator.sv": "16f3f93af52ea9f497de42067e1dcdadea228577b51bb413a848c480b9647249",
+    "code\\model\\generated\\sine_wavetable.hex": "85a1d27131227696ae077506bd9ebdb4bc0bd87828260bcd90407da6c21acd93",
+    "code\\model\\generated\\triangle_wavetable.hex": "5b6892e95325641f2b319588bae10b556585ae103d6f16df81c28babe1072996"
+  },
+  "M2_tb_sha256": "10c631fc17f1efe3f27adcd48ccfa3d16665d69933fbdb9196db08159d03ed99",
+  "RTL_result": [
+    "PASS tb_t027_revised_delivery checks=579814 valid_outputs=192728 samples=40960 transitions=48 cycles=48573"
+  ],
+  "third_harmonic_to_fundamental": [
+    1.5427494736285268e-07,
+    0.11111390001063329,
+    1.5427494736285268e-07,
+    0.11111390001063329
+  ],
+  "actual_four_note_frequencies": [
+    {
+      "note": 21,
+      "target_hz": 27.5,
+      "actual_hz": 27.499993516988702,
+      "error_cents": -0.0004081313171880802
+    },
+    {
+      "note": 69,
+      "target_hz": 440.0,
+      "actual_hz": 440.000000004579,
+      "error_cents": 1.801658320560196e-08
+    },
+    {
+      "note": 108,
+      "target_hz": 4186.009044809578,
+      "actual_hz": 4186.009046021987,
+      "error_cents": 5.014236372494441e-07
+    },
+    {
+      "note": 57,
+      "target_hz": 220.0,
+      "actual_hz": 220.00000001095762,
+      "error_cents": 8.622804070870042e-08
+    }
+  ],
+  "module_passed": true,
+  "M1_claimed_RTL_test_accepted": false,
+  "actual_capture_sha256": "49d1f4e72093ccfbae029b2ce8c28ba535a08035119348e56097d7af3aa9de89",
+  "package": {
+    "filename": "M1_T027_Pitch_Mod_T028_离线工作包_0e29e22_20261001.12.36.zip",
+    "sha256": "def1214baffcddcf8b1a96d4f13134d20b09eadbed3c001bbed7c14222fc1c9b",
+    "baseline": "0e29e22",
+    "baseline_modified_files": 0,
+    "new_files": 7
+  },
+  "accepted_recheck": {
+    "scope": "M2 receipt validation, no formal DDS replacement",
+    "checks": {
+      "ROM_reproduction_and_8192_endpoints": true,
+      "four_instance_RTL_scoreboard": true,
+      "wrong_PCM_LSB_rejected": true,
+      "actual_four_independent_timbres": true,
+      "actual_frequency_error_below_one_cent": true
+    },
+    "m1_tests": {
+      "test_t027_timbre.py": {
+        "received_test_not_imported": true
+      },
+      "test_t027_rtl.py": {
+        "received_test_not_imported": true
+      }
+    },
+    "source_sha256": {
+      "code\\model\\t027_timbre_model.py": "46350ddce87e7afd46d674ea8effc0421c0bf26c90711a0c3b1e151f481af406",
+      "code\\model\\generate_t027_roms.py": "43ad807f7c1658808068d90a100de392472135a38227c96e77feccc38c66758d",
+      "code\\rtl\\audio\\timbre_oscillator.sv": "16f3f93af52ea9f497de42067e1dcdadea228577b51bb413a848c480b9647249",
+      "code\\model\\generated\\sine_wavetable.hex": "1abfd5c47759cd4089f4b39069b3ff0ab388838502b325d9ef7d9e01549ec7f4",
+      "code\\model\\generated\\triangle_wavetable.hex": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c"
+    },
+    "M2_tb_sha256": "10c631fc17f1efe3f27adcd48ccfa3d16665d69933fbdb9196db08159d03ed99",
+    "RTL_result": [
+      "PASS tb_t027_revised_delivery checks=579814 valid_outputs=192728 samples=40960 transitions=48 cycles=48573"
+    ],
+    "third_harmonic_to_fundamental": [
+      1.5427494736285268e-07,
+      0.11111390001063329,
+      1.5427494736285268e-07,
+      0.11111390001063329
+    ],
+    "actual_four_note_frequencies": [
+      {
+        "note": 21,
+        "target_hz": 27.5,
+        "actual_hz": 27.499993516988702,
+        "error_cents": -0.0004081313171880802
+      },
+      {
+        "note": 69,
+        "target_hz": 440.0,
+        "actual_hz": 440.000000004579,
+        "error_cents": 1.801658320560196e-08
+      },
+      {
+        "note": 108,
+        "target_hz": 4186.009044809578,
+        "actual_hz": 4186.009046021987,
+        "error_cents": 5.014236372494441e-07
+      },
+      {
+        "note": 57,
+        "target_hz": 220.0,
+        "actual_hz": 220.00000001095762,
+        "error_cents": 8.622804070870042e-08
+      }
+    ],
+    "module_passed": true,
+    "M1_claimed_RTL_test_accepted": false,
+    "actual_capture_sha256": "49d1f4e72093ccfbae029b2ce8c28ba535a08035119348e56097d7af3aa9de89"
+  },
+  "accepted_implementation_files": [
+    "code/model/t027_timbre_model.py",
+    "code/model/generate_t027_roms.py",
+    "code/model/generated/sine_wavetable.hex",
+    "code/model/generated/triangle_wavetable.hex",
+    "code/rtl/audio/timbre_oscillator.sv"
+  ],
+  "excluded_misleading_tests": [
+    "code/model/test_t027_timbre.py",
+    "code/model/test_t027_rtl.py"
+  ],
+  "latency_contract": {
+    "register_stages": 4,
+    "accepted_sample_edge": "E",
+    "output_edge": "E+3",
+    "same_edge_note_on_and_sample": "old latched timbre for this sample, new for next",
+    "reset_pipeline": "cleared"
+  },
+  "formal_integration": false,
+  "new_gowin": false,
+  "new_board_test": false,
+  "sine_matches_existing_8192_table": true,
+  "logs_sha256": {
+    "actual_review\\compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "actual_review\\negative_data.log": "6380cf7e2dccfc757e0bbb463ef35e17d6126050cc88a0a611f1f7be5c4615e5",
+    "actual_review\\RTL.log": "f3a71fbbae323eb087d0d1989e6f3151708b400c374b7072355b01680dcbd78e",
+    "actual_review\\test_t027_rtl.log": "7536ce2cb1ef5ba74a55fe069dc7787e3e96603c6405022991eb4d34266ecfbf",
+    "actual_review\\test_t027_timbre.log": "ce6035bce89f55239fbf707b0faa0319b02bb8127e0230a69214acac6a805942",
+    "accepted_source_review\\compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "accepted_source_review\\negative_data.log": "6380cf7e2dccfc757e0bbb463ef35e17d6126050cc88a0a611f1f7be5c4615e5",
+    "accepted_source_review\\RTL.log": "f3a71fbbae323eb087d0d1989e6f3151708b400c374b7072355b01680dcbd78e"
+  },
+  "repo_gate": {
+    "result": "ALL PASS",
+    "python_syntax_files": 98,
+    "log_sha256": "90a21d26f05a62051885adc08fc636fcd4b7487ccb19cb7d3b30d9784f243492",
+    "T007_T019": "PASS"
+  }
+}

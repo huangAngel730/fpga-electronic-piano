@@ -1,0 +1,206 @@
+{
+  "local_time": "2026-10-05T02:21:39.7645324+08:00",
+  "utc_time": "2026-10-04T18:21:39.7657406Z",
+  "task": "V0171 audio+HDMI 60K control versus 138K B/C offline physical timing comparison",
+  "status": "BLOCKED_FROZEN_ENGINEERING_PACKET_INCOMPLETE",
+  "actual_grade": "static audit only; no simulation, synthesis, PnR, STA, programming",
+  "source_repo_access": "read-only; no scripts or Git write operations executed",
+  "notification": "待用户转发，尚未送达",
+  "assertions_passed": 20,
+  "assertion_names": [
+    "47 historical project entries",
+    "36 input matches",
+    "33 direct actual matches",
+    "5 explicit normalization matches",
+    "38 unique actual identities, not 47",
+    "9 unresolved identities",
+    "7 ROM entries in prior audit",
+    "15 prior scan errors preserved",
+    "de68038 exact parser identity",
+    "V0171 expected final manifest identity",
+    "handoff expected manifest agrees with review",
+    "historical single-parser-only source change",
+    "historical system Hold uncertainty 0.550ns",
+    "prior audit did not run EDA",
+    "unchanged audit snapshot input_audit.json",
+    "unchanged audit snapshot normalized_audit.json",
+    "unchanged audit snapshot V0165_manifest_original.json",
+    "unchanged audit snapshot V0171_review_original.json",
+    "unchanged audit snapshot reference_inspection.json",
+    "unchanged audit snapshot device_info_original.csv"
+  ],
+  "exit_code_meaning": "0 means audit checkpoint succeeded, not physical timing PASS",
+  "expected_final_manifest_sha256": "1e29e550b129176e06fe609631229ae7c03a22ed3ad9ac4652f0705c7a234a36",
+  "final_manifest_received": false,
+  "parser_sha256": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+  "input_entries": 47,
+  "input_matches": 36,
+  "direct_actual_matches": 33,
+  "normalization_actual_matches": 5,
+  "actual_identities_verified": 38,
+  "unresolved": [
+    {
+      "name": "audio_visual_coexistence_top.sv",
+      "expected_actual_sha256": "a76b05878053854f161318f9c963107d78b40d96cecd0650c9bf68ab2156ce56"
+    },
+    {
+      "name": "simple_voice.sv",
+      "expected_actual_sha256": "95e56fcbf16000d6a5bbeb1dde50f1392e8397af2cf51aef6f8f0f1ff720a4c6"
+    },
+    {
+      "name": "dds_oscillator.sv",
+      "expected_actual_sha256": "4454013be7c3de71940cfbf4c915e69f5674aa2996dcf29f0c2a1db3bb092a45"
+    },
+    {
+      "name": "sustain_controller.sv",
+      "expected_actual_sha256": "a384c67742364c1e8efd1c8884f7b8172af021b14d5ae1a05174b37467304a1e"
+    },
+    {
+      "name": "polyphonic_envelope_bank.sv",
+      "expected_actual_sha256": "b3795cce2a21c1d49e2d0792114a22664471e4f221e8a7675e3b94db2abd2fb4"
+    },
+    {
+      "name": "TMDS_PLL_800_600_60.v",
+      "expected_actual_sha256": "f200d66f1b0bc108d5c7c0027622fec6423a553572e1cdb6590901c83edde6ec"
+    },
+    {
+      "name": "DVI_TX_Top.v",
+      "expected_actual_sha256": "162f68cab4262f8a3acae17f2fc66b6d9ef403815fd5ebeeecf30b59d88e203c"
+    },
+    {
+      "name": "audio_visual.cst",
+      "expected_actual_sha256": "b924a759b2810a3bcae5795223b461fc24dc80707bbfe4e67c4ce98a01ceda39"
+    },
+    {
+      "name": "audio_visual_hold055.sdc",
+      "expected_actual_sha256": "7298efd5c8666d8357f08a48eaa2d9e075240a67d0881b6c98928bddbb9f5c9f"
+    }
+  ],
+  "historical_M2_only": {
+    "visual_gate": {
+      "summary": {
+        "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+        "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+        "Numbers of Paths Analyzed": "31133",
+        "Numbers of Endpoints Analyzed": "28085",
+        "Numbers of Falling Endpoints": "4",
+        "Numbers of Setup Violated Endpoints": "0",
+        "Numbers of Hold Violated Endpoints": "0"
+      },
+      "bus_path_count": {
+        "u_event_bridge": 23,
+        "u_control/u_score_mailbox": 50
+      }
+    },
+    "audio_pins": 10,
+    "resources": {
+      "Logic": 19534,
+      "Register": 8674,
+      "DSP": 46,
+      "BSRAM": 20
+    },
+    "fmax_mhz": {
+      "sys_clk": 50.043,
+      "video_serial": 1122.018,
+      "video_pixel": 37.472
+    },
+    "exported_min_slack_ns": {
+      "Setup": 0.017,
+      "Hold": 0.0,
+      "Recovery": 1.113,
+      "Removal": 0.869
+    },
+    "latency_registers": 65,
+    "scope": "independent audio/visual STA only; not production top, monitor or silicon acceptance"
+  },
+  "target_clocks_mhz": {
+    "pixel": 25,
+    "serial": 125,
+    "system": 50
+  },
+  "hold_uncertainty_ns": 0.55,
+  "target_devices": {
+    "speed": "C1/I0",
+    "part": "GW5AST-LV138PG484AC1/I0",
+    "package": "PBGA484A",
+    "B": "gw5ast138b-011",
+    "C": "gw5ast138c-007"
+  },
+  "schematic_pages_visually_reviewed_this_turn": [
+    5,
+    6,
+    7
+  ],
+  "source_snapshot_hashes": [
+    {
+      "file": "input_audit.json",
+      "original_sha256": "005f4c038e395dbf64e9d880535ef4e1b607e8511a34f3890c7f6fa80e148854",
+      "snapshot_sha256": "005f4c038e395dbf64e9d880535ef4e1b607e8511a34f3890c7f6fa80e148854"
+    },
+    {
+      "file": "normalized_audit.json",
+      "original_sha256": "9cf7027022e75bf2c3735fef66cae157533345a9fe5cb80c9cb41d66b4d16821",
+      "snapshot_sha256": "9cf7027022e75bf2c3735fef66cae157533345a9fe5cb80c9cb41d66b4d16821"
+    },
+    {
+      "file": "V0165_manifest_original.json",
+      "original_sha256": "08d48c7b744d75f1b6a52cc5f4b4eb6a0c99d1e31e9cec4e3c75209e59e0ad85",
+      "snapshot_sha256": "08d48c7b744d75f1b6a52cc5f4b4eb6a0c99d1e31e9cec4e3c75209e59e0ad85"
+    },
+    {
+      "file": "V0171_review_original.json",
+      "original_sha256": "fc5a894bd234e6cfba4408aab7f81591575c9dfc956ae02979b6c057a33a7810",
+      "snapshot_sha256": "fc5a894bd234e6cfba4408aab7f81591575c9dfc956ae02979b6c057a33a7810"
+    },
+    {
+      "file": "reference_inspection.json",
+      "original_sha256": "ccca9702b8f5942b06ed9fd3f76b68928fbc4e4b59fe78218ad8a8c6315abc9a",
+      "snapshot_sha256": "ccca9702b8f5942b06ed9fd3f76b68928fbc4e4b59fe78218ad8a8c6315abc9a"
+    },
+    {
+      "file": "device_info_original.csv",
+      "original_sha256": "70d8b142b329b38187ba72a577c96a3badef061fac095b4370acaca916c69a28",
+      "snapshot_sha256": "70d8b142b329b38187ba72a577c96a3badef061fac095b4370acaca916c69a28"
+    }
+  ],
+  "reference_hashes": [
+    {
+      "file": "board_138k_schematic.pdf",
+      "sha256": "326c45a7ae05e990d5f885fba6ec9b589d966941aa3c00f7d43122d99c068af7"
+    },
+    {
+      "file": "board_138k_reference.cst",
+      "sha256": "ab24e1876c36b01721e31d8dcf3a2838b873b0f1903d8aeeeccaeec6b82efa9d"
+    },
+    {
+      "file": "board_138k_page_5.png",
+      "sha256": "f4536adcbccd12540f92cfaca870a9508586762acedb08a2b7170db5438e5471"
+    },
+    {
+      "file": "board_138k_page_6.png",
+      "sha256": "560a805eec2514a1ae262581d4473127045735899937df0f376263b15464a21b"
+    },
+    {
+      "file": "board_138k_page_7.png",
+      "sha256": "6e8cd742226be5fbd17d463b83008d051cedc22756e32b0f1a6343e65b458c96"
+    },
+    {
+      "file": "gowin_user_guide.pdf",
+      "sha256": "708f510811c6deb9320da118c7f04f656da41a54a62291cf8079ffcb40870f83"
+    }
+  ],
+  "deliverable_hashes": [
+    {
+      "file": "README.md",
+      "sha256": "3f5bbdef7a633ec88a3b35f71fbf3f04305bd8c6f2d8434ecc20c4a0cb55609c"
+    },
+    {
+      "file": "M2_冻结工程补包请求.md",
+      "sha256": "26cb889ffa65f02779f205b6b9eb270a7d4f9ecbac52dd3763bbd969ee2913a9"
+    },
+    {
+      "file": "record_checkpoint.ps1",
+      "sha256": "6d80d50b7b8bacc7751e8c09846fcd47f8d200cafabcfb1d462a9c72da8fc474"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "runner_source": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\run_frozen_regression.py",
+  "runner_source_SHA256": "e89564122618a67b1ddbbd613b08ed4ea4c67e1a79e28394382337991b687097",
+  "in_memory_path_only_replacements": {
+    "Path('E:/FPGA/GAOYUNFPGA/138K_try/preparation_20261005')": "Path('E:/FPGA/GAOYUNFPGA/138K_try/optimization_20261005')",
+    "DUT = HERE / 'relocated_bundle/sources'": "DUT = HERE / 'C_reset_location/sources'",
+    "source = REPO / relative": "source = HERE.parent / 'preparation_20261005/regression/bench_original' / Path(relative).name"
+  },
+  "scope": "Frozen seven test groups against actual optimization DUT; not full system simulation"
+}

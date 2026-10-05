@@ -1,0 +1,32 @@
+6 Output Files 
+ 6.4 Timing Report 
+ 
+SUG100-4.4.2E 
+81(145) 
+ 
+For devices other than GW1N-1P5/GW1N-2/GW1NR-2 and GW2AN-18X/GW2AN-9X, 
+if no Bank VCCIO constraint is added, the voltage values corresponding to some 
+single-ended input port IO Type may not match the value of Bank VCCIO in the ports 
+report, which is normal. For example, the IO Type in the report is LVCMOS18, which 
+corresponds to a voltage value of 1.8, but the Bank VCCIO is 1.2 
+6.4 Timing Report 
+The timing report performs a thorough analysis of the timing model in 
+the circuit netlist, calculates the timing path delays in the circuit, and 
+determines whether they are met the requirements. The Timing report 
+includes setup check, holdup check, restoring and removal time check, Min. 
+clock pulse check, max. fanout path, Place & Route congestion report, etc. 
+by default, and provides the Max. frequency report. 
+Double-click "Timing Analysis Report" in the Process View to open the 
+timing analysis report for the project, as shown in Figure 6-4. 
+Note! 
+For the details, see SUG940, Gowin Design Timing Constraints User Guide.  
+Figure 6-4 Timing Report 
+  
+6.5 Power Analysis Report 
+The Power Analysis Report mainly includes the power consumption 
+estimation for your design. It is designed to help you evaluate the basic 
+power consumption of your design. 
+Double-click "Power Analysis Report" in the Process View to open the 
+analysis report, as shown in Figure 6-5. 
+Note! 
+For the details, see SUG282, Gowin Power Analyzer User Guide 

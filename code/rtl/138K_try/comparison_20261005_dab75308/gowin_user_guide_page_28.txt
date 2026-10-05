@@ -1,0 +1,74 @@
+3 Gowin Software GUI 
+ 3.8 Information Output Area 
+ 
+SUG100-4.4.2E 
+17(145) 
+ 
+Figure 3-10 Information Output Area 
+ 
+ 
+After selecting an Error or Warning message reported by PnR, 
+right-click and select "Help" or press the shortcut key "F1", the "GOWIN 
+Help" of this error or warning will pop up, and the help information of this 
+error or message will be described in details in the document. Some 
+common warnings or errors are shown in Table 3-1, and help documents 
+can be viewed by clicking "Help > View Help", which supports Chinese and 
+English versions. 
+Table 3-1 Common Warnings and Errors 
+Name 
+Code 
+Description 
+Warning 
+WARN (PA1002): <file>:<line> | Invalid 
+parameterized value <value>(<parameter>) 
+specified for instance <instanceName> 
+The specified instance 
+sets invalid parameters. 
+WARN (PA1008): <file>:<line> | Object 
+<name> is already defined 
+The net or port has 
+already been defined. 
+WARN (PA1001) : Dangling net 
+<netName>(source:<instanceName>) in 
+module <moduleName> has no destination  
+The net in the specified 
+module has no 
+destination. 
+WARN (CT1098) : <file>:<line> | Group name 
+<name> is already defined 
+The constraints group 
+name has alredy been 
+defined. 
+WARN (CT1101) : <file>:<line> | Location 
+column <number> is out of chip 
+range(<maxColumn>) 
+The location column is 
+out of chip range. 
+Error 
+ERROR (PA2000): <file>:<line> | Syntax error 
+near token <name> 
+There is an error near 
+token. 
+ERROR (PA2001): <file>:<line> | Module 
+<moduleName> is already defined 
+The module name has 
+already been defined. 
+ERROR (PA2017): The number(<value>) of 
+<instType> in the design exceeds the resource 
+limit(<maxValue>) of current device 
+The number of the 
+devices in the design file 
+exceeds the resource 
+limit. 
+ERROR (PA2025): No <instType> resource in 
+current device 
+There are resources that 
+are not supported by the 
+chip in the design. 
+ERROR (PA2054): <file>:<line> | <name> is 
+already declared 
+The name has already 
+been declared. 
+ The Tcl editing window locates at the bottom of the Console page. You 
+can enter Tcl commands in the window and press the Enter key to execute, 
+as shown in Figure 3-11. For the details of Tcl, please refer to 8 Tcl 

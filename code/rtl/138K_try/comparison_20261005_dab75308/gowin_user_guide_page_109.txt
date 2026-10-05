@@ -1,0 +1,48 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+98(145) 
+ 
+Name 
+Description  
+[-h/--help] 
+Displays help information 
+Type 
+Project 
+Description  
+Sets whether the file can be used. For the file path format, see 8.3.1 
+add_file. 
+Parameter 
+ <file>: Specifies the file to be set. 
+ <true|false>: true means the file can be used, and false means it 
+cannot. 
+ [-h/--help]: Displays help information. 
+Example 
+set_file_enable top.v false 
+set_file_enable D:/gowin_project/top.v 
+set_file_enable D:\\gowin_project\\top.v 
+8.3.17 set_file_prop 
+Sets file properties. 
+Syntax 
+set_file_prop <file> [-lib <name>] [-h/--help]  
+Usage 
+Name 
+Description  
+<file> 
+Specifies the design files to be set 
+[-lib <name>] 
+Sets the library name for the file 
+[-h/--help] 
+Displays help information 
+Type 
+Project 
+Description  
+Sets properties for the specified files. For the file path format, see 8.3.1 
+add_file. 
+Parameter 
+ <file>: Specifies the file(s) to be set. Multiple files can be listed, 
+separated by spaces. 
+ [-lib <name>]: Sets the library name for the file. This option is only valid 
+for VHDL files. 
+ [-h/--help]: Displays help information. 

@@ -1,0 +1,42 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+94(145) 
+ 
+Type 
+IPFlow 
+Description  
+Read the specified IPC file and configure options through the IPC file. 
+For the file path format, see 8.3.1 add_file. 
+Parameter 
+<file>: Specifies the name of the IPC file to be opened.  
+Example 
+In the following example, an IPC file is read from the specified path. 
+read_ipc D:/gowin_project/src/fifo/fifio.ipc 
+See also 
+generate_target 
+8.3.10 report_property 
+Reports properties of an object. 
+Syntax 
+report_property <object> 
+Usage 
+Name 
+Description  
+<object> 
+The object that queries properties. 
+Type 
+IPFlow 
+Description  
+This command is used to obtain the option names, types, and values 
+for the specified IP object. 
+Parameter 
+<object>: Specifies the IP object that queries option. Use [get_ips 
+module_name] to specify. 
+Example 
+In the following example, all the properties of a specified IP object are 
+listed. 
+report_property [get_ips FIFO_Top] 
+See also 
+ set_property 
+ list_property 

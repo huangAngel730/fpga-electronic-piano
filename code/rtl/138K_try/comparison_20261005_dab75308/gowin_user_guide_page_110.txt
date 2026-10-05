@@ -1,0 +1,45 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+99(145) 
+ 
+Example 
+set_file_prop -lib work top .vhd 
+set_file_prop -lib work D:/gowin_project/top.vhd 
+set_file_prop -lib work D:\\gowin_project\\top.vhd 
+8.3.18 set_csr 
+Specifies the CSR file. 
+Syntax 
+set_csr [-h/--help ] <file> 
+Usage 
+Name 
+Description  
+<file> 
+The CSR file to be specified. 
+[-h/--help] 
+Displays help information 
+Type 
+Project 
+Description  
+Specifies the CSR file. For the file path format, see 8.3.1 add_file. 
+Parameter 
+ <files>: Specifies the CSR file. 
+ [-h/--help]: Displays help information. 
+Example  
+set_csr a.csr 
+set_csr D:/gowin_project/a.csr 
+set_csr D:\\gowin_project\\a.csr 
+8.3.19 set_option 
+Sets project-related property configurations and flow options. 
+Syntax 
+set_option [options] [-h/--help] 
+Usage 
+Name 
+Description  
+[options] 
+Specifies configurations or flow options 
+[-h/--help] 
+Displays help information 
+Type 
+Project 

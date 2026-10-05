@@ -1,0 +1,47 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+92(145) 
+ 
+specified by the add_file command to the project path /src. 
+Parameter 
+ [-file <file>]: Adds one or more files to the project path /src. 
+ [-dir <path>]: Adds all files and subfolders in the path to the project path 
+/src. 
+ [-fileList <fileList>]: Specifies a file list where each line represents a file 
+to be added to the project. Examples are as follows: 
+- 
+D:/test1.v 
+- 
+D:/test2.v 
+- 
+This option allows adding all the files specified in each line of the 
+file to the project path /src. 
+ [-force]: Overwrites files with the same name in the project path /src. 
+ [-h/--help]: Displays help information. 
+Example 
+import_files -file D/test1 .v -force 
+import_files -file D:/test1 .v D:/test2.v -force 
+import_files -dir D:/sourceFile 
+import_files -fileList log, and the file contents are as follows: 
+D:/Test1.v 
+D:/Test2.v 
+8.3.7 list_property 
+Lists the properties of an object. 
+Syntax 
+list_property <object> 
+Usage 
+Name 
+Description  
+<object> 
+The object that queries properties. 
+Type 
+IPFlow 
+Description  
+Obtains a list of all options for the specified IP object. 
+Parameter 
+<object>: Specifies the IP object that queries option. Use [get_ips 
+module_name] to specify. 
+Example 
+In the following example, all properties of the specified IP object are 

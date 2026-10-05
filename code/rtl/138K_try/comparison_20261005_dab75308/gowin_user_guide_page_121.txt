@@ -1,0 +1,48 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+110(145) 
+ 
+Syntax 
+-show_init_in_vo <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Do not add default initial values to the instances 
+in the timing simulation model file. 
+1: Adds default initial values to the instances in the 
+timing simulation model file. 
+Type 
+Project 
+Description  
+Adds default initial values to the instances in the generated Place & 
+Route timing simulation model file, and the default is 0. 
+Parameter 
+<0|1>: Enable control for adding default initial values to the instances in 
+the generated Place & Route timing simulation model file. 
+Example 
+set_option -show_init_in_vo 1 
+-show_all_warn  
+Whether to show all warnings. 
+Syntax 
+-show_all_warn<0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Do not output all warning messages during 
+Placement & Routing. 
+1: Outputs all warning messages during Placment & 
+Routing.  
+Type 
+Project 
+Description  
+Outputs all warning messages when running Place & Route, and the 
+default is 0. 
+Parameter 
+<0|1>: Enable control for outputting all warning messages when 
+running Place & Route. 
+Example 
+set_option -show_all_warn 1 

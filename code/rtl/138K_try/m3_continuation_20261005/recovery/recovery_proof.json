@@ -1,0 +1,136 @@
+{
+  "scope": "hash-gated deterministic recovery, not timing acceptance",
+  "audio_commit": "e5eb025ea37dfd7312b4a4e74e1a881c223dda1d",
+  "official_vendor_commit": "f0347d830305ef3efb921f47bb51701e569beefd",
+  "attempts": [
+    {
+      "name": "simple_voice.sv",
+      "method": "exact prepare_audio_visual_probe documented historical include paths",
+      "sha256": "93992ca6416f2a9d71c5ee1cb1c6a90dddd2719f189f3b46baa20fca6bfc96d8",
+      "expected_sha256": "95e56fcbf16000d6a5bbeb1dde50f1392e8397af2cf51aef6f8f0f1ff720a4c6",
+      "matched": false,
+      "input_files": [
+        "code/rtl/common/simple_voice.sv"
+      ]
+    },
+    {
+      "name": "simple_voice.sv",
+      "method": "prepare_adsr_visual_combo documented snapshot relocation; SHA-gated",
+      "sha256": "95e56fcbf16000d6a5bbeb1dde50f1392e8397af2cf51aef6f8f0f1ff720a4c6",
+      "expected_sha256": "95e56fcbf16000d6a5bbeb1dde50f1392e8397af2cf51aef6f8f0f1ff720a4c6",
+      "matched": true,
+      "input_files": [
+        "code/rtl/common/simple_voice.sv",
+        "prepare_adsr_visual_combo.py",
+        "repository evidence/adsr_strict_flash_combo_M2_20261002.json"
+      ]
+    },
+    {
+      "name": "sustain_controller.sv",
+      "method": "exact prepare_audio_visual_probe documented historical include paths",
+      "sha256": "dcbf869a5e3fd80309d374a834f1ea9ea87e3c4983648b88ef905bef200c7223",
+      "expected_sha256": "a384c67742364c1e8efd1c8884f7b8172af021b14d5ae1a05174b37467304a1e",
+      "matched": false,
+      "input_files": [
+        "code/rtl/input/sustain_control/sustain_controller.sv"
+      ]
+    },
+    {
+      "name": "sustain_controller.sv",
+      "method": "prepare_adsr_visual_combo documented snapshot relocation; SHA-gated",
+      "sha256": "a384c67742364c1e8efd1c8884f7b8172af021b14d5ae1a05174b37467304a1e",
+      "expected_sha256": "a384c67742364c1e8efd1c8884f7b8172af021b14d5ae1a05174b37467304a1e",
+      "matched": true,
+      "input_files": [
+        "code/rtl/input/sustain_control/sustain_controller.sv",
+        "prepare_adsr_visual_combo.py",
+        "repository evidence/adsr_strict_flash_combo_M2_20261002.json"
+      ]
+    },
+    {
+      "name": "dds_oscillator.sv",
+      "method": "historical pre-physical audio stage",
+      "sha256": "ccd81fa354e40dc801ededf451ca6c6cbdc96a003357c47598496e105a7ebe67",
+      "expected_sha256": "4454013be7c3de71940cfbf4c915e69f5674aa2996dcf29f0c2a1db3bb092a45",
+      "matched": false,
+      "input_files": [
+        "code/rtl/audio/dds_oscillator.sv"
+      ]
+    },
+    {
+      "name": "dds_oscillator.sv",
+      "method": "documented subsequent physical ROM path relocation",
+      "sha256": "4454013be7c3de71940cfbf4c915e69f5674aa2996dcf29f0c2a1db3bb092a45",
+      "expected_sha256": "4454013be7c3de71940cfbf4c915e69f5674aa2996dcf29f0c2a1db3bb092a45",
+      "matched": true,
+      "input_files": [
+        "code/rtl/audio/dds_oscillator.sv"
+      ]
+    },
+    {
+      "name": "audio_visual_coexistence_top.sv",
+      "method": "replayed exact original prepare_audio_visual_probe top generation",
+      "sha256": "a76b05878053854f161318f9c963107d78b40d96cecd0650c9bf68ab2156ce56",
+      "expected_sha256": "a76b05878053854f161318f9c963107d78b40d96cecd0650c9bf68ab2156ce56",
+      "matched": true,
+      "input_files": [
+        "code/rtl/board/electronic_piano_top.sv",
+        "prepare_audio_visual_probe.py"
+      ]
+    },
+    {
+      "name": "polyphonic_envelope_bank.sv",
+      "method": "exact prepare_pitch_mod_bank_combo pitch ROM path relocation",
+      "sha256": "b3795cce2a21c1d49e2d0792114a22664471e4f221e8a7675e3b94db2abd2fb4",
+      "expected_sha256": "b3795cce2a21c1d49e2d0792114a22664471e4f221e8a7675e3b94db2abd2fb4",
+      "matched": true,
+      "input_files": [
+        "bank_input.sv"
+      ]
+    },
+    {
+      "name": "audio_visual.cst",
+      "method": "exact original audio/video constraint assembly",
+      "sha256": "b924a759b2810a3bcae5795223b461fc24dc80707bbfe4e67c4ce98a01ceda39",
+      "expected_sha256": "b924a759b2810a3bcae5795223b461fc24dc80707bbfe4e67c4ce98a01ceda39",
+      "matched": true,
+      "input_files": [
+        "code/constraints/electronic_piano.cst",
+        "hdmi_link_probe.cst"
+      ]
+    },
+    {
+      "name": "audio_visual_hold055.sdc",
+      "method": "original assembly plus documented Hold 0.500 to 0.550",
+      "sha256": "7298efd5c8666d8357f08a48eaa2d9e075240a67d0881b6c98928bddbb9f5c9f",
+      "expected_sha256": "7298efd5c8666d8357f08a48eaa2d9e075240a67d0881b6c98928bddbb9f5c9f",
+      "matched": true,
+      "input_files": [
+        "code/constraints/audio_timing.sdc",
+        "visual_full_path_probe.sdc"
+      ]
+    },
+    {
+      "name": "TMDS_PLL_800_600_60.v",
+      "method": "exact reviewed PLL parameter edits then original physical LF transport",
+      "sha256": "f200d66f1b0bc108d5c7c0027622fec6423a553572e1cdb6590901c83edde6ec",
+      "expected_sha256": "f200d66f1b0bc108d5c7c0027622fec6423a553572e1cdb6590901c83edde6ec",
+      "matched": true,
+      "input_files": [
+        "vendor/TMDS_PLL_800_600_60.v",
+        "original build_hdmi_link_probe.ps1"
+      ]
+    }
+  ],
+  "recovered_names": [
+    "TMDS_PLL_800_600_60.v",
+    "audio_visual.cst",
+    "audio_visual_coexistence_top.sv",
+    "audio_visual_hold055.sdc",
+    "dds_oscillator.sv",
+    "polyphonic_envelope_bank.sv",
+    "simple_voice.sv",
+    "sustain_controller.sv"
+  ],
+  "EDA_run": false
+}

@@ -1,0 +1,13 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+142(145) 
+ 
+write_ip_tcl -ip_name FIFO_Top_new [get_ips FIFO_Top] 
+In this example, a separate tcl file is generated for each specified IP 
+module in the project. 
+write_ip_tcl -multiple_files [get_ips FIFO_Top FIFO_Top_1] 
+In this example, multiple specified IP modules from the project are 
+written into a single Tcl file: 
+write_ip_tcl [get_ips FIFO_Top FIFO_Top_1] my_fifo.tcl 

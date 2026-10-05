@@ -1,0 +1,50 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+125(145) 
+ 
+Name 
+Description  
+jtag: Background programming via JTAG 
+mode. 
+i2c: Background programming via I2C 
+mode. 
+goconfig: Background programming 
+using goConfig IP. 
+userlogic: Background programming 
+using FPGA internal logic. 
+i2c_jtag_sspi_qsspi: Background 
+programming using 
+I2C/JTAG/SSPI/QSSPI mode.  
+jtag_sspi_qsspi: Background 
+programming using JTAG/SSPI/QSSPI 
+mode. 
+Type 
+Project 
+Description  
+It allows programming of Flash without disrupting the FPGA chip's 
+current operations. The default setting is off. 
+Parameter 
+< off | jtag | i2c | goconfig | userlogic | i2c_jtag_sspi_qsspi | 
+jtag_sspi_qsspi>: Background programming method. 
+Example 
+set_option -bg_programming userlogic 
+-hotboot  
+Hotboot mode. 
+Syntax 
+-hotboot <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Disables hotboot mode. 
+1: Enables hotboot mode. 
+Type 
+Project 
+Description  
+Hotboot mode enable control. The default is 0. 
+Parameter 
+<0|1>: Hotboot mode enable control. 
+Example 
+set_option -hotboot 1 

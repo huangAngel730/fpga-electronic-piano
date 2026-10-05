@@ -1,0 +1,47 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+111(145) 
+ 
+-timing_driven 
+Whether optimizes timing driven for Place & Route. 
+Syntax 
+-timing_driven <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Disables Place & Route timing driven.  
+1: Enables Place & Route timing driven. 
+Type 
+Project 
+Description  
+Timing-driven optimization is performed when running Place & Route. 
+The default value is 1. 
+Parameter 
+<0|1>: Enable control for timing-driven optimization when running 
+Place & Route. 
+Example 
+set_option -timing_driven 1 
+-cst_warn_to_error  
+Elevates physical constraint warnings to errors. 
+Syntax 
+-cst_warn_to_error <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Physical constraint warnings will not be elevated to 
+errors. 
+1: Physical constraint warnings will be elevated to errors. 
+Type 
+Project 
+Description  
+Elevates physical constraint warnings to errors when running Place & 
+Route. The default value is 1. 
+Parameter 
+<0|1>: Enable control for elevating physical constraint warnings to 
+errors when running Place & Route. 
+Example 
+set_option -cst_warn_to_error 1 

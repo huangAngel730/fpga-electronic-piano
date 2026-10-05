@@ -1,0 +1,46 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+130(145) 
+ 
+Type 
+Project 
+Description  
+Stops the SEU Handler when an uncorrectable ECC error or CRC 
+checksum mismatch is detected. The default is 0. 
+Parameter 
+<0|1>: Enable control for stopping SEU Handler. 
+Example 
+set_option -stop_seu_handler 1 
+-osc_div   
+Sets the frequency division ratio for the extended control register. 
+Syntax 
+-osc_div <4|8|16|32> 
+Usage 
+Name 
+Description  
+<4|8|16|32> 
+4: Sets the frequency division ratio of the extended control 
+register to 4. 
+8: Sets the frequency division ratio of the extended control 
+register to 8. 
+16: Sets the frequency division ratio of the extended 
+control register to 16. 
+32: Sets the frequency division ratio of the extended 
+control register to 32. 
+Type 
+Project 
+Description  
+Sets the frequency division ratio for the extended control register, and 
+the default is 8. 
+Parameter 
+<4|8|16|32>: The frequency division ratio for the extended control 
+register. 
+Example 
+set_option -osc_div 8 
+-error_injection   
+Enables error injection. 
+Syntax 
+-error_injection <0|1> 
+Usage 

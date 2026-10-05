@@ -1,0 +1,46 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+103(145) 
+ 
+Syntax 
+-vhdl_std <vhd1993|vhd2008|vhd2019> 
+Usage 
+Name 
+Description  
+< vhd1993|vhd2008|vhd2019> 
+Specifies VHDL language standard 
+Type 
+Project 
+Description  
+Specifies VHDL language standard: VHDL 1993/VHDL 2008/VHDL 
+2019, and the default is VHDL1993. 
+Parameter 
+<vhd1993|vhd2008|vhd2019>: Specifies VHDL language standard. 
+Example 
+set_option -vhdl_std vhd2008 
+-print_all_synthesis_warning <0|1> 
+Specifies whether to print all synthesis warning messages. The default 
+is 0. 
+Syntax 
+-print_all_synthesis_warning <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Do not print all warning messages. 
+1: Print all warning messages. 
+Type 
+Project 
+Description  
+Specifies whether to print all synthesis warning messages. The default 
+is 0. 
+Parameter 
+<0|1>: Specifies whether to print all synthesis warning messages. 
+Example 
+set_option -print_all_synthesis_warning 1 
+-disable_io_insertion  
+Enables or disables I/O insertion. 
+Syntax 
+-disable_io_insertion <0|1> 

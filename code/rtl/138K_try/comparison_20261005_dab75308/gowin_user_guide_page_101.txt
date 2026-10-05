@@ -1,0 +1,46 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+90(145) 
+ 
+8.3.4 generate_target 
+Generates target files for specified objects. 
+Syntax 
+generate_target <objects> [-force] 
+Usage 
+Name 
+Description  
+<objects> 
+Specifies the object to generate the target file 
+[-force] 
+Overwrite existing files 
+Type 
+IPFlow 
+Description  
+This command is used to generate target files for the specified IP 
+objects (get_ips) and adds the IP core design files to the current project. 
+Parameter 
+ <objects>: Specifies one or more IP objects to generate design files. 
+An object is specified using [get_ips module_name]. Multiple objects 
+are specified using [get_ips module_name0 module_name1 …]. 
+ [-force]: Overwrites existing files. 
+Example 
+In the following example, design files and template files for the 
+specified IP are generated, and load them into the current project. 
+generate_target [get_ips FIFO_Top] 
+See also 
+ generate_target 
+ create_ipc 
+ read_ipc 
+8.3.5 get_ips 
+Specifies IP objects. 
+Syntax 
+get_ips <module_name> 
+Usage 
+Name 
+Description  
+<module_name> 
+Specifies the module name of the IP 
+Type 
+IPFlow 

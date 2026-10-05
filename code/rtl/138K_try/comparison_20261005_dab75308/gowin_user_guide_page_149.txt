@@ -1,0 +1,47 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+138(145) 
+ 
+Project 
+Description  
+Enable control for Wake Up Mode. The default is 0. 
+Parameter 
+<0|1>: Enable control for Wake Up Mode. 
+Example 
+set_option -wakeup_mode 1 
+-user_code   
+Custom User Code. 
+Syntax 
+-user_code <default|value> 
+Usage 
+Name 
+Description  
+<default|value> 
+Custom User Cod value. 
+Type 
+Project 
+Description  
+Users can customize the User Code. The default value is default 
+(00000000). 
+Parameter 
+<default|value>: Custom User Code. 
+Example 
+set_option -user_code 00000010 
+Note! 
+For a detailed explanation of the BitStream-related options, see BitStream in Section 
+4.3.3 of this document. 
+Unused Pin Property Configuration 
+-unused_pin 
+Sets different IO properties for unused GPIOs. 
+Syntax 
+-unused_pin <default|open_drain> 
+Usage 
+Name 
+Description  
+<default|open_drain> 
+Default: All unused GPIO pins will be configured as input 
+tri-state with weak pull-up. 
+open_drain：open_drain: All unused GPIO pins will be 
+configured as output with setting OPEN DRAIN as ON.  

@@ -1,0 +1,150 @@
+{
+  "capture_utc": "2026-09-28T06:26:51.334820+00:00",
+  "source_commit": "2baba4aee50277e2e794f3784c8f22907c719413",
+  "scope": "formal Gowin project, SOURCE_MODE=0 simple_voice; DIAG, not final polyphony/STAT",
+  "t034_status": "baseline only; final integrated acceptance pending",
+  "input_sha256": {
+    "code/build/electronic_piano.gprj": "90bc570dc3903bcc0158503f55e7abe4dfed2b4a094d2082c813afec401fcb52",
+    "code/rtl/board/electronic_piano_top.sv": "aee5f99916ca7c15ca2a03e97e002f63ae1a8f44a248cd7d01da5e22859b8061",
+    "code/rtl/common/audio_defs_pkg.sv": "eaa208c4db65a81ad902dbbb627b86cf79af9626b265fb84fdf1ae8f24b13351",
+    "code/rtl/common/reset_sync.sv": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+    "code/rtl/input/button_debouncer/button_debouncer.sv": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+    "code/rtl/input/button_event_converter/button_event_converter.sv": "f6befb9c7415c69da62f2083e22803eae93ebeac63b8903b3c1314c4e9e723f0",
+    "code/rtl/common/performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+    "code/rtl/common/system_status_counters.sv": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+    "code/rtl/board/uart_status_reporter.sv": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+    "code/rtl/common/uart_tx.sv": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+    "code/rtl/common/uart_rx.sv": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+    "code/rtl/input/midi_input/midi_event_parser.sv": "fa07b44ea2e3ff6a491d5c00d9ef09d87da934151365c0adac077db0b0b374e1",
+    "code/rtl/input/midi_input/midi_input.sv": "9d07ee52cb8162f1d6edc1507a932205ed81c26dbdb9416726fc6068c86440bf",
+    "code/rtl/common/note_pitch.sv": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+    "code/rtl/common/simple_voice.sv": "eab4974b0315c75a8076b21afea1dade122fecbcc672eb0802ba0e358a1bf274",
+    "code/rtl/audio_out/i2s_tx.sv": "e4d77a194e28ae133346d13f306ad0b07060a1dce68214e5d93ad1c3291d4577",
+    "code/rtl/audio_out/pcm_frame_buffer.sv": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+    "code/constraints/electronic_piano.cst": "76037da27eabba7bf322d41ad8f90c16b1a72b549fc2ffb865b380bfbda35dcb",
+    "code/constraints/audio_timing.sdc": "849c8b374c366ea1cbe6f44b17f761adad90861e3b50a0baf3ade73c05f953f5"
+  },
+  "output_sha256": {
+    "electronic_piano.rpt.txt": "4da57549a9c28cdbecce47373d0cac7179b9ebbb0c45403b3a439ae1c35c54f9",
+    "electronic_piano_tr_content.html": "ed67a28bb1ab61de92743ba73969adb70c2afee88d66c947a67e6506723b7657",
+    "electronic_piano.fs": "a2c12ff26b729483bf1b059cd30f96f6cbdb762dbe43972ef7d0ef2f2ec6d171",
+    "electronic_piano_syn.rpt.html": "9cb56107d85481b3f531ea70891c949ed9af9b465b28039466c2727e0298d883",
+    "build.log": "780c421a12e90953b4e828b88daf59cc92a95663ef8df9b3bf83648ca3d5b179"
+  },
+  "tool_and_part": {
+    "Tool Version": "V1.9.11.03 Education",
+    "Part Number": "GW5AT-LV60PG484AC1/I0"
+  },
+  "timing_and_resources": {
+    "resources": {
+      "Logic": 2326,
+      "Register": 803
+    },
+    "worst_ns": {
+      "Setup": 1.851,
+      "Hold": 0.001,
+      "Recovery": 15.328,
+      "Removal": 0.955
+    },
+    "fmax_mhz": "55.098(MHz)",
+    "setup_hold_violated_endpoints": [
+      "0",
+      "0"
+    ],
+    "resource_categories_not_reported": [
+      "DSP",
+      "BSRAM"
+    ],
+    "capacity": {
+      "Logic": 59904,
+      "Register": 60780
+    }
+  },
+  "pins": {
+    "sys_clk": {
+      "ball": "V22",
+      "constrained": "Y",
+      "direction": "in",
+      "IO_TYPE": "LVCMOS33",
+      "PULL_MODE": "NONE",
+      "BANK_VCCIO": "3.3"
+    },
+    "sys_rst_n": {
+      "ball": "AA13",
+      "constrained": "Y",
+      "direction": "in",
+      "IO_TYPE": "LVCMOS15",
+      "PULL_MODE": "UP",
+      "BANK_VCCIO": "1.5"
+    },
+    "key_n[0]": {
+      "ball": "AB13",
+      "constrained": "Y",
+      "direction": "in",
+      "IO_TYPE": "LVCMOS15",
+      "PULL_MODE": "UP",
+      "BANK_VCCIO": "1.5"
+    },
+    "key_n[1]": {
+      "ball": "Y12",
+      "constrained": "Y",
+      "direction": "in",
+      "IO_TYPE": "LVCMOS15",
+      "PULL_MODE": "UP",
+      "BANK_VCCIO": "1.5"
+    },
+    "midi_rx": {
+      "ball": "R17",
+      "constrained": "Y",
+      "direction": "in",
+      "IO_TYPE": "LVCMOS33",
+      "PULL_MODE": "UP",
+      "BANK_VCCIO": "3.3"
+    },
+    "i2s_bclk": {
+      "ball": "Y17",
+      "constrained": "Y",
+      "direction": "out",
+      "IO_TYPE": "LVCMOS33",
+      "PULL_MODE": "NONE",
+      "BANK_VCCIO": "3.3"
+    },
+    "i2s_lrck": {
+      "ball": "AB17",
+      "constrained": "Y",
+      "direction": "out",
+      "IO_TYPE": "LVCMOS33",
+      "PULL_MODE": "NONE",
+      "BANK_VCCIO": "3.3"
+    },
+    "i2s_din": {
+      "ball": "AA16",
+      "constrained": "Y",
+      "direction": "out",
+      "IO_TYPE": "LVCMOS33",
+      "PULL_MODE": "NONE",
+      "BANK_VCCIO": "3.3"
+    },
+    "pa_en": {
+      "ball": "AB16",
+      "constrained": "Y",
+      "direction": "out",
+      "IO_TYPE": "LVCMOS33",
+      "PULL_MODE": "NONE",
+      "BANK_VCCIO": "3.3"
+    },
+    "uart_tx": {
+      "ball": "U15",
+      "constrained": "Y",
+      "direction": "out",
+      "IO_TYPE": "LVCMOS33",
+      "PULL_MODE": "UP",
+      "BANK_VCCIO": "3.3"
+    }
+  },
+  "synthesis_bsram": {
+    "used": 0,
+    "available": 118,
+    "stage": "synthesis"
+  }
+}

@@ -1,0 +1,118 @@
+#!/usr/bin/env python3
+"""Regression for T034 report verification; no vendor tool required."""
+import sys
+from pathlib import Path
+from unittest import TestCase, main
+from unittest.mock import patch
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from capture_t034_formal_build import (  # noqa: E402
+    active_sdc_commands, cst_pins, synthesis_bsram,
+    validate_synthesis_against_pnr, verify_build)
+
+CST = ('IO_LOC "midi_rx" R17;\n'
+       'IO_PORT "midi_rx" IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;\n')
+REPORT = ('  <Tool Version>: V1.9.11.03 Education\n'
+          '  <Part Number>: GW5AT-LV60PG484AC1/I0\n'
+          '7. Pinout by Port Name\n'
+          'midi_rx | - | R17/6 | Y | in | site | cfg | LVCMOS33 | OFF | UP | '
+          'OFF | ON | OFF | SLOW | OFF | OFF | OFF | 3.3 | MEDIUM\n'
+          '8. All Package Pins\n')
+INFO = {"resources": {"Logic": 5, "Register": 5}, "worst_ns": {"Setup": 1.0}}
+
+
+class TestCapture(TestCase):
+    def test_expected_port(self):
+        with patch("capture_t034_formal_build.verify", return_value=([], INFO.copy())):
+            info = verify_build("timing", REPORT, CST)
+        self.assertEqual(info["pins"]["midi_rx"]["ball"], "R17")
+
+    def test_pin_mismatch_rejected(self):
+        with patch("capture_t034_formal_build.verify", return_value=([], INFO.copy())):
+            with self.assertRaisesRegex(ValueError, "CST=R18 PnR=R17"):
+                verify_build("timing", REPORT, CST.replace("R17", "R18"))
+
+    def test_negative_timing_rejected(self):
+        with patch("capture_t034_formal_build.verify",
+                   return_value=(["Hold negative slack: -0.01 ns"], INFO.copy())):
+            with self.assertRaisesRegex(ValueError, "Hold negative slack"):
+                verify_build("timing", REPORT, CST)
+
+    def test_missing_pin_rejected(self):
+        with patch("capture_t034_formal_build.verify", return_value=([], INFO.copy())):
+            with self.assertRaisesRegex(ValueError, "missing"):
+                verify_build("timing", REPORT.replace("midi_rx |", "other |"), CST)
+
+    def test_synthesis_explicit_zero_bsram(self):
+        report = '<td class="label">BSRAM</td>\n<td>0 / 118</td>'
+        info = {"timing_and_resources": {"resources": {"Logic": 5}}}
+        self.assertEqual(validate_synthesis_against_pnr(report, info)["used"], 0)
+        self.assertNotIn("BSRAM", info["timing_and_resources"]["resources"])
+
+    def test_synthesis_missing_or_ambiguous_bsram_fails(self):
+        row = '<td class="label">BSRAM</td><td>0 / 118</td>'
+        for text in ("", row + row):
+            with self.assertRaisesRegex(ValueError, "Expected one synthesis BSRAM"):
+                synthesis_bsram(text)
+
+    def test_synthesis_wrong_capacity_or_usage_fails(self):
+        for amount in ("0 / 120", "119 / 118"):
+            with self.assertRaisesRegex(ValueError, "Unexpected synthesis BSRAM"):
+                synthesis_bsram(f'<td class="label">BSRAM</td><td>{amount}</td>')
+
+    def test_synthesis_pnr_mismatch_fails(self):
+        info = {"timing_and_resources": {"resources": {"BSRAM": 2}}}
+        with self.assertRaisesRegex(ValueError, "Synthesis/PnR BSRAM mismatch"):
+            validate_synthesis_against_pnr(
+                '<td class="label">BSRAM</td><td>0 / 118</td>', info)
+
+    def test_sdc_report_matches_active_commands(self):
+        timing = (
+            '<a name="SDC_Report"></a>'
+            '<tr><th>SDC Command Type</th><th>State</th><th>Detail Command</th></tr>'
+            '<tr><td>TC_CLOCK</td><td>Actived</td><td>create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]</td></tr>'
+            '<a name="Clock_Report"></a>'
+            '<tr><td>1</td><td>sys_clk</td><td>Base</td><td>20.000</td><td>50.000</td></tr>'
+        )
+        sdc = 'create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]\n'
+        self.assertEqual(active_sdc_commands(timing, sdc), [sdc.strip()])
+
+    def test_sdc_missing_or_inactive_command_rejected(self):
+        timing = (
+            '<a name="SDC_Report"></a>'
+            '<tr><th>SDC Command Type</th><th>State</th><th>Detail Command</th></tr>'
+            '<tr><td>TC_CLOCK</td><td>Actived</td><td>create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]</td></tr>'
+        )
+        with self.assertRaisesRegex(ValueError, "SDC mismatch"):
+            active_sdc_commands(timing, 'create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]\nset_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_din}]\n')
+        inactive = timing.replace('<td>Actived</td>', '<td>Inactive</td>')
+        with self.assertRaisesRegex(ValueError, "SDC mismatch"):
+            active_sdc_commands(inactive, 'create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]\n')
+
+    def test_sdc_unreviewed_active_exception_rejected(self):
+        sdc = 'create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]\n'
+        timing = (
+            '<a name="SDC_Report"></a>'
+            '<tr><td>TC_CLOCK</td><td>Actived</td><td>create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]</td></tr>'
+            '<tr><td>TC_EXCEPTION</td><td>Actived</td><td>set_false_path -from [get_clocks {sys_clk}]</td></tr>'
+        )
+        with self.assertRaisesRegex(ValueError, "SDC mismatch"):
+            active_sdc_commands(timing, sdc)
+
+    def test_sdc_duplicate_and_extra_report_rejected(self):
+        timing = (
+            '<a name="SDC_Report"></a>'
+            '<tr><th>SDC Command Type</th><th>State</th><th>Detail Command</th></tr>'
+            '<tr><td>TC_CLOCK</td><td>Actived</td><td>create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]</td></tr>'
+            '<tr><td>TC_CLOCK</td><td>Actived</td><td>create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]</td></tr>'
+        )
+        with self.assertRaisesRegex(ValueError, "SDC mismatch"):
+            active_sdc_commands(timing, 'create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]\n')
+
+    def test_duplicate_constraint_rejected(self):
+        with self.assertRaisesRegex(ValueError, "Duplicate IO_LOC"):
+            cst_pins(CST + 'IO_LOC "midi_rx" Y12;\n')
+
+
+if __name__ == "__main__":
+    main()

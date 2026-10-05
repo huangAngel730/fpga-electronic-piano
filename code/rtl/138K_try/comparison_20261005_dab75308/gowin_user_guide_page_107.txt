@@ -1,0 +1,46 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+96(145) 
+ 
+flow names are "syn" (synthesis), "pnr" (place and route), or you can 
+specify all to run all flows. 
+ [-h/--help]: Displays help information 
+Example 
+run pnr 
+run all 
+8.3.13 run close 
+Closes a project. 
+Syntax 
+run close 
+Type 
+Project 
+Description  
+Closes the current project. 
+Example 
+run close 
+8.3.14 saveto 
+Saves project data to a tcl script. 
+Syntax 
+saveto [-all_options] [-h/--help] <file> 
+Usage 
+Name 
+Description  
+[-all_options] 
+Saves all option information 
+[-h/--help] 
+Displays help information 
+<file> 
+The file to be saved 
+Type 
+Project 
+Description  
+Saves the current project design data to a tcl script. For the file path 
+format, see 8.3.1 add_file. 
+Parameter 
+ [-all_options]: By default, the saveto command only saves the modified 
+options, i.e., those different from the default values. By using 
+-all_options, all option information will be saved. 
+ [-h/--help]: Displays help information. 
+ <file>: The file to be saved. 

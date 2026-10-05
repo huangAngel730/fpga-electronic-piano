@@ -1,0 +1,47 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+118(145) 
+ 
+set_option -inc_pnr auto 
+Note! 
+For detailed usage of Place & Route-related running, see Place & Route in Section 
+4.3.3 of this document. 
+Pin Multiplexing Property Configuration 
+-use_jtag_as_gpio  
+Multiplexes JTAG-related pins as general IO pins. 
+Syntax 
+-use_jtag_as_gpio <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Uses as JTAG-dedicated pins. 
+1: Multiplexes as general IO pins. 
+Type 
+Project 
+Description  
+Multiplexes JTAG-related pins as general IO pins, and the default is 0. 
+Parameter 
+<0|1>: Enable control for multiplexing JTAG-related pins as general IO 
+pins. 
+Example 
+set_option -use_jtag_as_gpio 1 
+-use_sspi_as_gpio  
+Multiplexes SSPI-related pins as general IO pins. 
+Syntax 
+-use_sspi_as_gpio <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Uses as SSPI-dedicated pins. 
+1: Multiplexes as general IO pins. 
+Type 
+Project 
+Description  
+Multiplexes SSPI-related pins as general IO pins, and the default is 0. 
+Parameter 
+<0|1>: Enable control for multiplexing SSPI-related pins as general IO 
+pins.  

@@ -1,0 +1,50 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+89(145) 
+ 
+See also 
+generate_target 
+8.3.3 create_project  
+Creates a project. 
+Syntax 
+create_project [-name <prjName>] [-dir <path>] [-pn <pnName>] 
+[-device_version <arg>] [-force] [-h/--help] 
+Usage 
+Name 
+Description  
+[-name] 
+The name of the project to be created 
+[-dir] 
+The path to generate the project 
+[-pn] 
+The part number for the project to be created 
+[-device_version] 
+The device version for the project to be created 
+[-force] 
+Overwrites existing files 
+[-h/--help] 
+Displays help information 
+Type 
+Project 
+Description  
+Creates a project. For the file path format, see 8.3.1 add_file. 
+Parameter 
+ [-name <prjName>]: Specifies the name of the project to be created. 
+ [-dir <path>]: Specifies the path where the project will be created. If the 
+specified path does not exist, a new path will be created. If this option is 
+not specified, the default will be the current working path or the path 
+where the TCL script is located. 
+ [-pn <pnName>]: Specifies the part number for the project to be 
+created. 
+ [-device_version <arg>]: Specifies the device version for the part 
+number. For devices with only an initial version, the value of the device 
+version will be NA. 
+ [-force]: Overwrites existing projects. 
+ [-h/--help]: Displays help information. 
+Example 
+create_project -name prj0 -dir D:/tclprj -pn GW1N-UV4LQ144C6/15 
+-device_version B 
+create_project -name prjlest -pn GW1N-UV4LQ144C6/15 - 
+device_version B -force 

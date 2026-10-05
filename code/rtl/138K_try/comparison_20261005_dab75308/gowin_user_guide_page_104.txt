@@ -1,0 +1,47 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+93(145) 
+ 
+listed. 
+list_property [get_ips FIFO_Top] 
+See also 
+ report_property 
+ set_property 
+8.3.8 open_project 
+Opens a project. 
+Syntax 
+open_project <file>] [-pn] [-device_version] [-h/--help] 
+Usage 
+Name 
+Description  
+<file> 
+Specifies the project file 
+[-pn] 
+Specifies part number 
+[-device_version] 
+Specifies device version 
+[-h/--help] 
+Displays help information 
+Type 
+Project 
+Description  
+This command is used to open a project, and allows specifying a new 
+part number for the opened project. For the file path format, see 8.3.1 
+add_file. 
+ <file>: Specifies the name of the project file to be opened. 
+ [-pn]: Specifies the part number for the project. 
+ [-device_version]: Specifies the device version for the project. 
+ [-h/--help]: Displays help information. 
+Example 
+open_project D:\test.gprj 
+8.3.9 read_ipc 
+Reads ipc files. 
+Syntax 
+read_ipc <file> 
+Usage 
+Name 
+Description  
+<file> 
+IPC files 

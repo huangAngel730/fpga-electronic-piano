@@ -1,0 +1,46 @@
+9 Tcl Commands 
+8.3 Command Description 
+ 
+SUG100-4.4.2E 
+132(145) 
+ 
+Description  
+Sets the frequency divider parameter. 
+Parameter 
+<value>: Sets the frequency divider parameter. 
+Example 
+set_option -ext_cclk_div 4 
+-multi_boot 
+Multi Boot enable control. 
+Syntax 
+-multi_boot <0|1> 
+Usage 
+Name 
+Description  
+<0|1> 
+0: Disables Multi Boot. 
+1: Enables Multi Boot. 
+Type 
+Project 
+Description  
+Multi Boot enable control, and the default is 0. 
+Parameter 
+<0|1>: Multi Boot enable control. 
+Example 
+set_option -multi_boot 1 
+-multiboot_address_width 
+Configures SPI Flash address width. 
+Syntax 
+-multiboot_address_width<24|32> 
+Usage 
+Name 
+Description  
+<24|32> 
+24: Sets the SPI Flash address width to 24. 
+32: Sets the SPI Flash address width to 32. 
+Type 
+Project 
+Description  
+Configures SPI Flash address width, and the default is 24. 
+Parameter 
+<24|32>: SPI Flash address width. 

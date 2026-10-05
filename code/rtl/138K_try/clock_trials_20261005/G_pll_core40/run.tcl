@@ -1,0 +1,12 @@
+open_project {E:/FPGA/GAOYUNFPGA/138K_try/clock_trials_20261005/G_pll_core40/audio_visual_coexistence_top.gprj}
+set_option -top_module audio_visual_coexistence_top
+set_option -verilog_std sysv2017
+set_option -place_option 0
+set_option -route_option 1
+set_option -ireg_in_iob 1
+set_option -oreg_in_iob 1
+set_option -ioreg_in_iob 1
+set_option -correct_hold_violation 1
+set_option -clock_route_order 0
+set_option -route_maxfan 23
+run all

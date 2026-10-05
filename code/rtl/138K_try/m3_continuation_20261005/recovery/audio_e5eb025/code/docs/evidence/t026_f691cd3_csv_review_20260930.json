@@ -1,0 +1,200 @@
+{
+  "csv_commit": "f691cd3f041f536f9039a94837c126809fe09b58",
+  "csv_sha256_lf": "cff1a6dea3323715fa136c7d6c22f275665e6c017482ce5ac64d7b467271cfcf",
+  "csv_sha256_original_crlf": "9506233c6072674a8c692eee379e522eea320b49803b22134f1abc97e6b89e7b",
+  "rows": 525,
+  "strict_reconstructed_stat_parse_rows": 525,
+  "field_count": 7,
+  "start_host_time_utc": "2026-09-30T14:57:11.880734+00:00",
+  "end_host_time_utc": "2026-09-30T14:59:14.420080+00:00",
+  "start_host_time_local": "2026-09-30T22:57:11.880734+08:00",
+  "end_host_time_local": "2026-09-30T22:59:14.420080+08:00",
+  "duration_seconds": 122.539346,
+  "interval_stats_host_receive": {
+    "min_seconds": 0.0,
+    "median_seconds": 0.2504165,
+    "max_seconds": 0.445041,
+    "mean_seconds": 0.23385371374045802,
+    "zero_intervals": 9,
+    "intervals_under_10ms": 33,
+    "tail_after_first40_intervals_mean_seconds": 0.250014270661157,
+    "note": "host logger receipt times with initial burst/backlog; not exact FPGA baud/frame timing, no assurance of UART frame continuity beyond M3 record"
+  },
+  "fields": {
+    "active_voice_count": {
+      "min": 0,
+      "max": 4,
+      "distinct": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "clip_count": {
+      "min": 0,
+      "max": 0,
+      "distinct": [
+        0
+      ]
+    },
+    "event_fifo_level": {
+      "min": 0,
+      "max": 0,
+      "distinct": [
+        0
+      ]
+    },
+    "event_fifo_high_watermark": {
+      "min": 0,
+      "max": 1,
+      "distinct": [
+        0,
+        1
+      ]
+    },
+    "event_fifo_overflow": {
+      "min": 0,
+      "max": 0,
+      "distinct": [
+        0
+      ]
+    },
+    "audio_underrun": {
+      "min": 0,
+      "max": 0,
+      "distinct": [
+        0
+      ]
+    },
+    "max_processing_cycles": {
+      "min": 0,
+      "max": 0,
+      "distinct": [
+        0
+      ]
+    }
+  },
+  "nonmonotonic_counters": [],
+  "m3_field_record": {
+    "port": "COM17",
+    "baud": 115200,
+    "bytesize": 8,
+    "parity": "N",
+    "stopbits": 1,
+    "design_commit": "54774f1",
+    "source": "user forwarded M3 on-site report; CSV does not embed COM/FS SHA or display screenshots"
+  },
+  "limits": [
+    "max_processing_cycles all zero contradicts RTL simulation11 and multi-cycle scheduler, T025 open defect",
+    "no raw UART text/error statistics in this CSV; parse/display/live connection by M3 field record plus structured525 rows",
+    "122.54 seconds is not10min/1hour or long-term stability",
+    "notT031 input-to-analog latency or MIDI effects proof"
+  ],
+  "review_result": {
+    "T026": "PASS LIMITED: M3 actual COM connection/7-field parsing and display/525-row CSV, FPGA metric semantic defect separately tracked under T025",
+    "T025_max_processing_cycles": "FAIL current field validity; no simultaneous-request-and-result explanation accepted",
+    "no_retest_of_existing_capture": "preserve raw CSV unchanged; future short capture with fixed FS proves processing metric"
+  },
+  "latency_review": {
+    "formula": "historical peak of accepted PCM sample_req edge to successful current-generation PCM buffer commit edge, in sys_clk cycles; excludes prior computation before request and excludes actual MIDI-to-analog latency",
+    "issued_design": "54774f1",
+    "source_behavior": "registered sample_req consumed through WAIT_DISPATCH/SETTLE/ADVANCE/SNAPSHOT/HOLD and result hold; expected at least11 cycles from RTL simulation, cannot0 once continuous accepted samples exist",
+    "problem_source_expression": "system_status_counters u_latency pcm_commit(u_commit.pcm_valid && u_commit.pcm_ready), using internal hierarchy references instead of explicit output port",
+    "synthesis_evidence": {
+      "issued": {
+        "latency_cell_row": null,
+        "latency_regs": 0,
+        "resource_report_sha256": "48a8db0ecfb83791c474ecafed4d05b32f0251df4b4919e5a7e9507b18368402"
+      },
+      "explicit_commit_only": {
+        "latency_cell_row": [
+          "|--u_latency (D:/17/project_17/fpga_gowin/code/output/t009_zip2_review_20260930/code/output/t026_latency_review_20260930/candidate/polyphonic_audio_core.sv)",
+          "65",
+          "-",
+          "144",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        "latency_regs": 65,
+        "resource_report_sha256": "66dd1d2aea3b252afd9ae7b1e74420f6a00bbe9df358d64e4a668d2ba3f1e897"
+      },
+      "disable_duplicate_only": {
+        "latency_cell_row": null,
+        "latency_regs": 0,
+        "resource_report_sha256": "c67e05c2adf820a43c86ce19b207bacc51e37bfe3a20638e9ae7107af45bb3f7"
+      },
+      "combined_candidate": {
+        "latency_cell_row": [
+          "|--u_latency (D:/17/project_17/fpga_gowin/code/output/t009_zip2_review_20260930/code/output/t026_latency_review_20260930/candidate/polyphonic_audio_core.sv)",
+          "65",
+          "-",
+          "144",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        "latency_regs": 65,
+        "resource_report_sha256": "c304a33345954a92b08b0ee643f4e46c27d91db641719b5c5cddf7b74803c76a"
+      }
+    },
+    "isolated_minimum_change": "polyphonic_pcm_commit exports commit_pulse=pcm_valid&&pcm_ready; polyphonic_audio_core wires that named output to u_latency pcm_commit. No timing-unit redefinition. Does not require formal top changes for minimum patch.",
+    "combined_candidate": {
+      "includes": "explicit pulse plus disabled duplicate top measurement only in ignored candidate",
+      "pnr": {
+        "resources": {
+          "Logic": 4873,
+          "Register": 2670,
+          "DSP": 24,
+          "BSRAM": 8
+        },
+        "fmax_mhz": [
+          "50.717(MHz)"
+        ],
+        "worst_slack_ns": {
+          "Setup": 0.283,
+          "Hold": 0.001,
+          "Recovery": 13.307,
+          "Removal": 0.399
+        },
+        "setup_hold_violated_endpoints": 0,
+        "pins_checked": 10,
+        "scope": "formal audio/STAT STA only; no hardware verification"
+      },
+      "rtl_stat_checks": 6194,
+      "rtl_stat_lines": 28,
+      "model_expected_processing_cycles": 11,
+      "physical_field_retest": false
+    },
+    "root_cause_confidence": "Gowin-specific hierarchy connection/synthesis issue isolated by source-matched variants; actual updated board metric still must be retested. Independent Yosys/slang lowering kept signal, showing tool behavior difference rather than legitimate zero-cycle scheduler."
+  },
+  "start_script_review": {
+    "changed_path": "code/software/uart_test/打开串口调试助手.cmd",
+    "change": "..\\scripts -> ..\\..\\scripts resolves correct code/scripts/run_t026_gui.ps1 after directory migration",
+    "target_exists": true,
+    "actual_GUI_launch": "by M3 field report; M2 no second interactive launch",
+    "unit_tests": 28,
+    "mock_records": 3,
+    "M3_source_code_unmodified_by_review": true
+  },
+  "evidence_hashes": {
+    "code/software/STAT_test/fpga_status.csv": "cff1a6dea3323715fa136c7d6c22f275665e6c017482ce5ac64d7b467271cfcf",
+    "code/software/uart_test/打开串口调试助手.cmd": "53a498330d6c884afdbd851307190c712e38db8d9aad08843e607bdcc611c653",
+    "code/rtl/common/system_status_counters.sv": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+    "code/rtl/board/polyphonic_audio_core.sv": "4f17c0512e8a0e0b317d951b5299be6c36e58cf0873742690491ce83cea5290b",
+    "code/rtl/board/polyphonic_pcm_commit.sv": "f17af64432f6c9954993eafbb79c669a7b800c271019bceeb00f64470535dfb1",
+    "code/output/t026_latency_review_20260930/candidate/build.log": "d9a195ec16177b4cf7dbc64c30cc79b2add9a3970e8ef02149c0d4560458ade4",
+    "code/output/t026_latency_review_20260930/candidate/impl/pnr/electronic_piano_tr_content.html": "f0e597f48a74e651597f235b5a3039fe6cdae602942aebbf2b2ebd0672a3ef95",
+    "code/output/t026_latency_review_20260930/candidate/impl/gwsynthesis/electronic_piano_syn_resource.html": "c304a33345954a92b08b0ee643f4e46c27d91db641719b5c5cddf7b74803c76a",
+    "code/output/t026_latency_review_20260930/explicit_commit_only/build.log": "cdf6b8ff4f62f5e005e7d9470a4701db2aa8574ad7bf91569ef9cafbd02a8db6",
+    "code/output/t026_latency_review_20260930/disable_duplicate_only/build.log": "7e6e71dce78f4e63ae5c44a59130e481d7cae5300302c3c18a0af4416348771a",
+    "code/output/t026_latency_review_20260930/candidate_sim/run.log": "a29dd1c6bee28b8e6a19305b6e859c0fda6d175aadf22f9592445d15cc556d3e",
+    "code/output/t026_f691cd3_software_tests_20260930.log": "e62a8766419f644edc844ac78c57d25b95ba1e0dfd3697c866413efdbae99ac5"
+  },
+  "new_formal_bitstream_generated": false,
+  "formal_RTL_modified": false
+}
