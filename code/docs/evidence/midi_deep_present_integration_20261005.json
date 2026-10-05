@@ -1,6 +1,6 @@
 {
   "date": "2026-10-05",
-  "status": "module_and_real_UART_PCM_PASS_physical_pending",
+  "status": "L2_L3_functional_PASS_single_Gowin_synthesis_incomplete_NOT_adopted",
   "module": {
     "date": "2026-10-05",
     "passed": true,
@@ -502,5 +502,62 @@
   },
   "production_modified": false,
   "not_cycle_equivalent_to_original": true,
-  "new_PnR_results": null
+  "new_PnR_results": null,
+  "prototype_commit": "d090e1e",
+  "physical": {
+    "complete": false,
+    "adopt": false,
+    "reason": "bounded once-only physical run incomplete; retain baseline",
+    "bounded": {
+      "date": "2026-10-05",
+      "complete": false,
+      "reason": "single synthesis600s bound reached before final resource report; no PnR started",
+      "effective_PnR_runs": 0,
+      "synthesis_bound": {
+        "exit": -1,
+        "elapsed_seconds": 600.6234135000268,
+        "limit_seconds": 600
+      },
+      "new_Setup_Hold_Fmax": null,
+      "formal_applied": false,
+      "retain_baseline": true,
+      "process_cleanup": "root terminated, privileged Win32_Process query found no vendor process or direct descendant9064",
+      "no_retry": true
+    },
+    "newSTA": null
+  },
+  "internal_deadline": {
+    "capture_SHA": "d075cc0abffb15d6f189433d6fe259ad37f2a358333f19680180a2bddbc59220",
+    "measured_commits": 2486,
+    "sys_request_to_PCM_commit_histogram_clks": {
+      "30": 2486
+    },
+    "maximum_clks": 30,
+    "not_analog_latency": true,
+    "formal_audio_bank_and_math_unchanged": true
+  },
+  "generic_SCC": {
+    "count": 0,
+    "log_sha256": "3081a8aca1607fecc51b6e1a0aefbc3049390122e135fb8fb696df3f8c5f15ad"
+  },
+  "production_source_check": {
+    "code/rtl/input/midi_input/midi_event_parser.sv": {
+      "unchanged_vs_HEAD": true,
+      "sha256": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6"
+    },
+    "code/rtl/board/electronic_piano_top.sv": {
+      "unchanged_vs_HEAD": true,
+      "sha256": "fb3aba0246ee3bd71a123cc954cb05df8c3236605310ae17310ac1420cae908a"
+    },
+    "code/rtl/common/audio_defs_pkg.sv": {
+      "unchanged_vs_HEAD": true,
+      "sha256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064"
+    },
+    "code/constraints/electronic_piano.cst": {
+      "unchanged_vs_HEAD": true,
+      "sha256": "76037da27eabba7bf322d41ad8f90c16b1a72b549fc2ffb865b380bfbda35dcb"
+    }
+  },
+  "adopted": false,
+  "validation_limit": "No vendor L4 final synthesis, no PnR/STA/bitstream/board; retain baseline"
 }
