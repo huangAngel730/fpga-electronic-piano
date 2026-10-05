@@ -1,0 +1,82 @@
+{
+  "date": "2026-09-28",
+  "scope": "isolated M2 reset placement experiment only",
+  "tool": "Gowin V1.9.11.03 Education",
+  "device": "GW5AT-LV60PG484AC1/I0",
+  "source_sha256": {
+    "code/scripts/build_visual_full_path_probe.ps1": "ecd844a2afd11d0a2e7c03f394f9b84f88f956d0f0b9321e359222847c1166ce",
+    "code/scripts/check_visual_serial_reset_report.py": "1d7f4c85a13dbd762efea198ad51a0e75ffcb743719aa4f32c8f16420005392b",
+    "code/rtl/board/visual_full_path_probe.sv": "1e76300d76d39ee2bc878b007dd13708f6bed4f017b2c0cc9d84e9a4635bcf33"
+  },
+  "artifacts": {
+    "report": {
+      "path": "code/output/visual_full_path_probe/measured_serial_reset/impl/pnr/visual_full_path_probe_tr_content.html",
+      "sha256": "542abf95118afa8908991463712aee698c311c220606ad57dc4d533fdfdc5b09"
+    },
+    "pins": {
+      "path": "code/output/visual_full_path_probe/measured_serial_reset/impl/pnr/visual_full_path_probe.rpt.txt",
+      "sha256": "fd506e9159cc6e0e321dea2e13466be3a1b4ca8330069ee7edf1b43150863b2a"
+    },
+    "generated_cst": {
+      "path": "code/output/visual_full_path_probe/measured_serial_reset/measured_serial_reset.cst",
+      "sha256": "64f2fb9165bc6214b71156bca53ab6971f5e3269c1b5af894bfd9cd9350f87bd"
+    },
+    "build_log": {
+      "path": "code/output/visual_full_path_probe/measured_serial_reset/build.log",
+      "sha256": "c83b038a7ee5905f94b83e62b2785de8871b8de1ad4eb49d95c8dcaa8cdda7e0"
+    }
+  },
+  "comparisons": {
+    "posedge_two_stage_baseline": {
+      "setup_endpoint_failures": 65,
+      "recovery_ns": -0.02,
+      "report": "code/docs/evidence/visual_full_path_probe_20260928.json"
+    },
+    "posedge_three_stage_rejected": {
+      "setup_endpoint_failures": 65,
+      "recovery_ns": -0.373,
+      "summary_sha256": "52ba14d9578711dcfe14628c06a9d51b3c33e48f9dc7d75b7e6ec4cb746b0c73"
+    },
+    "falling_inline_preliminary": {
+      "recovery_ns": 0.262,
+      "setup_endpoint_failures": 61
+    },
+    "falling_module_rejected": {
+      "setup_endpoint_failures": 92,
+      "recovery_ns": -0.341,
+      "summary_sha256": "0f3734da66aee7a30959aab7c01a2642a56b5d79b0c81f79524cad44cfec7654"
+    },
+    "measured_posedge_two_stage": {
+      "recovery_ns": 0.885,
+      "removal_ns": 0.389,
+      "setup_endpoint_failures": 61,
+      "pixel_fmax_mhz": 9.805,
+      "resource": {
+        "Logic": {
+          "used": 26327,
+          "available": 59904
+        },
+        "Register": {
+          "used": 905,
+          "available": 60780
+        },
+        "DSP": {
+          "used": 35,
+          "available": 118
+        },
+        "PLLA": {
+          "used": 1,
+          "available": 8
+        }
+      }
+    }
+  },
+  "bundled_data_surviving_paths": {
+    "u_event_bridge": 6,
+    "u_control/u_score_mailbox": 19
+  },
+  "sub_gate": "PASS at exact final reset FF placement; restoration of ignored experiment only",
+  "full_gate": "FAIL due 61 renderer setup endpoint violations; no board download",
+  "pr1014": "generic reference-clock routing warning remains",
+  "m3_renderer_sha256": "9ee4c96272581ed97ed651896de9af8e838d17bbd638e49a77054a1a06c316ae"
+}

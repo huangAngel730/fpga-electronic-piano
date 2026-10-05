@@ -1,0 +1,135 @@
+{
+  "date": "2026-09-28",
+  "scope": "M2 isolated full visual probe slot-count sensitivity study; not formal electronic piano, not board image",
+  "tool": "Gowin V1.9.11.03 Education",
+  "part": "GW5AT-LV60PG484AC1/I0",
+  "pixel_clock_target_mhz": 25,
+  "m3_sources_base": "local origin/develop snapshot 9d528e7 (M3 157f2fa)",
+  "variants": {
+    "8+8": {
+      "setup_violated_endpoints": 61,
+      "hold_violated_endpoints": 0,
+      "pixel_fmax_mhz": 9.805,
+      "pixel_logic_level": 116,
+      "recovery_worst_ns": 0.885,
+      "resources": {
+        "Logic": {
+          "used": 26327,
+          "available": 59904
+        },
+        "Register": {
+          "used": 905,
+          "available": 60780
+        },
+        "DSP": {
+          "used": 35,
+          "available": 118
+        },
+        "PLLA": {
+          "used": 1,
+          "available": 8
+        }
+      },
+      "bus_surviving": {
+        "u_event_bridge": 6,
+        "u_control/u_score_mailbox": 19
+      },
+      "gate_errors": [
+        "Numbers of Setup Violated Endpoints: 61"
+      ],
+      "artifacts": {
+        "timing_report": {
+          "path": "code/output/visual_full_path_probe/measured_serial_reset/impl/pnr/visual_full_path_probe_tr_content.html",
+          "sha256": "542abf95118afa8908991463712aee698c311c220606ad57dc4d533fdfdc5b09"
+        },
+        "pin_usage_report": {
+          "path": "code/output/visual_full_path_probe/measured_serial_reset/impl/pnr/visual_full_path_probe.rpt.txt",
+          "sha256": "fd506e9159cc6e0e321dea2e13466be3a1b4ca8330069ee7edf1b43150863b2a"
+        },
+        "project": {
+          "path": "code/output/visual_full_path_probe/measured_serial_reset/visual_full_path_probe.gprj",
+          "sha256": "26f93deba447d451f324afb075b27c10ce0d8f196dda909ab2e21c477d1d15ce"
+        },
+        "probe_source": {
+          "path": "code/rtl/board/visual_full_path_probe.sv",
+          "sha256": "1e76300d76d39ee2bc878b007dd13708f6bed4f017b2c0cc9d84e9a4635bcf33"
+        },
+        "cst": {
+          "path": "code/output/visual_full_path_probe/measured_serial_reset/measured_serial_reset.cst",
+          "sha256": "64f2fb9165bc6214b71156bca53ab6971f5e3269c1b5af894bfd9cd9350f87bd"
+        },
+        "sdc": {
+          "path": "code/constraints/visual_full_path_probe.sdc",
+          "sha256": "f3f591f383b650e4fadb5130306763e2b357b1c356bedd1f3c1c4032ce181692"
+        },
+        "build_log": {
+          "path": "code/output/visual_full_path_probe/measured_serial_reset/build.log",
+          "sha256": "c83b038a7ee5905f94b83e62b2785de8871b8de1ad4eb49d95c8dcaa8cdda7e0"
+        }
+      }
+    },
+    "1+1": {
+      "setup_violated_endpoints": 21,
+      "hold_violated_endpoints": 0,
+      "pixel_fmax_mhz": 18.448,
+      "pixel_logic_level": 73,
+      "recovery_worst_ns": 0.857,
+      "resources": {
+        "Logic": {
+          "used": 3516,
+          "available": 59904
+        },
+        "Register": {
+          "used": 548,
+          "available": 60780
+        },
+        "DSP": {
+          "used": 7,
+          "available": 118
+        },
+        "PLLA": {
+          "used": 1,
+          "available": 8
+        }
+      },
+      "bus_surviving": {
+        "u_event_bridge": 6,
+        "u_control/u_score_mailbox": 19
+      },
+      "gate_errors": [
+        "Numbers of Setup Violated Endpoints: 21"
+      ],
+      "artifacts": {
+        "timing_report": {
+          "path": "code/output/visual_full_path_probe/slots_1_1_measured/impl/pnr/visual_full_path_probe_tr_content.html",
+          "sha256": "ec305a34ca4ea272d4cdde0982ddb32fd6dbd952f10aef429fdf892883696ab8"
+        },
+        "pin_usage_report": {
+          "path": "code/output/visual_full_path_probe/slots_1_1_measured/impl/pnr/visual_full_path_probe.rpt.txt",
+          "sha256": "41ecfa8a1231e3046f14eb6bb09cd7276e482df652975d584ad3d3657eef0088"
+        },
+        "project": {
+          "path": "code/output/visual_full_path_probe/slots_1_1_measured/visual_full_path_probe.gprj",
+          "sha256": "565a4e20c0426f93597c7b11be371ca59efbe5eb64c34f26a105b0e93400c362"
+        },
+        "probe_source": {
+          "path": "code/output/visual_full_path_probe/slots_1_1_measured/visual_full_path_probe.sv",
+          "sha256": "3ada917771663722ba37caf29ee0f5d5aed87b03ad09ed2a2086fb673d2fd53b"
+        },
+        "cst": {
+          "path": "code/output/visual_full_path_probe/slots_1_1_measured/trial.cst",
+          "sha256": "64f2fb9165bc6214b71156bca53ab6971f5e3269c1b5af894bfd9cd9350f87bd"
+        },
+        "sdc": {
+          "path": "code/output/visual_full_path_probe/slots_1_1_measured/trial.sdc",
+          "sha256": "f3f591f383b650e4fadb5130306763e2b357b1c356bedd1f3c1c4032ce181692"
+        },
+        "build_log": {
+          "path": "code/output/visual_full_path_probe/slots_1_1_measured/build.log",
+          "sha256": "9ac6dc3af85c4de3f7747af98fb3dcf5e40b3cb8dfa005ad6e6a88613cb3e798"
+        }
+      }
+    }
+  },
+  "interpretation": "Both candidate slot counts fail 25 MHz timing; reducing slots alone is insufficient. PR1014 remains an independent board-level clock risk."
+}

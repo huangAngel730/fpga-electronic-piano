@@ -1,0 +1,308 @@
+{
+  "time": "2026-10-05T12:51:12.399681+08:00",
+  "scope": "tool availability/STA probe; not full-design comparison",
+  "results": [
+    {
+      "errors": [],
+      "summary": {
+        "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+        "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+        "Numbers of Paths Analyzed": "18",
+        "Numbers of Endpoints Analyzed": "25",
+        "Numbers of Falling Endpoints": "0",
+        "Numbers of Setup Violated Endpoints": "0",
+        "Numbers of Hold Violated Endpoints": "0"
+      },
+      "clocks": {
+        "sys_clk": {
+          "period_ns": 20.0,
+          "frequency_mhz": 50.0
+        }
+      },
+      "fmax_mhz": {
+        "sys_clk": 323.101
+      },
+      "per_clock_worst_paths": {
+        "sys_clk": {
+          "Setup": {
+            "slack_ns": 16.905,
+            "from": "count_4_s0/Q",
+            "to": "count_6_s0/D"
+          },
+          "Hold": {
+            "slack_ns": 0.033,
+            "from": "count_7_s0/Q",
+            "to": "count_7_s0/D"
+          }
+        }
+      },
+      "per_clock_TNS": {
+        "sys_clk": {
+          "Setup": {
+            "TNS_ns": 0.0,
+            "violated_endpoints": 0
+          },
+          "Hold": {
+            "TNS_ns": 0.0,
+            "violated_endpoints": 0
+          }
+        }
+      },
+      "global_worst_paths": {
+        "Setup": {
+          "slack_ns": 16.905,
+          "from": "count_4_s0/Q",
+          "to": "count_6_s0/D"
+        },
+        "Hold": {
+          "slack_ns": 0.033,
+          "from": "count_7_s0/Q",
+          "to": "count_7_s0/D"
+        }
+      },
+      "recovery_removal_worst_paths": {
+        "Recovery": null,
+        "Removal": null
+      },
+      "resources": {
+        "Logic": {
+          "used": 8,
+          "available": 59904
+        },
+        "Register": {
+          "used": 8,
+          "available": 60780
+        }
+      },
+      "metadata": {
+        "Tool Version": "V1.9.11.03 Education",
+        "Part Number": "GW5AT-LV60PG484AC1/I0",
+        "Device": "GW5AT-60",
+        "Device Version": "B",
+        "Created Time": "Mon Oct  5 12:37:55 2026"
+      },
+      "active_SDC": [
+        "create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]",
+        "set_clock_uncertainty -hold 0.550 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]",
+        "set_clock_uncertainty -setup 0.500 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]"
+      ],
+      "not_a_pin_CDC_IP_or_hardware_acceptance_gate": true,
+      "label": "60K",
+      "scope": "8-bit counter tool support probe only, NOT V0171",
+      "observed_cli_exit_code": 0,
+      "programmed": false,
+      "artifact_SHA256": {
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\60K\\impl\\pnr\\tool_probe_tr_content.html": "c39a60422db8f103becac28aeee675cf4e9ff11b18bf5b9554ffaf8627cc3827",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\60K\\impl\\pnr\\tool_probe.rpt.txt": "7862bd35d6f6f9632fb325cc7653c3760da1da87fb90035f0157fe1b21fe3414",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\60K\\build_attempt2.log": "216db384d6e5fbe4321c8f93e46ca80ee62c3fdaabad0eb71aa861691ede35de",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\60K\\impl\\pnr\\cmd.do": "c363cf01450866aeac6c8c359777de866e05da53135db3ec4f0b50c1f5daadd2",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\60K\\impl\\pnr\\tool_probe.pin.html": "21334601e78df194c2146562260af47c584a43bb8c45060366f134049e5f7f82",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\60K\\impl\\pnr\\tool_probe.fs": "7bd7572dba00c3f6516b2bebd5f74fac1cd28e2574bbd5c0a47c0357b0c8557e",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\60K\\tool_probe.gprj": "93ff8c19b4aee20c40b7500426b7c820b63514be0b8f165e93e43f33038199ec",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\60K\\run.tcl": "0637a87337a555d83817ef718779f6c316e9f392534be460333b9a9e57599590"
+      }
+    },
+    {
+      "errors": [],
+      "summary": {
+        "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+        "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+        "Numbers of Paths Analyzed": "18",
+        "Numbers of Endpoints Analyzed": "25",
+        "Numbers of Falling Endpoints": "0",
+        "Numbers of Setup Violated Endpoints": "0",
+        "Numbers of Hold Violated Endpoints": "0"
+      },
+      "clocks": {
+        "sys_clk": {
+          "period_ns": 20.0,
+          "frequency_mhz": 50.0
+        }
+      },
+      "fmax_mhz": {
+        "sys_clk": 295.694
+      },
+      "per_clock_worst_paths": {
+        "sys_clk": {
+          "Setup": {
+            "slack_ns": 16.618,
+            "from": "count_1_s0/Q",
+            "to": "count_7_s0/D"
+          },
+          "Hold": {
+            "slack_ns": 0.03,
+            "from": "count_3_s0/Q",
+            "to": "count_3_s0/D"
+          }
+        }
+      },
+      "per_clock_TNS": {
+        "sys_clk": {
+          "Setup": {
+            "TNS_ns": 0.0,
+            "violated_endpoints": 0
+          },
+          "Hold": {
+            "TNS_ns": 0.0,
+            "violated_endpoints": 0
+          }
+        }
+      },
+      "global_worst_paths": {
+        "Setup": {
+          "slack_ns": 16.618,
+          "from": "count_1_s0/Q",
+          "to": "count_7_s0/D"
+        },
+        "Hold": {
+          "slack_ns": 0.03,
+          "from": "count_3_s0/Q",
+          "to": "count_3_s0/D"
+        }
+      },
+      "recovery_removal_worst_paths": {
+        "Recovery": null,
+        "Removal": null
+      },
+      "resources": {
+        "Logic": {
+          "used": 8,
+          "available": 138240
+        },
+        "Register": {
+          "used": 8,
+          "available": 139095
+        }
+      },
+      "metadata": {
+        "Tool Version": "V1.9.11.03 Education",
+        "Part Number": "GW5AST-LV138PG484AC1/I0",
+        "Device": "GW5AST-138",
+        "Device Version": "B",
+        "Created Time": "Mon Oct  5 12:39:07 2026"
+      },
+      "active_SDC": [
+        "create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]",
+        "set_clock_uncertainty -hold 0.550 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]",
+        "set_clock_uncertainty -setup 0.500 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]"
+      ],
+      "not_a_pin_CDC_IP_or_hardware_acceptance_gate": true,
+      "label": "138K_B",
+      "scope": "8-bit counter tool support probe only, NOT V0171",
+      "observed_cli_exit_code": 0,
+      "programmed": false,
+      "artifact_SHA256": {
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\138K_B\\impl\\pnr\\tool_probe_tr_content.html": "febcee35fe5aff45fc70981a57c659f93bcd2bfaccbb320d34e75659e02bb05c",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\138K_B\\impl\\pnr\\tool_probe.rpt.txt": "30b0796d51a8b0e9544f7294528ce9cb89e7839b35311fd7d65d288ac4a182cf",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\138K_B\\build.log": "87e94ef85d2c08ebfe1c93a2f8dcff2588e50337d7aed7e87c427eb725bab750",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\138K_B\\impl\\pnr\\cmd.do": "9c3e646a0c0a4902b4e65454603515989740413236cbfa78c5132b56ca4e462b",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\138K_B\\impl\\pnr\\tool_probe.pin.html": "758b743dfd701c7889ab3d393b1dca73c14cf966f46b78199aa95c14c2b1b17d",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\138K_B\\impl\\pnr\\tool_probe.fs": "66861c58df19f6e071bc73f24f306783972a6f8d486933317e99939d23563ce5",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\138K_B\\tool_probe.gprj": "9c8dfe206f9ff342481d9910163ba3b6470e19e1a78146505529493090fe5116",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\138K_B\\run.tcl": "0637a87337a555d83817ef718779f6c316e9f392534be460333b9a9e57599590"
+      }
+    },
+    {
+      "errors": [],
+      "summary": {
+        "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+        "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+        "Numbers of Paths Analyzed": "18",
+        "Numbers of Endpoints Analyzed": "25",
+        "Numbers of Falling Endpoints": "0",
+        "Numbers of Setup Violated Endpoints": "0",
+        "Numbers of Hold Violated Endpoints": "0"
+      },
+      "clocks": {
+        "sys_clk": {
+          "period_ns": 20.0,
+          "frequency_mhz": 50.0
+        }
+      },
+      "fmax_mhz": {
+        "sys_clk": 295.694
+      },
+      "per_clock_worst_paths": {
+        "sys_clk": {
+          "Setup": {
+            "slack_ns": 16.618,
+            "from": "count_1_s0/Q",
+            "to": "count_7_s0/D"
+          },
+          "Hold": {
+            "slack_ns": 0.03,
+            "from": "count_3_s0/Q",
+            "to": "count_3_s0/D"
+          }
+        }
+      },
+      "per_clock_TNS": {
+        "sys_clk": {
+          "Setup": {
+            "TNS_ns": 0.0,
+            "violated_endpoints": 0
+          },
+          "Hold": {
+            "TNS_ns": 0.0,
+            "violated_endpoints": 0
+          }
+        }
+      },
+      "global_worst_paths": {
+        "Setup": {
+          "slack_ns": 16.618,
+          "from": "count_1_s0/Q",
+          "to": "count_7_s0/D"
+        },
+        "Hold": {
+          "slack_ns": 0.03,
+          "from": "count_3_s0/Q",
+          "to": "count_3_s0/D"
+        }
+      },
+      "recovery_removal_worst_paths": {
+        "Recovery": null,
+        "Removal": null
+      },
+      "resources": {
+        "Logic": {
+          "used": 8,
+          "available": 138240
+        },
+        "Register": {
+          "used": 8,
+          "available": 139095
+        }
+      },
+      "metadata": {
+        "Tool Version": "V1.9.11.03 Education",
+        "Part Number": "GW5AST-LV138PG484AC1/I0",
+        "Device": "GW5AST-138",
+        "Device Version": "C",
+        "Created Time": "Mon Oct  5 12:40:11 2026"
+      },
+      "active_SDC": [
+        "create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]",
+        "set_clock_uncertainty -hold 0.550 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]",
+        "set_clock_uncertainty -setup 0.500 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]"
+      ],
+      "not_a_pin_CDC_IP_or_hardware_acceptance_gate": true,
+      "label": "138K_C",
+      "scope": "8-bit counter tool support probe only, NOT V0171",
+      "observed_cli_exit_code": 0,
+      "programmed": false,
+      "artifact_SHA256": {
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\138K_C\\impl\\pnr\\tool_probe_tr_content.html": "7f0dd57d8d631ff0191645e9eebb3f928979dad9ae05e08d225d275a36e3555a",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\138K_C\\impl\\pnr\\tool_probe.rpt.txt": "e1f77194e0b506b8f5ad2630b90bb5d64b98524b8db927aaed9547628537c2bb",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\138K_C\\build.log": "cb37c91da5d38ca849e3b693fa15475efdca37a48067731dd0d9bd71018583ea",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\138K_C\\impl\\pnr\\cmd.do": "97ef7cfec7e3a4afa4ad3935a9f80b6fce87286861f59df457c07a3f51f7301d",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\138K_C\\impl\\pnr\\tool_probe.pin.html": "01ed8261ca67b9aff954ba2fcaa1a65e67b933f8f11277a875ada1fe024e978c",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\138K_C\\impl\\pnr\\tool_probe.fs": "49fc88339a65fcefa4c9fea65f0c66d7fc76f1fbe03b5f100fe90e72f84ff6ae",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\138K_C\\tool_probe.gprj": "bc55dd50bfef7cae0aa7a47488f4422cf7890ba915fcd4f9b84adb32f4aa6046",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\preparation_20261005\\toolchain\\138K_C\\run.tcl": "0637a87337a555d83817ef718779f6c316e9f392534be460333b9a9e57599590"
+      }
+    }
+  ],
+  "frozen_V0171_PnR_executed": false,
+  "original_repo_written": false
+}

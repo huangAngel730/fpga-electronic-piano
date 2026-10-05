@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-30",
+  "scope": "M1 closeout tests received locally; not algorithm final approval",
+  "zip_sha256": "6cac109b0d63db420e042ecf74a0c7232feb6359d36c61ca8902c6530e1e3310",
+  "positive_tests": {
+    "output_references": 7,
+    "model_cases": 4
+  },
+  "sensitivity": {
+    "bad_state": {
+      "exit": 1,
+      "claims_4_of_4": false
+    },
+    "attack_241": {
+      "exit": 0,
+      "claims_4_of_4": true
+    }
+  },
+  "true_zero_slope": "at level6553 retrigger gain6553 yields attack_delta0 and DECAY after first step; 240 sample rule unresolved",
+  "sources_sha256": {
+    "test_adsr_algorithm_final.py": "4bf05e8ee82916dd8849980b5e45c5e610f7ab9473038558db9cec07a0b8b1ab",
+    "test_dds_adsr_output_spec.py": "e3d719c573101d1c872ced1dbe5bd8a68c108117fcf64fa915045c5a36c80d61",
+    "adsr_piano.py": "687d7237db2699cc367278dfee758b6d2d4370c55ab822441878205383a29cf8"
+  },
+  "submitted": false,
+  "true_zero_slope_nonzero_velocity": {
+    "velocity": 1023,
+    "level_before": 32767,
+    "attack_delta": 0.0,
+    "first_sample": 32767,
+    "first_state": "DECAY"
+  }
+}

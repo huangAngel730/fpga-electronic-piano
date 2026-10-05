@@ -1,0 +1,84 @@
+{
+  "scope": "isolated candidate functional equivalence, not physical STA",
+  "formal_parser_modified": false,
+  "manifest": {
+    "date": "2026-10-03",
+    "frozen_commit": "de68038",
+    "frozen_parser_SHA": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+    "candidate_SHA": "5bc457af0ba0750be3a062eedc6cfb24e82e29212e24872bf810336f34391798",
+    "formal_parser_modified": false,
+    "no_added_register_or_pipeline_cycle": true,
+    "candidate_only": [
+      "parallel tree one-hot grants",
+      "per-bit pending next state and unconditional vector register update"
+    ],
+    "physical_runs_allowed": 1,
+    "retention_rule": "functional equivalence AND no physical gate failure AND Setup>=0.500ns AND <=128 additionalLogic; otherwise keep de68038",
+    "predeclared_physical_goal_ns": 0.5,
+    "no_seed_search": true,
+    "registered_outputs_and_counters_unchanged": true,
+    "pending_update_priority": "parsed change overrides stored pending; simultaneous granted same slot remains clear"
+  },
+  "current_formal_SHA": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+  "exact_extracted_selector_SHA": "7cfc260330a21bc58bc4d518bd628ce2f4d385b4f2d56b458d419c1104b30f24",
+  "vectors_SHA": "d07c1795bf93978fb12c92fd8d9336d652c126f98ccab8981bbf851052d1ddbe",
+  "cases": 399360,
+  "same_slot_grant_updates": 14262,
+  "miter_cycles_per_config": 256193,
+  "configurations": 4,
+  "fourth_burst": 16,
+  "runs": {
+    "full_miter_compile": {
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA": "b127faede54012ff16602f35271ea3c479bc6e2185b84b04fff34897f58035a0"
+    },
+    "full_miter": {
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA": "ceea46a8d95476e0eb88027dbca0f3658df149bc4da88213c9f3c20b293c7f09"
+    },
+    "mask_compile": {
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA": "029074315e15413ca62f3bb5b6071e721fb5eeb2b98647cac6fbda8bb58bf8de"
+    },
+    "mask_oracle": {
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA": "28c72f1ff6792486268e460b181985d68a4ab023abbb5fd252efbf3c478a3286"
+    },
+    "wrong_clear_compile": {
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA": "d8d3af8d1d8f8b4483a80766073eeb8548b07911c3241943c40962c20b9f29e9"
+    },
+    "wrong_clear": {
+      "exit": 1,
+      "expected_success": false,
+      "log_SHA": "ffa00eab7a7c2c20a5e43e86d0d2becb7c01380bcbee821ca8cb19e829196bd1"
+    },
+    "wrong_rotation_compile": {
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA": "81b14f27ddfa7a4a463b2e083e229aab5279d044b64e9927d660c1fc4847577c"
+    },
+    "wrong_rotation": {
+      "exit": 1,
+      "expected_success": false,
+      "log_SHA": "aa5012f65695d368e23ec7ba0765ac14f3c5ea31d10560ad697b623759bdb34d"
+    },
+    "guard_empty": {
+      "exit": 1,
+      "expected_success": false,
+      "log_SHA": "b465a853373f115fe5805645e231b1c21d597de57d4a872b8813b8daa11089d5"
+    },
+    "guard_truncated": {
+      "exit": 1,
+      "expected_success": false,
+      "log_SHA": "7b8808635057e58137965d91977818b2ea0adae2abfde8473cb2038146d6abb7"
+    }
+  },
+  "passed": true,
+  "candidate_SHA256": "5bc457af0ba0750be3a062eedc6cfb24e82e29212e24872bf810336f34391798"
+}

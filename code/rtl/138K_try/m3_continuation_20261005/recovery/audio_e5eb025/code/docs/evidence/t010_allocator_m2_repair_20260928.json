@@ -1,0 +1,72 @@
+{
+  "date": "2026-09-28",
+  "scope": "M2 cross-role T010 four-slot allocator repaired; not formal polyphony top",
+  "m1_zip_source_sha256": "754fe9a96cdbf7efe2fb85e0f9e83d31aeaab52f491864bf91bef6323fb752a7",
+  "allocator_sha256": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+  "tests": {
+    "directed_passed": 6,
+    "directed_total": 6,
+    "oracle_rows": 2121,
+    "additional_seeds": [
+      7,
+      20260928,
+      429496729
+    ],
+    "additional_rows_each": 3127,
+    "audio_delivery_checks_passed": 6
+  },
+  "gowin_standalone": {
+    "candidate_source_sha256": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+    "target_part": "GW5AT-LV60PG484AC1/I0",
+    "fmax_mhz": 113.186,
+    "worst_slack_ns": {
+      "Setup": 11.165,
+      "Hold": 0.275,
+      "Recovery": null,
+      "Removal": null
+    },
+    "resources": {
+      "Logic": {
+        "used": 157,
+        "capacity": 59904
+      },
+      "Register": {
+        "used": 86,
+        "capacity": 60780
+      }
+    },
+    "report_sha256": {
+      "build.log": "84ca1ee1375d31f5aa63353b08f9997d19eeaf9457d1d7f7fa9449d489107d0e",
+      "allocator_tr_content.html": "f285848f2201794a6e2d18fd9b89b61df24bf7a2c999b2547a3af477505db1b8",
+      "allocator.rpt.txt": "928f0438eaa96aabdc7b8efe0f838dccd87fa57d0ecb2a3130d4ca162a5c8d0c"
+    }
+  },
+  "sha256": {
+    "code/rtl/audio/voice_allocator_4.sv": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+    "code/scripts/run_t010_voice_sim.ps1": "bf3e3530bdd3bd1d8a29df8afe846c02ada0419e5f55c01410299af2a3763386",
+    "code/scripts/run_t010_allocator_review.ps1": "e4f9bd5df4aa93927dcfa8f3c28912d3114865f1a5c36c1fca6dae58d55fdf89",
+    "code/scripts/check_audio_delivery.py": "e8279a0c7a1ad40169b4f95232eae3f71230faabbfe9391a9f520666be2297ac",
+    "code/tb/board/run_t010_allocator_review.py": "0e00f411adb15ab24bfed29fa75ce0842d6f704d3a4b1a3ea0c853578b31995c",
+    "code/tb/board/tb_t010_allocator_review.sv": "f856433e4769721805e2afcb230d70193f7fae7a7eb3661850b9baee41bae93d",
+    "code/tb/board/generate_t010_allocator_vectors.py": "634208931558eea580a0a4406d0c45e04fed1afa1e446455e1341cb19171b4a7",
+    "code/tb/board/tb_t010_allocator_vectors.sv": "3b9f97e5ffcbd8f50e900baeb60a09691f862caa917ad9c0b1809e36a489ce21",
+    "code/scripts/build_t010_allocator_probe.py": "f84d86c3e15c0b05fa3d7328da4a7a267a926b8819735518fa1b9a31983dbd79",
+    "code/tb/board/test_audio_delivery_gate.py": "e99091d641986e568be6e2245136c89feda8d2c85fb6b8d62ee43546c9f878aa",
+    "code/output/t010_allocator_review/baseline.log": "de309e1c4517a41c5043dd197d1865883e9fd3d78e71daa65c2f26baf5bdb992",
+    "code/output/t010_allocator_review/identity.log": "18afb6b3445819f87c2b26ef535409e47a44b76c525e310a9f753245e7eb8763",
+    "code/output/t010_allocator_review/single_release.log": "0e41a9cc80b44dacad9a0a3f18b26ac6ef01f447770e75f61407ad2ce80e5ad9",
+    "code/output/t010_allocator_review/release_retrigger.log": "9d26f73d6f16e86fcb886ab5cbe23126bb62e8f007ad010dbe6d94289388b241",
+    "code/output/t010_allocator_review/release_isolation.log": "3fc6d8598bba7c93577ca148b5662ee08520a35caa617bcad453eca38d4de159",
+    "code/output/t010_allocator_review/age_wrap.log": "aab636322d939e3825fbd1284c06ac93d79c595df9b6798698c34fea14fd8934",
+    "code/output/t010_allocator_review/oracle.log": "368e663637ce9a940e64af93cf3dc2ece3f522824ff4cba8b3fd6548a2a7b783",
+    "code/output/t010_allocator_gowin/build.log": "84ca1ee1375d31f5aa63353b08f9997d19eeaf9457d1d7f7fa9449d489107d0e",
+    "code/output/t010_allocator_gowin/impl/pnr/allocator_tr_content.html": "f285848f2201794a6e2d18fd9b89b61df24bf7a2c999b2547a3af477505db1b8",
+    "code/output/t010_allocator_gowin/impl/pnr/allocator.rpt.txt": "928f0438eaa96aabdc7b8efe0f838dccd87fa57d0ecb2a3130d4ca162a5c8d0c"
+  },
+  "limits": [
+    "release_done[3:0] changes the standalone allocator port; formal top is not connected",
+    "M1 algorithm semantic review remains required",
+    "Gowin build is a standalone module, not stereo audio top or board test",
+    "current default project remains simple_voice and DIAG"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-28",
+  "scope": "M2 isolated measured serial-reset placement; not a formal audiovisual build or board image",
+  "reference_local_commit": "8b44fe5",
+  "current_checkout_commit": "d6c09b2",
+  "source_sha256": {
+    "code/scripts/build_visual_full_path_probe.ps1": "ecd844a2afd11d0a2e7c03f394f9b84f88f956d0f0b9321e359222847c1166ce",
+    "code/scripts/check_visual_serial_reset_report.py": "1d7f4c85a13dbd762efea198ad51a0e75ffcb743719aa4f32c8f16420005392b",
+    "code/rtl/board/visual_full_path_probe.sv": "1e76300d76d39ee2bc878b007dd13708f6bed4f017b2c0cc9d84e9a4635bcf33"
+  },
+  "current_run_sha256": {
+    "timing": "2434c1fe68f784849d2ad80e4f491e11ac9d0594ce6881472117009c1b310143",
+    "pin_usage": "866d8bbbefe1f2ffbd0b6837cc5e63029c82b75572e22f9a853ace5f888d9012",
+    "cst": "64f2fb9165bc6214b71156bca53ab6971f5e3269c1b5af894bfd9cd9350f87bd",
+    "build_log": "d1a803b65aa90899febcae26de76537f80b7ac0038b56c6760f6d250d447233e"
+  },
+  "subgate": "PASS, OSER10 serial reset FF placement only",
+  "fullgate_errors": [
+    "Numbers of Setup Violated Endpoints: 61"
+  ],
+  "setup_endpoint_failures": 61,
+  "hold_endpoint_failures": 0,
+  "recovery_worst_ns": 0.885,
+  "removal_worst_ns": 0.389,
+  "pixel_fmax_mhz": 9.805,
+  "surviving_payload_paths": {
+    "u_event_bridge": 6,
+    "u_control/u_score_mailbox": 19
+  },
+  "limitations": [
+    "independent synthetic visual probe, not combined with formal piano audio",
+    "M3 renderer remains below 25 MHz target; no bitstream may be programmed",
+    "placement must be reconfirmed after any netlist or board integration change"
+  ]
+}

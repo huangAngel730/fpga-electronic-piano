@@ -1,0 +1,145 @@
+{
+  "passed": true,
+  "candidate_SHA256": "b26214f83dcb95feef77ba2d16335d4cf0bda5805085a1cb77f15dcbcbf0968d",
+  "frozen_reference_SHA256": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+  "runs": {
+    "positive_compile": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_m2_parser_miter",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional\\positive.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\sources\\midi_event_parser.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional\\reference.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional\\tb.sv"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "3fc6d7dcfe7339c2a45633de31b30d2896bececf2050a82096c12a711b250717"
+    },
+    "positive": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional\\positive.vvp"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "2c29f66a1ede6a11de350954b0732eb0d8299458efc3b7b191e0ad1c658cf3fe"
+    },
+    "oracle_compile": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_structure",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional\\oracle.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional\\probe.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional\\tb_structure.sv"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "20a872448bbc9f81cc225a55984f5f876cc026392e6a014d87968639933541a3"
+    },
+    "oracle": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional\\oracle.vvp"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "9816377786b291d113fa414f1b2e9c01d41715e83a8c0ff107ae22400c85c044"
+    },
+    "linear_not_cyclic_probe_compile": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_structure",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional\\linear_not_cyclic_probe.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional\\linear_not_cyclic_probe.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional\\tb_structure.sv"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "06f6a328a062364cecb3829355498a2d30a193d39ef795c73949fedc91a2d728"
+    },
+    "linear_not_cyclic_probe": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional\\linear_not_cyclic_probe.vvp"
+      ],
+      "exit": 1,
+      "expected_success": false,
+      "log_SHA256": "cba387f885eddb6035fc986bbeedf2d322fe28295beef8fdf029044089ba4e76"
+    },
+    "wrong_second_wrap_probe_compile": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_structure",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional\\wrong_second_wrap_probe.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional\\wrong_second_wrap_probe.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional\\tb_structure.sv"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "923d9aecd16f541b71fb210e6635a34cbe39fa9782de73bdab2c5c10012d0fde"
+    },
+    "wrong_second_wrap_probe": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional\\wrong_second_wrap_probe.vvp"
+      ],
+      "exit": 1,
+      "expected_success": false,
+      "log_SHA256": "c151c5b3272dbef7b214bfae568d476f919ae6a8e879dcb8117540972a07c669"
+    },
+    "empty_vectors": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional\\oracle.vvp"
+      ],
+      "exit": 1,
+      "expected_success": false,
+      "log_SHA256": "4bb75bf4ec2baae7bb398f5b98fca3f39d12def1babc5f28dbcd91c40956ff66"
+    },
+    "truncated_vectors": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional\\oracle.vvp"
+      ],
+      "exit": 1,
+      "expected_success": false,
+      "log_SHA256": "838e54a2c57205a9c021516d70dcd299326efbebf7bd587853f72b702b9ddeaf"
+    }
+  },
+  "oracle_cases": 274560,
+  "oracle_vectors_SHA256": "9ae11cc818dcf8b5a47391fbb813de7edf0088af04062f7946a8bebea8d64159",
+  "original_TB_SHA256": "c3697a0dcbf727fb15c2f179d5b0856b47eaec0e43445efd615b86c2a8626098",
+  "adapted_TB_SHA256": "356d172f51b4b023bbd2e424858c3ecf7ee5b35e95507e7c6df1d4a1882d8500",
+  "coverage": "Four configs x 256205 cycles, all public outputs and all original registered state; same-cycle selection/grant; directed CC1 locked-excursion-cancellation; two compiled behavioral mutants rejected; independent imperative oracle; empty/truncated vector guards",
+  "interface_decode_FIFO_counters_literal_unchanged": true,
+  "new_registers": 0,
+  "public_latency_cycles_added": 0,
+  "formal_repo_written": false,
+  "actual_evidence_directory": "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\F_absolute_rr\\functional",
+  "run_driver_SHA256": "3187c5670ad87eec0b2903667951011e0f986dae7e873f7126f52f74ef0bba7a"
+}

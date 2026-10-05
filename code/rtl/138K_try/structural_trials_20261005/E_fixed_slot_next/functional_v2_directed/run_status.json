@@ -1,0 +1,86 @@
+{
+  "positive_compile": {
+    "command": [
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+      "-B",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+      "-g2012",
+      "-s",
+      "tb_m2_parser_miter",
+      "-o",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next\\functional_v2_directed\\positive.vvp",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next\\sources\\audio_defs_pkg.sv",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next\\sources\\midi_event_parser.sv",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next\\functional_v2_directed\\reference.sv",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next\\functional_v2_directed\\tb.sv"
+    ],
+    "exit": 0,
+    "expected_success": true,
+    "log_SHA256": "fea41ff7c02e713ccec45dee3404cef3ba646d3985f12667d6507113e5857f33"
+  },
+  "positive": {
+    "command": [
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next\\functional_v2_directed\\positive.vvp"
+    ],
+    "exit": 0,
+    "expected_success": true,
+    "log_SHA256": "3de07ef5e4883c8cf0e6d7bc6c93189b9716f13ea4691e17fcf8a508e7fd4c9b"
+  },
+  "missing_grant_clear_compile": {
+    "command": [
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+      "-B",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+      "-g2012",
+      "-s",
+      "tb_m2_parser_miter",
+      "-o",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next\\functional_v2_directed\\missing_grant_clear.vvp",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next\\sources\\audio_defs_pkg.sv",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next\\functional_v2_directed\\missing_grant_clear.sv",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next\\functional_v2_directed\\reference.sv",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next\\functional_v2_directed\\tb.sv"
+    ],
+    "exit": 0,
+    "expected_success": true,
+    "log_SHA256": "8c2b5aca6388009c97bd5a195899fcb03f43c881ccb820f6bfbcdf11117dd496"
+  },
+  "missing_grant_clear": {
+    "command": [
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next\\functional_v2_directed\\missing_grant_clear.vvp"
+    ],
+    "exit": 1,
+    "expected_success": false,
+    "log_SHA256": "1e482edeb26fe49607daca5566ccd92388abc0ea21e7f2b0f64e36474f88f4c6"
+  },
+  "missing_parse_cancel_compile": {
+    "command": [
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+      "-B",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+      "-g2012",
+      "-s",
+      "tb_m2_parser_miter",
+      "-o",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next\\functional_v2_directed\\missing_parse_cancel.vvp",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next\\sources\\audio_defs_pkg.sv",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next\\functional_v2_directed\\missing_parse_cancel.sv",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next\\functional_v2_directed\\reference.sv",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next\\functional_v2_directed\\tb.sv"
+    ],
+    "exit": 0,
+    "expected_success": true,
+    "log_SHA256": "a913ee3ab5c360e5ec3f539d229243491d6e7ad69ce6b7a86d52fb23e0181927"
+  },
+  "missing_parse_cancel": {
+    "command": [
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\structural_trials_20261005\\E_fixed_slot_next\\functional_v2_directed\\missing_parse_cancel.vvp"
+    ],
+    "exit": 0,
+    "expected_success": false,
+    "log_SHA256": "3de07ef5e4883c8cf0e6d7bc6c93189b9716f13ea4691e17fcf8a508e7fd4c9b"
+  }
+}

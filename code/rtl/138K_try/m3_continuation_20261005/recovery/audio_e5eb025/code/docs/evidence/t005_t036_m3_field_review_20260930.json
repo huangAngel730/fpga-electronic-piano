@@ -1,0 +1,102 @@
+{
+  "review_date": "2026-09-30",
+  "evidence_commit": "40cacc813d0650021127e249432c10191ec1be8a",
+  "evidence_files_identical_to_commit": true,
+  "report_sha256": "a01c74df83c05132188d0cb4aa18b09507f59bb4f738f75df5e41b497adc1739",
+  "pdfs": {
+    "black_press.pdf": {
+      "sha256": "58a09a740519f53e91b07fd2f3c835c085c3cbdbd3f9fd59b922f632b485fc88",
+      "pages": 8
+    },
+    "white_press.pdf": {
+      "sha256": "1c4c6d7505c85ceb023fb6052d1b767f09a175022d0eafff37ccd82191005f5a",
+      "pages": 12
+    },
+    "pitch_press.pdf": {
+      "sha256": "dc7a034739e03d38fd94ad999bf0bcb2a54dfe1ab3af7a9af4815f915d5cf628",
+      "pages": 4
+    },
+    "mod_press.pdf": {
+      "sha256": "6b32214cc7788bc88c723b6c463e227a40e86aabed5dcff166578b0739234c81",
+      "pages": 4
+    },
+    "sustain_press.pdf": {
+      "sha256": "9ba313938f644121109945a1e50c7acebf02408377e715515cb91f118538c795",
+      "pages": 8
+    }
+  },
+  "total_pages": 36,
+  "review_method": "M2 rendered all36 PDF pages, visually checked decoded message areas in six contact sheets and detailed ambiguous byte; independently recalculated velocity/pitch values. Physical wiring/keyboard identity/test supervision supplied by M3 report, not inferred from PDF alone.",
+  "visible_messages": {
+    "black_notes": [
+      "90 25 40",
+      "90 27 63",
+      "90 2E 71",
+      "90 3A 76",
+      "90 42 71",
+      "90 46 5D",
+      "90 4B 5D",
+      "90 52 60"
+    ],
+    "white_notes": [
+      "90 24 4C",
+      "90 26 5D",
+      "90 28 73",
+      "90 29 61",
+      "90 2B 73",
+      "90 2D 6F",
+      "90 2F 46",
+      "90 30 16",
+      "90 32 59",
+      "90 34 66",
+      "90 35 66",
+      "90 37 61"
+    ],
+    "velocity_min": 22,
+    "velocity_max": 118,
+    "pitch": [
+      "E0 00 6B",
+      "E0 7F 7F",
+      "E0 00 00",
+      "E0 00 11"
+    ],
+    "pitch_centered": [
+      5504,
+      8191,
+      -8192,
+      -6016
+    ],
+    "mod": "B0 01 41 / repeated B0 01 4A,4B,4C,4D / B0 01 2A / B0 01 0A",
+    "sustain": [
+      "B0 40 7F",
+      "90 28 22",
+      "80 28 00",
+      "B0 40 00",
+      "B0 40 7F",
+      "90 37 32",
+      "80 37 00",
+      "B0 40 00"
+    ]
+  },
+  "accepted_subitem": "T036 real DIN keyboard -> isolation module -> R17 input-line byte capture, L6 via M3 field record plus M2 original evidence review",
+  "nominal_voltage": "3.3V from M3 field record, no independent analog voltage measurement in PDFs; D1 digital decoder threshold1.4V is not voltage amplitude proof",
+  "fpga_bitstream": "unknown; no association with54774f1 or any specific design",
+  "exclusions": [
+    "FPGA MIDI parsing proven on this recording",
+    "Velocity/Pitch/Mod/Sustain audio effects",
+    "T031 endpoint latency",
+    "formal four-voice hardware verification",
+    "overall T036 completion"
+  ],
+  "t005": {
+    "test_date": "2026-09-30",
+    "source": "M3 latest user-forwarded field report, not M2 hands-on or an attached audio amplitude measurement",
+    "left_fs_sha256": "d38e06e16e2e8b126b6567f917caf99302bf3daa30b744d5d8f4b31f9680e539",
+    "right_fs_sha256": "e93c1624edd2e088612e57864040a6f957692d77f2daee11028f7bb6950d1de6",
+    "sram_programmed": true,
+    "observations": "same-volume two headsets: left image left loud/right quiet; right image right loud/left quiet",
+    "accepted_scope": "digital regression and left/right dominant analog channel mapping plus sound output chain, closed with known limitation per user direction",
+    "limits": "audible residual in non-active channel; no full silence/Vpp/crosstalk or new digital-last-bit board measurement",
+    "board_current_image": "right channel diagnostic; restore54774f1 STAT image before T024/T025/T026"
+  }
+}

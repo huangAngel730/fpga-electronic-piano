@@ -1,0 +1,79 @@
+{
+  "purpose": "one/four independent ADSR wrappers, not the complete voice",
+  "source_commit": "8b7ebc151a9b99792ffe087b462311cccc1e9b46",
+  "variants": {
+    "1": {
+      "resource": {
+        "Logic": 643,
+        "Register": 147,
+        "BSRAM": 1,
+        "DSP": 5,
+        "Logic_FF": 137
+      },
+      "fmax_mhz": 54.583,
+      "worst": {
+        "Setup": {
+          "ns": 1.68,
+          "start": "u/g_voice[0].g_used.u_adsr/level_q16_1_s0/Q",
+          "end": "u/g_voice[0].g_used.u_adsr/n600_s0/B[25]"
+        },
+        "Hold": {
+          "ns": 0.278,
+          "start": "u/g_voice[0].g_used.u_adsr/elapsed_10_s0/Q",
+          "end": "u/g_voice[0].g_used.u_adsr/elapsed_10_s0/D"
+        }
+      },
+      "tool": "V1.9.11.03 Education",
+      "part": "GW5AT-LV60PG484AC1/I0"
+    },
+    "4": {
+      "resource": {
+        "Logic": 2606,
+        "Register": 588,
+        "BSRAM": 4,
+        "DSP": 20,
+        "Logic_FF": 548
+      },
+      "fmax_mhz": 52.556,
+      "worst": {
+        "Setup": {
+          "ns": 0.973,
+          "start": "u/g_voice[2].g_used.u_adsr/elapsed_6_s0/Q",
+          "end": "u/g_voice[2].g_used.u_adsr/n600_s0/B[24]"
+        },
+        "Hold": {
+          "ns": 0.275,
+          "start": "u/g_voice[3].g_used.u_adsr/elapsed_3_s0/Q",
+          "end": "u/g_voice[3].g_used.u_adsr/elapsed_3_s0/D"
+        }
+      },
+      "tool": "V1.9.11.03 Education",
+      "part": "GW5AT-LV60PG484AC1/I0"
+    }
+  },
+  "delta_four_minus_one": {
+    "Logic": 1963,
+    "Register": 441,
+    "BSRAM": 3,
+    "DSP": 15,
+    "Logic_FF": 411
+  },
+  "sha256": {
+    "code/rtl/audio/adsr_piano_envelope.sv": "2d156006c8393666a216a2c39026a7b5a50acd2b4e3d37acec67e87f6dbf4eca",
+    "code/rtl/board/adsr_scale_probe.sv": "921f6f9d8054a01a52df4b36bdfa927762f923c8dd6638521bf4f24727000927",
+    "code/model/generated/wavetables/velocity_gain_rom.mem": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+    "code/scripts/run_t016_adsr_scale.ps1": "1613cb31ad7f7c7c282ae3393bd9200fa09f1b98f43ae0990d7bcc446812d6f1",
+    "code/output/t016_adsr_scale/voice_1/impl/pnr/adsr_probe_1.rpt.txt": "9d77b282d40123bd146202bcc4741eaa91986c7fa747d7fc1e2672fd46169256",
+    "code/output/t016_adsr_scale/voice_1/impl/pnr/adsr_probe_1_tr_content.html": "c493e3bddaf6e1c8d3acf3bb11a680f4a71f4d036d45f1354479bf60f63658cd",
+    "code/output/t016_adsr_scale/voice_1/impl/pnr/adsr_probe_1.fs": "4445ccb2330814152be1de98f957529c305fe0eee8803f2b03fde4983833bdb1",
+    "code/output/t016_adsr_scale/voice_4/impl/pnr/adsr_probe_4.rpt.txt": "49442e3286f85ed907cb39b677a3cb71f47d9c0e77698024b2f105617ea3e0c6",
+    "code/output/t016_adsr_scale/voice_4/impl/pnr/adsr_probe_4_tr_content.html": "583ea8f70dd70160aec1c4d2879611778bcd5588552eba55603146a1ba124e80",
+    "code/output/t016_adsr_scale/voice_4/impl/pnr/adsr_probe_4.fs": "3dfd26a55a1190cdaf95b4f3cff7444926a7ee182969383d94dcb2287a0e2d0d"
+  },
+  "limitations": [
+    "No DDS, allocator, mixer, PCM handshake, UART or HDMI",
+    "No CST or clocked upstream sample request timing",
+    "Fixed 50 MHz SDC constrains sys_clk registers only",
+    "Does not validate four simultaneous audible voices or board audio"
+  ]
+}

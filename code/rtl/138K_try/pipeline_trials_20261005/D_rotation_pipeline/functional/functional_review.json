@@ -1,0 +1,195 @@
+{
+  "passed": true,
+  "runs": {
+    "positive_compile": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_m2_parser_miter",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\positive.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\sources\\midi_event_parser.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\reference.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\tb.sv"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "1809c255c0daa5884d02e6fd2a259dbe5a4a0deabd24a8d2f7d0b2bbbc0200e9",
+      "elapsed_s": 0.19
+    },
+    "positive": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\positive.vvp"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "6bc8eba7369ad771998fd856f298515742f81f3b3088a7a1860228a1b2475ed3",
+      "elapsed_s": 79.56
+    },
+    "stale_latest_compile": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_m2_parser_miter",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\stale_latest.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\stale_latest.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\reference.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\tb.sv"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "bec6d27aede9c2873ae8937183507a7bdaebe6308dc36e977bbaeb3babf109fe",
+      "elapsed_s": 0.17
+    },
+    "stale_latest": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\stale_latest.vvp"
+      ],
+      "exit": 1,
+      "expected_success": false,
+      "log_SHA256": "12f3d05df089826aa3a31bf15585ff273f5840fd11e2f56e08612af07464fc18",
+      "elapsed_s": 2.02
+    },
+    "missing_previous_repair_compile": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_m2_parser_miter",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\missing_previous_repair.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\missing_previous_repair.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\reference.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\tb.sv"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "c4588ecbd3f61cd663a87d1c070b8e0f1ce426772d5848a3ddfb72e510e9f1de",
+      "elapsed_s": 0.17
+    },
+    "missing_previous_repair": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\missing_previous_repair.vvp"
+      ],
+      "exit": 1,
+      "expected_success": false,
+      "log_SHA256": "f01da0bcc9f06d6a2d96d886c08bc9d9092f71ce49b9f24032ea4c11dd2b4e81",
+      "elapsed_s": 0.14
+    },
+    "directed_checker": {
+      "command": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\run_directed_isolated.py",
+        "--output",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\directed"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "f82db036f578c888726b7772a6ad1e53f2be0b983dbb309a7e8150e3f563776e",
+      "elapsed_s": 0.28
+    },
+    "stale_payload_compile": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_m2_parser_miter",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\stale_payload.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\stale_payload.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\reference.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\tb.sv"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "19b7924eb77a7bd1398cb60fa144534c6dc0179e76b2511ca979b6b2220d17ab"
+    },
+    "stale_payload": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\stale_payload.vvp"
+      ],
+      "exit": 1,
+      "expected_success": false,
+      "log_SHA256": "2484af88d89e1003f6be7e513f7be0ae36d6b3e3a572ea20060a18067c99efa4"
+    },
+    "wrong_next_rr_compile": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_m2_parser_miter",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\wrong_next_rr.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\wrong_next_rr.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\reference.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\tb.sv"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "ebb0dcf09b9a4db94a911b04384ecad06b6c91c4bcd8461ef73c0ff1a9fdd312"
+    },
+    "wrong_next_rr": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\D_rotation_pipeline\\functional\\wrong_next_rr.vvp"
+      ],
+      "exit": 1,
+      "expected_success": false,
+      "log_SHA256": "1c50fd211dcec3baab68272535f73922d78da0b57051760d7b5982de296fe2d3"
+    }
+  },
+  "candidate_SHA256": "c1b74c8f03794beff3be0390493f045b2f9836ed9ac48f9f1a8f36887054a271",
+  "frozen_reference_SHA256": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+  "original_TB_SHA256": "3e872d2e5f18bf4d2a7a17e18b98d42b2e629992a36cf4d2b9bb476477ef7342",
+  "adapted_TB_SHA256": "068b0995703f8bfc470c514ded0a429b01eb1465f27213af5f27678085236d12",
+  "directed_original_SHA256": "fdfb0a4571edb95f07f5d99ff72d047bd1ddf498460679640b9a9ec213169a36",
+  "directed_adaptations": [
+    [
+      "root=Path(__file__).resolve().parents[4]; scope=root/'code/tb/common/midi_prepared_candidate'",
+      "root=Path('E:/FPGA/GAOYUNFPGA/138K_try/pipeline_trials_20261005/D_rotation_pipeline'); scope=root/'sources'"
+    ],
+    [
+      "out.relative_to(root/'code/output')",
+      "out.relative_to(root)"
+    ],
+    [
+      "Path('D:/Gowin/oss-cad-suite')",
+      "Path('E:/FPGA/GAOYUNFPGA/138K_try/tools/icarus_oss_copy')"
+    ],
+    [
+      "'-g2012'",
+      "'-B',str(cad/'lib/ivl'),'-g2012'"
+    ],
+    [
+      "root/'code/rtl/common/audio_defs_pkg.sv'",
+      "root/'sources/audio_defs_pkg.sv'"
+    ]
+  ],
+  "coverage": "All public outputs and scheduler register state each cycle; four configs; burst1/8/16; 33 directed checks; 3 compiled behavioral mutants rejected; complete FIFO/parser/pending-value/accepted-value state; cached payload freshness each cycle; lookahead bitmap equality each cycle; wrong-next-RR compiled mutant rejected",
+  "formal_repo_written": false
+}

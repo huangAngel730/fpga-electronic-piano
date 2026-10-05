@@ -1,0 +1,323 @@
+{
+  "passed": true,
+  "runs": {
+    "pll_compile": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_pll40",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\functional_v6_CDC_state_check\\pll.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\TMDS_PLL_800_600_60.v",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\tools\\gowin_1_9_11_03\\IDE\\simlib\\gw5a\\prim_sim.v",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\tb_pll40.sv"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "e6c12e2059fce139f4987cd9fd294eb206e818fc11f7e724d2a995fae6a8a40e"
+    },
+    "pll": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\functional_v6_CDC_state_check\\pll.vvp"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "70b77621e23ed9a74a584838da27b7a8280f1184802f3609d6b85ae360a7d972"
+    },
+    "wrong_divider_compile": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_pll40",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\functional_v6_CDC_state_check\\bad_pll.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\functional_v6_CDC_state_check\\wrong_core_divider.v",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\tools\\gowin_1_9_11_03\\IDE\\simlib\\gw5a\\prim_sim.v",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\tb_pll40.sv"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "e6c12e2059fce139f4987cd9fd294eb206e818fc11f7e724d2a995fae6a8a40e"
+    },
+    "wrong_divider": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\functional_v6_CDC_state_check\\bad_pll.vvp"
+      ],
+      "exit": 1,
+      "expected_success": false,
+      "log_SHA256": "d85f68339d5aaa31040361c416d8bee568e78469f87eddfaa453dcf4532a10df"
+    },
+    "top_compile": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_clock40_top",
+        "-I",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\include",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\functional_v6_CDC_state_check\\top.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\sustain_control_contract_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\audio_visual_coexistence_top.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\reset_sync.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\button_debouncer.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\button_event_converter.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\performance_event_fifo.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\system_status_counters.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\uart_status_reporter.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\uart_tx.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\uart_rx.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\midi_event_parser.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\midi_input.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\note_pitch.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\functional_v6_CDC_state_check\\sim_sources\\simple_voice.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\i2s_tx.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\pcm_frame_buffer.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\functional_v6_CDC_state_check\\sim_sources\\voice_allocator_4.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\dds_oscillator.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\piano_dds_oscillator.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\adsr_piano_envelope.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\functional_v6_CDC_state_check\\sim_sources\\sustain_controller.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\polyphonic_event_router.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\polyphonic_envelope_bank.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\voice_gain_q15_candidate.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\polyphonic_pcm_commit.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\polyphonic_audio_core.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\pcm_mixer_4voice.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\pcm_clip_counter.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\pcm_result_hold.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\TMDS_PLL_800_600_60.v",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\dvi_sim_stub.v",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\visual_event_bridge.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\video_scan_timing.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\visual_mailbox_cdc.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\visual_control_bridge.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\visual_live_state.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\visual_score_tracker.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\visual_scene_renderer.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\visual_hit_flash.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\m3_visualizer.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\audio_visual_display_probe.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\performance_control_snapshot.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\pitch_mod_fcw_pipeline.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\pitch_mod_snapshot_pipeline.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\tools\\gowin_1_9_11_03\\IDE\\simlib\\gw5a\\prim_sim.v",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\tb_clock40_top.sv"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "0415ba17b73c5308b8b4f22bf3c715ea7462783d7e62a3a265d73e8c4f319a96"
+    },
+    "top": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\functional_v6_CDC_state_check\\top.vvp"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "42fc34cefb287339a29860f594de9e6d53c85b19e7137210fc3d0ba00e3e20f8"
+    },
+    "old_step_compile": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_clock40_top",
+        "-I",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\include",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\functional_v6_CDC_state_check\\bad_top.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\sustain_control_contract_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\functional_v6_CDC_state_check\\old_bclk_step.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\reset_sync.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\button_debouncer.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\button_event_converter.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\performance_event_fifo.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\system_status_counters.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\uart_status_reporter.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\uart_tx.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\uart_rx.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\midi_event_parser.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\midi_input.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\note_pitch.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\functional_v6_CDC_state_check\\sim_sources\\simple_voice.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\i2s_tx.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\pcm_frame_buffer.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\functional_v6_CDC_state_check\\sim_sources\\voice_allocator_4.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\dds_oscillator.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\piano_dds_oscillator.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\adsr_piano_envelope.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\functional_v6_CDC_state_check\\sim_sources\\sustain_controller.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\polyphonic_event_router.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\polyphonic_envelope_bank.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\voice_gain_q15_candidate.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\polyphonic_pcm_commit.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\polyphonic_audio_core.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\pcm_mixer_4voice.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\pcm_clip_counter.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\pcm_result_hold.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\TMDS_PLL_800_600_60.v",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\dvi_sim_stub.v",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\visual_event_bridge.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\video_scan_timing.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\visual_mailbox_cdc.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\visual_control_bridge.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\visual_live_state.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\visual_score_tracker.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\visual_scene_renderer.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\visual_hit_flash.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\m3_visualizer.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\audio_visual_display_probe.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\performance_control_snapshot.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\pitch_mod_fcw_pipeline.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\sources\\pitch_mod_snapshot_pipeline.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\tools\\gowin_1_9_11_03\\IDE\\simlib\\gw5a\\prim_sim.v",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\tb_clock40_top.sv"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "0415ba17b73c5308b8b4f22bf3c715ea7462783d7e62a3a265d73e8c4f319a96"
+    },
+    "old_step": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\functional_v6_CDC_state_check\\bad_top.vvp"
+      ],
+      "exit": 1,
+      "expected_success": false,
+      "log_SHA256": "fef8e65df0bcc13ed22076dd6090cd478248696c8af537247b7400892b63cb8f"
+    }
+  },
+  "vendor_primitive_SHA256": "202f65ccf77126d04e47db36c95e237e48522f3a105a3e64d9fcbf4e3b782f27",
+  "testbench_SHA256": {
+    "tb_pll40.sv": "bd663d675c4b5625307743046e58ddf37b3ae5c8fbb5e6c9b07e45ab50323206",
+    "tb_clock40_top.sv": "0c5053e267d9312285b3f05fe9f65a778ce27e97eb34c3ad95dc2d15a38e3ff3"
+  },
+  "RTL_SHA256": {
+    "audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+    "sustain_control_contract_pkg.sv": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+    "audio_visual_coexistence_top.sv": "401b691320938a10c68f2c66a4ab4d6a94ec56ce9273eac3eb110a74aeb33eb6",
+    "reset_sync.sv": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+    "button_debouncer.sv": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+    "button_event_converter.sv": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1",
+    "performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+    "system_status_counters.sv": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+    "uart_status_reporter.sv": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+    "uart_tx.sv": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+    "uart_rx.sv": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+    "midi_event_parser.sv": "336d867856a7b3956d524105137c035ec2637fea936538979182669987212071",
+    "midi_input.sv": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710",
+    "note_pitch.sv": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+    "simple_voice.sv": "cfc2759c6de2870f4526e47afbd0092a2249de49362c11f1d7690743635691d3",
+    "i2s_tx.sv": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+    "pcm_frame_buffer.sv": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+    "voice_allocator_4.sv": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+    "dds_oscillator.sv": "0f88761fc38f66f5adff4556254c68ffedab7daf71fab1ee99c10c71af5dabcb",
+    "piano_dds_oscillator.sv": "8b0fb7fb1c7f00bfd5c45494d9e0552509fa4e60d92fa19bca293794f5d81de2",
+    "adsr_piano_envelope.sv": "5a2628b388df407dccb7718ec3b6d5fee6350d564d1473ab126e8a937fdd016c",
+    "sustain_controller.sv": "00b6e429944245f77a19055c131f9f851cf73f6b8d12606480a280bc05ec806b",
+    "polyphonic_event_router.sv": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+    "polyphonic_envelope_bank.sv": "f5fd51fcb42348d1a32af1cd3d91fb85b8df8957630949aa974e65d492db805f",
+    "voice_gain_q15_candidate.sv": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+    "polyphonic_pcm_commit.sv": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+    "polyphonic_audio_core.sv": "d792f7df2e2a73f0c024420178f101f022b38f6d81e6d66b30b7d4c9b341153e",
+    "pcm_mixer_4voice.sv": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+    "pcm_clip_counter.sv": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+    "pcm_result_hold.sv": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+    "TMDS_PLL_800_600_60.v": "7d6006749d113207bcc2246d0415c874570db0c92e8563bbd55eea6ed17fce20",
+    "DVI_TX_Top.v": "162f68cab4262f8a3acae17f2fc66b6d9ef403815fd5ebeeecf30b59d88e203c",
+    "visual_event_bridge.sv": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c",
+    "video_scan_timing.sv": "0b7b3def84043ddd40ed2c1e237bb2d528a117e4fc15195d40b33b0fe78b2069",
+    "visual_mailbox_cdc.sv": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c",
+    "visual_control_bridge.sv": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428",
+    "visual_live_state.sv": "ad5c124a1f621ef95524f998efc4ca7ed0d7840d8297af8a97cd1460f88f5938",
+    "visual_score_tracker.sv": "7e5c630fddf3da60f5fe6bd67721736ee7624817355822dadc4a09dc4cffe0dc",
+    "visual_scene_renderer.sv": "8062253766925a3c6fce11aad820f51dfcf7444501164d53e95d817c3e62a8d1",
+    "visual_hit_flash.sv": "1cd4cc1e3459a41ee26122bee014afd552b697e80c1900f658cc03a73ebe03e3",
+    "m3_visualizer.sv": "c3940203be5616d3cb923552267d7485d494bfd0e6a5410d7a7f3651e1fd0d2a",
+    "audio_visual_display_probe.sv": "df1f05b4a6a06deddd9d3a2244106ec29bb0d15e5dd808fc9bef9436d710a5cf",
+    "performance_control_snapshot.sv": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+    "pitch_mod_fcw_pipeline.sv": "227c54f582e29e3aeb55ecf13bb3f843199724623c5466acf27195f6f59d699d",
+    "pitch_mod_snapshot_pipeline.sv": "e7a5c7b77b32c10b9a5b16b41a6b6a2d5db0b842f3cc64abfe12ecfcb7c4c225"
+  },
+  "uses_real_vendor_PLL_simulation_model": true,
+  "real_clock_periods_measured_ns": {
+    "core": 25,
+    "pixel": 40,
+    "serial": 8
+  },
+  "LOCK_loss_injected_test_not_hardware_measurement": true,
+  "audio_MIDI_CDC_and_clock_parameter_checks": true,
+  "compiled_wrong_divider_and_old_BCLK_step_rejected": true,
+  "formal_repo_written": false,
+  "programmed": false,
+  "actual_evidence_directory": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\I_hold_locations\\functional_v6_CDC_state_check",
+  "simulation_only_include_adaptations": [
+    {
+      "file": "simple_voice.sv",
+      "original_include": "`include \"E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/rtl/138K_try/hold_trials_20261005/I_hold_locations/include/sine_table.svh\"",
+      "simulation_include": "sine_table.svh"
+    },
+    {
+      "file": "voice_allocator_4.sv",
+      "simulation_only_field_split": [
+        {
+          "field": "note_active",
+          "width": 1,
+          "references": 6
+        },
+        {
+          "field": "in_release",
+          "width": 1,
+          "references": 6
+        },
+        {
+          "field": "source",
+          "width": 4,
+          "references": 3
+        },
+        {
+          "field": "channel",
+          "width": 4,
+          "references": 3
+        },
+        {
+          "field": "note",
+          "width": 8,
+          "references": 3
+        },
+        {
+          "field": "age",
+          "width": 2,
+          "references": 8
+        }
+      ],
+      "NBA_order_and_field_widths_retained": true
+    },
+    {
+      "file": "sustain_controller.sv",
+      "original_include": "`include \"E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/rtl/138K_try/hold_trials_20261005/I_hold_locations/include/sustain_controller_ports.svh\"",
+      "simulation_include": "sustain_controller_ports.svh"
+    },
+    {
+      "file": "DVI_TX_Top.v",
+      "simulation_only": "DVI opaque boundary stub; NOT TMDS verification"
+    }
+  ],
+  "DVI_is_boundary_stub_in_whole_top_simulation": true,
+  "encrypted_DVI_IP_not_simulated_or_board_verified": true
+}

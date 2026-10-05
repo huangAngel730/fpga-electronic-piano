@@ -1,0 +1,107 @@
+{
+  "positive_compile": {
+    "command": [
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+      "-B",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+      "-g2012",
+      "-s",
+      "tb_m2_parser_miter",
+      "-o",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\functional\\positive.vvp",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\sources\\audio_defs_pkg.sv",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\sources\\midi_event_parser.sv",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\functional\\reference.sv",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\functional\\tb.sv"
+    ],
+    "exit": 0,
+    "expected_success": true,
+    "log_SHA256": "77f73ceb956e1feee40c361a77a3eafbcdccad326f31ec8fac4be6c7189af990",
+    "elapsed_s": 0.16
+  },
+  "positive": {
+    "command": [
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\functional\\positive.vvp"
+    ],
+    "exit": 0,
+    "expected_success": true,
+    "log_SHA256": "aac69b6bf14bdeaba01f0e49676274b06a9cb83942a7d77e225826ce4dc86f43",
+    "elapsed_s": 73.92
+  },
+  "stale_latest_compile": {
+    "command": [
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+      "-B",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+      "-g2012",
+      "-s",
+      "tb_m2_parser_miter",
+      "-o",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\functional\\stale_latest.vvp",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\sources\\audio_defs_pkg.sv",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\functional\\stale_latest.sv",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\functional\\reference.sv",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\functional\\tb.sv"
+    ],
+    "exit": 0,
+    "expected_success": true,
+    "log_SHA256": "05f445b6cc120ed8703c444026fef001248e612b615713cd68b130cf2748a926",
+    "elapsed_s": 0.16
+  },
+  "stale_latest": {
+    "command": [
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\functional\\stale_latest.vvp"
+    ],
+    "exit": 1,
+    "expected_success": false,
+    "log_SHA256": "b459c59d8ddfe3fd736c0952a722ce0e42f797893d707816c6cb63720380c878",
+    "elapsed_s": 1.91
+  },
+  "missing_previous_repair_compile": {
+    "command": [
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+      "-B",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+      "-g2012",
+      "-s",
+      "tb_m2_parser_miter",
+      "-o",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\functional\\missing_previous_repair.vvp",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\sources\\audio_defs_pkg.sv",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\functional\\missing_previous_repair.sv",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\functional\\reference.sv",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\functional\\tb.sv"
+    ],
+    "exit": 0,
+    "expected_success": true,
+    "log_SHA256": "be820dae8f1d9a90275d590c6002d619e79fd7ee39e963127fc281cd94ce88ab",
+    "elapsed_s": 0.16
+  },
+  "missing_previous_repair": {
+    "command": [
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\functional\\missing_previous_repair.vvp"
+    ],
+    "exit": 1,
+    "expected_success": false,
+    "log_SHA256": "abdc632dbeaa20ca4ed6de09c0a19caa33e65a213b5164a268b35d1ccf9fb1af",
+    "elapsed_s": 0.12
+  },
+  "directed_checker": {
+    "command": [
+      "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\functional\\run_directed_isolated.py",
+      "--output",
+      "E:\\FPGA\\GAOYUNFPGA\\138K_try\\pipeline_trials_20261005\\C_payload_buffer\\functional\\directed"
+    ],
+    "exit": 0,
+    "expected_success": true,
+    "log_SHA256": "19eac679a28a247835d7dea4c65f71958bbf54ce869a7ea43c5d3b6d377ff2e5",
+    "elapsed_s": 0.27
+  }
+}

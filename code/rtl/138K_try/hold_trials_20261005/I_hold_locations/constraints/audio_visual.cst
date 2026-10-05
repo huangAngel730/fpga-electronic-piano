@@ -1,0 +1,153 @@
+// -----------------------------------------------------------------------------
+// electronic_piano.cst
+// 本工程引脚约束（实时多音色合成电子乐器引擎，高云选题二）
+//
+// 板卡：Sipeed Tang Mega 60K + NEO Dock
+// 器件：GW5AT-LV60PG484AC1/I0，IDE 中选择的封装为 PBG484A，Device Version 为 B
+//       D018 的 "PBG484A vs PG484A" 之争已由 Sipeed 官方文档定案（2026-09-13 核实）：
+//         "The specific model ... is GW5AT-LV60PG484A
+//          Please select the package model PBG484A & Device Version: B in the IDE."
+//       即料号段写作 PG484A，而 IDE 封装名写作 PBG484A，两者是不同层级的写法，均非笔误。
+//       来源：sipeed_wiki docs/hardware/en/tang/tang-mega-60k/mega-60k.md "Precautions" 表。
+//       本文件第 6 行曾一度改为 PBGA484A，属过度更正，已按官方口径改回 PBG484A。
+//
+// 来源：本文件从 Sipeed 官方参考约束 tang_mega_60k_reference.cst
+//       （SHA256 DCACED4A5D15D60A3615190138AD3522B562C82748E35FFD150139BC7542FF4C）
+//       中【摘取】本项目实际用到的引脚。
+//
+// 【重要】不得把参考文件整体作为本工程约束提交。
+//   该文件含 DDR3、HDMI、以太网、SDRAM、摄像头、SD 卡、CH569 等
+//   本工程不存在的端口，并有 INS_LOC 把 DDR3 PLL、TMDS PLL 等绑定到
+//   固定位置，直接使用会导致综合报错。
+//
+// 【球位不做 Bank 换算（D020）】
+//   IO_LOC 写的是球位（封装上的物理焊球编号），由封装决定，与 die 内部
+//   IO Bank 分组无关，可直接采用。Bank 归属与 VCCIO 由 EDA 工具自行推断；
+//   IO_PORT 里的 BANK_VCCIO 是告知工具该 Bank 的供电电压（用于时序与驱动
+//   计算），不是"归属转换"字段。
+//   NEO Dock 31005 原理图上标注的 Bank 归属来自 138K 器件，与 60K 不通用，
+//   不需要换算成 60K 的 Bank 号再写一遍。
+//
+// 依据：code/docs/板级硬件事实.md、code/constraints/README.md、
+//       Tang_Mega_60K_30354_NEO_31005_引脚事实表.xlsx（逐脚交叉核对，V0028）
+//       D020（音频输出引脚定案）
+// -----------------------------------------------------------------------------
+
+//====== SYS ======
+// 核心板 50 MHz 有源晶振，Bank 7，3.3 V。周期 20.000 ns，见 audio_timing.sdc。
+IO_LOC  "sys_clk"   V22;
+IO_PORT "sys_clk"   IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+
+// sys_rst_n 的真名是 EX_KEY.0，Bank 9 的【用户按键】，
+// 低有效，需内部上拉至 1.5 V。官方例程把它取别名为 sys_rst_n
+// 只是示例工程的自定义端口名，与芯片 RECONFIG(N12) / CPU_RESET(F4) 无关。
+// 【注意】本脚为 1.5 V 域，与上方 sys_clk 的 3.3 V 域不同，接线必须核对。
+IO_LOC  "sys_rst_n" AA13;
+IO_PORT "sys_rst_n" IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+
+//====== USER KEYS ======
+// T020/T014 临时输入源：板载用户按键 EX_KEY.1 / EX_KEY.2。
+// 与 sys_rst_n 同属 Bank 9、同为 1.5 V 域、同为低有效带上拉。
+//
+// 【端口名必须与顶层完全一致】顶层端口是 key_n（低有效，故带 _n 后缀），
+// 不是 key。写成 "key[0]" 会报
+//   ERROR (CT1135): Can't find object named 'key[0]'
+// 且该错误在综合【之后】的物理约束阶段才报，综合报告里看不到。
+//
+// 【为什么只有两键】
+//   EX_KEY.0 的球位就是 AA13，已被 sys_rst_n 占用（同一根引脚不可能
+//   既当复位又当琴键）。因此本轮只用 AB13 / Y12 两键：
+//     key_n[0] = AB13 = EX_KEY.1 -> A4 (MIDI 69)
+//     key_n[1] = Y12  = EX_KEY.2 -> C5 (MIDI 72)
+//   引脚来源：Tang_Mega_60K_30354_NEO_31005 引脚事实表 r19 / r20。
+//
+// 【注意】本组与 sys_clk（3.3 V）不同电压域，接线核对时不要混。
+IO_LOC  "key_n[0]" AB13;
+IO_PORT "key_n[0]" IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+
+IO_LOC  "key_n[1]" Y12;
+IO_PORT "key_n[1]" IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+
+//====== AUDIO ======
+// 板载音频通路：FPGA -> PT8211-S (16 位 LSBJ DAC) -> NS4263 功放 -> 扬声器。
+// 四脚全部 LVCMOS33 / 3.3 V / Bank 7，与 sys_clk 同电压域，无需电平转换。
+// 对应官方参考文件中的 HP_BCK / HP_WS / HP_DIN / PA_EN。
+// 硬件格式 LSBJ（LSB 对齐），非标准 I2S，见 D017 与接口规范 v1.1 第五节。
+IO_LOC  "i2s_bclk"  Y17;
+IO_PORT "i2s_bclk"  IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+
+IO_LOC  "i2s_lrck"  AB17;
+IO_PORT "i2s_lrck"  IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+
+IO_LOC  "i2s_din"   AA16;
+IO_PORT "i2s_din"   IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+
+// pa_en 【低有效】：0 = 功放开启，1 = 功放关闭。
+// 【上电要求】复位期间必须驱动为 1，否则上电瞬间扬声器被误开启，
+// 可能产生爆音。该要求由顶层 RTL 保证，约束文件无法表达。
+IO_LOC  "pa_en"     AB16;
+IO_PORT "pa_en"     IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+
+//====== UART ======
+// 板载 USB-UART（BL616），仅用发送方向做调试日志与状态输出。
+// 官方参考文件中该端口名为 txp。
+IO_LOC  "uart_tx"   U15;
+IO_PORT "uart_tx"   IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8 BANK_VCCIO=3.3;
+
+// Isolated MIDI RX from J9 pin 8 or J14 pin 5; idle high, 31250 8N1.
+// External adapter output must be verified as noninverted 3.3 V logic.
+IO_LOC  "midi_rx"  R17;
+IO_PORT "midi_rx"  IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+
+// =============================================================================
+// 以下引脚【故意不写入】，原因见各条：
+//
+// 1. uart_rx（V14）—— 禁止采用。
+//    官方参考文件中该行被注释掉，且注释自相矛盾：同一行既写
+//    IO_TYPE=LVCMOS15 又写 BANK_VCCIO=3.3，IOSTANDARD 无法确定。
+//    另注：官方还给出 31002 版本用 Y14，31004 及以后用 V14。
+//    外部 MIDI 输入现使用 R17（见上）；V14 继续禁占。
+//
+// 2. 用户按键 AA13（EX_KEY.0）—— 【不能使用】，不是"暂未使用"。
+//    该球位已被 sys_rst_n 占用（见上），一颗引脚无法同时作复位和琴键。
+//    如需第三个琴键，只能走 T014 之后的外部 MIDI 键盘方案，
+//    或在确认 sys_rst_n 可改脚后重新分配。AB13 / Y12 两键已启用，见上。
+//
+// 3. CST 的 LEDs[0..7]（P19/R19/T21/U21/P16/R17/R18/T18，LVCMOS33 / 3.3 V）
+//    —— 【重要】这 8 个不是板载 LED，而是官方示例为 PMOD0 八根信号起的
+//    顶层别名；31005 实际网络是 PMOD0_IO0..IO7，且与 SDRAM1_D[0..7] 复用同一组脚。
+//    底板没有 8 颗可供 RTL 直接点亮的离散用户 LED，点亮电平取决于插在
+//    PMOD0 上的外部模块，不能从核心板或底板推断。
+//    来源：Tang_Mega_60K_30354_NEO_31005 引脚事实表 r48-r55 及用户核对截图。
+//    R17 已作 midi_rx；R18/T18 留给诊断工程，不占正式工程。
+//
+// 4. DDR3 / HDMI / 以太网 / SDRAM / 摄像头 / SD 卡 / CH569 —— 本工程不使用。
+// =============================================================================
+
+// =============================================================================
+// 上板前须知（来自官方 README，见 code/docs/当前状态.md）
+//
+// 1. 不要使用 Gowin Programmer 1.9.10.02（板载调试器问题多）。
+// 2. 必须在 Project - Configuration - Place & route - Dual Purpose Pin
+//    把 CPU 设为 regular IO，否则布局布线报
+//    "The constrained location is useless in current package"。
+// 3. 板载 LED 为共阳、低电平点亮（assign led_o = ~led_reg）。
+// 4. 按键必须使用内部上拉（PULL_MODE=UP）——
+//    官方注释："Keys must be internal pull-up, there aren't any
+//    pull-up on the dock board"。漏掉会导致按键悬空乱跳。
+// =============================================================================
+
+IO_LOC "tmds_data_p[0]" J14,H14;
+IO_PORT "tmds_data_p[0]" PULL_MODE=NONE DRIVE=3.5 BANK_VCCIO=3.3;
+IO_LOC "tmds_data_p[1]" J15,H15;
+IO_PORT "tmds_data_p[1]" PULL_MODE=NONE DRIVE=3.5 BANK_VCCIO=3.3;
+IO_LOC "tmds_data_p[2]" K17,J17;
+IO_PORT "tmds_data_p[2]" PULL_MODE=NONE DRIVE=3.5 BANK_VCCIO=3.3;
+IO_LOC "tmds_clk_p" G15,G16;
+IO_PORT "tmds_clk_p" PULL_MODE=NONE DRIVE=3.5 BANK_VCCIO=3.3;
+INS_LOC "u_visual/u_video_pll/PLLA_inst" PLL_R[0];
+INS_LOC "u_visual/u_serial_reset/sync_chain_0_s0" R44C168[1][A];
+INS_LOC "u_visual/u_serial_reset/sync_chain_1_s0" R44C168[1][B];
+// Isolated Hold repair: spread existing FFs, no pin/voltage/clock change.
+INS_LOC "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[2].u_control/base_s1_18_s0" R83C99[1][B];
+INS_LOC "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[2].u_control/base_s2_18_s0" R87C101[0][A];

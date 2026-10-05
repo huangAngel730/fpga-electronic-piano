@@ -1,0 +1,74 @@
+{
+  "date": "2026-09-28",
+  "project": "independent visual_resource_probe only",
+  "base_origin_develop": "9d528e7",
+  "tool": "Gowin V1.9.11.03 Education",
+  "part": "GW5AT-LV60PG484AC1/I0",
+  "m3_sha256": {
+    "visual_live_state.sv": "6a2346487a3e25ea440cb772df6fcaaad61f9820ce60902a61074dddeb5e09e8",
+    "visual_score_tracker.sv": "1c3c4a8972f84639c9ca31e22b6a09e6266af818d49cbac84b97ef53c3c9ffcc",
+    "visual_scene_renderer.sv": "9ee4c96272581ed97ed651896de9af8e838d17bbd638e49a77054a1a06c316ae",
+    "m3_visualizer.sv": "bc66eb5bb689dfefa4f13b610e09455f0436049ef14edc2979ff927b9b4fe7cb"
+  },
+  "gui_dvi_source_sha256": "b378c6a41d06a14215dc9ec54ed20bfc91309a0bb1543c589246717da3aee2ab",
+  "m2_probe_sha256": "cc4d6560f3bea64bc410b6a2b5191458247b4b4e64172abd4e5d6158b61071e7",
+  "union_tb_sha256": "e00550509f41c529b27b201903f760a6c189725eb090e1bfa27a30b239ac6ef9",
+  "behavioral_test": "13 PASS; 12 accepted, 8 displayed, 3 display-only drops",
+  "direct_observation": {
+    "evidence": "original Gowin tool output retained in M2 review text and transcript; direct report overwritten by second build",
+    "resources": {
+      "Logic": 24830,
+      "Register": 956,
+      "DSP": 35,
+      "PLLA": 1,
+      "OSER10": 4
+    },
+    "setup_endpoints": 75,
+    "hold_endpoints": 1,
+    "worst_setup_ns": -88.389,
+    "worst_hold_ns": -0.788,
+    "worst_recovery_ns": 0.558,
+    "worst_removal_ns": 0.287
+  },
+  "rgb_register_current_report": {
+    "resources": {
+      "Logic": 24831,
+      "Register": 980,
+      "DSP": 35,
+      "PLLA": 1,
+      "OSER10": 4
+    },
+    "setup_endpoints": 72,
+    "hold_endpoints": 1,
+    "worst": {
+      "Setup_Slack_Table": {
+        "slack_ns": -86.486,
+        "from": "u_scene/u_renderer/n8_s0/DOUT[4]",
+        "to": "dvi_g_4_s0/D"
+      },
+      "Hold_Slack_Table": {
+        "slack_ns": -0.656,
+        "from": "u_event_bridge/acknowledge_toggle_s0/Q",
+        "to": "u_event_bridge/ack_meta_s0/D"
+      },
+      "Recovery_Slack_Table": {
+        "slack_ns": -0.226,
+        "from": "u_serial_reset/sync_chain_1_s0/Q",
+        "to": "u_video_tx/rgb2dvi_inst/u_OSER10_clk/RESET"
+      },
+      "Removal_Slack_Table": {
+        "slack_ns": 0.281,
+        "from": "u_event_bridge/u_sys_reset/sync_chain_1_s0/Q",
+        "to": "u_event_bridge/ack_meta_s0/CLEAR"
+      }
+    },
+    "timing_summary_sha256": "5330910a9531b747426e4918ad07584dd19f6ca35f86e6e76907f173e74f24b7",
+    "pnr_report_sha256": "7211446d20fe9a4abe7542d8baf195073b210e537fe89b52f4f7c8dbbcc8460b"
+  },
+  "sta_gate": "FAIL; no board programming, no L5",
+  "warnings": [
+    "PR1014 still present",
+    "score and mode event transport not CDC verified",
+    "bridge bundled data timing not constrained"
+  ]
+}

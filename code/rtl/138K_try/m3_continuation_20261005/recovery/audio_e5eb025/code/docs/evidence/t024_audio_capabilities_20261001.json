@@ -1,0 +1,157 @@
+{
+  "date": "2026-10-01",
+  "hardware_source_commit": "0e29e223d7beed2cc6af50f0228db615f571bf96",
+  "scope": "T024 real core PCM spectral and velocity verification; no on-board acquisition, no T052 production test mode, no UART testing",
+  "tb_checks": 296654,
+  "total_accepted_algorithm_frames": 107364,
+  "recorded_samples": 81920,
+  "analysis": {
+    "scope": "actual four-lane RTL PCM simulation; no board FFT or T052 implementation",
+    "sample_rate_interpretation_hz": 48000,
+    "analysis": "Hann-weighted DTFT nearby bins plus log-parabolic peak interpolation",
+    "criteria": {
+      "pitch_error_cents_max": 1.0,
+      "four_peaks_relative_db_min": -12.0,
+      "released_tone_relative_db_max": -40.0,
+      "velocity_ratio_relative_error_max": 0.005
+    },
+    "four_note_peaks": [
+      {
+        "target_hz": 220.0,
+        "measured_hz": 220.0193990383745,
+        "error_cents": 0.15264906887399673,
+        "nearby_peak_magnitude": 24919480.871090613,
+        "note": 57,
+        "relative_peak_db": 0.0
+      },
+      {
+        "target_hz": 293.6647679174076,
+        "measured_hz": 293.670530468914,
+        "error_cents": 0.03397148240604189,
+        "nearby_peak_magnitude": 21986310.271745767,
+        "note": 62,
+        "relative_peak_db": -1.087732765805874
+      },
+      {
+        "target_hz": 415.3046975799451,
+        "measured_hz": 415.30118342746033,
+        "error_cents": -0.014649114759247364,
+        "nearby_peak_magnitude": 21843934.80580977,
+        "note": 68,
+        "relative_peak_db": -1.1441623810973969
+      },
+      {
+        "target_hz": 554.3652619537442,
+        "measured_hz": 554.3764730280334,
+        "error_cents": 0.035010846844731436,
+        "nearby_peak_magnitude": 22372235.483680185,
+        "note": 73,
+        "relative_peak_db": -0.9365921762165751
+      }
+    ],
+    "remaining_three_peaks": [
+      {
+        "target_hz": 293.6647679174076,
+        "measured_hz": 293.70937266545036,
+        "error_cents": 0.2629372094371297,
+        "nearby_peak_magnitude": 11207085.316914573,
+        "note": 62
+      },
+      {
+        "target_hz": 415.3046975799451,
+        "measured_hz": 415.259714959919,
+        "error_cents": -0.18752415178369775,
+        "nearby_peak_magnitude": 11189255.380460266,
+        "note": 68
+      },
+      {
+        "target_hz": 554.3652619537442,
+        "measured_hz": 554.408533540779,
+        "error_cents": 0.13512809407004325,
+        "nearby_peak_magnitude": 11254933.449837063,
+        "note": 73
+      }
+    ],
+    "released_note57_vs_remaining_db": -93.87674319477688,
+    "velocity": {
+      "soft": 128,
+      "hard": 1023,
+      "rms_soft": 479.31378141026227,
+      "rms_hard": 2256.0724679386567,
+      "measured_rms_ratio": 0.21245495799530095,
+      "model_gain_ratio": 0.21250038148136846,
+      "measured_gain_db": -13.454662589218149,
+      "pitches": {
+        "soft": {
+          "target_hz": 440.0,
+          "measured_hz": 440.0388199369682,
+          "error_cents": 0.15273507300578304,
+          "nearby_peak_magnitude": 2715335.7624235614
+        },
+        "hard": {
+          "target_hz": 440.0,
+          "measured_hz": 440.03881082292344,
+          "error_cents": 0.1526992158403768,
+          "nearby_peak_magnitude": 12780797.59093018
+        }
+      }
+    },
+    "negative_checks_rejected": {
+      "missing_one_tone": "Four-tone capability missing or wrong note 57: {'target_hz': 220.0, 'measured_hz': 156.664286500322, 'error_cents': -587.7926232785968, 'nearby_peak_magnitude': 24.28844893573525, 'note': 57, 'relative_peak_db': -109.42724453704024}",
+      "velocity_ignored": "Velocity gain mismatch 1.0 vs 0.21250038148136846"
+    }
+  },
+  "source_sha256": {
+    "code/rtl/board/electronic_piano_top.sv": "c75f4321c28753e851c26e6cb0810947a85e8f17ca61b28ae7e527a5ff765a5b",
+    "code/rtl/common/audio_defs_pkg.sv": "eaa208c4db65a81ad902dbbb627b86cf79af9626b265fb84fdf1ae8f24b13351",
+    "code/rtl/common/reset_sync.sv": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+    "code/rtl/input/button_debouncer/button_debouncer.sv": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+    "code/rtl/input/button_event_converter/button_event_converter.sv": "f6befb9c7415c69da62f2083e22803eae93ebeac63b8903b3c1314c4e9e723f0",
+    "code/rtl/common/performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+    "code/rtl/common/system_status_counters.sv": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+    "code/rtl/board/uart_status_reporter.sv": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+    "code/rtl/common/uart_tx.sv": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+    "code/rtl/common/uart_rx.sv": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+    "code/rtl/input/midi_input/midi_event_parser.sv": "fa07b44ea2e3ff6a491d5c00d9ef09d87da934151365c0adac077db0b0b374e1",
+    "code/rtl/input/midi_input/midi_input.sv": "9d07ee52cb8162f1d6edc1507a932205ed81c26dbdb9416726fc6068c86440bf",
+    "code/rtl/common/note_pitch.sv": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+    "code/rtl/common/simple_voice.sv": "eab4974b0315c75a8076b21afea1dade122fecbcc672eb0802ba0e358a1bf274",
+    "code/rtl/audio_out/i2s_tx.sv": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+    "code/rtl/audio_out/pcm_frame_buffer.sv": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+    "code/rtl/audio/voice_allocator_4.sv": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+    "code/rtl/audio/dds_oscillator.sv": "3cd758e28da8f76a30da38cb2dfcd458db5743d4ea4f38e072a43d7f83719f04",
+    "code/rtl/audio/adsr_piano_envelope.sv": "775fec7f546a00ca7bf98f132cce8d5d92d80ca6094af8e9e14cb07cd54a2e9d",
+    "code/rtl/board/polyphonic_event_router.sv": "e7048ff30c7a153c74bf7fb58ea0da97ef915a214763d3adb49cd2ebf569607b",
+    "code/rtl/board/polyphonic_envelope_bank.sv": "58d525d2468eb3992cda467aa4b6b5e7af9ba89d0b31817821aabe9219f94843",
+    "code/rtl/board/voice_gain_q15_candidate.sv": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+    "code/rtl/board/polyphonic_pcm_commit.sv": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+    "code/rtl/board/polyphonic_audio_core.sv": "2578baab928ca53a245ed6824249ce4c77dd3c949d68ccd28f98133909a4c1ca",
+    "code/rtl/mixer/pcm_mixer_4voice.sv": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+    "code/rtl/common/pcm_clip_counter.sv": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+    "code/rtl/audio_out/pcm_result_hold.sv": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+    "code/model/generated/wavetables/sine_1024_8192.mem": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2",
+    "code/model/generated/wavetables/velocity_gain_rom.mem": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64"
+  },
+  "test_sha256": {
+    "code/tb/board/tb_t024_audio_capabilities.sv": "608e1e9519016c0b98ea5f1679e59b27974bfae866b67748b33cd685841fe38a",
+    "code/tb/board/check_t024_audio_capabilities.py": "6b347a0172e9ca33336645fc910940ccdc4e8fe654b716dfb2390e61321be4fe",
+    "code/scripts/run_t024_audio_capabilities.py": "74065ef9cd7f5caf8ca3a0e6145aac7bc75639d791d57adbd8cb6ed5f47b5a91"
+  },
+  "capture_sha256": "622e3f2a783a89d1e0b38e99bc87c86adb8774ac8f9c58f6231825a19af63ca3",
+  "run_log_sha256": "2bcf46111cbfd8a5de293034869a709b091c2a8970431183545a31457f8a1e59",
+  "hardware_RTL_modified": false,
+  "new_Gowin_build": false,
+  "downloaded": false,
+  "limitations": [
+    "frame requests accelerated in50MHz simulation; recorded samples interpreted48000Hz, no physical sample-rate measurement",
+    "FFT/DTFT spectra from real simulated PCM, not physical analog output or crosstalk",
+    "analyzer mutated inputs are synthetic negative fixtures and never replace accepted RTL capture",
+    "spectral arithmetic does not prove all played musical patterns or T009 artifact-free analog output",
+    "no M1 algorithm or T052 scope takeover"
+  ],
+  "repo_gate": {
+    "result": "ALL PASS",
+    "log_sha256": "8e1f055ccd91a98753ac4690bcd5a0a6a1fea5bd9926f6d12ad06622b57c966c",
+    "scope": "T007/T019 generic regressions; not a new T025/T026 measurement"
+  }
+}

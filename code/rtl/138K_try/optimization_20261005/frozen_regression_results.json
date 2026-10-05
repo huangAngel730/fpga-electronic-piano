@@ -1,0 +1,260 @@
+{
+  "time": "2026-10-05T15:32:58.171833+08:00",
+  "scope": "Selected frozen DUT functional regression only, NOT whole audio/video or hardware acceptance",
+  "bench_source_SHA256": {
+    "code/tb/input/tb_button_debouncer.sv": "74bb7f9a5fafd5a498cd3e10bf536bbeb9a6fb6f75b40ae3ad1f57dced0c4c4b",
+    "code/tb/common/tb_performance_event_fifo.sv": "9277cd2c12e82e8d2c969ffbf93691fe763e1362f5dacb87462e7414f8f8a819",
+    "code/tb/input/tb_midi_cc64.sv": "a21a1a2eedab8b50b7dadf242553fe5f7e24fb6dcd45fa604b1ed792a5900862",
+    "code/tb/input/tb_midi_input.sv": "4241292244fae27c369c81b41f9ad94031ef2a8af2aee831415d9358cfb7fe50",
+    "code/tb/common/button_tail_select_candidate/tb_button_tail_select.sv": "ee366c00a9c1b7bfd3d00529aaa98209023a0f67f56e04c018dffbbfe0d5f0d9",
+    "code/tb/input/button_counter_timing/button_reference.sv": "49c492eedaf5d6fdf2a3d550f77d6063e8e28144b593a578420eafc20fb78e8a",
+    "code/tb/input/button_counter_timing/fifo_reference.sv": "16529dda59dff6b78209cbc281f0a0200dd1d4a7a1223e7c41ee7dc5d85b3d8d",
+    "code/tb/input/button_counter_timing/fifo_no_full_bypass.sv": "8621074d0396b02438a7614fbae90965db0bfa09f6d2fc9ebf16b1eb81164fce"
+  },
+  "DUT_modified": false,
+  "bench_modified": false,
+  "results": [
+    {
+      "case": "debouncer",
+      "compile_command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_button_debouncer",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\debouncer\\sim.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\C_reset_location\\sources\\button_debouncer.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\bench_original\\tb_button_debouncer.sv"
+      ],
+      "compile_exit": 0,
+      "run_exit": 0,
+      "passed": true,
+      "pass_lines": [
+        "PASS: tb_button_debouncer completed all checks"
+      ],
+      "DUT_SHA256": {
+        "button_debouncer.sv": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32"
+      },
+      "log_SHA256": {
+        "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "run.log": "e3b314c7c8a03991e1cae96043d371914f2772b8cc25ca1b40ff8371f27b64ca"
+      }
+    },
+    {
+      "case": "public_fifo",
+      "compile_command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_performance_event_fifo",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\public_fifo\\sim.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\C_reset_location\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\C_reset_location\\sources\\performance_event_fifo.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\bench_original\\tb_performance_event_fifo.sv"
+      ],
+      "compile_exit": 0,
+      "run_exit": 0,
+      "passed": true,
+      "pass_lines": [
+        "PASS tb_performance_event_fifo checks=11"
+      ],
+      "DUT_SHA256": {
+        "audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671"
+      },
+      "log_SHA256": {
+        "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "run.log": "76a5b3a0f5cabe87a20ab3dd3ff74344061f9d1985168a551723221915976c09"
+      }
+    },
+    {
+      "case": "midi_cc64",
+      "compile_command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_midi_cc64",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\midi_cc64\\sim.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\C_reset_location\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\C_reset_location\\sources\\midi_event_parser.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\bench_original\\tb_midi_cc64.sv"
+      ],
+      "compile_exit": 0,
+      "run_exit": 0,
+      "passed": true,
+      "pass_lines": [
+        "PASS tb_midi_cc64 events=2058 checks=4134 channels=16 raw_values=128"
+      ],
+      "DUT_SHA256": {
+        "audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "midi_event_parser.sv": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6"
+      },
+      "log_SHA256": {
+        "compile.log": "9583744e4dfa343712002d3fa8a7320d97e6b68f7df54adaeb2ae55a3ee32142",
+        "run.log": "bfdaca82d0b660209e44a3872c39bec0191cb199b0ba9bf17bab382c40710810"
+      }
+    },
+    {
+      "case": "midi_uart",
+      "compile_command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_midi_input",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\midi_uart\\sim.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\C_reset_location\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\C_reset_location\\sources\\uart_rx.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\C_reset_location\\sources\\midi_event_parser.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\C_reset_location\\sources\\midi_input.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\bench_original\\tb_midi_input.sv"
+      ],
+      "compile_exit": 0,
+      "run_exit": 0,
+      "passed": true,
+      "pass_lines": [
+        "PASS: tb_midi_input completed 44 checks"
+      ],
+      "DUT_SHA256": {
+        "audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "uart_rx.sv": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+        "midi_event_parser.sv": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+        "midi_input.sv": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710"
+      },
+      "log_SHA256": {
+        "compile.log": "9583744e4dfa343712002d3fa8a7320d97e6b68f7df54adaeb2ae55a3ee32142",
+        "run.log": "17fc9ff658f5f0a6310a30901f0e8b13d2f59b0c4159e6033ed96b929c7f446e"
+      }
+    },
+    {
+      "case": "counter_d3_l2",
+      "compile_command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_button_tail_select",
+        "-P",
+        "tb_button_tail_select.DEPTH=3",
+        "-P",
+        "tb_button_tail_select.LOCAL=2",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\counter_d3_l2\\sim.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\C_reset_location\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\bench_original\\button_reference.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\bench_original\\fifo_reference.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\bench_original\\fifo_no_full_bypass.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\C_reset_location\\sources\\button_event_converter.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\C_reset_location\\sources\\performance_event_fifo.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\bench_original\\tb_button_tail_select.sv"
+      ],
+      "compile_exit": 0,
+      "run_exit": 0,
+      "passed": true,
+      "pass_lines": [
+        "PASS button_counter_timing depth=3 checks=100620 cycles=20114: no-bypass rejected; parallel counter fully cycle-equivalent"
+      ],
+      "DUT_SHA256": {
+        "audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "button_event_converter.sv": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1",
+        "performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671"
+      },
+      "log_SHA256": {
+        "compile.log": "60e6465aa2ad2c9bbdc1fbd2b671f2ecd24ebc076ba81ee119a4049130650ed3",
+        "run.log": "3f088d61dbc6c19e2a67d72980aa10f6e5b29e7c9bfeb151cbf2a90032b85770"
+      }
+    },
+    {
+      "case": "counter_d4_l4",
+      "compile_command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_button_tail_select",
+        "-P",
+        "tb_button_tail_select.DEPTH=4",
+        "-P",
+        "tb_button_tail_select.LOCAL=4",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\counter_d4_l4\\sim.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\C_reset_location\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\bench_original\\button_reference.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\bench_original\\fifo_reference.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\bench_original\\fifo_no_full_bypass.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\C_reset_location\\sources\\button_event_converter.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\C_reset_location\\sources\\performance_event_fifo.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\bench_original\\tb_button_tail_select.sv"
+      ],
+      "compile_exit": 0,
+      "run_exit": 0,
+      "passed": true,
+      "pass_lines": [
+        "PASS button_counter_timing depth=4 checks=100770 cycles=20144: no-bypass rejected; parallel counter fully cycle-equivalent"
+      ],
+      "DUT_SHA256": {
+        "audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "button_event_converter.sv": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1",
+        "performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671"
+      },
+      "log_SHA256": {
+        "compile.log": "60e6465aa2ad2c9bbdc1fbd2b671f2ecd24ebc076ba81ee119a4049130650ed3",
+        "run.log": "bae6890b4f125000631bd57320487f3ba35a99220d7ccd2032ace4323a4d799d"
+      }
+    },
+    {
+      "case": "counter_d32_l4",
+      "compile_command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_button_tail_select",
+        "-P",
+        "tb_button_tail_select.DEPTH=32",
+        "-P",
+        "tb_button_tail_select.LOCAL=4",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\counter_d32_l4\\sim.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\C_reset_location\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\bench_original\\button_reference.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\bench_original\\fifo_reference.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\bench_original\\fifo_no_full_bypass.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\C_reset_location\\sources\\button_event_converter.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\C_reset_location\\sources\\performance_event_fifo.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_20261005\\regression\\bench_original\\tb_button_tail_select.sv"
+      ],
+      "compile_exit": 0,
+      "run_exit": 0,
+      "passed": true,
+      "pass_lines": [
+        "PASS button_counter_timing depth=32 checks=102170 cycles=20424: no-bypass rejected; parallel counter fully cycle-equivalent"
+      ],
+      "DUT_SHA256": {
+        "audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+        "button_event_converter.sv": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1",
+        "performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671"
+      },
+      "log_SHA256": {
+        "compile.log": "60e6465aa2ad2c9bbdc1fbd2b671f2ecd24ebc076ba81ee119a4049130650ed3",
+        "run.log": "2932e296c9f1f91196b1f0a494bc84436affd8dabfba40262c3bdf7fa01f232f"
+      }
+    }
+  ],
+  "passed": true,
+  "original_repo_written": false,
+  "programmed": false
+}

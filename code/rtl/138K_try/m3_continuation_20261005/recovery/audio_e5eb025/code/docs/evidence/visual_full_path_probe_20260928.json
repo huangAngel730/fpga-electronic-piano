@@ -1,0 +1,104 @@
+{
+  "date": "2026-09-28",
+  "scope": "M2 independent full visual synthetic-resource probe; not formal audio or display bitstream",
+  "tool": "Gowin V1.9.11.03 Education",
+  "part": "GW5AT-LV60PG484AC1/I0",
+  "local_origin_develop_at_snapshot": "9d528e7",
+  "synthetic_driver_note": "synthetic score producer only; no real curve/source valid-ready or score quantizer proof",
+  "m3_source_sha256": {
+    "visual_live_state.sv": "6a2346487a3e25ea440cb772df6fcaaad61f9820ce60902a61074dddeb5e09e8",
+    "visual_score_tracker.sv": "1c3c4a8972f84639c9ca31e22b6a09e6266af818d49cbac84b97ef53c3c9ffcc",
+    "visual_scene_renderer.sv": "9ee4c96272581ed97ed651896de9af8e838d17bbd638e49a77054a1a06c316ae",
+    "m3_visualizer.sv": "bc66eb5bb689dfefa4f13b610e09455f0436049ef14edc2979ff927b9b4fe7cb"
+  },
+  "source_sha256": {
+    "code/rtl/board/visual_full_path_probe.sv": "1e76300d76d39ee2bc878b007dd13708f6bed4f017b2c0cc9d84e9a4635bcf33",
+    "code/constraints/visual_full_path_probe.sdc": "f3f591f383b650e4fadb5130306763e2b357b1c356bedd1f3c1c4032ce181692",
+    "code/scripts/build_visual_full_path_probe.ps1": "e783f0276696d41ca87fcb6a2e597c923cee546d649821f94c510e5d092629d8",
+    "code/scripts/check_visual_full_path_report.py": "82bea45b6628c908ad83a783284511b428f8544580a5f0a1c288194cfc6b9dde"
+  },
+  "raw_report_sha256": {
+    "timing": "dfd75c32aa06d5caad75a657edc1a8b8d151f5187b54526885e0b32239576f44",
+    "pin_usage": "179a1f6c35e2c8ddbb4b7756755f9499cc8aa07ebd4de8df5ecef12cdcb8f99e",
+    "build_log": "34a88dc4112d0dc3c47bb345ca47c5e820a2bec6ad6a6a11e785f4437f7df294"
+  },
+  "clock_period_ns": {
+    "system": 20,
+    "pixel": 40,
+    "serial": 8
+  },
+  "sta": {
+    "setup_violated_endpoints": 65,
+    "hold_violated_endpoints": 0,
+    "paths_analyzed": 5605,
+    "worst": {
+      "Recovery": {
+        "slack_ns": -0.02,
+        "from": "u_serial_reset/sync_chain_1_s0/Q",
+        "to": "u_video_tx/rgb2dvi_inst/u_OSER10_clk/RESET"
+      },
+      "Removal": {
+        "slack_ns": 0.184,
+        "from": "u_event_bridge/u_sys_reset/sync_chain_1_s0/Q",
+        "to": "u_event_bridge/wr_ptr_4_s0/CLEAR"
+      },
+      "Setup": {
+        "note": "Current numbered setup tables list 6 event, 19 score, and 7 synchronizer paths only; these are not the worst global renderer paths. Global summary has 65 setup violated endpoints and 9.331MHz pixel Fmax; previous unfiltered worst path recorded separately."
+      },
+      "Hold": {
+        "note": "Current numbered hold tables list seven synchronizer back-stage paths; global summary has zero hold violated endpoints."
+      }
+    },
+    "gate_errors": [
+      "Numbers of Setup Violated Endpoints: 65",
+      "missing/negative Recovery_Slack_Table"
+    ],
+    "video_pixel_fmax_mhz": 9.331,
+    "video_pixel_setup_tns_ns": -2867.187,
+    "video_pixel_setup_endpoints": 61,
+    "observed_previous_unfiltered_timing": {
+      "worst_setup_slack_ns": -67.16,
+      "from": "u_scene/u_renderer/n8_s0/DOUT[5]",
+      "to": "dvi_b_3_s0/D",
+      "provenance": "first full PnR console/report read; subsequent build with explicit targeted report_timing overwrote the original file; treat as observed history, not a currently archived raw report"
+    }
+  },
+  "surviving_bundled_data": {
+    "u_event_bridge": {
+      "surviving_bits": 6,
+      "worst_reported_slack_ns": 7.333,
+      "unique_sink_nodes": 6
+    },
+    "u_control/u_score_mailbox": {
+      "surviving_bits": 19,
+      "worst_reported_slack_ns": 7.12,
+      "unique_sink_nodes": 19
+    }
+  },
+  "resources": {
+    "Logic": {
+      "used": 26327,
+      "available": 59904
+    },
+    "Register": {
+      "used": 905,
+      "available": 60780
+    },
+    "DSP": {
+      "used": 35,
+      "available": 118
+    },
+    "PLLA": {
+      "used": 1,
+      "available": 8
+    },
+    "OSER10": {
+      "used": 4
+    }
+  },
+  "warnings": [
+    "PR1014 generic reference clock routing",
+    "NL0002 reset_sync deduplicated/swept in control mailboxes"
+  ],
+  "result": "FAIL, must not program; formal S5/audio coexisting top has not been tested"
+}

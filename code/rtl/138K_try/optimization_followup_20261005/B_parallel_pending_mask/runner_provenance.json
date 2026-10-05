@@ -1,0 +1,43 @@
+{
+  "original": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\scripts\\run_midi_pending_mask_candidate.py",
+  "original_SHA256": "8646be0a2e25700b5e157fb9b1e37c6fd49dc0608d95811093fe85bc91165c1e",
+  "adapted_SHA256": "ef5f8243e15819fb45a106adad9ace5be584f4cbf233979d2ee4007d2831f1bd",
+  "adaptations": [
+    [
+      "ROOT=Path(__file__).resolve().parents[2]",
+      "ROOT=Path('E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano')"
+    ],
+    [
+      "SCOPE=ROOT/'code/tb/common/midi_pending_mask_candidate'",
+      "SCOPE=Path('E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/tb/common/midi_pending_mask_candidate')"
+    ],
+    [
+      "CAD=Path('D:/Gowin/oss-cad-suite')",
+      "CAD=Path('E:/FPGA/GAOYUNFPGA/138K_try/tools/icarus_oss_copy')"
+    ],
+    [
+      "out.relative_to(ROOT/'code/output')",
+      "out.relative_to(Path('E:/FPGA/GAOYUNFPGA/138K_try/optimization_followup_20261005/B_parallel_pending_mask'))"
+    ],
+    [
+      "original=subprocess.check_output(['git','show',manifest['frozen_commit']+':code/rtl/input/midi_input/midi_event_parser.sv'],cwd=ROOT)",
+      "original=Path('E:/FPGA/GAOYUNFPGA/138K_try/optimization_20261005/C_reset_route1/sources/midi_event_parser.sv').read_bytes()"
+    ],
+    [
+      "candidate=SCOPE/'midi_event_parser.sv'",
+      "candidate=Path('E:/FPGA/GAOYUNFPGA/138K_try/optimization_followup_20261005/B_parallel_pending_mask/sources/midi_event_parser.sv')"
+    ],
+    [
+      "defs=ROOT/'code/rtl/common/audio_defs_pkg.sv'",
+      "defs=Path('E:/FPGA/GAOYUNFPGA/138K_try/optimization_followup_20261005/B_parallel_pending_mask/sources/audio_defs_pkg.sv')"
+    ],
+    [
+      "'-g2012'",
+      "'-B',CAD/'lib/ivl','-g2012'"
+    ],
+    [
+      "'current_formal_SHA':sha(ROOT/'code/rtl/input/midi_input/midi_event_parser.sv')",
+      "'current_formal_SHA':sha(Path('E:/FPGA/GAOYUNFPGA/138K_try/optimization_20261005/C_reset_route1/sources/midi_event_parser.sv'))"
+    ]
+  ]
+}

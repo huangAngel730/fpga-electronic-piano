@@ -1,0 +1,139 @@
+{
+  "passed": true,
+  "runs": {
+    "positive_compile": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_m2_parser_miter",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\functional\\positive.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\sources\\midi_event_parser.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\functional\\reference.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\functional\\tb.sv"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "c476f187fbaf81ac80c403460ec6a351b89c5f8f7301c30bc0cb10062e4851e7",
+      "elapsed_s": 0.16
+    },
+    "positive": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\functional\\positive.vvp"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "becd45e7afa5c00640974e2795c2df5b01883da7138744bb46a285691fd6c4c6",
+      "elapsed_s": 44.03
+    },
+    "stale_latest_compile": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_m2_parser_miter",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\functional\\stale_latest.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\functional\\stale_latest.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\functional\\reference.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\functional\\tb.sv"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "29b49077a98ad32e770cb2755b5bbd430d29b0f2ba86f3269f0b04dda1c70d67",
+      "elapsed_s": 0.14
+    },
+    "stale_latest": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\functional\\stale_latest.vvp"
+      ],
+      "exit": 1,
+      "expected_success": false,
+      "log_SHA256": "3d4b10fa70869d55038e4ad4d4db4446004a33818c61e5755fc8c58cac317f1c",
+      "elapsed_s": 1.19
+    },
+    "missing_previous_repair_compile": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_m2_parser_miter",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\functional\\missing_previous_repair.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\sources\\audio_defs_pkg.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\functional\\missing_previous_repair.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\functional\\reference.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\functional\\tb.sv"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "03d90b740e7649a3789a7100c544e61e571feee81b7cee31a1e51f0eec063f5b",
+      "elapsed_s": 0.14
+    },
+    "missing_previous_repair": {
+      "command": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\functional\\missing_previous_repair.vvp"
+      ],
+      "exit": 1,
+      "expected_success": false,
+      "log_SHA256": "e7b60c3a35b9719b224a7bb5360b9a695b3a93d3884b1dc8b1599c82cd8a82ce",
+      "elapsed_s": 0.42
+    },
+    "directed_checker": {
+      "command": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\functional\\run_directed_isolated.py",
+        "--output",
+        "E:\\FPGA\\GAOYUNFPGA\\138K_try\\optimization_followup_20261005\\A_prepared_selector\\functional\\directed"
+      ],
+      "exit": 0,
+      "expected_success": true,
+      "log_SHA256": "a3bead57783d87516195b43ebe7a6ac30f14aab624c925d66c82de4a08c174b9",
+      "elapsed_s": 0.23
+    }
+  },
+  "candidate_SHA256": "c57b1a9866365527369ee415a3d96ed1929124c8a4e38b0d998b1a3418f17cdb",
+  "frozen_reference_SHA256": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+  "original_TB_SHA256": "dce9c1df856aecf065e52d2e759148fa2b632113fc0bf53bf7f4ca62a87d9230",
+  "adapted_TB_SHA256": "93c505c9365e9d95384fa4b396303a76ecc861ea98e1704aa8fc7947c98068d0",
+  "directed_original_SHA256": "1139792ace917f8647de4108540a3cd821691be2cc07393281d8bc72dddeb415",
+  "directed_adaptations": [
+    [
+      "root=Path(__file__).resolve().parents[4]; scope=root/'code/tb/common/midi_prepared_candidate'",
+      "root=Path('E:/FPGA/GAOYUNFPGA/138K_try/optimization_followup_20261005/A_prepared_selector'); scope=root/'sources'"
+    ],
+    [
+      "out.relative_to(root/'code/output')",
+      "out.relative_to(root)"
+    ],
+    [
+      "Path('D:/Gowin/oss-cad-suite')",
+      "Path('E:/FPGA/GAOYUNFPGA/138K_try/tools/icarus_oss_copy')"
+    ],
+    [
+      "'-g2012'",
+      "'-B',str(cad/'lib/ivl'),'-g2012'"
+    ],
+    [
+      "root/'code/rtl/common/audio_defs_pkg.sv'",
+      "root/'sources/audio_defs_pkg.sv'"
+    ]
+  ],
+  "coverage": "All public outputs and scheduler register state each cycle; four configs; burst1/8/16; 33 directed checks; 3 compiled behavioral mutants rejected",
+  "formal_repo_written": false
+}

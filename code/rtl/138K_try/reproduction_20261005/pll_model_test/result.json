@@ -1,0 +1,25 @@
+{
+  "time": "2026-10-05T13:27:31.485303+08:00",
+  "command": [
+    "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+    "-B",
+    "E:\\FPGA\\GAOYUNFPGA\\138K_try\\tools\\icarus_oss_copy\\lib\\ivl",
+    "-g2012",
+    "-s",
+    "tb_pll_migration",
+    "-o",
+    "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\pll_model_test\\sim.vvp",
+    "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\pll_model_test\\vendor_prim_sim.v",
+    "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_pll_migration\\sources\\TMDS_PLL_800_600_60.v",
+    "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\pll_model_test\\tb_pll_migration.sv"
+  ],
+  "compile_exit": 0,
+  "run_exit": 0,
+  "passed": true,
+  "source_SHA256": {
+    "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\pll_model_test\\vendor_prim_sim.v": "202f65ccf77126d04e47db36c95e237e48522f3a105a3e64d9fcbf4e3b782f27",
+    "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\138K_B_pll_migration\\sources\\TMDS_PLL_800_600_60.v": "6b3cef5d00cebc0f05a04d631976bf45137883b98b6dc95961e429d7dcdb1987",
+    "E:\\FPGA\\GAOYUNFPGA\\138K_try\\reproduction_20261005\\pll_model_test\\tb_pll_migration.sv": "5dfbf5c47eea5a5032b92deaafa85e43720b54972bfd933c09b8726e07aaf106"
+  },
+  "scope": "Vendor digital model only; NOT real PLL startup/lock/jitter or physical mapping proof"
+}

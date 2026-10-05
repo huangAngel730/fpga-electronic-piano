@@ -1,0 +1,125 @@
+{
+  "level": "L5 standalone PnR only; no board or monitor test",
+  "source_commit": "f0347d830305ef3efb921f47bb51701e569beefd",
+  "mode": "640x480, 25MHz pixel, 125MHz serial, 59.5238095Hz",
+  "tool": "V1.9.11.03 Education",
+  "part": "GW5AT-LV60PG484AC1/I0",
+  "summary": {
+    "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+    "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+    "Numbers of Paths Analyzed": "520",
+    "Numbers of Endpoints Analyzed": "380",
+    "Numbers of Falling Endpoints": "4",
+    "Numbers of Setup Violated Endpoints": "0",
+    "Numbers of Hold Violated Endpoints": "0"
+  },
+  "clocks": {
+    "sys_clk": [
+      "20.000",
+      "50.000"
+    ],
+    "video_serial": [
+      "8.000",
+      "125.000"
+    ],
+    "video_pixel": [
+      "40.000",
+      "25.000"
+    ]
+  },
+  "worst": {
+    "Setup_Slack_Table": {
+      "slack_ns": 7.109,
+      "from": "u_serial_reset/sync_chain_0_s0/Q",
+      "to": "u_serial_reset/sync_chain_1_s0/D"
+    },
+    "Hold_Slack_Table": {
+      "slack_ns": 0.275,
+      "from": "u_scan/pixel_x_11_s0/Q",
+      "to": "u_scan/pixel_x_11_s0/D"
+    },
+    "Recovery_Slack_Table": {
+      "slack_ns": 0.866,
+      "from": "u_serial_reset/sync_chain_1_s0/Q",
+      "to": "u_video_tx/rgb2dvi_inst/u_OSER10_clk/RESET"
+    },
+    "Removal_Slack_Table": {
+      "slack_ns": 0.284,
+      "from": "u_video_reset/sync_chain_1_s0/Q",
+      "to": "u_scan/pixel_x_15_s0/CLEAR"
+    }
+  },
+  "pins": {
+    "sys_clk": {
+      "diff_pair": "-",
+      "location": "V22/7",
+      "io_type": "LVCMOS33",
+      "pull_mode": "NONE",
+      "bank_vccio": "3.3"
+    },
+    "sys_rst_n": {
+      "diff_pair": "-",
+      "location": "AA13/9",
+      "io_type": "LVCMOS15",
+      "pull_mode": "UP",
+      "bank_vccio": "1.5"
+    },
+    "tmds_clk_p": {
+      "diff_pair": "tmds_clk_n",
+      "location": "G15,G16/4",
+      "io_type": "LVDS25",
+      "pull_mode": "NONE",
+      "bank_vccio": "3.3"
+    },
+    "tmds_data_p[0]": {
+      "diff_pair": "tmds_data_n[0]",
+      "location": "J14,H14/4",
+      "io_type": "LVDS25",
+      "pull_mode": "NONE",
+      "bank_vccio": "3.3"
+    },
+    "tmds_data_p[1]": {
+      "diff_pair": "tmds_data_n[1]",
+      "location": "J15,H15/4",
+      "io_type": "LVDS25",
+      "pull_mode": "NONE",
+      "bank_vccio": "3.3"
+    },
+    "tmds_data_p[2]": {
+      "diff_pair": "tmds_data_n[2]",
+      "location": "K17,J17/5",
+      "io_type": "LVDS25",
+      "pull_mode": "NONE",
+      "bank_vccio": "3.3"
+    },
+    "pa_en": {
+      "diff_pair": "-",
+      "location": "AB16/7",
+      "io_type": "LVCMOS33",
+      "pull_mode": "NONE",
+      "bank_vccio": "3.3"
+    }
+  },
+  "resources": {
+    "Logic": 365,
+    "Register": 109,
+    "PLLA": 1,
+    "OSER10": 4,
+    "LUT": 293,
+    "ALU": 72
+  },
+  "warnings": [
+    "PR1014: clock input generic route; board PLL lock and physical video pending"
+  ],
+  "sha256": {
+    "code/rtl/board/hdmi_link_probe.sv": "8ff91cc9a2d22c091a8bb64f9035dcfa6ca3d6ae060666eea579d4ec072bc58b",
+    "code/constraints/hdmi_link_probe.cst": "052373131c3941e647ab771d6a56e0b4ad077a2eec3078c939fbdfcd9cf5e629",
+    "code/constraints/hdmi_link_probe.sdc": "f17fbf9e289274c18ea9151943402210fe5ea4748d74cc6eb7ee57d17f3ffc82",
+    "code/scripts/build_hdmi_link_probe.ps1": "25e03dbdff0a3dec0fd30e459c6a250c59c79bd4b992c94b2c7c2464be65c2e9",
+    "code/output/hdmi_link_probe/vendor/TMDS_PLL_800_600_60.v": "ededfd3e361c7e9b4523de6b3b50e00c98baed5b9900a361c606ab574376f9ba",
+    "code/output/hdmi_link_probe/vendor/DVI_TX_Top.v": "a2dc2f338438864307dc8da6c8f50b582d412eeb5ea899af9f047a8d6b46815f",
+    "code/output/hdmi_link_probe/impl/pnr/hdmi_link_probe.fs": "930761b2c91a14ca5b4d0f5dccf19205463864056823f32ed69ce8ead751b581",
+    "code/output/hdmi_link_probe/impl/pnr/hdmi_link_probe_tr_content.html": "aa9cc309ba8752d21dea94562103a7e965ca9402d1627ef846710546f5a13da3",
+    "code/output/hdmi_link_probe/impl/pnr/hdmi_link_probe.rpt.txt": "aa23fd7a5145b160ad5060fc4f53fd59c3d06bd929cd384e5d1a8ac5c1a01fe8"
+  }
+}
