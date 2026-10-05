@@ -1,6 +1,6 @@
 {
   "date": "2026-10-05",
-  "status": "A_L5_gate_PASS_B_running",
+  "status": "A_B_COMPLETE_SCREEN_FAILED_ROUTE1_NOT_ADOPTED",
   "freeze": {
     "date": "2026-10-05",
     "base_project": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M3_parser_de68038_review_20261003\\physical_parser_only\\audio_visual_coexistence_top.gprj",
@@ -1009,5 +1009,1848 @@
         ]
       }
     }
+  },
+  "assessment_sha256": "2b531e1a340c1085a1a858d37d5ab27698696ac45983d48e4aaada0679e45eba",
+  "assessment": {
+    "date": "2026-10-05",
+    "arms": {
+      "A_route0": {
+        "complete": true,
+        "gate_pass": true,
+        "errors": [],
+        "bounded": {
+          "started": "2026-10-05T17:57:52.237113+08:00",
+          "ended": "2026-10-05T18:08:29.049397+08:00",
+          "elapsed_seconds": 636.8123520000372,
+          "exit": 0,
+          "timed_out": false,
+          "complete": true,
+          "source_run_count": 1,
+          "STA_pass_not_assumed": true,
+          "route_option": 0,
+          "build_log_sha256": "eb656267f24d11d7d92b764fab352413e099215b1e74ac547f7ccdeb13a5a105",
+          "programmed": false
+        },
+        "full_report": {
+          "scope": "isolated integration of actual four-voice bank/V1/CC64/PitchMod + latest MIDI + strict visual",
+          "raw_original_gate_errors": [
+            "formal audio clock uncertainty missing: hold",
+            "audio ROM footprint is not 8 BSRAM"
+          ],
+          "validated_intended_changes": {
+            "Hold_uncertainty_ns": 0.55,
+            "BSRAM_expected": 20
+          },
+          "errors": [],
+          "timing_pass": true,
+          "facts": {
+            "visual_gate": {
+              "summary": {
+                "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+                "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+                "Numbers of Paths Analyzed": "31133",
+                "Numbers of Endpoints Analyzed": "28085",
+                "Numbers of Falling Endpoints": "4",
+                "Numbers of Setup Violated Endpoints": "0",
+                "Numbers of Hold Violated Endpoints": "0"
+              },
+              "bus_path_count": {
+                "u_event_bridge": 23,
+                "u_control/u_score_mailbox": 50
+              }
+            },
+            "audio_pins": 10,
+            "resources": {
+              "Logic": 19534,
+              "Register": 8674,
+              "DSP": 46,
+              "BSRAM": 20
+            },
+            "fmax_mhz": {
+              "sys_clk": 50.043,
+              "video_serial": 1122.018,
+              "video_pixel": 37.472
+            },
+            "exported_min_slack_ns": {
+              "Setup": 0.017,
+              "Hold": 0.0,
+              "Recovery": 1.113,
+              "Removal": 0.869
+            },
+            "latency_registers": 65,
+            "scope": "independent audio/visual STA only; not production top, monitor or silicon acceptance"
+          },
+          "per_clock_worst": {
+            "Setup": {
+              "sys_clk": [
+                "1",
+                "0.017",
+                "u_midi_input/u_midi_event_parser/round_robin_index_0_s0/Q",
+                "u_midi_input/u_midi_event_parser/control_pending_28_s1/CE",
+                "sys_clk:[R]",
+                "sys_clk:[R]",
+                "20.000",
+                "0.000",
+                "18.671"
+              ],
+              "video_pixel": [
+                "1",
+                "13.314",
+                "u_visual/u_scene/u_score_tracker/current_frame_0_s1/Q",
+                "u_visual/u_scene/u_score_tracker/hit_mem_7_s1/CE",
+                "video_pixel:[R]",
+                "video_pixel:[R]",
+                "40.000",
+                "0.000",
+                "26.375"
+              ],
+              "video_serial": [
+                "1",
+                "7.109",
+                "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+                "u_visual/u_serial_reset/sync_chain_1_s0/D",
+                "video_serial:[R]",
+                "video_serial:[R]",
+                "8.000",
+                "0.000",
+                "0.827"
+              ]
+            },
+            "Hold": {
+              "sys_clk": [
+                "1",
+                "0.000",
+                "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[1].u_control/base_s0_4_s0/Q",
+                "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[1].u_control/base_s1_4_s0/D",
+                "sys_clk:[R]",
+                "sys_clk:[R]",
+                "0.000",
+                "0.004",
+                "0.559"
+              ],
+              "video_pixel": [
+                "1",
+                "0.275",
+                "u_visual/u_scene/u_hit_flash/count_q[13]_0_s3/Q",
+                "u_visual/u_scene/u_hit_flash/count_q[13]_0_s3/D",
+                "video_pixel:[R]",
+                "video_pixel:[R]",
+                "0.000",
+                "0.000",
+                "0.300"
+              ],
+              "video_serial": [
+                "1",
+                "0.380",
+                "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+                "u_visual/u_serial_reset/sync_chain_1_s0/D",
+                "video_serial:[R]",
+                "video_serial:[R]",
+                "0.000",
+                "0.000",
+                "0.393"
+              ]
+            },
+            "Recovery": {
+              "video_serial": [
+                "15",
+                "1.113",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q",
+                "u_visual/u_video_tx/rgb2dvi_inst/u_OSER10_g/RESET",
+                "video_serial:[R]",
+                "video_serial:[F]",
+                "4.000",
+                "-0.015",
+                "2.751"
+              ]
+            },
+            "Removal": {
+              "sys_clk": [
+                "1",
+                "0.869",
+                "u_reset_sync/sync_chain_1_s0/Q",
+                "g_polyphonic.u_audio_core/u_bank/g_lane[3].g_piano.u_dds/phase_acc_18_s0/CLEAR",
+                "sys_clk:[R]",
+                "sys_clk:[R]",
+                "0.000",
+                "-0.201",
+                "1.567"
+              ]
+            }
+          },
+          "global_worst_paths": {
+            "Setup": [
+              "1",
+              "0.017",
+              "u_midi_input/u_midi_event_parser/round_robin_index_0_s0/Q",
+              "u_midi_input/u_midi_event_parser/control_pending_28_s1/CE",
+              "sys_clk:[R]",
+              "sys_clk:[R]",
+              "20.000",
+              "0.000",
+              "18.671"
+            ],
+            "Hold": [
+              "1",
+              "0.000",
+              "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[1].u_control/base_s0_4_s0/Q",
+              "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[1].u_control/base_s1_4_s0/D",
+              "sys_clk:[R]",
+              "sys_clk:[R]",
+              "0.000",
+              "0.004",
+              "0.559"
+            ],
+            "Recovery": [
+              "15",
+              "1.113",
+              "u_visual/u_serial_reset/sync_chain_1_s0/Q",
+              "u_visual/u_video_tx/rgb2dvi_inst/u_OSER10_g/RESET",
+              "video_serial:[R]",
+              "video_serial:[F]",
+              "4.000",
+              "-0.015",
+              "2.751"
+            ],
+            "Removal": [
+              "1",
+              "0.869",
+              "u_reset_sync/sync_chain_1_s0/Q",
+              "g_polyphonic.u_audio_core/u_bank/g_lane[3].g_piano.u_dds/phase_acc_18_s0/CLEAR",
+              "sys_clk:[R]",
+              "sys_clk:[R]",
+              "0.000",
+              "-0.201",
+              "1.567"
+            ]
+          },
+          "per_clock_TNS": [
+            [
+              "sys_clk",
+              "Setup",
+              "0.000",
+              "0"
+            ],
+            [
+              "sys_clk",
+              "Hold",
+              "0.000",
+              "0"
+            ],
+            [
+              "video_serial",
+              "Setup",
+              "0.000",
+              "0"
+            ],
+            [
+              "video_serial",
+              "Hold",
+              "0.000",
+              "0"
+            ],
+            [
+              "video_pixel",
+              "Setup",
+              "0.000",
+              "0"
+            ],
+            [
+              "video_pixel",
+              "Hold",
+              "0.000",
+              "0"
+            ]
+          ],
+          "min_pulse_width_slack": 2.327,
+          "artifact_sha256": {
+            "impl\\pnr\\audio_visual_coexistence_top_tr_content.html": "5ecedf8de2d67025228e07aa329eae685c87b727b805cb8e0dea3d6fe21d6fbf",
+            "build.log": "eb656267f24d11d7d92b764fab352413e099215b1e74ac547f7ccdeb13a5a105",
+            "impl\\pnr\\audio_visual_coexistence_top.rpt.txt": "0f7110ad7aff01ef8d8ba8910c01e1c28ca3a04273b65a9ec23ce78955823e66",
+            "impl\\pnr\\audio_visual_coexistence_top.pin.html": "aa57918bbd72d259cf5f1c271fb9d59297ef59aa5ac79f12ae268c3bfe8cbb19",
+            "impl\\pnr\\cmd.do": "4716bc4bf227f884f108a1a36a27960378dc42a23e4778649f77d02bb25785b2",
+            "FAILED_OR_RESEARCH_ONLY.fs": "5ee83503a745b914389d4e8d01f563f2c34018c112319f1430947fc96aade310"
+          },
+          "manifest_sha256": "cb0c1b15f4daea37aab34a93bde3d1e1114139af99c4c8e90990614e84983948",
+          "formal_RTL_modified": false,
+          "board_bitstream_released": false,
+          "programmed": false,
+          "disposition": "experimental timing candidate only; formal notice/acceptance still required"
+        },
+        "effective_options": [
+          "-d <private-path>",
+          "-p GW5AT-60B-PBGA484A-1",
+          "-pn GW5AT-LV60PG484AC1/I0",
+          "-cst <private-path>",
+          "-cfg <private-path>",
+          "-sdc <private-path>",
+          "-bit",
+          "-tr",
+          "-ph",
+          "-timing",
+          "-cst_error",
+          "-convert_sdp32_36_to_sdp16_18",
+          "-place_option 0",
+          "-route_option 0",
+          "-clock_route_order 0",
+          "-correct_hold 1",
+          "-route_maxfan 23",
+          "-global_freq 100.000"
+        ],
+        "cfg_sha256": "fe9daac753201bfc557e3e499ff24957ecd6a9176423bd71a31b0d66de95d3e3",
+        "active_sdc": [
+          "create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]",
+          "create_generated_clock -name video_pixel -source [get_ports {sys_clk}] -master_clock sys_clk -multiply_by 1 -divide_by 2 [get_pins {u_visual/u_video_pll/PLLA_inst/CLKOUT1}]",
+          "create_generated_clock -name video_serial -source [get_ports {sys_clk}] -master_clock sys_clk -multiply_by 5 -divide_by 2 [get_pins {u_visual/u_video_pll/PLLA_inst/CLKOUT0}]",
+          "report_timing -hold -from [get_regs {u_visual/u_control/u_mode_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/ack_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_control/u_mode_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/req_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_control/u_score_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/ack_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_control/u_score_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/req_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_event_bridge/ack_meta_s0}] -to [get_regs {u_visual/u_event_bridge/ack_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_event_bridge/desync_meta_s0}] -to [get_regs {u_visual/u_event_bridge/video_desync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_event_bridge/req_meta_s0}] -to [get_regs {u_visual/u_event_bridge/req_sync_s0}] -max_paths 1",
+          "report_timing -hold -from_clock [get_clocks {sys_clk}] -to_clock [get_clocks {sys_clk}] -max_paths 10 -max_common_paths 1",
+          "report_timing -hold -from_clock [get_clocks {video_pixel}] -to_clock [get_clocks {video_pixel}] -max_paths 10 -max_common_paths 1",
+          "report_timing -hold -from_clock [get_clocks {video_serial}] -to_clock [get_clocks {video_serial}] -max_paths 10 -max_common_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_mode_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/ack_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_mode_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/req_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/ack_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/payload_hold*}] -to [get_regs {u_visual/u_control/u_score_mailbox/dst_data*}] -max_paths 128 -max_common_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/req_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_event_bridge/ack_meta_s0}] -to [get_regs {u_visual/u_event_bridge/ack_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_event_bridge/desync_meta_s0}] -to [get_regs {u_visual/u_event_bridge/video_desync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_event_bridge/payload_hold*}] -to [get_regs {u_visual/u_event_bridge/video_data*}] -max_paths 128 -max_common_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_event_bridge/req_meta_s0}] -to [get_regs {u_visual/u_event_bridge/req_sync_s0}] -max_paths 1",
+          "report_timing -setup -from_clock [get_clocks {sys_clk}] -to_clock [get_clocks {sys_clk}] -max_paths 80 -max_common_paths 1",
+          "report_timing -setup -from_clock [get_clocks {video_pixel}] -to_clock [get_clocks {video_pixel}] -max_paths 80 -max_common_paths 1",
+          "report_timing -setup -from_clock [get_clocks {video_serial}] -to_clock [get_clocks {video_serial}] -max_paths 80 -max_common_paths 1",
+          "set_clock_uncertainty -hold 0.550 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]",
+          "set_clock_uncertainty -setup 1.000 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]",
+          "set_false_path -from [get_ports {sys_rst_n}]",
+          "set_false_path -to [get_pins {u_visual/u_control/u_mode_mailbox/ack_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_control/u_mode_mailbox/req_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_control/u_score_mailbox/ack_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_control/u_score_mailbox/req_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_event_bridge/ack_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_event_bridge/desync_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_event_bridge/req_meta_s0/D}]",
+          "set_max_delay -from [get_regs {u_visual/u_control/u_score_mailbox/payload_hold*}] -to [get_regs {u_visual/u_control/u_score_mailbox/dst_data*}] 10.000",
+          "set_max_delay -from [get_regs {u_visual/u_event_bridge/payload_hold*}] -to [get_regs {u_visual/u_event_bridge/video_data*}] 10.000",
+          "set_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_bclk}]",
+          "set_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_din}]",
+          "set_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_lrck}]",
+          "set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_bclk}]",
+          "set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_din}]",
+          "set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_lrck}]"
+        ],
+        "reset_location_evidence": {
+          "0": {
+            "expected": "R49C101[1][A]",
+            "actual_detailed_rows": [
+              [
+                "2.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][A]",
+                "u_visual/u_serial_reset/sync_chain_0_s0/CLK"
+              ],
+              [
+                "2.482",
+                "0.382",
+                "tC2Q",
+                "RR",
+                "1",
+                "R49C101[1][A]",
+                "u_visual/u_serial_reset/sync_chain_0_s0/Q"
+              ],
+              [
+                "0.673",
+                "0.673",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][A]",
+                "u_visual/u_serial_reset/sync_chain_0_s0/CLK"
+              ],
+              [
+                "0.817",
+                "0.144",
+                "tC2Q",
+                "RR",
+                "1",
+                "R49C101[1][A]",
+                "u_visual/u_serial_reset/sync_chain_0_s0/Q"
+              ]
+            ]
+          },
+          "1": {
+            "expected": "R49C101[1][B]",
+            "actual_detailed_rows": [
+              [
+                "2.927",
+                "0.445",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/D"
+              ],
+              [
+                "10.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "1.066",
+                "0.249",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/D"
+              ],
+              [
+                "0.673",
+                "0.673",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "2.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "2.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "2.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "2.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "2.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "2.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "2.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "2.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ]
+            ]
+          }
+        }
+      },
+      "B_route1": {
+        "complete": true,
+        "gate_pass": true,
+        "errors": [],
+        "bounded": {
+          "started": "2026-10-05T18:08:29.196994+08:00",
+          "ended": "2026-10-05T18:16:56.452808+08:00",
+          "elapsed_seconds": 507.2558888999047,
+          "exit": 0,
+          "timed_out": false,
+          "complete": true,
+          "source_run_count": 1,
+          "STA_pass_not_assumed": true,
+          "route_option": 1,
+          "build_log_sha256": "a0363ee99feb9b7d052546e1904b4faa9e7ea6cbb04248f45f1301170dcd393a",
+          "programmed": false
+        },
+        "full_report": {
+          "scope": "isolated integration of actual four-voice bank/V1/CC64/PitchMod + latest MIDI + strict visual",
+          "raw_original_gate_errors": [
+            "formal audio clock uncertainty missing: hold",
+            "audio ROM footprint is not 8 BSRAM"
+          ],
+          "validated_intended_changes": {
+            "Hold_uncertainty_ns": 0.55,
+            "BSRAM_expected": 20
+          },
+          "errors": [],
+          "timing_pass": true,
+          "facts": {
+            "visual_gate": {
+              "summary": {
+                "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+                "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+                "Numbers of Paths Analyzed": "31133",
+                "Numbers of Endpoints Analyzed": "28085",
+                "Numbers of Falling Endpoints": "4",
+                "Numbers of Setup Violated Endpoints": "0",
+                "Numbers of Hold Violated Endpoints": "0"
+              },
+              "bus_path_count": {
+                "u_event_bridge": 23,
+                "u_control/u_score_mailbox": 50
+              }
+            },
+            "audio_pins": 10,
+            "resources": {
+              "Logic": 19534,
+              "Register": 8674,
+              "DSP": 46,
+              "BSRAM": 20
+            },
+            "fmax_mhz": {
+              "sys_clk": 50.112,
+              "video_serial": 1122.018,
+              "video_pixel": 35.731
+            },
+            "exported_min_slack_ns": {
+              "Setup": 0.045,
+              "Hold": 0.0,
+              "Recovery": 0.947,
+              "Removal": 0.869
+            },
+            "latency_registers": 65,
+            "scope": "independent audio/visual STA only; not production top, monitor or silicon acceptance"
+          },
+          "per_clock_worst": {
+            "Setup": {
+              "sys_clk": [
+                "1",
+                "0.045",
+                "u_midi_input/u_midi_event_parser/control_pending_19_s1/Q",
+                "u_midi_input/u_midi_event_parser/control_pending_24_s1/D",
+                "sys_clk:[R]",
+                "sys_clk:[R]",
+                "20.000",
+                "0.000",
+                "18.891"
+              ],
+              "video_pixel": [
+                "1",
+                "12.013",
+                "u_visual/u_scene/u_score_tracker/current_frame_3_s0/Q",
+                "u_visual/u_scene/u_score_tracker/hit_mem_7_s1/CE",
+                "video_pixel:[R]",
+                "video_pixel:[R]",
+                "40.000",
+                "0.009",
+                "27.666"
+              ],
+              "video_serial": [
+                "1",
+                "7.109",
+                "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+                "u_visual/u_serial_reset/sync_chain_1_s0/D",
+                "video_serial:[R]",
+                "video_serial:[R]",
+                "8.000",
+                "0.000",
+                "0.827"
+              ]
+            },
+            "Hold": {
+              "sys_clk": [
+                "1",
+                "0.000",
+                "g_polyphonic.u_audio_core/u_bank/g_lane[2].u_envelope/level_q16_9_s0/Q",
+                "g_polyphonic.u_audio_core/u_bank/g_lane[2].u_envelope/start_q16_9_s0/D",
+                "sys_clk:[R]",
+                "sys_clk:[R]",
+                "0.000",
+                "0.000",
+                "0.563"
+              ],
+              "video_pixel": [
+                "1",
+                "0.275",
+                "u_visual/u_scene/u_hit_flash/count_q[41]_2_s1/Q",
+                "u_visual/u_scene/u_hit_flash/count_q[41]_2_s1/D",
+                "video_pixel:[R]",
+                "video_pixel:[R]",
+                "0.000",
+                "0.000",
+                "0.300"
+              ],
+              "video_serial": [
+                "1",
+                "0.380",
+                "u_visual/u_serial_reset/sync_chain_0_s0/Q",
+                "u_visual/u_serial_reset/sync_chain_1_s0/D",
+                "video_serial:[R]",
+                "video_serial:[R]",
+                "0.000",
+                "0.000",
+                "0.393"
+              ]
+            },
+            "Recovery": {
+              "video_serial": [
+                "3",
+                "0.947",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q",
+                "u_visual/u_video_tx/rgb2dvi_inst/u_OSER10_b/RESET",
+                "video_serial:[R]",
+                "video_serial:[F]",
+                "4.000",
+                "-0.015",
+                "2.918"
+              ]
+            },
+            "Removal": {
+              "sys_clk": [
+                "1",
+                "0.869",
+                "u_reset_sync/sync_chain_1_s0/Q",
+                "g_polyphonic.u_audio_core/u_bank/g_lane[3].g_piano.u_dds/phase_acc_18_s0/CLEAR",
+                "sys_clk:[R]",
+                "sys_clk:[R]",
+                "0.000",
+                "-0.201",
+                "1.567"
+              ]
+            }
+          },
+          "global_worst_paths": {
+            "Setup": [
+              "1",
+              "0.045",
+              "u_midi_input/u_midi_event_parser/control_pending_19_s1/Q",
+              "u_midi_input/u_midi_event_parser/control_pending_24_s1/D",
+              "sys_clk:[R]",
+              "sys_clk:[R]",
+              "20.000",
+              "0.000",
+              "18.891"
+            ],
+            "Hold": [
+              "1",
+              "0.000",
+              "g_polyphonic.u_audio_core/u_bank/g_lane[2].u_envelope/level_q16_9_s0/Q",
+              "g_polyphonic.u_audio_core/u_bank/g_lane[2].u_envelope/start_q16_9_s0/D",
+              "sys_clk:[R]",
+              "sys_clk:[R]",
+              "0.000",
+              "0.000",
+              "0.563"
+            ],
+            "Recovery": [
+              "3",
+              "0.947",
+              "u_visual/u_serial_reset/sync_chain_1_s0/Q",
+              "u_visual/u_video_tx/rgb2dvi_inst/u_OSER10_b/RESET",
+              "video_serial:[R]",
+              "video_serial:[F]",
+              "4.000",
+              "-0.015",
+              "2.918"
+            ],
+            "Removal": [
+              "1",
+              "0.869",
+              "u_reset_sync/sync_chain_1_s0/Q",
+              "g_polyphonic.u_audio_core/u_bank/g_lane[3].g_piano.u_dds/phase_acc_18_s0/CLEAR",
+              "sys_clk:[R]",
+              "sys_clk:[R]",
+              "0.000",
+              "-0.201",
+              "1.567"
+            ]
+          },
+          "per_clock_TNS": [
+            [
+              "sys_clk",
+              "Setup",
+              "0.000",
+              "0"
+            ],
+            [
+              "sys_clk",
+              "Hold",
+              "0.000",
+              "0"
+            ],
+            [
+              "video_serial",
+              "Setup",
+              "0.000",
+              "0"
+            ],
+            [
+              "video_serial",
+              "Hold",
+              "0.000",
+              "0"
+            ],
+            [
+              "video_pixel",
+              "Setup",
+              "0.000",
+              "0"
+            ],
+            [
+              "video_pixel",
+              "Hold",
+              "0.000",
+              "0"
+            ]
+          ],
+          "min_pulse_width_slack": 2.327,
+          "artifact_sha256": {
+            "impl\\pnr\\audio_visual_coexistence_top_tr_content.html": "cc4c742b2204077e711cf798d7351d959ee0ccc5fd09de76906ee87a6f308cc4",
+            "build.log": "a0363ee99feb9b7d052546e1904b4faa9e7ea6cbb04248f45f1301170dcd393a",
+            "impl\\pnr\\audio_visual_coexistence_top.rpt.txt": "86ec520d9c9a5a2253ab4061b17329a398effd6361cd6f9322bbe9deb0dcbfb7",
+            "impl\\pnr\\audio_visual_coexistence_top.pin.html": "57f3f77c647d9791cad859c402e3c96dcfbe68bea221921f9ae8131f37828691",
+            "impl\\pnr\\cmd.do": "016a64c106afbce0600f6a0c66bc696b919a1c0f30e3f558a426284bc145e537",
+            "FAILED_OR_RESEARCH_ONLY.fs": "7f3ca503591a82ed4cdb08627fac23a6e89304d79ed63b27af6c7f2f528c77c3"
+          },
+          "manifest_sha256": "94a392698e0dc2700265f8db0d7068fa7d53e752ca6c13580d61cf3c6ef61824",
+          "formal_RTL_modified": false,
+          "board_bitstream_released": false,
+          "programmed": false,
+          "disposition": "experimental timing candidate only; formal notice/acceptance still required"
+        },
+        "effective_options": [
+          "-d <private-path>",
+          "-p GW5AT-60B-PBGA484A-1",
+          "-pn GW5AT-LV60PG484AC1/I0",
+          "-cst <private-path>",
+          "-cfg <private-path>",
+          "-sdc <private-path>",
+          "-bit",
+          "-tr",
+          "-ph",
+          "-timing",
+          "-cst_error",
+          "-convert_sdp32_36_to_sdp16_18",
+          "-place_option 0",
+          "-route_option 1",
+          "-clock_route_order 0",
+          "-correct_hold 1",
+          "-route_maxfan 23",
+          "-global_freq 100.000"
+        ],
+        "cfg_sha256": "fe9daac753201bfc557e3e499ff24957ecd6a9176423bd71a31b0d66de95d3e3",
+        "active_sdc": [
+          "create_clock -name sys_clk -period 20.000 [get_ports {sys_clk}]",
+          "create_generated_clock -name video_pixel -source [get_ports {sys_clk}] -master_clock sys_clk -multiply_by 1 -divide_by 2 [get_pins {u_visual/u_video_pll/PLLA_inst/CLKOUT1}]",
+          "create_generated_clock -name video_serial -source [get_ports {sys_clk}] -master_clock sys_clk -multiply_by 5 -divide_by 2 [get_pins {u_visual/u_video_pll/PLLA_inst/CLKOUT0}]",
+          "report_timing -hold -from [get_regs {u_visual/u_control/u_mode_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/ack_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_control/u_mode_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/req_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_control/u_score_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/ack_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_control/u_score_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/req_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_event_bridge/ack_meta_s0}] -to [get_regs {u_visual/u_event_bridge/ack_sync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_event_bridge/desync_meta_s0}] -to [get_regs {u_visual/u_event_bridge/video_desync_s0}] -max_paths 1",
+          "report_timing -hold -from [get_regs {u_visual/u_event_bridge/req_meta_s0}] -to [get_regs {u_visual/u_event_bridge/req_sync_s0}] -max_paths 1",
+          "report_timing -hold -from_clock [get_clocks {sys_clk}] -to_clock [get_clocks {sys_clk}] -max_paths 10 -max_common_paths 1",
+          "report_timing -hold -from_clock [get_clocks {video_pixel}] -to_clock [get_clocks {video_pixel}] -max_paths 10 -max_common_paths 1",
+          "report_timing -hold -from_clock [get_clocks {video_serial}] -to_clock [get_clocks {video_serial}] -max_paths 10 -max_common_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_mode_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/ack_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_mode_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/req_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/ack_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/payload_hold*}] -to [get_regs {u_visual/u_control/u_score_mailbox/dst_data*}] -max_paths 128 -max_common_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/req_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_event_bridge/ack_meta_s0}] -to [get_regs {u_visual/u_event_bridge/ack_sync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_event_bridge/desync_meta_s0}] -to [get_regs {u_visual/u_event_bridge/video_desync_s0}] -max_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_event_bridge/payload_hold*}] -to [get_regs {u_visual/u_event_bridge/video_data*}] -max_paths 128 -max_common_paths 1",
+          "report_timing -setup -from [get_regs {u_visual/u_event_bridge/req_meta_s0}] -to [get_regs {u_visual/u_event_bridge/req_sync_s0}] -max_paths 1",
+          "report_timing -setup -from_clock [get_clocks {sys_clk}] -to_clock [get_clocks {sys_clk}] -max_paths 80 -max_common_paths 1",
+          "report_timing -setup -from_clock [get_clocks {video_pixel}] -to_clock [get_clocks {video_pixel}] -max_paths 80 -max_common_paths 1",
+          "report_timing -setup -from_clock [get_clocks {video_serial}] -to_clock [get_clocks {video_serial}] -max_paths 80 -max_common_paths 1",
+          "set_clock_uncertainty -hold 0.550 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]",
+          "set_clock_uncertainty -setup 1.000 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]",
+          "set_false_path -from [get_ports {sys_rst_n}]",
+          "set_false_path -to [get_pins {u_visual/u_control/u_mode_mailbox/ack_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_control/u_mode_mailbox/req_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_control/u_score_mailbox/ack_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_control/u_score_mailbox/req_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_event_bridge/ack_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_event_bridge/desync_meta_s0/D}]",
+          "set_false_path -to [get_pins {u_visual/u_event_bridge/req_meta_s0/D}]",
+          "set_max_delay -from [get_regs {u_visual/u_control/u_score_mailbox/payload_hold*}] -to [get_regs {u_visual/u_control/u_score_mailbox/dst_data*}] 10.000",
+          "set_max_delay -from [get_regs {u_visual/u_event_bridge/payload_hold*}] -to [get_regs {u_visual/u_event_bridge/video_data*}] 10.000",
+          "set_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_bclk}]",
+          "set_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_din}]",
+          "set_output_delay -clock sys_clk -max 5.000 [get_ports {i2s_lrck}]",
+          "set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_bclk}]",
+          "set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_din}]",
+          "set_output_delay -clock sys_clk -min 0.000 [get_ports {i2s_lrck}]"
+        ],
+        "reset_location_evidence": {
+          "0": {
+            "expected": "R49C101[1][A]",
+            "actual_detailed_rows": [
+              [
+                "2.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][A]",
+                "u_visual/u_serial_reset/sync_chain_0_s0/CLK"
+              ],
+              [
+                "2.482",
+                "0.382",
+                "tC2Q",
+                "RR",
+                "1",
+                "R49C101[1][A]",
+                "u_visual/u_serial_reset/sync_chain_0_s0/Q"
+              ],
+              [
+                "0.673",
+                "0.673",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][A]",
+                "u_visual/u_serial_reset/sync_chain_0_s0/CLK"
+              ],
+              [
+                "0.817",
+                "0.144",
+                "tC2Q",
+                "RR",
+                "1",
+                "R49C101[1][A]",
+                "u_visual/u_serial_reset/sync_chain_0_s0/Q"
+              ]
+            ]
+          },
+          "1": {
+            "expected": "R49C101[1][B]",
+            "actual_detailed_rows": [
+              [
+                "2.927",
+                "0.445",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/D"
+              ],
+              [
+                "10.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "1.066",
+                "0.249",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/D"
+              ],
+              [
+                "0.673",
+                "0.673",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "2.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "2.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "2.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "2.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "2.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "2.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "2.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "2.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ],
+              [
+                "34.099",
+                "2.099",
+                "tNET",
+                "RR",
+                "1",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/CLK"
+              ],
+              [
+                "34.467",
+                "0.368",
+                "tC2Q",
+                "RF",
+                "77",
+                "R49C101[1][B]",
+                "u_visual/u_serial_reset/sync_chain_1_s0/Q"
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "both_complete": true,
+    "adopt": false,
+    "download_allowed": false,
+    "formal_modified": false,
+    "AB_freeze_sha256": "7d520394aa0c8c8d22bd2e0ba434be585992d1b3eb4efd9a8b139db4413eda7f",
+    "same_RTL_ROM_constraints_verified": true,
+    "latest_panel_T027_T028_not_included": true,
+    "criteria": {
+      "both_independent_full_gates": true,
+      "actual_options_only_route_changed": true,
+      "device_config_identical": true,
+      "active_SDC_identical": true,
+      "resources_identical": true,
+      "setup_goal0_5": false,
+      "setup_gain0_1": false,
+      "Hold_Recovery_Removal_not_worse": false
+    },
+    "physical_screen_pass": false,
+    "resource_delta": {
+      "Logic": 0,
+      "Register": 0,
+      "DSP": 0,
+      "BSRAM": 0
+    },
+    "slack_delta": {
+      "Setup": 0.028,
+      "Hold": 0.0,
+      "Recovery": -0.166,
+      "Removal": 0.0
+    },
+    "standalone_board_validation_required": true
+  },
+  "run_results": {
+    "results": {
+      "A_route0": {
+        "started": "2026-10-05T17:57:52.237113+08:00",
+        "ended": "2026-10-05T18:08:29.049397+08:00",
+        "elapsed_seconds": 636.8123520000372,
+        "exit": 0,
+        "timed_out": false,
+        "complete": true,
+        "source_run_count": 1,
+        "STA_pass_not_assumed": true,
+        "route_option": 0,
+        "build_log_sha256": "eb656267f24d11d7d92b764fab352413e099215b1e74ac547f7ccdeb13a5a105",
+        "programmed": false
+      },
+      "B_route1": {
+        "started": "2026-10-05T18:08:29.196994+08:00",
+        "ended": "2026-10-05T18:16:56.452808+08:00",
+        "elapsed_seconds": 507.2558888999047,
+        "exit": 0,
+        "timed_out": false,
+        "complete": true,
+        "source_run_count": 1,
+        "STA_pass_not_assumed": true,
+        "route_option": 1,
+        "build_log_sha256": "a0363ee99feb9b7d052546e1904b4faa9e7ea6cbb04248f45f1301170dcd393a",
+        "programmed": false
+      }
+    },
+    "both_complete": true,
+    "no_auto_adoption": true,
+    "no_retry": true
+  },
+  "artifacts": {
+    "A_route0": {
+      "impl/pnr/cmd.do": "4716bc4bf227f884f108a1a36a27960378dc42a23e4778649f77d02bb25785b2",
+      "impl/pnr/audio_visual_coexistence_top_tr_content.html": "5ecedf8de2d67025228e07aa329eae685c87b727b805cb8e0dea3d6fe21d6fbf",
+      "impl/pnr/audio_visual_coexistence_top.rpt.txt": "0f7110ad7aff01ef8d8ba8910c01e1c28ca3a04273b65a9ec23ce78955823e66",
+      "impl/pnr/audio_visual_coexistence_top.pin.html": "aa57918bbd72d259cf5f1c271fb9d59297ef59aa5ac79f12ae268c3bfe8cbb19",
+      "build.log": "eb656267f24d11d7d92b764fab352413e099215b1e74ac547f7ccdeb13a5a105"
+    },
+    "B_route1": {
+      "impl/pnr/cmd.do": "016a64c106afbce0600f6a0c66bc696b919a1c0f30e3f558a426284bc145e537",
+      "impl/pnr/audio_visual_coexistence_top_tr_content.html": "cc4c742b2204077e711cf798d7351d959ee0ccc5fd09de76906ee87a6f308cc4",
+      "impl/pnr/audio_visual_coexistence_top.rpt.txt": "86ec520d9c9a5a2253ab4061b17329a398effd6361cd6f9322bbe9deb0dcbfb7",
+      "impl/pnr/audio_visual_coexistence_top.pin.html": "57f3f77c647d9791cad859c402e3c96dcfbe68bea221921f9ae8131f37828691",
+      "build.log": "a0363ee99feb9b7d052546e1904b4faa9e7ea6cbb04248f45f1301170dcd393a"
+    }
+  },
+  "new_STA_summary": {
+    "A_route0": {
+      "Setup": 0.017,
+      "Hold": 0.0,
+      "Recovery": 1.113,
+      "Removal": 0.869
+    },
+    "B_route1": {
+      "Setup": 0.045,
+      "Hold": 0.0,
+      "Recovery": 0.947,
+      "Removal": 0.869
+    },
+    "delta": {
+      "Setup": 0.028,
+      "Hold": 0.0,
+      "Recovery": -0.166,
+      "Removal": 0.0
+    },
+    "resources_delta": {
+      "Logic": 0,
+      "Register": 0,
+      "DSP": 0,
+      "BSRAM": 0
+    },
+    "physical_screen_pass": false,
+    "adopted": false,
+    "download_allowed": false
   }
 }
