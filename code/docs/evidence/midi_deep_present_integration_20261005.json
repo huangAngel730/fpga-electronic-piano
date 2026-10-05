@@ -1,0 +1,506 @@
+{
+  "date": "2026-10-05",
+  "status": "module_and_real_UART_PCM_PASS_physical_pending",
+  "module": {
+    "date": "2026-10-05",
+    "passed": true,
+    "runs": {
+      "b1d1_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "sha256": "f987a2d2476a9b4f09fe0727b7edfa8326b8ca317a2619e6de82e56794150422",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_midi_deep_present",
+          "-Ptb_midi_deep_present.BURST=1",
+          "-Ptb_midi_deep_present.DEPTH=1",
+          "-Ptb_midi_deep_present.CLOCK_HZ=100000",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\b1d1.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\control_snapshot_top4.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\midi_event_parser.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_midi_deep_present.sv"
+        ],
+        "tail": "y: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv:388: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_control_index[4:0]').\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv:389: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_control_index[4:0]').\n:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\n:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\n"
+      },
+      "b1d1_run": {
+        "exit": 0,
+        "expected_success": true,
+        "sha256": "a6a1594ba9c96cf8b2e3e8a75528c8f4a4e74d46ff62c9d375d1e4a078a6f81f",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\b1d1.vvp"
+        ],
+        "tail": "fixture counters latest=2 cancel=4 inflight=13\nPASS deep parser burst=1 depth=1 clk=100000 cycles=13648 checks=56752 grants=105 controls=104 discrete=319 cancel=4 inflight_updates=13 latest_lock=2 full_pop_push=1\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_midi_deep_present.sv:194: $finish called at 272960000 (1ps)\n"
+      },
+      "b8d8_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "sha256": "f987a2d2476a9b4f09fe0727b7edfa8326b8ca317a2619e6de82e56794150422",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_midi_deep_present",
+          "-Ptb_midi_deep_present.BURST=8",
+          "-Ptb_midi_deep_present.DEPTH=8",
+          "-Ptb_midi_deep_present.CLOCK_HZ=100000",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\b8d8.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\control_snapshot_top4.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\midi_event_parser.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_midi_deep_present.sv"
+        ],
+        "tail": "y: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv:388: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_control_index[4:0]').\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv:389: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_control_index[4:0]').\n:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\n:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\n"
+      },
+      "b8d8_run": {
+        "exit": 0,
+        "expected_success": true,
+        "sha256": "22cdc46eb5c9df66289b6b471e125458fac2d73d6566a1f76bd045fbefc2125d",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\b8d8.vvp"
+        ],
+        "tail": "fixture counters latest=2 cancel=4 inflight=13\nPASS deep parser burst=8 depth=8 clk=100000 cycles=13739 checks=57285 grants=105 controls=104 discrete=358 cancel=4 inflight_updates=13 latest_lock=2 full_pop_push=1\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_midi_deep_present.sv:194: $finish called at 274780000 (1ps)\n"
+      },
+      "b16d8_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "sha256": "f987a2d2476a9b4f09fe0727b7edfa8326b8ca317a2619e6de82e56794150422",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_midi_deep_present",
+          "-Ptb_midi_deep_present.BURST=16",
+          "-Ptb_midi_deep_present.DEPTH=8",
+          "-Ptb_midi_deep_present.CLOCK_HZ=100000",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\b16d8.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\control_snapshot_top4.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\midi_event_parser.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_midi_deep_present.sv"
+        ],
+        "tail": "y: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv:388: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_control_index[4:0]').\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv:389: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_control_index[4:0]').\n:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\n:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\n"
+      },
+      "b16d8_run": {
+        "exit": 0,
+        "expected_success": true,
+        "sha256": "5777287954b9ac7e12b79672d1ffce28508e2fe793e3dc3eb9f3cc0997905a2f",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\b16d8.vvp"
+        ],
+        "tail": "fixture counters latest=2 cancel=4 inflight=13\nPASS deep parser burst=16 depth=8 clk=100000 cycles=13739 checks=57286 grants=105 controls=104 discrete=358 cancel=4 inflight_updates=13 latest_lock=2 full_pop_push=1\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_midi_deep_present.sv:194: $finish called at 274780000 (1ps)\n"
+      },
+      "real50m_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "sha256": "f987a2d2476a9b4f09fe0727b7edfa8326b8ca317a2619e6de82e56794150422",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_midi_deep_present",
+          "-Ptb_midi_deep_present.BURST=8",
+          "-Ptb_midi_deep_present.DEPTH=8",
+          "-Ptb_midi_deep_present.CLOCK_HZ=50000000",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\real50m.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\control_snapshot_top4.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\midi_event_parser.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_midi_deep_present.sv"
+        ],
+        "tail": "y: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv:388: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_control_index[4:0]').\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv:389: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_control_index[4:0]').\n:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\n:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\n"
+      },
+      "real50m_run": {
+        "exit": 0,
+        "expected_success": true,
+        "sha256": "80cc9b0257a326c2ad17cd966bd8de9848975abb1521095efee1803526ebf1e3",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\real50m.vvp"
+        ],
+        "tail": "PASS deep parser REAL RATE clk=50000000 interval=50000 cycles=100065 checks=400296 controls=3\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_midi_deep_present.sv:117: $finish called at 2001300000 (1ps)\n"
+      },
+      "top4_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "sha256": "ff903c0b3f77ce87a8828013d985ad91b4eb314c0e02a11a1082101609a0fbde",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_snapshot_top4",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\top4.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\control_snapshot_top4.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_snapshot_top4.sv"
+        ],
+        "tail": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\control_snapshot_top4.sv:28: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'v[15:0]').\n"
+      },
+      "top4_run": {
+        "exit": 0,
+        "expected_success": true,
+        "sha256": "516b2904123a11d99e539035100be2f9ae953308a317f6b74163dd0e16aaa77a",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\top4.vvp",
+          "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\top4.txt"
+        ],
+        "tail": "PASS snapshot top4 vectors=18592 checks=111552\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_snapshot_top4.sv:30: $finish called at 2231080000 (1ps)\n"
+      },
+      "empty": {
+        "exit": 1,
+        "expected_success": false,
+        "sha256": "4b2f6be26b6a6a12e7186910557e16ea74f7dac0a5120fb39899ec785e8bed73",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\top4.vvp",
+          "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\empty.txt"
+        ],
+        "tail": "FATAL: D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_snapshot_top4.sv:10: top4 oracle 0 vacuous or truncated count\n       Time: 60000  Scope: tb_snapshot_top4.check\n"
+      },
+      "short": {
+        "exit": 1,
+        "expected_success": false,
+        "sha256": "78dfbba45f616a4c975deda4bbf23bbeb211c150cae7ea715066a4a196560f3f",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\top4.vvp",
+          "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\short.txt"
+        ],
+        "tail": "FATAL: D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_snapshot_top4.sv:10: top4 oracle 1 vacuous or truncated count\n       Time: 160000  Scope: tb_snapshot_top4.check\n"
+      },
+      "no_reservation_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "sha256": "d2481765360e38b263b8d50f97dac1c7e2eabe9f43488e00d206e57799aff220",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_midi_deep_present",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\no_reservation.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\control_snapshot_top4.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\no_reservation.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_midi_deep_present.sv"
+        ],
+        "tail": "y: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv:388: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_control_index[4:0]').\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv:389: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_control_index[4:0]').\n:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\n:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\n"
+      },
+      "no_reservation_run": {
+        "exit": 1,
+        "expected_success": false,
+        "sha256": "1e738dda68a3a1b5409568c53f02c44938b466ba76a088f0bfd296677d4638d5",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\no_reservation.vvp"
+        ],
+        "tail": "FATAL: D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_midi_deep_present.sv:30: deep parser oracle cycle=275: no ninth discrete handshake while control due\n       Time: 5490000  Scope: tb_midi_deep_present.check\n"
+      },
+      "revoke_head_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "sha256": "0fccddd7c575e61a02f33bfce186a8bd780c3c3d9202c4f29bd27eaeeb7c89e7",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_midi_deep_present",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\revoke_head.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\control_snapshot_top4.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\revoke_head.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_midi_deep_present.sv"
+        ],
+        "tail": "y: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv:388: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_control_index[4:0]').\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv:389: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_control_index[4:0]').\n:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\n:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\n"
+      },
+      "revoke_head_run": {
+        "exit": 1,
+        "expected_success": false,
+        "sha256": "9a955241d76fa7e12cfe4bd72b88fcd387b7c648bd0e19a91a01371d05481914",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\revoke_head.vvp"
+        ],
+        "tail": "FATAL: D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_midi_deep_present.sv:30: deep parser oracle cycle=23: held presentation changed under backpressure\n       Time: 450000  Scope: tb_midi_deep_present.check\n"
+      },
+      "stale_lock_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "sha256": "c799ffb56ac15dc20c6aaf48b0cdb06eefe294c15b4789d47b8479c437afe579",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_midi_deep_present",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\stale_lock.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\control_snapshot_top4.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\stale_lock.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_midi_deep_present.sv"
+        ],
+        "tail": "y: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv:388: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_control_index[4:0]').\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv:389: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_control_index[4:0]').\n:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\n:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\n"
+      },
+      "stale_lock_run": {
+        "exit": 1,
+        "expected_success": false,
+        "sha256": "b67dbd8fa4671343a6a9ff16bed47aad6e0e5c4630eaa8962e8bdd5b5cacad42",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\stale_lock.vvp"
+        ],
+        "tail": "FATAL: D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_midi_deep_present.sv:30: deep parser oracle cycle=12946: exact LIVE RR and newest payload at lock\n       Time: 258910000  Scope: tb_midi_deep_present.check\n"
+      },
+      "two_not_four_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "sha256": "e8495047285d251f94ee7e5f5b107a2747726b99784cb443132c777a57f8372c",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_midi_deep_present",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\two_not_four.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\common\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\control_snapshot_top4.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\two_not_four.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_midi_deep_present.sv"
+        ],
+        "tail": "y: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv:388: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_control_index[4:0]').\nD:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\reference.sv:389: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_control_index[4:0]').\n:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\n:0: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'parsed_event_data[63:0]').\n"
+      },
+      "two_not_four_run": {
+        "exit": 1,
+        "expected_success": false,
+        "sha256": "8afcc5f5a2bfc524f453c7f5f44e91f88bf591cd753243b7833bec8b6a2e4016",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\full3\\two_not_four.vvp"
+        ],
+        "tail": "FATAL: D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\tb_midi_deep_present.sv:30: deep parser oracle cycle=12487: live pending requires first-computation grant, no hidden retry\n       Time: 249730000  Scope: tb_midi_deep_present.check\n"
+      }
+    },
+    "formal_sha_before": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+    "formal_sha_after": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+    "inputs": {
+      "code\\tb\\common\\midi_deep_present_candidate\\midi_event_parser.sv": "534980301e41ea4abcc424931fbcf4daacb6d8d9399b777f3ea8d26d2c89767c",
+      "code\\tb\\common\\midi_deep_present_candidate\\control_snapshot_top4.sv": "c3e450eb182fec670619c879863bfaaa2d3591b96608ce90ca1cdc4d7e66ad7c",
+      "code\\tb\\common\\midi_deep_present_candidate\\tb_midi_deep_present.sv": "6c0b65b5713c5e9d607511b94f7a0578568a8845ba8325e70a14c8cbcdd21b2d",
+      "code\\tb\\common\\midi_deep_present_candidate\\tb_snapshot_top4.sv": "5530c971c051d917f29ef41bb22f44175a873440561289a8d28b546c5c333253",
+      "code\\rtl\\common\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064"
+    },
+    "not_cycle_equivalent_to_original": true,
+    "no_Gowin_or_STA_yet": true,
+    "fixtures_are_decoded_event_injections_not_UART": true
+  },
+  "joint": {
+    "passed": true,
+    "scope": "deep parser only; original frozen audio math/router/bank unchanged; real UART32FIFO PCM",
+    "module_evidence_sha": "e3dd8d0b45b22895138bfeebae601f1f4c77a35f299ad1786c1d2ab753d4028e",
+    "simulator_include_binding_only": {
+      "original_SHA": "a384c67742364c1e8efd1c8884f7b8172af021b14d5ae1a05174b37467304a1e",
+      "copied_SHA": "dd244b99b06eaa2ed7e7deda1c08aeb119f002bff939ce5941e5e81a559cbc4e",
+      "header_SHA": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d",
+      "header_code_unchanged": true
+    },
+    "independent_joint_reference": {
+      "reset_cancelled_requests": 1,
+      "reset_epochs": 4,
+      "frame_edges": 2487,
+      "frame_requests": 2487,
+      "bank_captures": 2487,
+      "control_snapshots": 2487,
+      "fcw_results": 2486,
+      "dds_advances": 2486,
+      "pcm_commits": 2486,
+      "normal_pcm": 2484,
+      "uart_bytes": 103,
+      "normal_input_events": 34,
+      "accepted_events": 68,
+      "note_on_pulses": 14,
+      "nonzero_pcm": 2301,
+      "nonzero_control_lane_results": 3734,
+      "uart_completions_at_frame_edge": 2,
+      "fixture_input_events": 34,
+      "fixture_phase_pcm": 2,
+      "full_pop_push": 1,
+      "control_stall_cycles": 56,
+      "sample_edge_events": 6,
+      "center_bank_comparisons": 697,
+      "rtl_assertions": 7777274,
+      "identities": 8,
+      "scenarios": [
+        "accepted_only",
+        "center512",
+        "fifo_pressure",
+        "four_voices",
+        "held_controls",
+        "pedal_steal",
+        "pedal_tail_controls",
+        "program_transport",
+        "recovered",
+        "release_controls",
+        "release_retrigger",
+        "reset_compute",
+        "reset_partial",
+        "reset_pending",
+        "sample_edge",
+        "steal_old_off",
+        "velocity_zero"
+      ]
+    },
+    "joint_capture_sha": "d075cc0abffb15d6f189433d6fe259ad37f2a358333f19680180a2bddbc59220",
+    "compiled_inputs": {
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\audio_defs_pkg.sv": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\pcm1\\allocator.v": "6b67eb3d708adf41a29da5f25455c5a034eb909c7f5aa3235f441ab4dfd3194b",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\uart_rx.sv": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\performance_event_fifo.sv": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\midi_input.sv": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\note_pitch.sv": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\sustain_control_contract_pkg.sv": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\pcm1\\sustain_controller.sv": "dd244b99b06eaa2ed7e7deda1c08aeb119f002bff939ce5941e5e81a559cbc4e",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\performance_control_snapshot.sv": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\pitch_mod_fcw_pipeline.sv": "e5a6f944262443357affc2006d10c01afb20ffc2fc9083a4ee78f8aa5ca4b0aa",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\pitch_mod_snapshot_pipeline.sv": "1e2cb7ccc7cde66b019b5eb2304e21db6705faf4d3b2eb9d26cc585af461a4f5",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\dds_oscillator.sv": "4454013be7c3de71940cfbf4c915e69f5674aa2996dcf29f0c2a1db3bb092a45",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\piano_dds_oscillator.sv": "8fbe16966f8224eeaff1fa6711b4d2b9a9c7f616988ba9b563db0bf17452b00e",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\adsr_piano_envelope.sv": "4bf76b703d1bede3f2f79f39ae4eed7be444382e41cd2a279fb0859216382f44",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\polyphonic_pcm_commit.sv": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\pcm_mixer_4voice.sv": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\pcm_result_hold.sv": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\pcm_frame_buffer.sv": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\pcm_clip_counter.sv": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\system_status_counters.sv": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\voice_gain_q15_candidate.sv": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\polyphonic_audio_core.sv": "60bfdd85d8daeec1954f03e87c4d0a7a6bf4798a63cf13cdb8321c0a771f7c7f",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\control_snapshot_top4.sv": "c3e450eb182fec670619c879863bfaaa2d3591b96608ce90ca1cdc4d7e66ad7c",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\midi_event_parser.sv": "534980301e41ea4abcc424931fbcf4daacb6d8d9399b777f3ea8d26d2c89767c",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\polyphonic_event_router.sv": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\polyphonic_envelope_bank.sv": "b3795cce2a21c1d49e2d0792114a22664471e4f221e8a7675e3b94db2abd2fb4",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\system_control_pipeline_candidate\\polyphonic_event_router_reference.sv": "4875031838e8266262312a7d142f2fbe0a5ffb54f46326d0b496a53bfc6677ee",
+      "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\pcm1\\bank_reference.sv": "f407d8ee288d48946036ba4779e06ca16bf1e5f008a9d7a7e8b14529d9a570ff"
+    },
+    "normal_logic_frames_only": true,
+    "physical_build_not_executed": true,
+    "runs": {
+      "lower_allocator": {
+        "exit": 0,
+        "expected_success": true,
+        "log_sha": "471fe61b072888b6f7ae53097ecb02e58850ef53980072dc0e48f7a1c60bcab9",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\yosys.exe",
+          "-Q",
+          "-T",
+          "-s",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\pcm1\\lower.ys"
+        ]
+      },
+      "joint_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "log_sha": "2af8284e3dae472ee2280b728bbb096cff51d61b23dc6f278c3a619b9d770c49",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-I",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\pcm1",
+          "-I",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\rtl\\board",
+          "-s",
+          "tb_midi_pcm",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\pcm1\\joint.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\audio_defs_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\pcm1\\allocator.v",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\uart_rx.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\performance_event_fifo.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\midi_input.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\note_pitch.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\sustain_control_contract_pkg.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\pcm1\\sustain_controller.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\performance_control_snapshot.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\pitch_mod_fcw_pipeline.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\pitch_mod_snapshot_pipeline.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\dds_oscillator.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\piano_dds_oscillator.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\adsr_piano_envelope.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\polyphonic_pcm_commit.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\pcm_mixer_4voice.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\pcm_result_hold.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\pcm_frame_buffer.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\pcm_clip_counter.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\system_status_counters.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\voice_gain_q15_candidate.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\polyphonic_audio_core.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\control_snapshot_top4.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\midi_deep_present_candidate\\midi_event_parser.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\polyphonic_event_router.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\pitch_mod_bank_integration_20261003\\physical1\\sources\\polyphonic_envelope_bank.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\system_control_pipeline_candidate\\polyphonic_event_router_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\pcm1\\bank_reference.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\board\\m3_midi_pcm_acceptance\\tb_midi_pcm.sv"
+        ]
+      },
+      "joint_run": {
+        "exit": 0,
+        "expected_success": true,
+        "log_sha": "8162c3b49352f98bd6267b456dfbec3a8073d81ddab0bc7971335608d88db82a",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\pcm1\\joint.vvp",
+          "+VELOCITY_ROM_PATH=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_present_integration_20261005\\pcm1\\velocity.mem"
+        ]
+      }
+    },
+    "source_candidate_sha": {
+      "midi_event_parser.sv": "534980301e41ea4abcc424931fbcf4daacb6d8d9399b777f3ea8d26d2c89767c",
+      "control_snapshot_top4.sv": "c3e450eb182fec670619c879863bfaaa2d3591b96608ce90ca1cdc4d7e66ad7c"
+    }
+  },
+  "capture_negatives": {
+    "empty": {
+      "rejected": true,
+      "reason": "missing END capture",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "truncated": {
+      "rejected": true,
+      "reason": "missing END capture",
+      "sha256": "a4729cf90aa791b1c0da67436c5ba8edb8c87aa3cafd219da04e6f18b879336a"
+    },
+    "PCM_one_bit": {
+      "rejected": true,
+      "reason": "line 10: M 45 1 000001 000000 0: independent Q15 floor PCM mix",
+      "sha256": "5b5647421eb5ceeca9ceca0dc38086d45728916188be8c56633c7fff66671867"
+    }
+  },
+  "generic": {
+    "midi_event_parser": {
+      "generic_register_bits": 482,
+      "latches": [],
+      "register_cell_count": 46
+    }
+  },
+  "production_modified": false,
+  "not_cycle_equivalent_to_original": true,
+  "new_PnR_results": null
+}

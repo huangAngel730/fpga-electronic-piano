@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-05",
+  "scope": "isolated parser presentation and exact live RR top4 repair; no production replacement",
+  "baseline": "code\\rtl\\input\\midi_input\\midi_event_parser.sv",
+  "baseline_sha256": "834887a990a4866d54669c5f18588a0b799aa4c08ccb27c91a2f9e5609f331c6",
+  "sources": {
+    "midi_event_parser.sv": "534980301e41ea4abcc424931fbcf4daacb6d8d9399b777f3ea8d26d2c89767c",
+    "control_snapshot_top4.sv": "c3e450eb182fec670619c879863bfaaa2d3591b96608ce90ca1cdc4d7e66ad7c",
+    "tb_midi_deep_present.sv": "6c0b65b5713c5e9d607511b94f7a0578568a8845ba8325e70a14c8cbcdd21b2d",
+    "tb_snapshot_top4.sv": "5530c971c051d917f29ef41bb22f44175a873440561289a8d28b546c5c333253"
+  },
+  "selection_lock_cycles_after_capture": 3,
+  "fifo_capacity_unchanged": true,
+  "preserves_live_RR_priority": true,
+  "new_presentation_and_selection_bubbles": true,
+  "new_accepted_logic_extra_queue_capacity": 0,
+  "physical_or_board_pass": false,
+  "snapshot_post_capture_updates_max": 3,
+  "snapshotted_candidate_count": 4,
+  "semantic_difference": "new valid/presentation bubbles, NOT cycle-equivalent replacement; frozen decoded messages and live RR winner are preserved",
+  "physical_budget": {
+    "effective_PnR_runs_max": 1,
+    "wall_timeout_seconds": 1800,
+    "setup_target_ns": 0.5,
+    "minimum_improvement_ns": 0.1,
+    "max_extra_logic": 256,
+    "max_extra_registers": 512,
+    "DSP_BSRAM_increase_max": 0,
+    "hold_recovery_removal_not_worse": true
+  }
+}
