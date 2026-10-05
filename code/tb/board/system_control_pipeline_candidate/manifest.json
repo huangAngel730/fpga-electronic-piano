@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-05",
+  "purpose": "new explicitly user-authorized joint pipeline screening; previous separate candidates remain rejected",
+  "added_parser_preparation_state_bits": 40,
+  "added_audio_authorization_state_bits": 10,
+  "parser_external_latency_unchanged": true,
+  "audio_additional_internal_cycles": 1,
+  "normal_previous_sample_deadline_max_cycles": 31,
+  "retirement_deferred_while_result_stalled": true,
+  "input_to_audio_to_PCM_joint_test_required": true,
+  "unchanged_features": "frozen V1/CC64/PitchMod/ADSRpipeline + strict visual; NOT latestT027/multi-panel/T028 formal integration",
+  "frozen_physical_base": "V0171 actual47inputs",
+  "candidate_sources": {
+    "midi_event_parser.sv": {
+      "read_from": "code\\tb\\common\\midi_prepared_candidate\\midi_event_parser.sv",
+      "sha256": "c57b1a9866365527369ee415a3d96ed1929124c8a4e38b0d998b1a3418f17cdb"
+    },
+    "polyphonic_event_router.sv": {
+      "read_from": "code\\tb\\board\\audio_control_boundary_candidate\\polyphonic_event_router.sv",
+      "sha256": "3235c0391c6ca85464b309c136fb98753deb78097342a0812c965e8b2620990f"
+    },
+    "polyphonic_envelope_bank.sv": {
+      "read_from": "code\\tb\\board\\audio_control_boundary_candidate\\polyphonic_envelope_bank.sv",
+      "sha256": "0160a0adfd14689e6ca6ad66cc3db6d806372f4d1538b51d2a7e37db7ef4ccff"
+    }
+  },
+  "physical_attempts": 1,
+  "physical_timeout_seconds": 1800,
+  "minimum_global_setup_ns": 0.5,
+  "desired_global_setup_ns": 1.0,
+  "minimum_setup_improvement_ns": 0.1,
+  "max_logic_delta": 256,
+  "max_register_delta": 512,
+  "DSP_BSRAM_delta_max": 0,
+  "all_domain_no_violations": true,
+  "hold_recovery_removal_not_worse": true,
+  "original_candidates_not_relabelled_accepted": true,
+  "public_or_formal_source_modified": false,
+  "request_latency_contract": {
+    "before_max_clks": 30,
+    "after_max_clks": 31,
+    "max_ALLOWED_clks": 64,
+    "min_available_frame_clks": 1041,
+    "extra_cancel_stage": "VERIFY9",
+    "source_retires_deferred_to_end_held_result": "queued not dropped"
+  }
+}

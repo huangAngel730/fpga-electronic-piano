@@ -1,0 +1,66 @@
+--- a/code/tb/board/pitch_mod_bank_integration_candidate/polyphonic_envelope_bank.sv
++++ b/code/tb/board/pitch_mod_bank_integration_candidate/polyphonic_envelope_bank.sv
+@@ -32 +32 @@
+-        CAPTURE=3, WAIT_CONTROL=4, ADVANCE=5, SNAPSHOT=6, HOLD=7, DRAIN=8;
++        CAPTURE=3, WAIT_CONTROL=4, ADVANCE=5, SNAPSHOT=6, HOLD=7, DRAIN=8, VERIFY=9;
+@@ -36,0 +37,2 @@
++    logic [3:0] live_guard_q, math_guard_q;
++    logic request_guard_q, sample_authorized_q;
+@@ -47,0 +50,2 @@
++    wire identity_hold=phase==CAPTURE || phase==WAIT_CONTROL || phase==VERIFY ||
++        phase==ADVANCE || phase==SNAPSHOT || phase==HOLD;
+@@ -52 +56 @@
+-        .clk(clk),.rst_n(rst_n),.sample_owner_ready(owner_idle),
++        .clk(clk),.rst_n(rst_n),.sample_owner_ready(owner_idle),.identity_hold(identity_hold),
+@@ -69 +73 @@
+-    wire control_request_valid=rst_n && !frame_tick && phase==CAPTURE && fcw_request_ready;
++    wire control_request_valid=rst_n && !frame_tick && phase==CAPTURE && !dispatch_busy && fcw_request_ready;
+@@ -118 +122 @@
+-    wire lane_tick=rst_n && !frame_tick && phase==ADVANCE && live_identity_matches;
++    wire lane_tick=rst_n && !frame_tick && phase==ADVANCE && sample_authorized_q;
+@@ -144,0 +149 @@
++            live_guard_q<=0;math_guard_q<=0;request_guard_q<=0;sample_authorized_q<=0;
+@@ -150 +155 @@
+-            phase<=DRAIN;result_valid<=0;resume_requested<=0;
++            phase<=DRAIN;result_valid<=0;resume_requested<=0;sample_authorized_q<=0;
+@@ -157 +162,3 @@
+-                SETTLE:if(delay_count==0)phase<=CAPTURE;
++                SETTLE:if(dispatch_busy || (|slot_note_on) || (|slot_note_off))begin
++                    delay_count<=6;phase<=WAIT_DISPATCH;
++                end else if(delay_count==0)phase<=CAPTURE;
+@@ -159 +166,2 @@
+-                CAPTURE:if(control_request_valid && control_request_ready)begin
++                CAPTURE:if(dispatch_busy)phase<=WAIT_DISPATCH;
++                else if(control_request_valid && control_request_ready)begin
+@@ -165,8 +173,23 @@
+-                    if(math_identity_matches && live_identity_matches)begin
+-                        for(integer k=0;k<4;k++)
+-                            computed_fcw[32*k+:32]<=frozen_occupied[k] ? fcw_values[32*k+:32] : frozen_base[32*k+:32];
+-                        phase<=ADVANCE;
+-                    end else phase<=DRAIN;
+-                end
+-                ADVANCE:if(live_identity_matches)begin delay_count<=4;phase<=SNAPSHOT;end
+-                    else phase<=DRAIN;
++                    // First stage: private immutable request identity and
++                    // math result identity are compared independently per lane.
++                    for(integer k=0;k<4;k++)begin
++                        live_guard_q[k]<=slot_occupied[k]==frozen_occupied[k] &&
++                            slot_sources[4*k+:4]==frozen_sources[4*k+:4] &&
++                            slot_channels[4*k+:4]==frozen_channels[4*k+:4] &&
++                            slot_generations[32*k+:32]==frozen_generations[32*k+:32];
++                        math_guard_q[k]<=fcw_occupied[k]==frozen_occupied[k] &&
++                            fcw_sources[4*k+:4]==frozen_sources[4*k+:4] &&
++                            fcw_channels[4*k+:4]==frozen_channels[4*k+:4] &&
++                            fcw_generations[32*k+:32]==frozen_generations[32*k+:32];
++                        computed_fcw[32*k+:32]<=frozen_occupied[k] ? fcw_values[32*k+:32] : frozen_base[32*k+:32];
++                    end
++                    request_guard_q<=fcw_id==pending_req_id;
++                    sample_authorized_q<=0;phase<=VERIFY;
++                end
++                VERIFY:begin
++                    // Second stage: short reduction, not a live 164-bit
++                    // comparator driving every envelope arithmetic input.
++                    sample_authorized_q<=request_guard_q && (&live_guard_q) && (&math_guard_q);
++                    phase<=(request_guard_q && (&live_guard_q) && (&math_guard_q)) ? ADVANCE : DRAIN;
++                end
++                ADVANCE:begin sample_authorized_q<=0;delay_count<=4;phase<=SNAPSHOT;end

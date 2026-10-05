@@ -1,0 +1,306 @@
+{
+  "date": "2026-10-05",
+  "task": "user-authorized single joint parser+audio pipeline screen",
+  "level": "L2/L3 behavior passed and L4 synth completed; PnR/STA incomplete",
+  "decision": "NOT_ADOPTED; original baseline retained",
+  "target_Setup_ns": 0.5,
+  "new_actual_Setup_ns": null,
+  "new_actual_Hold_ns": null,
+  "new_actual_Fmax_MHz": null,
+  "effective_PnR_runs": 1,
+  "bounded_elapsed_seconds": 1800.53,
+  "actual_timeout_seconds": 1800,
+  "tool_task_tree_stop_failed": "Access denied, original log preserved",
+  "own_vendor_PID22576_terminated": true,
+  "known_vendor_processes_after_stop": "gw_sh/GowinSynthesis/gw_pnr none observed",
+  "candidate_source_manifest": {
+    "date": "2026-10-05",
+    "purpose": "new explicitly user-authorized joint pipeline screening; previous separate candidates remain rejected",
+    "added_parser_preparation_state_bits": 40,
+    "added_audio_authorization_state_bits": 10,
+    "parser_external_latency_unchanged": true,
+    "audio_additional_internal_cycles": 1,
+    "normal_previous_sample_deadline_max_cycles": 31,
+    "retirement_deferred_while_result_stalled": true,
+    "input_to_audio_to_PCM_joint_test_required": true,
+    "unchanged_features": "frozen V1/CC64/PitchMod/ADSRpipeline + strict visual; NOT latestT027/multi-panel/T028 formal integration",
+    "frozen_physical_base": "V0171 actual47inputs",
+    "candidate_sources": {
+      "midi_event_parser.sv": {
+        "read_from": "code\\tb\\common\\midi_prepared_candidate\\midi_event_parser.sv",
+        "sha256": "c57b1a9866365527369ee415a3d96ed1929124c8a4e38b0d998b1a3418f17cdb"
+      },
+      "polyphonic_event_router.sv": {
+        "read_from": "code\\tb\\board\\audio_control_boundary_candidate\\polyphonic_event_router.sv",
+        "sha256": "3235c0391c6ca85464b309c136fb98753deb78097342a0812c965e8b2620990f"
+      },
+      "polyphonic_envelope_bank.sv": {
+        "read_from": "code\\tb\\board\\audio_control_boundary_candidate\\polyphonic_envelope_bank.sv",
+        "sha256": "0160a0adfd14689e6ca6ad66cc3db6d806372f4d1538b51d2a7e37db7ef4ccff"
+      }
+    },
+    "physical_attempts": 1,
+    "physical_timeout_seconds": 1800,
+    "minimum_global_setup_ns": 0.5,
+    "desired_global_setup_ns": 1.0,
+    "minimum_setup_improvement_ns": 0.1,
+    "max_logic_delta": 256,
+    "max_register_delta": 512,
+    "DSP_BSRAM_delta_max": 0,
+    "all_domain_no_violations": true,
+    "hold_recovery_removal_not_worse": true,
+    "original_candidates_not_relabelled_accepted": true,
+    "public_or_formal_source_modified": false,
+    "request_latency_contract": {
+      "before_max_clks": 30,
+      "after_max_clks": 31,
+      "max_ALLOWED_clks": 64,
+      "min_available_frame_clks": 1041,
+      "extra_cancel_stage": "VERIFY9",
+      "source_retires_deferred_to_end_held_result": "queued not dropped"
+    }
+  },
+  "joint_functional_counts": {
+    "reset_cancelled_requests": 2,
+    "reset_epochs": 5,
+    "frame_edges": 2538,
+    "frame_requests": 2538,
+    "bank_captures": 2538,
+    "control_snapshots": 2538,
+    "fcw_results": 2537,
+    "dds_advances": 2536,
+    "pcm_commits": 2536,
+    "normal_pcm": 2534,
+    "uart_bytes": 106,
+    "normal_input_events": 35,
+    "accepted_events": 69,
+    "note_on_pulses": 15,
+    "nonzero_pcm": 2305,
+    "nonzero_control_lane_results": 3734,
+    "uart_completions_at_frame_edge": 2,
+    "fixture_input_events": 34,
+    "fixture_phase_pcm": 2,
+    "full_pop_push": 1,
+    "control_stall_cycles": 61,
+    "sample_edge_events": 6,
+    "center_bank_comparisons": 697,
+    "rtl_assertions": 7934085,
+    "identities": 8,
+    "scenarios": [
+      "accepted_only",
+      "center512",
+      "fifo_pressure",
+      "four_voices",
+      "held_controls",
+      "pedal_steal",
+      "pedal_tail_controls",
+      "program_transport",
+      "recovered",
+      "release_controls",
+      "release_retrigger",
+      "reset_compute",
+      "reset_partial",
+      "reset_pending",
+      "reset_verify",
+      "sample_edge",
+      "steal_old_off",
+      "velocity_zero"
+    ]
+  },
+  "accepted_commit_latency": {
+    "date": "2026-10-05",
+    "capture_sha": "f670ee3bd1bbf1ea1a4df3d92e2cea7b184bc51c51738c267845656184892098",
+    "measurement_start": "J accepted bank sample request edge",
+    "measurement_end": "M actual stereo successful buffer commit edge",
+    "capture_C_record": "FCW accept, not cancel; previous probe error fixed by checking actual TB",
+    "min_cycles": 31,
+    "max_cycles": 31,
+    "histogram": {
+      "31": 2536
+    },
+    "total_commits": 2536,
+    "normal_commits": 2534,
+    "fixture_commits": 2,
+    "reset_discarded_request_tokens": 2,
+    "analog_latency_not_measured": true,
+    "complete_joint_reference_already_passed": true
+  },
+  "synth_mapping_only": {
+    "baseline": {
+      "utilization_rows": [
+        [
+          "Resource",
+          "Usage",
+          "Utilization"
+        ],
+        [
+          "Logic",
+          "19333(14438 LUT, 4565 ALU, 55 RAM16) / 59904",
+          "33%"
+        ],
+        [
+          "Register",
+          "8674 / 60780",
+          "15%"
+        ],
+        [
+          "--Register as Latch",
+          "0 / 60780",
+          "0%"
+        ],
+        [
+          "--Register as FF",
+          "8674 / 60780",
+          "15%"
+        ],
+        [
+          "BSRAM",
+          "20 / 118",
+          "17%"
+        ]
+      ],
+      "estimated_Fmax_rows": [
+        [
+          "NO.",
+          "Clock Name",
+          "Constraint",
+          "Actual Fmax",
+          "Logic Level",
+          "Entity"
+        ],
+        [
+          "1",
+          "sys_clk",
+          "50.000(MHz)",
+          "48.138(MHz)",
+          "24",
+          "TOP"
+        ],
+        [
+          "2",
+          "u_visual/u_video_pll/PLLA_inst/CLKOUT0.default_gen_clk",
+          "125.000(MHz)",
+          "1217.655(MHz)",
+          "1",
+          "TOP"
+        ],
+        [
+          "3",
+          "u_visual/u_video_pll/PLLA_inst/CLKOUT1.default_gen_clk",
+          "25.000(MHz)",
+          "45.691(MHz)",
+          "30",
+          "TOP"
+        ]
+      ],
+      "PNR_STA_done": false
+    },
+    "joint": {
+      "utilization_rows": [
+        [
+          "Resource",
+          "Usage",
+          "Utilization"
+        ],
+        [
+          "Logic",
+          "19405(14494 LUT, 4581 ALU, 55 RAM16) / 59904",
+          "33%"
+        ],
+        [
+          "Register",
+          "8717 / 60780",
+          "15%"
+        ],
+        [
+          "--Register as Latch",
+          "0 / 60780",
+          "0%"
+        ],
+        [
+          "--Register as FF",
+          "8717 / 60780",
+          "15%"
+        ],
+        [
+          "BSRAM",
+          "20 / 118",
+          "17%"
+        ]
+      ],
+      "estimated_Fmax_rows": [
+        [
+          "NO.",
+          "Clock Name",
+          "Constraint",
+          "Actual Fmax",
+          "Logic Level",
+          "Entity"
+        ],
+        [
+          "1",
+          "sys_clk",
+          "50.000(MHz)",
+          "53.988(MHz)",
+          "22",
+          "TOP"
+        ],
+        [
+          "2",
+          "u_visual/u_video_pll/PLLA_inst/CLKOUT0.default_gen_clk",
+          "125.000(MHz)",
+          "1217.655(MHz)",
+          "1",
+          "TOP"
+        ],
+        [
+          "3",
+          "u_visual/u_video_pll/PLLA_inst/CLKOUT1.default_gen_clk",
+          "25.000(MHz)",
+          "44.863(MHz)",
+          "30",
+          "TOP"
+        ]
+      ],
+      "PNR_STA_done": false
+    }
+  },
+  "specific_tag_negative": {
+    "exit": 1,
+    "expected_success": false,
+    "log_sha": "4a4adfd52e19b1f21d62555f31e4fc8d241bdfc4f547ea4d04747093d12a6aba",
+    "specific_behavior_marker": "F wrong result tag offered"
+  },
+  "public_capture_negative_checks": [
+    {
+      "name": "positive",
+      "exit": 0,
+      "log_sha": "350e1da2285c4dc18ab6ae634fa7fa37cc5c3d68ccc0b485ffa59ae160b1b8fe"
+    },
+    {
+      "name": "empty",
+      "exit": 1,
+      "log_sha": "c2e840ad537ac808ff752575be7de2067cdfc73cb17c44675edeb70f607e73ba"
+    },
+    {
+      "name": "truncated",
+      "exit": 1,
+      "log_sha": "c2e840ad537ac808ff752575be7de2067cdfc73cb17c44675edeb70f607e73ba"
+    },
+    {
+      "name": "pcm_corrupt",
+      "exit": 1,
+      "log_sha": "19fcc78233e6b012b340a4fba450f1375bd260fc06d3e55f577dccaa43aed3b9"
+    }
+  ],
+  "positive_capture_sha": "f670ee3bd1bbf1ea1a4df3d92e2cea7b184bc51c51738c267845656184892098",
+  "new_vendor_STA_not_executed_to_completion": true,
+  "original_component_trials_still_rejected": true,
+  "original_frozen_scope_vs_latestfeatures_distinct": true,
+  "production_inputs_modified": false,
+  "hardware_programmed": false,
+  "old_failed_partial_records_preserved": true,
+  "raw_physical_assessment_sha": "d61b7fdbd2add38bf5090b765e51189838a87820b6c1a72e6ebd0f6c101f3dfd",
+  "raw_build_log_sha": "f0924e0dd513671220ac6bcf6a1ff548f05c04b0efb404d94408e89934e3dc33",
+  "notification_forwarded": false
+}
