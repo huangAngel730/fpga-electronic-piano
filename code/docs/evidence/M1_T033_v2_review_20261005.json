@@ -1,0 +1,232 @@
+{
+  "date": "2026-10-05",
+  "archive_identity": {
+    "date": "2026-10-05",
+    "archive_sha": "de7763fcb18b0b5a67d7f337d8919a455598733b49ae374be3cc33c8e7511c52",
+    "package": "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M1_T033_v2_review_20261005\\receipt\\M1_T033_架构评估_20261004",
+    "excluded_cache": true
+  },
+  "received_business_file_sha": {
+    "code/model/t033_architecture_budget.py": "c7d6c1ded59abec671e0344370a769e0c001ae5be98e7bc8e7e5c3a191d16128",
+    "code/model/test_t033_architecture_budget.py": "022a6776c2ce7ce29c5bbf3fce847061a0029a691485194576365039df591369",
+    "code/docs/test/T033_架构评估报告.md": "8ef585edaafd2cc150c3118e359f6cc4f283e5e75a30c3c6da62ea7338ec2d82"
+  },
+  "model_selftest_exit": 0,
+  "model_selftest_count": 7,
+  "budget_entry_exit": 0,
+  "manifest_new_digest_values": [
+    "待SHA计算",
+    "待SHA计算",
+    "待SHA计算"
+  ],
+  "manifest_digests_not_valid_hex": true,
+  "report_cache_excluded": true,
+  "independent_checks": {
+    "test_execution": "original7 passed; independent probes reveal missing contract checks",
+    "original_sources_unchanged": true,
+    "deadline_probes": [
+      {
+        "II": 1,
+        "latency": 1032,
+        "current_accept": true,
+        "reported_margin": 1030,
+        "must_also_check_output_completion_within1031": false,
+        "wrong_accept": true
+      },
+      {
+        "II": 1031,
+        "latency": 1036,
+        "current_accept": true,
+        "reported_margin": 0,
+        "must_also_check_output_completion_within1031": false,
+        "wrong_accept": true
+      },
+      {
+        "II": 1032,
+        "latency": 1042,
+        "current_accept": false,
+        "reported_margin": -1,
+        "must_also_check_output_completion_within1031": false,
+        "wrong_accept": false
+      },
+      {
+        "II": 8,
+        "latency": 12,
+        "current_accept": true,
+        "reported_margin": 1023,
+        "must_also_check_output_completion_within1031": true,
+        "wrong_accept": false
+      },
+      {
+        "II": 1,
+        "latency": 2000,
+        "current_accept": true,
+        "reported_margin": 1030,
+        "must_also_check_output_completion_within1031": false,
+        "wrong_accept": true
+      },
+      {
+        "II": 0,
+        "latency": 10,
+        "current_accept": true,
+        "reported_margin": 1031,
+        "must_also_check_output_completion_within1031": false,
+        "wrong_accept": true
+      },
+      {
+        "II": -1,
+        "latency": 10,
+        "current_accept": true,
+        "reported_margin": 1032,
+        "must_also_check_output_completion_within1031": false,
+        "wrong_accept": true
+      }
+    ],
+    "constructor_validation": [
+      {
+        "case": "parallel0",
+        "rejected": false,
+        "II": 1,
+        "FF": 198
+      },
+      {
+        "case": "parallel-1",
+        "rejected": false,
+        "II": 1,
+        "FF": 117
+      },
+      {
+        "case": "timeshare0",
+        "rejected": false,
+        "II": 3,
+        "FF": 290
+      },
+      {
+        "case": "hybrid8/0",
+        "rejected": true,
+        "exception": "ZeroDivisionError"
+      },
+      {
+        "case": "hybrid4/8",
+        "rejected": false,
+        "II": 4,
+        "FF": 1559
+      },
+      {
+        "case": "hybrid8/-1",
+        "rejected": false,
+        "II": -3,
+        "FF": 998
+      }
+    ],
+    "mixer_width": [
+      {
+        "N": 4,
+        "received_width": 26,
+        "math_minimum_signed_width": 26,
+        "project_frozen_minimum": 32,
+        "maximum_positive_sum": 33554428,
+        "fits_received_width": true
+      },
+      {
+        "N": 8,
+        "received_width": 26,
+        "math_minimum_signed_width": 27,
+        "project_frozen_minimum": 32,
+        "maximum_positive_sum": 67108856,
+        "fits_received_width": false
+      },
+      {
+        "N": 16,
+        "received_width": 26,
+        "math_minimum_signed_width": 28,
+        "project_frozen_minimum": 32,
+        "maximum_positive_sum": 134217712,
+        "fits_received_width": false
+      },
+      {
+        "N": 32,
+        "received_width": 26,
+        "math_minimum_signed_width": 29,
+        "project_frozen_minimum": 32,
+        "maximum_positive_sum": 268435424,
+        "fits_received_width": false
+      }
+    ],
+    "state_audit": {
+      "received_state_bits": 107,
+      "actual_current_ADSR_core_only_bits": 177,
+      "actual_current_ADSR_core_fields": {
+        "level_q16": 32,
+        "start_q16": 32,
+        "peak_q16": 32,
+        "sustain_q16": 32,
+        "step_q16": 33,
+        "elapsed": 13,
+        "state": 3
+      },
+      "real_Velocity_port_bits": 10,
+      "received_velocity_bits": 8,
+      "identity_fields_not_in_received": [
+        "source4",
+        "channel4",
+        "note7",
+        "generation32",
+        "occupied",
+        "key_down",
+        "deferred",
+        "release",
+        "LFO_phase32"
+      ],
+      "scope_note": "current-source state inventory only, not mandatory finalFF count; redesigned storage must prove same algorithm and pervoice state semantics"
+    },
+    "math_audit": {
+      "approved_sample_gain_rule": "(DDS_sample * envelope_q15) >> 15, then <<8",
+      "received_budget_rule": "(DDS_sample * velocity_gain * adsr_level) >>30",
+      "problem": "velocity already determines the envelope peak/current; extra multiplicative velocity stage changes approved math and resource assumptions",
+      "DSP2_is": "unvalidated proposal, not actual mapped hardware upper bound"
+    },
+    "ROM_memory_arithmetic": {
+      "32copies_1024x16_bits": 524288,
+      "bytes_binary": 65536,
+      "stated_capacity_KiB": 265.5,
+      "exceeds_stated_capacity": false,
+      "declared_parallel_BSRAM_KB": 2.0,
+      "ports": 32,
+      "declared_hybrid4_BSRAM_KB": 2.0,
+      "phase_and_full_state_storage_actual_blocks": "unknown"
+    },
+    "delivered_byte_hashes": {
+      "code/model/t033_architecture_budget.py": "c7d6c1ded59abec671e0344370a769e0c001ae5be98e7bc8e7e5c3a191d16128",
+      "code/model/test_t033_architecture_budget.py": "022a6776c2ce7ce29c5bbf3fce847061a0029a691485194576365039df591369",
+      "code/docs/test/T033_架构评估报告.md": "8ef585edaafd2cc150c3118e359f6cc4f283e5e75a30c3c6da62ea7338ec2d82"
+    },
+    "non_digest_manifest_entries": [
+      "code/model/t033_architecture_budget.py",
+      "code/model/test_t033_architecture_budget.py",
+      "code/docs/test/T033_架构评估报告.md"
+    ],
+    "actual_bad_latency_mutant": {
+      "description": "all outputs delayed by1e6 clocks without II change",
+      "test_exit": 1,
+      "tests_passed_despite_late_output": false,
+      "source_sha": "af6df61b58eb42fc8e1471e88c25a777663da78327bc06ef1c4400fb37457019",
+      "comment": "broad latency mutation was rejected by exact timeshared latency equality; preserved as a successfully caught variant, not falsely called untested"
+    },
+    "parallel_late_output_mutant": {
+      "description": "parallel output +1_000_000 cycles, II1 unchanged; deadline must fail",
+      "original_tests_exit": 0,
+      "seven_checks_still_pass": true,
+      "source_sha": "be4f887e799c3b6e8ac1f5611dfee16f22d2ad6ff2c9036a435215e1ff9e9c9a",
+      "log_sha": "e7f04d035e0315a09867b8c97d440439c0292e7b54bbb00736f530c3214aa04f"
+    },
+    "current_state_compare_is_lower_inventory_not_required_identical_architecture": true
+  },
+  "first_phase_complete": false,
+  "approved_architecture": null,
+  "approved_next_voice_scale": null,
+  "second_phase_RTL_authorized": false,
+  "source_unchanged": true,
+  "vendor_tools_run": 0,
+  "notifications_forwarded": false
+}
