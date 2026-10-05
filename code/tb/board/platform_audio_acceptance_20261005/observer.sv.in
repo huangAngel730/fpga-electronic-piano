@@ -1,0 +1,46 @@
+// Read-only subsystem observer. Values are sampled before the active NBA edge.
+// Does not drive DUT or replace the M1 arithmetic. Simulation core clock is
+// provided by the TB; PLL/HDMI/analog behavior is NOT tested here.
+integer observation_fd,observation_cycle=0,observation_epoch=0;
+integer observation_requests=0,observation_commits=0,observation_states=0;
+logic observation_was_reset=0;
+initial begin
+    observation_fd=$fopen("audio_observation.jsonl","w");
+    if(!observation_fd)$fatal(1,"cannot open read-only audio observation");
+    $fdisplay(observation_fd,"{\"tag\":\"META\",\"schema\":1,\"sys_hz\":@SYS_HZ@,\"sample_hz\":48000,\"physical_PLL_test\":false,\"analog_test\":false}");
+end
+always @(posedge clk) begin
+    observation_cycle++;
+    if(!rst_n)begin
+        if(!observation_was_reset)begin
+            observation_epoch++;
+            $fdisplay(observation_fd,"{\"tag\":\"RESET\",\"epoch\":%0d,\"cycle\":%0d}",observation_epoch,observation_cycle);
+        end
+        observation_was_reset=1;
+    end else begin
+        observation_was_reset=0;
+        if(dut.sample_req)begin
+            observation_requests++;
+            $fdisplay(observation_fd,"{\"tag\":\"REQUEST\",\"epoch\":%0d,\"cycle\":%0d,\"request_id\":%0d}",observation_epoch,observation_cycle,dut.sample_req_id);
+        end
+        if(dut.actual_commit)begin
+            observation_commits++;
+            $fdisplay(observation_fd,"{\"tag\":\"COMMIT\",\"epoch\":%0d,\"cycle\":%0d,\"request_id\":%0d,\"pcm_left\":%0d,\"pcm_right\":%0d}",observation_epoch,observation_cycle,dut.u_commit.pcm_req_id,$signed(dut.u_commit.pcm_left),$signed(dut.u_commit.pcm_right));
+        end
+    end
+end
+for(genvar observe_audio_lane=0;observe_audio_lane<4;observe_audio_lane++)begin:g_platform_observer
+    always @(posedge clk)begin
+        if(rst_n && (dut.u_bank.lane_tick || dut.u_bank.slot_note_on[observe_audio_lane] || dut.u_bank.slot_note_off[observe_audio_lane]))begin
+            observation_states++;
+            $fdisplay(observation_fd,"{\"tag\":\"STATE\",\"epoch\":%0d,\"cycle\":%0d,\"lane\":%0d,\"pending_request_id\":%0d,\"tick\":%0d,\"note_on\":%0d,\"note_off\":%0d,\"occupied\":%0d,\"source\":%0d,\"channel\":%0d,\"note\":%0d,\"generation\":%0d,\"velocity\":%0d,\"raw_state\":%0d,\"public_state\":%0d,\"level_q16\":\"%08h\",\"start_q16\":\"%08h\",\"peak_q16\":\"%08h\",\"sustain_q16\":\"%08h\",\"step_q16_twos33\":\"%09h\",\"elapsed\":%0d,\"phase_acc\":\"%08h\",\"dds_fcw\":\"%08h\",\"table\":%0d,\"envelope\":%0d}",
+            observation_epoch,observation_cycle,observe_audio_lane,dut.u_bank.pending_req_id,
+            dut.u_bank.lane_tick,dut.u_bank.slot_note_on[observe_audio_lane],dut.u_bank.slot_note_off[observe_audio_lane],dut.u_bank.slot_occupied[observe_audio_lane],
+            dut.u_bank.slot_sources[4*observe_audio_lane+:4],dut.u_bank.slot_channels[4*observe_audio_lane+:4],dut.u_bank.slot_notes[8*observe_audio_lane+:8],dut.u_bank.slot_generations[32*observe_audio_lane+:32],dut.u_bank.slot_velocity[10*observe_audio_lane+:10],
+            dut.u_bank.g_lane[observe_audio_lane].u_envelope.state,dut.u_bank.states[3*observe_audio_lane+:3],
+            dut.u_bank.g_lane[observe_audio_lane].u_envelope.level_q16,dut.u_bank.g_lane[observe_audio_lane].u_envelope.start_q16,dut.u_bank.g_lane[observe_audio_lane].u_envelope.peak_q16,dut.u_bank.g_lane[observe_audio_lane].u_envelope.sustain_q16,
+            dut.u_bank.g_lane[observe_audio_lane].u_envelope.step_q16,dut.u_bank.g_lane[observe_audio_lane].u_envelope.elapsed,dut.u_bank.g_lane[observe_audio_lane].g_piano.u_dds.phase_acc,dut.u_bank.dds_fcw[32*observe_audio_lane+:32],
+            dut.u_bank.g_lane[observe_audio_lane].g_piano.u_dds.active_table,dut.u_bank.envelopes[16*observe_audio_lane+:16]);
+        end
+    end
+end

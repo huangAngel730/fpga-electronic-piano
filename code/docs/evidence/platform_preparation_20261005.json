@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-05",
+  "scope": "M2 preparation only: explicit platform profiles, read-only subsystem capture and report gate",
+  "future_system_frequency_hz": 40000000,
+  "audio_sample_hz": 48000,
+  "video_pixel_hz": 25000000,
+  "video_serial_hz": 125000000,
+  "60k_demo_unchanged": true,
+  "M3_current_experiment_unchanged": true,
+  "Gowin_run_this_stage": false,
+  "new_PnR_or_STA_claim": false,
+  "source_reference": "H_pll_core40_route2 from existing M3 ZIP, all56 original input SHA checked",
+  "source_archive_sha256": "cdc196fef2635c8fc5b245d88a157e742a492c7bed89cb3ca1ce50517476e994",
+  "testbench_frequency_hz": 40000000,
+  "physical_PLL_TMDS_or_analog_test": false,
+  "subsystem_simulation": {
+    "passed": true,
+    "PCM_commits": 2487,
+    "normal_PCM_frames": 2485,
+    "nonzero_PCM_frames": 2302,
+    "nonzero_control_lane_results": 3735,
+    "UART_bytes": 103,
+    "identities": 8,
+    "scenarios": 17,
+    "assertions": 6228000,
+    "center_reference_comparisons": 697,
+    "logical_requests": 2488,
+    "reset_cancelled_requests": 1,
+    "voice_observation_records": 9964,
+    "internal_request_to_commit_histogram_clks": {"30": 2485, "31": 1, "32": 1},
+    "internal_latency_not_analog": true,
+    "independent_ADSR_reference_pending_M1": true,
+    "raw_F_capture_sha256": "bd0035de464cb8c757c7e29a132073181e9e8179aa8303ab1ec110c6990042d6",
+    "JSON_observation_sha256": "d17cf87952ac0c663e681e0b47051e9412af4a2979fb509aaa5d7114d5b32cc5"
+  },
+  "observation_transport_check": {
+    "positive_and_negative_cases": 11,
+    "passed": true,
+    "every_PCM_commit_matches_raw_F_capture": true,
+    "negative_cases": ["empty", "truncated", "wrong_system_frequency", "wrong_request_id", "PCM_1LSB_error", "wrong_velocity_width", "unknown_Q16", "wrong_END_counts", "duplicate_REQUEST", "duplicate_COMMIT"]
+  },
+  "profile_report_gate": {
+    "checks": 19,
+    "passed": true,
+    "actual_C50_source_preflight": "PASS",
+    "actual_60K50_source_preflight": "PASS",
+    "actual_H40_report": "FAIL retained: one negative-zero Hold endpoint",
+    "guard065_profile": "provisional exact contract, I/L original evidence pending; not signed off",
+    "no_actual_report_edited": true,
+    "source_manifest_and_actual_PLL_parameters_checked": true
+  },
+  "failed_history_retained": [
+    "first capture Icarus declaration-after-use compile failure; fixed test-only observer order",
+    "50MHz original fixed BCLK path initially falsely required40MHz formula; separate source checks corrected",
+    "60K VCCX initially2.5 guess rejected by actualdevice.cfg; catalog corrected to3.3 without changing hardware"
+  ],
+  "M1_supplement": {
+    "filename": "M1_40MHz实际样本捕获补充包_20261005.zip",
+    "bytes": 526003,
+    "members": 16,
+    "sha256": "65a05c853f212e3e45ce799c4d60320fdd0dfe39414b2be9115cceaa9a7b1eae",
+    "all_CRC_member_SHA_verified": true,
+    "delivery": "待用户转发，尚未送达"
+  },
+  "production_top_package_constraints_parser_or_audio_modified": false,
+  "board_download_allowed": false,
+  "new_board_L6": false,
+  "original_evidence_directory": "code/output/platform_preparation_20261005"
+}
