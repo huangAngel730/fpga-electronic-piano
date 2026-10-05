@@ -1,0 +1,783 @@
+{
+  "date": "2026-10-05",
+  "scope": "read_onlyroutingreview_plus_isolated3stage snapshotselector",
+  "root_GitHEAD": "dc6bc26",
+  "detailed_routing_report_review": {
+    "frozen_base": {
+      "report_SHA": "9fa87d0528de96e7ecc6dd4d015fcf15f8d0ba5c0006850604f99e3dab6f4271",
+      "highest_reported_fanout_nets": [
+        [
+          "7372",
+          "sys_clk_d",
+          "0.017",
+          "3.675"
+        ],
+        [
+          "4960",
+          "rst_sync_n",
+          "1.953",
+          "3.589"
+        ],
+        [
+          "1408",
+          "u_visual/pixel_clk",
+          "13.314",
+          "2.109"
+        ],
+        [
+          "1339",
+          "u_visual/video_reset_done",
+          "15.431",
+          "2.568"
+        ],
+        [
+          "685",
+          "u_visual/video_desync_Z",
+          "30.981",
+          "5.739"
+        ],
+        [
+          "613",
+          "u_performance_event_fifo/rd_ptr[0]",
+          "4.048",
+          "3.290"
+        ],
+        [
+          "478",
+          "u_visual/u_scene/n11968_5",
+          "13.822",
+          "4.217"
+        ],
+        [
+          "441",
+          "g_polyphonic.u_audio_core/u_bank/lane_tick",
+          "2.330",
+          "3.080"
+        ],
+        [
+          "376",
+          "u_visual/u_event_bridge/rd_ptr[0]",
+          "8.707",
+          "3.784"
+        ],
+        [
+          "316",
+          "g_polyphonic.u_audio_core/u_bank/frozen_base_127_5",
+          "2.243",
+          "5.949"
+        ]
+      ],
+      "reported_congestion_hotspots": [
+        [
+          "R2C75",
+          "100.00%"
+        ],
+        [
+          "R2C76",
+          "100.00%"
+        ],
+        [
+          "R2C80",
+          "100.00%"
+        ],
+        [
+          "R2C88",
+          "100.00%"
+        ],
+        [
+          "R2C104",
+          "100.00%"
+        ],
+        [
+          "R2C136",
+          "100.00%"
+        ],
+        [
+          "R3C128",
+          "100.00%"
+        ],
+        [
+          "R5C112",
+          "100.00%"
+        ],
+        [
+          "R9C80",
+          "100.00%"
+        ],
+        [
+          "R17C88",
+          "100.00%"
+        ]
+      ],
+      "local_max_percent": 100.0,
+      "global_wire_utilization_unknown": true,
+      "report_is_top_subset_not_all_grid": true,
+      "actual_constraints_clock_table": [
+        [
+          "1",
+          "sys_clk",
+          "Base",
+          "20.000",
+          "50.000",
+          "0.000",
+          "10.000",
+          "",
+          "",
+          "sys_clk"
+        ],
+        [
+          "2",
+          "video_serial",
+          "Generated",
+          "8.000",
+          "125.000",
+          "0.000",
+          "4.000",
+          "sys_clk",
+          "sys_clk",
+          "u_visual/u_video_pll/PLLA_inst/CLKOUT0"
+        ],
+        [
+          "3",
+          "video_pixel",
+          "Generated",
+          "40.000",
+          "25.000",
+          "0.000",
+          "20.000",
+          "sys_clk",
+          "sys_clk",
+          "u_visual/u_video_pll/PLLA_inst/CLKOUT1"
+        ]
+      ],
+      "place_and_route_cmd": "-d D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M3_parser_de68038_review_20261003\\physical_parser_only\\impl\\gwsynthesis\\audio_visual_coexistence_top.vg\n-p GW5AT-60B-PBGA484A-1\n-pn GW5AT-LV60PG484AC1/I0\n-cst D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\frozen_common_inputs\\audio_visual.cst\n-cfg D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\M3_parser_de68038_review_20261003\\physical_parser_only\\impl\\pnr\\device.cfg\n-sdc D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\hold_guardband_20261003\\C_hold055\\audio_visual_hold055.sdc\n-bit\n-tr\n-ph\n-timing\n-cst_error\n-convert_sdp32_36_to_sdp16_18\n-place_option 0\n-route_option 0\n-clock_route_order 0\n-correct_hold 1\n-route_maxfan 23\n-global_freq 100.000\n",
+      "hold_correction_flag": true,
+      "maxfan_setting": "23"
+    },
+    "audio_only": {
+      "report_SHA": "e60ee5ccddf25971606a6954c7cc199451ad7e8e9149a6cf183c0f9390efc342",
+      "highest_reported_fanout_nets": [
+        [
+          "7381",
+          "sys_clk_d",
+          "0.011",
+          "3.675"
+        ],
+        [
+          "4955",
+          "rst_sync_n",
+          "0.841",
+          "3.583"
+        ],
+        [
+          "1408",
+          "u_visual/pixel_clk",
+          "14.183",
+          "2.109"
+        ],
+        [
+          "1337",
+          "u_visual/video_reset_done",
+          "14.775",
+          "3.521"
+        ],
+        [
+          "613",
+          "u_performance_event_fifo/rd_ptr[0]",
+          "0.917",
+          "3.730"
+        ],
+        [
+          "544",
+          "u_visual/video_desync_Z",
+          "29.225",
+          "6.566"
+        ],
+        [
+          "508",
+          "u_visual/n11968_3",
+          "14.775",
+          "3.834"
+        ],
+        [
+          "376",
+          "u_visual/u_event_bridge/rd_ptr[0]",
+          "10.639",
+          "4.692"
+        ],
+        [
+          "320",
+          "g_polyphonic.u_audio_core/u_bank/frozen_base_127_5",
+          "2.235",
+          "5.322"
+        ],
+        [
+          "314",
+          "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/n3921_4",
+          "4.482",
+          "4.374"
+        ]
+      ],
+      "reported_congestion_hotspots": [
+        [
+          "R2C75",
+          "100.00%"
+        ],
+        [
+          "R2C76",
+          "100.00%"
+        ],
+        [
+          "R2C80",
+          "100.00%"
+        ],
+        [
+          "R2C88",
+          "100.00%"
+        ],
+        [
+          "R2C104",
+          "100.00%"
+        ],
+        [
+          "R2C136",
+          "100.00%"
+        ],
+        [
+          "R3C128",
+          "100.00%"
+        ],
+        [
+          "R5C112",
+          "100.00%"
+        ],
+        [
+          "R9C80",
+          "100.00%"
+        ],
+        [
+          "R17C88",
+          "100.00%"
+        ]
+      ],
+      "local_max_percent": 100.0,
+      "global_wire_utilization_unknown": true,
+      "report_is_top_subset_not_all_grid": true,
+      "actual_constraints_clock_table": [
+        [
+          "1",
+          "sys_clk",
+          "Base",
+          "20.000",
+          "50.000",
+          "0.000",
+          "10.000",
+          "",
+          "",
+          "sys_clk"
+        ],
+        [
+          "2",
+          "video_serial",
+          "Generated",
+          "8.000",
+          "125.000",
+          "0.000",
+          "4.000",
+          "sys_clk",
+          "sys_clk",
+          "u_visual/u_video_pll/PLLA_inst/CLKOUT0"
+        ],
+        [
+          "3",
+          "video_pixel",
+          "Generated",
+          "40.000",
+          "25.000",
+          "0.000",
+          "20.000",
+          "sys_clk",
+          "sys_clk",
+          "u_visual/u_video_pll/PLLA_inst/CLKOUT1"
+        ]
+      ],
+      "place_and_route_cmd": "-d D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\audio_control_boundary_20261004\\physical_valid1\\impl\\gwsynthesis\\audio_visual_coexistence_top.vg\n-p GW5AT-60B-PBGA484A-1\n-pn GW5AT-LV60PG484AC1/I0\n-cst D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\frozen_common_inputs\\audio_visual.cst\n-cfg D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\audio_control_boundary_20261004\\physical_valid1\\impl\\pnr\\device.cfg\n-sdc D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\hold_guardband_20261003\\C_hold055\\audio_visual_hold055.sdc\n-bit\n-tr\n-ph\n-timing\n-cst_error\n-convert_sdp32_36_to_sdp16_18\n-place_option 0\n-route_option 0\n-clock_route_order 0\n-correct_hold 1\n-route_maxfan 23\n-global_freq 100.000\n",
+      "hold_correction_flag": true,
+      "maxfan_setting": "23"
+    },
+    "parser_only": {
+      "report_SHA": "bf05e2ba003b373a68d0b1cbc86764c6e64f1fa6c5ea1da4b7ce5920b51f4ddd",
+      "highest_reported_fanout_nets": [
+        [
+          "7405",
+          "sys_clk_d",
+          "0.001",
+          "3.675"
+        ],
+        [
+          "4972",
+          "rst_sync_n",
+          "0.843",
+          "3.410"
+        ],
+        [
+          "1408",
+          "u_visual/pixel_clk",
+          "13.563",
+          "2.109"
+        ],
+        [
+          "1337",
+          "u_visual/video_reset_done",
+          "17.626",
+          "2.471"
+        ],
+        [
+          "653",
+          "u_visual/video_desync_Z",
+          "30.747",
+          "6.509"
+        ],
+        [
+          "613",
+          "u_performance_event_fifo/rd_ptr[0]",
+          "4.454",
+          "4.575"
+        ],
+        [
+          "473",
+          "u_visual/u_scene/n11968_5",
+          "17.626",
+          "3.196"
+        ],
+        [
+          "436",
+          "g_polyphonic.u_audio_core/u_bank/lane_tick",
+          "0.001",
+          "3.245"
+        ],
+        [
+          "376",
+          "u_visual/u_event_bridge/rd_ptr[0]",
+          "10.716",
+          "4.214"
+        ],
+        [
+          "319",
+          "g_polyphonic.u_audio_core/u_bank/frozen_base_127_5",
+          "0.914",
+          "4.905"
+        ]
+      ],
+      "reported_congestion_hotspots": [
+        [
+          "R2C75",
+          "100.00%"
+        ],
+        [
+          "R2C78",
+          "100.00%"
+        ],
+        [
+          "R2C79",
+          "100.00%"
+        ],
+        [
+          "R2C87",
+          "100.00%"
+        ],
+        [
+          "R2C103",
+          "100.00%"
+        ],
+        [
+          "R2C135",
+          "100.00%"
+        ],
+        [
+          "R3C127",
+          "100.00%"
+        ],
+        [
+          "R5C111",
+          "100.00%"
+        ],
+        [
+          "R9C79",
+          "100.00%"
+        ],
+        [
+          "R17C84",
+          "100.00%"
+        ]
+      ],
+      "local_max_percent": 100.0,
+      "global_wire_utilization_unknown": true,
+      "report_is_top_subset_not_all_grid": true,
+      "actual_constraints_clock_table": [
+        [
+          "1",
+          "sys_clk",
+          "Base",
+          "20.000",
+          "50.000",
+          "0.000",
+          "10.000",
+          "",
+          "",
+          "sys_clk"
+        ],
+        [
+          "2",
+          "video_serial",
+          "Generated",
+          "8.000",
+          "125.000",
+          "0.000",
+          "4.000",
+          "sys_clk",
+          "sys_clk",
+          "u_visual/u_video_pll/PLLA_inst/CLKOUT0"
+        ],
+        [
+          "3",
+          "video_pixel",
+          "Generated",
+          "40.000",
+          "25.000",
+          "0.000",
+          "20.000",
+          "sys_clk",
+          "sys_clk",
+          "u_visual/u_video_pll/PLLA_inst/CLKOUT1"
+        ]
+      ],
+      "place_and_route_cmd": "-d D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\midi_prepared_candidate_20261004\\physical1\\impl\\gwsynthesis\\audio_visual_coexistence_top.vg\n-p GW5AT-60B-PBGA484A-1\n-pn GW5AT-LV60PG484AC1/I0\n-cst D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\button_counter_tail_select_20261003\\frozen_common_inputs\\audio_visual.cst\n-cfg D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\midi_prepared_candidate_20261004\\physical1\\impl\\pnr\\device.cfg\n-sdc D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\hold_guardband_20261003\\C_hold055\\audio_visual_hold055.sdc\n-bit\n-tr\n-ph\n-timing\n-cst_error\n-convert_sdp32_36_to_sdp16_18\n-place_option 0\n-route_option 0\n-clock_route_order 0\n-correct_hold 1\n-route_maxfan 23\n-global_freq 100.000\n",
+      "hold_correction_flag": true,
+      "maxfan_setting": "23"
+    },
+    "timeout_combo": {
+      "log_sha": "f0924e0dd513671220ac6bcf6a1ff548f05c04b0efb404d94408e89934e3dc33",
+      "last_phase": "Routing Phase1",
+      "routing_failure_report_available": false,
+      "timeout_is_not_routability_failure_proof": true,
+      "completion_STA_missing": true,
+      "settings_same_prior_completed_base": true,
+      "same_driver_target_and_constraints": true,
+      "absolute_cause": "not identifiable from phase marker alone",
+      "plausible_factors_not_proven": [
+        "localized route congestion",
+        "highfanout controlnets",
+        "setup/hold routing tradeoff"
+      ],
+      "no_new_vendor_run": true
+    }
+  },
+  "functional_tests": {
+    "date": "2026-10-05",
+    "snapshot_cases": 18592,
+    "rr_origins": 32,
+    "latency": "E_to_E+2",
+    "minimum_II_cycles": 4,
+    "passed": true,
+    "source_sha": "c357766f848184e1e16244322d94e644584f9a56f4ff088b75201057fb1787cb",
+    "bench_sha": "4bae410a0864c24a7d21e533c77a742ffdd93b217b1a128ca69895747b67c033",
+    "vectors_sha": "968941c9225f0c75cdf848c342b5117750600d6753ac1d3d786f31624316c397",
+    "runs": {
+      "compile": {
+        "exit": 0,
+        "expected_success": true,
+        "log_sha": "d547713964e7df418f13af61135cb2fe40195df7a229009f203369bf6c7c40f2",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_control_snapshot_selector",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\positive.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\control_arbiter_deep_pipeline\\control_snapshot_selector.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\control_arbiter_deep_pipeline\\tb_control_snapshot_selector.sv"
+        ]
+      },
+      "positive": {
+        "exit": 0,
+        "expected_success": true,
+        "log_sha": "1509c212d9a2d3389539c41ff7ffae185b768dc895082e2cb68385f51bbcf580",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\positive.vvp",
+          "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\vectors.txt"
+        ]
+      },
+      "wrong_wrap_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "log_sha": "224f87246f9449d116a061469696f8ff216f8a9f442a85793400734ae9c94dc6",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_control_snapshot_selector",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\wrong_wrap.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\wrong_wrap.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\control_arbiter_deep_pipeline\\tb_control_snapshot_selector.sv"
+        ]
+      },
+      "wrong_wrap_run": {
+        "exit": 1,
+        "expected_success": false,
+        "log_sha": "aa43cd53a52444fa7cf18f42e562190be3583f8e0b3e62abe0084bab74cc496e",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\wrong_wrap.vvp",
+          "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\vectors.txt"
+        ]
+      },
+      "wrong_second_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "log_sha": "f6a60f6413a2bf8cc21d0adb3d2c269fa2a22f1af0ad5a0561b098dbb61f84d0",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_control_snapshot_selector",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\wrong_second.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\wrong_second.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\control_arbiter_deep_pipeline\\tb_control_snapshot_selector.sv"
+        ]
+      },
+      "wrong_second_run": {
+        "exit": 1,
+        "expected_success": false,
+        "log_sha": "aa43cd53a52444fa7cf18f42e562190be3583f8e0b3e62abe0084bab74cc496e",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\wrong_second.vvp",
+          "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\vectors.txt"
+        ]
+      },
+      "broken_epoch_compile": {
+        "exit": 0,
+        "expected_success": true,
+        "log_sha": "c004b1ad81ff8fd10fcbc499b6841b560321a6fa4766a876e2d43cc97052a708",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+          "-g2012",
+          "-s",
+          "tb_control_snapshot_selector",
+          "-o",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\broken_epoch.vvp",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\broken_epoch.sv",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\tb\\common\\control_arbiter_deep_pipeline\\tb_control_snapshot_selector.sv"
+        ]
+      },
+      "broken_epoch_run": {
+        "exit": 1,
+        "expected_success": false,
+        "log_sha": "58b32ec844d98f4d7fd448ba515232ca1af0ea4ccfd17fdfaccc1863810691f2",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\broken_epoch.vvp",
+          "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\vectors.txt"
+        ]
+      },
+      "empty": {
+        "exit": 1,
+        "expected_success": false,
+        "log_sha": "97aa79cfef1d549693c05d8429d2b2a28c8e14d16f51e06ed8baf5edac64d8e5",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\positive.vvp",
+          "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\empty.txt"
+        ]
+      },
+      "short": {
+        "exit": 1,
+        "expected_success": false,
+        "log_sha": "e06ebcac5b35c5dd41c60e152bdafdc971752e712b237558c454894d6cb1b966",
+        "command": [
+          "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\positive.vvp",
+          "+VECTORS=D:\\17\\project_17\\fpga_gowin\\code\\output\\t009_zip2_review_20260930\\code\\output\\deep_pipeline_review_20261005\\selector_complete\\short.txt"
+        ]
+      }
+    },
+    "Gowin_or_STA": false,
+    "integrated_parser_equivalence_claimed": false,
+    "production_modified": false
+  },
+  "generic_structure": {
+    "date": "2026-10-05",
+    "generic_yosys_exit": 0,
+    "register_bits": 205,
+    "register_cells": [
+      {
+        "name": "$auto$ff.cc:337:slice$5495",
+        "type": "$adffe",
+        "bits": 8
+      },
+      {
+        "name": "$auto$ff.cc:337:slice$5500",
+        "type": "$adffe",
+        "bits": 1
+      },
+      {
+        "name": "$auto$ff.cc:337:slice$5503",
+        "type": "$adffe",
+        "bits": 1
+      },
+      {
+        "name": "$auto$ff.cc:337:slice$5506",
+        "type": "$adffe",
+        "bits": 5
+      },
+      {
+        "name": "$auto$ff.cc:337:slice$5509",
+        "type": "$adffe",
+        "bits": 5
+      },
+      {
+        "name": "$auto$ff.cc:337:slice$5512",
+        "type": "$adffe",
+        "bits": 32
+      },
+      {
+        "name": "$auto$ff.cc:337:slice$5517",
+        "type": "$adffe",
+        "bits": 32
+      },
+      {
+        "name": "$auto$ff.cc:337:slice$5522",
+        "type": "$adffe",
+        "bits": 2
+      },
+      {
+        "name": "$auto$ff.cc:337:slice$5529",
+        "type": "$adffe",
+        "bits": 32
+      },
+      {
+        "name": "$auto$ff.cc:337:slice$5539",
+        "type": "$adffe",
+        "bits": 8
+      },
+      {
+        "name": "$auto$ff.cc:337:slice$5544",
+        "type": "$adffe",
+        "bits": 8
+      },
+      {
+        "name": "$auto$ff.cc:337:slice$5549",
+        "type": "$adffe",
+        "bits": 8
+      },
+      {
+        "name": "$auto$ff.cc:337:slice$5554",
+        "type": "$adffe",
+        "bits": 8
+      },
+      {
+        "name": "$auto$ff.cc:337:slice$5559",
+        "type": "$adffe",
+        "bits": 8
+      },
+      {
+        "name": "$auto$ff.cc:337:slice$5564",
+        "type": "$adffe",
+        "bits": 8
+      },
+      {
+        "name": "$auto$ff.cc:337:slice$5569",
+        "type": "$adffe",
+        "bits": 8
+      },
+      {
+        "name": "$auto$ff.cc:337:slice$5574",
+        "type": "$adffe",
+        "bits": 31
+      }
+    ],
+    "latch_cells": [],
+    "knownstage_register_names": [
+      "$auto$ff.cc:337:slice$5495",
+      "$auto$ff.cc:337:slice$5500",
+      "$auto$ff.cc:337:slice$5503",
+      "$auto$ff.cc:337:slice$5506",
+      "$auto$ff.cc:337:slice$5509",
+      "$auto$ff.cc:337:slice$5512",
+      "$auto$ff.cc:337:slice$5517",
+      "$auto$ff.cc:337:slice$5522",
+      "$auto$ff.cc:337:slice$5529",
+      "$auto$ff.cc:337:slice$5539",
+      "$auto$ff.cc:337:slice$5544",
+      "$auto$ff.cc:337:slice$5549",
+      "$auto$ff.cc:337:slice$5554",
+      "$auto$ff.cc:337:slice$5559",
+      "$auto$ff.cc:337:slice$5564",
+      "$auto$ff.cc:337:slice$5569",
+      "$auto$ff.cc:337:slice$5574"
+    ],
+    "source_sha": "c357766f848184e1e16244322d94e644584f9a56f4ff088b75201057fb1787cb",
+    "vendor_Logic_DSP_RAM_Fmax_not_measured": true,
+    "notphysicalL4orL5": true
+  },
+  "integration_counterexamples": {
+    "date": "2026-10-05",
+    "cases": [
+      {
+        "case": "newearlierpending_during3stage",
+        "snapshot": [
+          3,
+          7
+        ],
+        "live_roundrobin": [
+          1,
+          7
+        ],
+        "naive_oldcandidate_send": 3,
+        "old_first_cancelled": true,
+        "required_action": "revalidate slotvalid and priority/update policy; do not send cancelled event"
+      },
+      {
+        "case": "same_slot_value_updates_while_selection_inflight",
+        "snapshot_value": 100,
+        "latest_value": 900,
+        "required_action": "fetch/lock latest at final eventfreeze with version or sameedge update precedence"
+      },
+      {
+        "case": "globalepoch_retry_everybyte",
+        "selection_attempts": 12,
+        "committed": 0,
+        "required_action": "no unboundedretry on anyglobalupdate; use percandidatevalidation/reservation/incremental repair with testedbound"
+      },
+      {
+        "case": "gate_existing_stalledFIFOhead",
+        "old_valid": true,
+        "ready": false,
+        "naive_pipelinebusy_gatedvalid": false,
+        "backpressure_stability_violated": true,
+        "required_action": "only reserve before a head becomes externally presented, or use a reviewed outputpresentation register with capacityaccounting"
+      },
+      {
+        "case": "servicebudget_vs_latency",
+        "selector_latency_clks": 2,
+        "request_initiation_min4": true,
+        "MIDI_serial_byte_period_at50MHz_clks": 16000,
+        "meaning": "typicalwire traffic has ample compute cycles, but synthetic legalbackpressure/sameedge/burst1/8/16 tests muststillpass",
+        "reservation_contract_not_implemented": true
+      }
+    ],
+    "newselector_correct_for_frozenmask_but_notdropinparser": true,
+    "originalinterfaces_modified": false
+  },
+  "no_new_Gowin_or_PnR": true,
+  "new_Setup_Hold_Fmax": null,
+  "applied_to_original_parser": false,
+  "audio_math_changed": false,
+  "hardware_download_allowed": false,
+  "M3_DVI_platform_parallel_scope_not_changed": true,
+  "snapshot_pipeline_is_notdropinready": true
+}
