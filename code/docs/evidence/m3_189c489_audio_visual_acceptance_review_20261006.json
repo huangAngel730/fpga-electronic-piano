@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-06",
+  "reviewer": "M2",
+  "reviewed_commit": "189c48926bc6a565bcc1af824863d8b4587def56",
+  "scope": "L2/limited L3 audio-video coexistence subsystem; no PLL/TMDS/hardware/STA/serial or board release",
+  "authorized_paths_only": true,
+  "added_file_count": 29,
+  "external_files_match_commit": {
+    "README.md": "523069e507b12b4875bf12475c72c27fdac42ce7601423ff6ce8f92c3d8ce50f",
+    "M2交接_待用户转发.md": "fb109806d568878a8c7c7c8aa0cabc0bb8a52331e9ff646eab9830d722164b25",
+    "source_manifest.json": "6175440318ec86d2c73a6db19fad001c476e0834b2b1ac94c813c7770f9ab4e2",
+    "receipt.json": "5b0658208e8661c7e765a0401af176c2cd48435e93e1aa89d6bae2a950072084"
+  },
+  "sealed_archive_sha256": "c4eeefac8c28e3ebc01475177601a65abfc0da6f314b1c80f94b223ee9fa5b50",
+  "sealed_input_count": 56,
+  "compiled_source_count": 41,
+  "simulation_source_count": 45,
+  "path_redirected_source_count": 9,
+  "byte_identical_simulation_source_count": 36,
+  "raw_base64_artifact_count": 16,
+  "raw_base64_sha_and_size_passed": true,
+  "results": {
+    "normal": {
+      "complete_video_frames": 6,
+      "pixel_comparisons": 2520000,
+      "line_hash_comparisons": 3150,
+      "audio_events": 6,
+      "video_events": 6,
+      "visual_drops": 0,
+      "pcm_comparisons": 4838,
+      "pcm_per_frame": [806, 806, 807, 806, 806, 807],
+      "underruns": 0,
+      "blocked_audio_events": 4
+    },
+    "overflow": {
+      "complete_video_frames": 6,
+      "pixel_comparisons": 2520000,
+      "line_hash_comparisons": 3150,
+      "audio_events": 36,
+      "video_events": 33,
+      "visual_drops": 3,
+      "pcm_comparisons": 4838,
+      "pcm_per_frame": [806, 806, 807, 806, 806, 807],
+      "underruns": 0,
+      "queue_peak_reported": 32,
+      "retained_capacity_with_mailbox": 33,
+      "blocked_audio_events": 36
+    }
+  },
+  "combined_totals": {
+    "video_frames": 12,
+    "pixel_comparisons": 5040000,
+    "line_hash_comparisons": 6300,
+    "pcm_comparisons": 9676
+  },
+  "behavior_mutants": {
+    "wrong_note": ["VIDEO_EVENT_MAPPING_OR_DUPLICATE", "aea990c000dc3f837446610f8f9b72d57ff1fed35c95a4d56ce7b90646139efc"],
+    "wrong_audio": ["AUDIO_ACCEPT_BACKPRESSURE", "8ea0dcc0c3c8f50fb2bb3fa38b124f3b67486debbf938a12c42948ffe4ed3201"]
+  },
+  "corrupted_capture_rejections": 19,
+  "independent_corruption_review_sha256": "fdf3e509a5f8d4151a3571cc818f3c9d2e652268c33692c6c7089babb62d4e01",
+  "original_repository_gate": {
+    "passed": true,
+    "files_sha_verified": 3686,
+    "log_sha256": "4589aaa5d3646adfc0eb8ecddecccc69108d7ae4c84da3b400f49eca836f41e8"
+  },
+  "latest_repository_gate": {
+    "passed": true,
+    "base_head": "03adb8508d031a34852ffd30f38ebb086c553d79",
+    "files_sha_verified": 3709,
+    "log_sha256": "12457ccbeb5fbc36d943eb6d02838fb91654b0b141ddea3557ffe311daf3124e"
+  },
+  "simulation_rerun_by_m2": false,
+  "gowin_rerun_by_m2": false,
+  "programmed": false,
+  "board_release_allowed": false,
+  "passed": true
+}
