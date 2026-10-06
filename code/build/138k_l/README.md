@@ -30,7 +30,7 @@ python -B -X utf8 code/scripts/prepare_138k_l_project.py --check
 code/build/138k_l/staged/audio_visual_coexistence_top.gprj
 ```
 
-本阶段只允许静态生成和检查。不要自动执行`run.tcl`；启动Gowin综合/PnR前应另行确认
+V0196阶段只允许静态生成和检查。不要自动执行`run.tcl`；启动Gowin综合/PnR前应另行确认
 板型B/C与底板电气、工具路径、输出目录和验收范围。不得把旧L报告写成此适配工程的新
 构建结果，也不得烧录。
 

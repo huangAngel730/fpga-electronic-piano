@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-06",
+  "task": "T056",
+  "runner_commit": "a0cb805",
+  "source_commit": "0bb5c66862dcbd9dc3894b055d9703e2b3cd0e76",
+  "source_archive_sha256": "c4eeefac8c28e3ebc01475177601a65abfc0da6f314b1c80f94b223ee9fa5b50",
+  "candidate": "L_locations_guard065",
+  "profile": "138k_c40_hold065",
+  "run_directory": "code/build/138k_l/runs/run_20261006_a0cb805_exact",
+  "attempt_count": 1,
+  "timeout_seconds": 1800,
+  "duration_seconds": 400.923,
+  "exit_code": 0,
+  "timed_out": false,
+  "programmed": false,
+  "assessment_passed": true,
+  "frozen_receipt_sha256": "d421c369965d016f4f7f8e9d8a5da8514c585d26f5ae1cc63f1b2a0f9a6f3c3a",
+  "project_sha256": "03c746832579d2f33351fc03357a7c911ee7fc10034523a10e5079896ca606e7",
+  "build_receipt_sha256": "b14e5bcb064ccd015f71c5f133bfa4300983aee8e39573af2384b284566ffb1a",
+  "build_log_sha256": "9835365812413c5d43fc80d41098a8a403ba4b2080111c940ea48e7842bcf1e8",
+  "assessment_sha256": "45f81913078b4ace6f1285c2358b682619e47d0384f492655b8920c2949444e0",
+  "slack_ns": {
+    "setup": 1.279,
+    "hold": 0.0,
+    "recovery": 0.706,
+    "removal": 0.331,
+    "minimum_pulse": 1.825
+  },
+  "fmax_mhz": {
+    "sys_clk": 42.157,
+    "video_pixel": 33.641,
+    "video_serial": 895.856
+  },
+  "resources": {
+    "logic": [18823, 138240],
+    "register": [8669, 139095],
+    "dsp": [46, 298],
+    "bsram": [20, 340]
+  },
+  "tns_and_violated_endpoints_zero": true,
+  "cdc_payload_paths": {
+    "u_event_bridge": 23,
+    "u_control/u_score_mailbox": 50
+  },
+  "fixed_locations": {
+    "u_visual/u_serial_reset/sync_chain_0_s0": "R44C168[1][A]",
+    "u_visual/u_serial_reset/sync_chain_1_s0": "R44C168[1][B]",
+    "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[2].u_control/base_s1_18_s0": "R83C99[1][B]",
+    "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[2].u_control/base_s2_18_s0": "R87C101[0][A]"
+  },
+  "artifact_sha256": {
+    "timing": "78054bd93fe2163d90e22f5674222069c3a0fb4fdfd82a39fcbd9b959f9e3863",
+    "usage": "4f19c9559ba4e9c68ca34ebb619ee34ee92a1e30872328616c526fe689a45043",
+    "pins": "ec9e8211568ca0a4a5aef79eaeb3d48e703505f37dd7fdb180c228da85627130",
+    "command": "d6af6054f8b1286d3f31ab7b290432d8b195420c511d777d225a1b40efae9c13",
+    "config": "79ba1b7ed107b7e76bd3e27dbc482c595c63451857ae30252a0207364397112c",
+    "bitstream": "598ec9bdf4fe20718f0f0a79a94cc6daed518103c1c4007ce2fec6231f2fff48"
+  },
+  "warning_set_matches_original_l": true,
+  "pr1014_retained": true,
+  "board_release_allowed": false
+}
