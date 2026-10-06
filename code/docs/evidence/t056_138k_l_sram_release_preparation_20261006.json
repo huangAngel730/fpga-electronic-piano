@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-06",
+  "task": "T056",
+  "stage": "SRAM-only release preparation",
+  "repository_head": "f52a0704508b09579043dd3940b24b0fbf93f1aa",
+  "device": "GW5AST-138C",
+  "part": "GW5AST-LV138PG484AC1/I0",
+  "programmer_version": "V1.9.12.02 build(2654)",
+  "programmer_operation_index": 2,
+  "release_directory": "code/output/t056_138k_l_sram_release_20261006",
+  "release_zip": "code/output/t056_138k_l_sram_release_20261006.zip",
+  "release_zip_bytes": 1811714,
+  "release_zip_sha256": "590185e419f27c6693b68790c6742cf5a8d0e932f34eb30175980a2c127516b9",
+  "manifest_sha256": "bda20d6afb39f26e95cdb37ba6de2b1014b2e626a942c3552cd620ecc0735817",
+  "bitstream_bytes": 36242859,
+  "bitstream_sha256": "598ec9bdf4fe20718f0f0a79a94cc6daed518103c1c4007ce2fec6231f2fff48",
+  "manifest_file_count": 14,
+  "release_directory_check_sha256": "424fc195588d97610e00d2fab7b99844012ff362d1b93d2c36a1b03b65c13734",
+  "independent_directory_check_sha256": "9c1389802c2b527c6f30a223a0af3b63bfee453b49347e7083176b0507d06f0e",
+  "zip_extract_check_sha256": "b47a215a6f4d92c40c458d3abe33b44ca4526d5ca6e96fe8298363235cda4b72",
+  "scripts": {
+    "check_138k_l_sram_release.py": "8bda0f38dce679b2e86b07b06bc569dc9b7c8674cc4a4d3eab8bd65bdefb2cf4",
+    "prepare_138k_l_sram_release.py": "edaa5bd7deac02d88d104da878a5829ca8a6632006e8f666e5223c9ac589ebc8",
+    "program_138k_l_sram.py": "82e8d5f943edfe7ff34fa5817542001b9d41cd3528597281b03b95f14469520e"
+  },
+  "checks": {
+    "source_directory_passed": true,
+    "independent_directory_passed": true,
+    "zip_extract_passed": true,
+    "overwrite_rejected": true,
+    "missing_confirmation_rejected_before_jtag": true,
+    "default_verify_only_no_cable_access": true
+  },
+  "recovery": "Power off for at least five seconds; SRAM is volatile and Flash remains unchanged.",
+  "programmed": false,
+  "jtag_scanned": false,
+  "flash_modified": false,
+  "board_release_allowed": false,
+  "pending": [
+    "M3 confirms Tang Mega 138K core board",
+    "M3 confirms Dock and external wiring unchanged",
+    "M3 confirms no new 5V signal or temporary wire",
+    "User explicitly authorizes SRAM-only programming"
+  ],
+  "passed": true
+}
