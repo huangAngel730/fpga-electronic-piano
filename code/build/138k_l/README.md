@@ -33,3 +33,28 @@ code/build/138k_l/staged/audio_visual_coexistence_top.gprj
 本阶段只允许静态生成和检查。不要自动执行`run.tcl`；启动Gowin综合/PnR前应另行确认
 板型B/C与底板电气、工具路径、输出目录和验收范围。不得把旧L报告写成此适配工程的新
 构建结果，也不得烧录。
+
+## 一次性完整构建与验收
+
+一次性构建入口要求目标目录尚不存在，超时上限固定为1800秒，不自动重试或覆盖旧结果：
+
+```powershell
+python -B -X utf8 code/scripts/run_138k_l_build_once.py `
+  --output code/build/138k_l/runs/run_20261006_01 `
+  --timeout-seconds 1800
+```
+
+入口只调用Gowin `run all`，产生综合、PnR、STA和码流文件；不会调用Programmer或烧录。
+完成后自动调用`check_138k_l_build.py`，该验收器先核对T056冻结收据和路径适配内容，
+再复用`check_platform_timing.review()`的完整时序、CDC、引脚、脉宽、器件、资源、SDC和
+PnR参数门禁。也可对已有且完整的运行目录只读复核：
+
+```powershell
+python -B -X utf8 code/scripts/check_138k_l_build.py `
+  code/build/138k_l/runs/run_20261006_01 `
+  --json code/build/138k_l/runs/run_20261006_01/assessment.json
+```
+
+`build_receipt.json`记录工具、命令、超时、退出码、日志SHA、冻结收据构建前后SHA和
+是否执行验收；`assessment.json`记录本次工程自己的新报告结果。即使生成`.fs`，也仍是
+未烧录候选，`programmed`固定为`false`。

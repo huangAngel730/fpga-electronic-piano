@@ -256,6 +256,12 @@ def check(output: Path) -> dict[str, object]:
         or receipt["programmed"] is not False
     ):
         raise ValueError("RECEIPT_CONTRACT")
+    if (
+        receipt["generated_project_sha256"] != sha256(project_path.read_bytes())
+        or receipt["generated_run_tcl_sha256"]
+        != sha256((output / "run.tcl").read_bytes())
+    ):
+        raise ValueError("RECEIPT_GENERATED_SHA")
     for relative, record in records.items():
         if receipt["inputs"][relative] != record:
             raise ValueError("RECEIPT_INPUT " + relative)
