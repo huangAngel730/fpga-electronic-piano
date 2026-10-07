@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-08",
+  "indexed39_payload_SHA_passed": true,
+  "frozen32_receipt_sources_passed": true,
+  "attached_original_steps_verified": [
+    {
+      "label": "bridge_compile",
+      "exit": 0,
+      "timed_out": false
+    },
+    {
+      "label": "java_compile",
+      "exit": 0,
+      "timed_out": false
+    },
+    {
+      "label": "bridge_check",
+      "exit": 0,
+      "timed_out": false
+    },
+    {
+      "label": "java_client",
+      "exit": 0,
+      "timed_out": false
+    },
+    {
+      "label": "crc_accept_compile",
+      "exit": 0,
+      "timed_out": false
+    },
+    {
+      "label": "crc_accept_full_run",
+      "exit": 0,
+      "timed_out": false
+    },
+    {
+      "label": "crc_accept_reject",
+      "exit": 1,
+      "timed_out": false
+    },
+    {
+      "label": "partial_uart_compile",
+      "exit": 0,
+      "timed_out": false
+    },
+    {
+      "label": "partial_uart_full_run",
+      "exit": 0,
+      "timed_out": false
+    },
+    {
+      "label": "partial_uart_reject",
+      "exit": 1,
+      "timed_out": false
+    }
+  ],
+  "steps_without_original_logs_in_package": [
+    "gcc_version",
+    "java_version",
+    "javac_version",
+    "bridge_capture",
+    "bad_empty",
+    "bad_truncated",
+    "bad_garbage",
+    "bad_count",
+    "bad_reference"
+  ],
+  "UART_host_original_compile_exit": 0,
+  "UART_host_original_run_exit": 1,
+  "UART_frame_reference_hex": "a55a01800100000000000c0004000000000000000000000029ea",
+  "UART_read_before_mutex_and_n_not_invalidated": true,
+  "UART_local_stale_bytes_issue_not_claim_app_ACK_advance": true,
+  "scan_original_second_duration_ms": 5000,
+  "scan_intended_second_duration_ms": 10000,
+  "log_UTF16_units": 2097152,
+  "log_UTF8_bytes": 6291456,
+  "declared_log_cap_bytes": 4194304,
+  "scan_log_reproductions_are_logic_arithmetic_notAndroid_runtime": true,
+  "historical_scopes": {
+    "cafdaa9": {
+      "changed_files": 78,
+      "matches_scope_audit": true
+    },
+    "1c5ac58": {
+      "changed_files": 54,
+      "matches_scope_audit": true
+    },
+    "f5ce40a": {
+      "changed_files": 111,
+      "matches_scope_audit": true
+    },
+    "d49152c": {
+      "changed_files": 147,
+      "matches_scope_audit": true
+    }
+  },
+  "SDK_inventory_not_attached_not_verified": true,
+  "firmware_APK_not_built": true,
+  "new_M2_C_Java_or_target_execution": false,
+  "business_or_evidence_modified": false,
+  "current_repository_gate": {
+    "date": "2026-10-08",
+    "passed": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 260.575,
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-ExecutionPolicy",
+      "Bypass",
+      "-File",
+      "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\scripts\\check_repo.ps1"
+    ],
+    "stdout_sha256": "fba583962b409c620a6c98a6d0cecc00c41a7c6178b8d02487234744b894127c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "nine_PASS_count": 9,
+    "three_findings_NOT_fixed": true,
+    "not_target_compile_or_device_test": true
+  },
+  "authorization_only_NOT_functional_repair": true
+}
