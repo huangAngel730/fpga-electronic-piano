@@ -1,0 +1,806 @@
+{
+  "date": "2026-10-07",
+  "task": "T057",
+  "reviewed_commit": "dc217aee794d90660513bdaa86255bc613de4f07",
+  "identity": {
+    "zip_sha256": "29f0da2bb910fe4856d8d9ff4db50a9b2edb1c239da92f47eb9ee07f133db6f9",
+    "zip_bytes": 544491,
+    "zip_files_byte_exact_with_worktree": 154,
+    "changed_files": 151,
+    "authorized_write_set_only": true,
+    "external_byte_exact": {
+      "DELIVERY.md": "5d30929b96681c849ba80f52731372b4d687326f41e1dba670a7a6117ffc0f99",
+      "M2_HANDOFF (1).md": "d10a1fb9da30958f7db75f848d4c8d22e8c91373894f65de9ba656452bbe01d5"
+    },
+    "decoded_artifact_counts": {
+      "run_f2bbq1wn": 3,
+      "run_j_v22g6p": 126
+    },
+    "hardware_touched": false
+  },
+  "source_sha256": {
+    "code/rtl/common/uart_rx.sv": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+    "code/rtl/common/uart_tx.sv": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+    "code/rtl/input/score_transfer_candidate/score_transfer_candidate.sv": "551fc393621d2f4b014e0d19f8c5d47ce39b594f040d4ed273929805f63fc537",
+    "code/tb/input/score_transfer_candidate/tb_score_transfer.sv": "12723a3876e0ce162800f0ef44b13f080456a2aeeede76cb6d434af80adaaa12",
+    "code/software/score_transfer_v1/score_transfer.py": "8e2a065dcea4fef997da2b0fda7e16a314c65c436b654903ca388be407ddfc07",
+    "code/tb/input/score_transfer_candidate/vectors.py": "a7b824d29164e7cd61504fd18644f2069883766f5196516e14368b2cbd15ad53",
+    "code/tb/input/score_transfer_candidate/check_capture.py": "56364d615c203433d0c28f1d719894c5e34e64c97011549db9c6d32c2c1fd3b9",
+    "code/tb/input/score_transfer_candidate/test_software.py": "f32dd159e18da63b5dccee16a554487e89eb96b7e33cd24c653b58a23787be2d",
+    "code/tb/input/score_transfer_candidate/test_capture.py": "956a987113fef38934321ca2c7ebd9944aa313298221f1d55b094927ef39c2c2",
+    "code/tb/input/score_transfer_candidate/test_cli_failures.py": "7d50b8241cc163506fca98838bfbe8259db9c9ed8cf0efb3138fa57dbe1c3606",
+    "code/scripts/run_m3_score_transfer_acceptance.py": "251bc6949157f9183fb08fe3e8efcb11ae5c88c8bb75dfa527ddd7b3fe49ce66",
+    "code/docs/hardware/score_transfer_v1/PROTOCOL.md": "431b5cd7ae678c97bcb0be720a775b51a031f096161a0dbef36bdeea5f41f15b"
+  },
+  "original_receipt_sha256": "ae6214e0dfe2237644f26ed5a746bde308ad7f6ec144b10d61d779403b86a089",
+  "latest_gate_receipt_sha256": "f0f6ef707971b726e4bcf697957a1d4c352ac96a41a2b4d081bd2262fd8be2be",
+  "normal_capture_sha256": "c6ed14c912ebd40db72e3ffe04691deb1006fab77ef538ac0050ec5db1c7ce28",
+  "offset_mutant_capture_sha256": "66e0648596f53c202457488914a44f6172343278f3753537a4f1552d2c2c100c",
+  "crc_mutant_capture_sha256": "ed65f19b7bc0802bac7e92081fee17829448042ed2e0d808ca8cf4696b2dc793",
+  "original_coverage": {
+    "cases": 685,
+    "packets": 666,
+    "serial_event_compares": 540,
+    "public_event_compares": 1206,
+    "negative_transactions": 32,
+    "successful_commit_acks": 5,
+    "capture_sha256": "c6ed14c912ebd40db72e3ffe04691deb1006fab77ef538ac0050ec5db1c7ce28",
+    "physical_timeout_elapsed_cycles": [
+      199999650
+    ],
+    "hardware_verified": false
+  },
+  "original_commands": [
+    {
+      "label": "version",
+      "command": [
+        "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vsim.exe",
+        "-version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.078
+    },
+    {
+      "label": "software_tests",
+      "command": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\test_software.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.078
+    },
+    {
+      "label": "pc_cli_rejection",
+      "command": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\test_cli_failures.py",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\runs\\run_j_v22g6p\\cli_negative"
+      ],
+      "exit_code": 0,
+      "seconds": 0.407
+    },
+    {
+      "label": "pc_encode",
+      "command": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\score_transfer_v1\\score_transfer.py",
+        "encode",
+        "--score",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\runs\\run_j_v22g6p\\score16.json",
+        "--output",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\runs\\run_j_v22g6p\\pc_encoded"
+      ],
+      "exit_code": 0,
+      "seconds": 0.047
+    },
+    {
+      "label": "normal_vlib",
+      "command": [
+        "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vlib.exe",
+        "work"
+      ],
+      "exit_code": 0,
+      "seconds": 0.046
+    },
+    {
+      "label": "normal_compile",
+      "command": [
+        "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vlog.exe",
+        "-sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\uart_rx.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\uart_tx.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\input\\score_transfer_candidate\\score_transfer_candidate.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\tb_score_transfer.sv"
+      ],
+      "exit_code": 0,
+      "seconds": 0.094
+    },
+    {
+      "label": "normal_simulate",
+      "command": [
+        "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vsim.exe",
+        "-c",
+        "-wlf",
+        "simulation.wlf",
+        "work.tb_score_transfer",
+        "+PLAN=E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/tb/input/score_transfer_candidate/runs/run_j_v22g6p/plan.txt",
+        "+CAPTURE=E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/tb/input/score_transfer_candidate/runs/run_j_v22g6p/normal/capture.txt",
+        "-do",
+        "onerror {quit -code 2}; onbreak {quit -code 3}; run -all; quit -code 0"
+      ],
+      "exit_code": 0,
+      "seconds": 92.5
+    },
+    {
+      "label": "normal_check",
+      "command": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\check_capture.py",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\runs\\run_j_v22g6p\\normal\\capture.txt",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\runs\\run_j_v22g6p\\expected.json"
+      ],
+      "exit_code": 0,
+      "seconds": 0.078
+    },
+    {
+      "label": "offset_mutant_vlib",
+      "command": [
+        "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vlib.exe",
+        "work"
+      ],
+      "exit_code": 0,
+      "seconds": 0.047
+    },
+    {
+      "label": "offset_mutant_compile",
+      "command": [
+        "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vlog.exe",
+        "-sv",
+        "+define+MUTANT_OFFSET",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\uart_rx.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\uart_tx.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\input\\score_transfer_candidate\\score_transfer_candidate.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\tb_score_transfer.sv"
+      ],
+      "exit_code": 0,
+      "seconds": 0.078
+    },
+    {
+      "label": "offset_mutant_simulate",
+      "command": [
+        "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vsim.exe",
+        "-c",
+        "-wlf",
+        "simulation.wlf",
+        "work.tb_score_transfer",
+        "+PLAN=E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/tb/input/score_transfer_candidate/runs/run_j_v22g6p/plan.txt",
+        "+CAPTURE=E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/tb/input/score_transfer_candidate/runs/run_j_v22g6p/offset_mutant/capture.txt",
+        "-do",
+        "onerror {quit -code 2}; onbreak {quit -code 3}; run -all; quit -code 0"
+      ],
+      "exit_code": 0,
+      "seconds": 88.766
+    },
+    {
+      "label": "offset_mutant_check",
+      "command": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\check_capture.py",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\runs\\run_j_v22g6p\\offset_mutant\\capture.txt",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\runs\\run_j_v22g6p\\expected.json"
+      ],
+      "exit_code": 1,
+      "seconds": 0.062
+    },
+    {
+      "label": "crc_mutant_vlib",
+      "command": [
+        "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vlib.exe",
+        "work"
+      ],
+      "exit_code": 0,
+      "seconds": 0.063
+    },
+    {
+      "label": "crc_mutant_compile",
+      "command": [
+        "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vlog.exe",
+        "-sv",
+        "+define+MUTANT_SKIP_SCORE_CRC",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\uart_rx.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\uart_tx.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\input\\score_transfer_candidate\\score_transfer_candidate.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\tb_score_transfer.sv"
+      ],
+      "exit_code": 0,
+      "seconds": 0.078
+    },
+    {
+      "label": "crc_mutant_simulate",
+      "command": [
+        "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vsim.exe",
+        "-c",
+        "-wlf",
+        "simulation.wlf",
+        "work.tb_score_transfer",
+        "+PLAN=E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/tb/input/score_transfer_candidate/runs/run_j_v22g6p/plan.txt",
+        "+CAPTURE=E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/tb/input/score_transfer_candidate/runs/run_j_v22g6p/crc_mutant/capture.txt",
+        "-do",
+        "onerror {quit -code 2}; onbreak {quit -code 3}; run -all; quit -code 0"
+      ],
+      "exit_code": 0,
+      "seconds": 94.093
+    },
+    {
+      "label": "crc_mutant_check",
+      "command": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\check_capture.py",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\runs\\run_j_v22g6p\\crc_mutant\\capture.txt",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\runs\\run_j_v22g6p\\expected.json"
+      ],
+      "exit_code": 1,
+      "seconds": 0.047
+    },
+    {
+      "label": "pc_rtl_ack_replay",
+      "command": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\test_software.py",
+        "--rtl-capture",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\runs\\run_j_v22g6p\\normal\\capture.txt",
+        "--expected",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\runs\\run_j_v22g6p\\expected.json"
+      ],
+      "exit_code": 0,
+      "seconds": 0.094
+    },
+    {
+      "label": "capture_rejection",
+      "command": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\test_capture.py",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\runs\\run_j_v22g6p\\normal\\capture.txt",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\runs\\run_j_v22g6p\\expected.json",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\runs\\run_j_v22g6p\\checker_mutations"
+      ],
+      "exit_code": 0,
+      "seconds": 1.313
+    },
+    {
+      "label": "gate_init",
+      "command": [
+        "git",
+        "init",
+        "--quiet"
+      ],
+      "exit_code": 0,
+      "seconds": 0.078
+    },
+    {
+      "label": "gate_stage",
+      "command": [
+        "git",
+        "-c",
+        "core.longpaths=true",
+        "add",
+        "-A"
+      ],
+      "exit_code": 0,
+      "seconds": 7.875
+    },
+    {
+      "label": "check_repo",
+      "command": [
+        "powershell",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\runs\\run_j_v22g6p\\repo_gate_snapshot\\code\\scripts\\check_repo.ps1"
+      ],
+      "exit_code": 0,
+      "seconds": 130.0
+    }
+  ],
+  "original_behavior_mutants": {
+    "offset_mutant": {
+      "compiled": true,
+      "simulation_complete": true,
+      "checker_exit": 1,
+      "reason": "FAIL score1_public_read_all: public readback mismatch/zero/duplicates"
+    },
+    "crc_mutant": {
+      "compiled": true,
+      "simulation_complete": true,
+      "checker_exit": 1,
+      "reason": "FAIL bad_score_crc_commit: publication/error mismatch [['1', '2', '7', '3', '0']] vs [1, 17, 2, 2, 9]"
+    }
+  },
+  "original_gate": {
+    "base": "c85889c898f3ab64cf6aa374cc8affd7460ccdb7",
+    "files": 3740,
+    "status": "PASS",
+    "full_input_sha_map_available": true
+  },
+  "latest_gate": {
+    "base": "fd2b414eede5767f3c7e487c4355a4fb073a5547",
+    "files": 3873,
+    "status": "PASS",
+    "commands": [
+      {
+        "label": "gate_init",
+        "command": [
+          "git",
+          "init",
+          "--quiet"
+        ],
+        "exit_code": 0,
+        "seconds": 0.078
+      },
+      {
+        "label": "gate_stage",
+        "command": [
+          "git",
+          "-c",
+          "core.longpaths=true",
+          "add",
+          "-A"
+        ],
+        "exit_code": 0,
+        "seconds": 7.719
+      },
+      {
+        "label": "check_repo",
+        "command": [
+          "powershell",
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\runs\\run_f2bbq1wn\\repo_gate_snapshot\\code\\scripts\\check_repo.ps1"
+        ],
+        "exit_code": 0,
+        "seconds": 130.859
+      }
+    ],
+    "full_input_sha_map_available": false,
+    "full_input_sha_map_digest": "8e0fb14454cb7adad1153ca86687f5f468287c97fc748fa3d3244b2c3c1ac083",
+    "committed_files": 3878,
+    "added_after_gate": [
+      "code/docs/hardware/score_transfer_v1/FINAL_GATE.md",
+      "code/docs/hardware/score_transfer_v1/evidence/run_f2bbq1wn/raw_manifest.json",
+      "code/docs/hardware/score_transfer_v1/evidence/run_f2bbq1wn/receipt.json.b64",
+      "code/docs/hardware/score_transfer_v1/evidence/run_f2bbq1wn/check_repo.stdout.bin.b64",
+      "code/docs/hardware/score_transfer_v1/evidence/run_f2bbq1wn/check_repo.stderr.bin.b64"
+    ]
+  },
+  "independent_offline_execution": {
+    "date": "2026-10-07",
+    "reviewed_commit": "dc217aee794d90660513bdaa86255bc613de4f07",
+    "runs": {
+      "normal_capture": {
+        "exit_code": 0,
+        "expected_exit": 0,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\tb\\input\\score_transfer_candidate\\check_capture.py",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\restored\\run_j_v22g6p\\normal\\capture.txt",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\restored\\run_j_v22g6p\\expected.json"
+        ],
+        "stdout_sha256": "454df991f7d9a53f511ec59734b3b26cbd7d8f016e103f3ffef0ff218c46434e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "offset_mutant_capture": {
+        "exit_code": 1,
+        "expected_exit": 1,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\tb\\input\\score_transfer_candidate\\check_capture.py",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\restored\\run_j_v22g6p\\offset_mutant\\capture.txt",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\restored\\run_j_v22g6p\\expected.json"
+        ],
+        "stdout_sha256": "33dadaeb6efa8b8fdcaf9a83133111e47cafbaafdc723e7aab08a27814c1f743",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "crc_mutant_capture": {
+        "exit_code": 1,
+        "expected_exit": 1,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\tb\\input\\score_transfer_candidate\\check_capture.py",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\restored\\run_j_v22g6p\\crc_mutant\\capture.txt",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\restored\\run_j_v22g6p\\expected.json"
+        ],
+        "stdout_sha256": "f237d9d6e96ae1521d57ca09da056d79ea8144c758f13bbf847be7627fda2b52",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "software_tests": {
+        "exit_code": 0,
+        "expected_exit": 0,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\tb\\input\\score_transfer_candidate\\test_software.py"
+        ],
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "9fffdea0efcd3158e0ccb98821834c20fd1bae324487987a4e66293ade84ab8b"
+      },
+      "recorded_rtl_ack_replay": {
+        "exit_code": 0,
+        "expected_exit": 0,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\tb\\input\\score_transfer_candidate\\test_software.py",
+          "--rtl-capture",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\restored\\run_j_v22g6p\\normal\\capture.txt",
+          "--expected",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\restored\\run_j_v22g6p\\expected.json"
+        ],
+        "stdout_sha256": "2009f346ba55228faeff198c63af53f21dbe4a9bfccf3aa9a9da1dc8cff56ad3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "damaged_capture_tests": {
+        "exit_code": 0,
+        "expected_exit": 0,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\tb\\input\\score_transfer_candidate\\test_capture.py",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\restored\\run_j_v22g6p\\normal\\capture.txt",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\restored\\run_j_v22g6p\\expected.json",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\independent_corruptions"
+        ],
+        "stdout_sha256": "8dd13725f492c703f1bd13ee5fcf77204687c8c1da041406f99c5cffd0237bd8",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "cli_negative_tests": {
+        "exit_code": 0,
+        "expected_exit": 0,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\tb\\input\\score_transfer_candidate\\test_cli_failures.py",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\independent_cli_negative"
+        ],
+        "stdout_sha256": "96992af989fecd18ca92ef35dd6752671df5e3dbbd630f9a075ed9430f863ab1",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "independent_corruption_count": 23,
+    "independent_corruption_results": [
+      {
+        "label": "empty",
+        "exit_code": 1,
+        "reason": "FAIL capture start/end missing"
+      },
+      {
+        "label": "missing_start",
+        "exit_code": 1,
+        "reason": "FAIL capture start/end missing"
+      },
+      {
+        "label": "missing_end",
+        "exit_code": 1,
+        "reason": "FAIL capture start/end missing"
+      },
+      {
+        "label": "truncated_end",
+        "exit_code": 1,
+        "reason": "FAIL capture start/end missing"
+      },
+      {
+        "label": "unknown_record",
+        "exit_code": 1,
+        "reason": "FAIL unknown/truncated capture record"
+      },
+      {
+        "label": "missing_event",
+        "exit_code": 1,
+        "reason": "FAIL score1_public_read_all: public readback mismatch/zero/duplicates"
+      },
+      {
+        "label": "duplicate_event",
+        "exit_code": 1,
+        "reason": "FAIL score1_public_read_all: public readback mismatch/zero/duplicates"
+      },
+      {
+        "label": "missing_input",
+        "exit_code": 1,
+        "reason": "FAIL read_without_score: input identity/reply count"
+      },
+      {
+        "label": "duplicate_reply",
+        "exit_code": 1,
+        "reason": "FAIL read_without_score: input identity/reply count"
+      },
+      {
+        "label": "missing_reply",
+        "exit_code": 1,
+        "reason": "FAIL read_without_score: input identity/reply count"
+      },
+      {
+        "label": "missing_metadata",
+        "exit_code": 1,
+        "reason": "FAIL power_reset: publication/error mismatch [] vs [0, 0, 0, 0, 0]"
+      },
+      {
+        "label": "wrong_start_clock",
+        "exit_code": 1,
+        "reason": "FAIL capture start/end missing"
+      },
+      {
+        "label": "wrong_end_count",
+        "exit_code": 1,
+        "reason": "FAIL end counts/zero or insufficient coverage"
+      },
+      {
+        "label": "wrong_input",
+        "exit_code": 1,
+        "reason": "FAIL read_without_score: input identity/reply count"
+      },
+      {
+        "label": "wrong_public_event",
+        "exit_code": 1,
+        "reason": "FAIL score1_public_read_all: public readback mismatch/zero/duplicates"
+      },
+      {
+        "label": "zero_meta",
+        "exit_code": 1,
+        "reason": "FAIL power_reset: publication/error mismatch [['1', '0', '0', '0', '0']] vs [0, 0, 0, 0, 0]"
+      },
+      {
+        "label": "shortened_timeout_timestamp",
+        "exit_code": 1,
+        "reason": "FAIL 5s session timeout not observed at physical UART"
+      },
+      {
+        "label": "wrong_reply_crc",
+        "exit_code": 1,
+        "reason": "FAIL reply CRC/version/length"
+      },
+      {
+        "label": "wrong_ack_command",
+        "exit_code": 1,
+        "reason": "FAIL read_without_score: response identity/ACK/NACK"
+      },
+      {
+        "label": "wrong_session",
+        "exit_code": 1,
+        "reason": "FAIL read_without_score: response identity/ACK/NACK"
+      },
+      {
+        "label": "wrong_sequence",
+        "exit_code": 1,
+        "reason": "FAIL read_without_score: response identity/ACK/NACK"
+      },
+      {
+        "label": "wrong_error",
+        "exit_code": 1,
+        "reason": "FAIL read_without_score: reply payload 060c00000000000000000000 != 060d00000000000000000000"
+      },
+      {
+        "label": "wrong_score_id",
+        "exit_code": 1,
+        "reason": "FAIL read_without_score: reply payload 060d00000000010000000000 != 060d00000000000000000000"
+      }
+    ],
+    "independent_cli_negative_count": 7,
+    "cli_results": [
+      {
+        "label": "empty_file",
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\software\\score_transfer_v1\\score_transfer.py",
+          "encode",
+          "--score",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\independent_cli_negative\\empty_file.json",
+          "--output",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\independent_cli_negative\\empty_file_result"
+        ],
+        "exit_code": 1,
+        "input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "label": "truncated_json",
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\software\\score_transfer_v1\\score_transfer.py",
+          "encode",
+          "--score",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\independent_cli_negative\\truncated_json.json",
+          "--output",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\independent_cli_negative\\truncated_json_result"
+        ],
+        "exit_code": 1,
+        "input_sha256": "700b49bc9894ec619e61783ae4cd703494a2a8ce961e5577673723559d6c5b68"
+      },
+      {
+        "label": "empty_score",
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\software\\score_transfer_v1\\score_transfer.py",
+          "encode",
+          "--score",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\independent_cli_negative\\empty_score.json",
+          "--output",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\independent_cli_negative\\empty_score_result"
+        ],
+        "exit_code": 1,
+        "input_sha256": "1744aa0a018960f58fee0c623d6b4f30d3e20636a06b02f690227e5f93185ef7"
+      },
+      {
+        "label": "over_capacity",
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\software\\score_transfer_v1\\score_transfer.py",
+          "encode",
+          "--score",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\independent_cli_negative\\over_capacity.json",
+          "--output",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\independent_cli_negative\\over_capacity_result"
+        ],
+        "exit_code": 1,
+        "input_sha256": "bc06b3a95502285cb302a3772914a89857d59534a8f81688f23edfd2cc688aa9"
+      },
+      {
+        "label": "unknown_field",
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\software\\score_transfer_v1\\score_transfer.py",
+          "encode",
+          "--score",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\independent_cli_negative\\unknown_field.json",
+          "--output",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\independent_cli_negative\\unknown_field_result"
+        ],
+        "exit_code": 1,
+        "input_sha256": "900f84af92a7484ae51b71e7354d5d283aaf71e0dc949935b15fd4d29268d367"
+      },
+      {
+        "label": "duplicate_field",
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\software\\score_transfer_v1\\score_transfer.py",
+          "encode",
+          "--score",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\independent_cli_negative\\duplicate_field.json",
+          "--output",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\independent_cli_negative\\duplicate_field_result"
+        ],
+        "exit_code": 1,
+        "input_sha256": "02c92951e3ed1f90abf905e1cfd5d3295316fb82149a08e8356b2c6c5bc1873a"
+      },
+      {
+        "label": "missing_port_authority",
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\software\\score_transfer_v1\\score_transfer.py",
+          "upload",
+          "--score",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\independent_cli_negative\\missing_port_authority.json",
+          "--output",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\T057_dc217ae_M2_review_20261007\\independent_cli_negative\\missing_port_authority_result"
+        ],
+        "exit_code": 2,
+        "input_sha256": "02448df4513bf43865f69f92753ef0b0328b20a91d0b6b561fada341cacc54e4"
+      }
+    ],
+    "rtl_rerun": false,
+    "gowin_rerun": false,
+    "physical_uart_opened": false,
+    "passed": true
+  },
+  "independent_receipt_sha256": "82b362e2c8ee8be5df717939694cf871b4539f69fdc6f42e112eeb89b8cd3d80",
+  "protocol_review": {
+    "scope": "isolated candidate contract; no production interface freeze",
+    "sys_hz": 40000000,
+    "baud": 115200,
+    "bit_cycles": 347,
+    "event_capacity": 512,
+    "event_bytes": 8,
+    "payload_max_bytes": 128,
+    "logical_sample_hz": 48000,
+    "crc": "CRC-16/CCITT-FALSE",
+    "crc_golden": "123456789 -> 0x29b1",
+    "atomic_double_bank": true,
+    "failed_staging_keeps_committed_score": true,
+    "duplicate_last_request_exact_body_replays_ack": true,
+    "commit_same_cycle_read_returns_old_bank": true,
+    "playback_ownership_contract_pending": true
+  },
+  "procurement": {
+    "requested_quantity": 2,
+    "main_quantity": 1,
+    "spare_quantity": 1,
+    "budget_including_shipping_cny": 100,
+    "preferred_total_cny": 50,
+    "m3_quotation_proposal": "ESP32-C3-Zero-M/SKU25532 header version",
+    "firmware_bridge_required": true,
+    "actual_quote_verified": false,
+    "ordered": false,
+    "paid": false,
+    "received": false,
+    "receiver_payment_arrangement_pending": true
+  },
+  "pending": [
+    "Gowin synthesis and SRAM/BSRAM inference",
+    "ACK CRC construction and 40MHz full STA",
+    "independent UART physical pins/electrical/engineering",
+    "physical UART/USB-TTL board acceptance",
+    "consumer publication identity/bank lifetime and playback scheduling",
+    "Android BLE bridge firmware/App and independent module tests",
+    "actual quotation/order/delivery"
+  ],
+  "review_stage_signed_off": true,
+  "level": "original RTL L2 reviewed; limited L3 PC canonical encoding/independent event reference/offline capture comparison",
+  "new_rtl_simulation_by_m2": false,
+  "new_gowin_by_m2": false,
+  "physical_serial_opened": false,
+  "programmed": false,
+  "production_modified": false,
+  "board_download_allowed": false
+}
