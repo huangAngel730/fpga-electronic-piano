@@ -1,0 +1,1127 @@
+{
+  "date": "2026-10-07",
+  "package_version_label": "user ZIP6/V0205 repair",
+  "zip_sha256": "221f4dbda21cf43beb21f1da18f53f08cf9a2b53a8e93ff566374494d7a91283",
+  "zip_bytes": 504767,
+  "zip_file_count": 102,
+  "zip_crc_passed": true,
+  "original_full_review": {
+    "date": "2026-10-07",
+    "package_sha256": "221f4dbda21cf43beb21f1da18f53f08cf9a2b53a8e93ff566374494d7a91283",
+    "package_reference_manifest_files": 93,
+    "acceptance_sources": {
+      "adsr_acceptance.py": {
+        "bytes": 9376,
+        "sha256": "8820cf85dd900fa25e54889fe0dec57e005d1620a7cc9e8e3dd9f0805e21e046",
+        "listed_in_package_manifest": false
+      },
+      "audio_acceptance_138k40.py": {
+        "bytes": 21302,
+        "sha256": "76e5d803879697f499d05da72f0d3b2942706a3c0a7f1d542529f0d30180940f",
+        "listed_in_package_manifest": false
+      },
+      "capture_contract.py": {
+        "bytes": 13656,
+        "sha256": "e0e55e053cd7e6076baa58c1dbe976c3d4ec69e1fcb9c53766972baf63d2ad22",
+        "listed_in_package_manifest": false
+      },
+      "dds_consistency.py": {
+        "bytes": 5656,
+        "sha256": "ea298cf091f0a3760b233d0b49409d3f9ec6de4e4cc4d920708b21e2665762d1",
+        "listed_in_package_manifest": false
+      },
+      "f_capture_parser.py": {
+        "bytes": 4729,
+        "sha256": "b8001d6c3a51096e856cfb64ccb4b5dcd9cd8eac4a8a87dbb15bd20059fa6acd",
+        "listed_in_package_manifest": false
+      }
+    },
+    "observation_sha256": "d17cf87952ac0c663e681e0b47051e9412af4a2979fb509aaa5d7114d5b32cc5",
+    "raw_capture_sha256": "bd0035de464cb8c757c7e29a132073181e9e8179aa8303ab1ec110c6990042d6",
+    "independent_transport": {
+      "counts": {
+        "REQUEST": 2488,
+        "COMMIT": 2487,
+        "STATE": 9964,
+        "RESET": 4
+      },
+      "independent_ADSR_reference_not_checked": true,
+      "sys_hz": 40000000,
+      "logical_sample_hz": 48000,
+      "all_observed_commits_match_raw_F_capture": true
+    },
+    "runs": {
+      "capture_contract": {
+        "exit_code": 0,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\capture_contract.py"
+        ],
+        "log": "logs/capture_contract.log",
+        "log_sha256": "d53418c6840cf443ec315f080fbf609a866e0eecad50d432a95932a79642a8e7"
+      },
+      "adsr_acceptance": {
+        "exit_code": 0,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\adsr_acceptance.py"
+        ],
+        "log": "logs/adsr_acceptance.log",
+        "log_sha256": "960c1dde1ab0056b5ff89a72b22ff1c16e269b155d403ab55b8cf5fed50ceb19"
+      },
+      "dds_consistency": {
+        "exit_code": 0,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\dds_consistency.py"
+        ],
+        "log": "logs/dds_consistency.log",
+        "log_sha256": "a35a7319e73b20628f6441c639e8571f2eb4b30b0503ef15fbf875cc9d8a9336"
+      },
+      "builtin_before_generation": {
+        "exit_code": 0,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+          "--test-counterexamples"
+        ],
+        "log": "logs/builtin_before_generation.log",
+        "log_sha256": "187e41f61fe8dee5714c8489b522137d9b4268ce435657b52b460f4e1cedbeb6"
+      },
+      "real_both_capture": {
+        "exit_code": 1,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+          "--jsonl",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\platform_preparation_20261005\\capture2\\audio_observation.jsonl",
+          "--capture",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\platform_preparation_20261005\\capture2\\midi_pcm.capture"
+        ],
+        "log": "logs/real_both_capture.log",
+        "log_sha256": "658e56181fd1d072af59294b7b7e652a4dca5fb35dd81c0860e1a3577dc6f925"
+      },
+      "real_json_only_diagnostic": {
+        "exit_code": 0,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+          "--jsonl",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\platform_preparation_20261005\\capture2\\audio_observation.jsonl"
+        ],
+        "log": "logs/real_json_only_diagnostic.log",
+        "log_sha256": "245f64b830d8b90384ef3122c715eb222b8f0e614519494f6b89db4559a197a2"
+      },
+      "generation": {
+        "exit_code": 0,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+          "--create-counterexamples",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\platform_preparation_20261005\\capture2\\audio_observation.jsonl"
+        ],
+        "log": "logs/generation.log",
+        "log_sha256": "faafb564bfec3d6c373e0f0f2cc5d2d436d907a05bbcab9eb1ec865738eba1b3"
+      },
+      "builtin_after_generation": {
+        "exit_code": 0,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+          "--test-counterexamples"
+        ],
+        "log": "logs/builtin_after_generation.log",
+        "log_sha256": "6e330762b575624c4373705237bddcdec5e86ff82f5d070a829795b2c561110f"
+      },
+      "missing_jsonl": {
+        "exit_code": 1,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+          "--jsonl",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\not_found.jsonl"
+        ],
+        "log": "logs/missing_jsonl.log",
+        "log_sha256": "0439002e60f4b28200789832ffab97ed82a7f3481c02a72c6a3dfa1ecc5f5bf4"
+      },
+      "missing_capture": {
+        "exit_code": 1,
+        "command": [
+          "D:\\ProgramData\\anaconda3\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+          "--jsonl",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\platform_preparation_20261005\\capture2\\audio_observation.jsonl",
+          "--capture",
+          "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\not_found.capture"
+        ],
+        "log": "logs/missing_capture.log",
+        "log_sha256": "32ff3417f3a769018589d6629316bf8573f633f836813242db8bc39e04d2e179"
+      }
+    },
+    "generated": {
+      "ce_bad_dds_fcw.jsonl": {
+        "sha256": "624511eb0ad1b161a412c6b52a8b90e9fdfeb86bb1973615bee419907d809a04",
+        "records": 14945,
+        "end_present": true,
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\generated\\ce_bad_dds_fcw.jsonl"
+          ],
+          "log": "logs/generated_ce_bad_dds_fcw.log",
+          "log_sha256": "b93ec815f7aef1e33dc13e64e7ff286b892600272edc11bcfb727e5e03a557bb"
+        }
+      },
+      "ce_bad_envelope.jsonl": {
+        "sha256": "42cfc242d244d8bd7927ebe172c9cf8bda985315a83cf91704b95159d7280ffa",
+        "records": 14945,
+        "end_present": true,
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\generated\\ce_bad_envelope.jsonl"
+          ],
+          "log": "logs/generated_ce_bad_envelope.log",
+          "log_sha256": "20bbea714ced6447df857a44af55ed093266752114f69929dd097e25d67561b7"
+        }
+      },
+      "ce_bad_pending_request_id.jsonl": {
+        "sha256": "91affab6945b03bf5909ed53da1e5e1a57feeffa00f2ed62b0b35d59bc56c7c0",
+        "records": 14945,
+        "end_present": true,
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\generated\\ce_bad_pending_request_id.jsonl"
+          ],
+          "log": "logs/generated_ce_bad_pending_request_id.log",
+          "log_sha256": "ca83572940881af38b9a071420fb52dcbcfec3b118f1d255df3b85b99f29cf76"
+        }
+      },
+      "ce_bad_phase_acc.jsonl": {
+        "sha256": "2a55897efc35c40ea6442cf065b34b15656e3825044a1e9c6a7e27d0dc60b75c",
+        "records": 14945,
+        "end_present": true,
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\generated\\ce_bad_phase_acc.jsonl"
+          ],
+          "log": "logs/generated_ce_bad_phase_acc.log",
+          "log_sha256": "67f5309e5e363352a2bf21f0f42e5ba6915162ff706983ef46bbade53710b99e"
+        }
+      },
+      "ce_bad_reset_epoch.jsonl": {
+        "sha256": "7aca99d1ee271de17827a44b8efa63e300e64eae1fac9db8aef92df9a4dae5db",
+        "records": 14945,
+        "end_present": true,
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\generated\\ce_bad_reset_epoch.jsonl"
+          ],
+          "log": "logs/generated_ce_bad_reset_epoch.log",
+          "log_sha256": "e8abef8c554ed78fc2ba95ca8a30cb065f801e6aff367da0f4dd3d6c32c36af7"
+        }
+      },
+      "ce_bad_table.jsonl": {
+        "sha256": "e7063b6e0a06b2eba03298da767ca369f131fced0678501b8de0cf04a812f028",
+        "records": 14945,
+        "end_present": true,
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\generated\\ce_bad_table.jsonl"
+          ],
+          "log": "logs/generated_ce_bad_table.log",
+          "log_sha256": "53a64c3f4ab6aa95abc598491fa368a0e4df0672f8ec58897d846ef19dfc4b72"
+        }
+      },
+      "ce_no_first_reset.jsonl": {
+        "sha256": "c5a75d2867ce8be2a5d94c5322391417230474b92364e7c50229045bc61d85e6",
+        "records": 14944,
+        "end_present": true,
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\generated\\ce_no_first_reset.jsonl"
+          ],
+          "log": "logs/generated_ce_no_first_reset.log",
+          "log_sha256": "13b6cae7be89c2db092edd16ee08eec8127a50ee8666a9f584803df1dd0e8626"
+        }
+      },
+      "ce_unknown_tag.jsonl": {
+        "sha256": "85dbb594faa9889a87a112dc8597785338507a2ff5e9764ecb00458d3b0a97d8",
+        "records": 14946,
+        "end_present": true,
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\generated\\ce_unknown_tag.jsonl"
+          ],
+          "log": "logs/generated_ce_unknown_tag.log",
+          "log_sha256": "d94f62f9ef34604a9d7fad680390d75080e952ccd4f72b8874f48a016315a987"
+        }
+      }
+    },
+    "negative_results": {
+      "empty": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\empty.jsonl"
+          ],
+          "log": "logs/negative_empty.log",
+          "log_sha256": "568b5f806c770fcb89b9f401c32b1cba139a6544c87ba7fe5219e003783b2a95"
+        }
+      },
+      "meta_only": {
+        "sha256": "a7486efa6797c5f06c3f13fe99830787a550c565acdf40e555dd6b9d9715e9a0",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\meta_only.jsonl"
+          ],
+          "log": "logs/negative_meta_only.log",
+          "log_sha256": "4de882893f8e0e94c58b996bbebe9007e18f72afeb1830151c5c3d5668efdecb"
+        }
+      },
+      "missing_end": {
+        "sha256": "5993b68cbba006dcd0074258869db2e75c66d1b1c04e0bff661098dbc7e7ef54",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\missing_end.jsonl"
+          ],
+          "log": "logs/negative_missing_end.log",
+          "log_sha256": "72a49cd7a18654445dd179d2f9f3f3cdd701463c8ad0ec1813299851fe575129"
+        }
+      },
+      "wrong_sys_hz": {
+        "sha256": "6a0ed179f60e7dbd56d1729c2074d436e5c39c3fa7133acff37e66e53e963b4a",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\wrong_sys_hz.jsonl"
+          ],
+          "log": "logs/negative_wrong_sys_hz.log",
+          "log_sha256": "d7068b2f59ed54fb05d7f01bed07d1de50efffa8b1cce0f277c79fbe29eb0070"
+        }
+      },
+      "wrong_sample_hz": {
+        "sha256": "67b6a30b4b0a186130d7835a9a62c9eeb4238cf8e9a3b8184272297d7c16449c",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\wrong_sample_hz.jsonl"
+          ],
+          "log": "logs/negative_wrong_sample_hz.log",
+          "log_sha256": "c90291a0fcc5529bcefd51b66cba4877b1e9c2cf62d91399c777b68264fb762d"
+        }
+      },
+      "duplicate_request": {
+        "sha256": "039dd1554aa17ffcbd4de463f5806040d12784b88db3774c43e5a4820c456c42",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\duplicate_request.jsonl"
+          ],
+          "log": "logs/negative_duplicate_request.log",
+          "log_sha256": "de7e3bf5774ea4968ea0f9676b024db1d225c372b84d8d743923d4e5f4251725"
+        }
+      },
+      "duplicate_commit": {
+        "sha256": "602aeb5d9caa623ac29eac213396b5c7c949e7265719c715969af7edc61eb75e",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\duplicate_commit.jsonl"
+          ],
+          "log": "logs/negative_duplicate_commit.log",
+          "log_sha256": "b3708889c5fb268a61b69157fd426aa94405d6c6a60fc75f65da080e761ee132"
+        }
+      },
+      "orphan_commit": {
+        "sha256": "753b97b500d011d5a145d3126ff4e27027d1e64ee07e019b4fe13363e721929c",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\orphan_commit.jsonl"
+          ],
+          "log": "logs/negative_orphan_commit.log",
+          "log_sha256": "e11705fe320f922898969f3ccccfea153c2cd58c1b2d203b26695d20f9280eb9"
+        }
+      },
+      "wrong_end_request": {
+        "sha256": "8eb28d1875c182015972a77455ac22cb36155b69329623f9dedd3c2152051e4a",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\wrong_end_request.jsonl"
+          ],
+          "log": "logs/negative_wrong_end_request.log",
+          "log_sha256": "b43f3e4be37dd78bc0d29c7c6c5c07bd69070315fa79ac889e09ff9c3bbc7f3e"
+        }
+      },
+      "wrong_end_commit": {
+        "sha256": "6e8382bb83ab73047136a8b5fcbc5fd8453294807ab9959a3bec5008bc373242",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\wrong_end_commit.jsonl"
+          ],
+          "log": "logs/negative_wrong_end_commit.log",
+          "log_sha256": "c89a9e512f69a4b45b77f2d32969f4a7c4fbbcd3620ae851d30d1e8824626060"
+        }
+      },
+      "wrong_end_state": {
+        "sha256": "2b43b2de843d0a7ab2ef53e27cb77e11b828eac0d071317c04f4825a0fc59113",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\wrong_end_state.jsonl"
+          ],
+          "log": "logs/negative_wrong_end_state.log",
+          "log_sha256": "77424904fb36f68579769310ca97b0d57ba8d88969dd3841ea2cca9e09c873f1"
+        }
+      },
+      "wrong_end_reset": {
+        "sha256": "c7ee69596e91e26363cb4aa144b7ec805836710b4b9812d208bc71bf05d94b68",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\wrong_end_reset.jsonl"
+          ],
+          "log": "logs/negative_wrong_end_reset.log",
+          "log_sha256": "828fd2f1922f312d3466776a07496fd40a83bc09c387986d2932ce43072d3f9d"
+        }
+      },
+      "pcm_out_of_range": {
+        "sha256": "fc23688cc2cdf9d39c26dff42e2cafc306aa9cd4f63cc07c7649c6d544dffa94",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\pcm_out_of_range.jsonl"
+          ],
+          "log": "logs/negative_pcm_out_of_range.log",
+          "log_sha256": "0a366ae237d2131ca3567995bb24c50540c0f4eb8b864219220fdc57c9e3dc09"
+        }
+      },
+      "adsr_level_plus3": {
+        "sha256": "b09275776c81a521785998057bdbfe94812b076208df0df5c0c7c3ee42914909",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\adsr_level_plus3.jsonl"
+          ],
+          "log": "logs/negative_adsr_level_plus3.log",
+          "log_sha256": "104db2de1ecd02c362a372c96ff5a55093a926354069625ea217be71cedfd16f"
+        }
+      },
+      "no_states_with_matching_end": {
+        "sha256": "2502458d7cf1f2367cef95c8da46098b81b69fc064af3d55bd45b44a9f612524",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\no_states_with_matching_end.jsonl"
+          ],
+          "log": "logs/negative_no_states_with_matching_end.log",
+          "log_sha256": "2f1680007137dbbb7d5dbb53e9dbf652c6826d15efaa8faa2425971e4b4fc044"
+        }
+      },
+      "missing_first_reset_adjusted_end": {
+        "sha256": "a491b9eb821d120b90631ac83f61277c11de3d05256fc70749df57a14ca7af82",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\missing_first_reset_adjusted_end.jsonl"
+          ],
+          "log": "logs/negative_missing_first_reset_adjusted_end.log",
+          "log_sha256": "13b6cae7be89c2db092edd16ee08eec8127a50ee8666a9f584803df1dd0e8626"
+        }
+      },
+      "wrong_reset_epoch": {
+        "sha256": "bb1d80f5455d523d34ed28ba064c1307112a13487f4f55823f40669109e6bbd5",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\wrong_reset_epoch.jsonl"
+          ],
+          "log": "logs/negative_wrong_reset_epoch.log",
+          "log_sha256": "a1bb066da9e09494e4339e22155fc0f54437c741b048ca19773d3ef229e9e664"
+        }
+      },
+      "wrong_pending_request_id": {
+        "sha256": "db6eaa12c39c1805a64a6ec99bff45f8842cccd852472edd823a98c386ba3970",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\wrong_pending_request_id.jsonl"
+          ],
+          "log": "logs/negative_wrong_pending_request_id.log",
+          "log_sha256": "65636b66b6ed9fa9b43012278921811860b210db880d420a296e297c0f364e6e"
+        }
+      },
+      "wrong_dds_fcw": {
+        "sha256": "c7c03c6e7f49ae89488d81f76bba703726529c519d6504239852cc7213dd9ee8",
+        "run": {
+          "exit_code": 0,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\wrong_dds_fcw.jsonl"
+          ],
+          "log": "logs/negative_wrong_dds_fcw.log",
+          "log_sha256": "245f64b830d8b90384ef3122c715eb222b8f0e614519494f6b89db4559a197a2"
+        }
+      },
+      "wrong_phase_acc": {
+        "sha256": "4f0f965910874eaaf1538ab73da17f7815c4d2372cc39164d9328990b20b910a",
+        "run": {
+          "exit_code": 0,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\wrong_phase_acc.jsonl"
+          ],
+          "log": "logs/negative_wrong_phase_acc.log",
+          "log_sha256": "245f64b830d8b90384ef3122c715eb222b8f0e614519494f6b89db4559a197a2"
+        }
+      },
+      "wrong_table": {
+        "sha256": "8b84dca06129856ca9f2f10448838cb23c2048f109d72190ce2c8ec44ff49733",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\wrong_table.jsonl"
+          ],
+          "log": "logs/negative_wrong_table.log",
+          "log_sha256": "56e1c76added439f51c6f984df761dac85ea8a5bfe6f1aa06144ede1d4cd6154"
+        }
+      },
+      "wrong_envelope_field": {
+        "sha256": "c16cdef7ee5917fbc12b9c961535dc21003e7a265f4cd4b5dbcb02fad225e8b3",
+        "run": {
+          "exit_code": 0,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\wrong_envelope_field.jsonl"
+          ],
+          "log": "logs/negative_wrong_envelope_field.log",
+          "log_sha256": "245f64b830d8b90384ef3122c715eb222b8f0e614519494f6b89db4559a197a2"
+        }
+      },
+      "unknown_record": {
+        "sha256": "0fee8340b2e3138bfef2c3b482d4ea620957eca08b467a7f4219524ee7f21b9b",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\unknown_record.jsonl"
+          ],
+          "log": "logs/negative_unknown_record.log",
+          "log_sha256": "feb2cc2c74dc0b535612614ba895c131b790c42d32bbdaaec8a021b6f253c59d"
+        }
+      },
+      "legal_wrong_fcw": {
+        "sha256": "e058b646d1eccbe7aef3455201591ce5fbb081449c4823d83872dc2c4416a0ed",
+        "run": {
+          "exit_code": 0,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\legal_wrong_fcw.jsonl"
+          ],
+          "log": "logs/negative_legal_wrong_fcw.log",
+          "log_sha256": "245f64b830d8b90384ef3122c715eb222b8f0e614519494f6b89db4559a197a2"
+        }
+      },
+      "legal_wrong_phase": {
+        "sha256": "9a36026895c6a0584c9cd63fa23db6c1bb6dc8616c4a1c2bf9af2921d9aef46d",
+        "run": {
+          "exit_code": 0,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\legal_wrong_phase.jsonl"
+          ],
+          "log": "logs/negative_legal_wrong_phase.log",
+          "log_sha256": "245f64b830d8b90384ef3122c715eb222b8f0e614519494f6b89db4559a197a2"
+        }
+      },
+      "legal_wrong_table": {
+        "sha256": "13098e34b9863eed0d21a95ed9c9ddebdcc6505de9e70538dfd478dd4da0c837",
+        "run": {
+          "exit_code": 0,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\legal_wrong_table.jsonl"
+          ],
+          "log": "logs/negative_legal_wrong_table.log",
+          "log_sha256": "245f64b830d8b90384ef3122c715eb222b8f0e614519494f6b89db4559a197a2"
+        }
+      },
+      "legal_wrong_envelope": {
+        "sha256": "fdf0336dd6fff2b801122ad74e4578ffcf2568460c364bfb5252d8dcace64334",
+        "run": {
+          "exit_code": 0,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\legal_wrong_envelope.jsonl"
+          ],
+          "log": "logs/negative_legal_wrong_envelope.log",
+          "log_sha256": "245f64b830d8b90384ef3122c715eb222b8f0e614519494f6b89db4559a197a2"
+        }
+      },
+      "wrong_raw_state": {
+        "sha256": "51717674f50f2fce59d92bf78c6938801edcea1ef1fa387e19fcb4fefb8cb104",
+        "run": {
+          "exit_code": 0,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\wrong_raw_state.jsonl"
+          ],
+          "log": "logs/negative_wrong_raw_state.log",
+          "log_sha256": "245f64b830d8b90384ef3122c715eb222b8f0e614519494f6b89db4559a197a2"
+        }
+      },
+      "duplicate_state_adjusted_end": {
+        "sha256": "ccf64f77e81f36ff4fb7d74db51e3b443edcad5a53a7339a068bc32ef692267c",
+        "run": {
+          "exit_code": 0,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\duplicate_state_adjusted_end.jsonl"
+          ],
+          "log": "logs/negative_duplicate_state_adjusted_end.log",
+          "log_sha256": "fc082e8fcfbdd321d90c56ceeed4d83f5d8c817ce47376168c7eecdb57eaf5bc"
+        }
+      },
+      "missing_lane_state_adjusted_end": {
+        "sha256": "f649c59642896ccf0799a998ca66c98b555cee601ccc244d0b0bcb5eaa72aa4d",
+        "run": {
+          "exit_code": 0,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\missing_lane_state_adjusted_end.jsonl"
+          ],
+          "log": "logs/negative_missing_lane_state_adjusted_end.log",
+          "log_sha256": "604cab05f1e379b2c7a89c7c613e2793de24ade0f40ab8cd0048b2c7c9934d8b"
+        }
+      },
+      "missing_end_counts": {
+        "sha256": "55275aa340b52dc44e24c97c5280096ade6631e96c36609b1d1d0bbb7fd2a336",
+        "run": {
+          "exit_code": 0,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\missing_end_counts.jsonl"
+          ],
+          "log": "logs/negative_missing_end_counts.log",
+          "log_sha256": "245f64b830d8b90384ef3122c715eb222b8f0e614519494f6b89db4559a197a2"
+        }
+      },
+      "wrong_schema": {
+        "sha256": "63eba1af1cccbaef70f512b19db304c770309a4f10e95b78300016d853c5b67f",
+        "run": {
+          "exit_code": 0,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\complete_mutants\\wrong_schema.jsonl"
+          ],
+          "log": "logs/negative_wrong_schema.log",
+          "log_sha256": "245f64b830d8b90384ef3122c715eb222b8f0e614519494f6b89db4559a197a2"
+        }
+      }
+    },
+    "negative_count": 32,
+    "accepted_jsonl_corruption": [
+      "wrong_dds_fcw",
+      "wrong_phase_acc",
+      "wrong_envelope_field",
+      "legal_wrong_fcw",
+      "legal_wrong_phase",
+      "legal_wrong_table",
+      "legal_wrong_envelope",
+      "wrong_raw_state",
+      "duplicate_state_adjusted_end",
+      "missing_lane_state_adjusted_end",
+      "missing_end_counts",
+      "wrong_schema"
+    ],
+    "f_negatives": {
+      "empty": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\platform_preparation_20261005\\capture2\\audio_observation.jsonl",
+            "--capture",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\empty.capture"
+          ],
+          "log": "logs/f_negative_empty.log",
+          "log_sha256": "2c0349b77f40a10b910e78f389d5ed1ab80627a6b0285fb49380bf40e74778f9"
+        }
+      },
+      "no_m_records": {
+        "sha256": "d969ff0d1d8f96e6eacaf21ae2d716aaf0fdb2f881d9c42aae598ecbfc7854e1",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\platform_preparation_20261005\\capture2\\audio_observation.jsonl",
+            "--capture",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\no_m_records.capture"
+          ],
+          "log": "logs/f_negative_no_m_records.log",
+          "log_sha256": "8d1e23980b616cbe62046895ccb347b57a7a51fb23b2f270fbb0e5d6ee82e3e6"
+        }
+      },
+      "unrecognized_garbage": {
+        "sha256": "968cc9a4e92ae8afe16ba9178e407f13988e4e00af43c38f103cd9de3d2b12a2",
+        "run": {
+          "exit_code": 1,
+          "command": [
+            "D:\\ProgramData\\anaconda3\\python.exe",
+            "-B",
+            "-X",
+            "utf8",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\package\\code\\model\\acceptance_138k40\\audio_acceptance_138k40.py",
+            "--jsonl",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\platform_preparation_20261005\\capture2\\audio_observation.jsonl",
+            "--capture",
+            "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_138K40_audio_v6_full_original_check_20261007\\unrecognized_garbage.capture"
+          ],
+          "log": "logs/f_negative_unrecognized_garbage.log",
+          "log_sha256": "5c61d8a89fd914b11a047c78abf621ec872888d9ce6708e462d1bf511bfc2b1d"
+        }
+      }
+    },
+    "accepted_invalid_f": [],
+    "errors": [
+      "original dual-capture positive failed",
+      "accepted complete JSONL corruption: wrong_dds_fcw,wrong_phase_acc,wrong_envelope_field,legal_wrong_fcw,legal_wrong_phase,legal_wrong_table,legal_wrong_envelope,wrong_raw_state,duplicate_state_adjusted_end,missing_lane_state_adjusted_end,missing_end_counts,wrong_schema"
+    ],
+    "passed": false,
+    "sources_modified": false,
+    "simulation_rerun": false,
+    "gowin_rerun": false
+  },
+  "independent_source_and_F_semantics": {
+    "reference_manifest_files": 93,
+    "reference_manifest_pass": true,
+    "acceptance_sources": {
+      "adsr_acceptance.py": {
+        "sha256": "8820cf85dd900fa25e54889fe0dec57e005d1620a7cc9e8e3dd9f0805e21e046",
+        "bytes": 9376,
+        "in_manifest": false
+      },
+      "audio_acceptance_138k40.py": {
+        "sha256": "76e5d803879697f499d05da72f0d3b2942706a3c0a7f1d542529f0d30180940f",
+        "bytes": 21302,
+        "in_manifest": false
+      },
+      "capture_contract.py": {
+        "sha256": "e0e55e053cd7e6076baa58c1dbe976c3d4ec69e1fcb9c53766972baf63d2ad22",
+        "bytes": 13656,
+        "in_manifest": false
+      },
+      "dds_consistency.py": {
+        "sha256": "ea298cf091f0a3760b233d0b49409d3f9ec6de4e4cc4d920708b21e2665762d1",
+        "bytes": 5656,
+        "in_manifest": false
+      },
+      "f_capture_parser.py": {
+        "sha256": "b8001d6c3a51096e856cfb64ccb4b5dcd9cd8eac4a8a87dbb15bd20059fa6acd",
+        "bytes": 4729,
+        "in_manifest": false
+      }
+    },
+    "raw_jsonl_sha256": "d17cf87952ac0c663e681e0b47051e9412af4a2979fb509aaa5d7114d5b32cc5",
+    "raw_F_sha256": "bd0035de464cb8c757c7e29a132073181e9e8179aa8303ab1ec110c6990042d6",
+    "M_record_signed_hex_and_left_right_exact_matches": 2487,
+    "F_epoch_mismatch_count": 361,
+    "F_epoch_mismatch_examples": [
+      {
+        "index": 2126,
+        "cycle": 1771214,
+        "request_id": 1,
+        "jsonl_epoch": 2,
+        "parsed_F_epoch": 1771171
+      },
+      {
+        "index": 2127,
+        "cycle": 1772047,
+        "request_id": 2,
+        "jsonl_epoch": 2,
+        "parsed_F_epoch": 1771171
+      },
+      {
+        "index": 2128,
+        "cycle": 1772880,
+        "request_id": 3,
+        "jsonl_epoch": 2,
+        "parsed_F_epoch": 1771171
+      },
+      {
+        "index": 2129,
+        "cycle": 1773714,
+        "request_id": 4,
+        "jsonl_epoch": 2,
+        "parsed_F_epoch": 1771171
+      },
+      {
+        "index": 2130,
+        "cycle": 1774547,
+        "request_id": 5,
+        "jsonl_epoch": 2,
+        "parsed_F_epoch": 1771171
+      }
+    ],
+    "original_F_validity_errors": [
+      "未识别的记录类型: END"
+    ],
+    "original_R_rows": [
+      "R 1 1",
+      "R 1771171 2",
+      "R 1810367 3",
+      "R 1848901 4"
+    ],
+    "DDS_range_checker_same_SHA_as_v5": true,
+    "sources_modified": false
+  },
+  "synthetic_invalid_F_diagnostic_probes": {
+    "invalid_parser_compatible_no_END": {
+      "exit_code": 0,
+      "synthetic_invalid_F_only": true,
+      "not_original_positive": true,
+      "F_sha256": "f2b0c7576691b1272e409ebbc151c9cc572438061679d9d78901ad731e7696bd",
+      "stdout_sha256": "8cc27c9191771bf1872ec76246456155ddcdb62940867db29aae0ebc4c1748b4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "result_tail": "SONL 与 F capture 完全一致（2487 条记录）\r\n\r\n步骤 8: 按完整事件顺序回放 ADSR\r\n  通过: 所有样本在 ±2 LSB 容差内\r\n  有效检查样本数: 9964\r\n\r\n步骤 9: DDS 一致性检查\r\n  通过: 所有 DDS 字段一致\r\n\r\n步骤 10: PCM 输出合理性检查\r\n  通过: 所有 PCM 在 24-bit signed 范围内\r\n\r\n============================================================\r\n验收结果:\r\n  总请求数: 2488\r\n  总提交数: 2487\r\n  有效检查样本数: 9964\r\n  状态: 通过\r\n  错误数: 0\r\n  警告数: 0\r\n============================================================\r\n"
+    },
+    "reordered_first_M_pair": {
+      "exit_code": 0,
+      "synthetic_invalid_F_only": true,
+      "not_original_positive": true,
+      "F_sha256": "18e5b24dc702a196666438e4e5e2f2d10b348c4067c320b3e1dd53ac97169fc6",
+      "stdout_sha256": "8cc27c9191771bf1872ec76246456155ddcdb62940867db29aae0ebc4c1748b4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "result_tail": "SONL 与 F capture 完全一致（2487 条记录）\r\n\r\n步骤 8: 按完整事件顺序回放 ADSR\r\n  通过: 所有样本在 ±2 LSB 容差内\r\n  有效检查样本数: 9964\r\n\r\n步骤 9: DDS 一致性检查\r\n  通过: 所有 DDS 字段一致\r\n\r\n步骤 10: PCM 输出合理性检查\r\n  通过: 所有 PCM 在 24-bit signed 范围内\r\n\r\n============================================================\r\n验收结果:\r\n  总请求数: 2488\r\n  总提交数: 2487\r\n  有效检查样本数: 9964\r\n  状态: 通过\r\n  错误数: 0\r\n  警告数: 0\r\n============================================================\r\n"
+    },
+    "wrong_clip_flag": {
+      "exit_code": 0,
+      "synthetic_invalid_F_only": true,
+      "not_original_positive": true,
+      "F_sha256": "1f00fd67aa2db412e2734845a8c31714e76cd35354b2aff49181c3b0af42409a",
+      "stdout_sha256": "8cc27c9191771bf1872ec76246456155ddcdb62940867db29aae0ebc4c1748b4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "result_tail": "SONL 与 F capture 完全一致（2487 条记录）\r\n\r\n步骤 8: 按完整事件顺序回放 ADSR\r\n  通过: 所有样本在 ±2 LSB 容差内\r\n  有效检查样本数: 9964\r\n\r\n步骤 9: DDS 一致性检查\r\n  通过: 所有 DDS 字段一致\r\n\r\n步骤 10: PCM 输出合理性检查\r\n  通过: 所有 PCM 在 24-bit signed 范围内\r\n\r\n============================================================\r\n验收结果:\r\n  总请求数: 2488\r\n  总提交数: 2487\r\n  有效检查样本数: 9964\r\n  状态: 通过\r\n  错误数: 0\r\n  警告数: 0\r\n============================================================\r\n"
+    },
+    "extra_M_field": {
+      "exit_code": 0,
+      "synthetic_invalid_F_only": true,
+      "not_original_positive": true,
+      "F_sha256": "15259396dacdefed9c9d39e28765865fb178cf667f34f1c892798a40386b0502",
+      "stdout_sha256": "8cc27c9191771bf1872ec76246456155ddcdb62940867db29aae0ebc4c1748b4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "result_tail": "SONL 与 F capture 完全一致（2487 条记录）\r\n\r\n步骤 8: 按完整事件顺序回放 ADSR\r\n  通过: 所有样本在 ±2 LSB 容差内\r\n  有效检查样本数: 9964\r\n\r\n步骤 9: DDS 一致性检查\r\n  通过: 所有 DDS 字段一致\r\n\r\n步骤 10: PCM 输出合理性检查\r\n  通过: 所有 PCM 在 24-bit signed 范围内\r\n\r\n============================================================\r\n验收结果:\r\n  总请求数: 2488\r\n  总提交数: 2487\r\n  有效检查样本数: 9964\r\n  状态: 通过\r\n  错误数: 0\r\n  警告数: 0\r\n============================================================\r\n"
+    },
+    "allowed_tag_garbage_in_valid_stream": {
+      "exit_code": 0,
+      "synthetic_invalid_F_only": true,
+      "not_original_positive": true,
+      "F_sha256": "d480453e3e5395012f57a39e242b78a0e5a8344757b7ee97091e960deaec68ae",
+      "stdout_sha256": "8cc27c9191771bf1872ec76246456155ddcdb62940867db29aae0ebc4c1748b4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "result_tail": "SONL 与 F capture 完全一致（2487 条记录）\r\n\r\n步骤 8: 按完整事件顺序回放 ADSR\r\n  通过: 所有样本在 ±2 LSB 容差内\r\n  有效检查样本数: 9964\r\n\r\n步骤 9: DDS 一致性检查\r\n  通过: 所有 DDS 字段一致\r\n\r\n步骤 10: PCM 输出合理性检查\r\n  通过: 所有 PCM 在 24-bit signed 范围内\r\n\r\n============================================================\r\n验收结果:\r\n  总请求数: 2488\r\n  总提交数: 2487\r\n  有效检查样本数: 9964\r\n  状态: 通过\r\n  错误数: 0\r\n  警告数: 0\r\n============================================================\r\n"
+    }
+  },
+  "synthetic_F_is_NOT_original_positive": true,
+  "original_source_members_unchanged": true,
+  "new_RTL_simulation": false,
+  "new_Gowin": false,
+  "production_source_modified": false,
+  "overall_acceptance_signed_off": false,
+  "repairs_proven": [
+    "2487 M signed-hex L/R/cycle/request_id values match JSONL in original order",
+    "empty/no-M/garbage F and missing file CLI reject nonzero",
+    "8 generated JSONL negatives distinct, complete END retained and each CLI rejects nonzero"
+  ],
+  "remaining_blockers": [
+    "original valid F END rejected as unknown",
+    "R actual cycle epoch read reversed,361 later M epoch mismatches",
+    "DDS remains exact same range/length-only source as V5, legal wrong FCW/phase/table/envelope pass",
+    "raw-state/lane coverage/schema/complete END counts corruptions still accepted",
+    "F dictionary comparison ignores order and strict grammar/END; diagnostic invalid noEND/extra fields/garbage accepted",
+    "built-in counterexamples return0 when files all skipped; missing-file selftest does not launch actual CLI",
+    "all5 acceptance files absent from old93-file PACKAGE_MANIFEST"
+  ],
+  "review_stage": "Python original-package execution/independent negative adjudication; no new hardware/RTL level",
+  "new_feedback_to_M1_sent": false
+}
