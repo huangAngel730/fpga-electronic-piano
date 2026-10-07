@@ -1,0 +1,677 @@
+{
+  "date": "2026-10-07",
+  "head_at_source_review": "416ba5ac6666d62a326d41886d415759a89c6f39",
+  "baseline": "L_locations_guard065",
+  "baseline_directory": "code/rtl/138K_try/hold_trials_20261005/L_locations_guard065",
+  "source_manifest_path": "code/tb/audio_out/m3_clock40_pcm_serial_acceptance/evidence/source_manifest.json",
+  "original_input_manifest_sha256": "a021f8873962347760fba35ee5dc3c8bac642884031de80a7942d77628436565",
+  "sealed_source_manifest_sha256": "a30018cdf110ce47abd1d3df23f93acf9b5596cacf1f28777b86de2fb0ae4828",
+  "files": [
+    {
+      "path": "sources/adsr_piano_envelope.sv",
+      "git_carrier_sha256": "b39ff296fa95e806540c1bbc14131f5cbf3aa2ea42535b32e5418e53fa4391e7",
+      "git_carrier_bytes": 9386,
+      "original_receipt_sha256": "b39ff296fa95e806540c1bbc14131f5cbf3aa2ea42535b32e5418e53fa4391e7",
+      "original_bytes": 9386,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/audio_defs_pkg.sv",
+      "git_carrier_sha256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+      "git_carrier_bytes": 12334,
+      "original_receipt_sha256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+      "original_bytes": 12334,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/audio_visual_coexistence_top.sv",
+      "git_carrier_sha256": "401b691320938a10c68f2c66a4ab4d6a94ec56ce9273eac3eb110a74aeb33eb6",
+      "git_carrier_bytes": 36774,
+      "original_receipt_sha256": "401b691320938a10c68f2c66a4ab4d6a94ec56ce9273eac3eb110a74aeb33eb6",
+      "original_bytes": 36774,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/audio_visual_display_probe.sv",
+      "git_carrier_sha256": "df1f05b4a6a06deddd9d3a2244106ec29bb0d15e5dd808fc9bef9436d710a5cf",
+      "git_carrier_bytes": 7018,
+      "original_receipt_sha256": "df1f05b4a6a06deddd9d3a2244106ec29bb0d15e5dd808fc9bef9436d710a5cf",
+      "original_bytes": 7018,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/button_debouncer.sv",
+      "git_carrier_sha256": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+      "git_carrier_bytes": 6376,
+      "original_receipt_sha256": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+      "original_bytes": 6376,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/button_event_converter.sv",
+      "git_carrier_sha256": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1",
+      "git_carrier_bytes": 10529,
+      "original_receipt_sha256": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1",
+      "original_bytes": 10529,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/dds_oscillator.sv",
+      "git_carrier_sha256": "4eca156c0851f6a55e5e07c67208fcc0f700e9880bd9fc1adc2a6f52aaec3df8",
+      "git_carrier_bytes": 2958,
+      "original_receipt_sha256": "4eca156c0851f6a55e5e07c67208fcc0f700e9880bd9fc1adc2a6f52aaec3df8",
+      "original_bytes": 2958,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/DVI_TX_Top.v",
+      "git_carrier_sha256": "162f68cab4262f8a3acae17f2fc66b6d9ef403815fd5ebeeecf30b59d88e203c",
+      "git_carrier_bytes": 84311,
+      "original_receipt_sha256": "162f68cab4262f8a3acae17f2fc66b6d9ef403815fd5ebeeecf30b59d88e203c",
+      "original_bytes": 84311,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/i2s_tx.sv",
+      "git_carrier_sha256": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+      "git_carrier_bytes": 17021,
+      "original_receipt_sha256": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+      "original_bytes": 17021,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/m3_visualizer.sv",
+      "git_carrier_sha256": "c3940203be5616d3cb923552267d7485d494bfd0e6a5410d7a7f3651e1fd0d2a",
+      "git_carrier_bytes": 6897,
+      "original_receipt_sha256": "c3940203be5616d3cb923552267d7485d494bfd0e6a5410d7a7f3651e1fd0d2a",
+      "original_bytes": 6897,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/midi_event_parser.sv",
+      "git_carrier_sha256": "336d867856a7b3956d524105137c035ec2637fea936538979182669987212071",
+      "git_carrier_bytes": 23632,
+      "original_receipt_sha256": "336d867856a7b3956d524105137c035ec2637fea936538979182669987212071",
+      "original_bytes": 23632,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/midi_input.sv",
+      "git_carrier_sha256": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710",
+      "git_carrier_bytes": 3331,
+      "original_receipt_sha256": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710",
+      "original_bytes": 3331,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/note_pitch.sv",
+      "git_carrier_sha256": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+      "git_carrier_bytes": 8092,
+      "original_receipt_sha256": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+      "original_bytes": 8092,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/pcm_clip_counter.sv",
+      "git_carrier_sha256": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+      "git_carrier_bytes": 1015,
+      "original_receipt_sha256": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+      "original_bytes": 1015,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/pcm_frame_buffer.sv",
+      "git_carrier_sha256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+      "git_carrier_bytes": 3796,
+      "original_receipt_sha256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+      "original_bytes": 3796,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/pcm_mixer_4voice.sv",
+      "git_carrier_sha256": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+      "git_carrier_bytes": 2068,
+      "original_receipt_sha256": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+      "original_bytes": 2068,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/pcm_result_hold.sv",
+      "git_carrier_sha256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+      "git_carrier_bytes": 2658,
+      "original_receipt_sha256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+      "original_bytes": 2658,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/performance_control_snapshot.sv",
+      "git_carrier_sha256": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+      "git_carrier_bytes": 5049,
+      "original_receipt_sha256": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+      "original_bytes": 5049,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/performance_event_fifo.sv",
+      "git_carrier_sha256": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+      "git_carrier_bytes": 2538,
+      "original_receipt_sha256": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+      "original_bytes": 2538,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/piano_dds_oscillator.sv",
+      "git_carrier_sha256": "0f9855280da5300d1ebb0205a5597cf60b855885313bbd27b1763387fea370d0",
+      "git_carrier_bytes": 6371,
+      "original_receipt_sha256": "0f9855280da5300d1ebb0205a5597cf60b855885313bbd27b1763387fea370d0",
+      "original_bytes": 6371,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/pitch_mod_fcw_pipeline.sv",
+      "git_carrier_sha256": "593464b1f42947e1f485afb1b75fbd9f1f4cf676ac20463b428414de89bf444b",
+      "git_carrier_bytes": 6010,
+      "original_receipt_sha256": "593464b1f42947e1f485afb1b75fbd9f1f4cf676ac20463b428414de89bf444b",
+      "original_bytes": 6010,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/pitch_mod_snapshot_pipeline.sv",
+      "git_carrier_sha256": "992abe3eb299128905bf96ad32c3a9a563fc116a3837e39a5d74caa17f7faae6",
+      "git_carrier_bytes": 3835,
+      "original_receipt_sha256": "992abe3eb299128905bf96ad32c3a9a563fc116a3837e39a5d74caa17f7faae6",
+      "original_bytes": 3835,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/polyphonic_audio_core.sv",
+      "git_carrier_sha256": "4f661323e562d3e9625b67c72d83ab038b0740ab21ce13cf492744e1991f7f33",
+      "git_carrier_bytes": 3262,
+      "original_receipt_sha256": "4f661323e562d3e9625b67c72d83ab038b0740ab21ce13cf492744e1991f7f33",
+      "original_bytes": 3262,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/polyphonic_envelope_bank.sv",
+      "git_carrier_sha256": "6980b57f45a6a10d80e1c84192a8d938303c58acad1e699801543b0e133c6041",
+      "git_carrier_bytes": 11200,
+      "original_receipt_sha256": "6980b57f45a6a10d80e1c84192a8d938303c58acad1e699801543b0e133c6041",
+      "original_bytes": 11200,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/polyphonic_event_router.sv",
+      "git_carrier_sha256": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+      "git_carrier_bytes": 9875,
+      "original_receipt_sha256": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+      "original_bytes": 9875,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/polyphonic_pcm_commit.sv",
+      "git_carrier_sha256": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+      "git_carrier_bytes": 2587,
+      "original_receipt_sha256": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+      "original_bytes": 2587,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/reset_sync.sv",
+      "git_carrier_sha256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+      "git_carrier_bytes": 1713,
+      "original_receipt_sha256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+      "original_bytes": 1713,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/simple_voice.sv",
+      "git_carrier_sha256": "6bd8e69a5db72388c399a72b9399e221d4eaacd13d97eefac42a599529932801",
+      "git_carrier_bytes": 9569,
+      "original_receipt_sha256": "6bd8e69a5db72388c399a72b9399e221d4eaacd13d97eefac42a599529932801",
+      "original_bytes": 9569,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/sustain_controller.sv",
+      "git_carrier_sha256": "5bb5cfbef4f09303130bfa5a5df20d745943b643f9d21320c6e66e6b498bbfb9",
+      "git_carrier_bytes": 6224,
+      "original_receipt_sha256": "5bb5cfbef4f09303130bfa5a5df20d745943b643f9d21320c6e66e6b498bbfb9",
+      "original_bytes": 6224,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/sustain_control_contract_pkg.sv",
+      "git_carrier_sha256": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+      "git_carrier_bytes": 846,
+      "original_receipt_sha256": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+      "original_bytes": 846,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/system_status_counters.sv",
+      "git_carrier_sha256": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+      "git_carrier_bytes": 1948,
+      "original_receipt_sha256": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+      "original_bytes": 1948,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/TMDS_PLL_800_600_60.v",
+      "git_carrier_sha256": "7d6006749d113207bcc2246d0415c874570db0c92e8563bbd55eea6ed17fce20",
+      "git_carrier_bytes": 4903,
+      "original_receipt_sha256": "7d6006749d113207bcc2246d0415c874570db0c92e8563bbd55eea6ed17fce20",
+      "original_bytes": 4903,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/uart_rx.sv",
+      "git_carrier_sha256": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+      "git_carrier_bytes": 10342,
+      "original_receipt_sha256": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+      "original_bytes": 10342,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/uart_status_reporter.sv",
+      "git_carrier_sha256": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+      "git_carrier_bytes": 5476,
+      "original_receipt_sha256": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+      "original_bytes": 5476,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/uart_tx.sv",
+      "git_carrier_sha256": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+      "git_carrier_bytes": 8233,
+      "original_receipt_sha256": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+      "original_bytes": 8233,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/video_scan_timing.sv",
+      "git_carrier_sha256": "0b7b3def84043ddd40ed2c1e237bb2d528a117e4fc15195d40b33b0fe78b2069",
+      "git_carrier_bytes": 1953,
+      "original_receipt_sha256": "0b7b3def84043ddd40ed2c1e237bb2d528a117e4fc15195d40b33b0fe78b2069",
+      "original_bytes": 1953,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/visual_control_bridge.sv",
+      "git_carrier_sha256": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428",
+      "git_carrier_bytes": 3172,
+      "original_receipt_sha256": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428",
+      "original_bytes": 3172,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/visual_event_bridge.sv",
+      "git_carrier_sha256": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c",
+      "git_carrier_bytes": 5118,
+      "original_receipt_sha256": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c",
+      "original_bytes": 5118,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/visual_hit_flash.sv",
+      "git_carrier_sha256": "1cd4cc1e3459a41ee26122bee014afd552b697e80c1900f658cc03a73ebe03e3",
+      "git_carrier_bytes": 1862,
+      "original_receipt_sha256": "1cd4cc1e3459a41ee26122bee014afd552b697e80c1900f658cc03a73ebe03e3",
+      "original_bytes": 1862,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/visual_live_state.sv",
+      "git_carrier_sha256": "ad5c124a1f621ef95524f998efc4ca7ed0d7840d8297af8a97cd1460f88f5938",
+      "git_carrier_bytes": 6534,
+      "original_receipt_sha256": "ad5c124a1f621ef95524f998efc4ca7ed0d7840d8297af8a97cd1460f88f5938",
+      "original_bytes": 6534,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/visual_mailbox_cdc.sv",
+      "git_carrier_sha256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c",
+      "git_carrier_bytes": 2786,
+      "original_receipt_sha256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c",
+      "original_bytes": 2786,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/visual_scene_renderer.sv",
+      "git_carrier_sha256": "8062253766925a3c6fce11aad820f51dfcf7444501164d53e95d817c3e62a8d1",
+      "git_carrier_bytes": 11242,
+      "original_receipt_sha256": "8062253766925a3c6fce11aad820f51dfcf7444501164d53e95d817c3e62a8d1",
+      "original_bytes": 11242,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/visual_score_tracker.sv",
+      "git_carrier_sha256": "7e5c630fddf3da60f5fe6bd67721736ee7624817355822dadc4a09dc4cffe0dc",
+      "git_carrier_bytes": 22348,
+      "original_receipt_sha256": "7e5c630fddf3da60f5fe6bd67721736ee7624817355822dadc4a09dc4cffe0dc",
+      "original_bytes": 22348,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/voice_allocator_4.sv",
+      "git_carrier_sha256": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+      "git_carrier_bytes": 4892,
+      "original_receipt_sha256": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+      "original_bytes": 4892,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "sources/voice_gain_q15_candidate.sv",
+      "git_carrier_sha256": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+      "git_carrier_bytes": 897,
+      "original_receipt_sha256": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+      "original_bytes": 897,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "constraints/audio_visual.cst",
+      "git_carrier_sha256": "9860341591be1db845d21af91377896cf3eaefbbf4db73d81bc45284d7312bab",
+      "git_carrier_bytes": 8844,
+      "original_receipt_sha256": "9860341591be1db845d21af91377896cf3eaefbbf4db73d81bc45284d7312bab",
+      "original_bytes": 8844,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "constraints/audio_visual_hold055.sdc",
+      "git_carrier_sha256": "3c2bc9cfdaf788f29ee7b1d4d691e36c55feae886d539651f991fcb0c2fff6a6",
+      "git_carrier_bytes": 24030,
+      "original_receipt_sha256": "3c2bc9cfdaf788f29ee7b1d4d691e36c55feae886d539651f991fcb0c2fff6a6",
+      "original_bytes": 24030,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "rom/lfo_sine_q15.mem",
+      "git_carrier_sha256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060",
+      "git_carrier_bytes": 5120,
+      "original_receipt_sha256": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4",
+      "original_bytes": 6144,
+      "original_raw_matches_carrier": false,
+      "original_raw_recovery": "LF_to_CRLF_in_ignored_staging_only",
+      "rom_tokens_sha256": "9efbb67c66bfc2c6b5462620c086a9eeb0a76230c3f3d6de6869ab2a2b46271a"
+    },
+    {
+      "path": "rom/oct_ratio_q16.mem",
+      "git_carrier_sha256": "65185caf2722c98cd5406ecff0819f8b011cbbe6a5b9ae1974d3a03f4cf15fbd",
+      "git_carrier_bytes": 300,
+      "original_receipt_sha256": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d",
+      "original_bytes": 350,
+      "original_raw_matches_carrier": false,
+      "original_raw_recovery": "LF_to_CRLF_in_ignored_staging_only",
+      "rom_tokens_sha256": "a4b4452ec72c61a5e1de9c5bf3ad8b6367d3913f3042843173ea01ab69fbd83f"
+    },
+    {
+      "path": "rom/piano_band_4x256_8191.mem",
+      "git_carrier_sha256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+      "git_carrier_bytes": 5120,
+      "original_receipt_sha256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+      "original_bytes": 5120,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": "3259d8a6d677b88be68dd84c4866bde8c114d96a4dacedd124c0556391c25653"
+    },
+    {
+      "path": "rom/sine_1024_32767.mem",
+      "git_carrier_sha256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060",
+      "git_carrier_bytes": 5120,
+      "original_receipt_sha256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060",
+      "original_bytes": 5120,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": "9efbb67c66bfc2c6b5462620c086a9eeb0a76230c3f3d6de6869ab2a2b46271a"
+    },
+    {
+      "path": "rom/sine_1024_8192.mem",
+      "git_carrier_sha256": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2",
+      "git_carrier_bytes": 5120,
+      "original_receipt_sha256": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2",
+      "original_bytes": 5120,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": "7842f77336a83a6eb4fbb6b6964894eb206605f0e42cb5a1ccbeb914e7e105f0"
+    },
+    {
+      "path": "rom/sub_ratio_q16.mem",
+      "git_carrier_sha256": "9530577dfbc9b901d83abaa1a6f1c929241f7c092b5fc556b106b0c8bffc984e",
+      "git_carrier_bytes": 6144,
+      "original_receipt_sha256": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9",
+      "original_bytes": 7168,
+      "original_raw_matches_carrier": false,
+      "original_raw_recovery": "LF_to_CRLF_in_ignored_staging_only",
+      "rom_tokens_sha256": "c896009b23a7fb620d612e55c82e7527c632e6c40ea216c2fea62af9756900d8"
+    },
+    {
+      "path": "rom/velocity_gain_rom.mem",
+      "git_carrier_sha256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+      "git_carrier_bytes": 5120,
+      "original_receipt_sha256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+      "original_bytes": 5120,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": "7207a889ce9f5fc552c9f60f6cbb54f2859a78d6f506defb26a27f6cc7c230b5"
+    },
+    {
+      "path": "include/sine_table.svh",
+      "git_carrier_sha256": "969fc7d1036e359fc55c3b0ca18eaf3c8a123a146ed95c32a81e52ee10519cca",
+      "git_carrier_bytes": 5648,
+      "original_receipt_sha256": "969fc7d1036e359fc55c3b0ca18eaf3c8a123a146ed95c32a81e52ee10519cca",
+      "original_bytes": 5648,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    },
+    {
+      "path": "include/sustain_controller_ports.svh",
+      "git_carrier_sha256": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d",
+      "git_carrier_bytes": 827,
+      "original_receipt_sha256": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d",
+      "original_bytes": 827,
+      "original_raw_matches_carrier": true,
+      "original_raw_recovery": "identity",
+      "rom_tokens_sha256": null
+    }
+  ],
+  "raw_receipt_matching_files": 53,
+  "line_ending_only_recoverable_files": 3,
+  "external_E_drive_original_read": false,
+  "capture_sources": [
+    {
+      "carrier_path": "code/tb/audio_out/m3_clock40_pcm_serial_acceptance/evidence/normal_capture.b64",
+      "carrier_sha256": "ccafff08e39fb16cc99d1a1aab8fffe3de8d736d0d3814b11e5bbb1fd3d2de26",
+      "original_raw_sha256": "23e823c46638f87574616c9ab1de70c594acbd595188783d2e3b54ade0bdcfe4",
+      "original_raw_bytes": 1379816,
+      "frame_adoption_rows": 5849,
+      "first_A": [
+        "A",
+        "21087.500",
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      "last_A": [
+        "A",
+        "121854412.500",
+        "5849",
+        "5848",
+        "0",
+        "0"
+      ],
+      "record_contract": "A time_ns adoption_index producer_request_id signed_pcm24_left signed_pcm24_right",
+      "sample_seq_mapping": "adoption_index - 1; request id is NOT display sequence",
+      "contains_completed_serial_frames_only": false
+    },
+    {
+      "carrier_path": "code/tb/audio_out/m3_clock40_pcm_serial_acceptance/evidence/diagnostic_capture.b64",
+      "carrier_sha256": "dd93c093563bf4ce73e7ece838adbbb1869302c916cf9de7cee60d9a955055a5",
+      "original_raw_sha256": "b212b560594fa4b590981535f9e7df23e4d97fa86ea9a432b68210958d41c06b",
+      "original_raw_bytes": 9012,
+      "frame_adoption_rows": 41,
+      "first_A": [
+        "A",
+        "21087.500",
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      "last_A": [
+        "A",
+        "854412.500",
+        "41",
+        "40",
+        "-8388608",
+        "32767"
+      ],
+      "record_contract": "A time_ns adoption_index producer_request_id signed_pcm24_left signed_pcm24_right",
+      "sample_seq_mapping": "adoption_index - 1; request id is NOT display sequence",
+      "contains_completed_serial_frames_only": false
+    }
+  ],
+  "observation": {
+    "clock": "core_clk",
+    "clock_hz": 40000000,
+    "reset": "rst_sync_n",
+    "capture_enable": "i2s_frame_tick",
+    "capture_edge": "posedge core_clk, pre-NBA inputs equal u_i2s_tx inputs at the same edge",
+    "left": "buffered_left",
+    "right": "buffered_right",
+    "pcm_width": 24,
+    "i2s_tx_valid": "1'b1",
+    "frame_sequence": "32-bit local observer ordinal; first adoption 0, increments even if display FIFO drops",
+    "completed_serial_frame_count_is_not_adoption_count": true,
+    "quantization_reference_only": "saturate16((signed24 + 128) >>> 8); not changed"
+  },
+  "m3_interface": {
+    "domain_hz": 25000000,
+    "pixel_rst_n": "M2-synchronized waveform-local reset; does not gate existing audio/raster resets",
+    "sample_valid": "one pixel clock pulse per dequeued observation",
+    "sample_seq_bits": 32,
+    "sample_left_bits": 24,
+    "sample_right_bits": 24,
+    "stream_restart": "pixel-domain pulse clears waveform metadata on observation-stream reset; no samples accepted that cycle",
+    "ready_port": false,
+    "render_latency_cycles": 2,
+    "supports_back_to_back_valid": true,
+    "display_gap_count_semantics": "saturating count of sequence discontinuity/duplicate events and locally discarded sample events, not missing frames",
+    "window_drop_count_semantics": "saturating count of completed windows discarded/replaced, not partial or warmup windows"
+  },
+  "layout": {
+    "mode": "fixed opaque overlay coexisting with existing animation",
+    "x_min": 64,
+    "x_max": 575,
+    "y_min": 64,
+    "y_max": 319,
+    "zero_y": 191,
+    "columns": 512,
+    "channel": "left",
+    "window_samples": 2048,
+    "samples_per_column": 4,
+    "bin": "min/max of original signed 24-bit samples",
+    "map": "q = signed_pcm24 >>> 16; y = 191 - q",
+    "outside_region": "original animation with matched RGB/control pipeline delay",
+    "new_buttons_or_midi_controls": false
+  },
+  "level": "L0 source/interface preflight only; no waveform implementation or CDC/synthesis/STA/board verification",
+  "baseline_modified": false,
+  "candidate_rtl_created": false,
+  "gowin_run": false,
+  "board_programmed": false
+}
