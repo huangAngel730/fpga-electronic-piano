@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import ast
 import base64
+import gzip
 import hashlib
 import importlib.util
 import json
@@ -38,12 +39,31 @@ def main():
         raise ValueError("RECEIPT_FAIL")
     for relative, expected in receipt["source_sha256"].items():
         if sha((ROOT / relative).read_bytes()) != expected:
-            raise ValueError("EXECUTED_SOURCE_CHANGED " + relative)
+            # A checker-only revision does not retroactively alter old RTL
+            # execution identity. Verify its separate receipt and old snapshot.
+            revision = HERE / "review_repair_20261008/evidence"
+            if relative != "code/tb/input/pcm_waveform_candidate/reference.py":
+                raise ValueError("EXECUTED_SOURCE_CHANGED " + relative)
+            metadata = json.loads((revision / "raw_manifest.json").read_text(encoding="utf-8"))
+            revised_raw = {}
+            for name, item in metadata.items():
+                packed = base64.b64decode((revision / name).read_bytes())
+                data = gzip.decompress(packed)
+                if sha(data) != item["raw_sha256"] or len(data) != item["raw_bytes"]:
+                    raise ValueError("REPAIR_EVIDENCE_IDENTITY")
+                revised_raw[item["original"]] = data
+            revised = json.loads(revised_raw["run/receipt.json"])
+            if (not revised["passed"] or revised["original_source_sha256"] != receipt["source_sha256"]
+                    or sha(revised_raw["run/legacy_reference.py"]) != expected):
+                raise ValueError("LEGACY_CHECKER_SNAPSHOT")
+            for path, value in revised["source_sha256"].items():
+                if sha((ROOT / path).read_bytes()) != value:
+                    raise ValueError("REVISED_CHECKER_SOURCE_CHANGED")
     paths = [ROOT / "code/rtl/input/pcm_waveform_candidate", ROOT / "code/tb/input/pcm_waveform_candidate", HERE]
     for folder in paths:
         for file in folder.rglob("*.py"):
             ast.parse(file.read_text(encoding="utf-8"), filename=str(file))
-    print("PASS", len(raw_manifest), "sealed raw identities and executed source SHA", flush=True)
+    print("PASS", len(raw_manifest), "sealed raw identities; original execution / revised checker distinguished", flush=True)
     if args.archive_gate:
         gate_dir = args.archive_gate
         gate = json.loads((gate_dir / "receipt.json").read_text(encoding="utf-8"))

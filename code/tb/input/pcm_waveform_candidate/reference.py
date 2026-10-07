@@ -9,6 +9,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[4]
 RAW = ROOT / "code/tb/audio_out/m3_clock40_pcm_serial_acceptance/evidence"
 BASELINE = ROOT / "code/rtl/138K_try/hold_trials_20261005/L_locations_guard065"
+TB_SHA256 = "6b575c9003ae51e7843b83492ad7022f102020527339beea627e129904844c6e"
+DIRECTED_SHA256 = "eadef6367d73a26bc5a9a2983adc52bea6c0347ec940238176608739872f0a7a"
+RAW_SHA256 = {
+    "normal": "23e823c46638f87574616c9ab1de70c594acbd595188783d2e3b54ade0bdcfe4",
+    "diagnostic": "b212b560594fa4b590981535f9e7df23e4d97fa86ea9a432b68210958d41c06b",
+}
 
 
 def digest(data):
@@ -20,7 +26,8 @@ def sealed_samples(name):
     key = name + "_capture.b64"
     data = base64.b64decode((RAW / key).read_bytes(), validate=False)
     item = manifest[key]
-    if digest(data) != item["raw_sha256"] or len(data) != item["raw_bytes"]:
+    if (digest(data) != item["raw_sha256"] or digest(data) != RAW_SHA256[name]
+            or len(data) != item["raw_bytes"]):
         raise ValueError("RAW_CAPTURE_IDENTITY")
     values = []
     for line in data.decode("utf-8").splitlines():
@@ -49,10 +56,9 @@ def baseline_identity():
     return {"manifest_sha256": digest(path.read_bytes()), "verified_inputs": 56}
 
 
-def prepare(out):
-    normal, normal_identity = sealed_samples("normal")
-    diagnostic, diagnostic_identity = sealed_samples("diagnostic")
-    (out / "normal.txt").write_text("".join(f"{s} {a} {b}\n" for s, a, b in normal), encoding="ascii")
+def directed_fixture():
+    """Rebuild the frozen stimulus independently of any capture claims."""
+    diagnostic, _ = sealed_samples("diagnostic")
     lines = []
     coverage = []
 
@@ -121,10 +127,53 @@ def prepare(out):
     tick(0);tick();send([(987, 1, 0), (988, 2, 0), (989, 3, 0)])
     tick(51);tick();send([(100, -1, 0)])
     coverage += ["simultaneous publish/completion, reset in partial bin, incomplete trailing bin"]
+    return lines, coverage
+
+
+def prepare(out):
+    normal, normal_identity = sealed_samples("normal")
+    _, diagnostic_identity = sealed_samples("diagnostic")
+    lines, coverage = directed_fixture()
+    (out / "normal.txt").write_text("".join(f"{s} {a} {b}\n" for s, a, b in normal), encoding="ascii")
     (out / "vectors.txt").write_text("".join(lines), encoding="ascii")
     return {"normal": normal_identity, "diagnostic": diagnostic_identity,
             "directed_cycles": len(lines), "coverage": coverage,
             "full_scan": "8 x 800 x 525; last frame waveform_enable=0"}
+
+
+def stimulus_plan():
+    """Project frozen vectors and the TB scan schedule to public R/T/V/I.
+
+    R precedes everything; otherwise T, V, I are emitted in that order on
+    an edge. No capture-provided expected field is used to build this plan.
+    """
+    if digest((Path(__file__).parent / "tb_waveform.sv").read_bytes()) != TB_SHA256:
+        raise ValueError("FROZEN_TB_IDENTITY")
+    vectors, _ = directed_fixture()
+    if digest("".join(vectors).encode("ascii")) != DIRECTED_SHA256:
+        raise ValueError("FROZEN_DIRECTED_FIXTURE_IDENTITY")
+    plan = []
+    for cycle, vector in enumerate(vectors, 1):
+        flags, _, _, seq, left, right = map(int, vector.split())
+        if not flags & 1:
+            plan.append(f"R {cycle}")
+            continue
+        if flags & 2:
+            plan.append(f"T {cycle}")
+        if flags & 4:
+            plan.append(f"V {cycle} -1")
+        if flags & 8:
+            plan.append(f"I {cycle} {seq} {left} {right} {int(bool(flags & 2))}")
+    directed_cycles = len(vectors)
+    scan_base = directed_cycles + 1
+    plan.append(f"R {scan_base}")
+    normal, _ = sealed_samples("normal")
+    scan_events = [(frame * 420000, f"V {{cycle}} {frame}") for frame in range(8)]
+    scan_events += [(200 + 500 * index, f"I {{cycle}} {seq} {left} {right} 0")
+                    for index, (seq, left, right) in enumerate(normal)]
+    for offset, record in sorted(scan_events):
+        plan.append(record.format(cycle=scan_base + offset + 1))
+    return plan, directed_cycles + 1 + 8 * 800 * 525 + 3
 
 
 def row_hash(y, values, enabled):
@@ -147,6 +196,8 @@ def row_hash(y, values, enabled):
 
 
 def check_capture(path):
+    plan, expected_checks = stimulus_plan()
+    plan_index = 0
     lines = path.read_text(encoding="ascii").splitlines()
     if not lines or lines[0] != "HEADER T058 1" or not lines[-1].startswith("END "):
         raise ValueError("CAPTURE_HEADER_OR_END")
@@ -163,6 +214,9 @@ def check_capture(path):
         parts = line.split()
         kind = parts[0]
         if kind in ("R", "T", "V", "I"):
+            if plan_index >= len(plan) or line != plan[plan_index]:
+                raise ValueError(f"STIMULUS_IDENTITY {number} record {plan_index}")
+            plan_index += 1
             cyc = int(parts[1])
             if cyc < 1 or cyc < previous_cycle:
                 raise ValueError("RECORD_CYCLE")
@@ -222,10 +276,14 @@ def check_capture(path):
     if len(end) != 8:
         raise ValueError("END_FIELDS")
     checks, pixels, states, samples, nframes, gaps, drops = map(int, end[1:])
+    if plan_index != len(plan):
+        raise ValueError("STIMULUS_COMPLETENESS")
+    if checks != expected_checks:
+        raise ValueError("EXACT_CHECK_COUNT")
     normal, _ = sealed_samples("normal")
     if full_samples != normal:
         raise ValueError("SEALED_NORMAL_REPLAY")
-    if checks < 3360000 or samples != 5849 or nframes != 8 or len(frames) != 8 or len(rows) != 4200:
+    if samples != 5849 or nframes != 8 or len(frames) != 8 or len(rows) != 4200:
         raise ValueError("END_COVERAGE")
     if gaps != gap_count or drops != drop_count:
         raise ValueError("END_COUNTERS")
@@ -236,4 +294,7 @@ def check_capture(path):
         raise ValueError(first_error or "ORACLE_ERRORS")
     return {"checks": checks, "full_scan_pixels": 3360000, "rows": len(rows),
             "normal_samples": samples, "diagnostic_samples": diagnostic_packets,
-            "pixel_errors": pixels, "state_errors": states, "passed": True}
+            "pixel_errors": pixels, "state_errors": states,
+            "stimulus_records": plan_index,
+            "stimulus_sha256": digest(("\n".join(plan) + "\n").encode("ascii")),
+            "passed": True}
