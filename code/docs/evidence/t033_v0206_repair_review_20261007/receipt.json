@@ -1,0 +1,865 @@
+{
+  "date": "2026-10-07",
+  "source_zip_sha256": "2ae9ce6a566ae50b7da0e6561c9865edc8e90a01d831c3448442209cf372116c",
+  "runs": {
+    "original_test": {
+      "command": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_T033_v0206_repair_review_20261007\\original\\code\\model\\test_t033_architecture_budget.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "d13816e20b7dd0f3be71a1d7367eef49765dd88c8793109f58ec4682b2c1efeb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "original_budget": {
+      "command": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M1_T033_v0206_repair_review_20261007\\original\\code\\model\\t033_architecture_budget.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "69948f2ffc020177393506384935b290977bd1f5493689fd2207985495ba8d4f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "probes": [
+    {
+      "label": "parallel(-1)",
+      "outcome": "ValueError",
+      "error": "声部数必须 >= 1，收到 -1"
+    },
+    {
+      "label": "timeshared(-1)",
+      "outcome": "ValueError",
+      "error": "声部数必须 >= 1，收到 -1"
+    },
+    {
+      "label": "parallel(0)",
+      "outcome": "ValueError",
+      "error": "声部数必须 >= 1，收到 0"
+    },
+    {
+      "label": "timeshared(0)",
+      "outcome": "ValueError",
+      "error": "声部数必须 >= 1，收到 0"
+    },
+    {
+      "label": "parallel(65)",
+      "outcome": "ValueError",
+      "error": "声部数 65 超出合理范围（> 64）"
+    },
+    {
+      "label": "timeshared(65)",
+      "outcome": "ValueError",
+      "error": "声部数 65 超出合理范围（> 64）"
+    },
+    {
+      "label": "parallel(100)",
+      "outcome": "ValueError",
+      "error": "声部数 100 超出合理范围（> 64）"
+    },
+    {
+      "label": "timeshared(100)",
+      "outcome": "ValueError",
+      "error": "声部数 100 超出合理范围（> 64）"
+    },
+    {
+      "label": "hybrid(4,8)",
+      "outcome": "ValueError",
+      "error": "并行度 (8) 不能大于声部数 (4)"
+    },
+    {
+      "label": "hybrid(4,0)",
+      "outcome": "ValueError",
+      "error": "并行度必须 >= 1，收到 0"
+    },
+    {
+      "label": "hybrid(4,-1)",
+      "outcome": "ValueError",
+      "error": "并行度必须 >= 1，收到 -1"
+    },
+    {
+      "label": "check_II0",
+      "outcome": "ValueError",
+      "error": "II 必须为正数: 0"
+    },
+    {
+      "label": "check_IIneg",
+      "outcome": "ValueError",
+      "error": "II 必须为正数: -1"
+    },
+    {
+      "label": "check_lat0",
+      "outcome": "ValueError",
+      "error": "Latency 必须为正数: 0"
+    },
+    {
+      "label": "check_latneg",
+      "outcome": "ValueError",
+      "error": "Latency 必须为正数: -1"
+    },
+    {
+      "label": "check_dead0",
+      "outcome": "ValueError",
+      "error": "deadline 必须为正数: 0"
+    },
+    {
+      "label": "check_guardneg",
+      "outcome": "ValueError",
+      "error": "protection 不能为负: -1"
+    },
+    {
+      "label": "check_guard_eq_deadline",
+      "outcome": "ValueError",
+      "error": "protection (833) 必须小于 deadline (833)"
+    },
+    {
+      "label": "check_833_completion",
+      "outcome": "returned",
+      "value": [
+        true,
+        822,
+        0
+      ]
+    },
+    {
+      "label": "check_834_completion",
+      "outcome": "returned",
+      "value": [
+        false,
+        822,
+        -1
+      ]
+    },
+    {
+      "label": "check_823_II",
+      "outcome": "returned",
+      "value": [
+        true,
+        0,
+        832
+      ]
+    },
+    {
+      "label": "check_824_II",
+      "outcome": "returned",
+      "value": [
+        false,
+        -1,
+        832
+      ]
+    },
+    {
+      "label": "check_NaN_II",
+      "outcome": "returned",
+      "value": [
+        false,
+        {
+          "nonfinite_float": "nan"
+        },
+        832
+      ]
+    },
+    {
+      "label": "check_NaN_latency",
+      "outcome": "returned",
+      "value": [
+        false,
+        822,
+        {
+          "nonfinite_float": "nan"
+        }
+      ]
+    },
+    {
+      "label": "check_NaN_deadline",
+      "outcome": "returned",
+      "value": [
+        false,
+        {
+          "nonfinite_float": "nan"
+        },
+        {
+          "nonfinite_float": "nan"
+        }
+      ]
+    },
+    {
+      "label": "check_bool_II",
+      "outcome": "returned",
+      "value": [
+        true,
+        822,
+        832
+      ]
+    },
+    {
+      "label": "parallel_True",
+      "outcome": "returned",
+      "value": {
+        "name": "全并行_True声部",
+        "num_voices": true,
+        "resource": {
+          "lut": "unknown",
+          "ff": 423,
+          "dsp": 1,
+          "bsram_kb": 2.0,
+          "name": "fixed_infra+single_voice_xTrue+mixer_Truevoices+shared_wavetable"
+        },
+        "timing": {
+          "ii_cycles": 1,
+          "latency_cycles": 5,
+          "description": "II=1, Latency=5 (单声部5 + 混音树0)"
+        },
+        "mixer": {
+          "num_voices": true,
+          "tree_depth": 0,
+          "adder_nodes": 0,
+          "width_bits": 32
+        },
+        "meets_deadline": true,
+        "ii_margin": 1030,
+        "latency_margin": 1036,
+        "description": "True 个独立声部实例，II=1，ROM 需 2.0KB（True 副本或多端口）"
+      }
+    },
+    {
+      "label": "timeshared_True",
+      "outcome": "returned",
+      "value": {
+        "name": "分时运算_True声部",
+        "num_voices": true,
+        "resource": {
+          "lut": "unknown",
+          "ff": 684,
+          "dsp": 1,
+          "bsram_kb": 2.0,
+          "name": "fixed_infra+single_voice+phase_regs_True+fsm_control+shared_wavetable"
+        },
+        "timing": {
+          "ii_cycles": 8,
+          "latency_cycles": 8,
+          "description": "II=8 (N×5 + 3开销), Latency=8"
+        },
+        "mixer": {
+          "num_voices": 1,
+          "tree_depth": 0,
+          "adder_nodes": 0,
+          "width_bits": 32
+        },
+        "meets_deadline": true,
+        "ii_margin": 1023,
+        "latency_margin": 1033,
+        "description": "1 套运算单元分时复用，II=8，ROM 单端口共享"
+      }
+    }
+  ],
+  "architecture_results": [
+    {
+      "name": "全并行_4声部",
+      "num_voices": 4,
+      "resource": {
+        "lut": "unknown",
+        "ff": 1240,
+        "dsp": 4,
+        "bsram_kb": 2.0,
+        "name": "fixed_infra+single_voice_x4+mixer_4voices+shared_wavetable"
+      },
+      "timing": {
+        "ii_cycles": 1,
+        "latency_cycles": 7,
+        "description": "II=1, Latency=7 (单声部5 + 混音树2)"
+      },
+      "mixer": {
+        "num_voices": 4,
+        "tree_depth": 2,
+        "adder_nodes": 3,
+        "width_bits": 32
+      },
+      "meets_deadline": true,
+      "ii_margin": 1030,
+      "latency_margin": 1034,
+      "description": "4 个独立声部实例，II=1，ROM 需 8.0KB（4 副本或多端口）",
+      "architecture": "parallel",
+      "explicit_40mhz_check": [
+        true,
+        822,
+        826
+      ],
+      "constructor_check_profile": "default 50MHz1041"
+    },
+    {
+      "name": "分时运算_4声部",
+      "num_voices": 4,
+      "resource": {
+        "lut": "unknown",
+        "ff": 1439,
+        "dsp": 1,
+        "bsram_kb": 2.0,
+        "name": "fixed_infra+single_voice+phase_regs_4+fsm_control+shared_wavetable"
+      },
+      "timing": {
+        "ii_cycles": 23,
+        "latency_cycles": 23,
+        "description": "II=23 (N×5 + 3开销), Latency=23"
+      },
+      "mixer": {
+        "num_voices": 1,
+        "tree_depth": 0,
+        "adder_nodes": 0,
+        "width_bits": 32
+      },
+      "meets_deadline": true,
+      "ii_margin": 1008,
+      "latency_margin": 1018,
+      "description": "1 套运算单元分时复用，II=23，ROM 单端口共享",
+      "architecture": "timeshared",
+      "explicit_40mhz_check": [
+        true,
+        800,
+        810
+      ],
+      "constructor_check_profile": "default 50MHz1041"
+    },
+    {
+      "name": "混合_4声部_4并行",
+      "num_voices": 4,
+      "resource": {
+        "lut": "unknown",
+        "ff": 2266,
+        "dsp": 4,
+        "bsram_kb": 2.0,
+        "name": "fixed_infra+single_voice_x4+phase_regs_4+fsm_control_hybrid+mixer_4voices+shared_wavetable"
+      },
+      "timing": {
+        "ii_cycles": 9,
+        "latency_cycles": 9,
+        "description": "II=9 (ceil(N/M)×5 + 混音2 + 2), Latency=9"
+      },
+      "mixer": {
+        "num_voices": 4,
+        "tree_depth": 2,
+        "adder_nodes": 3,
+        "width_bits": 32
+      },
+      "meets_deadline": true,
+      "ii_margin": 1022,
+      "latency_margin": 1032,
+      "description": "4 套运算单元并行，II=9，ROM 需 4 端口",
+      "architecture": "hybrid",
+      "explicit_40mhz_check": [
+        true,
+        814,
+        824
+      ],
+      "constructor_check_profile": "default 50MHz1041"
+    },
+    {
+      "name": "全并行_8声部",
+      "num_voices": 8,
+      "resource": {
+        "lut": "unknown",
+        "ff": 2276,
+        "dsp": 8,
+        "bsram_kb": 2.0,
+        "name": "fixed_infra+single_voice_x8+mixer_8voices+shared_wavetable"
+      },
+      "timing": {
+        "ii_cycles": 1,
+        "latency_cycles": 8,
+        "description": "II=1, Latency=8 (单声部5 + 混音树3)"
+      },
+      "mixer": {
+        "num_voices": 8,
+        "tree_depth": 3,
+        "adder_nodes": 7,
+        "width_bits": 32
+      },
+      "meets_deadline": true,
+      "ii_margin": 1030,
+      "latency_margin": 1033,
+      "description": "8 个独立声部实例，II=1，ROM 需 16.0KB（8 副本或多端口）",
+      "architecture": "parallel",
+      "explicit_40mhz_check": [
+        true,
+        822,
+        825
+      ],
+      "constructor_check_profile": "default 50MHz1041"
+    },
+    {
+      "name": "分时运算_8声部",
+      "num_voices": 8,
+      "resource": {
+        "lut": "unknown",
+        "ff": 2444,
+        "dsp": 1,
+        "bsram_kb": 2.0,
+        "name": "fixed_infra+single_voice+phase_regs_8+fsm_control+shared_wavetable"
+      },
+      "timing": {
+        "ii_cycles": 43,
+        "latency_cycles": 43,
+        "description": "II=43 (N×5 + 3开销), Latency=43"
+      },
+      "mixer": {
+        "num_voices": 1,
+        "tree_depth": 0,
+        "adder_nodes": 0,
+        "width_bits": 32
+      },
+      "meets_deadline": true,
+      "ii_margin": 988,
+      "latency_margin": 998,
+      "description": "1 套运算单元分时复用，II=43，ROM 单端口共享",
+      "architecture": "timeshared",
+      "explicit_40mhz_check": [
+        true,
+        780,
+        790
+      ],
+      "constructor_check_profile": "default 50MHz1041"
+    },
+    {
+      "name": "混合_8声部_4并行",
+      "num_voices": 8,
+      "resource": {
+        "lut": "unknown",
+        "ff": 3303,
+        "dsp": 4,
+        "bsram_kb": 2.0,
+        "name": "fixed_infra+single_voice_x4+phase_regs_8+fsm_control_hybrid+mixer_8voices+shared_wavetable"
+      },
+      "timing": {
+        "ii_cycles": 15,
+        "latency_cycles": 15,
+        "description": "II=15 (ceil(N/M)×5 + 混音3 + 2), Latency=15"
+      },
+      "mixer": {
+        "num_voices": 8,
+        "tree_depth": 3,
+        "adder_nodes": 7,
+        "width_bits": 32
+      },
+      "meets_deadline": true,
+      "ii_margin": 1016,
+      "latency_margin": 1026,
+      "description": "4 套运算单元并行，II=15，ROM 需 4 端口",
+      "architecture": "hybrid",
+      "explicit_40mhz_check": [
+        true,
+        808,
+        818
+      ],
+      "constructor_check_profile": "default 50MHz1041"
+    },
+    {
+      "name": "全并行_16声部",
+      "num_voices": 16,
+      "resource": {
+        "lut": "unknown",
+        "ff": 4316,
+        "dsp": 16,
+        "bsram_kb": 2.0,
+        "name": "fixed_infra+single_voice_x16+mixer_16voices+shared_wavetable"
+      },
+      "timing": {
+        "ii_cycles": 1,
+        "latency_cycles": 9,
+        "description": "II=1, Latency=9 (单声部5 + 混音树4)"
+      },
+      "mixer": {
+        "num_voices": 16,
+        "tree_depth": 4,
+        "adder_nodes": 15,
+        "width_bits": 32
+      },
+      "meets_deadline": true,
+      "ii_margin": 1030,
+      "latency_margin": 1032,
+      "description": "16 个独立声部实例，II=1，ROM 需 32.0KB（16 副本或多端口）",
+      "architecture": "parallel",
+      "explicit_40mhz_check": [
+        true,
+        822,
+        824
+      ],
+      "constructor_check_profile": "default 50MHz1041"
+    },
+    {
+      "name": "分时运算_16声部",
+      "num_voices": 16,
+      "resource": {
+        "lut": "unknown",
+        "ff": 4453,
+        "dsp": 1,
+        "bsram_kb": 2.0,
+        "name": "fixed_infra+single_voice+phase_regs_16+fsm_control+shared_wavetable"
+      },
+      "timing": {
+        "ii_cycles": 83,
+        "latency_cycles": 83,
+        "description": "II=83 (N×5 + 3开销), Latency=83"
+      },
+      "mixer": {
+        "num_voices": 1,
+        "tree_depth": 0,
+        "adder_nodes": 0,
+        "width_bits": 32
+      },
+      "meets_deadline": true,
+      "ii_margin": 948,
+      "latency_margin": 958,
+      "description": "1 套运算单元分时复用，II=83，ROM 单端口共享",
+      "architecture": "timeshared",
+      "explicit_40mhz_check": [
+        true,
+        740,
+        750
+      ],
+      "constructor_check_profile": "default 50MHz1041"
+    },
+    {
+      "name": "混合_16声部_4并行",
+      "num_voices": 16,
+      "resource": {
+        "lut": "unknown",
+        "ff": 5344,
+        "dsp": 4,
+        "bsram_kb": 2.0,
+        "name": "fixed_infra+single_voice_x4+phase_regs_16+fsm_control_hybrid+mixer_16voices+shared_wavetable"
+      },
+      "timing": {
+        "ii_cycles": 26,
+        "latency_cycles": 26,
+        "description": "II=26 (ceil(N/M)×5 + 混音4 + 2), Latency=26"
+      },
+      "mixer": {
+        "num_voices": 16,
+        "tree_depth": 4,
+        "adder_nodes": 15,
+        "width_bits": 32
+      },
+      "meets_deadline": true,
+      "ii_margin": 1005,
+      "latency_margin": 1015,
+      "description": "4 套运算单元并行，II=26，ROM 需 4 端口",
+      "architecture": "hybrid",
+      "explicit_40mhz_check": [
+        true,
+        797,
+        807
+      ],
+      "constructor_check_profile": "default 50MHz1041"
+    },
+    {
+      "name": "全并行_32声部",
+      "num_voices": 32,
+      "resource": {
+        "lut": "unknown",
+        "ff": 8364,
+        "dsp": 32,
+        "bsram_kb": 2.0,
+        "name": "fixed_infra+single_voice_x32+mixer_32voices+shared_wavetable"
+      },
+      "timing": {
+        "ii_cycles": 1,
+        "latency_cycles": 10,
+        "description": "II=1, Latency=10 (单声部5 + 混音树5)"
+      },
+      "mixer": {
+        "num_voices": 32,
+        "tree_depth": 5,
+        "adder_nodes": 31,
+        "width_bits": 32
+      },
+      "meets_deadline": true,
+      "ii_margin": 1030,
+      "latency_margin": 1031,
+      "description": "32 个独立声部实例，II=1，ROM 需 64.0KB（32 副本或多端口）",
+      "architecture": "parallel",
+      "explicit_40mhz_check": [
+        true,
+        822,
+        823
+      ],
+      "constructor_check_profile": "default 50MHz1041"
+    },
+    {
+      "name": "分时运算_32声部",
+      "num_voices": 32,
+      "resource": {
+        "lut": "unknown",
+        "ff": 8470,
+        "dsp": 1,
+        "bsram_kb": 2.0,
+        "name": "fixed_infra+single_voice+phase_regs_32+fsm_control+shared_wavetable"
+      },
+      "timing": {
+        "ii_cycles": 163,
+        "latency_cycles": 163,
+        "description": "II=163 (N×5 + 3开销), Latency=163"
+      },
+      "mixer": {
+        "num_voices": 1,
+        "tree_depth": 0,
+        "adder_nodes": 0,
+        "width_bits": 32
+      },
+      "meets_deadline": true,
+      "ii_margin": 868,
+      "latency_margin": 878,
+      "description": "1 套运算单元分时复用，II=163，ROM 单端口共享",
+      "architecture": "timeshared",
+      "explicit_40mhz_check": [
+        true,
+        660,
+        670
+      ],
+      "constructor_check_profile": "default 50MHz1041"
+    },
+    {
+      "name": "混合_32声部_4并行",
+      "num_voices": 32,
+      "resource": {
+        "lut": "unknown",
+        "ff": 9393,
+        "dsp": 4,
+        "bsram_kb": 2.0,
+        "name": "fixed_infra+single_voice_x4+phase_regs_32+fsm_control_hybrid+mixer_32voices+shared_wavetable"
+      },
+      "timing": {
+        "ii_cycles": 47,
+        "latency_cycles": 47,
+        "description": "II=47 (ceil(N/M)×5 + 混音5 + 2), Latency=47"
+      },
+      "mixer": {
+        "num_voices": 32,
+        "tree_depth": 5,
+        "adder_nodes": 31,
+        "width_bits": 32
+      },
+      "meets_deadline": true,
+      "ii_margin": 984,
+      "latency_margin": 994,
+      "description": "4 套运算单元并行，II=47，ROM 需 4 端口",
+      "architecture": "hybrid",
+      "explicit_40mhz_check": [
+        true,
+        776,
+        786
+      ],
+      "constructor_check_profile": "default 50MHz1041"
+    }
+  ],
+  "files_manifest_checks": [
+    {
+      "path": "changes.json",
+      "actual_bytes": 3248,
+      "listed_bytes": 3248,
+      "actual_sha256": "daeb3e2f7c85955a2a1d0c2bc87801290c2c7ae445f205a3222b6d3c37806339",
+      "listed_sha256": "daeb3e2f7c85955a2a1d0c2bc87801290c2c7ae445f205a3222b6d3c37806339",
+      "matches": true
+    },
+    {
+      "path": "code/docs/test/T033_声部扩展架构评估.md",
+      "actual_bytes": 7367,
+      "listed_bytes": 5194,
+      "actual_sha256": "c52a78961dc4513055c04f299916cd6d3b63f3c17afa9e33253a3e01b713a1b5",
+      "listed_sha256": "7a1a43eb5b4ed91dc537f435050f292bbf3497788a27b8c76e1af018333dcadc",
+      "matches": false
+    },
+    {
+      "path": "code/model/t033_architecture_budget.py",
+      "actual_bytes": 18590,
+      "listed_bytes": 17103,
+      "actual_sha256": "4af333cfca9aaf625ed4444656f6ca6b0b3453a69e63bdc60eba4f642aefa755",
+      "listed_sha256": "25240a492811af3ec7ca4415516e11d763935fb1100819907f34cf28e83a4eef",
+      "matches": false
+    },
+    {
+      "path": "code/model/test_t033_architecture_budget.py",
+      "actual_bytes": 9971,
+      "listed_bytes": 8985,
+      "actual_sha256": "18f637788fcc8c1f44569a534f9d0626d04c6e068866427229bc744e37687b42",
+      "listed_sha256": "afbcf2e0777b7a27ed840ff3403439ac25ad97d5668867df3cc99dd9092ea6cc",
+      "matches": false
+    },
+    {
+      "path": "DELIVERY.md",
+      "actual_bytes": 3573,
+      "listed_bytes": 2384,
+      "actual_sha256": "707d1e15a21e3703462a3c92bcd5beda8aa21ca50dac043560394fd22b0e11f5",
+      "listed_sha256": "698e8e85a492e9eda3a56671d873d47f308871158361542d8fdd82832c658779",
+      "matches": false
+    },
+    {
+      "path": "M2_review/independent_budget_probe.json",
+      "actual_bytes": 6957,
+      "listed_bytes": 6957,
+      "actual_sha256": "02525d414dfb71061ddaf06cc52a108f16d8d00bafcf11a85a9ea6cedb1194e2",
+      "listed_sha256": "02525d414dfb71061ddaf06cc52a108f16d8d00bafcf11a85a9ea6cedb1194e2",
+      "matches": true
+    },
+    {
+      "path": "M2_review/independent_budget_probe.log",
+      "actual_bytes": 4128,
+      "listed_bytes": 4128,
+      "actual_sha256": "d662ea17d259fd02f031711be17bf30e8ace445d307855973b0caba29a057c47",
+      "listed_sha256": "d662ea17d259fd02f031711be17bf30e8ace445d307855973b0caba29a057c47",
+      "matches": true
+    },
+    {
+      "path": "M2_review/original_metadata/changes.json",
+      "actual_bytes": 2184,
+      "listed_bytes": 2184,
+      "actual_sha256": "3a3fdfe38d0ec6c8b8d406a4f4900cd7aa14c9d687587ea223e882c20c6b86aa",
+      "listed_sha256": "3a3fdfe38d0ec6c8b8d406a4f4900cd7aa14c9d687587ea223e882c20c6b86aa",
+      "matches": true
+    },
+    {
+      "path": "M2_review/original_metadata/DELIVERY.md",
+      "actual_bytes": 1571,
+      "listed_bytes": 1571,
+      "actual_sha256": "eb513552a92a2eda78e59827d4543dbd5e734354cb06cf3756df46a37e38dc26",
+      "listed_sha256": "eb513552a92a2eda78e59827d4543dbd5e734354cb06cf3756df46a37e38dc26",
+      "matches": true
+    },
+    {
+      "path": "M2_review/source_and_run_receipt.json",
+      "actual_bytes": 1507,
+      "listed_bytes": 1507,
+      "actual_sha256": "b28a713bcf25f445d9e3fdde18b7f26c690e49b9867d071fbd54677bb3f4d402",
+      "listed_sha256": "b28a713bcf25f445d9e3fdde18b7f26c690e49b9867d071fbd54677bb3f4d402",
+      "matches": true
+    },
+    {
+      "path": "M2_review/t033_architecture_budget.log",
+      "actual_bytes": 4427,
+      "listed_bytes": 4427,
+      "actual_sha256": "88336cd38bdea64989c4db682bcef41899a96b1488ccb506b8e962a474b44659",
+      "listed_sha256": "88336cd38bdea64989c4db682bcef41899a96b1488ccb506b8e962a474b44659",
+      "matches": true
+    },
+    {
+      "path": "M2_review/test_t033_architecture_budget.log",
+      "actual_bytes": 2754,
+      "listed_bytes": 2754,
+      "actual_sha256": "cbd417cbe17d17bc71d21c23b0fe7c0244d7d973bc6166dcbb5690842b960de7",
+      "listed_sha256": "cbd417cbe17d17bc71d21c23b0fe7c0244d7d973bc6166dcbb5690842b960de7",
+      "matches": true
+    }
+  ],
+  "changes_source_checks": [
+    {
+      "path": "code/model/t033_architecture_budget.py",
+      "actual_sha256": "4af333cfca9aaf625ed4444656f6ca6b0b3453a69e63bdc60eba4f642aefa755",
+      "declared_sha256": "25240a492811af3ec7ca4415516e11d763935fb1100819907f34cf28e83a4eef",
+      "matches": false
+    },
+    {
+      "path": "code/model/test_t033_architecture_budget.py",
+      "actual_sha256": "18f637788fcc8c1f44569a534f9d0626d04c6e068866427229bc744e37687b42",
+      "declared_sha256": "afbcf2e0777b7a27ed840ff3403439ac25ad97d5668867df3cc99dd9092ea6cc",
+      "matches": false
+    },
+    {
+      "path": "code/docs/test/T033_声部扩展架构评估.md",
+      "actual_sha256": "c52a78961dc4513055c04f299916cd6d3b63f3c17afa9e33253a3e01b713a1b5",
+      "declared_sha256": "7a1a43eb5b4ed91dc537f435050f292bbf3497788a27b8c76e1af018333dcadc",
+      "matches": false
+    }
+  ],
+  "device_capacity": {
+    "lut": 59904,
+    "ff": 60780,
+    "dsp": 118,
+    "bsram_kb": 265.5,
+    "threshold": 0.7
+  },
+  "state_minimum_bits": 251,
+  "rom_single_kb": 2.0,
+  "mix32_model_ff": 160,
+  "mix32_all_nodes_registered_reference_bits": 992,
+  "operation_schedule": [
+    {
+      "name": "状态读取",
+      "cycles": 1,
+      "dependency": "",
+      "notes": "从寄存器/BSRAM 读取声部状态"
+    },
+    {
+      "name": "ADSR 计算",
+      "cycles": 1,
+      "dependency": "状态读取",
+      "notes": "FSM + 定点加/乘，更新包络"
+    },
+    {
+      "name": "波表查找",
+      "cycles": 1,
+      "dependency": "ADSR 计算",
+      "notes": "ROM 读取，1 周期延迟"
+    },
+    {
+      "name": "增益乘法",
+      "cycles": 1,
+      "dependency": "波表查找",
+      "notes": "sample × envelope，DSP 或 LUT"
+    },
+    {
+      "name": "混音累加",
+      "cycles": 1,
+      "dependency": "增益乘法",
+      "notes": "累加到混音缓冲区"
+    }
+  ],
+  "operation_overhead": [
+    {
+      "name": "饱和处理",
+      "cycles": 1,
+      "dependency": "混音累加",
+      "notes": "32-bit → 24-bit signed 饱和"
+    },
+    {
+      "name": "输出提交",
+      "cycles": 1,
+      "dependency": "饱和处理",
+      "notes": "写入输出寄存器/FIFO"
+    },
+    {
+      "name": "保护间隔",
+      "cycles": 1,
+      "dependency": "输出提交",
+      "notes": "状态机复位/时序余量"
+    }
+  ],
+  "python_version": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "original_source_unchanged": true,
+  "production_model_installed": false,
+  "rtl_or_gowin_run": false,
+  "architecture_signed_off": false,
+  "level": "Python execution L1, static budget/contract L0",
+  "source_zip_bytes": 28923,
+  "source_payload_files": 13,
+  "zip_crc_passed": true,
+  "approved_fixes": [
+    "11 numeric invalid constructor calls raise ValueError",
+    "7 invalid numeric deadline calls raise ValueError",
+    "40MHz833 and50MHz1041 budgets explicitly printed",
+    "251 bits correctly labelled partial rather than complete physical voice state"
+  ],
+  "remaining_blockers": [
+    "FILES_SHA256 mismatches three changed business sources and new DELIVERY; changes lists old three source SHA; carried M2 logs/receipt bound to old code",
+    "actual resource model uses2KB for all ROM architectures despite32parallel64KB description; report wrong2KB=16Ksamples16bit dimensional equation",
+    "251bit excludes mandatory current control/identity state; mapping/ROM ports and actual mixer/DSP costs incomplete",
+    "N*5+3 assumes whole ADSR onecycle and lacks PitchMod/FCW/phase/state writeback/control calendar; cannot prove32voice throughput",
+    "report tables do not match executed FF/II results, constructors/check defaults still60K50 while40 print alone does not define138K capacity profile"
+  ],
+  "signed_off": false,
+  "notification_M3_delivery_confirmed_by_user": false
+}
