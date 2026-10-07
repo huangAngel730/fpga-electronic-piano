@@ -1,0 +1,266 @@
+{
+  "date": "2026-10-07",
+  "user_confirmed_board": "Tang Mega 138K C",
+  "user_confirmed_dock": "NEO Dock 31005",
+  "local_sources": {
+    "Tang_Mega_138K_30354_NEO_31005_引脚事实表.xlsx": {
+      "bytes": 49280,
+      "sha256": "29d015d8f8ee2c4076a40d6d9c729f169d341652d354f468fb3c3d623b2a6873"
+    },
+    "tang_mega_138K_pins.cst": {
+      "bytes": 20166,
+      "sha256": "ab24e1876c36b01721e31d8dcf3a2838b873b0f1903d8aeeeccaeec6b82efa9d"
+    },
+    "tang_mega_138k_30354_Schematics..pdf": {
+      "bytes": 786950,
+      "sha256": "326c45a7ae05e990d5f885fba6ec9b589d966941aa3c00f7d43122d99c068af7"
+    },
+    "Tang_Mega_NEO_Dock-138K_31005_Schematics (2).pdf": {
+      "bytes": 5804656,
+      "sha256": "ade025e2c30b23d9fa820346cabd5ee3f90e6b9bfbc083d48bc691e1d3977d1e"
+    }
+  },
+  "requested_remote_machine_path_exists": false,
+  "checks": [
+    {
+      "port": "sys_clk",
+      "reference_alias": "sys_clk",
+      "balls": [
+        "V22"
+      ],
+      "bank": 4,
+      "declared_vccio": "3.3",
+      "reported_io_type": "LVCMOS33",
+      "xlsx_rows": [
+        6
+      ],
+      "reference_location_matches": true
+    },
+    {
+      "port": "sys_rst_n",
+      "reference_alias": "sys_rst_n",
+      "balls": [
+        "AA13"
+      ],
+      "bank": 5,
+      "declared_vccio": "3.3",
+      "reported_io_type": "LVCMOS33",
+      "xlsx_rows": [
+        18
+      ],
+      "reference_location_matches": true
+    },
+    {
+      "port": "key_n[0]",
+      "reference_alias": "Key_in[0]",
+      "balls": [
+        "AB13"
+      ],
+      "bank": 5,
+      "declared_vccio": "3.3",
+      "reported_io_type": "LVCMOS33",
+      "xlsx_rows": [
+        19
+      ],
+      "reference_location_matches": true
+    },
+    {
+      "port": "key_n[1]",
+      "reference_alias": "Key_in[1]",
+      "balls": [
+        "Y12"
+      ],
+      "bank": 5,
+      "declared_vccio": "3.3",
+      "reported_io_type": "LVCMOS33",
+      "xlsx_rows": [
+        20
+      ],
+      "reference_location_matches": true
+    },
+    {
+      "port": "midi_rx",
+      "reference_alias": "LEDs[2]",
+      "balls": [
+        "R17"
+      ],
+      "bank": 4,
+      "declared_vccio": "3.3",
+      "reported_io_type": "LVCMOS33",
+      "xlsx_rows": [
+        53
+      ],
+      "reference_location_matches": true
+    },
+    {
+      "port": "uart_tx",
+      "reference_alias": "txp",
+      "balls": [
+        "U15"
+      ],
+      "bank": 5,
+      "declared_vccio": "3.3",
+      "reported_io_type": "LVCMOS33",
+      "xlsx_rows": [
+        30
+      ],
+      "reference_location_matches": true
+    },
+    {
+      "port": "i2s_bclk",
+      "reference_alias": "HP_BCK",
+      "balls": [
+        "Y17"
+      ],
+      "bank": 5,
+      "declared_vccio": "3.3",
+      "reported_io_type": "LVCMOS33",
+      "xlsx_rows": [
+        26
+      ],
+      "reference_location_matches": true
+    },
+    {
+      "port": "i2s_lrck",
+      "reference_alias": "HP_WS",
+      "balls": [
+        "AB17"
+      ],
+      "bank": 5,
+      "declared_vccio": "3.3",
+      "reported_io_type": "LVCMOS33",
+      "xlsx_rows": [
+        27
+      ],
+      "reference_location_matches": true
+    },
+    {
+      "port": "i2s_din",
+      "reference_alias": "HP_DIN",
+      "balls": [
+        "AA16"
+      ],
+      "bank": 5,
+      "declared_vccio": "3.3",
+      "reported_io_type": "LVCMOS33",
+      "xlsx_rows": [
+        28
+      ],
+      "reference_location_matches": true
+    },
+    {
+      "port": "pa_en",
+      "reference_alias": "PA_EN",
+      "balls": [
+        "AB16"
+      ],
+      "bank": 5,
+      "declared_vccio": "3.3",
+      "reported_io_type": "LVCMOS33",
+      "xlsx_rows": [
+        29
+      ],
+      "reference_location_matches": true
+    },
+    {
+      "port": "tmds_data_p[0]",
+      "reference_alias": "tmds_d_p_0[0]",
+      "balls": [
+        "J14",
+        "H14"
+      ],
+      "bank": 3,
+      "declared_vccio": "3.3",
+      "reported_io_type": "LVDS25",
+      "xlsx_rows": [
+        111,
+        110
+      ],
+      "reference_location_matches": true
+    },
+    {
+      "port": "tmds_data_p[1]",
+      "reference_alias": "tmds_d_p_0[1]",
+      "balls": [
+        "J15",
+        "H15"
+      ],
+      "bank": 3,
+      "declared_vccio": "3.3",
+      "reported_io_type": "LVDS25",
+      "xlsx_rows": [
+        109,
+        108
+      ],
+      "reference_location_matches": true
+    },
+    {
+      "port": "tmds_data_p[2]",
+      "reference_alias": "tmds_d_p_0[2]",
+      "balls": [
+        "K17",
+        "J17"
+      ],
+      "bank": 3,
+      "declared_vccio": "3.3",
+      "reported_io_type": "LVDS25",
+      "xlsx_rows": [
+        107,
+        106
+      ],
+      "reference_location_matches": true
+    },
+    {
+      "port": "tmds_clk_p",
+      "reference_alias": "tmds_clk_p_0",
+      "balls": [
+        "G15",
+        "G16"
+      ],
+      "bank": 3,
+      "declared_vccio": "3.3",
+      "reported_io_type": "LVDS25",
+      "xlsx_rows": [
+        113,
+        112
+      ],
+      "reference_location_matches": true
+    }
+  ],
+  "ports_checked": 14,
+  "candidate_cst_sha256": "9860341591be1db845d21af91377896cf3eaefbbf4db73d81bc45284d7312bab",
+  "pin_report_sha256": "ec9e8211568ca0a4a5aef79eaeb3d48e703505f37dd7fdb180c228da85627130",
+  "bitstream_sha256": "598ec9bdf4fe20718f0f0a79a94cc6daed518103c1c4007ce2fec6231f2fff48",
+  "pin_report_profile_errors": [],
+  "schematic_pages_visually_checked": {
+    "core": [
+      1,
+      4,
+      5,
+      6,
+      7
+    ],
+    "dock": [
+      6,
+      7,
+      10,
+      15,
+      19
+    ]
+  },
+  "bank_measurements": {
+    "Bank3": "Dock TP21 VCCO_3 to GND, nominal 3.3V; alternative core FB16 FPGA side",
+    "Bank4": "Dock TP22 VCCO_4 to GND, nominal 3.3V; alternative core FB14 FPGA side",
+    "Bank5": "Core FB13 VCCIO5 side to GND, nominal 3.3V. Dock TP23 VCCO_5 only after power-off continuity to FB13 VCCIO5 confirmed."
+  },
+  "external_midi_measurements": "adapter logic output before connection: high approximately 3.3V, low approximately 0V; GND continuity to J9-3/4 or J14-12 (power off)",
+  "hdmi_default_direction_not_proven": "DVI_DIR_SEL not driven by candidate; schematic default components cannot prove assembled TX state",
+  "candidate_modified": false,
+  "configuration_modified": false,
+  "build_rerun": false,
+  "programmed": false,
+  "board_release_allowed": false,
+  "document_wiring_crosscheck_passed": true,
+  "level": "L0 document/static audit; existing V0197 L5 retained; no L6",
+  "port_comment_caveat": "Candidate CST/top retain 60K Bank7/no-HDMI comments; active commands and V0197 report are 138K Bank5/Bank3; original input files left byte-identical."
+}
