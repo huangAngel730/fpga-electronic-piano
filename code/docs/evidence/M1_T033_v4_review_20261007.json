@@ -1,0 +1,446 @@
+{
+  "date": "2026-10-07",
+  "original_zip": {
+    "bytes": 24410,
+    "sha256": "b49782be783fe3303de028962b6666483e3131b8e7403c002af0d76b33a361dd",
+    "crc_passed": true
+  },
+  "business_files": {
+    "code/model/t033_architecture_budget.py": {
+      "bytes": 17103,
+      "sha256": "25240a492811af3ec7ca4415516e11d763935fb1100819907f34cf28e83a4eef"
+    },
+    "code/model/test_t033_architecture_budget.py": {
+      "bytes": 8985,
+      "sha256": "afbcf2e0777b7a27ed840ff3403439ac25ad97d5668867df3cc99dd9092ea6cc"
+    },
+    "code/docs/test/T033_声部扩展架构评估.md": {
+      "bytes": 5194,
+      "sha256": "7a1a43eb5b4ed91dc537f435050f292bbf3497788a27b8c76e1af018333dcadc"
+    }
+  },
+  "original_test_result": "7/7 PASS",
+  "runs": {
+    "test_t033_architecture_budget": {
+      "exit": 0,
+      "log_sha256": "cbd417cbe17d17bc71d21c23b0fe7c0244d7d973bc6166dcbb5690842b960de7"
+    },
+    "t033_architecture_budget": {
+      "exit": 0,
+      "log_sha256": "88336cd38bdea64989c4db682bcef41899a96b1488ccb506b8e962a474b44659"
+    }
+  },
+  "independent_probe": {
+    "deadline_cases": [
+      {
+        "II": 1,
+        "Latency": 1031,
+        "deadline": 1041,
+        "guard": 10,
+        "result": [
+          true,
+          1030,
+          10
+        ]
+      },
+      {
+        "II": 1,
+        "Latency": 1032,
+        "deadline": 1041,
+        "guard": 10,
+        "result": [
+          true,
+          1030,
+          9
+        ]
+      },
+      {
+        "II": 1,
+        "Latency": 1041,
+        "deadline": 1041,
+        "guard": 10,
+        "result": [
+          true,
+          1030,
+          0
+        ]
+      },
+      {
+        "II": 1,
+        "Latency": 1042,
+        "deadline": 1041,
+        "guard": 10,
+        "result": [
+          false,
+          1030,
+          -1
+        ]
+      },
+      {
+        "II": 0,
+        "Latency": 10,
+        "deadline": 1041,
+        "guard": 10,
+        "result": [
+          true,
+          1031,
+          1031
+        ]
+      },
+      {
+        "II": -1,
+        "Latency": 10,
+        "deadline": 1041,
+        "guard": 10,
+        "result": [
+          true,
+          1032,
+          1031
+        ]
+      },
+      {
+        "II": 1,
+        "Latency": -1,
+        "deadline": 1041,
+        "guard": 10,
+        "result": [
+          true,
+          1030,
+          1042
+        ]
+      },
+      {
+        "II": 1,
+        "Latency": 824,
+        "deadline": 833,
+        "guard": 10,
+        "result": [
+          true,
+          822,
+          9
+        ]
+      },
+      {
+        "II": 1,
+        "Latency": 833,
+        "deadline": 833,
+        "guard": 10,
+        "result": [
+          true,
+          822,
+          0
+        ]
+      },
+      {
+        "II": 1,
+        "Latency": 834,
+        "deadline": 833,
+        "guard": 10,
+        "result": [
+          false,
+          822,
+          -1
+        ]
+      },
+      {
+        "II": 1,
+        "Latency": 1,
+        "deadline": 1041,
+        "guard": -1,
+        "result": [
+          true,
+          1041,
+          1040
+        ]
+      }
+    ],
+    "constructor_cases": [
+      {
+        "entry": "architecture_parallel",
+        "args": [
+          -1
+        ],
+        "rejected": false,
+        "name": "全并行_-1声部",
+        "FF": -15,
+        "II": 1,
+        "Latency": 6
+      },
+      {
+        "entry": "architecture_timeshared",
+        "args": [
+          0
+        ],
+        "rejected": false,
+        "name": "分时运算_0声部",
+        "FF": 434,
+        "II": 3,
+        "Latency": 3
+      },
+      {
+        "entry": "architecture_hybrid",
+        "args": [
+          4,
+          8
+        ],
+        "rejected": false,
+        "name": "混合_4声部_8并行",
+        "FF": 3305,
+        "II": 10,
+        "Latency": 10
+      },
+      {
+        "entry": "architecture_hybrid",
+        "args": [
+          4,
+          0
+        ],
+        "rejected": true,
+        "exception": "ZeroDivisionError",
+        "reason": "integer division or modulo by zero"
+      },
+      {
+        "entry": "architecture_parallel",
+        "args": [
+          100
+        ],
+        "rejected": false,
+        "name": "全并行_100声部",
+        "FF": 25496,
+        "II": 1,
+        "Latency": 11
+      },
+      {
+        "entry": "architecture_parallel",
+        "args": [
+          2.5
+        ],
+        "rejected": true,
+        "exception": "AttributeError",
+        "reason": "'float' object has no attribute 'bit_length'"
+      }
+    ],
+    "rom_scenarios": [
+      {
+        "architecture": "parallel",
+        "voices": 4,
+        "rom_kb": 2.0,
+        "DSP": 4,
+        "II": 1,
+        "Latency": 6,
+        "at40MHz_unmodified_formula": [
+          true,
+          822,
+          827
+        ]
+      },
+      {
+        "architecture": "timeshared",
+        "voices": 4,
+        "rom_kb": 2.0,
+        "DSP": 1,
+        "II": 23,
+        "Latency": 23,
+        "at40MHz_unmodified_formula": [
+          true,
+          800,
+          810
+        ]
+      },
+      {
+        "architecture": "hybrid",
+        "voices": 4,
+        "rom_kb": 2.0,
+        "DSP": 4,
+        "II": 9,
+        "Latency": 9,
+        "at40MHz_unmodified_formula": [
+          true,
+          814,
+          824
+        ]
+      },
+      {
+        "architecture": "parallel",
+        "voices": 8,
+        "rom_kb": 2.0,
+        "DSP": 8,
+        "II": 1,
+        "Latency": 7,
+        "at40MHz_unmodified_formula": [
+          true,
+          822,
+          826
+        ]
+      },
+      {
+        "architecture": "timeshared",
+        "voices": 8,
+        "rom_kb": 2.0,
+        "DSP": 1,
+        "II": 43,
+        "Latency": 43,
+        "at40MHz_unmodified_formula": [
+          true,
+          780,
+          790
+        ]
+      },
+      {
+        "architecture": "hybrid",
+        "voices": 8,
+        "rom_kb": 2.0,
+        "DSP": 4,
+        "II": 14,
+        "Latency": 14,
+        "at40MHz_unmodified_formula": [
+          true,
+          809,
+          819
+        ]
+      },
+      {
+        "architecture": "parallel",
+        "voices": 16,
+        "rom_kb": 2.0,
+        "DSP": 16,
+        "II": 1,
+        "Latency": 8,
+        "at40MHz_unmodified_formula": [
+          true,
+          822,
+          825
+        ]
+      },
+      {
+        "architecture": "timeshared",
+        "voices": 16,
+        "rom_kb": 2.0,
+        "DSP": 1,
+        "II": 83,
+        "Latency": 83,
+        "at40MHz_unmodified_formula": [
+          true,
+          740,
+          750
+        ]
+      },
+      {
+        "architecture": "hybrid",
+        "voices": 16,
+        "rom_kb": 2.0,
+        "DSP": 4,
+        "II": 24,
+        "Latency": 24,
+        "at40MHz_unmodified_formula": [
+          true,
+          799,
+          809
+        ]
+      },
+      {
+        "architecture": "parallel",
+        "voices": 32,
+        "rom_kb": 2.0,
+        "DSP": 32,
+        "II": 1,
+        "Latency": 9,
+        "at40MHz_unmodified_formula": [
+          true,
+          822,
+          824
+        ]
+      },
+      {
+        "architecture": "timeshared",
+        "voices": 32,
+        "rom_kb": 2.0,
+        "DSP": 1,
+        "II": 163,
+        "Latency": 163,
+        "at40MHz_unmodified_formula": [
+          true,
+          660,
+          670
+        ]
+      },
+      {
+        "architecture": "hybrid",
+        "voices": 32,
+        "rom_kb": 2.0,
+        "DSP": 4,
+        "II": 44,
+        "Latency": 44,
+        "at40MHz_unmodified_formula": [
+          true,
+          779,
+          789
+        ]
+      }
+    ],
+    "state_inventory": {
+      "raw_fields": {
+        "phase_acc": 32,
+        "fcw": 32,
+        "velocity": 10,
+        "adsr_state": 3,
+        "adsr_level": 32,
+        "adsr_start": 32,
+        "adsr_peak": 32,
+        "adsr_sustain": 32,
+        "adsr_step": 33,
+        "adsr_elapsed": 13
+      },
+      "sum_bits": 251,
+      "declared_exclusions": [
+        "source/channel/note/generation",
+        "LFO",
+        "CC64/lifecycle/control snapshot"
+      ],
+      "complete_current_function_state_proven": false
+    },
+    "mixer": {
+      "nodes": 31,
+      "depth": 5,
+      "reported_ff": 160,
+      "if_all_tree_outputs_registered_ff": 992,
+      "physical_mapping_proven": false
+    },
+    "device_defaults": {
+      "lut": 59904,
+      "ff": 60780,
+      "dsp": 118,
+      "bsram_kb": 265.5,
+      "threshold": 0.7
+    },
+    "deadline_guard_note": "model compares II to deadline-guard but Latency to full deadline; whether guard included in Latency not defined consistently (schedule has only 1 guard cycle)",
+    "profile_note": "current defaults are 60K/50MHz/1041, not T056 138K C/40MHz/833",
+    "log_sha256": "d662ea17d259fd02f031711be17bf30e8ace445d307855973b0caba29a057c47",
+    "sources_modified": false,
+    "new_rtl_or_gowin": false
+  },
+  "cleaned_exclusions": [
+    "code/docs/test/T033_架构评估报告.md",
+    "code/model/__pycache__/t033_architecture_budget.cpython-310.pyc"
+  ],
+  "changes_and_delivery_edited_in_clean_copy_only": true,
+  "original_zip_and_business_sources_unchanged": true,
+  "draft_issues": [
+    "public constructors do not call validation",
+    "guard inclusion in completion latency undefined; illegal timing accepted",
+    "60K/50MHz defaults not latest 138K C/40MHz",
+    "251 bits excludes current identity/LFO/CC64 state",
+    "gain operator count not complete DSP mapping",
+    "ROM parallel read/replication not modeled",
+    "mixed report periods differ from model",
+    "state writeback and PitchMod operation calendar missing"
+  ],
+  "clean_archive": "code/output/M1_T033_架构评估_清理与M2实测_20261007.zip",
+  "clean_archive_bytes": 23429,
+  "clean_archive_sha256": "851b7a94a56150ba51c9bd33bcaa7dd4a72a66d73a1825a6e14e2d81ba01d6aa",
+  "clean_manifest_sha256": "9a92f23b1f6ff2f84a8c594cc7fda955d050ec3269f7b82a8ccd8d0774e21ee6",
+  "zip_crc_and_members_verified": true,
+  "architecture_signoff": false,
+  "expanded_rtl_authorized": false,
+  "new_rtl_or_gowin": false
+}
