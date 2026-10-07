@@ -1,0 +1,449 @@
+{
+  "steps": [
+    {
+      "name": "normal_m0_final_check",
+      "command": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\pcm_waveform_candidate\\night_blackbox_20261007\\checker.py",
+        "code\\output\\m3_night_wave_20261008_002446\\normal_m0.capture",
+        "--vectors",
+        "code\\output\\m3_night_wave_20261008_002446\\normal.txt"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.922,
+      "timed_out": false,
+      "stdout_sha256": "5196638c8ac37d62cad3490882e7c6a6f18c245c021dcdc82bd90a180ce24070",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "diagnostic_m0_final_check",
+      "command": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\pcm_waveform_candidate\\night_blackbox_20261007\\checker.py",
+        "code\\output\\m3_night_wave_20261008_002446\\diagnostic_m0.capture",
+        "--vectors",
+        "code\\output\\m3_night_wave_20261008_002446\\diagnostic.txt"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.203,
+      "timed_out": false,
+      "stdout_sha256": "3a8b75d8eef0688b79fbd1de77c958a6bd6bc1b6335296ca262a323bb8e5172e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "stress_m0_final_check",
+      "command": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\pcm_waveform_candidate\\night_blackbox_20261007\\checker.py",
+        "code\\output\\m3_night_wave_20261008_002446\\stress_m0.capture",
+        "--vectors",
+        "code\\output\\m3_night_wave_20261008_002446\\stress.txt"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.344,
+      "timed_out": false,
+      "stdout_sha256": "06258192a4d7d2beb16483d668169539368cc540dbdf4b37d1372baeb1f3132e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "stress_m1_final_check",
+      "command": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\pcm_waveform_candidate\\night_blackbox_20261007\\checker.py",
+        "code\\output\\m3_night_wave_20261008_002446\\stress_m1.capture",
+        "--vectors",
+        "code\\output\\m3_night_wave_20261008_002446\\stress.txt"
+      ],
+      "exit_code": 1,
+      "elapsed_seconds": 2.391,
+      "timed_out": false,
+      "stdout_sha256": "7f1b8111f16b4d735cd34d1f6b93be7771215b16b57f20ec9e0a5c1bc24953c5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "stress_m2_final_check",
+      "command": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\pcm_waveform_candidate\\night_blackbox_20261007\\checker.py",
+        "code\\output\\m3_night_wave_20261008_002446\\stress_m2.capture",
+        "--vectors",
+        "code\\output\\m3_night_wave_20261008_002446\\stress.txt"
+      ],
+      "exit_code": 1,
+      "elapsed_seconds": 2.453,
+      "timed_out": false,
+      "stdout_sha256": "9ef013f0b2d3283619077b8dbc66b2211d2393970bd2c73a35d213ba96971eba",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "results": [
+    {
+      "case": "normal",
+      "passed": true,
+      "pixel_comparisons": 5040001,
+      "python_rows": 6300,
+      "loads": 5849,
+      "delivered": 5849,
+      "observed": 5849,
+      "complete_windows": 2,
+      "published": 2,
+      "public_drop_events": 0,
+      "queue_peak": 0,
+      "trace_rows": 2304,
+      "final_gap": 0,
+      "final_window_drop": 0,
+      "frame_summaries": [
+        {
+          "frame": 0,
+          "cycle": 1,
+          "trace_valid": false,
+          "snapshot": null,
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 1,
+          "cycle": 420001,
+          "trace_valid": false,
+          "snapshot": null,
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 2,
+          "cycle": 840001,
+          "trace_valid": false,
+          "snapshot": null,
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 3,
+          "cycle": 1260001,
+          "trace_valid": true,
+          "snapshot": {
+            "first_seq": 0,
+            "last_seq": 2047,
+            "bins_sha256": "e3d47aa790965655a86b8c4925afdae426fda8a616ee64e15215d412c3c2b397"
+          },
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 4,
+          "cycle": 1680001,
+          "trace_valid": true,
+          "snapshot": {
+            "first_seq": 0,
+            "last_seq": 2047,
+            "bins_sha256": "e3d47aa790965655a86b8c4925afdae426fda8a616ee64e15215d412c3c2b397"
+          },
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 5,
+          "cycle": 2100001,
+          "trace_valid": true,
+          "snapshot": {
+            "first_seq": 0,
+            "last_seq": 2047,
+            "bins_sha256": "e3d47aa790965655a86b8c4925afdae426fda8a616ee64e15215d412c3c2b397"
+          },
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 6,
+          "cycle": 2520001,
+          "trace_valid": true,
+          "snapshot": {
+            "first_seq": 2048,
+            "last_seq": 4095,
+            "bins_sha256": "d5876cf0d712a137baf42a1c070f74020f486d09b2fe19b8475c58b68e9b438a"
+          },
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 7,
+          "cycle": 2940001,
+          "trace_valid": true,
+          "snapshot": {
+            "first_seq": 2048,
+            "last_seq": 4095,
+            "bins_sha256": "d5876cf0d712a137baf42a1c070f74020f486d09b2fe19b8475c58b68e9b438a"
+          },
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 8,
+          "cycle": 3360001,
+          "trace_valid": true,
+          "snapshot": {
+            "first_seq": 2048,
+            "last_seq": 4095,
+            "bins_sha256": "d5876cf0d712a137baf42a1c070f74020f486d09b2fe19b8475c58b68e9b438a"
+          },
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 9,
+          "cycle": 3780001,
+          "trace_valid": true,
+          "snapshot": {
+            "first_seq": 2048,
+            "last_seq": 4095,
+            "bins_sha256": "d5876cf0d712a137baf42a1c070f74020f486d09b2fe19b8475c58b68e9b438a"
+          },
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 10,
+          "cycle": 4200001,
+          "trace_valid": true,
+          "snapshot": {
+            "first_seq": 2048,
+            "last_seq": 4095,
+            "bins_sha256": "d5876cf0d712a137baf42a1c070f74020f486d09b2fe19b8475c58b68e9b438a"
+          },
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 11,
+          "cycle": 4620001,
+          "trace_valid": true,
+          "snapshot": {
+            "first_seq": 2048,
+            "last_seq": 4095,
+            "bins_sha256": "d5876cf0d712a137baf42a1c070f74020f486d09b2fe19b8475c58b68e9b438a"
+          },
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 12,
+          "cycle": 5040001,
+          "trace_valid": true,
+          "snapshot": {
+            "first_seq": 2048,
+            "last_seq": 4095,
+            "bins_sha256": "d5876cf0d712a137baf42a1c070f74020f486d09b2fe19b8475c58b68e9b438a"
+          },
+          "gap": 0,
+          "window_drop": 0
+        }
+      ]
+    },
+    {
+      "case": "diagnostic",
+      "passed": true,
+      "pixel_comparisons": 420001,
+      "python_rows": 525,
+      "loads": 41,
+      "delivered": 41,
+      "observed": 41,
+      "complete_windows": 0,
+      "published": 0,
+      "public_drop_events": 0,
+      "queue_peak": 0,
+      "trace_rows": 0,
+      "final_gap": 0,
+      "final_window_drop": 0,
+      "frame_summaries": [
+        {
+          "frame": 0,
+          "cycle": 1,
+          "trace_valid": false,
+          "snapshot": null,
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 1,
+          "cycle": 420001,
+          "trace_valid": false,
+          "snapshot": null,
+          "gap": 0,
+          "window_drop": 0
+        }
+      ]
+    },
+    {
+      "case": "stress",
+      "passed": true,
+      "pixel_comparisons": 5880001,
+      "python_rows": 7350,
+      "loads": 10500,
+      "delivered": 10343,
+      "observed": 10500,
+      "complete_windows": 4,
+      "published": 3,
+      "public_drop_events": 155,
+      "queue_peak": 32,
+      "trace_rows": 1280,
+      "final_gap": 0,
+      "final_window_drop": 0,
+      "frame_summaries": [
+        {
+          "frame": 0,
+          "cycle": 1,
+          "trace_valid": false,
+          "snapshot": null,
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 1,
+          "cycle": 420001,
+          "trace_valid": false,
+          "snapshot": null,
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 2,
+          "cycle": 840001,
+          "trace_valid": false,
+          "snapshot": null,
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 3,
+          "cycle": 1260001,
+          "trace_valid": true,
+          "snapshot": {
+            "first_seq": 4294967290,
+            "last_seq": 2041,
+            "bins_sha256": "c6352eb9baf02daebbddd38cd1d0fc189404036d5b19e16097303cc4af6bf20c"
+          },
+          "gap": 1,
+          "window_drop": 0
+        },
+        {
+          "frame": 4,
+          "cycle": 1680001,
+          "trace_valid": true,
+          "snapshot": {
+            "first_seq": 4294967290,
+            "last_seq": 2041,
+            "bins_sha256": "c6352eb9baf02daebbddd38cd1d0fc189404036d5b19e16097303cc4af6bf20c"
+          },
+          "gap": 1,
+          "window_drop": 0
+        },
+        {
+          "frame": 5,
+          "cycle": 2100001,
+          "trace_valid": true,
+          "snapshot": {
+            "first_seq": 4294967290,
+            "last_seq": 2041,
+            "bins_sha256": "c6352eb9baf02daebbddd38cd1d0fc189404036d5b19e16097303cc4af6bf20c"
+          },
+          "gap": 1,
+          "window_drop": 0
+        },
+        {
+          "frame": 6,
+          "cycle": 2520001,
+          "trace_valid": false,
+          "snapshot": null,
+          "gap": 1,
+          "window_drop": 0
+        },
+        {
+          "frame": 7,
+          "cycle": 2940001,
+          "trace_valid": false,
+          "snapshot": null,
+          "gap": 1,
+          "window_drop": 0
+        },
+        {
+          "frame": 8,
+          "cycle": 3360001,
+          "trace_valid": false,
+          "snapshot": null,
+          "gap": 1,
+          "window_drop": 0
+        },
+        {
+          "frame": 9,
+          "cycle": 3780001,
+          "trace_valid": true,
+          "snapshot": {
+            "first_seq": 4895,
+            "last_seq": 6942,
+            "bins_sha256": "052e04bb3be1b1794e7317dddd8769ed48fb532617a1288502f96a976c058ebc"
+          },
+          "gap": 1,
+          "window_drop": 0
+        },
+        {
+          "frame": 10,
+          "cycle": 4200001,
+          "trace_valid": false,
+          "snapshot": null,
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 11,
+          "cycle": 4620001,
+          "trace_valid": false,
+          "snapshot": null,
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 12,
+          "cycle": 5040001,
+          "trace_valid": true,
+          "snapshot": {
+            "first_seq": 4294967291,
+            "last_seq": 2042,
+            "bins_sha256": "16ba76976b06dbf9d10dd1a8bdda59fa0343a6b89aea6386c99417bcbc668bc9"
+          },
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 13,
+          "cycle": 5460001,
+          "trace_valid": true,
+          "snapshot": {
+            "first_seq": 4294967291,
+            "last_seq": 2042,
+            "bins_sha256": "16ba76976b06dbf9d10dd1a8bdda59fa0343a6b89aea6386c99417bcbc668bc9"
+          },
+          "gap": 0,
+          "window_drop": 0
+        },
+        {
+          "frame": 14,
+          "cycle": 5880001,
+          "trace_valid": true,
+          "snapshot": {
+            "first_seq": 4294967291,
+            "last_seq": 2042,
+            "bins_sha256": "16ba76976b06dbf9d10dd1a8bdda59fa0343a6b89aea6386c99417bcbc668bc9"
+          },
+          "gap": 0,
+          "window_drop": 0
+        }
+      ]
+    }
+  ],
+  "checker_sha256": "061fdb77cfd8ae85bc0360e8a2ae779e4170f411ba54f2372bb38d6dac67e889"
+}
