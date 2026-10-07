@@ -18,7 +18,7 @@ import score_transfer as old
 
 # Fixed public stimulus/reference plan, independently sealed from the C output.
 # Changing capture expectations cannot make a broken implementation pass.
-PLAN_SHA256="6d87ea3bef47e080a5cef49105b76ecc725b9d55b49bed5e88942102fbacb6d1"
+PLAN_SHA256="bf83514bc7a7d4cde2b3073d912cfd0ca55e0c01423ba6e9ef13a72c94924441"
 
 
 def crc(raw):
@@ -120,8 +120,9 @@ def bridge_capture(exe, destination):
         reset()
         # Incomplete/malformed streams must never emit a valid-looking whole request.
         for part in fragments(damaged):
-            actual = child.command("G 0 " + part.hex())
-            rows.append(dict(id=len(rows), tag=label, command="damage fragment",
+            command = "G 0 " + part.hex()
+            actual = child.command(command)
+            rows.append(dict(id=len(rows), tag=label, command=command,
                              expected=None, actual=actual))
         check(label, "P")
     reset()
@@ -188,6 +189,11 @@ def bridge_capture(exe, destination):
     child.close()
     if replay_count < 512:
         raise ValueError("T057_REPLAY_COVERAGE")
+    # Record the exact commands passed to stdin and actual replies separately;
+    # do not retrofit these new bytes into the old label-only capture.
+    with destination.with_suffix(".commands.jsonl").open("w", encoding="utf-8", newline="\n") as file:
+        for row in child.trace:
+            file.write(json.dumps(row) + "\n")
     with destination.open("w", encoding="utf-8", newline="\n") as file:
         for row in rows:
             file.write(json.dumps(row) + "\n")

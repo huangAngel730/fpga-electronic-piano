@@ -2,6 +2,7 @@
 from __future__ import annotations
 import argparse
 import base64
+import gzip
 import hashlib
 import io
 import json
@@ -72,7 +73,22 @@ def main():
             receipt=json.loads(z.read("receipt.json"))
             if not receipt["desktop_passed"] or receipt["complete_t059_passed"]: raise ValueError("PARTIAL_RECEIPT")
             for file,expected in receipt["source_sha256"].items():
-                if digest((ROOT/file).read_bytes())!=expected: raise ValueError("EXECUTED_SOURCE_CHANGED "+file)
+                if digest((ROOT/file).read_bytes())!=expected:
+                    if file!="code/software/score_ble_test_candidate/acceptance.py": raise ValueError("EXECUTED_SOURCE_CHANGED "+file)
+                    revision=HERE/"review_repair_20261008/evidence"
+                    metadata=json.loads((revision/"raw_manifest.json").read_text(encoding="utf-8")); revised_raw={}
+                    for name,item in metadata.items():
+                        data=gzip.decompress(base64.b64decode((revision/name).read_bytes()))
+                        if digest(data)!=item["raw_sha256"] or len(data)!=item["raw_bytes"]: raise ValueError("REPAIR_RAW_SHA")
+                        revised_raw[item["original"]]=data
+                    audit=json.loads(revised_raw["run/fragment_audit/receipt.json"])
+                    current=json.loads(revised_raw["run/receipt.json"])
+                    if not audit["passed"] or not current["desktop_passed"] or current["complete_t059_passed"]: raise ValueError("REPAIR_RECEIPT")
+                    if audit["original_source_sha256"]!=receipt["source_sha256"] or digest(revised_raw["run/fragment_audit/legacy_acceptance.py"])!=expected: raise ValueError("LEGACY_TEST_SNAPSHOT")
+                    for path,value in current["source_sha256"].items():
+                        if digest((ROOT/path).read_bytes())!=value: raise ValueError("REPAIR_EXECUTED_SOURCE_CHANGED "+path)
+                    for path,value in audit["source_sha256"].items():
+                        if digest((ROOT/path).read_bytes())!=value: raise ValueError("REPAIR_AUDIT_SOURCE_CHANGED "+path)
             for step in receipt["steps"]:
                 for stream in ("stdout","stderr"):
                     if digest(z.read(step["label"]+"/"+stream+".log"))!=step[stream+"_sha256"]: raise ValueError("LOG_IDENTITY")
