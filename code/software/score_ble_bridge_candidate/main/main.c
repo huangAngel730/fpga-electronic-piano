@@ -79,8 +79,18 @@ static void host_task(void *arg) { (void)arg; nimble_port_run(); nimble_port_fre
 static void io_task(void *arg) {
     (void)arg; br_frame outgoing; unsigned position=0; uint32_t epoch=0, deadline=0; int pending=0;
     for(;;) {
+        /* Bind this read to the connection under the callback's same mutex.
+           UART blocking read stays outside it; handle alone can be reused. */
+        xSemaphoreTake(mutex,portMAX_DELAY);
+        uint32_t read_epoch=bridge.epoch;
+        uint16_t read_conn=conn;
+        uint8_t read_connected=bridge.connected;
+        xSemaphoreGive(mutex);
         uint8_t bytes[256]; int n=uart_read_bytes(UART_NUM_1,bytes,sizeof(bytes),pdMS_TO_TICKS(5));
         xSemaphoreTake(mutex,portMAX_DELAY); uint32_t now=ms(); br_tick(&bridge,now);
+        /* Reject already-returned bytes if any connection identity changed.
+           Physical late peer bytes still need the existing session/seq checks. */
+        if(!read_connected || !bridge.connected || read_epoch!=bridge.epoch || read_conn!=conn) n=0;
         uart_event_t event;
         while(xQueueReceive(uart_events,&event,0)==pdTRUE) {
             if(event.type==UART_FIFO_OVF || event.type==UART_BUFFER_FULL || event.type==UART_FRAME_ERR || event.type==UART_PARITY_ERR) {

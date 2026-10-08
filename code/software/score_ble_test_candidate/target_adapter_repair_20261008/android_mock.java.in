@@ -1,0 +1,137 @@
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
+import org.m3.score.Protocol;
+
+/** Source-derived JVM helpers + deterministic scheduler; not Kotlin/APK/Handler. */
+public final class AndroidAdapterHost {
+    static int checks;
+    static final class HandlerMock {
+        final Set<Runnable> tasks = Collections.newSetFromMap(new IdentityHashMap<Runnable,Boolean>());
+        final Map<Runnable,Long> due = new IdentityHashMap<>();
+        long now;
+        int removes;
+        void removeCallbacks(Runnable r) { tasks.remove(r); due.remove(r); removes++; }
+        void keepCallbacks(Runnable r) { /* compiled negative variant */ }
+        void postDelayed(Runnable r,long delay) { tasks.add(r); due.put(r,now+delay); }
+        void advanceTo(long time) {
+            check(time>=now,"SCAN_CLOCK_MONOTONIC");
+            List<Map.Entry<Runnable,Long>> entries=new ArrayList<>(due.entrySet());
+            entries.sort(Comparator.comparingLong(Map.Entry::getValue));
+            for(Map.Entry<Runnable,Long> e:entries) {
+                if(e.getValue()<=time && tasks.remove(e.getKey())) {
+                    due.remove(e.getKey()); now=e.getValue(); e.getKey().run();
+                }
+            }
+            now=time;
+        }
+    }
+    private final HandlerMock handler = new HandlerMock();
+    /* SOURCE_HELPERS */
+
+    static void check(boolean value,String label) {
+        checks++;
+        if(!value) throw new AssertionError(label);
+    }
+    Runnable begin() {
+        cancelScanTimeout(); scanning=true;
+        final long token=scanGeneration;
+        Runnable timeout=() -> { if(scanTimeoutCurrent(token)) { cancelScanTimeout(); scanning=false; } };
+        scanTimeout=timeout; handler.postDelayed(timeout,10000); return timeout;
+    }
+    static void scans() {
+        AndroidAdapterHost a=new AndroidAdapterHost();
+        Runnable old=a.begin(); long first=a.scanGeneration;
+        a.handler.advanceTo(5000);
+        Runnable current=a.begin();
+        check(a.scanGeneration!=first,"SCAN_NEW_GENERATION");
+        check(!a.handler.tasks.contains(old),"SCAN_CANCEL_OLD_TIMEOUT");
+        a.handler.advanceTo(10000);
+        old.run(); check(a.scanning,"SCAN_TOKEN_STALE_T0_T5_T10");
+        a.handler.advanceTo(14999); check(a.scanning,"SCAN_FULL_SECOND_10S");
+        a.handler.advanceTo(15000); check(!a.scanning,"SCAN_NORMAL_T15_STOP");
+        List<Runnable> stale=new ArrayList<>();
+        for(int i=0;i<200;i++) stale.add(a.begin());
+        for(int i=0;i<199;i++) { stale.get(i).run(); check(a.scanning,"SCAN_RAPID_STALE"); }
+        stale.get(199).run(); check(!a.scanning,"SCAN_RAPID_CURRENT");
+        current=a.begin(); a.cancelScanTimeout(); a.scanning=false;
+        a.begin(); current.run(); check(a.scanning,"SCAN_MANUAL_STOP_TOKEN");
+        a.cancelScanTimeout(); a.scanning=false;
+        current=a.begin(); a.destroyed=true; a.cancelScanTimeout(); a.scanning=false;
+        current.run(); check(!a.scanning && a.handler.tasks.isEmpty(),"SCAN_DESTROY_CANCEL");
+        a=new AndroidAdapterHost(); a.scanning=false;
+        check(!a.scanTimeoutCurrent(a.scanGeneration),"SCAN_PERMISSION_DENIED_DISABLED_IDLE");
+        a.scanning=true; a.destroyed=true;
+        check(!a.scanTimeoutCurrent(a.scanGeneration),"SCAN_DESTROY_GUARD");
+        check(Protocol.scanGate(false,true).equals("LOCAL_PERMISSION_DENIED"),"SCAN_FROZEN_PERMISSION_GATE");
+        check(Protocol.scanGate(true,false).equals("LOCAL_BLUETOOTH_DISABLED"),"SCAN_FROZEN_DISABLED_GATE");
+    }
+    static void line(AndroidAdapterHost a,long now,String text,boolean expected) {
+        byte[] before=a.exportLogBytes();
+        byte[] full=(Long.toString(now)+" "+text+"\n").getBytes(StandardCharsets.UTF_8);
+        boolean accepted=a.appendLogLine(now,text);
+        check(accepted==expected,"UTF8_LINE_ACCEPT");
+        byte[] exported=a.exportLogBytes();
+        if(expected) {
+            byte[] wanted=Arrays.copyOf(before,before.length+full.length);
+            System.arraycopy(full,0,wanted,before.length,full.length);
+            check(Arrays.equals(exported,wanted),"UTF8_EXACT_LINE_BYTES");
+        } else check(Arrays.equals(before,exported),"UTF8_REJECT_PRESERVES_OLD_BYTES");
+        check(exported.length==a.rawLogBytes,"UTF8_COUNT_MATCH_EXPORT");
+        check(exported.length<=4194304,"UTF8_CAP_BYTES");
+    }
+    static String repeat(String s,int n) { StringBuilder b=new StringBuilder(); for(int i=0;i<n;i++) b.append(s); return b.toString(); }
+    static void logs() throws Exception {
+        AndroidAdapterHost a=new AndroidAdapterHost();
+        check(a.exportLogBytes().length==0,"UTF8_EMPTY_EXPORT");
+        line(a,0,"",true); line(a,123456,"ASCII",true);
+        line(a,15,"汉字",true); line(a,999,"\uD83D\uDE00",true);
+        line(a,10000,"ASCII中文\uD83D\uDE03\nsecond\n",true);
+        line(a,20,"isolated-high\uD800",true); line(a,21,"isolated-low\uDC00",true);
+        a=new AndroidAdapterHost(); line(a,0,repeat("a",4194304-3),true);
+        check(a.rawLogBytes==4194304,"UTF8_EXACT_CAP"); line(a,0,"",false);
+        check(a.logIncomplete,"UTF8_INCOMPLETE_FLAG");
+        a=new AndroidAdapterHost(); line(a,0,repeat("a",4194304-4),true);
+        line(a,0,"",false); // this 3-byte full record exceeds available space by 2.
+        a=new AndroidAdapterHost(); line(a,0,repeat("a",4194304-5),true);
+        line(a,0,"",false); // exactly one byte over.
+        a=new AndroidAdapterHost(); line(a,0,repeat("汉",2*1024*1024),false);
+        line(a,0,"after oversized record",true); check(a.logIncomplete,"UTF8_LOSS_FLAG_PERSISTS");
+        a=new AndroidAdapterHost(); final AndroidAdapterHost shared=a;
+        AtomicReference<Throwable> error=new AtomicReference<>();
+        Thread[] threads=new Thread[4];
+        for(int t=0;t<threads.length;t++) {
+            final int id=t;
+            threads[t]=new Thread(() -> { try { for(int i=0;i<25000;i++) shared.appendLogLine(i,"t"+id+" 中文\uD83D\uDE00 "+repeat("a",48)); } catch(Throwable e) { error.set(e); } });
+            threads[t].start();
+        }
+        for(Thread t:threads) t.join();
+        check(error.get()==null,"UTF8_CONCURRENT_COMPLETE");
+        check(shared.rawLogBytes==shared.exportLogBytes().length,"UTF8_SERIALIZED_EXPORT_COUNT");
+        check(shared.rawLogBytes<=4194304 && shared.logIncomplete,"UTF8_SATURATION");
+        line(shared,Long.MAX_VALUE,repeat("a",1024),false);
+        // Log saturation does not touch the frozen client: real Session remains usable.
+        final int[] sent={0};
+        Protocol.Session session=new Protocol.Session(new Protocol.Sink() {
+            public void send(byte[] raw) { sent[0]++; }
+            public void state(String message) { shared.appendLogLine(1,message); }
+        });
+        session.start(Protocol.score("{\"schema\":1,\"sample_hz\":48000,\"score_id\":1,\"events\":[{\"tick\":0,\"type\":\"note_on\",\"channel\":0,\"note\":60,\"velocity\":127}]}"),1,0);
+        check(sent[0]==1,"UTF8_UPLOAD_CONTINUES");
+    }
+    static void oldCap() {
+        AndroidAdapterHost a=new AndroidAdapterHost(); a.appendLogLine(0,repeat("汉",2*1024*1024));
+        check(a.exportLogBytes().length<=4194304,"UTF8_LEGACY_CAP_BYTES");
+    }
+    static void oldScan() {
+        AndroidAdapterHost a=new AndroidAdapterHost();
+        Runnable old=a.begin(); a.begin(); old.run();
+        check(a.scanning,"SCAN_LEGACY_OLD_TIMEOUT");
+    }
+    public static void main(String[] args) throws Exception {
+        if(args.length>0 && args[0].equals("legacy-cap")) oldCap();
+        else if(args.length>0 && args[0].equals("legacy-scan")) oldScan();
+        else { scans(); logs(); }
+        System.out.println("PASS Android source-derived JVM checks="+checks+" scheduler/mock only; no Kotlin/APK");
+    }
+}

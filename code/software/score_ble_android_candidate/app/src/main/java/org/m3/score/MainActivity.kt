@@ -17,7 +17,6 @@ class MainActivity : Activity(), Protocol.Sink {
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var info: TextView
     private lateinit var devices: LinearLayout
-    private val rawLog = StringBuilder()
     private val seen = mutableSetOf<String>()
     private var gatt: BluetoothGatt? = null
     private var rx: BluetoothGattCharacteristic? = null
@@ -29,13 +28,48 @@ class MainActivity : Activity(), Protocol.Sink {
     private var offset = 0
     private var writeDue = 0L
     private var sessionNumber = 1
+    // TARGET_ADAPTER_HOST_BEGIN: pure JVM logic, isolated source-bound checks.
+    private val rawLog = StringBuilder()
+    private var rawLogBytes = 0
+    private var logIncomplete = false
     private var scanning = false
+    private var scanGeneration = 0L
+    private var destroyed = false
+    private var scanTimeout: Runnable? = null
+    private fun cancelScanTimeout() {
+        scanTimeout?.let { handler.removeCallbacks(it) }
+        scanTimeout = null
+        scanGeneration++
+    }
+    private fun scanTimeoutCurrent(token: Long): Boolean {
+        return !destroyed && scanning && token == scanGeneration
+    }
+    @Synchronized
+    private fun appendLogLine(now: Long, text: String): Boolean {
+        val line = now.toString() + " " + text + "\n"
+        val byteCount = line.toByteArray(Charsets.UTF_8).size
+        if (byteCount > 4194304 - rawLogBytes) {
+            logIncomplete = true
+            return false
+        }
+        rawLog.append(line)
+        rawLogBytes += byteCount
+        return true
+    }
+    @Synchronized
+    private fun exportLogBytes(): ByteArray {
+        return rawLog.toString().toByteArray(Charsets.UTF_8)
+    }
+    // TARGET_ADAPTER_HOST_END
+    private var activeScanner: BluetoothLeScanner? = null
     private var selectedAddress: String? = null
     private val adapter: BluetoothAdapter? get() = getSystemService(BluetoothManager::class.java)?.adapter
     private val cccd = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb")
     private fun log(text: String) {
-        if (rawLog.length + text.length < 4 * 1024 * 1024) rawLog.append(SystemClock.elapsedRealtime()).append(' ').append(text).append('\n')
-        info.text = text
+        // All UI mutations use the main looper; append/export also share a lock.
+        if (Looper.myLooper() != Looper.getMainLooper()) { handler.post { log(text) }; return }
+        appendLogLine(SystemClock.elapsedRealtime(), text)
+        info.text = if (logIncomplete) text + "\n日志不完整：有记录因4MiB上限被丢弃" else text
     }
     override fun state(message: String) { log(message) }
     override fun send(raw: ByteArray) {
@@ -55,6 +89,7 @@ class MainActivity : Activity(), Protocol.Sink {
         if (!connection.writeCharacteristic(characteristic)) stop("LOCAL_GATT_WRITE_REJECT")
     }
     private fun stop(reason: String) {
+        stopScan()
         ready = false; frames.clear(); writing = null; rx = null
         client.fail(reason); gatt?.disconnect(); gatt?.close(); gatt = null; log(reason)
     }
@@ -98,28 +133,46 @@ class MainActivity : Activity(), Protocol.Sink {
         log(if (grantResults.isNotEmpty() && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) "权限已授予；请再次点扫描" else "LOCAL_PERMISSION_DENIED")
     }
     private fun scan() {
-        if (!permitted()) return
-        val bt = adapter ?: run { log("LOCAL_NO_BLE"); return }
-        if (Protocol.scanGate(true,bt.isEnabled)!="OK") { log("LOCAL_BLUETOOTH_DISABLED：请用户在系统开启"); return }
-        if (scanning) bt.bluetoothLeScanner.stopScan(scanCallback)
+        if (destroyed) return
+        if (!permitted()) { stopScan(); return }
+        val bt = adapter ?: run { stopScan(); log("LOCAL_NO_BLE"); return }
+        if (Protocol.scanGate(true,bt.isEnabled)!="OK") { stopScan(); log("LOCAL_BLUETOOTH_DISABLED：请用户在系统开启"); return }
+        val scanner = bt.bluetoothLeScanner ?: run { stopScan(); log("LOCAL_NO_BLE_SCANNER"); return }
+        stopScan()
         seen.clear(); devices.removeAllViews(); scanning = true
-        bt.bluetoothLeScanner.startScan(listOf(ScanFilter.Builder().setServiceUuid(ParcelUuid(UUID.fromString(Protocol.SERVICE))).build()),ScanSettings.Builder().setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY).build(),scanCallback)
-        handler.postDelayed({ if (scanning) { bt.bluetoothLeScanner.stopScan(scanCallback); scanning=false; log("扫描结束") } },10000)
+        activeScanner = scanner
+        val token = scanGeneration
+        val timeout = Runnable { if (scanTimeoutCurrent(token)) { stopScan(); log("扫描结束") } }
+        scanTimeout = timeout
+        try {
+            scanner.startScan(listOf(ScanFilter.Builder().setServiceUuid(ParcelUuid(UUID.fromString(Protocol.SERVICE))).build()),ScanSettings.Builder().setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY).build(),scanCallback)
+            handler.postDelayed(timeout,10000)
+        } catch (e: Exception) { stopScan(); throw e }
+    }
+    private fun stopScan() {
+        cancelScanTimeout()
+        val scanner = activeScanner
+        activeScanner = null
+        val wasScanning = scanning
+        scanning = false
+        if (wasScanning) {
+            try { scanner?.stopScan(scanCallback) } catch (_: SecurityException) { /* Permission may be revoked. */ }
+        }
     }
     private val scanCallback = object : ScanCallback() {
         override fun onScanResult(callbackType: Int, result: ScanResult) { handler.post {
+            if (destroyed || !scanning) return@post
             val address = result.device.address
             if (seen.size < 16 && seen.add(address)) devices.addView(Button(this@MainActivity).apply {
                 text = "${result.scanRecord?.deviceName ?: "候选"} / $address / ${result.rssi} dBm"
                 setOnClickListener {
-                    adapter?.bluetoothLeScanner?.stopScan(this@MainActivity.scanCallback); scanning=false
                     stop("选择新目标 $address"); client=Protocol.Session(this@MainActivity)
                     selectedAddress=address
                     gatt=result.device.connectGatt(this@MainActivity,false,callbacks,BluetoothDevice.TRANSPORT_LE)
                 }
             })
         } }
-        override fun onScanFailed(errorCode: Int) { handler.post { scanning=false; log("LOCAL_SCAN_FAILED $errorCode") } }
+        override fun onScanFailed(errorCode: Int) { handler.post { stopScan(); log("LOCAL_SCAN_FAILED $errorCode") } }
     }
     private val callbacks = object : BluetoothGattCallback() {
         override fun onConnectionStateChange(g: BluetoothGatt, status: Int, newState: Int) { handler.post {
@@ -182,12 +235,14 @@ class MainActivity : Activity(), Protocol.Sink {
                 } ?: error("import stream")
                 require(bytes.size<=262144) { "JSON too large" }
                 score=Protocol.score(String(bytes,Charsets.UTF_8)); log("导入 ${score!!.records.size/8} 项，不开始播放")
-            } else if (requestCode == 2) contentResolver.openOutputStream(data.data!!)?.use { it.write(rawLog.toString().toByteArray(Charsets.UTF_8)) }
+            } else if (requestCode == 2) contentResolver.openOutputStream(data.data!!)?.use { it.write(exportLogBytes()) }
         } catch (e: Exception) { log("LOCAL_JSON_OR_IO ${e.message}") }
     }
     override fun onDestroy() {
+        destroyed = true
+        stopScan()
         handler.removeCallbacksAndMessages(null)
-        try { if (scanning) adapter?.bluetoothLeScanner?.stopScan(scanCallback); stop("LOCAL_ACTIVITY_DESTROY") } catch (_: SecurityException) { }
+        try { stop("LOCAL_ACTIVITY_DESTROY") } catch (_: SecurityException) { }
         super.onDestroy()
     }
 }

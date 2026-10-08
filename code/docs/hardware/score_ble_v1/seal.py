@@ -19,6 +19,42 @@ HERE=Path(__file__).resolve().parent
 def digest(data): return hashlib.sha256(data).hexdigest()
 
 
+def approved_adapter_history(file, expected):
+    """D040 exception: verify old execution bytes separately from new adapters.
+
+    Never replace the old receipt SHA. Only the two explicitly approved paths
+    may use the source snapshots in the new versioned evidence. Other source
+    changes continue to fail the original checks.
+    """
+    allowed=("code/software/score_ble_bridge_candidate/main/main.c",
+             "code/software/score_ble_android_candidate/app/src/main/java/org/m3/score/MainActivity.kt")
+    if file not in allowed: return False
+    folder=HERE/"target_adapter_repair_20261008"
+    baseline=json.loads((folder/"baseline.json").read_text(encoding="utf-8"))
+    metadata=json.loads((folder/"evidence/raw_manifest.json").read_text(encoding="utf-8"))
+    raw={}
+    for name,item in metadata.items():
+        carrier=(folder/"evidence"/name).read_bytes()
+        data=gzip.decompress(base64.b64decode(carrier))
+        if digest(carrier)!=item["carrier_sha256"] or digest(data)!=item["raw_sha256"] or len(data)!=item["raw_bytes"]:
+            raise ValueError("ADAPTER_HISTORY_RAW_SHA")
+        raw[item["original"]]=data
+    receipt=json.loads(raw["run/receipt.json"])
+    if not receipt["passed"] or digest(raw["run/receipt.json"])!=baseline["regression_receipt_raw_sha256"]:
+        raise ValueError("ADAPTER_HISTORY_RECEIPT")
+    if receipt["adapter_versions"]!=baseline["adapter_versions"] or receipt["eight_unchanged_sources"]!=baseline["eight_unchanged_sources"]:
+        raise ValueError("ADAPTER_HISTORY_BASELINE")
+    if set(baseline["adapter_versions"])!=set(allowed) or len(baseline["eight_unchanged_sources"])!=8:
+        raise ValueError("ADAPTER_HISTORY_SCOPE")
+    for path,item in baseline["adapter_versions"].items():
+        if digest(raw["run/sources/old_"+Path(path).name])!=item["old_sha256"] or digest((ROOT/path).read_bytes())!=item["new_sha256"]:
+            raise ValueError("ADAPTER_HISTORY_SOURCE")
+    for path,value in baseline["eight_unchanged_sources"].items():
+        if digest((ROOT/path).read_bytes())!=value: raise ValueError("ADAPTER_HISTORY_IMMUTABLE_EIGHT")
+    if baseline["adapter_versions"][file]["old_sha256"]!=expected: raise ValueError("ADAPTER_HISTORY_OLD_EXECUTION_SHA")
+    return True
+
+
 def main():
     cli=argparse.ArgumentParser(); cli.add_argument("--output",type=Path); cli.add_argument("--gate",type=Path); cli.add_argument("--verify",action="store_true"); cli.add_argument("--run-gate",type=Path); cli.add_argument("--file-list",action="store_true"); cli.add_argument("--bundle",type=Path); args=cli.parse_args()
     if args.bundle:
@@ -74,6 +110,7 @@ def main():
             if not receipt["desktop_passed"] or receipt["complete_t059_passed"]: raise ValueError("PARTIAL_RECEIPT")
             for file,expected in receipt["source_sha256"].items():
                 if digest((ROOT/file).read_bytes())!=expected:
+                    if approved_adapter_history(file,expected): continue
                     if file!="code/software/score_ble_test_candidate/acceptance.py": raise ValueError("EXECUTED_SOURCE_CHANGED "+file)
                     revision=HERE/"review_repair_20261008/evidence"
                     metadata=json.loads((revision/"raw_manifest.json").read_text(encoding="utf-8")); revised_raw={}
@@ -86,7 +123,7 @@ def main():
                     if not audit["passed"] or not current["desktop_passed"] or current["complete_t059_passed"]: raise ValueError("REPAIR_RECEIPT")
                     if audit["original_source_sha256"]!=receipt["source_sha256"] or digest(revised_raw["run/fragment_audit/legacy_acceptance.py"])!=expected: raise ValueError("LEGACY_TEST_SNAPSHOT")
                     for path,value in current["source_sha256"].items():
-                        if digest((ROOT/path).read_bytes())!=value: raise ValueError("REPAIR_EXECUTED_SOURCE_CHANGED "+path)
+                        if digest((ROOT/path).read_bytes())!=value and not approved_adapter_history(path,value): raise ValueError("REPAIR_EXECUTED_SOURCE_CHANGED "+path)
                     for path,value in audit["source_sha256"].items():
                         if digest((ROOT/path).read_bytes())!=value: raise ValueError("REPAIR_AUDIT_SOURCE_CHANGED "+path)
             for step in receipt["steps"]:

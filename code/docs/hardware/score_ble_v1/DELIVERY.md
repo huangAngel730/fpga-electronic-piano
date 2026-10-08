@@ -48,3 +48,11 @@ python -B -X utf8 code/docs/hardware/score_ble_v1/seal.py --verify
 默认明确标`desktop_passed=true,complete_t059_passed=false`。目标编译可选参数见两候选README。
 完整证据是evidence.zip.b64（原bytes压缩封存），索引raw_manifest.json，receipt内源/产物SHA；
 verify重新核对SHA、原日志退出码和执行源身份，不编辑原stdout/capture。
+
+# 2026-10-08 D040 目标适配器定点返修补充
+
+本次main.c/Activity两文件按M2批准例外修订；8其他功能源与旧10表保持。详见
+`target_adapter_repair_20261008/REPORT.md`及新baseline/receipt/raw_manifest。
+只增加同源宿主mock/JVM逻辑验收，不代表ESP-IDF/Kotlin/APK/无线/整机STA通过。
+旧业务执行收据/ZIP原件保留；seal.py的两文件例外验证历史快照和新版本，不改旧SHA。
+旧夜间/24字节专项不重复，完整T059仍进行中。源码/证据提交与复核状态以本次交接为准。
