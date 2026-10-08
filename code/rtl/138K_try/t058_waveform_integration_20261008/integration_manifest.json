@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-08",
+  "baseline": "L_locations_guard065 original archive",
+  "archive_sha256": "c4eeefac8c28e3ebc01475177601a65abfc0da6f314b1c80f94b223ee9fa5b50",
+  "overlays": {
+    "audio_visual_coexistence_top.sv": "934b12b60225bc2cc703423cd99990508df9c249fe94118ad295986eed463ec3",
+    "audio_visual_display_probe.sv": "718ce4490b6cdf12373cc9b84e3a84c260f10b7247d066ce2141e513256013ec",
+    "audio_visual_hold055.sdc": "6c73e59658ccb2b674b22d924aba3563a2143c4bb7557c7d143f6830d872f5fa"
+  },
+  "added_source_sha256": {
+    "code/rtl/common/pcm_waveform_observer_candidate/pcm_frame_observer.sv": "f0f755558fbd40a103c1d7d6c73c102eb4f83bf54cc41b09a78fd65609fe13a8",
+    "code/rtl/common/pcm_waveform_observer_candidate/pcm_waveform_observer_bridge.sv": "0b937e2d23dc090b5094d789edba5216c34a96eb84eb96d002cdab8aa0c45cfb",
+    "code/rtl/input/pcm_waveform_candidate/pcm_waveform_candidate.sv": "052c4e79095152410bdd42e4d5c3cd47a00b91ad7bdf848a3c0914ab9aec0160"
+  },
+  "base_frozen_CST_SHA256": "9860341591be1db845d21af91377896cf3eaefbbf4db73d81bc45284d7312bab",
+  "originalPLL_unchanged": true,
+  "originalROM_bytes_used_fromZIP": true,
+  "external_ports_unchanged": true,
+  "source_modules_modified": [
+    "audio_visual_coexistence_top.sv internal observation hookup only",
+    "audio_visual_display_probe.sv wave branch and3sampledelay+originalDVIreg",
+    "audio_visual_hold055.sdc newmailbox+3timedsecondstages only"
+  ],
+  "intended_existing_DSP": 46,
+  "intended_waveform_BSRAM_increment": 3,
+  "queue_RAM_mapping": "to be verified from actual synthesis; do not assume BSRAM or timing",
+  "programmed": false
+}
