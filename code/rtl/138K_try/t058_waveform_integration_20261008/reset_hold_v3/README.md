@@ -12,3 +12,7 @@
 验报告：`check_138k_waveform_integration_build_v3.py <run>`。全部旧pin/clock/LOC/Setup/Hold/Recovery/Removal/pulse/TNS/fmax/CDCbus/二段/无latch检查保持；追加精确SDC命令白名单、四CLEAR裁剪对象、6局部D路径及SSRAM实量。缺report/任一负值或额外例外非零拒收。
 
 本版本一次完整run，拒overwrite/不自动重试/no烧录。是否L5以实际新STA全部门禁为准，异步入口例外不替代物理亚稳态/MTBF/硬件测量。本README准备阶段不宣称构建通过。
+
+## 实际结果补充
+
+唯一Gowin388.900s/tool0完成；原集成checker1因旧false-path集合未认识4reset例外，原记录保持。独立最终`check_138k_waveform_integration_v3_final.py`在同份报告上全门禁0：Setup+1.846/Hold0/Recovery+0.938/Removal+0.002，严格局部表与27preflight/11报告坏例通过。离线L5按此精确组合通过，不允许下载；Hold/Removal紧，无新增硬件证明。后续复验请用final入口，不修改原checkerSHA或重复旧run。详见结果复核报告。
