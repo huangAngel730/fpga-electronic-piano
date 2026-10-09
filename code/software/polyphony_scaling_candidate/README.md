@@ -1,5 +1,17 @@
 # T061 唯一独立主候选（B0）
 
+## 2026-10-10 新增 B2a 真实声音后端子阶段
+
+新入口 `--stage b2a`，只读复用冻结 L 连续 ADSR/Pitch，独立 DDS 状态加共享实际
+波表/Q15 gain/signed32 混音，先 N4 长程独立数学复算，再 N8/16/32 短程及慢后端。
+最终合格运行 `code/output/m3_t061_b2a_final_20261010_01`：六配置、10,672 个完整结果，
+两份实际编译行为反例、九份完整 capture 语义反例、六项新单测及仓库九门禁通过。
+此为混合后端 L2/L3，**不是完整 B2/T061，也不是已实现32音演奏**。
+MIDI/CC64/Release ACK、B1 持久状态接线和端到端服务上界仍未完成；无 Gowin/STA/设备测试。
+合同、复现及覆盖缺口见 `code/docs/hardware/polyphony_scaling_v1/B2A_IMPLEMENTATION_20261010.md`
+及 `DELIVERY_B2A_20261010.md`；新封存目录 `B2A_20261010/`，旧封存不改。
+下文 B0/B1 历史说明不代表当前阶段只存在协议 mock。
+
 ## 2026-10-10 新增 B1 传输／存储 RTL 子阶段
 
 已新增单一参数化 scheduler、双银行 statebank 和 tagged ROM fixture（不是音频计算）。

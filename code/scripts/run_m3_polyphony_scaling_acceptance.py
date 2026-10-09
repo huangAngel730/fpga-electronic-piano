@@ -78,7 +78,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--repo-gates", action="store_true")
-    parser.add_argument("--stage", choices=("b0", "b1"), default="b0")
+    parser.add_argument("--stage", choices=("b0", "b1", "b2a"), default="b0")
     parser.add_argument("--iverilog", type=Path, default=Path("D:/Gowin/oss-cad-suite/bin/iverilog.exe"))
     parser.add_argument("--vvp", type=Path, default=Path("D:/Gowin/oss-cad-suite/bin/vvp.exe"))
     args = parser.parse_args()
@@ -97,6 +97,11 @@ def main():
                "new_candidate_HDL": args.stage == "b1",
                "gate_scope": "Existing repository gates may compile/simulate old T007/T019 RTL",
                "drain_scope": "B1 fixture has actual ROM/queue ownership and a bounded fail-closed fence; real sound engine and MIDI service remain unproved" if args.stage == "b1" else "Explicit software handshake contract; RTL drain bound and service bound unproved"}
+    if args.stage == "b2a":
+        receipt.update(stage="T061_B2A_REAL_MATH_BACKEND",
+                       scope="Real lane DDS/continuous ADSR/PitchMod and shared ROM/gain/mix; NOT full MIDI/B1 integration",
+                       new_candidate_HDL=True,
+                       drain_scope="Actual pitch/ROM outstanding counters; cancellation retains DSP side effects")
     code = 1
     try:
         run.command("git_version", ["git", "--version"])
@@ -113,13 +118,16 @@ def main():
             if hashlib.sha256(blob.replace(b"\r\n", b"\n")).hexdigest() != item["lf_sha256"]:
                 raise RuntimeError(f"PINNED_SOURCE_CHANGED:{item['path']}")
         candidate_paths = sorted(CANDIDATE.glob("*.py")) + [Path(__file__).resolve()]
-        if args.stage == "b1":
+        if args.stage in ("b1", "b2a"):
             candidate_paths += sorted((ROOT / "code/rtl/common/polyphony_scaling_candidate").glob("*.sv"))
             candidate_paths += sorted((ROOT / "code/tb/common/polyphony_scaling_candidate").glob("*.sv"))
+        if args.stage == "b2a":
+            candidate_paths += [ROOT / "code/software/audio_math_acceptance_candidate" / name
+                                for name in ("dds_model.py", "envelope_model.py")]
         receipt["candidate_sources_before"] = [identity(path) for path in candidate_paths]
         protected = sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1/B0_20261009").rglob("*"))
-        if args.stage == "b1":
-            for name in ("REPAIR_20261009", "REPAIR_20261009_02"):
+        if args.stage in ("b1", "b2a"):
+            for name in ("REPAIR_20261009", "REPAIR_20261009_02", "B1_20261010"):
                 protected += sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1" / name).rglob("*"))
         protected += [ROOT / "code/docs" / name for name in
                       ("当前状态.md", "任务看板.md", "验证记录.md", "技术决策记录.md", "模块接口规范.md")]
@@ -139,9 +147,12 @@ def main():
             run.command("repair_probes", probe + ["--mode", "current"])
             for mode in ("mutant_type", "mutant_drain"):
                 run.command(mode, probe + ["--mode", mode], expected_exit=2)
-        else:
+        elif args.stage == "b1":
             from b1_run import run_b1
             receipt["b1"] = run_b1(run, args)
+        else:
+            from b2_run import run_b2
+            receipt["b2a"] = run_b2(run, args)
         run.command("python_unit", [sys.executable, "-B", "-X", "utf8", "-m", "unittest", "discover",
                                     "-s", str(CANDIDATE), "-p", "test_candidate.py", "-v"])
         run.command("budget", [sys.executable, "-B", "-X", "utf8", str(CANDIDATE / "budget.py"),
@@ -165,6 +176,8 @@ def main():
         if receipt["candidate_sources_before"] != receipt["candidate_sources_after"]:
             raise RuntimeError("CANDIDATE_CHANGED_DURING_RUN")
         receipt["status"] = "B1_PROTOCOL_RTL_PASS_T061_PARTIAL" if args.stage == "b1" else "B0_REPAIR_SCOPE_PASS_T061_PARTIAL"
+        if args.stage == "b2a":
+            receipt["status"] = "B2A_REAL_MATH_BACKEND_PASS_T061_PARTIAL"
         code = 0
     except Exception as error:
         receipt.update(status="FAIL", error=f"{type(error).__name__}: {error}")
