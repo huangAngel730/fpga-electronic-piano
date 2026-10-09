@@ -65,3 +65,13 @@ request/generation 回绕及完整 tag 复用依赖真实旧工作完全排空�
 本轮不使用那一次 Gowin 综合授权、不专门重跑旧夜间/波形/桌面压力；原源、旧证据和共享表只读。
 `--repo-gates` 仍按既有入口执行仓库门禁，其中含原 T007/T019 编译/仿真；
 runner 的 no_NEW_candidate_HDL 标记仅指本候选未编译新 HDL，不能理解为门禁没有运行既有 RTL 仿真。
+
+## B2b：同一混合候选的四声部事件到 PCM 接入
+
+新增 `--stage b2b`。冻结统一事件64bit入口/allocator/CC64/control snapshot，
+接既有B1全tag和原子bank、B2a真实数学。只验证N4；B2a高N数学结果不是高N事件演奏。
+新 `b2b_check.py` 只用R/I/J/X及原ROM，独立推路由、退场、时钟日历和完整PCM。
+取消只丢token，不回滚持续ADSR/DDS/LFO。74bit bank是结果描述符，不冒称635bit DSP上下文。
+具体接口、实际周期、Icarus构建carrier及未验证边界见
+`code/docs/hardware/polyphony_scaling_v1/B2B_IMPLEMENTATION_20261010.md`。
+复现使用已有Python3.11/Icarus14，输出必须全新；无安装、综合或设备操作。

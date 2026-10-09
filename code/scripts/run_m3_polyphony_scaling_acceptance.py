@@ -78,7 +78,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--repo-gates", action="store_true")
-    parser.add_argument("--stage", choices=("b0", "b1", "b2a"), default="b0")
+    parser.add_argument("--stage", choices=("b0", "b1", "b2a", "b2b"), default="b0")
     parser.add_argument("--iverilog", type=Path, default=Path("D:/Gowin/oss-cad-suite/bin/iverilog.exe"))
     parser.add_argument("--vvp", type=Path, default=Path("D:/Gowin/oss-cad-suite/bin/vvp.exe"))
     args = parser.parse_args()
@@ -102,6 +102,11 @@ def main():
                        scope="Real lane DDS/continuous ADSR/PitchMod and shared ROM/gain/mix; NOT full MIDI/B1 integration",
                        new_candidate_HDL=True,
                        drain_scope="Actual pitch/ROM outstanding counters; cancellation retains DSP side effects")
+    if args.stage == "b2b":
+        receipt.update(stage="T061_B2B_N4_EVENT_AUDIO",
+                       scope="Frozen MIDI/CC64 and control routing + B1 full tags/atomic bank + B2a real math, N4 ONLY",
+                       new_candidate_HDL=True,
+                       drain_scope="Actual B1 and B2a drain fences; persistent router/DSP state NEVER rolls back")
     code = 1
     try:
         run.command("git_version", ["git", "--version"])
@@ -118,17 +123,29 @@ def main():
             if hashlib.sha256(blob.replace(b"\r\n", b"\n")).hexdigest() != item["lf_sha256"]:
                 raise RuntimeError(f"PINNED_SOURCE_CHANGED:{item['path']}")
         candidate_paths = sorted(CANDIDATE.glob("*.py")) + [Path(__file__).resolve()]
-        if args.stage in ("b1", "b2a"):
+        if args.stage in ("b1", "b2a", "b2b"):
             candidate_paths += sorted((ROOT / "code/rtl/common/polyphony_scaling_candidate").glob("*.sv"))
             candidate_paths += sorted((ROOT / "code/tb/common/polyphony_scaling_candidate").glob("*.sv"))
-        if args.stage == "b2a":
+        if args.stage in ("b2a", "b2b"):
             candidate_paths += [ROOT / "code/software/audio_math_acceptance_candidate" / name
                                 for name in ("dds_model.py", "envelope_model.py")]
+        if args.stage == "b2b":
+            candidate_paths += [ROOT / "code/software/audio_math_acceptance_candidate" / name
+                                for name in ("router_model.py", "strict_capture.py")]
         receipt["candidate_sources_before"] = [identity(path) for path in candidate_paths]
         protected = sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1/B0_20261009").rglob("*"))
-        if args.stage in ("b1", "b2a"):
+        if args.stage in ("b1", "b2a", "b2b"):
             for name in ("REPAIR_20261009", "REPAIR_20261009_02", "B1_20261010"):
                 protected += sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1" / name).rglob("*"))
+        if args.stage == "b2b":
+            protected += sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1/B2A_20261010").rglob("*"))
+            protected += [ROOT / "code/rtl/common/polyphony_scaling_candidate" / name for name in
+                          ("b1_statebank.sv", "b1_scheduler.sv", "b2_audio_backend.sv")]
+            # Pin reused candidate algorithms to the prior delivered Git commit.
+            for path in protected[-3:]:
+                blob = run.command("prior_candidate", ["git", "show", "1c73e8d:" + path.relative_to(ROOT).as_posix()])
+                if blob.replace(b"\r\n", b"\n") != path.read_bytes().replace(b"\r\n", b"\n"):
+                    raise RuntimeError("PRIOR_CANDIDATE_CHANGED:" + str(path))
         protected += [ROOT / "code/docs" / name for name in
                       ("当前状态.md", "任务看板.md", "验证记录.md", "技术决策记录.md", "模块接口规范.md")]
         protected += [ROOT / name for name in ("code/rtl/board/electronic_piano_top.sv",
@@ -150,6 +167,9 @@ def main():
         elif args.stage == "b1":
             from b1_run import run_b1
             receipt["b1"] = run_b1(run, args)
+        elif args.stage == "b2b":
+            from b2b_run import run_b2b
+            receipt["b2b"] = run_b2b(run, args)
         else:
             from b2_run import run_b2
             receipt["b2a"] = run_b2(run, args)
@@ -178,6 +198,8 @@ def main():
         receipt["status"] = "B1_PROTOCOL_RTL_PASS_T061_PARTIAL" if args.stage == "b1" else "B0_REPAIR_SCOPE_PASS_T061_PARTIAL"
         if args.stage == "b2a":
             receipt["status"] = "B2A_REAL_MATH_BACKEND_PASS_T061_PARTIAL"
+        if args.stage == "b2b":
+            receipt["status"] = "B2B_N4_EVENT_AUDIO_PASS_T061_PARTIAL"
         code = 0
     except Exception as error:
         receipt.update(status="FAIL", error=f"{type(error).__name__}: {error}")
