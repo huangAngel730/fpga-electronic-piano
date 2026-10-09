@@ -1,7 +1,7 @@
-"""D043/D044 B0 only: pinned source, Python assertions and conditional budget.
+"""D043/D044 B0 software and optional B1 RTL transport workflow.
 
-Fresh output, bounded process tree, raw logs, receipt. No tools installed, HDL
-compile, synthesis, git writes, serial, programming, or device operations.
+Fresh output, bounded process tree, raw logs, receipt. No tool installation,
+synthesis, git writes, serial, programming, or device operations.
 """
 import argparse
 from datetime import datetime, timezone
@@ -25,6 +25,8 @@ class Run:
         self.output = output
         self.start = time.monotonic()
         self.steps = []
+        self.extra_env = {}
+        self.extra_path = []
 
     def command(self, label, command, expected_exit=0):
         remaining = 1800 - (time.monotonic() - self.start)
@@ -38,6 +40,9 @@ class Run:
         begin = time.monotonic()
         env = os.environ.copy()
         env["PATH"] = str(Path(sys.executable).parent) + os.pathsep + env.get("PATH", "")
+        if self.extra_path:
+            env["PATH"] = os.pathsep.join(self.extra_path) + os.pathsep + env["PATH"]
+        env.update(self.extra_env)
         env["PYTHONDONTWRITEBYTECODE"] = "1"
         env["PYTHONUTF8"] = "1"
         with out.open("xb") as stdout, err.open("xb") as stderr:
@@ -73,20 +78,25 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--repo-gates", action="store_true")
+    parser.add_argument("--stage", choices=("b0", "b1"), default="b0")
+    parser.add_argument("--iverilog", type=Path, default=Path("D:/Gowin/oss-cad-suite/bin/iverilog.exe"))
+    parser.add_argument("--vvp", type=Path, default=Path("D:/Gowin/oss-cad-suite/bin/vvp.exe"))
     args = parser.parse_args()
     output = args.output.resolve()
     output.relative_to((ROOT / "code/output").resolve())
     output.mkdir(parents=True, exist_ok=False)
     run = Run(output)
     receipt = {"schema": 1, "utc": datetime.now(timezone.utc).isoformat(),
-               "stage": "T061_B0_REVIEW_REPAIR", "task_complete": False,
+               "stage": "T061_B1_PROTOCOL_RTL" if args.stage == "b1" else "T061_B0_REVIEW_REPAIR", "task_complete": False,
                "runner_command": [sys.executable, *sys.argv], "cwd": str(ROOT),
                "python": {"path": sys.executable, "version": sys.version,
                           "sha256": hashlib.sha256(Path(sys.executable).read_bytes()).hexdigest()},
-               "baseline_git": BASELINE, "scope": "Python source budget and opaque protocol oracle only",
-               "no_NEW_candidate_HDL_synthesis_STA_device_or_git_write": True,
+               "baseline_git": BASELINE,
+               "scope": "B1 public RTL transport with mock operation, NOT audio" if args.stage == "b1" else "Python source budget and opaque protocol oracle only",
+               "no_synthesis_STA_device_or_git_write": True,
+               "new_candidate_HDL": args.stage == "b1",
                "gate_scope": "Existing repository gates may compile/simulate old T007/T019 RTL",
-               "drain_scope": "Explicit software handshake contract; RTL drain bound and service bound unproved"}
+               "drain_scope": "B1 fixture has actual ROM/queue ownership and a bounded fail-closed fence; real sound engine and MIDI service remain unproved" if args.stage == "b1" else "Explicit software handshake contract; RTL drain bound and service bound unproved"}
     code = 1
     try:
         run.command("git_version", ["git", "--version"])
@@ -103,25 +113,35 @@ def main():
             if hashlib.sha256(blob.replace(b"\r\n", b"\n")).hexdigest() != item["lf_sha256"]:
                 raise RuntimeError(f"PINNED_SOURCE_CHANGED:{item['path']}")
         candidate_paths = sorted(CANDIDATE.glob("*.py")) + [Path(__file__).resolve()]
+        if args.stage == "b1":
+            candidate_paths += sorted((ROOT / "code/rtl/common/polyphony_scaling_candidate").glob("*.sv"))
+            candidate_paths += sorted((ROOT / "code/tb/common/polyphony_scaling_candidate").glob("*.sv"))
         receipt["candidate_sources_before"] = [identity(path) for path in candidate_paths]
         protected = sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1/B0_20261009").rglob("*"))
+        if args.stage == "b1":
+            for name in ("REPAIR_20261009", "REPAIR_20261009_02"):
+                protected += sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1" / name).rglob("*"))
         protected += [ROOT / "code/docs" / name for name in
                       ("当前状态.md", "任务看板.md", "验证记录.md", "技术决策记录.md", "模块接口规范.md")]
         protected += [ROOT / name for name in ("code/rtl/board/electronic_piano_top.sv",
                       "code/rtl/common/audio_defs_pkg.sv", "code/constraints/electronic_piano.cst")]
         protected = [path for path in protected if path.is_file()]
         receipt["old_seal_and_shared_before"] = [identity(path) for path in protected]
-        old_sources = []
-        for name in ("inventory.py", "protocol_oracle.py"):
-            run.command("old_" + name.split(".")[0], ["git", "show",
-                        "41d2871:code/software/polyphony_scaling_candidate/" + name])
-            old_sources.append(ROOT / run.steps[-1]["stdout"]["path"])
-        probe = [sys.executable, "-B", "-X", "utf8", str(CANDIDATE / "review_regression.py")]
-        run.command("historical_defects", probe + ["--mode", "historical", "--old-inventory", str(old_sources[0]),
-                                                    "--old-oracle", str(old_sources[1])])
-        run.command("repair_probes", probe + ["--mode", "current"])
-        for mode in ("mutant_type", "mutant_drain"):
-            run.command(mode, probe + ["--mode", mode], expected_exit=2)
+        if args.stage == "b0":
+            old_sources = []
+            for name in ("inventory.py", "protocol_oracle.py"):
+                run.command("old_" + name.split(".")[0], ["git", "show",
+                            "41d2871:code/software/polyphony_scaling_candidate/" + name])
+                old_sources.append(ROOT / run.steps[-1]["stdout"]["path"])
+            probe = [sys.executable, "-B", "-X", "utf8", str(CANDIDATE / "review_regression.py")]
+            run.command("historical_defects", probe + ["--mode", "historical", "--old-inventory", str(old_sources[0]),
+                                                        "--old-oracle", str(old_sources[1])])
+            run.command("repair_probes", probe + ["--mode", "current"])
+            for mode in ("mutant_type", "mutant_drain"):
+                run.command(mode, probe + ["--mode", mode], expected_exit=2)
+        else:
+            from b1_run import run_b1
+            receipt["b1"] = run_b1(run, args)
         run.command("python_unit", [sys.executable, "-B", "-X", "utf8", "-m", "unittest", "discover",
                                     "-s", str(CANDIDATE), "-p", "test_candidate.py", "-v"])
         run.command("budget", [sys.executable, "-B", "-X", "utf8", str(CANDIDATE / "budget.py"),
@@ -144,7 +164,7 @@ def main():
             raise RuntimeError("FROZEN_CHANGED_DURING_RUN")
         if receipt["candidate_sources_before"] != receipt["candidate_sources_after"]:
             raise RuntimeError("CANDIDATE_CHANGED_DURING_RUN")
-        receipt["status"] = "B0_REPAIR_SCOPE_PASS_T061_PARTIAL"
+        receipt["status"] = "B1_PROTOCOL_RTL_PASS_T061_PARTIAL" if args.stage == "b1" else "B0_REPAIR_SCOPE_PASS_T061_PARTIAL"
         code = 0
     except Exception as error:
         receipt.update(status="FAIL", error=f"{type(error).__name__}: {error}")

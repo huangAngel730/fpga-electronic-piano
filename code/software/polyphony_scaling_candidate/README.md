@@ -1,5 +1,14 @@
 # T061 唯一独立主候选（B0）
 
+## 2026-10-10 新增 B1 传输／存储 RTL 子阶段
+
+已新增单一参数化 scheduler、双银行 statebank 和 tagged ROM fixture（不是音频计算）。
+新入口加 `--stage b1`，输出仍必须为全新目录；默认 B0 模式及旧证据保持。
+N4/8/16/32×ROM1/3、慢算子、公开端口回放及两个实际编译 RTL 行为变异独立验证。
+源码/协议/排空参数/复现和明确未测项见
+`code/docs/hardware/polyphony_scaling_v1/B1_IMPLEMENTATION_20261010.md`。
+以下 B0 文本为旧阶段说明，不代表当前没有新 RTL；B1 的 task_complete 仍为 false。
+
 当前仅实现冻结 L 的状态/ROM 清单、条件周期日历和 Python opaque-payload 协议 oracle。
 不是可综合 scheduler/statebank，不计算新音频，不能证明 32 复音、N4 等价或 40MHz 时序。
 
