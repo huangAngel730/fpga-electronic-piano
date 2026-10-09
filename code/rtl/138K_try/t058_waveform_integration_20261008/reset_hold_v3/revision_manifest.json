@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-09",
+  "version": "reset_hold_v3",
+  "parent": "retained_payload_v2",
+  "parent_frozen_source_manifest_sha256": "8fa74daf01c4423fb1a6f4d9a65ddc1f9a14e5ae67b4bf6dd723c342b1ff455f",
+  "parent_SDC_sha256": "6c73e59658ccb2b674b22d924aba3563a2143c4bb7557c7d143f6830d872f5fa",
+  "SDC_sha256": "d36e8149f54402803c2b49814094ab58468ea488063cd89761e3907331494142",
+  "GSC_sha256": "e2113cf74f75e6137bfec1f103e6cc015b7e401054b7c45f531be9929506e0f4",
+  "additional_exact_falsepaths": [
+    "set_false_path -from [get_regs {u_visual/u_event_bridge/u_video_reset/sync_chain_1_s0}] -to [get_pins {u_visual/u_wave_bridge/u_mailbox/u_src_reset/sync_chain_0_s0/CLEAR}]",
+    "set_false_path -from [get_regs {u_visual/u_event_bridge/u_video_reset/sync_chain_1_s0}] -to [get_pins {u_visual/u_wave_bridge/u_mailbox/u_src_reset/sync_chain_1_s0/CLEAR}]",
+    "set_false_path -from [get_regs {u_reset_sync/sync_chain_1_s0}] -to [get_pins {u_visual/u_wave_bridge/u_mailbox/u_dst_reset/sync_chain_0_s0/CLEAR}]",
+    "set_false_path -from [get_regs {u_reset_sync/sync_chain_1_s0}] -to [get_pins {u_visual/u_wave_bridge/u_mailbox/u_dst_reset/sync_chain_1_s0/CLEAR}]"
+  ],
+  "additional_min_delay": "set_min_delay -from [get_regs {g_polyphonic.u_audio_core/u_bank/frozen_base_56_s0}] -to [get_regs {g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[1].u_control/base_s0_24_s0}] 0.200",
+  "additional_reports": [
+    "report_timing -setup -from [get_regs {u_visual/u_wave_bridge/u_mailbox/u_src_reset/sync_chain_0_s0}] -to [get_regs {u_visual/u_wave_bridge/u_mailbox/u_src_reset/sync_chain_1_s0}] -max_paths 1",
+    "report_timing -hold -from [get_regs {u_visual/u_wave_bridge/u_mailbox/u_src_reset/sync_chain_0_s0}] -to [get_regs {u_visual/u_wave_bridge/u_mailbox/u_src_reset/sync_chain_1_s0}] -max_paths 1",
+    "report_timing -setup -from [get_regs {u_visual/u_wave_bridge/u_mailbox/u_dst_reset/sync_chain_0_s0}] -to [get_regs {u_visual/u_wave_bridge/u_mailbox/u_dst_reset/sync_chain_1_s0}] -max_paths 1",
+    "report_timing -hold -from [get_regs {u_visual/u_wave_bridge/u_mailbox/u_dst_reset/sync_chain_0_s0}] -to [get_regs {u_visual/u_wave_bridge/u_mailbox/u_dst_reset/sync_chain_1_s0}] -max_paths 1",
+    "report_timing -setup -from [get_regs {g_polyphonic.u_audio_core/u_bank/frozen_base_56_s0}] -to [get_regs {g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[1].u_control/base_s0_24_s0}] -max_paths 1",
+    "report_timing -hold -from [get_regs {g_polyphonic.u_audio_core/u_bank/frozen_base_56_s0}] -to [get_regs {g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[1].u_control/base_s0_24_s0}] -max_paths 1"
+  ],
+  "all_old_SDC_commands_retained": true,
+  "RTL_CST_GSC_clocks_unchanged": true,
+  "resource_profile": {
+    "audio_BSRAM": 20,
+    "wave_BSRAM": 3,
+    "observer_BSRAM": 0,
+    "observer_SSRAM": 28,
+    "total_BSRAM": 23,
+    "total_SSRAM": 89,
+    "physical_DSP": 46
+  },
+  "build_attempts_allowed": 1,
+  "build_timeout_seconds": 1800,
+  "no_programming": true,
+  "v2_prepare_SHA256": "cd3a7faec7516d9d950ddc928d0653d524f247746f8836679c8726efab4d300d",
+  "static_reset_contract_sources": {
+    "code/rtl/common/reset_sync.sv": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+    "code/rtl/common/visual_mailbox_cdc.sv": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c",
+    "code/rtl/common/pcm_waveform_observer_candidate/pcm_waveform_observer_bridge.sv": "0b937e2d23dc090b5094d789edba5216c34a96eb84eb96d002cdab8aa0c45cfb",
+    "code/rtl/138K_try/t058_waveform_integration_20261008/overlay/audio_visual_display_probe.sv": "718ce4490b6cdf12373cc9b84e3a84c260f10b7247d066ce2141e513256013ec"
+  }
+}
