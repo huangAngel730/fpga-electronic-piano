@@ -1,4 +1,4 @@
-"""One real or mutant pair: exit0 partial DDS math, exit1 contract/math error.
+"""One real or mutant pair: exit0 partial boundary audio math, exit1 math error.
 
 Infrastructure errors are exit7, not a successfully rejected counterexample.
 """
@@ -21,7 +21,9 @@ def main():
                 for name in ("oct_ratio_q16.mem", "sub_ratio_q16.mem", "lfo_sine_q15.mem")]
         j = parse_jsonl(args.jsonl.read_text(encoding="utf-8"))
         f = parse_f(args.f_capture.read_text(encoding="utf-8"))
-        result, exit_code = replay(j, f, roms), 0
+        audio_roms = [[int(word, 16) for word in (args.rom_root / name).read_text(encoding="utf-8").split()]
+                      for name in ("velocity_gain_rom.mem", "piano_band_4x256_8191.mem")]
+        result, exit_code = replay(j, f, roms, audio_roms), 0
     except CaptureError as error:
         result, exit_code = {"status": "REJECTED_CONTRACT_OR_MATH", "diagnostic": str(error)}, 1
     except (OSError, UnicodeError, ValueError) as error:

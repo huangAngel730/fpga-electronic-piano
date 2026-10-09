@@ -1,8 +1,8 @@
-"""Read-only intake and partial DDS regression of the received V0208 bundle.
+"""Read-only intake and boundary audio regression of the received V0208 bundle.
 
 No extraction, old checker execution, capture rewriting or source modification.
 Each of the56 negatives runs the same checker in a bounded child process.
-Uncovered envelope cases remain visible; never claim56/56 from generic exit1.
+All56 supplied mutations require their specified diagnostic, not generic exit1.
 """
 import argparse
 import base64
@@ -26,6 +26,8 @@ PINNED = {"audio_observation.jsonl": "d17cf87952ac0c663e681e0b47051e9412af4a2979
 # Expected diagnostic classes describe the supplied, frozen mutations. The
 # misleading END_wrong_nonzero_count case changes END.total, not nonzero_left.
 EXPECTED = {
+    "adsr_level_plus3": "ENVELOPE_level_q16", "legal_wrong_envelope": "ENVELOPE_envelope",
+    "wrong_envelope_field": "ENVELOPE_envelope",
     "duplicate_commit": "ORPHAN_OR_DUPLICATE_COMMIT", "duplicate_request": "DUPLICATE_REQUEST",
     "duplicate_state_adjusted_end": "DUPLICATE_STATE_LANE", "empty": "EMPTY_",
     "legal_wrong_fcw": "D_STATE_FCW_TRANSPORT", "legal_wrong_phase": "DDS_phase_acc",
@@ -49,7 +51,6 @@ EXPECTED = {
     "raw15": "INTEGER_RANGE:raw_state", "terminal_lane_fcw_plus1": "D_STATE_FCW_TRANSPORT",
     "tick0_no_event": "STATE_WITHOUT_TRIGGER",
 }
-UNCOVERED = {"adsr_level_plus3", "legal_wrong_envelope", "wrong_envelope_field"}
 
 
 def sha(data):
@@ -178,7 +179,7 @@ def main():
         original_f = bundle / "original_Golden/midi_pcm.capture"
         positive = command(bundle, original_json, original_f, 30)
         report["positive"] = positive
-        require(positive["exit_code"] == 0 and positive["result"]["status"] == "PARTIAL_A1_DDS_MATH", "POSITIVE_DDS_REPLAY_FAILED")
+        require(positive["exit_code"] == 0 and positive["result"]["status"] == "PARTIAL_A2_AUDIO_MATH", "POSITIVE_AUDIO_REPLAY_FAILED")
         cases = []
         for folder in ("previous32_JSONL", "previous14_F", "additional10"):
             for path in sorted((bundle / folder).iterdir()):
@@ -198,18 +199,18 @@ def main():
                     case["expected_diagnostic_prefix"] = expected
                     case["disposition"] = ("REJECTED_WITH_SPECIFIED_DIAGNOSTIC" if expected and
                                            case["result"]["diagnostic"].startswith(expected) else "WRONG_REJECTION_DIAGNOSTIC")
-                elif case["exit_code"] == 0 and case["result"]["status"] == "PARTIAL_A1_DDS_MATH":
-                    case["disposition"] = "UNCOVERED_A2_ENVELOPE" if path.stem in UNCOVERED else "UNEXPECTED_ACCEPTED_NEGATIVE"
+                elif case["exit_code"] == 0 and case["result"]["status"] == "PARTIAL_A2_AUDIO_MATH":
+                    case["disposition"] = "UNEXPECTED_ACCEPTED_NEGATIVE"
                 else:
                     case["disposition"] = "INFRASTRUCTURE_FAILURE_NOT_REJECTION"
                 cases.append(case)
         report["negative_cases"] = cases
         report["negative_dispositions"] = dict(Counter(c["disposition"] for c in cases))
         require(len(cases) == 56, "NEGATIVE_RUN_COUNT")
-        require(all(c["disposition"] in ("REJECTED_WITH_SPECIFIED_DIAGNOSTIC", "UNCOVERED_A2_ENVELOPE") for c in cases),
+        require(all(c["disposition"] == "REJECTED_WITH_SPECIFIED_DIAGNOSTIC" for c in cases),
                 "NEGATIVE_DIAGNOSTIC_OR_UNEXPECTED_ACCEPTANCE_FAILURE")
         require(inventory(bundle) == report["bundle_inputs"], "BUNDLE_CHANGED_DURING_RUN")
-        report["status"], exit_code = "PARTIAL_RECEIVED_DDS_REGRESSION", 0
+        report["status"], exit_code = "PARTIAL_RECEIVED_A2_REGRESSION", 0
     except (ValueError, OSError, subprocess.SubprocessError) as error:
         report["error"] = str(error)
     report.update(exit_code=exit_code, elapsed_seconds=round(time.monotonic() - started, 6))

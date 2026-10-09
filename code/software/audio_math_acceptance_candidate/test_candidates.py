@@ -419,6 +419,10 @@ class TimelineTests(Checks):
 
 if __name__ == "__main__":
     suite = unittest.defaultTestLoader.loadTestsFromModule(sys.modules[__name__])
+    # Import only when run as entry point to avoid test module circular loading.
+    sys.modules.setdefault("test_candidates", sys.modules[__name__])
+    import test_audio_math
+    suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(test_audio_math))
     result = unittest.TextTestRunner(verbosity=2).run(suite)
     print(json.dumps({"scope": "SYNTHETIC_COMPONENT_ONLY", "tests_run": result.testsRun,
                       "negative_cases_rejected": sum(DIAGNOSTICS.values()),

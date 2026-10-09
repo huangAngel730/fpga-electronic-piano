@@ -1,8 +1,8 @@
-# T060 独立音频黄金候选：真实 DDS 局部回放
+# T060 独立音频黄金候选：真实 DDS 与 A2 数学回放
 
 当前不是 A1/A2 完整交付，也不是完整音频验收 PASS。仅 Python 离线组件已实现；
 原 capture2 封存双文件及 56 反例已经收到，原 bytes／SHA 不变。
-接受事件／控制快照／LFO 到 DDS 的独立时间线已接通；整体仍明确 PARTIAL。
+接受事件／控制快照／LFO 到 DDS，以及包络→波表→增益→混音→PCM 已接通；整体仍明确 PARTIAL。
 T061 尚未实施。旧 M1 checker、原 RTL／ROM、共享状态和旧证据均只读。
 
 ## 已有实现
@@ -13,6 +13,11 @@ T061 尚未实施。旧 M1 checker、原 RTL／ROM、共享状态和旧证据均
 - `dds_model.py`：冻结整数 note FCW、PitchMod 算术，以及独立 DDS phase／
   480/960/1440 亮度窗／pending 换表模型。先比较 pre-NBA，再推进事件。
   `replay_states` 必须由调用方提供独立 FCW 输入；没有从观测 FCW 推导 expected 的默认回退。
+- `envelope_model.py`：逐系统时钟复现 ADSR 私有状态、ROM 同步读、两级乘法、
+  pending tick、重触发／release，以及 signed floor 增益和 signed24 饱和混音。
+  只在全部寄存器到达固定点后跳过静默时钟，不能用采样点近似替代内部流水。
+- `test_audio_math.py`：正常静音／首个音符阶段、自洽错误包络／PCM 链、ROM 单值错，
+  Attack／Decay／Release 边界、微状态和负数舍入／饱和上下界的断言自检。
 - `test_candidates.py`：明确标记 SYNTHETIC 的组件正常／错误用例。
   两文件自洽的末条 FCW 错误仍由独立常量输入拒收；它不是原 capture 的数学验证。
 - `timeline.py`：从 E 接受事件独立算 note FCW，从控制历史重建 S，按 C 推进
@@ -63,8 +68,13 @@ SHA 不符或检查失败退出 1；已有目录和非法参数退出 2。
 
 F END 的 total/nonzero-left/normal-push/synthetic-push 四项可由 F 重算；
 其余五个计数涉及未观测 TB 条件，目前明确列为 unobservable，而不是假称已全验。
-envelope 字段目前只检查语法和枚举；同步 ROM 延迟、增益、混音、PCM 数学仍未验收。
-三个实际 envelope 反例明确未拒收，不签完整 56/56。
+当前 A2 按 N／STATE 的 lane Note On/Off 及 Q occupancy 边界输入独立计算数学，
+不是完整 allocator／CC64／释放调度黄金。全部 STATE 的九个包络字段、H 的波表／包络，
+以及 M／COMMIT 左右 PCM 逐条精确比较，原三个包络反例已纳入指定数学诊断。
+完整 runner 仍退出 3（PARTIAL_REAL_A2_AWAITING_BOUNDARY_REVIEW），不能把子检查退出 0
+当作完整 T060 关闭。最新实跑数字与原日志见新增 A2 报告，旧 DDS 报告不回填。
+两个 off-only STATE 无 F 对应脉冲：分别计算打印计数本沿／后一沿，要求 pre-state 与
+静默流水稳定后的全部寄存器一致，不按观测结果选择分支；精确 router 发 off 沿仍未签。
 fixture_select 在原 TB 的 sample_edge→accepted_only 段有未记录的切换；
 仅该段外能由冻结刺激顺序证明为 0，段内不伪造 expected。
 exact generated capture2 TB／observer 尚未包含在收到的包里，目前只能核模板及原 capture SHA。

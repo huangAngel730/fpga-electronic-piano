@@ -197,10 +197,11 @@ def main():
             receipt["complete_56_original_negatives_run"] = len(received_result["negative_cases"]) == 56
             receipt["still_required_from_M2"] = ["Review source-derived active-region STATE counter classification",
                                                  "Exact generated capture2 observer/TB identity, not just templates"]
+            receipt["audio_math_replayed"] = received_result["positive"]["result"]["audio_math_replayed"]
             receipt["unverified"] = ["A1 observer counter classification review", "Allocator/release/CC64 golden",
-                                     "A2 envelope/ROM/gain/mix PCM golden and uncovered negatives",
+                                     "A2 uses observed lane event strobes and occupancy, not independent router golden",
                                      "Five F END counters not observable in current records", "T061", "Hardware"]
-            receipt["status"], exit_code = "PARTIAL_REAL_DDS_A1_NOT_SIGNED", 3
+            receipt["status"], exit_code = "PARTIAL_REAL_A2_AWAITING_BOUNDARY_REVIEW", 3
         else:
             transport = run.command("transport_only", [sys.executable, "-B", "-X", "utf8",
                                                          str(CANDIDATE / "strict_capture.py"),
