@@ -1,0 +1,256 @@
+{
+  "review_date": "2026-10-09",
+  "execution_started": "2026-10-08T21:51:07.051831+08:00",
+  "execution_finished": "2026-10-08T21:57:40.513876+08:00",
+  "tool_exit0": true,
+  "attempt_count": 1,
+  "timeout_seconds": 1800,
+  "elapsed_seconds": 393.451,
+  "original59_logic_inputs_identical": true,
+  "total60inputs51entries": true,
+  "no_new_RTL_simulation_claim": "original nine qualified simulations reused; all RTL unchanged; new physical mapping verified solely from current reports",
+  "all_build_tools_source_SHA_current": true,
+  "old_failure_result_unchanged": true,
+  "original_L_not_modified": true,
+  "gsc_processed_by_Gowin": true,
+  "TA2003_missing_object_resolved_thisrun": true,
+  "current_gate_original_failed": [
+    "v2 hierarchical RAM proof: unexpected waveform/audio/observer RAM or DSP mapping",
+    "Numbers of Setup Violated Endpoints: 4",
+    "Numbers of Hold Violated Endpoints: 1",
+    "missing/negative Recovery_Slack_Table",
+    "missing/nonfinite/negative Hold",
+    "missing/nonfinite/negative Recovery",
+    "nonzero/unreviewed TNS/violated endpoints ['sys_clk', 'Hold', '-0.011', '1']",
+    "frozen resource footprint changed BSRAM"
+  ],
+  "ordinary_setup_ns": 1.846,
+  "slacks": {
+    "Setup": 1.846,
+    "Hold": -0.011,
+    "Recovery": -3.738,
+    "Removal": 0.002
+  },
+  "fmax_MHz": {
+    "sys_clk": 43.189,
+    "video_serial": 1101.928,
+    "video_pixel": 31.953
+  },
+  "minimum_pulse_ns": 1.825,
+  "resources": {
+    "Logic": {
+      "used": 20242,
+      "total": 138240
+    },
+    "Register": {
+      "used": 9109,
+      "total": 139095
+    },
+    "DSP": {
+      "used": 46,
+      "total": 298
+    },
+    "BSRAM": {
+      "used": 23,
+      "total": 340
+    }
+  },
+  "total_SSRAM": 89,
+  "observerBSRAM0_SSRAM28_exceeds_predeclared_profile": true,
+  "new_payload_report": {
+    "path_count": 56,
+    "surviving_source_bit_indices": [
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79
+    ],
+    "sink_bit_indices": [
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79
+    ],
+    "min_slack_ns": 8.5,
+    "bounded_max_delay_ns": 10.0,
+    "right_unused_bits_0to23_not_claimed_covered": true
+  },
+  "all_pin_profile_identity_pass": "no pin/profile mismatches in unchanged gate result; all actual pin records sealed separately",
+  "actual_original_LOC": {
+    "u_visual/u_serial_reset/sync_chain_0_s0": [
+      "R44C168[1][A]"
+    ],
+    "u_visual/u_serial_reset/sync_chain_1_s0": [
+      "R44C168[1][B]"
+    ],
+    "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[2].u_control/base_s1_18_s0": [
+      "R83C99[1][B]"
+    ],
+    "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[2].u_control/base_s2_18_s0": [
+      "R87C101[0][A]"
+    ]
+  },
+  "TNS": [
+    [
+      "ref_clk",
+      "Setup",
+      "0.000",
+      "0"
+    ],
+    [
+      "ref_clk",
+      "Hold",
+      "0.000",
+      "0"
+    ],
+    [
+      "sys_clk",
+      "Setup",
+      "0.000",
+      "0"
+    ],
+    [
+      "sys_clk",
+      "Hold",
+      "-0.011",
+      "1"
+    ],
+    [
+      "video_serial",
+      "Setup",
+      "0.000",
+      "0"
+    ],
+    [
+      "video_serial",
+      "Hold",
+      "0.000",
+      "0"
+    ],
+    [
+      "video_pixel",
+      "Setup",
+      "0.000",
+      "0"
+    ],
+    [
+      "video_pixel",
+      "Hold",
+      "0.000",
+      "0"
+    ]
+  ],
+  "bitstream_exists_but_NOT_release_allowed": true,
+  "candidate_bitstream_sha256": "5194a84c012c8d16146cc5f7ec63ae1f5eb68697f70cc2028e6526001ec3ea01",
+  "candidate_bitstream_bytes": 36564141,
+  "no_automatic_retry_or_relaxed_exceptions": true,
+  "level": "L4; PnR/STA executed, L5 timing convergence FAILED; no L6/L7",
+  "programmed": false,
+  "raw_carriers_count": 32,
+  "no_bitstream_in_evidence": true,
+  "notice": "pending user forwarding to M3"
+}
