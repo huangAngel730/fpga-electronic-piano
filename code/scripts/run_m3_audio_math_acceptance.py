@@ -107,6 +107,7 @@ def main():
     parser.add_argument("--capture-root", type=Path,
                         default=ROOT / "code/output/platform_preparation_20261005/capture2")
     parser.add_argument("--component-only", action="store_true")
+    parser.add_argument("--bundle-root", type=Path, help="Received V0208 bundle: read-only partial real DDS regression")
     parser.add_argument("--repo-gates", action="store_true")
     parser.add_argument("--timeout", type=int, default=1800)
     parser.add_argument("--step-timeout", type=int, default=900)
@@ -163,6 +164,9 @@ def main():
         else:
             receipt["repository_gate"] = {"status": "NOT_RUN"}
         receipt["capture_root"] = str(args.capture_root.resolve())
+        if args.bundle_root:
+            args.capture_root = args.bundle_root / "original_Golden"
+            receipt["capture_root"] = str(args.capture_root.resolve())
         receipt["capture_inputs"] = []
         missing = []
         for name, expected in PINNED_CAPTURE.items():
@@ -182,6 +186,21 @@ def main():
             receipt["status"], exit_code = "COMPONENT_SELFTEST_ONLY", 0
         elif missing:
             receipt["status"], exit_code = "BLOCKED_MISSING_ORIGINAL_CAPTURE", 2
+        elif args.bundle_root:
+            received = run.command("received_bundle_dds", [sys.executable, "-B", "-X", "utf8",
+                                                          str(CANDIDATE / "bundle_replay.py"),
+                                                          "--bundle-root", str(args.bundle_root.resolve())], environment)
+            received_result = json.loads(received.decode("utf-8"))
+            receipt["received_bundle_results"] = received_result
+            receipt["real_dds_timeline_integrated"] = True
+            receipt["real_capture_replayed"] = True
+            receipt["complete_56_original_negatives_run"] = len(received_result["negative_cases"]) == 56
+            receipt["still_required_from_M2"] = ["Review source-derived active-region STATE counter classification",
+                                                 "Exact generated capture2 observer/TB identity, not just templates"]
+            receipt["unverified"] = ["A1 observer counter classification review", "Allocator/release/CC64 golden",
+                                     "A2 envelope/ROM/gain/mix PCM golden and uncovered negatives",
+                                     "Five F END counters not observable in current records", "T061", "Hardware"]
+            receipt["status"], exit_code = "PARTIAL_REAL_DDS_A1_NOT_SIGNED", 3
         else:
             transport = run.command("transport_only", [sys.executable, "-B", "-X", "utf8",
                                                          str(CANDIDATE / "strict_capture.py"),

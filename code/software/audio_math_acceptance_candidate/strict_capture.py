@@ -210,7 +210,7 @@ def parse_f(text):
             "unobservable_end_counters": ["full_pop_push", "control_stalls", "edge_events", "center_samples", "checks"]}
 
 
-def compare_pair(json_capture, f_capture):
+def compare_pair(json_capture, f_capture, observer_counter=False):
     jrows, frows = json_capture["rows"], f_capture["rows"]
     jreset = [(r["epoch"], r["cycle"]) for r in jrows if r["tag"] == "RESET"]
     freset = [(r["values"][0], r["cycle"]) for r in frows if r["tag"] == "R"]
@@ -228,16 +228,37 @@ def compare_pair(json_capture, f_capture):
         if row["tag"] == "STATE" and row["tick"]:
             ticks[(row["epoch"], row["cycle"], row["pending_request_id"])].append(row)
     drows = [r for r in frows if r["tag"] == "D"]
-    require(set(ticks) == {(r["epoch"], r["cycle"], r["values"][0]) for r in drows}, "D_TICK_GROUPS")
+    if observer_counter:
+        # Explicit capture2 observer interpretation, NOT a numerical tolerance.
+        # A single blocking observation_cycle++ races with four STATE always
+        # processes in the active region. Bind the unique logical transaction,
+        # retaining the printed counter and reporting every old/new label.
+        by_id = {}
+        for (epoch, cycle, req), group in ticks.items():
+            require((epoch, req) not in by_id, "D_DUPLICATE_STATE_TRANSACTION")
+            by_id[epoch, req] = (cycle, group)
+        require(set(by_id) == {(r["epoch"], r["values"][0]) for r in drows}, "D_TICK_GROUPS")
+    else:
+        require(set(ticks) == {(r["epoch"], r["cycle"], r["values"][0]) for r in drows}, "D_TICK_GROUPS")
     require(len(drows) == len(ticks), "D_DUPLICATE")
+    offsets = Counter()
     for row in drows:
-        group = ticks[(row["epoch"], row["cycle"], row["values"][0])]
+        if observer_counter:
+            state_cycle, group = by_id[row["epoch"], row["values"][0]]
+            offset = row["cycle"] - state_cycle
+            require(offset in (0, 1), "OBSERVER_COUNTER_NOT_SAME_EDGE")
+        else:
+            group = ticks[(row["epoch"], row["cycle"], row["values"][0])]
+            offset = 0
+        offsets[str(offset)] += 1
         for state in group:
             require(int(state["dds_fcw"], 16) == ((row["values"][1] >> (32 * state["lane"])) & 0xffffffff),
                     "D_STATE_FCW_TRANSPORT")
     return {"status": "PARTIAL_TRANSPORT_ONLY", "commits_compared": len(jcommit),
             "resets_compared": len(jreset), "requests_compared": len(jrequest),
-            "tick_groups_compared": len(ticks), "arithmetic_golden_passed": False}
+            "tick_groups_compared": len(ticks), "arithmetic_golden_passed": False,
+            "observer_counter_classification": observer_counter,
+            "d_cycle_minus_state_counter": dict(offsets)}
 
 
 if __name__ == "__main__":
