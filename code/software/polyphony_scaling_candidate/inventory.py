@@ -21,7 +21,7 @@ def identity(path):
 
 
 def slot_width(n):
-    if n not in (4, 8, 16, 32):
+    if type(n) is not int or n not in (4, 8, 16, 32):
         raise ValueError("N_NOT_SUPPORTED")
     return (n - 1).bit_length()
 

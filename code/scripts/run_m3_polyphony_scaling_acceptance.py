@@ -26,14 +26,14 @@ class Run:
         self.start = time.monotonic()
         self.steps = []
 
-    def command(self, label, command):
+    def command(self, label, command, expected_exit=0):
         remaining = 1800 - (time.monotonic() - self.start)
         if remaining <= 0:
             raise RuntimeError("WORKFLOW_TIMEOUT")
         stem = f"{len(self.steps):03d}_{label}"
         out = self.output / (stem + ".stdout.bin")
         err = self.output / (stem + ".stderr.bin")
-        step = {"command": command, "cwd": str(ROOT), "label": label,
+        step = {"command": command, "cwd": str(ROOT), "label": label, "expected_exit": expected_exit,
                 "timeout_seconds": min(900, remaining)}
         begin = time.monotonic()
         env = os.environ.copy()
@@ -58,8 +58,13 @@ class Run:
                 step.update(exit_code=process.returncode, timed_out=True)
         step.update(elapsed_seconds=round(time.monotonic() - begin, 6),
                     stdout=identity(out), stderr=identity(err))
+        # Suspension/interruption can let wait() observe an already-exited child
+        # after the wall-time deadline. Its exit0 must not bypass the time bound.
+        step["elapsed_limit_exceeded"] = step["elapsed_seconds"] > step["timeout_seconds"]
         self.steps.append(step)
-        if step["exit_code"] != 0 or step["timed_out"]:
+        if step["elapsed_limit_exceeded"]:
+            raise RuntimeError(f"ELAPSED_LIMIT_EXCEEDED:{label}:{step['elapsed_seconds']}")
+        if step["exit_code"] != expected_exit or step["timed_out"]:
             raise RuntimeError(f"COMMAND_FAIL:{label}:{step['exit_code']}")
         return out.read_bytes()
 
@@ -74,12 +79,14 @@ def main():
     output.mkdir(parents=True, exist_ok=False)
     run = Run(output)
     receipt = {"schema": 1, "utc": datetime.now(timezone.utc).isoformat(),
-               "stage": "T061_B0", "task_complete": False,
+               "stage": "T061_B0_REVIEW_REPAIR", "task_complete": False,
                "runner_command": [sys.executable, *sys.argv], "cwd": str(ROOT),
                "python": {"path": sys.executable, "version": sys.version,
                           "sha256": hashlib.sha256(Path(sys.executable).read_bytes()).hexdigest()},
                "baseline_git": BASELINE, "scope": "Python source budget and opaque protocol oracle only",
-               "no_HDL_synthesis_STA_device_or_git_write": True}
+               "no_NEW_candidate_HDL_synthesis_STA_device_or_git_write": True,
+               "gate_scope": "Existing repository gates may compile/simulate old T007/T019 RTL",
+               "drain_scope": "Explicit software handshake contract; RTL drain bound and service bound unproved"}
     code = 1
     try:
         run.command("git_version", ["git", "--version"])
@@ -97,6 +104,24 @@ def main():
                 raise RuntimeError(f"PINNED_SOURCE_CHANGED:{item['path']}")
         candidate_paths = sorted(CANDIDATE.glob("*.py")) + [Path(__file__).resolve()]
         receipt["candidate_sources_before"] = [identity(path) for path in candidate_paths]
+        protected = sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1/B0_20261009").rglob("*"))
+        protected += [ROOT / "code/docs" / name for name in
+                      ("当前状态.md", "任务看板.md", "验证记录.md", "技术决策记录.md", "模块接口规范.md")]
+        protected += [ROOT / name for name in ("code/rtl/board/electronic_piano_top.sv",
+                      "code/rtl/common/audio_defs_pkg.sv", "code/constraints/electronic_piano.cst")]
+        protected = [path for path in protected if path.is_file()]
+        receipt["old_seal_and_shared_before"] = [identity(path) for path in protected]
+        old_sources = []
+        for name in ("inventory.py", "protocol_oracle.py"):
+            run.command("old_" + name.split(".")[0], ["git", "show",
+                        "41d2871:code/software/polyphony_scaling_candidate/" + name])
+            old_sources.append(ROOT / run.steps[-1]["stdout"]["path"])
+        probe = [sys.executable, "-B", "-X", "utf8", str(CANDIDATE / "review_regression.py")]
+        run.command("historical_defects", probe + ["--mode", "historical", "--old-inventory", str(old_sources[0]),
+                                                    "--old-oracle", str(old_sources[1])])
+        run.command("repair_probes", probe + ["--mode", "current"])
+        for mode in ("mutant_type", "mutant_drain"):
+            run.command(mode, probe + ["--mode", mode], expected_exit=2)
         run.command("python_unit", [sys.executable, "-B", "-X", "utf8", "-m", "unittest", "discover",
                                     "-s", str(CANDIDATE), "-p", "test_candidate.py", "-v"])
         run.command("budget", [sys.executable, "-B", "-X", "utf8", str(CANDIDATE / "budget.py"),
@@ -112,11 +137,14 @@ def main():
             receipt["repo_gates_passed"] = None
         receipt["frozen_inputs_after"] = verify_manifest()
         receipt["candidate_sources_after"] = [identity(path) for path in candidate_paths]
+        receipt["old_seal_and_shared_after"] = [identity(path) for path in protected]
+        if receipt["old_seal_and_shared_before"] != receipt["old_seal_and_shared_after"]:
+            raise RuntimeError("OLD_SEAL_OR_SHARED_FILE_CHANGED")
         if receipt["frozen_inputs_before"] != receipt["frozen_inputs_after"]:
             raise RuntimeError("FROZEN_CHANGED_DURING_RUN")
         if receipt["candidate_sources_before"] != receipt["candidate_sources_after"]:
             raise RuntimeError("CANDIDATE_CHANGED_DURING_RUN")
-        receipt["status"] = "B0_SCOPE_PASS_T061_PARTIAL"
+        receipt["status"] = "B0_REPAIR_SCOPE_PASS_T061_PARTIAL"
         code = 0
     except Exception as error:
         receipt.update(status="FAIL", error=f"{type(error).__name__}: {error}")

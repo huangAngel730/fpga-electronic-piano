@@ -18,7 +18,9 @@ python -B -X utf8 code/scripts/run_m3_polyphony_scaling_acceptance.py --output c
 入口以 Git `6f3e813` 和原 input_manifest 双重核对 56 输入及 7 ROM，并前后核源不变。
 其中仅 lfo/oct/sub 三份 ROM 按既有 V0208 的精确 LF carrier SHA 在内存恢复 CRLF 后核原 SHA；不改原件。
 报告由同一个 Python 对象产生 JSON/Markdown；所有命令、原 stdout/stderr、退出码、耗时和 SHA 入收据。
-入口 exit0 只表示 **B0 范围通过**，收据 task_complete 始终 false。
+入口 exit0 只表示 **B0 回执返修软件范围通过**，收据 task_complete 始终 false。
+旧 B0_20261009 及原日志不改；新入口会原样读 Git 41d2871 两份旧源码，复现 M2 的8组问题，
+再执行修版检查及两个仅内存中的 Python 行为变异（指定拒收 exit2），记录真实日志和SHA。
 
 21 拍/voice 的序列化日历是下一步实现合同，所有适配耗时仍待 TB 实测。
 原 pitch 算术 II1/消费延迟7 与外层包装最小 II8 分开记录。
@@ -30,10 +32,15 @@ JSON 单列树形替代方案全部 2×(N−1) 个 32bit 节点，不将深度�
 
 协议 oracle 检查每 N 槽恰好一次、完整 tag、重复/未发起/错代次/旧请求隔离、乱序返回、
 完整结果提交前 scratch 隔离及原子帧期间事件锁。它不计算包络/Release/声音，不证明取消的 LFO 非回滚。
-request/generation 回绕时，RTL 必须保证旧事务已清空或在途上界，不以 Python 宽度检查代替证明。
+构造/replace/pedal/tag/N 严格拒 bool/float。result 身份非法返回 False，不靠异常拒收。
+oracle 构造须显式提供 `drain_limit` 正整数（测试值不是硬件实测上界）。
+cancel/reset/commit 后只要曾 issue 就保持隔离，三路 empty 同时确认前禁止新帧/换身份/控制更新；
+超时锁闭，局部 reset 不绕过。详见 B1_CONTRACT 的补充节。
+request/generation 回绕及完整 tag 复用依赖真实旧工作完全排空。若生产者谎报 empty 后仍吐同 tag，
+软件无法辨别；该限制有显式测试，不宣称无条件 ABA 安全或实际事件服务已有界。
 
 下一步 B1：独立 RTL scheduler/statebank/ROM 仲裁、实际 II/latency/端口测试、至少两个可编译行为变异。
 再 B2：处理连续 ADSR/ROM 预取/事件准备的上下文语义，先 N4 对冻结 L 的逐样本等价，再 8/16/32。
 本轮不使用那一次 Gowin 综合授权、不专门重跑旧夜间/波形/桌面压力；原源、旧证据和共享表只读。
 `--repo-gates` 仍按既有入口执行仓库门禁，其中含原 T007/T019 编译/仿真；
-runner 的 no_HDL 标记仅指本候选未编译新 HDL，不能理解为门禁没有运行既有 RTL 仿真。
+runner 的 no_NEW_candidate_HDL 标记仅指本候选未编译新 HDL，不能理解为门禁没有运行既有 RTL 仿真。

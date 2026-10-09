@@ -9,7 +9,11 @@ from protocol_oracle import ProtocolOracle
 
 
 def oracle(n=4):
-    return ProtocolOracle([(i % 16, (i * 3) % 16, 1000 + i) for i in range(n)])
+    return ProtocolOracle([(i % 16, (i * 3) % 16, 1000 + i) for i in range(n)], drain_limit=8)
+
+
+def acknowledge_empty(model):
+    return model.drain_step(rom_empty=True, engine_empty=True, result_empty=True)
 
 
 class BudgetTests(unittest.TestCase):
@@ -79,7 +83,7 @@ class BudgetTests(unittest.TestCase):
 
     def test_slot_width_and_N_rejection(self):
         self.assertEqual([slot_width(n) for n in (4, 8, 16, 32)], [2, 3, 4, 5])
-        for n in (0, 1, 3, 33):
+        for n in (0, 1, 3, 33, True, False, 4.0, 8.0, None, "4"):
             with self.assertRaises(ValueError):
                 slot_width(n)
 
@@ -165,6 +169,8 @@ class ProtocolTests(unittest.TestCase):
         model.begin(3)
         tag = model.issue(0)
         model.cancel()
+        self.assertFalse(model.accept(tag, 999))
+        acknowledge_empty(model)
         model.begin(4)
         model.issue(0)
         self.assertFalse(model.accept(tag, 999))
@@ -174,6 +180,7 @@ class ProtocolTests(unittest.TestCase):
         model.begin(3)
         tag = model.issue(0)
         model.cancel()
+        acknowledge_empty(model)
         model.replace(0, tag.source, tag.channel, tag.generation + 1)
         model.begin(3)  # Same request alone must not bypass generation guard.
         model.issue(0)
@@ -188,6 +195,7 @@ class ProtocolTests(unittest.TestCase):
                 model.accept(tag, 1)
             model.reset()
             self.assertTrue(all(not model.accept(tag, 999) for tag in tags))
+            acknowledge_empty(model)
             model.begin(2)
             for i in range(4):
                 model.accept(model.issue(i), i)
@@ -219,6 +227,176 @@ class ProtocolTests(unittest.TestCase):
         model.begin(1)
         with self.assertRaisesRegex(ValueError, "BUSY"):
             model.begin(2)
+
+
+class ReviewRepairTests(unittest.TestCase):
+    def test_constructor_strict_identity(self):
+        for n in (4, 8, 16, 32):
+            for field, upper in ((0, 16), (1, 16), (2, 2**32)):
+                for bad in (True, False, 0.5, 1.0, -1, upper, None, "1"):
+                    with self.subTest(n=n, field=field, bad=repr(bad)):
+                        rows = [(1, 1, 1)] * n
+                        row = list(rows[0])
+                        row[field] = bad
+                        rows[0] = tuple(row)
+                        with self.assertRaisesRegex(ValueError, "IDENTITY_WIDTH"):
+                            ProtocolOracle(rows, drain_limit=8)
+
+    def test_replace_strict_all_fields_no_mutation(self):
+        for field, upper in ((0, 4), (1, 16), (2, 16), (3, 2**32)):
+            for bad in (True, False, 0.5, 1.0, -1, upper, None, "1"):
+                model = oracle()
+                before = model.identities.copy()
+                args = [1, 1, 1, 1]
+                args[field] = bad
+                with self.assertRaisesRegex(ValueError, "IDENTITY_WIDTH"):
+                    model.replace(*args)
+                self.assertEqual(model.identities, before)
+
+    def test_pedal_strict_identity_and_boolean_no_mutation(self):
+        for field in range(3):
+            invalid = (True, False, 0.5, 1.0, -1, 16, None, "1") if field < 2 else (0, 1, 1.0, None, "yes")
+            for bad in invalid:
+                model = oracle()
+                args = [1, 1, True]
+                args[field] = bad
+                with self.assertRaisesRegex(ValueError, "PEDAL_INPUT"):
+                    model.pedal(*args)
+                self.assertEqual(model.pedals, [False] * 256)
+
+    def test_tag_strict_fields_reject_false_not_exception(self):
+        for n in (4, 8, 16, 32):
+            model = ProtocolOracle([(1, 1, 1)] * n, drain_limit=8)
+            model.begin(1)
+            tag = model.issue(1)
+            for field, upper in (("slot", n), ("source", 16), ("channel", 16),
+                                 ("generation", 2**32), ("request", 2**32)):
+                for bad in (True, False, 0.5, 1.0, -1, upper, None, "1", []):
+                    with self.subTest(n=n, field=field, bad=repr(bad)):
+                        self.assertIs(model.accept(replace(tag, **{field: bad}), 99), False)
+                        self.assertEqual(model.scratch, {})
+            self.assertIs(model.accept(None, 99), False)
+            self.assertTrue(model.accept(tag, 10))
+
+    def test_valid_width_extremes(self):
+        model = ProtocolOracle([(0, 0, 0), (15, 15, 2**32 - 1)] * 2, drain_limit=8)
+        model.begin(2**32 - 1)
+        for i in range(4):
+            self.assertTrue(model.accept(model.issue(i), i))
+        self.assertEqual(model.commit(), (0, 1, 2, 3))
+
+    def test_cancel_same_tag_fenced_at_all_completion_points(self):
+        for n in (4, 8, 16, 32):
+            for count in range(n + 1):
+                model = oracle(n)
+                model.begin(7)
+                tags = [model.issue(i) for i in range(n)]
+                for tag in tags[:count]:
+                    model.accept(tag, 5)
+                model.cancel()
+                with self.assertRaisesRegex(ValueError, "DRAIN_REQUIRED"):
+                    model.begin(7)
+                for tag in tags:
+                    self.assertFalse(model.accept(tag, 99))
+                self.assertEqual(model.scratch, {})
+                self.assertEqual(model.committed, [None] * n)
+                self.assertFalse(model.drain_step(rom_empty=False, engine_empty=True, result_empty=True))
+                with self.assertRaisesRegex(ValueError, "DRAIN_REQUIRED"):
+                    model.begin(7)
+                acknowledge_empty(model)
+                model.begin(7)
+                for i in range(n):
+                    self.assertTrue(model.accept(model.issue(i), i))
+                self.assertEqual(model.commit(), tuple(range(n)))
+
+    def test_wrap_and_replacement_fenced(self):
+        model = ProtocolOracle([(1, 1, 2**32 - 1)] * 4, drain_limit=8)
+        model.begin(2**32 - 1)
+        old = model.issue(0)
+        model.cancel()
+        for action in (lambda: model.begin(0), lambda: model.replace(0, 1, 1, 0),
+                       lambda: model.pedal(1, 1, True)):
+            with self.assertRaisesRegex(ValueError, "DRAIN_REQUIRED"):
+                action()
+        self.assertFalse(model.accept(old, 99))
+        acknowledge_empty(model)
+        model.replace(0, 1, 1, 0)
+        model.begin(0)
+        new = model.issue(0)
+        self.assertFalse(model.accept(old, 99))
+        self.assertTrue(model.accept(new, 12))
+
+    def test_all_three_empty_inputs_and_strict_types(self):
+        for busy in range(3):
+            model = oracle()
+            model.begin(1)
+            model.issue(0)
+            model.cancel()
+            flags = [True] * 3
+            flags[busy] = False
+            self.assertFalse(model.drain_step(**dict(zip(("rom_empty", "engine_empty", "result_empty"), flags))))
+            for bad in (0, 1, 1.0, None, "true"):
+                with self.assertRaisesRegex(ValueError, "DRAIN_INPUT"):
+                    model.drain_step(rom_empty=bad, engine_empty=True, result_empty=True)
+            self.assertEqual(model.drain_cycles, 1)
+            self.assertTrue(acknowledge_empty(model))
+
+    def test_timeout_closed_and_reset_does_not_extend_bound(self):
+        model = ProtocolOracle([(1, 1, 1)] * 4, drain_limit=2)
+        model.begin(1)
+        model.issue(0)
+        model.cancel()
+        self.assertFalse(model.drain_step(rom_empty=True, engine_empty=False, result_empty=True))
+        model.cancel()
+        model.reset()
+        self.assertEqual(model.drain_cycles, 1)
+        with self.assertRaisesRegex(ValueError, "DRAIN_TIMEOUT"):
+            model.drain_step(rom_empty=True, engine_empty=False, result_empty=True)
+        model.reset()
+        with self.assertRaisesRegex(ValueError, "DRAIN_TIMEOUT"):
+            acknowledge_empty(model)
+        with self.assertRaisesRegex(ValueError, "DRAIN_REQUIRED"):
+            model.begin(2)
+
+    def test_drain_bound_must_be_explicit_positive_int(self):
+        for bad in (None, True, 0, -1, 2.0):
+            with self.assertRaisesRegex(ValueError, "DRAIN_LIMIT"):
+                ProtocolOracle([(1, 1, 1)] * 4, drain_limit=bad)
+
+    def test_successful_commit_fences_duplicate_across_reuse(self):
+        model = oracle()
+        model.begin(7)
+        tags = [model.issue(i) for i in range(4)]
+        for tag in tags:
+            model.accept(tag, tag.slot)
+        self.assertEqual(model.commit(), (0, 1, 2, 3))
+        with self.assertRaisesRegex(ValueError, "DRAIN_REQUIRED"):
+            model.begin(7)
+        self.assertFalse(model.accept(tags[0], 99))
+        self.assertEqual(model.committed, [0, 1, 2, 3])
+        acknowledge_empty(model)
+        model.begin(7)
+
+    def test_cancel_before_issue_has_no_external_work(self):
+        model = oracle()
+        model.begin(7)
+        model.cancel()
+        model.begin(7)
+        with self.assertRaisesRegex(ValueError, "NOT_DRAINING"):
+            acknowledge_empty(model)
+
+    def test_false_empty_ack_is_not_epoch_disambiguation(self):
+        # Document the unavoidable external assumption: equal complete tags are
+        # indistinguishable. RTL may not assert empty then emit an old duplicate.
+        model = oracle()
+        model.begin(7)
+        old = model.issue(0)
+        model.cancel()
+        acknowledge_empty(model)
+        model.begin(7)
+        new = model.issue(0)
+        self.assertEqual(old, new)
+        self.assertTrue(model.accept(old, 99))  # Lying producer violates the contract.
 
 
 if __name__ == "__main__":

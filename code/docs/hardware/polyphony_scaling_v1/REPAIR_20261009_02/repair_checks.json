@@ -1,0 +1,82 @@
+{
+  "old_B0": {
+    "status": "CARRIER_VERIFIED",
+    "zip_bytes": 543209,
+    "zip_sha256": "3c7d63eddfed73423faf6cd39c9504af75eb73a846b2698566fa6b64bda0bc6e",
+    "members": 279
+  },
+  "budget_exactly_unchanged": true,
+  "deadline_counterexample": {
+    "status": "EXIT0_OVERRUN_DESIGNATED_REJECT",
+    "step": {
+      "command": [
+        "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+        "-B",
+        "-c",
+        "print('exit0 child')"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+      "label": "deadline_counterexample",
+      "expected_exit": 0,
+      "timeout_seconds": 900,
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 901.0,
+      "stdout": {
+        "path": "code/docs/hardware/polyphony_scaling_v1/REPAIR_20261009_02/000_deadline_counterexample.stdout.bin",
+        "bytes": 13,
+        "sha256": "f653543ed86537bd6206fdf0533ca16a26dbe03243a5e1b352d029ab9b05158a",
+        "lf_sha256": "ddeb3f449ea22ba833b0bc769b8cf2dc427b3b5f64e7b8c8b75ca6f843e16fe2"
+      },
+      "stderr": {
+        "path": "code/docs/hardware/polyphony_scaling_v1/REPAIR_20261009_02/000_deadline_counterexample.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "lf_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "elapsed_limit_exceeded": true
+    },
+    "clock_scope": "Injected elapsed clock only; real child exits0, no 901-second wait"
+  },
+  "prior_run_disposition": {
+    "receipt_path": "code/output/m3_t061_b0_repair_20261009_01/receipt.json",
+    "receipt_sha256": "3d670a0c82d3507dd1eb375b0d8227f961b1dba1f3b2abfde51ea3d392de883e",
+    "original_status": "B0_REPAIR_SCOPE_PASS_T061_PARTIAL",
+    "qualified_final_evidence": false,
+    "reason": "Original source missed post-wait elapsed limit; overrun invalidates this receipt",
+    "overruns": [
+      {
+        "command": [
+          "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.EXE",
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\scripts\\check_repo.ps1"
+        ],
+        "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+        "label": "repo_gates",
+        "expected_exit": 0,
+        "timeout_seconds": 900,
+        "exit_code": 0,
+        "timed_out": false,
+        "elapsed_seconds": 1293.484,
+        "stdout": {
+          "path": "code/output/m3_t061_b0_repair_20261009_01/068_repo_gates.stdout.bin",
+          "bytes": 610,
+          "sha256": "e875dcc5bb33dc0edb5e92bf433dd30497227f56270c98185625da1d1444e259",
+          "lf_sha256": "e6a3060138cd7f7a0bb723a5c4b50744be8607831b90edd4c8b216bd464a912c"
+        },
+        "stderr": {
+          "path": "code/output/m3_t061_b0_repair_20261009_01/068_repo_gates.stderr.bin",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "lf_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    ]
+  },
+  "new_run_receipt_sha256": "4b2dd3604948c5e73522b39c046f8aa90647ada1a263ce3c28a83b5d385cb8fe",
+  "git_state": "No commit/push/fetch/merge; HEAD in run receipt is pre-repair",
+  "scope": "Software L0/L1 repair only; drain environmental assumption; T060/T061 incomplete"
+}

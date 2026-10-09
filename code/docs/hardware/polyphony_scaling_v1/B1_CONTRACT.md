@@ -48,7 +48,36 @@ request／result 都使用 valid/ready，payload 稳定至握手；statebank 一
 事件、控制更新与音频快照互斥。Release pending 的身份与 ACK 生命周期按原冻结源保持。
 frame cancel 清 token／scratch，但已被真实 DSP 接受的 LFO/phase 进展不回滚。
 Python oracle 不计算这些声音状态，故未证明非回滚语义；不能用 scratch 清空代替 DSP 证明。
-request/generation 回绕要求旧事务已清空或明确有限在途上界；目前仅检查位宽，不宣称 ABA 已消除。
+request/generation 回绕与完整 tag 复用必须先完成下述排空 fence；不能仅凭位宽或清 scratch。
+
+### M2 B0 回执后补充：软件可执行排空合同（不是 RTL 证明）
+
+所有 source/channel/generation/request/slot/N 均先严格 Python 整数类型和范围检查，
+拒绝 bool、float（包括数值相等的 True/1.0）。非法 result 返回 False，不靠异常拒收。
+配置、replace、pedal 的非法身份返回明确 ValueError，且不修改状态。
+
+oracle 的 `drain_limit` 必须由调用者显式给出正整数；自检取8或2仅为软件测试参数，
+不是冻结 ROM/engine 的实测排空上界。B1 选择实际上界后必须用 RTL 公开接口证明。
+发起过工作后 cancel、reset，以及成功 commit 后，都进入 draining，禁止新 begin、
+身份 replace 和 pedal 更新；旧 result 一律不能写 scratch。尚未 issue 的取消没有外部工作，
+无需 fence。该保守策略不新增 epoch、不保留无限历史 tag 集合。
+
+每次 `drain_step` 表示一拍，只在 rom_empty、engine_empty、result_empty 三个严格布尔
+确认同时成立时解除隔离。确认的含义必须是**该 fence 以前所有工作及重复结果此后不会重现**，
+不是某一拍输出 valid=0，也不是只清本地掩码。B1 要阻止新 issue，排掉/丢弃旧 ROM、engine
+及返回队列（含 backpressure）；握手传播和内部状态均纳入 empty 证明。
+有限上界末拍仍不全空则锁定 DRAIN_TIMEOUT，不因计数到期放行；重复 cancel/reset 不延长计数，
+局部 reset 也不能绕过 timeout。实际恢复需另证明整个旧工作域被复位/排空，本 oracle 不提供
+无条件“清错误继续”捷径。
+
+同 request/generation 复用及32位回绕均使用同一 fence。若外部谎报全部 empty 后仍发完全相同
+旧 tag，软件无法与新 tag 区分；自检显式演示此限制，**不宣称软件无条件消除了 ABA**。
+Python 行为反例不代替 B1 的公开 RTL TB 和至少两个可编译 RTL 行为变异。
+
+上文固定 drain2 仍是原未实现日历假设，未因新增软件握手变成实测值；真实 fence 最大延迟、
+CC64 最坏扫描/排队/事件服务上界均 UNKNOWN。117/205/381/733 只在旧条件下复算保持，
+不能把测试8拍填进生产预算，不能将 timeout 锁定当作有限 MIDI 服务保证或允许丢事件。
+新增 fence 的控制、状态、端口和周期成本待 B1 实现后重计，整体 end-to-end 继续 UNKNOWN。
 
 ## 下一阶段验收
 
