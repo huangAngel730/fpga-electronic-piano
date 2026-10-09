@@ -18,9 +18,10 @@ SPEC.loader.exec_module(RUN)
 class TargetRunnerTests(unittest.TestCase):
     def test_real_configuration_and_frozen_identity(self):
         self.assertEqual(RUN.check_configs(), [])
-        identities, errors = RUN.frozen_sources()
+        identities, errors = RUN.frozen_sources("c3_header_fix_20261009")
         self.assertEqual(len(identities), 10)
         self.assertEqual(errors, [])
+        self.assertTrue(identities[RUN.MAIN_SOURCE]["include_only_proof"]["passed"])
 
     def test_version_rejection(self):
         for wrong, pattern in [("Gradle 8.10", r"Gradle 8\.9\b"),
@@ -48,7 +49,7 @@ class TargetRunnerTests(unittest.TestCase):
         # Output is inside the real allowed prefix but uses impossible explicit tool roots.
         out = RUN.ROOT / "code/output" / ("m3_t059_target_unittest_" + uuid.uuid4().hex[:10])
         args = ["run.py", "c3", "--output", str(out), "--idf-root", str(out / "missing_sdk"),
-                "--downloads", str(out / "missing_downloads")]
+                "--downloads", str(out / "missing_downloads"), "--source-profile", "c3_header_fix_20261009"]
         with patch.object(sys, "argv", args):
             self.assertEqual(RUN.main(), 2)
         receipt = json.loads((out / "receipt.json").read_text(encoding="utf-8"))
@@ -60,12 +61,86 @@ class TargetRunnerTests(unittest.TestCase):
     def test_missing_apk_environment_cannot_be_pass(self):
         out = RUN.ROOT / "code/output" / ("m3_t059_target_unittest_" + uuid.uuid4().hex[:10])
         args = ["run.py", "apk", "--output", str(out), "--java17", str(out / "missing_jdk"),
-                "--downloads", str(out / "missing_downloads")]
+                "--downloads", str(out / "missing_downloads"), "--source-profile", "c3_header_fix_20261009"]
         with patch.object(sys, "argv", args):
             self.assertEqual(RUN.main(), 2)
         receipt = json.loads((out / "receipt.json").read_text(encoding="utf-8"))
         self.assertFalse(receipt["target_build_passed"])
         self.assertNotIn("apk_build", [step["label"] for step in receipt["steps"]])
+
+    def identity_with_inputs(self, overrides, profile):
+        # Inject bytes only at the read boundary; never mutate actual frozen sources.
+        actual_reader = Path.read_bytes
+
+        def reader(path):
+            for relative, data in overrides.items():
+                if path == RUN.ROOT / relative:
+                    return data
+            return actual_reader(path)
+
+        with patch.object(Path, "read_bytes", reader):
+            return RUN.frozen_sources(profile)
+
+    def test_old_profile_accepts_only_old_main(self):
+        new = (RUN.ROOT / RUN.MAIN_SOURCE).read_bytes().replace(b"\r\n", b"\n")
+        old = new.replace(b'#include "host/util/util.h"\n', b"", 1)
+        _, errors = self.identity_with_inputs({RUN.MAIN_SOURCE: old}, "d040")
+        self.assertEqual(errors, [])
+        _, errors = self.identity_with_inputs({RUN.MAIN_SOURCE: new}, "d040")
+        self.assertIn("FROZEN_SOURCE_IDENTITY: " + RUN.MAIN_SOURCE, errors)
+
+    def test_new_profile_rejects_old_main(self):
+        new = (RUN.ROOT / RUN.MAIN_SOURCE).read_bytes().replace(b"\r\n", b"\n")
+        old = new.replace(b'#include "host/util/util.h"\n', b"", 1)
+        _, errors = self.identity_with_inputs({RUN.MAIN_SOURCE: old}, "c3_header_fix_20261009")
+        self.assertIn("FROZEN_SOURCE_IDENTITY: " + RUN.MAIN_SOURCE, errors)
+        self.assertIn("HEADER_INCLUDE_ONLY: " + RUN.MAIN_SOURCE, errors)
+
+    def test_new_profile_rejects_additional_or_business_changes(self):
+        new = (RUN.ROOT / RUN.MAIN_SOURCE).read_bytes().replace(b"\r\n", b"\n")
+        for data in (new + b"\n", new + b"/* extra */\n",
+                     new.replace(b"ble_hs_util_ensure_addr(0)", b"ble_hs_util_ensure_addr(1)"),
+                     new.replace(b'#include "host/util/util.h"\n',
+                                 b'#include "host/util/util.h"\n' * 2)):
+            with self.subTest(case=RUN.hashlib.sha256(data).hexdigest()):
+                _, errors = self.identity_with_inputs({RUN.MAIN_SOURCE: data}, "c3_header_fix_20261009")
+                self.assertIn("FROZEN_SOURCE_IDENTITY: " + RUN.MAIN_SOURCE, errors)
+                self.assertIn("HEADER_INCLUDE_ONLY: " + RUN.MAIN_SOURCE, errors)
+
+    def test_new_profile_rejects_relocated_include(self):
+        new = (RUN.ROOT / RUN.MAIN_SOURCE).read_bytes().replace(b"\r\n", b"\n")
+        added = b'#include "host/util/util.h"\n'
+        moved = added + new.replace(added, b"", 1)
+        identities, errors = self.identity_with_inputs({RUN.MAIN_SOURCE: moved}, "c3_header_fix_20261009")
+        self.assertFalse(identities[RUN.MAIN_SOURCE]["include_only_proof"]["immediate_after_host_header"])
+        self.assertIn("HEADER_INCLUDE_ONLY: " + RUN.MAIN_SOURCE, errors)
+
+    def test_each_of_other_nine_sources_is_checked(self):
+        expected, _ = RUN.source_profile("c3_header_fix_20261009")
+        for relative in expected:
+            if relative == RUN.MAIN_SOURCE:
+                continue
+            with self.subTest(source=relative):
+                _, errors = self.identity_with_inputs(
+                    {relative: (RUN.ROOT / relative).read_bytes() + b"\n"}, "c3_header_fix_20261009")
+                self.assertIn("FROZEN_SOURCE_IDENTITY: " + relative, errors)
+
+    def test_wrong_profile_expected_sha_is_rejected(self):
+        actual_loads = json.loads
+
+        def loader(text, *args, **kwargs):
+            value = actual_loads(text, *args, **kwargs)
+            if value.get("name") == "c3_header_fix_20261009":
+                value["new_main_lf_sha256"] = "0" * 64
+            return value
+
+        with patch.object(RUN.json, "loads", loader):
+            with self.assertRaisesRegex(ValueError, "HEADER_PROFILE_IDENTITY"):
+                RUN.frozen_sources("c3_header_fix_20261009")
+
+    def test_unknown_profile_is_rejected(self):
+        with self.assertRaisesRegex(ValueError, "UNKNOWN_SOURCE_PROFILE"):
+            RUN.frozen_sources("accept_current_sources")
 
 
 if __name__ == "__main__":

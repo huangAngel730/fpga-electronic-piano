@@ -13,6 +13,7 @@
 #include "nimble/nimble_port.h"
 #include "nimble/nimble_port_freertos.h"
 #include "host/ble_hs.h"
+#include "host/util/util.h"
 #include "services/gap/ble_svc_gap.h"
 #include "services/gatt/ble_svc_gatt.h"
 /* 761e0001/2/3/4-6ccd-4aa4-9e21-104647415031; LE byte order. */

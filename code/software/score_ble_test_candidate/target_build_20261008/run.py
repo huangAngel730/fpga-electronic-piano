@@ -24,6 +24,13 @@ APP = ROOT / "code/software/score_ble_android_candidate"
 BASE = "6c8e0b83ac0e83f516386b7b06abcbdca4fe98e2"
 PINNED_IDF = "f5c3654a1c2d2a01f7f67def7a0dc48e691f63c0"
 BASELINE = ROOT / "code/docs/hardware/score_ble_v1/target_adapter_repair_20261008/baseline.json"
+HEADER_PROFILE = ROOT / "code/docs/hardware/score_ble_v1/target_build_20261008/c3_header_fix_20261009/profile.json"
+HEADER_APPROVAL = ROOT / "code/docs/M3_T059_C3头文件最小返修授权_2026-10-09.md"
+MAIN_SOURCE = "code/software/score_ble_bridge_candidate/main/main.c"
+OLD_MAIN_SHA = "1c93e0eb4b40cdb857821086ce9fd6641a28a11486f97259d5ea0a8453bd2f12"
+NEW_MAIN_SHA = "c7e46b813e9f51cbaefcc658912bd629bd45d74f8ad18f85b1aa330ba5d97a17"
+BASELINE_SHA = "fda2d5c7b0188d8e7b2cac0b5adf0d70511795e621450b6eb8c0b1f05e6f2037"
+APPROVAL_SHA = "e5aa1d8419e6b4c49d075f50cffe63573282852582ac5e9b51a13fe0a497ba30"
 SDK = Path("E:/FPGA/SDKs")
 KNOWN_ROOTS = [SDK, Path("C:/Espressif"), Path("D:/Espressif"), Path("E:/Espressif"),
                Path.home() / ".espressif", Path.home() / ".gradle",
@@ -64,20 +71,69 @@ def check_configs():
     return errors
 
 
-def frozen_sources():
+def source_profile(name="d040"):
     baseline = json.loads(BASELINE.read_text(encoding="utf-8"))
     expected = dict(baseline["eight_unchanged_sources"])
     expected.update({path: item["new_sha256"]
                      for path, item in baseline["adapter_versions"].items()})
+    metadata = {"name": name, "baseline_path": str(BASELINE.relative_to(ROOT)),
+                "baseline_sha256": digest(BASELINE)}
+    if name == "d040":
+        return expected, metadata
+    if name != "c3_header_fix_20261009":
+        raise ValueError("UNKNOWN_SOURCE_PROFILE")
+    profile = json.loads(HEADER_PROFILE.read_text(encoding="utf-8"))
+    nine = {path: wanted for path, wanted in expected.items() if path != MAIN_SOURCE}
+    if (digest(BASELINE) != BASELINE_SHA or expected.get(MAIN_SOURCE) != OLD_MAIN_SHA
+            or len(nine) != 9 or profile.get("schema") != 1
+            or profile.get("name") != name
+            or profile.get("authorization") != "D041/V0232"
+            or profile.get("approval_commit") != "ce5df51"
+            or profile.get("main_source") != MAIN_SOURCE
+            or profile.get("old_main_lf_sha256") != OLD_MAIN_SHA
+            or profile.get("new_main_lf_sha256") != NEW_MAIN_SHA
+            or profile.get("other_nine_source_lf_sha256") != nine
+            or profile.get("authorization_document") != HEADER_APPROVAL.relative_to(ROOT).as_posix()
+            or profile.get("authorization_document_sha256") != APPROVAL_SHA
+            or digest(HEADER_APPROVAL) != APPROVAL_SHA):
+        raise ValueError("HEADER_PROFILE_IDENTITY")
+    metadata.update(profile_path=HEADER_PROFILE.relative_to(ROOT).as_posix(),
+                    profile_sha256=digest(HEADER_PROFILE), authorization=profile["authorization"],
+                    approval_commit=profile["approval_commit"],
+                    authorization_document=profile["authorization_document"],
+                    authorization_document_sha256=digest(HEADER_APPROVAL),
+                    old_main_lf_sha256=OLD_MAIN_SHA, new_main_lf_sha256=NEW_MAIN_SHA)
+    expected[MAIN_SOURCE] = NEW_MAIN_SHA
+    return expected, metadata
+
+
+def frozen_sources(profile="d040", source_root=ROOT):
+    expected, _ = source_profile(profile)
     result, errors = {}, []
     for relative, wanted in expected.items():
-        raw = (ROOT / relative).read_bytes()
+        raw = (source_root / relative).read_bytes()
         actual = hashlib.sha256(raw).hexdigest()
-        lf = hashlib.sha256(raw.replace(b"\r\n", b"\n")).hexdigest()
+        normalized = raw.replace(b"\r\n", b"\n")
+        lf = hashlib.sha256(normalized).hexdigest()
         result[relative] = {"sha256": actual, "lf_sha256": lf,
                             "expected": wanted, "matched": wanted in (actual, lf)}
         if not result[relative]["matched"]:
             errors.append("FROZEN_SOURCE_IDENTITY: " + relative)
+        if relative == MAIN_SOURCE and profile == "c3_header_fix_20261009":
+            added = b'#include "host/util/util.h"\n'
+            pair = b'#include "host/ble_hs.h"\n' + added
+            stripped = normalized.replace(added, b"", 1)
+            proof = {"added_line_count": normalized.count(added),
+                     "immediate_after_host_header": normalized.count(pair) == 1,
+                     "stripped_lf_sha256": hashlib.sha256(stripped).hexdigest(),
+                     "old_main_lf_bytes": len(stripped), "new_main_lf_bytes": len(normalized)}
+            proof["passed"] = (proof["added_line_count"] == 1
+                               and proof["immediate_after_host_header"]
+                               and proof["stripped_lf_sha256"] == OLD_MAIN_SHA
+                               and len(stripped) == 8643 and len(normalized) == 8671)
+            result[relative]["include_only_proof"] = proof
+            if not proof["passed"]:
+                errors.append("HEADER_INCLUDE_ONLY: " + relative)
     return result, errors
 
 
@@ -208,6 +264,7 @@ def require_match(text, pattern, label):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("stage", choices=("preflight", "c3", "apk"))
+    parser.add_argument("--source-profile", choices=("d040", "c3_header_fix_20261009"), default="d040")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--timeout", type=int, default=1800)
     parser.add_argument("--downloads", type=Path, default=SDK / "downloads/20261008")
@@ -241,12 +298,20 @@ def main():
         commands.run("approved_base", ["git", "merge-base", "--is-ancestor", BASE, "HEAD"])
         before = tracked_inputs(commands)
         receipt["source_config_sha256"] = before
-        identity, errors = frozen_sources()
+        _, receipt["source_profile"] = source_profile(args.source_profile)
+        if args.source_profile == "c3_header_fix_20261009":
+            commands.run("header_approval_base", ["git", "merge-base", "--is-ancestor", "ce5df51", "HEAD"])
+        identity, errors = frozen_sources(args.source_profile)
         receipt["frozen_ten_source_identity"] = identity
         errors.extend(check_configs())
         if errors:
             raise ValueError("; ".join(errors))
         receipt["configuration_check"] = "PASS"
+        receipt["runner_inputs_before_sha256"] = {str(path.relative_to(ROOT)): digest(path)
+                                                  for path in (Path(__file__), BASELINE)}
+        if args.source_profile == "c3_header_fix_20261009":
+            receipt["runner_inputs_before_sha256"].update({str(path.relative_to(ROOT)): digest(path)
+                                                         for path in (HEADER_PROFILE, HEADER_APPROVAL)})
         receipt["environment"] = {name: os.environ.get(name) for name in (
             "IDF_PATH", "IDF_TOOLS_PATH", "IDF_PYTHON_ENV_PATH", "ANDROID_HOME",
             "ANDROID_SDK_ROOT", "JAVA_HOME", "GRADLE_USER_HOME")}
@@ -371,6 +436,14 @@ def main():
                                                      for name, sha in before.items())
             if not receipt["source_config_unchanged"]:
                 receipt.update(status="FAIL", error="SOURCE_MUTATION", target_build_passed=False)
+                exit_code = 1
+        if "runner_inputs_before_sha256" in receipt:
+            receipt["runner_inputs_after_sha256"] = {
+                name: digest(ROOT / name) for name in receipt["runner_inputs_before_sha256"]}
+            receipt["runner_profile_unchanged"] = (
+                receipt["runner_inputs_after_sha256"] == receipt["runner_inputs_before_sha256"])
+            if not receipt["runner_profile_unchanged"]:
+                receipt.update(status="FAIL", error="RUNNER_PROFILE_MUTATION", target_build_passed=False)
                 exit_code = 1
         receipt["artifact_sha256"] = {p.relative_to(out).as_posix(): digest(p) for p in out.rglob("*") if p.is_file()}
         receipt["exit_code"] = exit_code
