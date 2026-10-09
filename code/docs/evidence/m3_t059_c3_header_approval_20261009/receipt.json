@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-09",
+  "source_receipt_utc": "2026-10-08T16:21:29.207057+00:00",
+  "source_commit": "e3ea855a3900f9e82dacf617bc6e4686734c9627",
+  "raw_attachment_identity": {
+    "original_build.stdout.log": {
+      "source_attachment": "D:\\Cmove\\CUsersAngel17move\\Downloads\\stdout.log",
+      "bytes": 144495,
+      "sha256": "15bc2c01a45f767d04ec62cb832f24564e48444c07bd41d95e56cef5d1d505f2"
+    },
+    "original_build.stderr.log": {
+      "source_attachment": "D:\\Cmove\\CUsersAngel17move\\Downloads\\stderr.log",
+      "bytes": 428,
+      "sha256": "88f37010f6a029245e3b29572819b7fd4c4047a05d4b1d309a78acff50e02ae4"
+    },
+    "original_build_receipt.json": {
+      "source_attachment": "D:\\Cmove\\CUsersAngel17move\\Downloads\\receipt (1).json",
+      "bytes": 228778,
+      "sha256": "b8313ffac7c7f68ed988a65c7cee9be3ad57d361c905d67cb78b6f0f7733cee2"
+    }
+  },
+  "stdout_stderr_match_build_receipt": true,
+  "actual_compile_error": "main.c:76 implicit declaration ble_hs_util_ensure_addr",
+  "idf_py_exit2_runner_exit1_timeoutFalse": true,
+  "build_seconds": 75.079,
+  "runner_seconds": 84.516,
+  "configuration_checked": "PASS",
+  "14_prior_step_exit0_from_receipt": true,
+  "19_source_config_sha_match_current": true,
+  "runner_sha_match_current": true,
+  "old_main_sha256": "1c93e0eb4b40cdb857821086ce9fd6641a28a11486f97259d5ea0a8453bd2f12",
+  "prospective_new_main_sha256": "c7e46b813e9f51cbaefcc658912bd629bd45d74f8ad18f85b1aa330ba5d97a17",
+  "old_main_bytes": 8643,
+  "new_main_bytes": 8671,
+  "sole_added_line": "#include \"host/util/util.h\"",
+  "position": "immediately after #include \"host/ble_hs.h\"",
+  "prospective_strip_added_line_equals_original_bytes": true,
+  "other9_current_frozen_source_sha256": {
+    "code/rtl/common/pcm_waveform_observer_candidate/pcm_frame_observer.sv": "f0f755558fbd40a103c1d7d6c73c102eb4f83bf54cc41b09a78fd65609fe13a8",
+    "code/rtl/common/pcm_waveform_observer_candidate/pcm_waveform_observer_bridge.sv": "0b937e2d23dc090b5094d789edba5216c34a96eb84eb96d002cdab8aa0c45cfb",
+    "code/rtl/common/visual_mailbox_cdc.sv": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c",
+    "code/rtl/common/reset_sync.sv": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+    "code/rtl/input/pcm_waveform_candidate/pcm_waveform_candidate.sv": "052c4e79095152410bdd42e4d5c3cd47a00b91ad7bdf848a3c0914ab9aec0160",
+    "code/software/score_ble_bridge_candidate/core/bridge.c": "59e693ee7d41f43942e61726b0d9c83963921a782efa339374806735e4c13d67",
+    "code/software/score_ble_bridge_candidate/core/bridge.h": "2726d54988e2e047a52e69a0d1f83022becee761dcf6e5b87ddf9ba2b30abd5e",
+    "code/software/score_ble_android_candidate/app/src/main/java/org/m3/score/Protocol.java": "93ce0e550a945b6d0114508c1149be6d0304dad409aa85d99933ce8ab468385b",
+    "code/software/score_ble_android_candidate/app/src/main/java/org/m3/score/MainActivity.kt": "8f2b3baab7a327ecc0205f02077f3b2b301228b8bc283a74aa01f4462cf37f38"
+  },
+  "official_reference": "ESP-IDF tag v5.4.2 examples/bluetooth/nimble/bleprph/main/main.c includes host/util/util.h and uses ble_hs_util_ensure_addr",
+  "SDK_not_available_on_M2_host_no_native_rebuild": true,
+  "main_business_source_modified_by_M2": false,
+  "grant": "one include plus explicit new identity profile, original records retained; M3 implements then one new isolated bounded C3 build",
+  "target_build_signedoff": false,
+  "complete_T059_closed": false,
+  "programmed_or_installed": false,
+  "M3_notice": "pending user forwarding"
+}
