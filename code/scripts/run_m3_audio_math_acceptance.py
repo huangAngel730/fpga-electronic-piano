@@ -73,9 +73,12 @@ class Run:
         except OSError as error:
             step.update(exit_code=None, timed_out=False, launch_error=str(error))
         step["elapsed_seconds"] = round(time.monotonic() - begin, 6)
+        # A suspended host can resume after process.wait returns exit0. Real
+        # elapsed, not the child's exit alone, still has to meet the hard bound.
+        step["elapsed_limit_exceeded"] = step["elapsed_seconds"] > step["timeout_seconds"]
         step["stdout"], step["stderr"] = identity(stdout), identity(stderr)
         self.steps.append(step)
-        if step["exit_code"] != 0 or step["timed_out"]:
+        if step["exit_code"] != 0 or step["timed_out"] or step["elapsed_limit_exceeded"]:
             raise RuntimeError(f"COMMAND_FAIL:{label}:{step['exit_code']}")
         return stdout.read_bytes()
 
@@ -159,7 +162,7 @@ def main():
             gate_text = gate_output.decode("utf-8", "replace")
             receipt["repository_gate"] = {"exit_code": 0, "pass_lines": gate_text.count("[PASS]"),
                                           "fail_lines": gate_text.count("[FAIL]")}
-            if receipt["repository_gate"]["fail_lines"]:
+            if receipt["repository_gate"]["fail_lines"] or receipt["repository_gate"]["pass_lines"] != 9:
                 raise RuntimeError("REPOSITORY_GATE_FAIL_LINES")
         else:
             receipt["repository_gate"] = {"status": "NOT_RUN"}
@@ -195,13 +198,25 @@ def main():
             receipt["real_dds_timeline_integrated"] = True
             receipt["real_capture_replayed"] = True
             receipt["complete_56_original_negatives_run"] = len(received_result["negative_cases"]) == 56
-            receipt["still_required_from_M2"] = ["Review source-derived active-region STATE counter classification",
-                                                 "Exact generated capture2 observer/TB identity, not just templates"]
+            receipt["M2_confirmed_prior_boundaries"] = {
+                "review": "M2_A2_REVIEW / 96b364a", "counter_classification_confirmed": True,
+                "generated_tb_sha256": "f6af9b1a8cc54eb73012d4b36709da60da655360ae78c0a392edca12e32316b1",
+                "embedded_observer_sha256": "1b67aa7dd264cef48c866c546435b42ca353f1b6239607708453f65c6ef32f1e"}
             receipt["audio_math_replayed"] = received_result["positive"]["result"]["audio_math_replayed"]
-            receipt["unverified"] = ["A1 observer counter classification review", "Allocator/release/CC64 golden",
-                                     "A2 uses observed lane event strobes and occupancy, not independent router golden",
-                                     "Five F END counters not observable in current records", "T061", "Hardware"]
-            receipt["status"], exit_code = "PARTIAL_REAL_A2_AWAITING_BOUNDARY_REVIEW", 3
+            router_stdout = run.command("independent_router_regression", [sys.executable, "-B", "-X", "utf8",
+                                        str(CANDIDATE / "router_regression.py"), "--bundle-root",
+                                        str(args.bundle_root.resolve()), "--output", str(output / "router")], environment)
+            receipt["router_results"] = json.loads(router_stdout.decode("utf-8"))
+            if receipt["router_results"]["status"] != "ROUTER_REGRESSION_MATCH_AWAITING_M2":
+                raise RuntimeError("ROUTER_RECEIPT_FAILED")
+            receipt["independent_router_replayed"] = True
+            receipt["still_required_from_M2"] = ["Review independent current-four-voice router closure and explicit diagnostic exclusions"]
+            receipt["unverified"] = ["Five F END counters not observable in current records",
+                                     "Two fixture transition flags not observable in current records",
+                                     "Real capture has zero retirements: retirement is synthetic-envelope-tested only",
+                                     "Overlapping new frame while sample math active fails closed, outside current capture coverage",
+                                     "M2 final T060 closure", "T061 sound engine and hardware"]
+            receipt["status"], exit_code = "ROUTER_AUDIO_MATCH_AWAITING_M2_CLOSURE", 3
         else:
             transport = run.command("transport_only", [sys.executable, "-B", "-X", "utf8",
                                                          str(CANDIDATE / "strict_capture.py"),
@@ -213,11 +228,13 @@ def main():
         for before in receipt["frozen_inputs"] + receipt["candidate_sources"] + receipt["capture_inputs"]:
             if identity(Path(before["path"]))["sha256"] != before["sha256"]:
                 raise RuntimeError("INPUT_CHANGED_DURING_RUN:" + before["path"])
+        if time.monotonic() - run.start > args.timeout:
+            raise RuntimeError("WORKFLOW_ELAPSED_LIMIT")
     except (RuntimeError, OSError, ValueError, subprocess.SubprocessError) as error:
         receipt.update(status="FAIL", error=str(error))
         exit_code = 1
     receipt.update(exit_code=exit_code, elapsed_seconds=round(time.monotonic() - run.start, 6), steps=run.steps)
-    receipt["artifacts"] = [identity(path) for path in sorted(output.iterdir()) if path.is_file()]
+    receipt["artifacts"] = [identity(path) for path in sorted(output.rglob("*")) if path.is_file()]
     (output / "receipt.json").write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"status": receipt["status"], "exit_code": exit_code, "receipt": str(output / "receipt.json")},
                      ensure_ascii=False))

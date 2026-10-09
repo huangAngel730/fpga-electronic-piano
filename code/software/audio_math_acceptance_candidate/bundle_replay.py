@@ -180,6 +180,7 @@ def main():
         positive = command(bundle, original_json, original_f, 30)
         report["positive"] = positive
         require(positive["exit_code"] == 0 and positive["result"]["status"] == "PARTIAL_A2_AUDIO_MATH", "POSITIVE_AUDIO_REPLAY_FAILED")
+        require(positive["result"]["independent_router_checked"], "POSITIVE_ROUTER_NOT_CHECKED")
         cases = []
         for folder in ("previous32_JSONL", "previous14_F", "additional10"):
             for path in sorted((bundle / folder).iterdir()):

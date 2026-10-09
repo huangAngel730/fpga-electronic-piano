@@ -31,7 +31,7 @@ def event_fields(word):
             "value": (word >> 6) & 4095}
 
 
-def replay(json_capture, f_capture, roms, audio_roms=None):
+def replay(json_capture, f_capture, roms, audio_roms=None, router=None):
     """Check independently derived FCW/phase/table, including terminal STATE.
 
     E is the accepted event, not queued U/P. N supplies the allocation lane;
@@ -64,6 +64,9 @@ def replay(json_capture, f_capture, roms, audio_roms=None):
         key = state["epoch"], state["cycle"], state["lane"]
         require(key not in used, "TIMELINE_DUPLICATE_STATE")
         used.add(key)
+        if router is not None:
+            actual_cycle = router["state_actual_cycles"][key]
+        strobes = router["predicted_states"][key] if router else state
         if slot is not None:
             for name in ("source", "channel", "note", "velocity", "generation"):
                 require(state[name] == slot[name], f"STATE_EVENT_IDENTITY:{name}:{key}")
@@ -76,10 +79,10 @@ def replay(json_capture, f_capture, roms, audio_roms=None):
         velocity = slot["velocity"] if slot else 0
         if envelopes:
             envelope = envelopes[state["lane"]]
-            late_off = deepcopy(envelope) if state["note_off"] and not state["note_on"] and not state["tick"] else None
+            late_off = deepcopy(envelope) if router is None and state["note_off"] and not state["note_on"] and not state["tick"] else None
             envelope.quiet_until(actual_cycle if actual_cycle is not None else state["cycle"])
-            expected = envelope.edge(bool(state["tick"]), bool(state["note_on"]),
-                                     bool(state["note_off"]), velocity)
+            expected = envelope.edge(bool(strobes["tick"]), bool(strobes["note_on"]),
+                                     bool(strobes["note_off"]), velocity)
             for name, value in expected.items():
                 actual = int(state[name], 16) if name.endswith("q16") or name == "step_q16_twos33" else state[name]
                 require(actual == value, f"ENVELOPE_{name}:{key}:expected={value}:actual={actual}")
@@ -95,7 +98,7 @@ def replay(json_capture, f_capture, roms, audio_roms=None):
                 late_off.quiet_until(state["cycle"] + 12)
                 require(envelope.registers() == late_off.registers(), f"OFF_SETTLING_COUNTER_WINDOW:{key}")
                 counts["off_adjacent_edge_equivalence"] += 1
-        before = lanes[state["lane"]].edge(fcw, velocity, bool(state["tick"]), bool(state["note_on"]))
+        before = lanes[state["lane"]].edge(fcw, velocity, bool(strobes["tick"]), bool(strobes["note_on"]))
         for name in ("phase_acc", "table"):
             actual = int(state[name], 16) if name == "phase_acc" else state[name]
             require(actual == before[name], f"DDS_{name}:{key}:expected={before[name]}:actual={actual}")
@@ -156,7 +159,7 @@ def replay(json_capture, f_capture, roms, audio_roms=None):
                 note_queue.append((epoch, cycle, event))
             counts["accepted_events"] += 1
         elif tag == "N":
-            mask = values[0]
+            mask = router["predicted_n"][epoch, cycle] if router else values[0]
             require(mask in (1, 2, 4, 8), "NOTE_ON_NOT_SINGLE_LANE")
             lane = mask.bit_length() - 1
             require(bool(note_queue), "NOTE_ON_WITHOUT_ACCEPTED_EVENT")
@@ -176,6 +179,8 @@ def replay(json_capture, f_capture, roms, audio_roms=None):
         elif tag == "Q":
             req, occupied, sources, channels, generations, observed_base, notes = values
             key = epoch, req
+            if router:
+                occupied, sources, channels, generations, observed_base, notes = router["predicted_q"][key]
             require(key not in requests, "DUPLICATE_Q_TOKEN")
             for lane in range(4):
                 require(lane_word(observed_base, lane, 32) == base[lane], f"Q_BASE_FCW:{key}:{lane}")
@@ -274,10 +279,11 @@ def replay(json_capture, f_capture, roms, audio_roms=None):
     require(not note_queue and not requests, "TIMELINE_UNDRAINED")
     require(len(used) == json_capture["counts"]["STATE"], "UNBOUND_STATE")
     return {"status": "PARTIAL_A2_AUDIO_MATH" if envelopes else "PARTIAL_A1_DDS_MATH", "complete_audio_golden": False,
-            "a1_complete": False, "counter_classification_requires_M2_review": True,
+            "a1_complete": False, "counter_classification_requires_M2_review": False if router else True,
             "transport": transport, "comparisons": dict(counts),
             "stage_delay_histograms": {k: dict(v) for k, v in stage_delays.items()},
             "audio_math_replayed": bool(envelopes),
-            "note_off_counter_window": "Off-only STATE uses printed edge; old/new adjacent labels have identical quiet-state settling before next tick; exact router edge not signed",
-            "not_proven": ["Allocator choice/occupancy/release/CC64"] + ([] if envelopes else ["Envelope/ROM/gain/mix/PCM math"]) + [
+            "independent_router_checked": router is not None,
+            "note_off_counter_window": "Independent router derives exact physical edge; printed STATE old/new counter label only" if router else "Off-only STATE uses printed edge; old/new adjacent labels have identical quiet-state settling before next tick; exact router edge not signed",
+            "not_proven": ([] if router else ["Allocator choice/occupancy/release/CC64"]) + ([] if envelopes else ["Envelope/ROM/gain/mix/PCM math"]) + [
                            "Five unobservable F END counters", "Physical hardware"]}

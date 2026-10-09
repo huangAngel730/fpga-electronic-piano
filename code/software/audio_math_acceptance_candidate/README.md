@@ -1,4 +1,32 @@
-# T060 独立音频黄金候选：真实 DDS 与 A2 数学回放
+# T060 当前入口：四声部独立路由＋音频数学（2026-10-10）
+
+当前实现已新增 `router_model.py`／`router_check.py`／`router_regression.py`／`test_router.py`。
+从冻结 H 的 R/E/K/J 和 velocity ROM，独立恢复分配、LRU、重触发、source/channel CC64、
+NoteOff 扫描沿、generation 和包络 release_done→retirement；不读取 N/Q/STATE 决定期望。
+`check_pair.py` 在每个成功正例中强制执行独立路由，再用预测脉冲／占用值重放完整数学。
+历史专用 `timeline.replay(..., router=None)` 只供旧组件测试／诊断，不算当前完整正例。
+
+原 capture2 的 14 次 N、2488 次 Q、2487 次 tick、9964 条 STATE 已由新参考层覆盖。
+两个 off 真实沿由 FSM 推出为 epoch1/cycle1023197/lane1 和 cycle1254337/lane3；
+不再用观测 off 沿喂包络。打印计数 old/new 分类由 M2 既有回执确认；物理沿不作 ±1 容差。
+当前完整 runner 状态为 `ROUTER_AUDIO_MATCH_AWAITING_M2_CLOSURE`、退出3；
+`a1_complete/a2_complete/t060_complete` 仍 false，交 M2 复核限域收口。
+5 个 END 诊断计数、2 条 fixture 切换旗仍不可独立推导；真实原 capture 没有 retirement，
+回收有合成独立包络4800 tick自检，不能宣称原 RTL 实际回收已被采到。
+重叠 frame/math 不在当前原记录覆盖范围，新模型遇到时明确拒收，不猜测流水排空。
+
+复现（仓库根目录；输出必须不存在；不需要第三方 Python 包）：
+
+```powershell
+& 'E:/FPGA/SDKs/espressif/tools/python_env/idf5.4_py3.11_env/Scripts/python.exe' -B -X utf8 code/scripts/run_m3_audio_math_acceptance.py --bundle-root 'E:/FPGA/GAOYUNFPGA/CallBack/M1_138K40_audio_V0208_M2复核反馈_20261009' --repo-gates --timeout 1800 --step-timeout 900 --output code/output/m3_audio_router_REPRO_NEW
+```
+
+结果、源映射和转发清单见 `code/docs/hardware/audio_math_acceptance_v1/ROUTER_CLOSURE_20261010.md`。
+本次不改 T061、生产 RTL/ROM、M1 原模型或共享登记；不新跑音频 RTL/Gowin，不接设备。
+本目录以下是 2026-10-09 的阶段说明，含已解除的旧边界；当前状态以上述新入口和新回执为准，
+旧 A2/DDS 证据文件原字节保留，不回填旧结论。
+
+## 历史 A2 阶段说明（原内容保留）
 
 当前不是 A1/A2 完整交付，也不是完整音频验收 PASS。仅 Python 离线组件已实现；
 原 capture2 封存双文件及 56 反例已经收到，原 bytes／SHA 不变。

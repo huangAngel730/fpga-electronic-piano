@@ -423,6 +423,8 @@ if __name__ == "__main__":
     sys.modules.setdefault("test_candidates", sys.modules[__name__])
     import test_audio_math
     suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(test_audio_math))
+    import test_router
+    suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(test_router))
     result = unittest.TextTestRunner(verbosity=2).run(suite)
     print(json.dumps({"scope": "SYNTHETIC_COMPONENT_ONLY", "tests_run": result.testsRun,
                       "negative_cases_rejected": sum(DIAGNOSTICS.values()),

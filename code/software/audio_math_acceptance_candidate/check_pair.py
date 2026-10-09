@@ -8,6 +8,7 @@ from pathlib import Path
 
 from strict_capture import CaptureError, parse_f, parse_jsonl
 from timeline import replay
+from router_model import derive, compare_router
 
 
 def main():
@@ -23,7 +24,16 @@ def main():
         f = parse_f(args.f_capture.read_text(encoding="utf-8"))
         audio_roms = [[int(word, 16) for word in (args.rom_root / name).read_text(encoding="utf-8").split()]
                       for name in ("velocity_gain_rom.mem", "piano_band_4x256_8191.mem")]
-        result, exit_code = replay(j, f, roms, audio_roms), 0
+        # Keep established specific arithmetic diagnostics, then eliminate the
+        # old observed-router boundary on every successful pair. Finally replay
+        # audio again with independently derived strobes and occupancy.
+        replay(j, f, roms, audio_roms)
+        router = compare_router(derive(f, audio_roms[0]), j, f)
+        result = replay(j, f, roms, audio_roms, router=router)
+        for key in ("state_actual_cycles", "predicted_states", "predicted_n", "predicted_q"):
+            router.pop(key)
+        result["router"] = router
+        exit_code = 0
     except CaptureError as error:
         result, exit_code = {"status": "REJECTED_CONTRACT_OR_MATH", "diagnostic": str(error)}, 1
     except (OSError, UnicodeError, ValueError) as error:
