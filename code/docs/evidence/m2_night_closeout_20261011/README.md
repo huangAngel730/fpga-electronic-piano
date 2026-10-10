@@ -1,0 +1,11 @@
+# 2026-10-11夜间新组合与两专项复核原证据
+
+EVIDENCE.zip.b64解码为6448388字节、285成员ZIP，SHA256 `6bd80cb018df0b604481a83f5c868769c8b54ff44d40665cee2644df1a0e2ab3`；MANIFEST.json列每成员原始SHA及6个ignored大产物排除项。新fs只列实际尺寸/SHA并保留原件，没有下载包或设备操作。
+
+包含：新组合实际13UART正例/3编译反例的完整日志/capture/向量/收据、按SHA去重的实际执行/编译源对象、唯一完整工具原生timing/pin/resource/配置/log/ROM/输入、原资源拒收assessment和独立最终精确MIDI20SSRAM分类PASS；实际9BSRAM层级和全板级门禁保持，不回填原执行源或失败收据。
+
+T062原附件ZIP原字节收录：365成员逐件SHA/原native模块报告/行为及复位/失败历史原样保留，未执行其附件指令。B2c完整303成员carrier已在Git33c8b70封存，本载体复用其精确SHA/manifest，附独立4原capture重算、八损坏输入和行为诊断/原索引门禁审计，不重复18MB长capture。M2独立源码/脚本和复核结果在M2_review目录，复核没有重跑核心RTL/模块Gowin。
+
+新组合唯一工具0/444.202s，原首门禁因固定资源常数拒收保持，独立最终只精确分类MIDI23→20SSRAM变化后全部门禁PASS：Setup1.637/Hold0且无违例TNS/Recovery0.325/Removal0.010。精确离线L5不代上板/实体UART/HDMI实屏/BLE/播放/生产N8，不放行下载；原V0257失败报告/fs以旧SHA另核保留。原四份通知用户确认收到，本批新回执仍待私发。
+
+最终仓库发布门禁另封存FINAL_PUBLICATION_GATE载体；其9PASS不代本工程或N8未执行物理等级。旧失败产物独立核验追加于OLD_FAILED_PRESERVATION.json，记录实际94原件原SHA匹配，不只依靠操作意图。
