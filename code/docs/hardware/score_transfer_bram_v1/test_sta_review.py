@@ -2,7 +2,7 @@
 import copy
 import unittest
 
-from sta_review import timing_facts
+from sta_review import timing_facts, virtual_port_coverage
 
 
 def fixture():
@@ -57,6 +57,22 @@ class GateTests(unittest.TestCase):
     def test_unconstrained_path(self):
         rows = fixture()+[('Unconstrained_Paths_Report', ['1', 'a', 'b'])]
         self.assertIn('UNCONSTRAINED_PATH_ROW', timing_facts(rows)['errors'])
+
+    def test_engineering_margin(self):
+        for slack, passed in (('0.499', False), ('0.500', True), ('1.000', True)):
+            rows = fixture()
+            rows[5][1][1] = slack
+            self.assertEqual('SETUP_ENGINEERING_MARGIN' not in
+                             timing_facts(rows, minimum_setup=0.5)['errors'], passed)
+
+    def test_virtual_pin_coverage_rejects_absent_or_wrong_direction(self):
+        for rows in ([], [('Pinout_by_Port_Name', ['clk','-','X','N','out'])]):
+            self.assertIn('clk', virtual_port_coverage(rows)['missing_or_wrong'])
+        self.assertEqual(virtual_port_coverage([])['expected_ports'], 131)
+
+    def test_virtual_pin_coverage_rejects_unexpected_port(self):
+        rows=[('Pinout_by_Port_Name', ['surprise','-','X','N','in'])]
+        self.assertEqual(virtual_port_coverage(rows)['unexpected'], ['surprise'])
 
 
 if __name__ == '__main__':
