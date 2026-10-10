@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-09",
+  "version": "score_receive_integration_1",
+  "parent": "T058 reset_hold_v3 exact L5 offline finalprofile",
+  "parent_prepare_sha256": "a64000269a7b770afcaae2cefc91356a76b3aa23e124527a8df2afb87f55aaf5",
+  "parent_CST_sha256": "9860341591be1db845d21af91377896cf3eaefbbf4db73d81bc45284d7312bab",
+  "parent_SDC_sha256": "d36e8149f54402803c2b49814094ab58468ea488063cd89761e3907331494142",
+  "parent_top_overlay_sha256": "934b12b60225bc2cc703423cd99990508df9c249fe94118ad295986eed463ec3",
+  "overlays": {
+    "audio_visual_coexistence_top.sv": "bce4619937f38cf27506aa2f3253cfd4702e9d91c00cabbb9c0420c791b71899",
+    "audio_visual.cst": "e5d6e4e73484b03d65496e610df9f6ef677ddbc69770bf35ed29b7dd37f931fa",
+    "audio_visual_hold055.sdc": "82b5152283de81052c26610bb442d06f83d85ab514953c039e6cca881d22e7be"
+  },
+  "added_source_sha256": {
+    "code/rtl/input/score_transfer_candidate/score_transfer_candidate.sv": "551fc393621d2f4b014e0d19f8c5d47ce39b594f040d4ed273929805f63fc537"
+  },
+  "uart_dependencies_SHA256": {
+    "uart_rx.sv": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+    "uart_tx.sv": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925"
+  },
+  "new_ports": {
+    "score_uart_rx": {
+      "ball": "R18",
+      "bank": 4,
+      "header": "J9-5",
+      "direction": "input"
+    },
+    "score_uart_tx": {
+      "ball": "T18",
+      "bank": 4,
+      "header": "J9-6",
+      "direction": "output"
+    }
+  },
+  "input_count": 61,
+  "project_file_count": 52,
+  "playback_connected": false,
+  "old_MIDI_STAT_audio_wave_connections_unchanged": true,
+  "pin_selection_engineering_only_no_wiring": true,
+  "resource_mapping": "must come from synthesis hierarchy, no preclaim efficient8KB BSRAM",
+  "build_gate_policy": "retain parent final exactclock reset4 minhold650 pinsLOC CDC/noLatch; addUARTsync and2pins; score RAM only actualmapped unknown untilproof",
+  "programmed": false
+}
