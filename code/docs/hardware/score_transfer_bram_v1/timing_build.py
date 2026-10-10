@@ -7,6 +7,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import time
+import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[4]
 TOOL = Path('E:/FPGA/GAOYUNFPGA/138K/tools/gowin_1_9_11_03/IDE/bin/gw_sh.exe')
@@ -22,6 +23,28 @@ def sha(path):
 
 def dump(path, obj):
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=2)+'\n', encoding='utf-8', newline='\n')
+
+
+def review_cache_mapping(out):
+    """Native hierarchy prerequisite; a declared Verilog RAM is not evidence."""
+    xml = out/'project/score_ram/impl/gwsynthesis/score_ram_syn_rsc.xml'
+    tree = ET.parse(xml).getroot()
+    modules = {node.get('name'): node for node in tree.findall('SubModule')}
+    names = [f'byte_lanes[{i}].storage' for i in range(8)] + ['request_history']
+    for name in names:
+        if name not in modules or modules[name].get('Bsram') != '1':
+            raise ValueError('native synchronous RAM mapping missing: '+name)
+    registers = int(tree.get('T_Register').split('(')[0])
+    if registers >= 2000:
+        raise ValueError('request-cache FF reduction not established')
+    if int(tree.get('T_Latch', tree.get('Latch', '0')).split('(')[0]) != 0:
+        raise ValueError('inferred latch')
+    log = (out/'synthesis.stdout.bin').read_text(encoding='utf-8', errors='replace')
+    if "Extracting RAM for identifier 'memory'" not in log:
+        raise ValueError('native memory extraction log missing')
+    return dict(hierarchy=dict(tree.attrib), total_registers=registers,
+                native_xml_sha256=sha(xml),
+                mapped_modules={name:dict(modules[name].attrib) for name in names})
 
 
 def execute(out, label, tcl, limit):
@@ -54,11 +77,16 @@ def main():
     cli.add_argument('--pnr-timeout', type=int, choices=(900, 1800), default=900)
     cli.add_argument('--unlimited-pnr', action='store_true',
                      help='Explicit user 2026-10-10 authorization: one run, no automatic PnR timeout')
+    cli.add_argument('--structural-revision', action='store_true',
+                     help='New T062 request-cache architecture; 1ns setup / 650ps hold protection')
     cli.add_argument('--m2-metadata-import', choices=(M2_IMPORT,),
                      help='Accept only four bookkeeping files from this exact imported M2 commit')
     cli.add_argument('--prior-timeout-receipt', type=Path)
     cli.add_argument('--restart-after-interruption', type=Path)
     args = cli.parse_args()
+    if args.structural_revision and (args.unlimited_pnr or args.prior_timeout_receipt
+                                    or args.restart_after_interruption):
+        raise ValueError('new structural revision is not a legacy unlimited/retry authorization')
     if args.unlimited_pnr and (args.prior_timeout_receipt or args.restart_after_interruption):
         raise ValueError('unlimited authority must not masquerade as a bounded retry')
     out = args.output.resolve()
@@ -100,6 +128,9 @@ def main():
         inputs = '{rst_n uart_rx_i rd_req rd_index[*]}'
         outputs = '{uart_tx_o rd_valid rd_event[*] committed_valid committed_count[*] committed_score_id[*] commit_pulse last_error[*]}'
         text = 'create_clock -name sys_clk -period 25.000 [get_ports {clk}]\n'
+        if args.structural_revision:
+            text += 'set_clock_uncertainty -setup 1.000 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]\n'
+            text += 'set_clock_uncertainty -hold 0.650 -from [get_clocks {sys_clk}] -to [get_clocks {sys_clk}]\n'
         for kind, ports in (('input',inputs),('output',outputs)):
             for bound in ('max','min'):
                 text += f'set_{kind}_delay -{bound} 0.000 -clock sys_clk [get_ports {ports}]\n'
@@ -130,16 +161,28 @@ def main():
                        shared_bookkeeping_changes=metadata_changes,
                        tool=dict(path=str(TOOL),sha256=sha(TOOL)),
                        runner_sha256=sha(Path(__file__)),
+                       structural_revision=args.structural_revision,
+                       minimum_setup_slack_ns=0.5 if args.structural_revision else 0,
+                       desired_setup_slack_ns=1.0 if args.structural_revision else None,
+                       shared_bookkeeping_before_sha256={rel:sha(ROOT/rel) for rel in SHARED_STATUS},
                        configuration_sha256={p.name:sha(p) for p in (sdc,tcl)},
                        hardware_verified=False, production_changed=False, steps=[])
         dump(out/'attempt_started.json',receipt)
         step = execute(out,'synthesis',tcl,600)
         receipt['steps'].append(step)
         receipt['status']='SYNTHESIS_COMPLETED_REVIEW_REQUIRED' if step['exit_code']==0 and not step['timed_out'] and step['elapsed']<=600 else 'FAIL_SYNTHESIS'
+        if args.structural_revision and receipt['status']=='SYNTHESIS_COMPLETED_REVIEW_REQUIRED':
+            try:
+                receipt['cache_mapping_review']=review_cache_mapping(out)
+            except (ValueError, OSError, ET.ParseError, AttributeError) as error:
+                receipt['status']='FAIL_CACHE_MAPPING'
+                receipt['cache_mapping_error']=str(error)
     else:
         if not args.allow_isolated_unreleased_bitstream:
             raise ValueError('explicit isolated bitstream permission required')
         receipt = json.loads((out/'receipt.json').read_text(encoding='utf-8'))
+        if bool(receipt.get('structural_revision')) != args.structural_revision:
+            raise ValueError('structural revision execution authority mismatch')
         if receipt['status']!='SYNTHESIS_COMPLETED_REVIEW_REQUIRED' or (out/'pnr_started.json').exists():
             raise ValueError('fresh successful synthesis required, no implicit PnR retry')
         for rel,digest in receipt['simulation_inputs'].items():
@@ -216,6 +259,9 @@ def main():
     for rel,digest in receipt['simulation_inputs'].items():
         if sha(ROOT/rel)!=digest:
             receipt['status']='FAIL_INPUT_CHANGED'
+    receipt['shared_bookkeeping_after_sha256']={rel:sha(ROOT/rel) for rel in SHARED_STATUS}
+    receipt['shared_bookkeeping_changed']=[rel for rel, digest in
+        receipt['shared_bookkeeping_before_sha256'].items() if sha(ROOT/rel)!=digest]
     dump(out/'receipt.json',receipt)
     print(receipt['status'],flush=True)
     return int(receipt['status'].startswith('FAIL'))

@@ -73,7 +73,9 @@ module tb_score_bram_reset;
                       (phase==2 && dut.state==12) ||
                       (phase==3 && dut.state==7 && dut.verify_pos==dut.total_bytes) ||
                       (phase==4 && dut.state==14) ||
-                      (phase==5 && dut.state==15))) begin
+                      (phase==5 && dut.state==15) ||
+                      (phase==6 && dut.state==17) ||
+                      (phase==7 && dut.state==3 && dut.body_compare_pending))) begin
             armed=0; hit=1; rst_n=0;
             repeat(3) begin
                 @(posedge clk); #1;
@@ -102,11 +104,11 @@ module tb_score_bram_reset;
         ret=$fscanf(fd,"%h %h",golden[0],golden[1]);
         if (ret!=2) $fatal(1,"RESET_PROBE_GOLDEN");
         repeat(10) @(negedge clk); rst_n=1;
-        for (phase=0;phase<6;phase=phase+1) begin
+        for (phase=0;phase<8;phase=phase+1) begin
             // Publish two events so interruption must also invalidate old data.
             transaction(1); transaction(1); transaction(1); verify_recovery();
             transaction(1); // new BEGIN
-            if (phase==0) begin armed=1; hit=0; transaction(0); end
+            if (phase==0 || phase==6 || phase==7) begin armed=1; hit=0; transaction(0); end
             else if (phase==2 || phase==4 || phase==5) begin armed=1; hit=0; transaction(0); end
             else begin
                 transaction(1); transaction(1);
@@ -116,7 +118,7 @@ module tb_score_bram_reset;
             transaction(1); transaction(1); transaction(1); verify_recovery();
             $display("RESET_BOUNDARY_PASS phase=%0d",phase);
         end
-        if (reset_checks!=18) $fatal(1,"RESET_PROBE_COVERAGE");
+        if (reset_checks!=24) $fatal(1,"RESET_PROBE_COVERAGE");
         $display("RESET_RECOVERY_COMPLETE checks=%0d",reset_checks); $finish;
     end
     initial begin #(64'd1000000000); $fatal(1,"RESET_PROBE_GLOBAL_TIMEOUT"); end

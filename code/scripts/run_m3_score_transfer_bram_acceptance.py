@@ -5,6 +5,7 @@ import hashlib
 import importlib.util
 import json
 import os
+import shutil
 import subprocess
 import sys
 import time
@@ -33,6 +34,7 @@ def main():
     if ROOT / 'code/output' not in out.parents or out.exists():
         parser.error('new directory within code/output required')
     out.mkdir(parents=True)
+    shutil.copyfile(Path(__file__), out / 'simulation_runner.py')
     started = time.monotonic()
     receipt = dict(status='FAIL', synthesis_executed=False, hardware_verified=False,
                    argv=sys.argv, cwd=str(ROOT), python=str(Path(sys.executable)), steps=[])
@@ -46,10 +48,19 @@ def main():
                  'code/constraints/electronic_piano.cst', 'code/docs/模块接口规范.md',
                  'code/docs/当前状态.md', 'code/docs/任务看板.md',
                  'code/docs/验证记录.md', 'code/docs/技术决策记录.md']
-    readonly += [ROOT / relative for relative in protected]
+    bookkeeping = {relative: sha(ROOT / relative) for relative in protected[4:]}
+    # Shared registration changes are audited separately, never bound as
+    # executable inputs. Source/interface protections remain mandatory.
+    readonly += [ROOT / relative for relative in protected[:4]]
     inputs = readonly + list(RTL.glob('*.sv')) + list(TB.glob('*.sv')) + list(SW.glob('*.py')) + [Path(__file__)]
     identity = {p.relative_to(ROOT).as_posix(): sha(p) for p in inputs}
     receipt['input_sha256'] = identity
+    receipt['shared_bookkeeping_before_sha256'] = bookkeeping
+    snapshots = out / 'executed_inputs'
+    for rel in identity:
+        target = snapshots / rel
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / rel, target)
     receipt['python_sha256'] = sha(Path(sys.executable))
     receipt['head'] = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT).decode().strip()
 
@@ -130,6 +141,10 @@ def main():
     for rel, digest in identity.items():
         if sha(ROOT / rel) != digest:
             receipt.update(status='FAIL', error='input changed: '+rel)
+    receipt['shared_bookkeeping_after_sha256'] = {
+        rel: sha(ROOT / rel) for rel in bookkeeping}
+    receipt['shared_bookkeeping_changed'] = [rel for rel, digest in bookkeeping.items()
+        if sha(ROOT / rel) != digest]
     receipt['elapsed'] = time.monotonic()-started
     receipt['output_sha256'] = {p.relative_to(out).as_posix(): sha(p) for p in out.rglob('*')
                                if p.is_file() and p.name!='receipt.json' and 'work' not in p.parts

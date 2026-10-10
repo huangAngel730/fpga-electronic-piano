@@ -45,9 +45,22 @@ module score_transfer_bram_candidate #(
     localparam SEEK=0, MAGIC2=1, BODY=2, CRC_LO=3, CRC_HI=4, EXEC=5,
                COPY=6, VERIFY=7, RESP=8, DRAIN=9, ERROR_WAIT=10,
                VERIFY_USE=11, READ_WAIT=12, READ_REPLY=13,
-               REPLY_CRC_FETCH=14, REPLY_CRC_STEP=15, REPLY_CRC_FINISH=16;
+               REPLY_CRC_FETCH=14, REPLY_CRC_STEP=15, REPLY_CRC_FINISH=16,
+               COPY_FETCH=17;
     logic [4:0] state;
-    logic [7:0] body[0:137], last_body[0:137];
+    // Assertion remains immediate at the same sampled reset edge. Release is
+    // fenced for one extra core clock so RAM history/control cannot act before
+    // the reset sample is established. UART primitives retain their original
+    // reset. This real startup fence also removes the direct external-reset
+    // shortcut to the core's synchronous SET/RESET network.
+    logic reset_ready;
+    always_ff @(posedge clk) reset_ready <= rst_n;
+    wire core_rst_n = rst_n && reset_ready;
+    // Only the BEGIN header/metadata needs random parallel field access.
+    // Full request/history bytes live in synchronous ping-pong BSRAM below.
+    logic [7:0] body[0:23];
+    logic request_bank, cached_bank, body_compare_pending;
+    logic [7:0] body_compare_byte, copy_byte, cached_body_byte;
     logic [7:0] reply[0:33], last_reply[0:33];
     logic [63:0] ram_public, ram_internal;
     logic read_seen;
@@ -69,6 +82,15 @@ module score_transfer_bram_candidate #(
     logic [7:0] reply_crc_byte;
     logic [5:0] reply_crc_pos;
     logic reply_has_event;
+    wire request_write = core_rst_n && state==BODY && rx_valid && !rx_error &&
+                         !(active && session_timer>=SESSION_TIMEOUT-1) &&
+                         !(frame_timer>=FRAME_TIMEOUT-1);
+    wire [7:0] copy_byte_index = 8'd10 + copy_pos;
+    score_request_cache request_history(
+        .clk(clk), .write_enable(request_write),
+        .current_address({request_bank, request_write ? pos : copy_byte_index}),
+        .cached_address({cached_bank,pos}), .write_data(rx_data),
+        .current_data(copy_byte), .cached_data(cached_body_byte));
     wire public_enable = rst_n && rd_req && committed_valid && rd_index < committed_count;
     wire [12:0] copy_address = {1'b0,received[11:0]} + copy_pos;
     wire [9:0] port_b_address = (state==EXEC && command==6) ||
@@ -77,7 +99,7 @@ module score_transfer_bram_candidate #(
         : state==COPY ? {stage_bank,copy_address[11:3]}
         : {stage_bank,verify_pos[11:3]};
     // Match parser priority: no last staging write may escape timeout/reset.
-    wire port_b_write = rst_n && state==COPY && command==2 && copy_pos<payload_len &&
+    wire port_b_write = core_rst_n && state==COPY && command==2 && copy_pos<payload_len &&
                         !(active && session_timer>=SESSION_TIMEOUT-1) &&
                         !(rx_valid && rx_error);
     genvar lane;
@@ -88,7 +110,7 @@ module score_transfer_bram_candidate #(
             .a_data(ram_public[lane*8 +: 8]),
             .b_address(port_b_address),
             .b_write(port_b_write && copy_address[2:0]==lane),
-            .b_data(body[10+copy_pos]),
+            .b_data(copy_byte),
             .b_read(ram_internal[lane*8 +: 8]));
     end endgenerate
     wire [7:0] verify_byte = ram_internal[verify_pos[2:0]*8 +: 8];
@@ -153,11 +175,13 @@ module score_transfer_bram_candidate #(
 
     integer j;
     always_ff @(posedge clk) begin
-        if (!rst_n) begin
+        if (!core_rst_n) begin
             state<=SEEK; active<=0; published_bank<=0; stage_bank<=1;
             committed_valid<=0; committed_count<=0; committed_score_id<=0;
             commit_pulse<=0; last_error<=0; frame_timer<=0; session_timer<=0;
             cache_valid<=0; same_body<=0; cached_length<=0; cached_reply_length<=0;
+            request_bank<=0; cached_bank<=1;
+            body_compare_pending<=0; body_compare_byte<=0;
             pos<=0; body_length<=0; payload_len<=0; command<=0; version<=0;
             request_session<=0; request_seq<=0; request_offset<=0;
             frame_crc<=16'hffff; wire_crc<=0; received<=0; total_bytes<=0;
@@ -167,6 +191,12 @@ module score_transfer_bram_candidate #(
             reply_crc<=16'hffff; reply_crc_byte<=0; reply_crc_pos<=0; reply_has_event<=0;
         end else begin
             commit_pulse<=0;
+            // RAM B samples pos together with rx_data; consume its registered
+            // result one clock later. Never compare an asynchronous wide mux.
+            body_compare_pending<=request_write;
+            if (request_write) body_compare_byte<=rx_data;
+            if (body_compare_pending)
+                same_body<=same_body && body_compare_byte==cached_body_byte;
             if (active) session_timer<=session_timer+1;
             else session_timer<=0;
             if (state==MAGIC2 || state==BODY || state==CRC_LO || state==CRC_HI || state==DRAIN)
@@ -178,7 +208,10 @@ module score_transfer_bram_candidate #(
                     if (reply_pos==reply_length-1) begin
                         state<=SEEK;
                         if (cache_this) begin
-                            for (j=0; j<138; j=j+1) last_body[j]<=body[j];
+                            // O(1) publication of byte history, not 1104 FFs
+                            // copied on one high-fanout response-end enable.
+                            cached_bank<=request_bank;
+                            request_bank<=!request_bank;
                             for (j=0; j<34; j=j+1) last_reply[j]<=reply[j];
                             cached_length<=body_length;
                             cached_reply_length<=reply_length;
@@ -221,8 +254,8 @@ module score_transfer_bram_candidate #(
                     end else if (rx_data!=8'ha5) state<=SEEK;
                 end
                 BODY: if (rx_valid) begin
-                    frame_timer<=0; body[pos]<=rx_data;
-                    same_body<=same_body && rx_data==last_body[pos];
+                    frame_timer<=0;
+                    if (pos<24) body[pos]<=rx_data;
                     frame_crc<=crc_byte(frame_crc,rx_data);
                     case (pos)
                         0: version<=rx_data;
@@ -280,7 +313,7 @@ module score_transfer_bram_candidate #(
                             else if (request_seq!=next_seq) respond(6,0);
                             else if (request_offset!=received) respond(7,0);
                             else if (payload_len==0 || {1'b0,received}+{1'b0,payload_len}>total_bytes) respond(4,0);
-                            else begin copy_pos<=0; state<=COPY; session_timer<=0; end
+                            else begin copy_pos<=0; state<=COPY_FETCH; session_timer<=0; end
                         end
                         3: begin
                             if (payload_len!=0 || request_offset!=0) respond(4,0);
@@ -305,10 +338,12 @@ module score_transfer_bram_candidate #(
                         default: respond(3,0);
                     endcase
                 end
+                COPY_FETCH: state<=COPY;
                 COPY: begin
                     if (command==2 && copy_pos<payload_len) begin
                         // Byte write is owned by the eight lane memories.
                         copy_pos<=copy_pos+1;
+                        state<=COPY_FETCH;
                     end else begin
                         // Extra cycle ensures response includes final received count.
                         if (command==2 && copy_pos==payload_len) begin
