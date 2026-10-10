@@ -41,8 +41,9 @@ def dec(value, low=0, high=0xffffffff):
 
 
 class Oracle:
-    def __init__(self, response, n=8):
+    def __init__(self, response, n=8, identity_controls=False):
         self.n, self.sw = n, (n-1).bit_length()
+        self.identity_controls = identity_controls
         self.tw = 72+self.sw
         names = ("velocity_gain_rom.mem", "piano_band_4x256_8191.mem", "oct_ratio_q16.mem",
                  "sub_ratio_q16.mem", "lfo_sine_q15.mem")
@@ -115,7 +116,7 @@ class Oracle:
             f["slots"] = [dict(s) for s in r.slots]
             f["identity"] = identity
             f["control"] = [self.controls.get((s["source"], s["channel"]), (0, 0, 2))
-                            if s["occupied"] else (0, 0, 2) for s in r.slots]
+                            if s["occupied"] or self.identity_controls else (0, 0, 2) for s in r.slots]
             f["pedals"] = set(r.pedals)
         expected_g = f and f["q"] is not None and cycle in [f["q"]+3*self.n+5+3*i for i in range(self.n)]
         require(bool(expected_g) == ("G" in by), "B1_ISSUE_EDGE_OR_MISSING")
@@ -261,14 +262,18 @@ class Oracle:
         self.edge(cycle, rows)
 
 
-def check(raw):
+def check(raw, *, sizes=(4, 8), responses=(1, 3, 64), identity_controls=False, extra_long_events=0):
     lines = raw.decode("ascii").splitlines()
-    if len(lines) > 1 and lines[-2].startswith("END ") and re.fullmatch(r".*[/\\]tb_b2c_event_audio\.sv:[0-9]+: \$finish called at [0-9]+ \(1ps\)", lines[-1]):
+    if len(lines) > 1 and lines[-2].startswith("END ") and re.fullmatch(r".*[/\\]tb_b2[cd]_event_audio\.sv:[0-9]+: \$finish called at [0-9]+ \(1ps\)", lines[-1]):
         lines.pop()
-    require(bool(lines and re.fullmatch(r"B2C (4|8) (1|3|64) [01]", lines[0])), "HEADER")
+    # Default N8 entry retains its old accepted schema. Later checkpoints opt
+    # into explicit sizes/responses; observed outputs never choose the calendar.
+    ns = "|".join(str(n) for n in sizes)
+    rs = "|".join(str(r) for r in responses)
+    require(bool(lines and re.fullmatch(rf"B2C ({ns}) ({rs}) [01]", lines[0])), "HEADER")
     _, n, response, long_case = lines[0].split()
     n = int(n)
-    oracle = Oracle(int(response), n)
+    oracle = Oracle(int(response), n, identity_controls=identity_controls)
     lengths = {"R": 2, "I": 3, "J": 3, "U": 12, "G": 7, "W": 6, "C": 11,
                "A": 3, "L": 11, "F": 6, "P": 6, "X": 2, "Z": 3, "Y": 4, "END": 14}
     groups = {}
@@ -296,7 +301,7 @@ def check(raw):
             require(hasattr(oracle, "router"), "MISSING_RESET")
             oracle.advance(cycle, rows)
     oracle.lifecycle.update(oracle.router.counts)
-    require(oracle.counts["I"] == 1553+n-4 and oracle.counts["R"] == 4 and oracle.counts["X"] == 7 and
+    require(oracle.counts["I"] == 1553+n-4+(extra_long_events if int(long_case) else 0) and oracle.counts["R"] == 4 and oracle.counts["X"] == 7 and
             oracle.counts["P"] + oracle.coverage["identity_abort"] == (10368 if int(long_case) else 100), "FIXTURE_COUNTS")
     for key in ("steal", "retrigger", "pedal_deferred", "unmatched_note_off", "off_pulses"):
         require(oracle.lifecycle[key] > 0, "MISSING_LIFECYCLE:" + key)
@@ -312,6 +317,7 @@ def check(raw):
             "long_case": bool(int(long_case)), "counts": dict(oracle.counts), "lifecycle": dict(oracle.lifecycle),
             "coverage": dict(oracle.coverage), "max_request_to_result_cycles": max(oracle.durations),
             "min_request_to_result_cycles": min(oracle.durations), "capture_sha256": hashlib.sha256(raw).hexdigest(),
+            "deadline_misses": sum(age >= 833 for age in oracle.durations),
             "reference_inputs": ["R", "I", "J", "X", "frozen ROMs"], "task_complete": False,
             "whole_frozen_L_clock_path_equivalence": False, "physical_STA": "NOT_RUN"}
 

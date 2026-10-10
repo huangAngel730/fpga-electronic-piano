@@ -78,9 +78,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--repo-gates", action="store_true")
-    parser.add_argument("--stage", choices=("b0", "b1", "b2a", "b2b", "b2c"), default="b0")
+    parser.add_argument("--stage", choices=("b0", "b1", "b2a", "b2b", "b2c", "b2d"), default="b0")
     parser.add_argument("--iverilog", type=Path, default=Path("D:/Gowin/oss-cad-suite/bin/iverilog.exe"))
     parser.add_argument("--vvp", type=Path, default=Path("D:/Gowin/oss-cad-suite/bin/vvp.exe"))
+    parser.add_argument("--reuse-b2d-run", type=Path,
+                        help="SHA-verified completed N16 RTL steps; rerun reference checks, never fake new simulation")
     args = parser.parse_args()
     output = args.output.resolve()
     output.relative_to((ROOT / "code/output").resolve())
@@ -111,6 +113,12 @@ def main():
         receipt.update(stage="T061_B2C_N8_EVENT_AUDIO",
                        scope="Same hybrid candidate: parameterized lifecycle and controls, N4 equivalence and N8 event-to-PCM",
                        no_synthesis_STA_device_or_git_write=True)
+    if args.stage == "b2d":
+        receipt.update(stage="T061_B2D_N16_EVENT_AUDIO",
+                       scope="Same hybrid successor N16 with identity-control snapshot repair; N8 originals retained; R64 deliberately misses deadline",
+                       new_candidate_HDL=True,
+                       actual_RTL_capture_reuse=bool(args.reuse_b2d_run),
+                       drain_scope="Actual B1/B2a drain; cancellation retains persistent DSP/router state")
     code = 1
     try:
         run.command("git_version", ["git", "--version"])
@@ -127,21 +135,21 @@ def main():
             if hashlib.sha256(blob.replace(b"\r\n", b"\n")).hexdigest() != item["lf_sha256"]:
                 raise RuntimeError(f"PINNED_SOURCE_CHANGED:{item['path']}")
         candidate_paths = sorted(CANDIDATE.glob("*.py")) + [Path(__file__).resolve()]
-        if args.stage in ("b1", "b2a", "b2b", "b2c"):
+        if args.stage in ("b1", "b2a", "b2b", "b2c", "b2d"):
             candidate_paths += sorted((ROOT / "code/rtl/common/polyphony_scaling_candidate").glob("*.sv"))
             candidate_paths += sorted((ROOT / "code/tb/common/polyphony_scaling_candidate").glob("*.sv"))
-        if args.stage in ("b2a", "b2b", "b2c"):
+        if args.stage in ("b2a", "b2b", "b2c", "b2d"):
             candidate_paths += [ROOT / "code/software/audio_math_acceptance_candidate" / name
                                 for name in ("dds_model.py", "envelope_model.py")]
-        if args.stage in ("b2b", "b2c"):
+        if args.stage in ("b2b", "b2c", "b2d"):
             candidate_paths += [ROOT / "code/software/audio_math_acceptance_candidate" / name
                                 for name in ("router_model.py", "strict_capture.py")]
         receipt["candidate_sources_before"] = [identity(path) for path in candidate_paths]
         protected = sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1/B0_20261009").rglob("*"))
-        if args.stage in ("b1", "b2a", "b2b", "b2c"):
+        if args.stage in ("b1", "b2a", "b2b", "b2c", "b2d"):
             for name in ("REPAIR_20261009", "REPAIR_20261009_02", "B1_20261010"):
                 protected += sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1" / name).rglob("*"))
-        if args.stage in ("b2b", "b2c"):
+        if args.stage in ("b2b", "b2c", "b2d"):
             protected += sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1/B2A_20261010").rglob("*"))
             protected += [ROOT / "code/rtl/common/polyphony_scaling_candidate" / name for name in
                           ("b1_statebank.sv", "b1_scheduler.sv", "b2_audio_backend.sv")]
@@ -150,6 +158,17 @@ def main():
                 blob = run.command("prior_candidate", ["git", "show", "1c73e8d:" + path.relative_to(ROOT).as_posix()])
                 if blob.replace(b"\r\n", b"\n") != path.read_bytes().replace(b"\r\n", b"\n"):
                     raise RuntimeError("PRIOR_CANDIDATE_CHANGED:" + str(path))
+        if args.stage == "b2d":
+            for name in ("B2B_20261010", "B2C_20261010", "B2_TIMING_REPAIR_20261010_02"):
+                protected += sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1" / name).rglob("*"))
+            # N16 is a parameter checkpoint, not a replacement implementation.
+            reused = sorted((ROOT / "code/rtl/common/polyphony_scaling_candidate").glob("b2c_*.sv"))
+            reused += [ROOT / "code/tb/common/polyphony_scaling_candidate/tb_b2c_event_audio.sv"]
+            for path in reused:
+                blob = run.command("N8_pinned_RTL_TB", ["git", "show", "33c8b70:" + path.relative_to(ROOT).as_posix()])
+                if blob.replace(b"\r\n", b"\n") != path.read_bytes().replace(b"\r\n", b"\n"):
+                    raise RuntimeError("N8_RTL_TB_CHANGED:" + str(path))
+            protected += reused
         protected += [ROOT / "code/docs" / name for name in
                       ("当前状态.md", "任务看板.md", "验证记录.md", "技术决策记录.md", "模块接口规范.md")]
         protected += [ROOT / name for name in ("code/rtl/board/electronic_piano_top.sv",
@@ -177,6 +196,9 @@ def main():
         elif args.stage == "b2c":
             from b2c_run import run_b2c
             receipt["b2c"] = run_b2c(run, args)
+        elif args.stage == "b2d":
+            from b2d_run import run_b2d
+            receipt["b2d"] = run_b2d(run, args)
         else:
             from b2_run import run_b2
             receipt["b2a"] = run_b2(run, args)
@@ -209,6 +231,8 @@ def main():
             receipt["status"] = "B2B_N4_EVENT_AUDIO_PASS_T061_PARTIAL"
         if args.stage == "b2c":
             receipt["status"] = "B2C_N8_EVENT_AUDIO_PASS_T061_PARTIAL"
+        if args.stage == "b2d":
+            receipt["status"] = "B2D_N16_EVENT_AUDIO_PASS_T061_PARTIAL"
         code = 0
     except Exception as error:
         receipt.update(status="FAIL", error=f"{type(error).__name__}: {error}")
