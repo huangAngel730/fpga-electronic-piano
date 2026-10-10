@@ -1,5 +1,6 @@
-"""User-authorized isolated timing repair: bounded synthesis/PnR, never program."""
+"""User-authorized isolated timing repair; never download or program."""
 import argparse
+from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
@@ -10,6 +11,9 @@ import time
 ROOT = Path(__file__).resolve().parents[4]
 TOOL = Path('E:/FPGA/GAOYUNFPGA/138K/tools/gowin_1_9_11_03/IDE/bin/gw_sh.exe')
 PART = 'GW5AST-LV138PG484AC1/I0'
+M2_IMPORT = 'ab8f4e1b6492393fdc078668f59e3da07792788a'
+SHARED_STATUS = {'code/docs/'+name+'.md' for name in
+                 ('当前状态', '任务看板', '验证记录', '技术决策记录')}
 
 
 def sha(path):
@@ -26,6 +30,11 @@ def execute(out, label, tcl, limit):
     timed_out = False
     with (out/(label+'.stdout.bin')).open('xb') as stdout, (out/(label+'.stderr.bin')).open('xb') as stderr:
         process = subprocess.Popen(command, cwd=out, stdout=stdout, stderr=stderr)
+        dump(out/(label+'_process.json'), dict(
+            pid=process.pid, command=command, cwd=str(out),
+            observed_start_utc=datetime.now(timezone.utc).isoformat(),
+            timeout_seconds=limit, unlimited=limit is None,
+            do_not_program=True))
         try:
             process.wait(timeout=limit)
         except subprocess.TimeoutExpired:
@@ -43,9 +52,15 @@ def main():
     cli.add_argument('--simulation-receipt', type=Path)
     cli.add_argument('--allow-isolated-unreleased-bitstream', action='store_true')
     cli.add_argument('--pnr-timeout', type=int, choices=(900, 1800), default=900)
+    cli.add_argument('--unlimited-pnr', action='store_true',
+                     help='Explicit user 2026-10-10 authorization: one run, no automatic PnR timeout')
+    cli.add_argument('--m2-metadata-import', choices=(M2_IMPORT,),
+                     help='Accept only four bookkeeping files from this exact imported M2 commit')
     cli.add_argument('--prior-timeout-receipt', type=Path)
     cli.add_argument('--restart-after-interruption', type=Path)
     args = cli.parse_args()
+    if args.unlimited_pnr and (args.prior_timeout_receipt or args.restart_after_interruption):
+        raise ValueError('unlimited authority must not masquerade as a bounded retry')
     out = args.output.resolve()
     out.relative_to(ROOT/'code/output')
     if args.mode=='synth':
@@ -54,9 +69,23 @@ def main():
         simulation = json.loads(args.simulation_receipt.read_text(encoding='utf-8'))
         if simulation['status']!='PASS_MODULE_SIMULATION_ONLY':
             raise ValueError('simulation prerequisite')
+        current_inputs = {}
+        metadata_changes = {}
+        if args.m2_metadata_import:
+            subprocess.run(['git', 'merge-base', '--is-ancestor', args.m2_metadata_import, 'HEAD'],
+                           cwd=ROOT, check=True, timeout=30)
         for rel, digest in simulation['input_sha256'].items():
-            if sha(ROOT/rel)!=digest:
-                raise ValueError('simulation identity changed: '+rel)
+            current = sha(ROOT/rel)
+            if current != digest:
+                if rel not in SHARED_STATUS or not args.m2_metadata_import:
+                    raise ValueError('simulation identity changed: '+rel)
+                imported = subprocess.check_output(
+                    ['git', 'show', args.m2_metadata_import+':'+rel], cwd=ROOT, timeout=30)
+                if hashlib.sha256(imported).hexdigest() != current:
+                    raise ValueError('metadata not exact imported M2 bytes: '+rel)
+                metadata_changes[rel] = dict(historical_simulation_sha256=digest,
+                                            imported_M2_sha256=current)
+            current_inputs[rel] = current
         sources = [ROOT/'code/rtl/common'/name for name in ('uart_rx.sv','uart_tx.sv')]
         sources += [ROOT/'code/rtl/input/score_transfer_bram_candidate'/name for name in (
             'score_byte_lane.sv','score_transfer_bram_candidate.sv')]
@@ -95,7 +124,10 @@ def main():
                        part=PART, device_version='C', period_ns=25, board_timing_verified=False,
                        source_sha256={p.relative_to(ROOT).as_posix():sha(p) for p in sources},
                        simulation_receipt_sha256=sha(args.simulation_receipt),
-                       simulation_inputs=simulation['input_sha256'],
+                       simulation_inputs=current_inputs,
+                       historical_simulation_inputs=simulation['input_sha256'],
+                       imported_M2_commit=args.m2_metadata_import,
+                       shared_bookkeeping_changes=metadata_changes,
                        tool=dict(path=str(TOOL),sha256=sha(TOOL)),
                        runner_sha256=sha(Path(__file__)),
                        configuration_sha256={p.name:sha(p) for p in (sdc,tcl)},
@@ -120,7 +152,7 @@ def main():
                 raise ValueError('synthesis artifact changed: '+name)
         if sha(TOOL)!=receipt['tool']['sha256']:
             raise ValueError('tool identity changed')
-        if args.pnr_timeout==1800:
+        if args.pnr_timeout==1800 and not args.unlimited_pnr:
             if args.prior_timeout_receipt is None:
                 raise ValueError('user-approved extension requires prior timeout receipt')
             prior_path=args.prior_timeout_receipt.resolve()
@@ -170,10 +202,15 @@ def main():
         receipt['pnr_runner_sha256']=sha(Path(__file__))
         receipt['configuration_sha256'][tcl.name]=sha(tcl)
         receipt['bitstream_authority']='User explicitly allowed isolated generation only; NEVER download or burn'
+        limit = None if args.unlimited_pnr else args.pnr_timeout
+        if args.unlimited_pnr:
+            receipt['pnr_time_authority'] = (
+                'User 2026-10-10: 请帮我重新跑一下布局布线 没有时间限制; '
+                'one fresh isolated run, no automatic timeout, no automatic retry')
         dump(out/'pnr_started.json',receipt)
-        step = execute(out,'pnr',tcl,args.pnr_timeout)
+        step = execute(out,'pnr',tcl,limit)
         receipt['steps'].append(step)
-        receipt['status']='PNR_COMPLETED_STA_REVIEW_REQUIRED' if step['exit_code']==0 and not step['timed_out'] and step['elapsed']<=args.pnr_timeout else 'FAIL_PNR'
+        receipt['status']='PNR_COMPLETED_STA_REVIEW_REQUIRED' if step['exit_code']==0 and not step['timed_out'] and (limit is None or step['elapsed']<=limit) else 'FAIL_PNR'
     receipt['output_sha256']={p.relative_to(out).as_posix():sha(p) for p in out.rglob('*')
                              if p.is_file() and p.name!='receipt.json'}
     for rel,digest in receipt['simulation_inputs'].items():

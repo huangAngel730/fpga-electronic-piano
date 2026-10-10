@@ -154,8 +154,12 @@ def main():
         raise ValueError('native PnR completion prerequisite')
     rows = tables(path)
     for step in receipt['steps']:
-        if step['exit_code'] or step['timed_out'] or step['elapsed'] > step['timeout']:
+        if (step['exit_code'] or step['timed_out']
+                or (step['timeout'] is not None and step['elapsed'] > step['timeout'])):
             raise ValueError('bounded native execution prerequisite')
+        if step['timeout'] is None and (step is not receipt['steps'][-1]
+                or '没有时间限制' not in receipt.get('pnr_time_authority', '')):
+            raise ValueError('explicit unlimited PnR authority missing')
     for name, digest in receipt['output_sha256'].items():
         if sha(build/name) != digest:
             raise ValueError('native output identity: '+name)
