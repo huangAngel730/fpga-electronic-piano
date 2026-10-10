@@ -1,0 +1,61 @@
+{
+  "command": [
+    "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+    "code/docs/hardware/polyphony_scaling_v1/seal_b0.py",
+    "--run",
+    "code/output/m3_t061_b0_20261009_03",
+    "--prior-run",
+    "code/output/m3_t061_b0_20261009_01",
+    "--prior-run",
+    "code/output/m3_t061_b0_20261009_02",
+    "--package",
+    "code/docs/hardware/polyphony_scaling_v1/B0_20261009"
+  ],
+  "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+  "utc": "2026-10-09T13:36:11.942915+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 0.954,
+  "result": {
+    "status": "CARRIER_VERIFIED",
+    "zip_bytes": 543209,
+    "zip_sha256": "3c7d63eddfed73423faf6cd39c9504af75eb73a846b2698566fa6b64bda0bc6e",
+    "members": 279
+  },
+  "tools": [
+    {
+      "tool": "python",
+      "command": [
+        "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+        "--version"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+      "exit_code": 0,
+      "exe_sha256": "35b4bd456823c5ea3aba0856b95e113da92d5362a6fa7643f12aef9cc1a1875b"
+    },
+    {
+      "tool": "git",
+      "command": [
+        "C:\\Program Files\\Git\\cmd\\git.EXE",
+        "--version"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+      "exit_code": 0,
+      "exe_sha256": "851535ccc041bed536a23b17200cd51e7b06e266a527f4eaf8338b5c256c6466"
+    },
+    {
+      "tool": "powershell",
+      "command": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.EXE",
+        "-NoProfile",
+        "-Command",
+        "$PSVersionTable.PSVersion.ToString()"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+      "exit_code": 0,
+      "exe_sha256": "362a356ce7f0940ec74f73a8fc2c990a2cc24a38a11c90bbd8eca947110ad139"
+    }
+  ],
+  "manifest_sha256": "d6cd9e10cf223ea637e47bb2277c0d0546c13c6eafaa30532543d1250024f785",
+  "current_run_receipt_sha256": "13f371f83ee15c85c57d5a914ad3a6c63e163ca55c093fb78d826bb95ec2b39e",
+  "scope": "carrier integrity only; no new HDL/audio/synthesis/STA validation"
+}
