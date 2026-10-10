@@ -12,12 +12,16 @@ import prepare_138k_score_receive_integration as base
 
 BUILD_ROOT = ROOT / "code/build/138k_score_bram"
 SCOPE = ROOT / "code/rtl/138K_try/score_bram_integration_20261010"
-VERSION = "score_bram_fulltop_prepare_v1"
+VERSION = "score_bram_fulltop_prepare_v2"
 PROJECT = base.PROJECT
 
 
 def sha(raw):
     return hashlib.sha256(raw).hexdigest()
+
+
+def receipt_bytes(record):
+    return (json.dumps(record, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
 
 
 def guard(output):
@@ -88,6 +92,7 @@ def expected_receipt(output):
     record = {"date": "2026-10-10", "version": VERSION, "inputs": provenance,
               "input_count": 62, "project_file_count": 53,
               "source_manifest_sha256": sha((SCOPE / "integration_manifest.json").read_bytes()),
+              "prepare_script_sha256": sha(Path(__file__).read_bytes()),
               "old_removed_score_source_sha256": old_sha,
               "parent": base.VERSION,
               "device": base.parent.parent.parent.original.EXPECTED_DEVICE,
@@ -110,7 +115,9 @@ def validate(output):
     if ((output / PROJECT).read_bytes() != project
             or (output / "run.tcl").read_bytes() != tcl):
         raise ValueError("EXACT_PROJECT_OPTIONS")
-    if json.loads((output / "frozen_receipt.json").read_bytes()) != record:
+    # Canonical frozen bytes also reject bool/int/float substitutions and
+    # duplicate JSON keys; Python dictionary equality is not type-sensitive.
+    if (output / "frozen_receipt.json").read_bytes() != receipt_bytes(record):
         raise ValueError("EXACT_RAM_FROZEN_RECEIPT")
     print("PASS prepared62/53 identity only; no tools/STA/programming release", flush=True)
     return record
@@ -128,8 +135,7 @@ def prepare(output):
         p.write_bytes(raw)
     (output / PROJECT).write_bytes(project)
     (output / "run.tcl").write_bytes(tcl)
-    (output / "frozen_receipt.json").write_text(json.dumps(record, ensure_ascii=False, indent=2)
-                                             + "\n", encoding="utf-8", newline="\n")
+    (output / "frozen_receipt.json").write_bytes(receipt_bytes(record))
     return validate(output)
 
 

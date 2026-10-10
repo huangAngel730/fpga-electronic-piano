@@ -109,9 +109,12 @@ class PrepareTests(unittest.TestCase):
         for field, value in (("physical_STA_passed", True), ("board_release_allowed", True),
                              ("ready_for_PnR", True), ("fulltop_simulation_completed", True),
                              ("device", {"name": "wrong_device"}), ("input_count", 61),
-                             ("parent", "wrong_parent"), ("inputs", {})):
+                             ("parent", "wrong_parent"), ("inputs", {}),
+                             ("physical_STA_passed", 0), ("board_release_allowed", 0),
+                             ("ready_for_PnR", 0), ("fulltop_simulation_completed", 0),
+                             ("input_count", 62.0)):
             with self.subTest(field=field):
-                out = self.fresh("receipt_" + field)
+                out = self.fresh("receipt_" + field + "_" + type(value).__name__)
                 path = out / "frozen_receipt.json"
                 record = json.loads(path.read_bytes())
                 record[field] = value
