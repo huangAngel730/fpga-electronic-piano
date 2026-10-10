@@ -21,6 +21,9 @@ module score_byte_lane (
     end
     always @(posedge clk) begin
         if (b_write) memory[b_address] <= b_data;
-        b_read <= memory[b_address];
+        // GW5AST DPB supports no-change/write-through, not read-before-write.
+        // The staging controller never consumes B read data on a write cycle.
+        // Holding this private output preserves every actual read transaction.
+        else b_read <= memory[b_address];
     end
 endmodule

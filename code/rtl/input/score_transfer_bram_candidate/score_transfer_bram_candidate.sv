@@ -44,8 +44,9 @@ module score_transfer_bram_candidate #(
     // Protocol parser states, and bounded byte-at-a-time commit verification.
     localparam SEEK=0, MAGIC2=1, BODY=2, CRC_LO=3, CRC_HI=4, EXEC=5,
                COPY=6, VERIFY=7, RESP=8, DRAIN=9, ERROR_WAIT=10,
-               VERIFY_USE=11, READ_WAIT=12, READ_REPLY=13;
-    logic [3:0] state;
+               VERIFY_USE=11, READ_WAIT=12, READ_REPLY=13,
+               REPLY_CRC_FETCH=14, REPLY_CRC_STEP=15, REPLY_CRC_FINISH=16;
+    logic [4:0] state;
     logic [7:0] body[0:137], last_body[0:137];
     logic [7:0] reply[0:33], last_reply[0:33];
     logic [63:0] ram_public, ram_internal;
@@ -64,6 +65,10 @@ module score_transfer_bram_candidate #(
     logic [63:0] event_shift;
     logic cache_this;
     logic [7:0] pending_error;
+    logic [15:0] reply_crc;
+    logic [7:0] reply_crc_byte;
+    logic [5:0] reply_crc_pos;
+    logic reply_has_event;
     wire public_enable = rst_n && rd_req && committed_valid && rd_index < committed_count;
     wire [12:0] copy_address = {1'b0,received[11:0]} + copy_pos;
     wire [9:0] port_b_address = (state==EXEC && command==6) ||
@@ -108,12 +113,11 @@ module score_transfer_bram_candidate #(
     assign tx_data = reply[reply_pos];
 
     task automatic respond(input [7:0] error_code, input logic with_event);
-        reg [15:0] c;
         reg [7:0] buffer[0:33];
         integer n, end_body;
         begin
-            // Local combinational construction, then only nonblocking writes to
-            // registered response state owned by this one clocked process.
+            // Snapshot metadata/event bytes once. CRC is subsequently folded
+            // one byte per two clocks; no 22/30-byte combinational CRC chain.
             for (n=0; n<34; n=n+1) buffer[n]=0;
             buffer[0]=8'ha5; buffer[1]=8'h5a; buffer[2]=1;
             buffer[3]=(error_code==0) ? 8'h80 : 8'h81;
@@ -131,16 +135,19 @@ module score_transfer_bram_candidate #(
                 for (n=0; n<8; n=n+1)
                     buffer[24+n]=ram_internal[n*8 +: 8];
             end_body=with_event ? 32 : 24;
-            c=16'hffff;
-            for (n=2; n<32; n=n+1)
-                if (n<end_body) c=crc_byte(c,buffer[n]);
-            buffer[end_body]=c[7:0]; buffer[end_body+1]=c[15:8];
             for (n=0; n<34; n=n+1) reply[n]<=buffer[n];
             reply_length <= end_body+2;
             reply_pos <= 0;
+`ifdef MUTANT_RESPONSE_CRC
+            reply_crc <= 16'hfffe;
+`else
+            reply_crc <= 16'hffff;
+`endif
+            reply_crc_pos <= 2;
+            reply_has_event <= with_event;
             last_error <= error_code;
             cache_this <= error_code==0;
-            state <= RESP;
+            state <= REPLY_CRC_FETCH;
         end
     endtask
 
@@ -157,6 +164,7 @@ module score_transfer_bram_candidate #(
             expected_crc<=0; score_crc<=16'hffff; session_id<=0; next_seq<=1;
             event_count<=0; score_id<=0; reply_pos<=0; reply_length<=0;
             copy_pos<=0; verify_pos<=0; event_shift<=0; previous_tick<=0; cache_this<=0; pending_error<=0;
+            reply_crc<=16'hffff; reply_crc_byte<=0; reply_crc_pos<=0; reply_has_event<=0;
         end else begin
             commit_pulse<=0;
             if (active) session_timer<=session_timer+1;
@@ -178,6 +186,23 @@ module score_transfer_bram_candidate #(
                         end
                     end else reply_pos<=reply_pos+1;
                 end
+            // Like the old RESP phase, a snapshotted reply is not preempted by
+            // RX errors or session timeout. Reset still has absolute priority.
+            // Separate register cuts isolate the byte mux from the CRC XORs.
+            end else if (state==REPLY_CRC_FETCH) begin
+                reply_crc_byte<=reply[reply_crc_pos];
+                state<=REPLY_CRC_STEP;
+            end else if (state==REPLY_CRC_STEP) begin
+                reply_crc<=crc_byte(reply_crc,reply_crc_byte);
+                if (reply_crc_pos==(reply_has_event ? 31 : 23)) state<=REPLY_CRC_FINISH;
+                else begin reply_crc_pos<=reply_crc_pos+1; state<=REPLY_CRC_FETCH; end
+            end else if (state==REPLY_CRC_FINISH) begin
+                if (reply_has_event) begin
+                    reply[32]<=reply_crc[7:0]; reply[33]<=reply_crc[15:8];
+                end else begin
+                    reply[24]<=reply_crc[7:0]; reply[25]<=reply_crc[15:8];
+                end
+                state<=RESP;
             end else if (active && session_timer>=SESSION_TIMEOUT-1) begin
                 active<=0; cache_valid<=0; pending_error<=12; state<=ERROR_WAIT;
             end else if ((state==MAGIC2 || state==BODY || state==CRC_LO || state==CRC_HI || state==DRAIN)

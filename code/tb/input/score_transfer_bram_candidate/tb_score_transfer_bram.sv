@@ -62,6 +62,8 @@ module tb_score_transfer_bram;
     end
     byte decoded[0:141];
     integer decoded_pos=0, decoded_size=0, b;
+    integer crc_index, crc_bit, crc_reply_checks=0;
+    reg [15:0] wire_reply_crc;
     always @(posedge clk) begin
         system_cycles=system_cycles+1;
         if (rst_n && commit_pulse) pulses=pulses+1;
@@ -83,6 +85,19 @@ module tb_score_transfer_bram;
             if (decoded_pos==12) decoded_size=14+{decoded[11],decoded[10]};
             if (decoded_pos>141 || decoded_size>142) $fatal(1,"TX frame exceeds bound");
             if (decoded_pos==decoded_size && decoded_size!=0) begin
+                // Independent bit-serial CCITT from actual UART pin bytes;
+                // do not call the DUT CRC helper or inspect its CRC state.
+                wire_reply_crc=16'hffff;
+                for (crc_index=2;crc_index<decoded_size-2;crc_index=crc_index+1) begin
+                    for (crc_bit=7;crc_bit>=0;crc_bit=crc_bit-1) begin
+                        if (wire_reply_crc[15] ^ decoded[crc_index][crc_bit])
+                            wire_reply_crc=(wire_reply_crc<<1)^16'h1021;
+                        else wire_reply_crc=wire_reply_crc<<1;
+                    end
+                end
+                if ({decoded[decoded_size-1],decoded[decoded_size-2]}!==wire_reply_crc)
+                    $fatal(1,"UART_REPLY_CRC_MISMATCH");
+                crc_reply_checks=crc_reply_checks+1;
                 $fwrite(fd,"TX %0d ",current_case);
                 for (n=0;n<decoded_size;n=n+1) $fwrite(fd,"%02x",decoded[n]);
                 $fwrite(fd," %0d\n",system_cycles);
@@ -189,6 +204,7 @@ module tb_score_transfer_bram;
             $fatal(1,"RAM_COVERAGE_MISSING");
         $fclose(fd); $fclose(plan_fd); $fclose(oracle_fd);
         $display("HARNESS COMPLETE cases=%0d packets=%0d (checker decides PASS)",cases,packets);
+        $display("UART_REPLY_CRC_CHECKS=%0d",crc_reply_checks);
         $finish;
     end
     initial begin #(64'd12000000000); $fatal(1,"global simulation timeout"); end

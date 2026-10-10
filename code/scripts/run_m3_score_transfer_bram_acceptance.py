@@ -92,7 +92,8 @@ def main():
         sources = readonly[1:3] + [RTL / 'score_byte_lane.sv', RTL / 'score_transfer_bram_candidate.sv',
                                   TB / 'tb_score_transfer_bram.sv']
         for label, define in (('normal', None), ('ram_read_mutant', 'MUTANT_RAM_READ'),
-                              ('bank_mutant', 'MUTANT_BANK_SWITCH')):
+                              ('bank_mutant', 'MUTANT_BANK_SWITCH'),
+                              ('reply_crc_mutant', 'MUTANT_RESPONSE_CRC')):
             folder = out / label
             folder.mkdir()
             if run(label+'_vlib', [tools / 'vlib.exe', 'work'], folder, 30)[0]:
@@ -108,7 +109,8 @@ def main():
                 '+CAPTURE='+str(capture), '+ORACLE='+str(out / 'public_oracle.txt'), '-do',
                 'onerror {quit -code 2}; onbreak {quit -code 3}; run -all; quit -code 0'], folder)
             if define:
-                if 'RAM_PUBLIC_DATA_OR_BANK' not in log or 'HARNESS COMPLETE' in log:
+                marker = 'UART_REPLY_CRC_MISMATCH' if define=='MUTANT_RESPONSE_CRC' else 'RAM_PUBLIC_DATA_OR_BANK'
+                if marker not in log or 'HARNESS COMPLETE' in log:
                     raise ValueError(label+': designated behavioral assertion missing')
             else:
                 if code or 'HARNESS COMPLETE' not in log or 'RAM_CHECKS' not in log:

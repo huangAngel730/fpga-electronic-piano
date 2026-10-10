@@ -24,9 +24,9 @@ def main():
     records = [event['tick'].to_bytes(4, 'little') + bytes((int(event['type']=='note_off'),
                event['channel'], event['note'], event['velocity'])) for event in doc['events']]
     text = ' '.join(f'{int.from_bytes(x,"little"):016x}' for x in records)+'\n'
-    for phase in range(4):
+    for phase in range(6):
         frames = base + [stage[0]]
-        frames += [stage[1]] if phase==0 else [old.pc.frame(6, 71, 9, 0)] if phase==2 else stage[1:]
+        frames += [stage[1]] if phase==0 else [old.pc.frame(6, 71, 9, 0)] if phase in (2,4,5) else stage[1:]
         frames += base
         for frame in frames:
             text += str(len(frame))+' '+' '.join(f'{x:02x}' for x in frame)+'\n'
@@ -58,7 +58,7 @@ def main():
         code, log = run('simulate', [tools/'vsim.exe','-c','-wlf','simulation.wlf',
             'work.tb_score_bram_reset','+PLAN='+str(plan),'-do',
             'onerror {quit -code 2}; onbreak {quit -code 3}; run -all; quit -code 0'], 180)
-        if code or 'RESET_RECOVERY_COMPLETE checks=12' not in log or 'Fatal:' in log:
+        if code or 'RESET_RECOVERY_COMPLETE checks=18' not in log or 'Fatal:' in log:
             raise ValueError('reset simulation incomplete')
         receipt['status']='PASS_RESET_RAM_RECOVERY'
     except Exception as exc:
