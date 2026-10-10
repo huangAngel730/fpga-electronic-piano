@@ -13,6 +13,7 @@ import re
 import sys
 
 from inventory import FROZEN, ROOT
+from b2_clock import backend_calendar, deadline_missed
 
 sys.path.insert(0, str(ROOT / "code/software/audio_math_acceptance_candidate"))
 from dds_model import MASK32, PianoDDS, pitch_mod, signed  # noqa: E402
@@ -137,6 +138,7 @@ class Oracle:
             require([hx(x, w) for x, w in zip(by["C"][2:], (32, 4, 128, 48, 48, 20, 16, 16, 128))] == expected,
                     "BACKEND_FULL_SNAPSHOT")
             f["c"] = cycle
+            f['clock'] = backend_calendar(cycle, 4, self.response)
             f["started"] = True
             f["fcw"] = []
             for i, (s, ctl) in enumerate(zip(slots, controls)):
@@ -145,7 +147,7 @@ class Oracle:
                     if s["occupied"] else s["fcw"])
                 if s["occupied"]:
                     self.lfo[i] = (self.lfo[i]+447392) & MASK32
-        tick = bool(f and f["started"] and cycle == f["c"]+8)
+        tick = bool(f and f["started"] and cycle == f['clock'].advance)
         require(tick == ("A" in by), "ADVANCE_EDGE_OR_MISSING")
         if tick:
             require(hx(by["A"][2], 32) == f["id"], "ADVANCE_ID")
@@ -176,12 +178,14 @@ class Oracle:
                     self.coverage["invalid_range_ignored"] += 1
             self.controls[key] = bend, mod, ran
             self.coverage["identity_" + str(key[0]*16+key[1])] += 1
+        expected_lane = bool(f and f['started'] and cycle in f['clock'].lanes)
+        require(expected_lane == ('L' in by), 'LANE_CLOCK_OR_MISSING')
         if "L" in by:
             require(bool(f and f["advance"]), "LANE_WITHOUT_LIVE_ADVANCE")
             row = by["L"]
             i = dec(row[3], 0, 3)
             require(i == len(f["lanes"]) and hx(row[2], 32) == f["id"], "LANE_SEQUENCE_OR_ID")
-            require(cycle == f["c"]+15+self.response+(3+self.response)*i, "LANE_CLOCK")
+            require(cycle == f['clock'].lanes[i], "LANE_CLOCK")
             osc, env = self.dds[i], self.env[i]
             wave = signed(self.rom["piano_band_4x256_8191.mem"][(osc.active_table << 8) | (osc.phase >> 24)], 16)
             amplitude = env.snapshot()["envelope"]
@@ -209,6 +213,10 @@ class Oracle:
                 exp_context = (f["lanes"][i] & ((1 << 24)-1)) << 50 | s["note"] << 42 | s["velocity"] << 32 | s["fcw"]
                 require([tag, context, accepted] == [exp_tag, exp_context, 1], "B1_REAL_RESULT_TAG_OR_CONTEXT")
                 f["writes"][i] = context
+        # Stop/identity invalidation was applied above and wins on this edge.
+        # Compare presence on EVERY edge, including skipped capture gaps.
+        expected_first = bool(f and f['started'] and cycle == f['clock'].wrapper_first)
+        require(expected_first == ('F' in by), 'FIRST_VALID_CLOCK_OR_MISSING')
         for tag in ("F", "P"):
             if tag not in by:
                 continue
@@ -219,8 +227,9 @@ class Oracle:
                       dec(row[4], -(1 << 23), (1 << 23)-1), dec(row[5], 0, 1)]
             if tag == "F":
                 require(f["first"] is None, "DUPLICATE_FIRST_RESULT")
-                elapsed = cycle-f["j"]-1
-                require(result == [f["id"], pcm, pcm, int(elapsed >= 833)], "PCM_OR_DEADLINE")
+                elapsed = f['clock'].wrapper_first-f["j"]-1
+                require(result == [f["id"], pcm, pcm,
+                                   deadline_missed(f['clock'].wrapper_first, f['j'])], "PCM_OR_DEADLINE")
                 f["first"] = result
                 self.durations.append(elapsed)
             else:

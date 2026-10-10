@@ -13,6 +13,7 @@ import re
 import sys
 
 from inventory import FROZEN, ROOT
+from b2_clock import backend_calendar, deadline_missed
 
 sys.path.insert(0, str(ROOT / "code/software/audio_math_acceptance_candidate"))
 from dds_model import MASK32, PianoDDS, pitch_mod, signed  # noqa: E402
@@ -79,6 +80,16 @@ def check(raw):
             if target > env.cycle:
                 env.quiet_until(target)
 
+    def require_prior_stages(stop_cycle):
+        # Cancel suppresses its own edge, never erases an earlier required tap.
+        if frame is not None:
+            clock = frame['clock']
+            if clock.advance < stop_cycle and not frame['advance']:
+                raise ValueError('MISSING_ADVANCE_AT_SOURCE_CLOCK')
+            if any(edge < stop_cycle and i not in frame['lanes']
+                   for i, edge in enumerate(clock.lanes)):
+                raise ValueError('MISSING_LANE_AT_SOURCE_CLOCK')
+
     for line in lines[1:]:
         parts = line.split()
         if ended or not parts:
@@ -93,6 +104,11 @@ def check(raw):
             raise ValueError("CYCLE_ORDER")
         last_cycle = cycle
         if tag == "R":
+            # Frozen TB reports R at RELEASE, after four reset-held posedges.
+            # Do not require a tap while reset is asserted, or roll DSP back on X.
+            require_prior_stages(cycle - 3)
+            if frame is not None and frame['clock'].backend_first < cycle - 3:
+                raise ValueError('MISSING_OUTPUT_BEFORE_RESET_FIXTURE')
             for env, osc in zip(envelopes, dds):
                 env.reset(cycle)
                 osc.reset()
@@ -151,11 +167,14 @@ def check(raw):
                     coverage["lfo_wraps"] += new_lfo < lfo[i]
                     lfo[i] = new_lfo
             frame = {"id": ident, "occupied": occupied, "fcw": fcws, "cycle": cycle,
+                     "clock": backend_calendar(cycle, n, response),
                      "identity": [field_hex(parts[j], n * width) for j, width in ((8, 4), (9, 4), (10, 32))],
                      "lanes": {}, "advance": False}
         elif tag == "A":
             if frame is None or frame["advance"] or field_hex(parts[2], 32) != frame["id"]:
                 raise ValueError("ADVANCE_ID_OR_DUPLICATE")
+            if cycle != frame['clock'].advance:
+                raise ValueError('ADVANCE_CLOCK')
             quiet(cycle, False)
             for i, (env, osc) in enumerate(zip(envelopes, dds)):
                 expiring = osc.attack_left == 1
@@ -171,6 +190,8 @@ def check(raw):
             slot = decimal(parts[3], 0, n - 1)
             if slot in frame["lanes"] or slot != len(frame["lanes"]):
                 raise ValueError("LANE_DUPLICATE_OR_SEQUENCE")
+            if cycle != frame['clock'].lanes[slot]:
+                raise ValueError('LANE_CLOCK')
             quiet(cycle, True)
             osc, env = dds[slot], envelopes[slot]
             expected_phase, expected_table, expected_fcw = osc.phase, osc.active_table, frame["fcw"][slot]
@@ -193,6 +214,10 @@ def check(raw):
         elif tag == "O":
             if frame is None or not frame["advance"] or len(frame["lanes"]) != n:
                 raise ValueError("ALL_N_REQUIRED_BEFORE_RESULT")
+            # This frozen fixture never resumes a completed stalled output:
+            # it cancels that token. O is NOT a generic first-valid observation.
+            if cycle != frame['clock'].backend_first:
+                raise ValueError('OUTPUT_HANDSHAKE_CLOCK_FIXTURE')
             quiet(cycle, True)
             if field_hex(parts[2], 32) != frame["id"]:
                 raise ValueError("RESULT_ID")
@@ -205,8 +230,8 @@ def check(raw):
                 raise ValueError("COMPLETED_MASK")
             if [field_hex(parts[j], n * width) for j, width in ((8, 4), (9, 4), (10, 32))] != frame["identity"]:
                 raise ValueError("FULL_SNAPSHOT_IDENTITY")
-            duration = cycle - frame["cycle"] - 1
-            if decimal(parts[6], 0, 1) != int(duration >= 833):
+            duration = frame['clock'].backend_first - frame["cycle"] - 1
+            if decimal(parts[6], 0, 1) != deadline_missed(frame['clock'].backend_first, frame['cycle']):
                 raise ValueError("DEADLINE_FLAG")
             elapsed.append(duration)
             coverage["positive_clips"] += total > pcm
@@ -214,6 +239,7 @@ def check(raw):
             previous_commit_request = frame["cycle"]
             frame = None
         elif tag == "X":
+            require_prior_stages(cycle)
             cadence_interrupted = True
             quiet(cycle, True)
             if frame is not None:
