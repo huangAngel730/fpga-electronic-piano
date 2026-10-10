@@ -1,0 +1,7 @@
+# M2 RAM定向时序候选阶段证据
+
+EVIDENCE.zip.b64 解码为308561字节、104成员ZIP，SHA256 `b5ca9f3d857827443a970b51a7a875d7773e8cdd3d5b6cf4cca8d88bb312e187`。MANIFEST.json给各原成员SHA；包括真实四配置miter/两行为坏实现编译运行日志、初编译失败与按原SHA恢复的失败runner、新候选源与62/53准备工程、准备损坏测试收据。
+
+四配置各260593拍，总1042372对照拍；输出和内部状态表一致。CLK_HZ配置为64000/64000/40000000/1，夹具主时钟仍#10即50MHz，40MHz配置是冷却参数覆盖，不能冒称物理40MHz时序或该工程音频运行。端口组合/同步状态逐沿等价不依赖此墙钟间隔，但没有测试PLL/STA/板测。两行为坏实现compile0/sim1指定拒收。准备测试原stdout为工具终端输出，只封存实际test_receipt与明确标注的执行观察，不能冒为原日志文件。
+
+独立parser顺序控制更新块原字节保持，原生产parser/RAM/ROM/旧失败工程不改；Holdmin_delay0.100为未执行布线的提案。零新增Gowin，旧V0257真实Setup/Hold失败仍未闭合。最终发布门禁另以FINAL_PUBLICATION_GATE载体封存，不用仓库PASS代STA改善。

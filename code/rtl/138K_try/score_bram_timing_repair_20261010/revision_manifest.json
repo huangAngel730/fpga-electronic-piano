@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-10",
+  "frozen_parser_sha256": "336d867856a7b3956d524105137c035ec2637fea936538979182669987212071",
+  "candidate_parser_sha256": "5960d37c775e3e8f3acb724647a00246b89119240fb7b1c6303010426e4d949c",
+  "frozen_fulltop_commit": "c7d23a5",
+  "change": "fixed-channel equality and fixed-slot pending CE; no register or latency change",
+  "additional_hold_sdc_commands": [
+    "set_min_delay -from [get_regs {g_polyphonic.u_audio_core/u_bank/u_pitch_mod/held_occupied_2_s0}] -to [get_regs {g_polyphonic.u_audio_core/u_bank/u_pitch_mod/result_fcw_88_s0}] 0.100",
+    "report_timing -setup -from [get_regs {g_polyphonic.u_audio_core/u_bank/u_pitch_mod/held_occupied_2_s0}] -to [get_regs {g_polyphonic.u_audio_core/u_bank/u_pitch_mod/result_fcw_88_s0}] -max_paths 1",
+    "report_timing -hold -from [get_regs {g_polyphonic.u_audio_core/u_bank/u_pitch_mod/held_occupied_2_s0}] -to [get_regs {g_polyphonic.u_audio_core/u_bank/u_pitch_mod/result_fcw_88_s0}] -max_paths 1"
+  ],
+  "new_EDA_runs": 0,
+  "physical_STA_passed": false,
+  "programmed": false
+}
