@@ -14,6 +14,7 @@ SCOPE = ROOT / "code/rtl/138K_try/score_bram_timing_repair_20261010"
 TB = ROOT / "code/tb/board/score_bram_timing_repair_20261010/tb_parser_miter.sv"
 CAD = Path("D:/Gowin/oss-cad-suite")
 import prepare_138k_score_bram_integration as ram
+import prepare_138k_score_bram_timing_repair as repair
 
 
 def sha(raw):
@@ -29,13 +30,14 @@ def main():
     if out.exists() or out == (ROOT / "code/output").resolve() or not str(out).isascii():
         parser.error("UNIQUE_ASCII_OUTPUT_REQUIRED")
     manifest = json.loads((SCOPE / "revision_manifest.json").read_bytes())
-    inputs = ram.inputs(out)[0]
+    inputs = repair.frozen_parent_inputs(out)[0]
     frozen = inputs["sources/midi_event_parser.sv"]
     candidate = (SCOPE / "sources/midi_event_parser.sv").read_bytes()
     assert sha(frozen) == manifest["frozen_parser_sha256"]
     assert sha(candidate) == manifest["candidate_parser_sha256"]
     pkg = inputs["sources/audio_defs_pkg.sv"]
-    source_paths = [Path(__file__), TB, Path(ram.__file__), SCOPE / "revision_manifest.json",
+    source_paths = [Path(__file__), TB, Path(ram.__file__), Path(repair.__file__), SCOPE / "revision_manifest.json",
+                    *list((SCOPE / "frozen_RAM_reference/code/rtl/input/score_transfer_bram_candidate").glob("*.sv")),
                     SCOPE / "sources/midi_event_parser.sv", CAD / "bin/iverilog.exe", CAD / "bin/vvp.exe"]
     record = {"date": "2026-10-10", "passed": False, "scope": "same-cycle parser candidate versus exact failed RAM fulltop parser",
               "source_sha256": {str(p): sha(p.read_bytes()) for p in source_paths}, "steps": {},

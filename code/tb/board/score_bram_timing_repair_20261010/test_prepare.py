@@ -26,7 +26,7 @@ class RepairPreparationTests(unittest.TestCase):
 
     def test_only_parser_and_append_SDC_changed(self):
         out = self.new("positive")
-        old = prep.parent.inputs(out)[0]
+        old = prep.frozen_parent_inputs(out)[0]
         data, _, project, tcl = prep.inputs(out)
         changes = {name for name in old if old[name] != data[name]}
         self.assertEqual(changes, {"sources/midi_event_parser.sv", "constraints/audio_visual_hold055.sdc"})

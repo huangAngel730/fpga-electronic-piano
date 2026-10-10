@@ -3,6 +3,7 @@ from pathlib import Path
 import argparse
 import hashlib
 import json
+import types
 
 import prepare_138k_score_bram_integration as parent
 
@@ -30,7 +31,7 @@ def inputs(output):
     if (manifest.get("new_EDA_runs") != 0 or manifest.get("physical_STA_passed") is not False
             or manifest.get("programmed") is not False):
         raise ValueError("REVISION_SCOPE")
-    data, provenance, project, tcl, _ = parent.inputs(output)
+    data, provenance, project, tcl, _ = frozen_parent_inputs(output)
     key = "sources/midi_event_parser.sv"
     original = data[key]
     candidate = (SCOPE / key).read_bytes()
@@ -56,6 +57,21 @@ def inputs(output):
     if len(data) != 62:
         raise ValueError("EXACT62_INPUTS")
     return data, provenance, project, tcl
+
+
+def frozen_parent_inputs(output):
+    # Only the two RAM source reads use ROOT in this inherited function.
+    # Give that read-only function its pinned source root rather than mutating
+    # the parent module/global repo or silently accepting the new RAM revision.
+    frozen_root = SCOPE / "frozen_RAM_reference"
+    namespace = dict(parent.inputs.__globals__)
+    namespace["ROOT"] = frozen_root
+    reader = types.FunctionType(parent.inputs.__code__, namespace)
+    result = reader(output)
+    for relative, expected in json.loads((parent.SCOPE / "integration_manifest.json").read_bytes())["RAM_source_sha256"].items():
+        if sha((frozen_root / relative).read_bytes()) != expected:
+            raise ValueError("PINNED_OLD_RAM_SOURCE_DRIFT")
+    return result
 
 
 def expected(output):
