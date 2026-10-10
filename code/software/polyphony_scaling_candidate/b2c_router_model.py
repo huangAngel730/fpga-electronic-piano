@@ -28,7 +28,7 @@ class Router:
     """Clocked router/controller/allocator with independent lifecycle state."""
 
     def __init__(self, n=8):
-        require(type(n) is int and n in (4, 8, 16), "ROUTER_N")
+        require(type(n) is int and n in (4, 8, 16, 32), "ROUTER_N")
         self.n = n
         self.state = "IDLE"
         self.slots = [dict(source=0, channel=0, note=0, velocity=0,
