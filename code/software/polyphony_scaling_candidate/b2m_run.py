@@ -7,8 +7,6 @@ import subprocess
 import sys
 import time
 
-from b2m_inputs import PACKAGE, originals
-from b2m_check import FIELDS, STATUS
 from inventory import ROOT, identity
 
 HERE = Path(__file__).resolve().parent
@@ -26,6 +24,8 @@ def changed(raw, kind, request=1):
     Input transactions, phases, FCWs, timing, CASE and complete END are intact.
     The old timing checker MUST accept; only independent PCM math rejects it.
     """
+    from b2m_check import FIELDS
+
     lines = raw.decode("ascii").splitlines()
     modified = []
     for index, line in enumerate(lines):
@@ -60,6 +60,17 @@ def changed(raw, kind, request=1):
 
 
 def main():
+    # Closure repair is a separate bounded run, never the old sixteen steps.
+    if "--closure-only" in sys.argv:
+        from b2m_closure import main as closure_main
+
+        return closure_main(["run", *[a for a in sys.argv[1:] if a != "--closure-only"]])
+    if "--legacy-math-replay" not in sys.argv:
+        raise ValueError("B2M_USE_CLOSURE_ONLY_OLD_MATH_ALREADY_SIGNED")
+    sys.argv.remove("--legacy-math-replay")
+    from b2m_inputs import PACKAGE, originals
+    from b2m_check import STATUS
+
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()

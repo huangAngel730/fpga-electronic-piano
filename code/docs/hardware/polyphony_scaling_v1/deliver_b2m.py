@@ -13,9 +13,6 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[4]
 DOC = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "code/software/polyphony_scaling_candidate"))
-from b2m_check import STATUS, check  # noqa: E402
-from b2m_inputs import CARRIER_SHA, PACKAGE, ZIP_SHA  # noqa: E402
-from b2m_run import changed  # noqa: E402
 
 RUN_STATUS = "B2M_RECOVERY_PCM_SOFTWARE_PASS_T061_PARTIAL"
 DOCUMENT = "B2M_IMPLEMENTATION_20261011.md"
@@ -36,6 +33,8 @@ def dump(path, value):
 
 
 def qualified(r):
+    from b2m_check import STATUS
+
     if (r["status"] != RUN_STATUS or type(r["exit_code"]) is not int or r["exit_code"] != 0
             or r["task_complete"] is not False or r["total_limit_seconds"] != 300
             or r["step_limit_seconds"] != 90 or not 0 < r["elapsed_seconds"] <= 300
@@ -64,6 +63,16 @@ def qualified(r):
 
 
 def checked(manifest, raw):
+    # Historical replay API is retained, but must not import worktree models.
+    raise ValueError("B2M_LEGACY_CLOSURE_INCOMPLETE_USE_CLOSURE_VERIFY")
+
+
+def historical_checked_not_executable(manifest, raw):
+    """Preserved historical algorithm; deliberately unreachable from CLI."""
+    from b2m_check import check
+    from b2m_inputs import CARRIER_SHA, PACKAGE, ZIP_SHA
+    from b2m_run import changed
+
     if sha(raw) != manifest["zip_sha256"]:
         raise ValueError("B2M_ARCHIVE_SHA")
     with zipfile.ZipFile(io.BytesIO(raw)) as archive:
@@ -146,6 +155,16 @@ def encode(payload, manifest):
 
 
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] in ("closure-seal", "closure-verify"):
+        from b2m_closure import main as closure_main
+
+        mode = {"closure-seal": "seal", "closure-verify": "verify"}[sys.argv[1]]
+        return closure_main([mode, *sys.argv[2:]])
+    raise ValueError("B2M_LEGACY_CLOSURE_INCOMPLETE_USE_CLOSURE_VERIFY")
+
+
+def historical_main_not_executable():
+    """Keep the old entry description for audit, never CLI-dispatched."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("mode", choices=("seal", "verify", "selftest", "forward"))
     parser.add_argument("--package", type=Path, default=DOC / "B2M_20261011")
@@ -265,4 +284,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
