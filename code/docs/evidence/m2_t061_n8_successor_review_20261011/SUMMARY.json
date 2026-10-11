@@ -1,0 +1,18 @@
+{
+  "review_date": "2026-10-11",
+  "stage": "T061_B2F_N8_IDENTITY_SUCCESSOR",
+  "candidate_commit": "b81409629d6d7848e7ec5d1f7ed4eb44eb7a7618",
+  "candidate_parent": "f2cc0a8c09815f0a93d0c6ae768568ae833fb9fc",
+  "outer_package_sha256": "15e9595c3b31b24bed93c0f3e26d0a958689e6beab1ddb938784856ae8c3b7f1",
+  "inner_evidence_sha256": "9f65e0481afe00fabbcf2fc3878f96a05cf606fe080deaaf079930d19a2e6d46",
+  "positive_replay": {
+    "R1_long1": {"publish": 10366, "lanes": 82945, "max_cycles": 129, "deadline_misses": 0, "retirements": 8, "json_equal": true},
+    "R3_long0": {"publish": 100, "lanes": 816, "max_cycles": 145, "deadline_misses": 0, "json_equal": true},
+    "R64_long0": {"publish": 100, "lanes": 816, "max_cycles": 633, "deadline_misses": 0, "json_equal": true}
+  },
+  "identity_special": {"cases": 13, "bank_reads": 104, "old_mask_mutant_rejected": true, "old_mask_diagnostic": "B2F_BANK_CONTROL_CLOBBER"},
+  "negative_replay": {"count": 11, "all_expected_diagnostics": true, "all_nonzero_exit": true},
+  "source_boundary": {"new_functional_hdl_sources": false, "physical_sta": "NOT_RUN", "gowin_run": false, "task_complete": false},
+  "acceptance": "L2_functional_L3_math_bounded",
+  "not_signed": ["production N8", "full-top integration", "physical STA", "device validation"]
+}
