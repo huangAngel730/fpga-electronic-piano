@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "scope_kind": "Exact frozen capture2 diagnostic exclusions; not full T060 acceptance",
+  "input_sha256": {
+    "audio_observation.jsonl": "d17cf87952ac0c663e681e0b47051e9412af4a2979fb509aaa5d7114d5b32cc5",
+    "midi_pcm.capture": "bd0035de464cb8c757c7e29a132073181e9e8179aa8303ab1ec110c6990042d6"
+  },
+  "newly_independently_verified_END": {"full_pop_push": 1, "edge_events": 19},
+  "END_metadata_expectation_exclusions": [
+    {"field": "control_stalls", "observed_original": 28, "independently_expected": null, "reason": "No continuous unaccepted FIFO head/ready control-type observation"},
+    {"field": "center_samples", "observed_original": 697, "independently_expected": null, "reason": "No exact center_compare enable transition observation"},
+    {"field": "checks", "observed_original": 6228000, "independently_expected": null, "reason": "No complete TB check-call occurrence/region log"}
+  ],
+  "exact_fixture_metadata_expectation_exclusions": [
+    {"epoch": 1, "cycle": 1744211, "request_id": 2094, "observed_flag": 1, "independently_expected_flag": null},
+    {"epoch": 1, "cycle": 1745045, "request_id": 2095, "observed_flag": 1, "independently_expected_flag": null}
+  ],
+  "must_remain_verified": ["strict JSONL/F schema/order/type/epoch/ID", "END exists exactly once with exact arity/integer ranges and no trailing records", "all other verified END counts", "new two END counters", "all other independently known fixture flags", "fixture values remain strict 0/1", "all PCM including two excluded-metadata points", "original independent DDS/envelope/ROM/gain/mix and submit arithmetic/timing", "source/capture/ROM identity and expected nonzero rejection diagnoses"],
+  "functional_coverage_not_waived": ["real retirement and accepted panic", "frame/math overlap cancellation and nonrollback"],
+  "current_status": "PARTIAL_WITH_EXPLICIT_METADATA_EXCLUSIONS",
+  "old_checker_modified": false,
+  "old_exit3_unchanged": true,
+  "applies_to_future_capture_or_RTL_automatically": false,
+  "new_capture_RTL_execution_authorized": false,
+  "new_source_modification_authorized": false,
+  "allowed_next_software_task": "New scope/combined evidence summary in original A software/delivery area; reference old arithmetic receipts without claiming new execution; never set t060_complete true",
+  "t060_complete": false,
+  "physical_STA_passed": false
+}

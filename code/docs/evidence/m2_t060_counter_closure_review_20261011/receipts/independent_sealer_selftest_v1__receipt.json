@@ -1,0 +1,27 @@
+{
+  "normal": {
+    "status": "T060_CLOSURE_SEAL_VERIFIED_PARTIAL",
+    "members": 112,
+    "zip_sha256": "21132b3ca8511900a9323c53056710673c12117822a0b90c03647cf08ed6fa97",
+    "t060_complete": false
+  },
+  "specified_rejections": [
+    {
+      "case": "bad_carrier",
+      "diagnostic": "CLOSURE_ARCHIVE_SHA"
+    },
+    {
+      "case": "missing_member",
+      "diagnostic": "CLOSURE_ARCHIVE_MEMBERS"
+    },
+    {
+      "case": "forged_complete",
+      "diagnostic": "CLOSURE_RECEIPT_SCOPE"
+    },
+    {
+      "case": "rebound_audit",
+      "diagnostic": "CLOSURE_RECEIPT_ARTIFACT_SHA"
+    }
+  ],
+  "exit_code": 0
+}

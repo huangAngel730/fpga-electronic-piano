@@ -1,0 +1,112 @@
+[
+  {
+    "label": "units12",
+    "command": [
+      "D:\\ProgramData\\anaconda3\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M2_T060_counter_closure_review_20261011_01\\evidence\\code\\software\\audio_math_acceptance_candidate",
+      "-p",
+      "test_closure_audit.py",
+      "-v"
+    ],
+    "cwd": "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M2_T060_counter_closure_review_20261011_01\\evidence",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "elapsed_seconds": 0.184322200002498,
+    "timeout_seconds": 90,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "034bfc9252c3da4c41111d324faa320c9336e25a7a64799f099913f3a15abead"
+  },
+  {
+    "label": "check_original",
+    "command": [
+      "D:\\ProgramData\\anaconda3\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M2_T060_counter_closure_review_20261011_01\\evidence\\code\\software\\audio_math_acceptance_candidate\\closure_audit.py",
+      "check",
+      "--jsonl",
+      "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M2_T060_counter_closure_review_20261011_01\\evidence\\original_Golden\\audio_observation.jsonl",
+      "--f-capture",
+      "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M2_T060_counter_closure_review_20261011_01\\evidence\\original_Golden\\midi_pcm.capture"
+    ],
+    "cwd": "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M2_T060_counter_closure_review_20261011_01\\evidence",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "elapsed_seconds": 0.9318800999972154,
+    "timeout_seconds": 90,
+    "stdout_sha256": "55e64b1a2c4d5a0b0ca8c4c3332dd48d55b1328a02e636a6b0bd8abfd113c3f8",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "audit_original",
+    "command": [
+      "D:\\ProgramData\\anaconda3\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M2_T060_counter_closure_review_20261011_01\\evidence\\code\\software\\audio_math_acceptance_candidate\\closure_audit.py",
+      "audit",
+      "--bundle-root",
+      "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M2_T060_counter_closure_review_20261011_01\\evidence"
+    ],
+    "cwd": "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M2_T060_counter_closure_review_20261011_01\\evidence",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "elapsed_seconds": 1.0477442000010342,
+    "timeout_seconds": 90,
+    "stdout_sha256": "35e6f1f4ea098302990e0ac71ab20eeb3e91f6a0f7cb167355572f2b362abaed",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "bad_full_pop_push",
+    "command": [
+      "D:\\ProgramData\\anaconda3\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M2_T060_counter_closure_review_20261011_01\\evidence\\code\\software\\audio_math_acceptance_candidate\\closure_audit.py",
+      "check",
+      "--jsonl",
+      "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M2_T060_counter_closure_review_20261011_01\\evidence\\original_Golden\\audio_observation.jsonl",
+      "--f-capture",
+      "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M2_T060_counter_closure_review_20261011_01\\evidence\\code\\output\\m3_t060_closure_20261011_02\\bad_full_pop_push.capture"
+    ],
+    "cwd": "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M2_T060_counter_closure_review_20261011_01\\evidence",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "elapsed_seconds": 0.9073289000007208,
+    "timeout_seconds": 90,
+    "stdout_sha256": "3de28bd59d196d198ae2a19d211b8eada96b305866db6a98c9f47d757de2acb8",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "bad_edge_events",
+    "command": [
+      "D:\\ProgramData\\anaconda3\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M2_T060_counter_closure_review_20261011_01\\evidence\\code\\software\\audio_math_acceptance_candidate\\closure_audit.py",
+      "check",
+      "--jsonl",
+      "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M2_T060_counter_closure_review_20261011_01\\evidence\\original_Golden\\audio_observation.jsonl",
+      "--f-capture",
+      "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M2_T060_counter_closure_review_20261011_01\\evidence\\code\\output\\m3_t060_closure_20261011_02\\bad_edge_events.capture"
+    ],
+    "cwd": "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M2_T060_counter_closure_review_20261011_01\\evidence",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "elapsed_seconds": 1.065956999998889,
+    "timeout_seconds": 90,
+    "stdout_sha256": "60e286816615546df49dd4e0165f772e318274c384ca42f23ac164191b75a462",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]
