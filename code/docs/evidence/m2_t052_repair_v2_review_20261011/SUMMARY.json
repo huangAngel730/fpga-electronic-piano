@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "date": "2026-10-11",
+  "package": "T052_repair_v2.zip",
+  "package_bytes": 11659,
+  "package_sha256": "ebf31c6636e9317416ab330a934a1b336cb713a914c4c1eca54fb0efa38b4eeb",
+  "dependency_commit": "3eac8f1",
+  "software": {"model_main_exit": 0, "model_main_selftest_scope": "one sample/control assertion, not original four tests", "six_tests_ROM_present_exit": 0, "six_tests_ROM_missing_exit": 1, "flat_runner_exit": 1, "flat_runner_compile_exit": 6, "canonical_layout_runner_exit": 1},
+  "original_TB": {"compile_exit": 6, "errors": ["illegal 8d(expression) at line116", "illegal 8d(expression) at line121"], "simulation": "NOT_RUN_COMPILE_FAILED", "at_least_4096_math_checked": false},
+  "unchanged_DUT_short_diagnostics": {"compile_exit": 0, "normal_results": 64, "masks_covered": 16, "raw_lane_ID_active_count_mismatches": 0, "noncoincident_PROCESSING_cancel_exit": 0, "COMMIT_cancel_exit": 1, "COMMIT_cancel_diagnostic": "V2_COMMIT_CANCEL_PUBLISHED", "positive_PCM24_contract_clip_exit": 1, "positive_PCM24_contract_clip_diagnostic": "V2_PCM24_POSITIVE_SATURATION_NOT_REPORTED", "positive_peak_four_lanes": [8192,8192,8192,8192], "actual_clip": 0, "old_contract_expected_clip": 1, "same_edge_cancel_RTL_phase": 25165823, "same_edge_cancel_model_phase": 0, "result_pulse_next_edge": 0, "result_not_held_exit": 1},
+  "stub_probe": {"software_only_not_actual_RTL": true, "mocked_VVP_exit": 1, "mocked_PASS_marker": true, "capture_exists": false, "runner_success_true": true},
+  "contract_missing": ["consumer result_ready input/producer result_valid", "32bit request identity", "PCM24 lanes and existing mixer/commit", "enable/frame/sample-request original handshake", "full math checker and two real compiled behavior mutants"],
+  "candidate_adoption": "NO_PENDING_REPAIR",
+  "T052_complete": false,
+  "new_Gowin_PnR_STA_device": false,
+  "original_DUT_TB_changed": false,
+  "remote_sync": {"fetch_attempts": 2, "first": "SSH connection reset/early EOF", "one_retry": "SSH port22 timed out", "latest_remote_verified_this_turn": false, "new_registration_number": null, "committed_or_pushed": false},
+  "notification": "待用户转发，尚未送达",
+  "raw_output": "code/output/M2_T052_repair_v2_review_20261011_01/"
+}
