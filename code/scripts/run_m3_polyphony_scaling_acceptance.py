@@ -80,7 +80,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--repo-gates", action="store_true")
-    parser.add_argument("--stage", choices=("b0", "b1", "b2a", "b2b", "b2c", "b2d", "b2e", "b2f", "b2g", "b2h"), default="b0")
+    parser.add_argument("--stage", choices=("b0", "b1", "b2a", "b2b", "b2c", "b2d", "b2e", "b2f", "b2g", "b2h", "b2i"), default="b0")
     parser.add_argument("--step-limit", type=int, choices=(900, 1800), default=900,
                         help="B2h only: larger bound requires explicit user authorization")
     parser.add_argument("--workflow-limit", type=int, choices=(1800, 2700), default=1800,
@@ -152,6 +152,11 @@ def main():
                        new_candidate_HDL=False, actual_RTL_capture_reuse=False,
                        preflight_only=args.b2h_preflight_only,
                        drain_scope="Actual B1/B2a fixture only; no new general service/ABA/physical bound")
+    if args.stage == "b2i":
+        receipt.update(stage="T061_B2I_ACTUAL_HYBRID_SOURCE_BUDGET",
+                       scope="Actual pinned hybrid source ledger and historical sealed-report references; software only",
+                       new_candidate_HDL=False, new_RTL_simulation=False,
+                       drain_scope="Existing fixture bounds unchanged; no new general service/ABA proof")
     code = 1
     try:
         run.command("git_version", ["git", "--version"])
@@ -168,21 +173,21 @@ def main():
             if hashlib.sha256(blob.replace(b"\r\n", b"\n")).hexdigest() != item["lf_sha256"]:
                 raise RuntimeError(f"PINNED_SOURCE_CHANGED:{item['path']}")
         candidate_paths = sorted(CANDIDATE.glob("*.py")) + [Path(__file__).resolve()]
-        if args.stage in ("b1", "b2a", "b2b", "b2c", "b2d", "b2e", "b2f", "b2g", "b2h"):
+        if args.stage in ("b1", "b2a", "b2b", "b2c", "b2d", "b2e", "b2f", "b2g", "b2h", "b2i"):
             candidate_paths += sorted((ROOT / "code/rtl/common/polyphony_scaling_candidate").glob("*.sv"))
             candidate_paths += sorted((ROOT / "code/tb/common/polyphony_scaling_candidate").glob("*.sv"))
-        if args.stage in ("b2a", "b2b", "b2c", "b2d", "b2e", "b2f", "b2g", "b2h"):
+        if args.stage in ("b2a", "b2b", "b2c", "b2d", "b2e", "b2f", "b2g", "b2h", "b2i"):
             candidate_paths += [ROOT / "code/software/audio_math_acceptance_candidate" / name
                                 for name in ("dds_model.py", "envelope_model.py")]
-        if args.stage in ("b2b", "b2c", "b2d", "b2e", "b2f", "b2g", "b2h"):
+        if args.stage in ("b2b", "b2c", "b2d", "b2e", "b2f", "b2g", "b2h", "b2i"):
             candidate_paths += [ROOT / "code/software/audio_math_acceptance_candidate" / name
                                 for name in ("router_model.py", "strict_capture.py")]
         receipt["candidate_sources_before"] = [identity(path) for path in candidate_paths]
         protected = sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1/B0_20261009").rglob("*"))
-        if args.stage in ("b1", "b2a", "b2b", "b2c", "b2d", "b2e", "b2f", "b2g", "b2h"):
+        if args.stage in ("b1", "b2a", "b2b", "b2c", "b2d", "b2e", "b2f", "b2g", "b2h", "b2i"):
             for name in ("REPAIR_20261009", "REPAIR_20261009_02", "B1_20261010"):
                 protected += sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1" / name).rglob("*"))
-        if args.stage in ("b2b", "b2c", "b2d", "b2e", "b2f", "b2g", "b2h"):
+        if args.stage in ("b2b", "b2c", "b2d", "b2e", "b2f", "b2g", "b2h", "b2i"):
             protected += sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1/B2A_20261010").rglob("*"))
             protected += [ROOT / "code/rtl/common/polyphony_scaling_candidate" / name for name in
                           ("b1_statebank.sv", "b1_scheduler.sv", "b2_audio_backend.sv")]
@@ -191,7 +196,7 @@ def main():
                 blob = run.command("prior_candidate", ["git", "show", "1c73e8d:" + path.relative_to(ROOT).as_posix()])
                 if blob.replace(b"\r\n", b"\n") != path.read_bytes().replace(b"\r\n", b"\n"):
                     raise RuntimeError("PRIOR_CANDIDATE_CHANGED:" + str(path))
-        if args.stage in ("b2d", "b2e", "b2f", "b2g", "b2h"):
+        if args.stage in ("b2d", "b2e", "b2f", "b2g", "b2h", "b2i"):
             for name in ("B2B_20261010", "B2C_20261010", "B2_TIMING_REPAIR_20261010_02"):
                 protected += sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1" / name).rglob("*"))
             # N16 is a parameter checkpoint, not a replacement implementation.
@@ -202,7 +207,7 @@ def main():
                 if blob.replace(b"\r\n", b"\n") != path.read_bytes().replace(b"\r\n", b"\n"):
                     raise RuntimeError("N8_RTL_TB_CHANGED:" + str(path))
             protected += reused
-        if args.stage in ("b2e", "b2f", "b2g", "b2h"):
+        if args.stage in ("b2e", "b2f", "b2g", "b2h", "b2i"):
             protected += sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1/B2D_20261010").rglob("*"))
             pinned = [ROOT / "code/rtl/common/polyphony_scaling_candidate" / name
                       for name in ("b2d_control_snapshot.sv", "b2d_event_audio.sv")]
@@ -212,7 +217,7 @@ def main():
                 if blob.replace(b"\r\n", b"\n") != path.read_bytes().replace(b"\r\n", b"\n"):
                     raise RuntimeError("N16_RTL_TB_CHANGED:" + str(path))
             protected += pinned
-        if args.stage in ("b2f", "b2g", "b2h"):
+        if args.stage in ("b2f", "b2g", "b2h", "b2i"):
             protected += sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1/B2E_20261011").rglob("*"))
             prior = sorted(CANDIDATE.glob("b2c_*.py"))
             for path in prior:
@@ -220,7 +225,7 @@ def main():
                 if blob.replace(b"\r\n", b"\n") != path.read_bytes().replace(b"\r\n", b"\n"):
                     raise RuntimeError("OLD_N8_REFERENCE_CHANGED:" + str(path))
             protected += prior
-        if args.stage in ("b2g", "b2h"):
+        if args.stage in ("b2g", "b2h", "b2i"):
             protected += sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1/B2F_20261011").rglob("*"))
             prior = [CANDIDATE / name for name in ("b2_check.py", "b2_clock.py")]
             prior += [ROOT / "code/tb/common/polyphony_scaling_candidate/tb_b2_audio.sv"]
@@ -229,7 +234,7 @@ def main():
                 if blob.replace(b"\r\n", b"\n") != path.read_bytes().replace(b"\r\n", b"\n"):
                     raise RuntimeError("SATURATION_PRIOR_SOURCE_CHANGED:" + str(path))
             protected += prior
-        if args.stage == "b2h":
+        if args.stage in ("b2h", "b2i"):
             protected += sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1/B2G_20261011").rglob("*"))
             prior = [CANDIDATE / name for name in ("b2c_check.py", "b2c_router_model.py",
                                                  "b2d_run.py", "b2e_check.py", "b2e_tests.py")]
@@ -238,6 +243,8 @@ def main():
                 if blob.replace(b"\r\n", b"\n") != path.read_bytes().replace(b"\r\n", b"\n"):
                     raise RuntimeError("LONG_N32_PRIOR_SOURCE_CHANGED:" + str(path))
             protected += prior
+        if args.stage == "b2i":
+            protected += sorted((ROOT / "code/docs/hardware/polyphony_scaling_v1/B2H_20261011").rglob("*"))
         protected += [ROOT / "code/docs" / name for name in
                       ("当前状态.md", "任务看板.md", "验证记录.md", "技术决策记录.md", "模块接口规范.md")]
         protected += [ROOT / name for name in ("code/rtl/board/electronic_piano_top.sv",
@@ -280,6 +287,9 @@ def main():
         elif args.stage == "b2h":
             from b2h_run import run_b2h
             receipt["b2h"] = run_b2h(run, args)
+        elif args.stage == "b2i":
+            from b2i_run import run_b2i
+            receipt["b2i"] = run_b2i(run, args)
         else:
             from b2_run import run_b2
             receipt["b2a"] = run_b2(run, args)
@@ -323,6 +333,8 @@ def main():
         if args.stage == "b2h":
             receipt["status"] = ("B2H_PREFLIGHT_COMPILE_ONLY_NOT_LONG_PASS" if args.b2h_preflight_only
                                  else "B2H_N32_LONG_LIFECYCLE_PASS_T061_PARTIAL")
+        if args.stage == "b2i":
+            receipt["status"] = "B2I_PINNED_HYBRID_BUDGET_PASS_T061_PARTIAL"
         code = 0
     except Exception as error:
         receipt.update(status="FAIL", error=f"{type(error).__name__}: {error}")
