@@ -1,0 +1,18 @@
+{
+  "review_date": "2026-10-11",
+  "stage": "T061_B2E_N32_SHORT",
+  "candidate_commit": "f2cc0a8c09815f0a93d0c6ae768568ae833fb9fc",
+  "candidate_parent": "60451feeb9ea60edb354743deb431360b76710d9",
+  "outer_package_sha256": "f841f99d8461f800662a4071b00a8fc4b8d7f7232367c9d81162b3238774f13c",
+  "inner_evidence_sha256": "7ad0fcf0a68329c3263485b6ccd844d096da84913ce0ffed3a3fda9ba6ffca14",
+  "independent_replay": {
+    "R1": {"publish": 100, "lanes": 3265, "max_cycles": 441, "deadline_misses": 0, "json_equal": true},
+    "R8": {"publish": 100, "lanes": 3264, "max_cycles": 665, "deadline_misses": 0, "json_equal": true},
+    "R16": {"publish": 100, "lanes": 3264, "max_cycles": 921, "deadline_misses": 3, "json_equal": true},
+    "R32": {"publish": 100, "lanes": 3264, "max_cycles": 1433, "deadline_misses": 102, "json_equal": true}
+  },
+  "negative_replay": {"count": 12, "all_expected_diagnostics": true, "all_nonzero_exit": true},
+  "source_boundary": {"hdl_changed_in_candidate_commit": false, "physical_sta": "NOT_RUN", "gowin_run": false, "task_complete": false},
+  "acceptance": "L2_functional_L3_math_bounded",
+  "not_signed": ["N32 production", "long ADSR", "Release-to-Idle retirement", "full-top equivalence", "physical STA", "device validation"]
+}
