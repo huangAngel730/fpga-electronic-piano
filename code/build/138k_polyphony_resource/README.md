@@ -28,3 +28,17 @@ clock.sdc保留25ns、Setup1ns/Hold650ps，只是独立单域资源工程约束�
 `inspect_polyphony_synthesis_report.py`仅可读取已有真实层级XML，保留报告SHA、原属性和每个层级Register/Logic/LUT/BSRAM/SSRAM/DSP字段；缺字段为null/UNKNOWN，不将层级总量重复相加，也不从MULT个数推DSP数。它不验证工具运行来源，不能单独授予资源准入；实际运行收据和身份门禁必须另核。本轮测试使用合成fixture，未形成新候选资源结果。
 
 正式整机接入、新40MHz STA、设备/下载仍未放行。新RAM基线5e1d13c、旧RAM停用；本模块不混入RAM时序证据。完整T060/T061保持PARTIAL。
+
+## 2026-10-11新增：单次控制器实现，但真实执行继续锁定
+
+`code/scripts/run_138k_polyphony_synthesis_once.py`新增受控启动/日志/总预算/超时本次PID子树终止/新报告与netlist核验代码。独立测试只启动假工具；资源仍UNKNOWN，不代表原候选综合通过。
+
+```powershell
+python -B -X utf8 code/scripts/run_138k_polyphony_synthesis_once.py --project code/build/138k_polyphony_resource/prepared/N32_R1_20261011_01 --output code/output/N32_NEW_ATTEMPT
+```
+
+不带execute只输出计划，源/工具/冻结收据核同且不创建结果。带`--execute`仍exit1/SYNTHESIS_NOT_AUTHORIZED，不自改frozen_receipt的false许可。上文“没有启动实现”是V0282历史，本后继实现私有控制代码，但未放行实际调用，不使用它绕过许可。
+
+运行副本仅复制原GPRJ字节，Tcl可逆替换cd/open_project两个输出位置，源/include/ROM始终原冻结路径，原29文件集合不变。创建全新结果目录，任何失败不自动重试/降档；总900秒从预检起计，报告/后验/hash超时不能报成功。若未来许可，命令只run syn，不做PnR/STA，必须取得本次新_syn_rsc.xml及netlist，PASS字符串/零退出不足以准入资源；报告未知字段仍null。控制器本身SHA另绑定，原三个准备脚本和既有frozen SHA不改。
+
+故障自检入口`test_138k_polyphony_synthesis_once.py --project <原精确工程> --output code/output/<全新私有测试目录>`仅用于假进程，全部日志/receipt保留。不得把假报告或假工具计数写成Gowin资源测量。
