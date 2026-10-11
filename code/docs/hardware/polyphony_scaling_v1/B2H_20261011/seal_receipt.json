@@ -1,0 +1,27 @@
+{
+  "command": [
+    "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+    "code/docs/hardware/polyphony_scaling_v1/deliver_b2h.py",
+    "seal",
+    "--run",
+    "code/output/m3_t061_b2h_full_20261011_01",
+    "--preflight",
+    "code/output/m3_t061_b2h_preflight_20261011_01",
+    "--preflight",
+    "code/output/m3_t061_b2h_preflight_20261011_02"
+  ],
+  "exit_code": 0,
+  "self_test": {
+    "roundtrip_cases": 8,
+    "tampering_rejections": 5
+  },
+  "sealer_sha256": "32edb2e7e8bad9f90f725f060c571f51481ea1bad8d2396dd78a9e8c1c4eaed1",
+  "result": {
+    "status": "B2H_N32_LONG_SEAL_VERIFIED_T061_PARTIAL",
+    "physical_members": 691,
+    "exact_reconstructed_members": 10,
+    "zip_bytes": 16772179,
+    "zip_sha256": "07578e447fb2e21c5a140f66bdcd3eea4a11b8a14711aa7bbcd47b0a13664537",
+    "task_complete": false
+  }
+}
