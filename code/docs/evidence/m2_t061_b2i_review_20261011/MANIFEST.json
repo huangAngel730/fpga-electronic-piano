@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "candidate_commit": "4078e8cc0a6d3a10b3755d0095e8e8e5f399d74d",
+  "functional_source_pin": "52ad3dc5e27f499bc79bad5c1a6b8d4bbf8a4387",
+  "outer_package": {"bytes": 1566390, "sha256": "0fb5cc1ea0f2320352d362b06c7518b96b6b73c03f55e0c24ab0b050304ef3d6"},
+  "inner_evidence": {"bytes": 1685209, "sha256": "5e9d3bb5c773f2f87df8b8749c8362bd537b427c2ea3d0659460aa05434e4ca0", "members": 529},
+  "original_git_evidence": "code/docs/hardware/polyphony_scaling_v1/B2I_20261011/",
+  "raw_review_root": "code/output/M2_B2I_review_20261011_01/",
+  "independent_files": {
+    "stage/code/output/independent_audit/audit.json": {"bytes": 938629, "sha256": "76ebaa4000ae82332521284f498d940d36b1c1b0d6847d2a3846ffa725cdedf9"},
+    "stage/code/output/independent_audit/audit.md": {"bytes": 2697, "sha256": "9eaa3904253b99cbfc45c0a872c4da1929775868ef3ff764e64f54f218bbf76b"},
+    "independent_software_v1/receipt.json": {"bytes": 2609, "sha256": "559667f6ddb23f1ad3f8bacfc569a63ab43e3b7ec929003973282e80d654d07a"},
+    "independent_units40_complete_v2/receipt.json": {"bytes": 11225, "sha256": "6a80982518568b573e932f75cbad4be44419cc23ac455c32c4aeca747b10fdd9"},
+    "independent_units40_complete_v2/audit_comparison.json": {"bytes": 377, "sha256": "42d83c17f25a180b6ef3c902dd27977af6eb0382baed0e54260ebe9c0a078e67"},
+    "seal_selftest.json": {"bytes": 73, "sha256": "fe95a1b0eabf3f47660fcc1b92efab487f5b6f6f8ba92fdf36185b4053b82a39"}
+  },
+  "independent_commands": [
+    {"label": "audit", "entry": "python -B -X utf8 code/software/polyphony_scaling_candidate/b2i_audit.py --output code/output/independent_audit", "exit_code": 0, "elapsed_seconds_rounded": 6.7951},
+    {"label": "new_units12", "entry": "python -B -X utf8 -m unittest discover -s code/software/polyphony_scaling_candidate -p test_b2i.py -v", "exit_code": 0},
+    {"label": "original_units40_first_isolated_attempt", "entry": "python -B -X utf8 -m unittest discover -s code/software/polyphony_scaling_candidate -p test_candidate.py -v", "exit_code": 1, "reason": "M2 omitted read-only frozen dependencies; original failure preserved"},
+    {"label": "original_units40_complete_dependencies", "entry": "same test_candidate.py entry after restoring missing original dependency bytes in isolated directory", "exit_code": 0, "tests": 40}
+  ],
+  "comparison": "Exact Markdown; audit semantic object equal after excluding only B0 CRLF vs LF raw identity bytes/SHA in two records. No original report rewritten.",
+  "new_RTL_or_Gowin": false,
+  "mapped_resource_admission": "NOT_GRANTED",
+  "notification": "待用户转发，尚未送达"
+}
