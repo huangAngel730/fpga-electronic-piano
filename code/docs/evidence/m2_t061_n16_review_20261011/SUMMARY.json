@@ -1,0 +1,189 @@
+{
+  "date": "2026-10-11",
+  "commit": "0ca4515",
+  "stage": "B2D_N16_EVENT_AUDIO",
+  "receipt_status": "B2D_N16_EVENT_AUDIO_PASS_T061_PARTIAL",
+  "receipt_exit": 0,
+  "receipt_elapsed_seconds": 245.015,
+  "actual_RTL_capture_reuse": true,
+  "new_RTL_or_Gowin_runs": 0,
+  "package": {
+    "outer_zip_bytes": 26022203,
+    "outer_zip_sha256": "6973022a48b4c6089cb9f87b0034905984137004d0e7f3133883d473c7772af6",
+    "inner_evidence_bytes": 26474066,
+    "inner_evidence_sha256": "c80b464bbb296dc718a79c940808f725d58002fb52a135343de2e8b54a0da64d",
+    "inner_members": 349,
+    "outer_members": 28
+  },
+  "independent_replay": [
+    {
+      "label": "B2D_N16_R3_long0",
+      "exit": 0,
+      "capture_rel": "code/output/m3_t061_b2d_dev_20261010_03/076_B2D_N16_R3_long0_reuse_actual_RTL.stdout.bin",
+      "capture_sha256": "9f857cc9464fe3374bd44be911b9d22cc4780eb2da2ad46fe9eec8e9da2f62db",
+      "P": 100,
+      "L": 1632,
+      "retirements": 0,
+      "deadline_misses": 0,
+      "json_equal_package": true
+    },
+    {
+      "label": "B2D_N16_R32_long0",
+      "exit": 0,
+      "capture_rel": "code/output/m3_t061_b2d_dev_20261010_03/078_B2D_N16_R32_long0_reuse_actual_RTL.stdout.bin",
+      "capture_sha256": "529b8ef82386d5a66b3c766c99ea9a5e39188d22f18437b7d3f5aaaa33e997a9",
+      "P": 100,
+      "L": 1632,
+      "retirements": 0,
+      "deadline_misses": 0,
+      "json_equal_package": true
+    },
+    {
+      "label": "B2D_N16_R64_long0",
+      "exit": 0,
+      "capture_rel": "code/output/m3_t061_b2d_dev_20261010_03/080_B2D_N16_R64_long0_reuse_actual_RTL.stdout.bin",
+      "capture_sha256": "2545fa0c7df89a305a3a3077ddc534c5701725fb66f5ca4e1ed67931944919e4",
+      "P": 100,
+      "L": 1632,
+      "retirements": 0,
+      "deadline_misses": 102,
+      "json_equal_package": true
+    },
+    {
+      "label": "B2D_N16_R1_long1",
+      "exit": 0,
+      "seconds": 646.9832165001426,
+      "capture_rel": "code/output/m3_t061_b2d_dev_20261010_03/082_B2D_N16_R1_long1_reuse_actual_RTL.stdout.bin",
+      "capture_sha256": "5c048545999e33dd9b9390a706b181b9475084bee194b56dee3a98d5f99d86dc",
+      "P": 10365,
+      "L": 165873,
+      "retirements": 16,
+      "deadline_misses": 0,
+      "json_equal_package": true
+    }
+  ],
+  "negative_captures": [
+    {
+      "name": "advance_early",
+      "exit": 1,
+      "expected": "ADVANCE_EDGE_OR_MISSING",
+      "actual": "ADVANCE_EDGE_OR_MISSING",
+      "capture_sha256": "59065605f387656379aa7051f572978632d918b2539ca353ff1002f7d4215b14"
+    },
+    {
+      "name": "advance_late",
+      "exit": 1,
+      "expected": "ADVANCE_EDGE_OR_MISSING",
+      "actual": "ADVANCE_EDGE_OR_MISSING",
+      "capture_sha256": "8e5a234d35a41a6641b629619a061aa9b6790f3273b6cacb0a6af90bf856dc68"
+    },
+    {
+      "name": "first_early",
+      "exit": 1,
+      "expected": "FIRST_VALID_CLOCK_OR_MISSING",
+      "actual": "FIRST_VALID_CLOCK_OR_MISSING",
+      "capture_sha256": "fd2af14fc89d903f2b7b1fb62236367db261d4676b2f1614f9296676c95339fa"
+    },
+    {
+      "name": "first_late",
+      "exit": 1,
+      "expected": "FIRST_VALID_CLOCK_OR_MISSING",
+      "actual": "FIRST_VALID_CLOCK_OR_MISSING",
+      "capture_sha256": "22179c3c84d1bd2c9996a4702feb402726ef13fcf02fa14523bcd213ac25084a"
+    },
+    {
+      "name": "last_lane_early",
+      "exit": 1,
+      "expected": "LANE_CLOCK_OR_MISSING",
+      "actual": "LANE_CLOCK_OR_MISSING",
+      "capture_sha256": "a3336ba240db4044341154e5447d177a4e898e4a24bafb3ed735af635ab42ccb"
+    },
+    {
+      "name": "last_lane_late",
+      "exit": 1,
+      "expected": "LANE_CLOCK_OR_MISSING",
+      "actual": "LANE_CLOCK_OR_MISSING",
+      "capture_sha256": "0746eab66d3bde4c02e7c6c54e47661cfbcd66093748cc061c6be51042012d28"
+    },
+    {
+      "name": "high_slot_generation",
+      "exit": 1,
+      "expected": "B1_FULL_TAG_CONTEXT_CONTROL_PEDAL",
+      "actual": "B1_FULL_TAG_CONTEXT_CONTROL_PEDAL",
+      "capture_sha256": "d7d40f3d839218b4f4185bb9871b312e1de069c5f2779000feb8b8c3d4898e61"
+    },
+    {
+      "name": "route_source",
+      "exit": 1,
+      "expected": "ROUTER_LIFECYCLE_OR_IDENTITY",
+      "actual": "ROUTER_LIFECYCLE_OR_IDENTITY",
+      "capture_sha256": "05200911b7eb9da18a0229107ad3137e8095e8850c01b064a0cf3658c4e48538"
+    },
+    {
+      "name": "snapshot_high_occupancy",
+      "exit": 1,
+      "expected": "BACKEND_FULL_SNAPSHOT",
+      "actual": "BACKEND_FULL_SNAPSHOT",
+      "capture_sha256": "c395648aeacaa85913cc7e2d3bd3bd24ea7133ff13420834087ac015fde1f2ab"
+    },
+    {
+      "name": "publish_pcm",
+      "exit": 1,
+      "expected": "OUTPUT_BACKPRESSURE_STABILITY",
+      "actual": "OUTPUT_BACKPRESSURE_STABILITY",
+      "capture_sha256": "6dbf438e789e87dac31422bae53fc43e95df86232b4a0d996325a443be213652"
+    },
+    {
+      "name": "bank_context",
+      "exit": 1,
+      "expected": "BANK_COMMIT_READBACK",
+      "actual": "BANK_COMMIT_READBACK",
+      "capture_sha256": "093f7c2810628360d592c35ab7bea0df48aa5a24c03bdd247b04395c291698f6"
+    },
+    {
+      "name": "late_flag_false",
+      "exit": 1,
+      "expected": "PCM_OR_DEADLINE",
+      "actual": "PCM_OR_DEADLINE",
+      "capture_sha256": "dc898ccfa4a44c5cdc4801880380ba2a00cb6c51b6d7d8b44677d572dd787611"
+    }
+  ],
+  "source_files_match_0ca4515": 8,
+  "four_config_counts": {
+    "R1_long": {
+      "P": 10365,
+      "L": 165873,
+      "retirements": 16,
+      "deadline_misses": 0
+    },
+    "R3": {
+      "P": 100,
+      "L": 1632,
+      "deadline_misses": 0
+    },
+    "R32": {
+      "P": 100,
+      "L": 1632,
+      "deadline_misses": 0
+    },
+    "R64": {
+      "P": 100,
+      "L": 1632,
+      "deadline_misses": 102
+    }
+  },
+  "N8_identity_alias": {
+    "original_b2c_compile_exit": 0,
+    "original_b2c_sim_exit": 1,
+    "diagnostic": "N8_ACTIVE_IDENTITY_CONTROL_CLOBBER",
+    "actual": "02000000",
+    "received_successor_local_compile_exit": 0,
+    "received_successor_local_sim_exit": 0,
+    "local_cases": 3,
+    "local_reads": 4
+  },
+  "physical_STA": false,
+  "production_N16": false,
+  "complete_T061": false,
+  "download_allowed": false
+}
