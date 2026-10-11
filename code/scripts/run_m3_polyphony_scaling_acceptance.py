@@ -80,7 +80,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--repo-gates", action="store_true")
-    parser.add_argument("--stage", choices=("b0", "b1", "b2a", "b2b", "b2c", "b2d", "b2e", "b2f", "b2g", "b2h", "b2i", "b2j"), default="b0")
+    parser.add_argument("--stage", choices=("b0", "b1", "b2a", "b2b", "b2c", "b2d", "b2e", "b2f", "b2g", "b2h", "b2i", "b2j", "b2k"), default="b0")
     parser.add_argument("--step-limit", type=int, choices=(900, 1800), default=900,
                         help="B2h only: larger bound requires explicit user authorization")
     parser.add_argument("--workflow-limit", type=int, choices=(1800, 2700), default=1800,
@@ -94,6 +94,12 @@ def main():
     args = parser.parse_args()
     if args.stage != "b2h" and (args.step_limit != 900 or args.workflow_limit != 1800 or args.b2h_preflight_only):
         parser.error("Extended bounds/preflight apply only to B2h; prior stages keep900/1800")
+    if args.stage == "b2k":
+        if args.repo_gates or args.reuse_b2d_run:
+            parser.error("B2k uses fresh short tests; publication gates are separate")
+        from b2k_run import execute
+        execute(args)
+        return
     if args.stage == "b2j":
         if args.repo_gates or args.reuse_b2d_run:
             parser.error("B2j uses fresh short tests; exact-index publication gates are separate")
