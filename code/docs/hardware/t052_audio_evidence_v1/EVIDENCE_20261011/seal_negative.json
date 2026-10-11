@@ -1,0 +1,22 @@
+{
+  "status": "THREE_SEAL_TAMPERS_REJECTED",
+  "exit_code": 0,
+  "cases": [
+    {
+      "case": "archive_flip",
+      "exit_code": 1,
+      "diagnostic": "ARCHIVE_SHA"
+    },
+    {
+      "case": "member_removed",
+      "exit_code": 1,
+      "diagnostic": "ZIP_MEMBERS"
+    },
+    {
+      "case": "forged_analysis",
+      "exit_code": 1,
+      "diagnostic": "SEALED_REPLAY:positive_mono16"
+    }
+  ],
+  "original_zip_sha256": "3b7aaf705368972444be8f6b3d36e1678c39bfbf9d7369eb293a62615938d984"
+}
