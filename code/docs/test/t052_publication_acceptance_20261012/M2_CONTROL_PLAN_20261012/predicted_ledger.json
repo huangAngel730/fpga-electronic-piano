@@ -1,0 +1,152 @@
+{
+  "origin": "M2_HANDWRITTEN_INPUT_PLAN_SOFTWARE_PREDICTION_ONLY",
+  "window_edges": 128,
+  "accepted": [
+    {
+      "key": [
+        1,
+        1,
+        7
+      ],
+      "cycle": 4,
+      "phases_before": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "key": [
+        1,
+        2,
+        7
+      ],
+      "cycle": 12,
+      "phases_before": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "key": [
+        1,
+        3,
+        11
+      ],
+      "cycle": 24,
+      "phases_before": [
+        2,
+        4,
+        6,
+        8
+      ]
+    },
+    {
+      "key": [
+        1,
+        4,
+        12
+      ],
+      "cycle": 40,
+      "phases_before": [
+        3,
+        6,
+        9,
+        12
+      ]
+    },
+    {
+      "key": [
+        1,
+        5,
+        13
+      ],
+      "cycle": 60,
+      "phases_before": [
+        4,
+        8,
+        12,
+        16
+      ]
+    },
+    {
+      "key": [
+        2,
+        1,
+        13
+      ],
+      "cycle": 70,
+      "phases_before": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "required_publications": [
+    {
+      "cycle": 8,
+      "key": [
+        1,
+        1,
+        7
+      ]
+    },
+    {
+      "cycle": 20,
+      "key": [
+        1,
+        2,
+        7
+      ]
+    },
+    {
+      "cycle": 74,
+      "key": [
+        2,
+        1,
+        13
+      ]
+    }
+  ],
+  "cancelled": [
+    {
+      "key": [
+        1,
+        3,
+        11
+      ],
+      "cycle": 25,
+      "reason": "cancel"
+    },
+    {
+      "key": [
+        1,
+        4,
+        12
+      ],
+      "cycle": 43,
+      "reason": "frame"
+    },
+    {
+      "key": [
+        1,
+        5,
+        13
+      ],
+      "cycle": 64,
+      "reason": "reset"
+    }
+  ],
+  "frame_coincident_sample_cycle": 32,
+  "phase_advance_persists_after_cancel": true,
+  "phase_reset_only": true,
+  "actual_RTL": false,
+  "execution_authorized": false,
+  "purpose": "future static TB/observer precheck; does not certify legacy4207",
+  "controls_sha256": "b2d0cb1ba0bf3cd4b2d636f3d4cb7ac286558238ae2b52c3e9e43ba54ee5ef02"
+}
