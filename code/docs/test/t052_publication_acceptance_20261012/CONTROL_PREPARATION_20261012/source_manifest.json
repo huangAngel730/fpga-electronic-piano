@@ -1,0 +1,119 @@
+{
+  "schema": "T052_CONTROL_PREPARATION_V1",
+  "execution_authorized": false,
+  "plan_path": "code/docs/test/t052_publication_acceptance_20261012/M2_CONTROL_PLAN_20261012/controls_proposed.jsonl",
+  "plan_sha256": "b2d0cb1ba0bf3cd4b2d636f3d4cb7ac286558238ae2b52c3e9e43ba54ee5ef02",
+  "driver_mem_path": "code/tb/audio/t052_publication_acceptance_candidate_20261012/controls_128.hex",
+  "tb_path": "code/tb/audio/t052_publication_acceptance_candidate_20261012/tb_t052_publication_control_128.sv",
+  "observer_path": "code/tb/audio/t052_publication_acceptance_candidate_20261012/t052_public_observer.sv",
+  "dut_sha256": "89ddb8b73bda6e5c83c7b617640cddf3294fb194a9b7955746c28a2e0f2eddeb",
+  "rom_sha256": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2",
+  "tracked_files": {
+    "code/tb/audio/t052_publication_acceptance_candidate_20261012/tb_t052_publication_control_128.sv": {
+      "bytes": 3252,
+      "sha256": "af212392e7cd0681efa8ac652187cd867858efa932f77b62fc6ed6978495efbe"
+    },
+    "code/tb/audio/t052_publication_acceptance_candidate_20261012/t052_public_observer.sv": {
+      "bytes": 7803,
+      "sha256": "78ba0c083466fdf911c81f9471bd8e8ea0b0c6eaa1e10613d7654528e88e76b2"
+    },
+    "code/tb/audio/t052_publication_acceptance_candidate_20261012/controls_128.hex": {
+      "bytes": 5632,
+      "sha256": "060d9cf951e8cb2eaf98283b0de758812aed21dfecfd5554814c5ac7f02d0e82"
+    },
+    "code/tb/audio/t052_publication_acceptance_candidate_20261012/README.md": {
+      "bytes": 956,
+      "sha256": "7146426bc6c47ff8d1509abe286f6d867b559ac222f6586468fcaf3bb8b89084"
+    },
+    "code/software/t052_publication_acceptance_candidate_20261012/rtl_capture_precheck_20261012/render_control_mem.py": {
+      "bytes": 2105,
+      "sha256": "430824eb67ffc1d0d60c8bf817379c999928db432c652aa6ecaafe43e6c7e06a"
+    },
+    "code/software/t052_publication_acceptance_candidate_20261012/rtl_capture_precheck_20261012/precheck.py": {
+      "bytes": 12545,
+      "sha256": "6e5f5d812e15f574e71c8e1698a1d5d1faf53a06a78d81373b1531919ab87344"
+    },
+    "code/software/t052_publication_acceptance_candidate_20261012/rtl_capture_precheck_20261012/test_precheck.py": {
+      "bytes": 6677,
+      "sha256": "a1724cb77bd93ea83e7ec4c40fb2bb5a64ba60ad5554f1ec6429bc383d242a90"
+    },
+    "code/software/t052_publication_acceptance_candidate_20261012/rtl_capture_precheck_20261012/qualify_static.py": {
+      "bytes": 4172,
+      "sha256": "6a2cd7571f43ae655e2a2e85311a1364db8661bfefbbd99dec593bea9c51d17e"
+    }
+  },
+  "raw_archive": {
+    "path": "code/docs/evidence/m2_new_deliveries_review_20261012/RAW_EVIDENCE.zip",
+    "bytes": 913358,
+    "sha256": "86704ddd20ee755d3d77ebe7a1379f3a8f2992e9a867a251fc1e3574ff4817a0",
+    "members": {
+      "received_M1_v5/code/rtl/audio/t052_polyphony_test_source.sv": {
+        "bytes": 7331,
+        "sha256": "89ddb8b73bda6e5c83c7b617640cddf3294fb194a9b7955746c28a2e0f2eddeb"
+      }
+    }
+  },
+  "readonly_archive": {
+    "path": "code/docs/evidence/m2_new_deliveries_review_20261012/READONLY_T052_DEPENDENCIES.zip",
+    "bytes": 8002,
+    "sha256": "4e05dbd1803672ea6e37bb65a161ad9f184d2047b37790c777990b229a39ab3e",
+    "members": {
+      "dds_oscillator.sv": {
+        "bytes": 2691,
+        "sha256": "3cd758e28da8f76a30da38cb2dfcd458db5743d4ea4f38e072a43d7f83719f04"
+      },
+      "pcm_mixer_4voice.sv": {
+        "bytes": 2068,
+        "sha256": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a"
+      },
+      "sine_1024_8192.mem": {
+        "bytes": 5120,
+        "sha256": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2"
+      }
+    }
+  },
+  "tools_proposed": {
+    "iverilog": {
+      "path": "D:/Gowin/oss-cad-suite/bin/iverilog.exe",
+      "bytes": 457576,
+      "sha256": "5c1f4e38c6dc0807aeab8814d63af97313bef5813e815e17021ae8e36e0a0bab"
+    },
+    "vvp": {
+      "path": "D:/Gowin/oss-cad-suite/bin/vvp.exe",
+      "bytes": 325265,
+      "sha256": "d38cc76e6946136aaf46db8a3bf34bec2a54bad564dfe146686579ca2d39c9ed"
+    }
+  },
+  "planned_execution": {
+    "authorized": false,
+    "rtl_runs": 0,
+    "eda_runs": 0,
+    "compile_cap_seconds": 90,
+    "capture_cap_seconds": 300,
+    "working_directory": "FRESH_ASCII_OUTPUT_DIRECTORY_REQUIRED",
+    "compile_argv": [
+      "D:/Gowin/oss-cad-suite/bin/iverilog.exe",
+      "-g2012",
+      "-s",
+      "tb_t052_publication_control_128",
+      "-o",
+      "t052_control.vvp",
+      "readonly/t052_polyphony_test_source.sv",
+      "readonly/dds_oscillator.sv",
+      "readonly/pcm_mixer_4voice.sv",
+      "t052_public_observer.sv",
+      "tb_t052_publication_control_128.sv"
+    ],
+    "run_argv_prefix": [
+      "D:/Gowin/oss-cad-suite/bin/vvp.exe",
+      "t052_control.vvp",
+      "+DUT_SHA=89ddb8b73bda6e5c83c7b617640cddf3294fb194a9b7955746c28a2e0f2eddeb",
+      "+ROM_SHA=5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2",
+      "+PLAN_SHA=b2d0cb1ba0bf3cd4b2d636f3d4cb7ac286558238ae2b52c3e9e43ba54ee5ef02",
+      "+TB_SHA=af212392e7cd0681efa8ac652187cd867858efa932f77b62fc6ed6978495efbe",
+      "+OBSERVER_SHA=78ba0c083466fdf911c81f9471bd8e8ea0b0c6eaa1e10613d7654528e88e76b2",
+      "+TOOL_SHA=d38cc76e6946136aaf46db8a3bf34bec2a54bad564dfe146686579ca2d39c9ed"
+    ]
+  },
+  "notice": "STATIC_PREPARATION_ONLY; NO RTL OR EDA EXECUTION AUTHORIZED"
+}
