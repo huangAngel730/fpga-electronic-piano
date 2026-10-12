@@ -1,0 +1,531 @@
+{
+  "status": "SEALED_SOFTWARE_ONLY",
+  "zip_bytes": 342438,
+  "zip_sha256": "fff94663f1a2d9e115c4ec38a6733cf187ec1268a87ac9724202f6a48ee131f4",
+  "members": 97,
+  "sources": {
+    "delivery.py": {
+      "bytes": 11660,
+      "sha256": "6db83659dcb809e7c958b61ea36cee2f8cc9591faa10796805e60f3243f5dbcf"
+    },
+    "publication.py": {
+      "bytes": 11166,
+      "sha256": "0fdf4bb1530453cbbce14136bcae082ca1ff28e04d96402065f4c916ecf36058"
+    },
+    "test_publication.py": {
+      "bytes": 3344,
+      "sha256": "1eafd78802dd8a08aee1f1500c9decd0a91a797fa62cc2c36295dd499f0d6212"
+    },
+    "vectors.py": {
+      "bytes": 5246,
+      "sha256": "e350a30329c734600ca86a2b19a3db1cc238e40539b17b86f5a6922fe3efcc32"
+    }
+  },
+  "evidence_receipt": {
+    "status": "SOFTWARE_ONLY_QUALIFICATION_PASS",
+    "exit_code": 0,
+    "failure": null,
+    "sources_before": {
+      "delivery.py": {
+        "bytes": 11660,
+        "sha256": "6db83659dcb809e7c958b61ea36cee2f8cc9591faa10796805e60f3243f5dbcf"
+      },
+      "publication.py": {
+        "bytes": 11166,
+        "sha256": "0fdf4bb1530453cbbce14136bcae082ca1ff28e04d96402065f4c916ecf36058"
+      },
+      "test_publication.py": {
+        "bytes": 3344,
+        "sha256": "1eafd78802dd8a08aee1f1500c9decd0a91a797fa62cc2c36295dd499f0d6212"
+      },
+      "vectors.py": {
+        "bytes": 5246,
+        "sha256": "e350a30329c734600ca86a2b19a3db1cc238e40539b17b86f5a6922fe3efcc32"
+      }
+    },
+    "sources_after": {
+      "delivery.py": {
+        "bytes": 11660,
+        "sha256": "6db83659dcb809e7c958b61ea36cee2f8cc9591faa10796805e60f3243f5dbcf"
+      },
+      "publication.py": {
+        "bytes": 11166,
+        "sha256": "0fdf4bb1530453cbbce14136bcae082ca1ff28e04d96402065f4c916ecf36058"
+      },
+      "test_publication.py": {
+        "bytes": 3344,
+        "sha256": "1eafd78802dd8a08aee1f1500c9decd0a91a797fa62cc2c36295dd499f0d6212"
+      },
+      "vectors.py": {
+        "bytes": 5246,
+        "sha256": "e350a30329c734600ca86a2b19a3db1cc238e40539b17b86f5a6922fe3efcc32"
+      }
+    },
+    "steps": [
+      {
+        "label": "new_unit_tests",
+        "command": [
+          "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\snapshot\\test_publication.py",
+          "-v"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "diagnostic": null,
+        "seconds": 0.0940000000045984,
+        "stdout": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "bytes": 989,
+          "sha256": "2681aa268f3dd9ae037f25083f1701026d047e606d0ec04ef5a0b3009ad3e90f"
+        }
+      },
+      {
+        "label": "handwritten_corpus",
+        "command": [
+          "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\snapshot\\vectors.py",
+          "--output",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "diagnostic": null,
+        "seconds": 0.07799999999406282,
+        "stdout": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      {
+        "label": "normal_repeated_id",
+        "command": [
+          "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\snapshot\\publication.py",
+          "controlled",
+          "--controls",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\normal_repeated_id\\controls.jsonl",
+          "--observations",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\normal_repeated_id\\observations.jsonl",
+          "--publications",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\normal_repeated_id\\publications.jsonl"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "diagnostic": null,
+        "seconds": 0.04700000000593718,
+        "stdout": {
+          "bytes": 1315,
+          "sha256": "6041f86a21ee35717260d2df31688f5b17b1243914973923f946b17c543bdb1b"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      {
+        "label": "cancel_frame_reset",
+        "command": [
+          "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\snapshot\\publication.py",
+          "controlled",
+          "--controls",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\cancel_frame_reset\\controls.jsonl",
+          "--observations",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\cancel_frame_reset\\observations.jsonl",
+          "--publications",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\cancel_frame_reset\\publications.jsonl"
+        ],
+        "exit_code": 0,
+        "expected_exit": 0,
+        "diagnostic": null,
+        "seconds": 0.046999999998661224,
+        "stdout": {
+          "bytes": 1572,
+          "sha256": "495d3651594f495584a0cf63edb0e7a40a743621202c7f68299dd9aedb71cd36"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      {
+        "label": "lost_result_self_consistent_END",
+        "command": [
+          "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\snapshot\\publication.py",
+          "controlled",
+          "--controls",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\lost_result_self_consistent_END\\controls.jsonl",
+          "--observations",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\lost_result_self_consistent_END\\observations.jsonl",
+          "--publications",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\lost_result_self_consistent_END\\publications.jsonl"
+        ],
+        "exit_code": 1,
+        "expected_exit": 1,
+        "diagnostic": "PUBLICATION_LEDGER_MISMATCH",
+        "seconds": 0.06199999999807915,
+        "stdout": {
+          "bytes": 910,
+          "sha256": "bfa1139eb558bf350fa979a5d2b6b1da33c70b83b5f2768db31a9e3b7c5f52ff"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      {
+        "label": "duplicate_publication",
+        "command": [
+          "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\snapshot\\publication.py",
+          "controlled",
+          "--controls",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\duplicate_publication\\controls.jsonl",
+          "--observations",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\duplicate_publication\\observations.jsonl",
+          "--publications",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\duplicate_publication\\publications.jsonl"
+        ],
+        "exit_code": 1,
+        "expected_exit": 1,
+        "diagnostic": "DUPLICATE_PUBLICATION",
+        "seconds": 0.07800000000133878,
+        "stdout": {
+          "bytes": 874,
+          "sha256": "3ee84f11451c7378328182ae52682e2f2ff86d056f600c1ec29e5e80577965ba"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      {
+        "label": "stale_epoch_same_id",
+        "command": [
+          "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\snapshot\\publication.py",
+          "controlled",
+          "--controls",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\stale_epoch_same_id\\controls.jsonl",
+          "--observations",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\stale_epoch_same_id\\observations.jsonl",
+          "--publications",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\stale_epoch_same_id\\publications.jsonl"
+        ],
+        "exit_code": 1,
+        "expected_exit": 1,
+        "diagnostic": "PUBLICATION_LEDGER_MISMATCH",
+        "seconds": 0.07800000000133878,
+        "stdout": {
+          "bytes": 875,
+          "sha256": "85a527395c910da5b0105189114d06e855c0d2b31c8faa7a6235c8a489110360"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      {
+        "label": "same_id_wrong_generation",
+        "command": [
+          "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\snapshot\\publication.py",
+          "controlled",
+          "--controls",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\same_id_wrong_generation\\controls.jsonl",
+          "--observations",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\same_id_wrong_generation\\observations.jsonl",
+          "--publications",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\same_id_wrong_generation\\publications.jsonl"
+        ],
+        "exit_code": 1,
+        "expected_exit": 1,
+        "diagnostic": "DUPLICATE_PUBLICATION",
+        "seconds": 0.0629999999946449,
+        "stdout": {
+          "bytes": 883,
+          "sha256": "799be29eae11b899e3a41c3113bf37df9a8496cc218a01e5d237a62c4d24b748"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      {
+        "label": "publish_on_frame_priority",
+        "command": [
+          "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\snapshot\\publication.py",
+          "controlled",
+          "--controls",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\publish_on_frame_priority\\controls.jsonl",
+          "--observations",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\publish_on_frame_priority\\observations.jsonl",
+          "--publications",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\publish_on_frame_priority\\publications.jsonl"
+        ],
+        "exit_code": 1,
+        "expected_exit": 1,
+        "diagnostic": "PUBLICATION_LEDGER_MISMATCH",
+        "seconds": 0.04700000000593718,
+        "stdout": {
+          "bytes": 893,
+          "sha256": "653b44dfeed0265530919d4f053093d61216256c728436ef6fd220e9ebde42a8"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      {
+        "label": "valid_one_edge_early",
+        "command": [
+          "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\snapshot\\publication.py",
+          "controlled",
+          "--controls",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\valid_one_edge_early\\controls.jsonl",
+          "--observations",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\valid_one_edge_early\\observations.jsonl",
+          "--publications",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\valid_one_edge_early\\publications.jsonl"
+        ],
+        "exit_code": 1,
+        "expected_exit": 1,
+        "diagnostic": "SOURCE_CALENDAR_PINS:3",
+        "seconds": 0.06199999999807915,
+        "stdout": {
+          "bytes": 872,
+          "sha256": "f2be0ba81792bd7b9ef665dc37da699d2d7e93a250668abf620e46ee2771f3d6"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      {
+        "label": "ready_without_true_accept",
+        "command": [
+          "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\snapshot\\publication.py",
+          "controlled",
+          "--controls",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\ready_without_true_accept\\controls.jsonl",
+          "--observations",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\ready_without_true_accept\\observations.jsonl",
+          "--publications",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\ready_without_true_accept\\publications.jsonl"
+        ],
+        "exit_code": 1,
+        "expected_exit": 1,
+        "diagnostic": "SOURCE_CALENDAR_PINS:2",
+        "seconds": 0.06300000000192085,
+        "stdout": {
+          "bytes": 887,
+          "sha256": "26b3a02be1ac9a57b513bab9e74e67cd45ec5ca1f35b80e3613e9bfcc50caadb"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      {
+        "label": "forged_cancel_END",
+        "command": [
+          "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\snapshot\\publication.py",
+          "controlled",
+          "--controls",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\forged_cancel_END\\controls.jsonl",
+          "--observations",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\forged_cancel_END\\observations.jsonl",
+          "--publications",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\corpus\\forged_cancel_END\\publications.jsonl"
+        ],
+        "exit_code": 1,
+        "expected_exit": 1,
+        "diagnostic": "INDEPENDENT_END_COUNT",
+        "seconds": 0.046999999998661224,
+        "stdout": {
+          "bytes": 862,
+          "sha256": "e449e719c8f77a1aa406916d5534a9b6caad70edd60b4642f8fae9d820b25e71"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      {
+        "label": "v5_original",
+        "command": [
+          "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\snapshot\\publication.py",
+          "legacy",
+          "--requests",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\readonly\\received_M1_v5\\logs\\tb_t052_requests.log",
+          "--capture",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\readonly\\received_M1_v5\\logs\\tb_t052_polyphony.capture"
+        ],
+        "exit_code": 3,
+        "expected_exit": 3,
+        "diagnostic": "CONTROL_EVIDENCE_INSUFFICIENT",
+        "seconds": 0.07800000000133878,
+        "stdout": {
+          "bytes": 992,
+          "sha256": "21e45aa309b30e7dbc017d6c109df559608575b7ea99125c960195d11d7af4d5"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      {
+        "label": "v5_missing_one",
+        "command": [
+          "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\snapshot\\publication.py",
+          "legacy",
+          "--requests",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\readonly\\received_M1_v5\\logs\\tb_t052_requests.log",
+          "--capture",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\readonly\\M1_v5_checker_incremental\\missing_one_result_complete.capture"
+        ],
+        "exit_code": 3,
+        "expected_exit": 3,
+        "diagnostic": "CONTROL_EVIDENCE_INSUFFICIENT",
+        "seconds": 0.09399999999732245,
+        "stdout": {
+          "bytes": 1007,
+          "sha256": "3a072ad97425c0d17cb41f49ffa2e668298974f3fb272dd1dae3d6af6ddf575a"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      {
+        "label": "v5_truncated_4096",
+        "command": [
+          "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\snapshot\\publication.py",
+          "legacy",
+          "--requests",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\readonly\\received_M1_v5\\logs\\tb_t052_requests.log",
+          "--capture",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_publication_20261012_01\\readonly\\M1_v5_checker_incremental\\truncated_to_4096_complete.capture"
+        ],
+        "exit_code": 3,
+        "expected_exit": 3,
+        "diagnostic": "CONTROL_EVIDENCE_INSUFFICIENT",
+        "seconds": 0.07800000000133878,
+        "stdout": {
+          "bytes": 1007,
+          "sha256": "b6ed7a47bb0155b2a158716da142a2e5a35441530c4c1c2c56c2955fd0ed2970"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    ],
+    "python": {
+      "path": "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+      "version": "3.11.2 (tags/v3.11.2:878ead1, Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)]",
+      "bytes": 270616,
+      "sha256": "35b4bd456823c5ea3aba0856b95e113da92d5362a6fa7643f12aef9cc1a1875b"
+    },
+    "elapsed_seconds": 1.0469999999986612,
+    "total_limit_seconds": 300,
+    "step_limit_seconds": 90,
+    "runtime_scope": "STANDARD_LIBRARY_SOFTWARE_ONLY",
+    "RTL_runs": 0,
+    "EDA_runs": 0,
+    "legacy_publication_complete": false,
+    "T052_complete": false,
+    "notice": "待用户转发，尚未送达"
+  },
+  "notice": "待用户转发，尚未送达"
+}
