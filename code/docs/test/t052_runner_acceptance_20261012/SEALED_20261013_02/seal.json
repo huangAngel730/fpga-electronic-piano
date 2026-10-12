@@ -1,0 +1,97 @@
+{
+  "status": "SEALED_SOFTWARE_FAKE_TOOLS_ONLY",
+  "zip_bytes": 68089,
+  "zip_sha256": "1bcb67e4ecf8c68cde168312512865ebd782ba21d7895aec2f6656ef95b2f335",
+  "members": 139,
+  "sources": {
+    "delivery.py": {
+      "bytes": 5273,
+      "sha256": "e8a4ee1cff777c1fb749443230246fad52b73f0f4ffd85745366b47a672edc46"
+    },
+    "runner.py": {
+      "bytes": 14549,
+      "sha256": "4709a969a4a85132706b94443900f36a831171f621c22580eb0382c95a655e3a"
+    },
+    "test_runner.py": {
+      "bytes": 8418,
+      "sha256": "9f81c625f9fa40f6d4540366d053861257da9faae7be0281d06747e8435b3ca6"
+    },
+    "windows_job.py": {
+      "bytes": 3481,
+      "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+    }
+  },
+  "qualification_receipt": {
+    "status": "SOFTWARE_FAKE_TOOLS_ONLY_PASS",
+    "exit_code": 0,
+    "test_exit_code": 0,
+    "command": [
+      "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+      "-I",
+      "-S",
+      "-B",
+      "-X",
+      "utf8",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\test_runner.py",
+      "--evidence-dir",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_runner_20261013_02\\cases",
+      "-v"
+    ],
+    "elapsed_seconds": 3.264999999999418,
+    "total_limit_seconds": 300,
+    "per_step_limit_seconds": 90,
+    "sources_before": {
+      "delivery.py": {
+        "bytes": 5273,
+        "sha256": "e8a4ee1cff777c1fb749443230246fad52b73f0f4ffd85745366b47a672edc46"
+      },
+      "runner.py": {
+        "bytes": 14549,
+        "sha256": "4709a969a4a85132706b94443900f36a831171f621c22580eb0382c95a655e3a"
+      },
+      "test_runner.py": {
+        "bytes": 8418,
+        "sha256": "9f81c625f9fa40f6d4540366d053861257da9faae7be0281d06747e8435b3ca6"
+      },
+      "windows_job.py": {
+        "bytes": 3481,
+        "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+      }
+    },
+    "sources_after": {
+      "delivery.py": {
+        "bytes": 5273,
+        "sha256": "e8a4ee1cff777c1fb749443230246fad52b73f0f4ffd85745366b47a672edc46"
+      },
+      "runner.py": {
+        "bytes": 14549,
+        "sha256": "4709a969a4a85132706b94443900f36a831171f621c22580eb0382c95a655e3a"
+      },
+      "test_runner.py": {
+        "bytes": 8418,
+        "sha256": "9f81c625f9fa40f6d4540366d053861257da9faae7be0281d06747e8435b3ca6"
+      },
+      "windows_job.py": {
+        "bytes": 3481,
+        "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+      }
+    },
+    "stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stderr": {
+      "bytes": 1194,
+      "sha256": "b7c8a9ebf6f8e662c3d5e1794571b9d5e6c9be2df9ceef1dc4e3f6b263fbb031"
+    },
+    "qualification_tools": [
+      "PYTHON_FAKE_TOOL_ONLY"
+    ],
+    "ModelSim_runs": 0,
+    "Icarus_runs": 0,
+    "Gowin_runs": 0,
+    "T052_complete": false,
+    "notice": "待用户转发，尚未送达"
+  },
+  "notice": "待用户转发，尚未送达"
+}
