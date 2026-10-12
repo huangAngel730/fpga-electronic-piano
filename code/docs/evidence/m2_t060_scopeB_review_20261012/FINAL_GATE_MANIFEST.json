@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "archive": {
+    "path": "FINAL_GATE.zip",
+    "bytes": 1278,
+    "sha256": "bfc952449c8e0bdfb8c70b8d777c7e3142c49dc9bafa9f0668a941f71def1445"
+  },
+  "members": {
+    "repository_gate.log": {
+      "bytes": 635,
+      "sha256": "e599faf9a03a8af1e9656317272e91d4fc28a87499af53a99d27a382b1f10889"
+    },
+    "repository_gate_receipt.json": {
+      "bytes": 1109,
+      "sha256": "4154ed615bd08eae7c535a032ccd55400fa9d0104a5e101773fb350fa9c6e802"
+    }
+  },
+  "gate": {
+    "schema": 1,
+    "command": "check_repo.ps1",
+    "head": "614ecef567c04345f1aa6e84e1714a47bb558327",
+    "scope": "ACTUAL_M2_WORKSPACE_GATE, not an exact-index snapshot",
+    "exit_code": 0,
+    "exit_basis": "Original tool session 34120 completed with process exit0 and printed gate_exit=0",
+    "passes": 9,
+    "Python_syntax_files": 239,
+    "log": "repository_gate.log",
+    "elapsed_seconds": null,
+    "elapsed_basis": "Not claimed: original metadata creation failed; no test rerun",
+    "metadata_creation_failure": "PowerShell literal false was used instead of $false after all repository checks finished; JSON was not written",
+    "metadata_repair": "This later explicit receipt preserves original log and records actual tool result; not an original automatic timing receipt",
+    "log_filesystem_times_Asia_Shanghai": {
+      "creation": "2026-10-12 11:41:14",
+      "last_write": "2026-10-12 11:44:52",
+      "meaning": "Filesystem timestamps only, not a measured test-duration receipt"
+    },
+    "new_math_RTL_EDA_device": 0,
+    "T060_AB_release": false,
+    "bridge5187d3e": "received_not_reviewed",
+    "gate_repeated": false
+  }
+}
