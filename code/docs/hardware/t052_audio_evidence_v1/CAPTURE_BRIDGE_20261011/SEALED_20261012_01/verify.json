@@ -1,0 +1,48 @@
+{
+  "PCM24_commit_verified": false,
+  "T052_complete": false,
+  "accepted_handshakes_verified": false,
+  "consumer_backpressure_verified": false,
+  "exit_code": 0,
+  "independent_voice_count_proven": false,
+  "mathematics_newly_verified": false,
+  "physical_STA_verified": false,
+  "physical_validation": false,
+  "provenance_verified": false,
+  "sample_timing_verified": false,
+  "seal": {
+    "manifest_sha256": "1b51e7deb3e8c3529ac1347b260a3c148e090d3b3e56be0e7b31a5e74167fc80",
+    "members": 95,
+    "schema": "T052_BRIDGE_SEAL_1",
+    "zip_bytes": 791538,
+    "zip_sha256": "a2677140f59de3973a4a1341a294d3b63018bc3c9783ef4a8bbf0cc21d302413"
+  },
+  "status": "ISOLATED_BUNDLE_VERIFY_PASS",
+  "steps": [
+    {
+      "command": [
+        "E:\\FPGA\\SDKs\\espressif\\tools\\python_env\\idf5.4_py3.11_env\\Scripts\\python.exe",
+        "-I",
+        "-S",
+        "-B",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_capture_bridge_verify_20261012_02\\isolated\\sources\\bridge.py",
+        "--capture",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_capture_bridge_verify_20261012_02\\isolated\\export\\original.capture",
+        "--requests",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_capture_bridge_verify_20261012_02\\isolated\\export\\original.requests",
+        "--config",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_capture_bridge_verify_20261012_02\\isolated\\config.json",
+        "--output",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_capture_bridge_verify_20261012_02\\reexport"
+      ],
+      "diagnostic": null,
+      "elapsed_seconds": 0.14100000000325963,
+      "exit_code": 0,
+      "expected_exit": 0,
+      "label": "isolated_export",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "47cec8aa7a0aa35341f1d6638908905df97cd3af330f7e993839b22cb216db63"
+    }
+  ],
+  "working_tree_models_used": false
+}
