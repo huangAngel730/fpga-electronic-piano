@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "archive": {
+    "path": "RAW_EVIDENCE.zip",
+    "bytes": 3805,
+    "sha256": "07f645e1031f998d22189d8e1688977162ff501af2cce5fdd9eda2414f9c583c"
+  },
+  "members": {
+    "bad_clip_compile.stderr.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "bad_clip_compile.stdout.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "bad_clip_simulate.stderr.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "bad_clip_simulate.stdout.bin": {
+      "bytes": 280,
+      "sha256": "dc124a477e3f02b9d309e82dbefe144bf3915f4770641913b0fbed17dcef83c2"
+    },
+    "bad_frame_compile.stderr.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "bad_frame_compile.stdout.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "bad_frame_simulate.stderr.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "bad_frame_simulate.stdout.bin": {
+      "bytes": 321,
+      "sha256": "8dbd2906fafbca5ae1f408ec3fdd6f17db433e29142d366109e5f0ae367f0433"
+    },
+    "normal_compile.stderr.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "normal_compile.stdout.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "normal_simulate.stderr.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "normal_simulate.stdout.bin": {
+      "bytes": 424,
+      "sha256": "16fd7b63f1d7e34f9f2e4f31baa48bbab50f88d2b21ac88fc0b385fa3f14501e"
+    },
+    "receipt.json": {
+      "bytes": 7679,
+      "sha256": "827ba8fb3cdb4ffa640530c82e6a693e3c0cacc2386042cc0789330f62601475"
+    }
+  },
+  "new_source": "code/rtl/audio_out/m2_polyphony_frame_candidate_20261012/premixed_frame_adapter.sv",
+  "producer": "synthetic result port, not real N32 backend",
+  "normal_cases": 7,
+  "normal_real_commits_across_reset": 5,
+  "compiled_behavior_mutants": 2,
+  "normal_compile_sim_exit": 0,
+  "mutants_compile_exit": 0,
+  "mutants_sim_exit": 1,
+  "target_diagnostics": [
+    "FRAME_EDGE_HANDSHAKE_FORBIDDEN",
+    "COMMIT_CLIP_EXACTLY_ONCE_LEDGER"
+  ],
+  "runner_seconds": 2.3903418,
+  "Gowin_runs": 0,
+  "math_verified": false,
+  "production_connected": false,
+  "clipped_N32_port_still_missing": true,
+  "physical_STA": "NOT_RUN",
+  "T060_T061_complete": false
+}
