@@ -77,6 +77,12 @@ def cancel_plan(roms):
         model.edge(rst_n=rst_n, consumer=consumer, frame=inp.get('frame', 0),
                    event_valid=int('event' in inp), event=inp.get('event', 0))
     require(len(plan['cases']) == 4, 'PLAN_FOUR_SOURCE_CALENDAR_TARGETS')
+    # M2 V0295 follow-up: only append a reset/restart after the four frozen
+    # cancellation cases. End1600 and all inputs before1510 remain unchanged.
+    add(plan, 1510, rst_n=0)
+    add(plan, 1514, rst_n=1)
+    add(plan, 1518, event=event_word(0, 900))
+    add(plan, 1540, frame=1)
     return plan
 
 
