@@ -164,6 +164,71 @@ def claim_attempt(root, config_raw, approved, out):
          output=str(out), started_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())))
 
 
+def finish(out, budget, receipt):
+    """Collect identities ONCE, before deciding success; fail closed on tail time.
+
+    Only metadata is amended after writing the primary receipt. Failure does not
+    restart the traversal or rehash partial artifacts. The final metadata write
+    cannot timestamp its own completion; its completion IS checked for success,
+    and an overrun gets a terminal FAIL amendment with the observed overrun time.
+    """
+    def fail(message):
+        receipt['status'], receipt['exit_code'] = 'FAIL_PARTIAL', 1
+        receipt['failure'] = (receipt['failure'] + '; ' if receipt['failure'] else '') + message
+
+    artifacts, current, complete = {}, None, False
+    try:
+        iterator = iter(out.rglob('*'))
+        while True:
+            budget.limit(90)  # Includes traversal/stat cost, not just file reads.
+            try:
+                path = next(iterator)
+            except StopIteration:
+                complete = True
+                break
+            current = path.relative_to(out).as_posix()
+            budget.limit(90)
+            if path.is_file():
+                artifacts[current] = identity(path)
+                budget.limit(90)  # A single SHA crossing the deadline is FAIL.
+        budget.limit(90)  # Final post-collection check, including empty outputs.
+    except Exception as error:
+        fail('ARTIFACT_COLLECTION:' + str(error))
+    receipt.update(artifacts=artifacts, artifact_collection_complete=complete,
+        artifact_collection_stopped_at=None if complete else current,
+        artifact_identity_passes=1, failure_cleanup_rehash=False,
+        elapsed_seconds=budget.elapsed(),
+        elapsed_checkpoint='AFTER_ARTIFACTS_AND_PRIMARY_RECEIPT_WRITE',
+        terminal_metadata_write_completion_budget_checked=True)
+    if receipt['elapsed_seconds'] >= budget.seconds:
+        fail('RUNNER_TOTAL_TIMEOUT_FINALIZATION')
+    primary_elapsed = receipt['elapsed_seconds']
+    dump(out / 'receipt.json', receipt)
+    # Include the primary serialization/write, even if it crosses the deadline.
+    receipt['elapsed_seconds'] = budget.elapsed()
+    receipt['primary_receipt_write_seconds'] = receipt['elapsed_seconds'] - primary_elapsed
+    if receipt['elapsed_seconds'] >= budget.seconds:
+        fail('RUNNER_TOTAL_TIMEOUT_RECEIPT_WRITE')
+
+    def amend(name):
+        # This run owns receipt.json. Exclusive new temporary files prevent
+        # overwriting another run; replace only our own generated metadata.
+        target = out / name
+        dump(target, receipt)
+        target.replace(out / 'receipt.json')
+
+    amend('.receipt.final.tmp')
+    elapsed = budget.elapsed()
+    if elapsed >= budget.seconds:
+        receipt['elapsed_seconds'] = elapsed
+        receipt['elapsed_checkpoint'] = 'AFTER_TERMINAL_METADATA_WRITE_OVERRUN'
+        fail('RUNNER_TOTAL_TIMEOUT_TERMINAL_WRITE')
+        amend('.receipt.failure.tmp')
+        # A FAIL remains FAIL regardless of time spent preserving its metadata.
+        # No tools, traversal or SHA work is repeated during this amendment.
+    return receipt
+
+
 def run(config_path, out, approval=None):
     budget = Budget()  # Includes config/approval/preflight/copy and post-run SHA.
     config_path, out = Path(config_path).resolve(), Path(out).resolve()
@@ -260,12 +325,10 @@ def run(config_path, out, approval=None):
     receipt = dict(status=status, exit_code=int(failure is not None), failure=failure,
         execution_authorized=authorized, config=config_raw, sources_before=before,
         sources_after=after, tools_before=tools_before, tools_after=tools_after,
-        steps=steps, total_limit_seconds=900, elapsed_seconds=budget.elapsed(),
+        steps=steps, total_limit_seconds=900,
         cleanup_counts_toward_budget=True, automatic_retries=0,
-        artifacts={p.relative_to(out).as_posix(): identity(p) for p in out.rglob('*') if p.is_file()},
         t060_complete=False, t061_complete=False, physical_verified=False)
-    dump(out / 'receipt.json', receipt)
-    return receipt
+    return finish(out, budget, receipt)
 
 
 if __name__ == '__main__':

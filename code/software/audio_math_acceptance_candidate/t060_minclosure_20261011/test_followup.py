@@ -7,6 +7,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
@@ -15,8 +16,79 @@ from controlled_runner import Budget, check_approval, claim_attempt, dump, ident
 from fixtures import cancel_plan, compare, rows  # noqa: E402
 from prepare import load_roms  # noqa: E402
 from prepare_followup import plan_proof  # noqa: E402
+import controlled_runner as runner  # noqa: E402
 
 ARTIFACTS = None
+
+
+class FinalizationBudgetTests(unittest.TestCase):
+    """V0301 increment ONLY; selecting this class never runs the old 13 tests."""
+    @classmethod
+    def setUpClass(cls):
+        ARTIFACTS.mkdir(parents=True)
+
+    def probe(self, name, hash_seconds, receipt_seconds=0):
+        work = ARTIFACTS / name
+        work.mkdir()
+        artifact = work / 'partial.stdout.txt'
+        artifact.write_bytes(b'original partial log retained\n')
+        now, calls = [899.0], []
+        real_identity, real_dump = runner.identity, runner.dump
+        budget = Budget(900, lambda: now[0])
+        budget.started = 0.0
+
+        def slow_identity(path):
+            calls.append(Path(path).name)
+            result = real_identity(path)
+            now[0] += hash_seconds
+            return result
+
+        def slow_dump(path, value):
+            real_dump(path, value)
+            if Path(path).name == 'receipt.json':
+                now[0] += receipt_seconds
+
+        original = dict(status='PRECHECK_ONLY_EXECUTION_LOCKED', exit_code=0,
+            failure=None, steps=[], execution_authorized=False,
+            total_limit_seconds=900, evidence_origin='SYNTHETIC_CLOCK_NO_TOOLS')
+        with mock.patch.object(runner, 'identity', side_effect=slow_identity), \
+                mock.patch.object(runner, 'dump', side_effect=slow_dump):
+            result = runner.finish(work, budget, original)
+        persisted = load(work / 'receipt.json')
+        self.assertEqual(result, persisted)
+        self.assertEqual(calls, ['partial.stdout.txt'])
+        self.assertFalse(result['failure_cleanup_rehash'])
+        self.assertEqual(result['artifact_identity_passes'], 1)
+        self.assertEqual(artifact.read_bytes(), b'original partial log retained\n')
+        dump(ARTIFACTS / (name + '.probe.json'), dict(
+            origin='SYNTHETIC_CLOCK_NO_TOOLS', clock_start=899, clock_end=now[0],
+            simulated_hash_seconds=hash_seconds, primary_receipt_write_seconds=receipt_seconds,
+            identity_calls=calls, actual_runner_exit_code=result['exit_code'], receipt=result))
+        print(json.dumps(dict(probe=name, clock_end=now[0],
+                              runner_exit_code=result['exit_code'], identity_calls=calls)))
+        return result
+
+    def test_artifact_sha_crosses_900_fail_partial(self):
+        result = self.probe('sha_cross_900', 2.0)
+        self.assertEqual((result['status'], result['exit_code'], result['elapsed_seconds']),
+                         ('FAIL_PARTIAL', 1, 901.0))
+        self.assertIn('RUNNER_TOTAL_TIMEOUT', result['failure'])
+        self.assertEqual(len(result['artifacts']), 1)
+        self.assertFalse(result['artifact_collection_complete'])
+
+    def test_artifact_sha_within_budget_remains_locked(self):
+        result = self.probe('sha_within_900', 0.25)
+        self.assertEqual((result['status'], result['exit_code'], result['elapsed_seconds']),
+                         ('PRECHECK_ONLY_EXECUTION_LOCKED', 0, 899.25))
+        self.assertTrue(result['artifact_collection_complete'])
+        self.assertIsNone(result['failure'])
+
+    def test_receipt_write_overrun_failure_never_rescans(self):
+        result = self.probe('receipt_write_cross_900', 0.25, 2.0)
+        self.assertEqual((result['status'], result['exit_code'], result['elapsed_seconds']),
+                         ('FAIL_PARTIAL', 1, 901.25))
+        self.assertIn('RUNNER_TOTAL_TIMEOUT_RECEIPT_WRITE', result['failure'])
+        self.assertTrue(result['artifact_collection_complete'])
 
 
 class NewFollowupTests(unittest.TestCase):

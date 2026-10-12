@@ -81,6 +81,9 @@ def build(out, suite, budget):
         if identity(path) != expected:
             raise ValueError('FOLLOWUP_TOOL_IDENTITY_DRIFT')
     config = dict(schema=1, execution_authorized=False, groups=['A', 'B'],
+        proposed_execution_machine=dict(role='M3_CURRENT_LOCAL_MACHINE',
+            computer_name=os.environ.get('COMPUTERNAME', 'UNKNOWN'),
+            tool_identity_scope='THIS_MACHINE_ONLY; NOT_M2_TOOL_SUBSTITUTION'),
         total_seconds=900, tools=tools, tool_files=tool_files,
         version_queries=version_steps, inputs=prepared['inputs'],
         software_relative=HERE.relative_to(ROOT).as_posix(), tb_relative=TB_REL.as_posix(),
