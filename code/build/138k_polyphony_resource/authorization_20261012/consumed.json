@@ -1,0 +1,28 @@
+{
+  "approval": {
+    "schema": 1,
+    "user_instruction": "允许M2对已准备的精确N32/R1资源工程执行一次仅综合，总上限900秒，使用全新结果目录，失败不自动重试；不包含PnR、STA或设备操作。",
+    "instruction_source": "Human user instruction in this chat on 2026-10-12",
+    "project": "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\build\\138k_polyphony_resource\\prepared\\N32_R1_20261011_01",
+    "output": "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\M2_N32R1_authorized_syn_20261012_01",
+    "configuration": {
+      "N": 32,
+      "response": 1,
+      "profile": "audio_and_public_read_no_injection"
+    },
+    "original_frozen_sha256": "883297182d9705788d5d04855b597ad8620ab2b1b8ca38727a8b06492a0454e9",
+    "original_controller_sha256": "735b00911b3c0aa96997a9a02fef1c81da5fadc9ee09388bb5c15859ad5ecabe",
+    "successor_entry_sha256": "dc63f695c79e7a373ec3c3822a6c36638f57d83234d31e2acd06d663b90b76a7",
+    "tool_sha256": "4c172d4c0d2a4c7ef5c764d091a315cbcde2127573554bfd7d09ac6f2e5ea535",
+    "attempt_count_allowed": 1,
+    "total_seconds": 900,
+    "stage": "run syn only",
+    "retry": false,
+    "PnR": false,
+    "STA": false,
+    "device": false,
+    "original_frozen_permission_modified": false
+  },
+  "consumed_at_UTC": "2026-10-12T04:22:35.579679+00:00",
+  "state": "reserved_before_tool_start_even_failure_consumes_attempt"
+}
