@@ -1,0 +1,350 @@
+{
+  "status": "SEALED_SOFTWARE_TAIL_INCREMENT",
+  "zip_bytes": 33766,
+  "zip_sha256": "4d9f242e3bde687874ab215f2645edfa4d8a055d4b61a84a66ea94efc19b1146",
+  "members": 25,
+  "sources": {
+    "runner.py": {
+      "bytes": 14549,
+      "sha256": "4709a969a4a85132706b94443900f36a831171f621c22580eb0382c95a655e3a"
+    },
+    "windows_job.py": {
+      "bytes": 3481,
+      "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+    },
+    "delivery.py": {
+      "bytes": 5273,
+      "sha256": "e8a4ee1cff777c1fb749443230246fad52b73f0f4ffd85745366b47a672edc46"
+    },
+    "test_runner.py": {
+      "bytes": 8418,
+      "sha256": "9f81c625f9fa40f6d4540366d053861257da9faae7be0281d06747e8435b3ca6"
+    },
+    "runner_tail_20261013.py": {
+      "bytes": 7875,
+      "sha256": "fb2da5ed12306ff702935235079ad30207525c8275ead75dd73f304bb8cd47aa"
+    },
+    "delivery_tail_20261013.py": {
+      "bytes": 6809,
+      "sha256": "3f8d85400508b78c9e7cbdac96686c7f64d511be140483efd6b0f4bf88523be3"
+    },
+    "test_tail_20261013.py": {
+      "bytes": 4604,
+      "sha256": "4a0530cfd1e63d70ec40bef4f3e369cc57840a1b788b9c3e229aa216f8ee7e12"
+    },
+    "supervisor_20261013.py": {
+      "bytes": 5579,
+      "sha256": "93a911ae2dccb34c4d53f9e1977dcca652a3f57b85344f7ccd36ce74aef4e815"
+    },
+    "test_seal_guard_20261013.py": {
+      "bytes": 3157,
+      "sha256": "3229a3c156acc5bf71dfb5705da3778d8009dbdd05de2303e76e96d4f0a40b3f"
+    }
+  },
+  "qualification_receipt": {
+    "status": "SOFTWARE_TAIL_INCREMENT_PASS",
+    "exit_code": 0,
+    "failure": null,
+    "qualification_tools": [
+      "PYTHON_FAKE_TOOL_ONLY"
+    ],
+    "ModelSim_runs": 0,
+    "Icarus_runs": 0,
+    "VVP_runs": 0,
+    "Gowin_runs": 0,
+    "T052_complete": false,
+    "old_nine_cases": "REUSED_NOT_RERUN",
+    "total_limit_seconds": 300,
+    "per_step_limit_seconds": 90,
+    "automatic_retries": 0,
+    "sources_before": {
+      "runner.py": {
+        "bytes": 14549,
+        "sha256": "4709a969a4a85132706b94443900f36a831171f621c22580eb0382c95a655e3a"
+      },
+      "windows_job.py": {
+        "bytes": 3481,
+        "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+      },
+      "delivery.py": {
+        "bytes": 5273,
+        "sha256": "e8a4ee1cff777c1fb749443230246fad52b73f0f4ffd85745366b47a672edc46"
+      },
+      "test_runner.py": {
+        "bytes": 8418,
+        "sha256": "9f81c625f9fa40f6d4540366d053861257da9faae7be0281d06747e8435b3ca6"
+      },
+      "runner_tail_20261013.py": {
+        "bytes": 7875,
+        "sha256": "fb2da5ed12306ff702935235079ad30207525c8275ead75dd73f304bb8cd47aa"
+      },
+      "delivery_tail_20261013.py": {
+        "bytes": 6809,
+        "sha256": "3f8d85400508b78c9e7cbdac96686c7f64d511be140483efd6b0f4bf88523be3"
+      },
+      "test_tail_20261013.py": {
+        "bytes": 4604,
+        "sha256": "4a0530cfd1e63d70ec40bef4f3e369cc57840a1b788b9c3e229aa216f8ee7e12"
+      },
+      "supervisor_20261013.py": {
+        "bytes": 5579,
+        "sha256": "93a911ae2dccb34c4d53f9e1977dcca652a3f57b85344f7ccd36ce74aef4e815"
+      },
+      "test_seal_guard_20261013.py": {
+        "bytes": 3157,
+        "sha256": "3229a3c156acc5bf71dfb5705da3778d8009dbdd05de2303e76e96d4f0a40b3f"
+      }
+    },
+    "original_three_cases": {
+      "status": "REUSED_NOT_RERUN",
+      "seal": {
+        "bytes": 5696,
+        "sha256": "cbda6b000086fd5508313298e7a47f6219667824ec4fededfd60218173749428"
+      },
+      "archive": {
+        "bytes": 64769,
+        "sha256": "ff14855ca87388249537c74c39b40f75b55dfc388a9435e34a5350b513e2063f"
+      }
+    },
+    "command": [
+      "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-I",
+      "-S",
+      "-B",
+      "-X",
+      "utf8",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\test_seal_guard_20261013.py",
+      "--evidence-dir",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_runner_tail_guard_20261013_03\\evidence\\cases",
+      "-v"
+    ],
+    "step": {
+      "label": "tests",
+      "argv": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-I",
+        "-S",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\test_seal_guard_20261013.py",
+        "--evidence-dir",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_runner_tail_guard_20261013_03\\evidence\\cases",
+        "-v"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_runner_tail_guard_20261013_03\\evidence",
+      "pid": 46488,
+      "timeout_cap_seconds": 90,
+      "effective_timeout_seconds": 90.0,
+      "elapsed_seconds": 0.34400000001187436,
+      "exit_code": 0,
+      "timed_out": false,
+      "cleanup": null,
+      "launch_error": null,
+      "stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "bytes": 233,
+        "sha256": "b36ce12b5b1b15238373b60a4f5217341cd83621a105da483da28fc133f21ca0"
+      }
+    },
+    "test_exit_code": 0,
+    "stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stderr": {
+      "bytes": 233,
+      "sha256": "b36ce12b5b1b15238373b60a4f5217341cd83621a105da483da28fc133f21ca0"
+    },
+    "sources_after": {
+      "runner.py": {
+        "bytes": 14549,
+        "sha256": "4709a969a4a85132706b94443900f36a831171f621c22580eb0382c95a655e3a"
+      },
+      "windows_job.py": {
+        "bytes": 3481,
+        "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+      },
+      "delivery.py": {
+        "bytes": 5273,
+        "sha256": "e8a4ee1cff777c1fb749443230246fad52b73f0f4ffd85745366b47a672edc46"
+      },
+      "test_runner.py": {
+        "bytes": 8418,
+        "sha256": "9f81c625f9fa40f6d4540366d053861257da9faae7be0281d06747e8435b3ca6"
+      },
+      "runner_tail_20261013.py": {
+        "bytes": 7875,
+        "sha256": "fb2da5ed12306ff702935235079ad30207525c8275ead75dd73f304bb8cd47aa"
+      },
+      "delivery_tail_20261013.py": {
+        "bytes": 6809,
+        "sha256": "3f8d85400508b78c9e7cbdac96686c7f64d511be140483efd6b0f4bf88523be3"
+      },
+      "test_tail_20261013.py": {
+        "bytes": 4604,
+        "sha256": "4a0530cfd1e63d70ec40bef4f3e369cc57840a1b788b9c3e229aa216f8ee7e12"
+      },
+      "supervisor_20261013.py": {
+        "bytes": 5579,
+        "sha256": "93a911ae2dccb34c4d53f9e1977dcca652a3f57b85344f7ccd36ce74aef4e815"
+      },
+      "test_seal_guard_20261013.py": {
+        "bytes": 3157,
+        "sha256": "3229a3c156acc5bf71dfb5705da3778d8009dbdd05de2303e76e96d4f0a40b3f"
+      }
+    },
+    "elapsed_seconds": 0.34400000001187436
+  },
+  "parent_observation": {
+    "schema": "T052_PARENT_OBSERVATION_V1",
+    "status": "OBSERVED_ZERO_EXIT",
+    "exit_code": 0,
+    "failure": null,
+    "argv": [
+      "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-I",
+      "-S",
+      "-B",
+      "-X",
+      "utf8",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\delivery_tail_20261013.py",
+      "qualify-increment",
+      "--output",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_runner_tail_guard_20261013_03\\evidence"
+    ],
+    "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+    "receipt_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_runner_tail_guard_20261013_03\\evidence\\receipt.json",
+    "total_seconds": 300,
+    "automatic_retries": 0,
+    "sources_before": {
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\runner.py": {
+        "bytes": 14549,
+        "sha256": "4709a969a4a85132706b94443900f36a831171f621c22580eb0382c95a655e3a"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py": {
+        "bytes": 3481,
+        "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\delivery.py": {
+        "bytes": 5273,
+        "sha256": "e8a4ee1cff777c1fb749443230246fad52b73f0f4ffd85745366b47a672edc46"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\test_runner.py": {
+        "bytes": 8418,
+        "sha256": "9f81c625f9fa40f6d4540366d053861257da9faae7be0281d06747e8435b3ca6"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\runner_tail_20261013.py": {
+        "bytes": 7875,
+        "sha256": "fb2da5ed12306ff702935235079ad30207525c8275ead75dd73f304bb8cd47aa"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\delivery_tail_20261013.py": {
+        "bytes": 6809,
+        "sha256": "3f8d85400508b78c9e7cbdac96686c7f64d511be140483efd6b0f4bf88523be3"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\test_tail_20261013.py": {
+        "bytes": 4604,
+        "sha256": "4a0530cfd1e63d70ec40bef4f3e369cc57840a1b788b9c3e229aa216f8ee7e12"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\supervisor_20261013.py": {
+        "bytes": 5579,
+        "sha256": "93a911ae2dccb34c4d53f9e1977dcca652a3f57b85344f7ccd36ce74aef4e815"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\test_seal_guard_20261013.py": {
+        "bytes": 3157,
+        "sha256": "3229a3c156acc5bf71dfb5705da3778d8009dbdd05de2303e76e96d4f0a40b3f"
+      }
+    },
+    "executable_before": {
+      "bytes": 107312,
+      "sha256": "d41bad46673f64e0d02f23797f53f90ccf60f27d6eda8d86dd2d4bbeae5a858c"
+    },
+    "step": {
+      "label": "child",
+      "argv": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-I",
+        "-S",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\delivery_tail_20261013.py",
+        "qualify-increment",
+        "--output",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_runner_tail_guard_20261013_03\\evidence"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+      "pid": 48884,
+      "timeout_cap_seconds": 90,
+      "effective_timeout_seconds": 90.0,
+      "elapsed_seconds": 0.46899999999732245,
+      "exit_code": 0,
+      "timed_out": false,
+      "cleanup": null,
+      "launch_error": null,
+      "stdout": {
+        "bytes": 77,
+        "sha256": "c2795e3df12562c5a193957d766b2cb3a862bb2fc17a39de287128f18dcec456"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "step_receipt": {
+      "bytes": 1009,
+      "sha256": "0c4611155fa263beab96b4f0d60ab78eada2e2c6f83f07cc268cd8ee2a226b5a"
+    },
+    "sources_after": {
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\runner.py": {
+        "bytes": 14549,
+        "sha256": "4709a969a4a85132706b94443900f36a831171f621c22580eb0382c95a655e3a"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py": {
+        "bytes": 3481,
+        "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\delivery.py": {
+        "bytes": 5273,
+        "sha256": "e8a4ee1cff777c1fb749443230246fad52b73f0f4ffd85745366b47a672edc46"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\test_runner.py": {
+        "bytes": 8418,
+        "sha256": "9f81c625f9fa40f6d4540366d053861257da9faae7be0281d06747e8435b3ca6"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\runner_tail_20261013.py": {
+        "bytes": 7875,
+        "sha256": "fb2da5ed12306ff702935235079ad30207525c8275ead75dd73f304bb8cd47aa"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\delivery_tail_20261013.py": {
+        "bytes": 6809,
+        "sha256": "3f8d85400508b78c9e7cbdac96686c7f64d511be140483efd6b0f4bf88523be3"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\test_tail_20261013.py": {
+        "bytes": 4604,
+        "sha256": "4a0530cfd1e63d70ec40bef4f3e369cc57840a1b788b9c3e229aa216f8ee7e12"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\supervisor_20261013.py": {
+        "bytes": 5579,
+        "sha256": "93a911ae2dccb34c4d53f9e1977dcca652a3f57b85344f7ccd36ce74aef4e815"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\test_seal_guard_20261013.py": {
+        "bytes": 3157,
+        "sha256": "3229a3c156acc5bf71dfb5705da3778d8009dbdd05de2303e76e96d4f0a40b3f"
+      }
+    },
+    "executable_after": {
+      "bytes": 107312,
+      "sha256": "d41bad46673f64e0d02f23797f53f90ccf60f27d6eda8d86dd2d4bbeae5a858c"
+    },
+    "receipt_identity": {
+      "bytes": 5191,
+      "sha256": "3f34b2887bbe4bb4bc4cdd5a34625a9472cbab51f4288cc3c3666b669dea9974"
+    },
+    "elapsed_seconds": 0.46899999999732245
+  },
+  "T052_complete": false
+}

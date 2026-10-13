@@ -1,0 +1,211 @@
+{
+  "schema": "t060-ab-repermit-preparation-v1",
+  "status": "PRE_DIAGNOSTIC_DRAFT_EXECUTION_LOCKED",
+  "execution_authorized": false,
+  "direct_runner_compatible": false,
+  "groups": [
+    "A",
+    "B"
+  ],
+  "proposed_execution_machine": {
+    "role": "M3_CURRENT_LOCAL_MACHINE",
+    "computer_name": "LAPTOP-KSS1MRR7",
+    "node": "LAPTOP-KSS1MRR7",
+    "system": "Windows",
+    "release": "10",
+    "version": "10.0.26200",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python_runtime": {
+      "path": "E:/FPGA/SDKs/espressif/tools/python_env/idf5.4_py3.11_env/Scripts/python.exe",
+      "identity": {
+        "bytes": 270616,
+        "sha256": "35b4bd456823c5ea3aba0856b95e113da92d5362a6fa7643f12aef9cc1a1875b"
+      },
+      "version": "3.11.2",
+      "implementation": "CPython"
+    },
+    "identity_method": "OS/Python metadata plus file SHA only; no tool invoked"
+  },
+  "predecessor": {
+    "config": {
+      "bytes": 143354,
+      "sha256": "deef8bc73b6f8f2789149f3c1558bf05954919dbe05cda1d03dd2e97fefce637"
+    },
+    "approval": {
+      "bytes": 1179,
+      "sha256": "78c251492a8003db9a573ea3c0e4b6df0ce44bc59fa01444ba49426314627131"
+    },
+    "attempt_marker": {
+      "bytes": 1505,
+      "sha256": "97f4ccd1bdeb3dcc5c26817d971fa86a2f7bc1e038ce0c3febead81b929d3538"
+    },
+    "failed_run_receipt": {
+      "bytes": 310162,
+      "sha256": "c9cfb7ff1b1e8faaff62902201f17ac9fc23f5b5e0441a56d4589448f6bcd3fc"
+    },
+    "permission_consumed": true,
+    "reuse_forbidden": true
+  },
+  "frozen_workload": {
+    "input_count": 177,
+    "input_manifest_sha256": "2b3263ba4785d73cac5e99674c12cbc28c486ba90a1f81f77adf096d743664cf",
+    "plans": {
+      "plan_A.json": {
+        "bytes": 200787,
+        "sha256": "dc05bc68552b81e782db2ad0a7edf3c2e8f1278cb89728316dc7c4c3a63277e5"
+      },
+      "plan_B.json": {
+        "bytes": 1296,
+        "sha256": "288eff5d6d0249997adf7dd52a487d37b8d31f624695c332f77ba75bbe9ceee1"
+      },
+      "source_calendar.json": {
+        "bytes": 4477,
+        "sha256": "fae87f69f5ca21171635994dceb6cf42dc09e4b44e383580f9e13430f566b05a"
+      }
+    },
+    "tb": {
+      "bytes": 5538,
+      "sha256": "dc14db86e5423b74860611025389484b2dc0eca25af43af43b3d9207a83e50db"
+    },
+    "observer": {
+      "bytes": 2567,
+      "sha256": "2065b3887db71e3df4ee8057179d72d91228d58b8db3024dfc9b79bb3c425226"
+    },
+    "stimulus_A": {
+      "bytes": 131520,
+      "sha256": "c9e25af549b823894c5e519adc3820c6e6a5f091ccbdbfe663463bc42aede329"
+    },
+    "stimulus_B": {
+      "bytes": 396,
+      "sha256": "af9e7050ad26801a3834f1a624b6d7696e135477d1cfe4204acfac97e6e0cb6e"
+    },
+    "compile_sources": [
+      "sources/audio_defs_pkg.sv",
+      "sources/sustain_control_contract_pkg.sv",
+      "sources/note_pitch.sv",
+      "sources/sustain_controller.sv",
+      "sources/polyphonic_event_router.sv",
+      "sources/performance_control_snapshot.sv",
+      "sources/pitch_mod_fcw_pipeline.sv",
+      "sources/pitch_mod_snapshot_pipeline.sv",
+      "sources/dds_oscillator.sv",
+      "sources/piano_dds_oscillator.sv",
+      "sources/adsr_piano_envelope.sv",
+      "sources/polyphonic_envelope_bank.sv",
+      "sources/voice_gain_q15_candidate.sv",
+      "sources/pcm_mixer_4voice.sv",
+      "sources/pcm_result_hold.sv",
+      "sources/pcm_frame_buffer.sv",
+      "sources/pcm_clip_counter.sv",
+      "sources/polyphonic_pcm_commit.sv"
+    ],
+    "end_cycles": {
+      "A": 4095000,
+      "B": 1600
+    },
+    "mutations": {
+      "A": [
+        [
+          "retirement_reuse_wrong_generation",
+          "MINCLOSURE_RETIRE_IDENTITY"
+        ],
+        [
+          "accepted_panic_missing_off",
+          "MINCLOSURE_PANIC_RELEASE"
+        ]
+      ],
+      "B": [
+        [
+          "frame_accepts_old_result",
+          "MINCLOSURE_CANCEL_OLD_ID"
+        ],
+        [
+          "advance_rolled_back",
+          "MINCLOSURE_ADVANCE_NONROLLBACK_MATH"
+        ]
+      ]
+    },
+    "content_change_allowed": false
+  },
+  "observed_tool_set": {
+    "tool_count": 621,
+    "tool_manifest_sha256": "7d4d6baf070fd02fe43a8e948a21df9ad0fb370983279ff34afbcf31a19757f0",
+    "tools": {
+      "yosys": "D:/Gowin/oss-cad-suite/bin/yosys.exe",
+      "iverilog": "D:/Gowin/oss-cad-suite/bin/iverilog.exe",
+      "vvp": "D:/Gowin/oss-cad-suite/bin/vvp.exe",
+      "python": "E:/FPGA/SDKs/espressif/tools/python_env/idf5.4_py3.11_env/Scripts/python.exe"
+    },
+    "key_file_identities": {
+      "D:/Gowin/oss-cad-suite/bin/iverilog.exe": {
+        "bytes": 457576,
+        "sha256": "5c1f4e38c6dc0807aeab8814d63af97313bef5813e815e17021ae8e36e0a0bab"
+      },
+      "D:/Gowin/oss-cad-suite/bin/vvp.exe": {
+        "bytes": 325265,
+        "sha256": "d38cc76e6946136aaf46db8a3bf34bec2a54bad564dfe146686579ca2d39c9ed"
+      },
+      "D:/Gowin/oss-cad-suite/bin/yosys.exe": {
+        "bytes": 36397568,
+        "sha256": "24cca7e387553b5981b831f7ad2df32cb28c05c6f73889e109c958278385c2b2"
+      },
+      "D:/Gowin/oss-cad-suite/lib/ivl/ivl.exe": {
+        "bytes": 60596045,
+        "sha256": "ccbb3bbb3d3066aa49a550c5c93ffd1c10fa379cc248f4630e0c0b174a9fd861"
+      },
+      "D:/Gowin/oss-cad-suite/share/yosys/plugins/slang.so": {
+        "bytes": 15470600,
+        "sha256": "7fd85a19a3cdf215c54cfaca88125cfef8de04e9a6a411be474c1f39be0e53f7"
+      },
+      "E:/FPGA/SDKs/espressif/tools/python_env/idf5.4_py3.11_env/Scripts/python.exe": {
+        "bytes": 270616,
+        "sha256": "35b4bd456823c5ea3aba0856b95e113da92d5362a6fa7643f12aef9cc1a1875b"
+      }
+    },
+    "identity_only": true,
+    "tool_invocations": 0
+  },
+  "proposed_limits_if_later_rebuilt_and_approved": {
+    "combined_total_seconds": 900,
+    "automatic_retries": 0,
+    "groups": [
+      "A",
+      "B"
+    ],
+    "end_cycles": {
+      "A": 4095000,
+      "B": 1600
+    },
+    "frequency_or_seed_change": false
+  },
+  "required_before_any_execution": [
+    "M2 completes the separately authorized compile-only diagnosis",
+    "M2 selects and records the final compiler/tool set",
+    "A fresh portable root is built and rehashed; old marker is not moved or deleted",
+    "A final runner-compatible config is generated and independently reviewed",
+    "A new explicit one-shot approval binds that final config SHA256"
+  ],
+  "forbidden": [
+    "reuse old approval",
+    "reuse, move, delete, or reset old ONE_SHOT_ATTEMPT.json",
+    "run residual A.vvp",
+    "infer compiler root cause from constant-select warnings",
+    "start A/B compile, VVP, RTL, EDA, Gowin, PnR, or hardware work"
+  ],
+  "diagnostic_state": {
+    "manifest": {
+      "bytes": 9428,
+      "sha256": "61d4593ac977130a32875dd9271e3747394e5f82801bac8172e7d6edf9346f14"
+    },
+    "final_gate": {
+      "bytes": 327,
+      "sha256": "50d8134fd29bfb71026fcbb135b2b00526dbf6130ecc505284136a3ff522c588"
+    },
+    "status": "PREPARED_NOT_EXECUTED",
+    "actual_tool_calls": 0,
+    "required_permission": "new explicit once compile-only total90",
+    "blocks_AB_repermit_finalization": true
+  },
+  "note": "This is a static proposal descriptor, not the executable config and not an approval. M2 diagnostic outcome may require a new successor descriptor."
+}
