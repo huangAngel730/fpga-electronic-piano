@@ -1,0 +1,44 @@
+{
+  "schema": "T052_P0_2_DELIVERY_RECEIPT_V1",
+  "status": "T052_P0_2_SOFTWARE_PASS",
+  "exit_code": 0,
+  "evidence_kind": "SOFTWARE_ONLY",
+  "run_receipt": {
+    "path": "code/output/m3_t052_p0_2_20261013_02/receipt.json",
+    "sha256": "7e49a8db90eb07aa074b42966852daaa0d28683754d9fe128c288c84150284e6"
+  },
+  "manifest_sha256": "0949f09747f517b08b36d6df78f8712111bb84f2da152b5a6969986532421b6c",
+  "expected": {
+    "pins": 128,
+    "accepted": 6,
+    "published": 3,
+    "cancelled": 3,
+    "open": 0
+  },
+  "tests": 24,
+  "new_schema_cases": {
+    "normal_software": {"exit_code": 0, "RTL_verified": false},
+    "all_ready_valid_zero": {
+      "exit_code": 1,
+      "diagnostic": "SOURCE_CALENDAR_PINS:0"
+    },
+    "forged_source_sha": {
+      "exit_code": 1,
+      "diagnostic": "SOURCE_META:controls"
+    }
+  },
+  "m2_original_counterexamples": {
+    "archive_sha256": "6a531fae9c846ad2098c26919cc063cac9df9e84f7ff89a18e4d4890c92ccf56",
+    "handling": "READ_ORIGINAL_MEMBERS_WITHOUT_SCHEMA_CONVERSION",
+    "diagnostic": "SOURCE_META:controls",
+    "claim": "OLD_SCHEMA_SOURCE_MISMATCH_ONLY"
+  },
+  "first_failed_run_preserved": "code/output/m3_t052_p0_2_20261013_01/receipt.json",
+  "elapsed_seconds": 0.5320000000065193,
+  "total_limit_seconds": 300,
+  "per_step_limit_seconds": 90,
+  "RTL_run": false,
+  "HDL_tool_run": false,
+  "RTL_verified": false,
+  "T052_complete": false
+}
