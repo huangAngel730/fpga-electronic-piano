@@ -1,0 +1,131 @@
+{
+  "ROM_mapping": {
+    "gain": {
+      "address_bits": 10,
+      "bits": 16,
+      "explicit_pROM_instances": 1,
+      "fraction_permutation": false,
+      "unused_addresses": "zero padded; oct legal lookup stays0..49",
+      "words": 1024
+    },
+    "lfo": {
+      "address_bits": 10,
+      "bits": 16,
+      "explicit_pROM_instances": 1,
+      "fraction_permutation": false,
+      "unused_addresses": "zero padded; oct legal lookup stays0..49",
+      "words": 1024
+    },
+    "oct": {
+      "address_bits": 6,
+      "bits": 20,
+      "explicit_pROM_instances": 1,
+      "fraction_permutation": false,
+      "unused_addresses": "zero padded; oct legal lookup stays0..49",
+      "words": 50
+    },
+    "sub": {
+      "address_bits": 10,
+      "bits": 20,
+      "explicit_pROM_instances": 2,
+      "fraction_permutation": true,
+      "unused_addresses": "zero padded; oct legal lookup stays0..49",
+      "words": 1024
+    },
+    "wave": {
+      "address_bits": 10,
+      "bits": 16,
+      "explicit_pROM_instances": 1,
+      "fraction_permutation": false,
+      "unused_addresses": "zero padded; oct legal lookup stays0..49",
+      "words": 1024
+    }
+  },
+  "artifacts": {
+    "SOURCE_DIFF.patch": {
+      "bytes": 9813,
+      "sha256": "8349eba5a5222f45a7e6733add79bad51e5eb6430a29931bdffaca5f3a29e441"
+    },
+    "m2_adsr_piano_prom.sv": {
+      "bytes": 8439,
+      "sha256": "d8918defedb1d9bd14a21903d5bc955a815f5064860ed948fa1f38e585e06087"
+    },
+    "m2_b2_backend_prom.sv": {
+      "bytes": 11790,
+      "sha256": "6727971f60c5aadab9985641035ec5ff8ad284f1e06adcfd9e58f78cf74d6953"
+    },
+    "m2_b2d_event_audio_prom.sv": {
+      "bytes": 15449,
+      "sha256": "4339784901857cab00ce856dc23ce993a59783398d37aca02648c3123b533e84"
+    },
+    "m2_pitch_mod_prom.sv": {
+      "bytes": 4790,
+      "sha256": "190cf8a854563ab64cdd1afe16da40a8f061613636b6f3183c28eb8272c33b50"
+    },
+    "m2_prom_gain.sv": {
+      "bytes": 6357,
+      "sha256": "5321b6e854ad5be02f78f7e82c8ba311ddce72c28ce7ca72323a9ef84adc17b0"
+    },
+    "m2_prom_lfo.sv": {
+      "bytes": 6356,
+      "sha256": "f5684f760ed41a7ac86284e36ade73bbaa36e0b48dde2c765203843c29283fee"
+    },
+    "m2_prom_oct.sv": {
+      "bytes": 6361,
+      "sha256": "2f5d8e901eba60634ae2daa40d29e0c074520e2f7fb5111f00882f5c30874b5b"
+    },
+    "m2_prom_sub.sv": {
+      "bytes": 12512,
+      "sha256": "b683d5d49834632e3413a3038ea5b8f5c79c7c783a7cfe47e8c8f8cb124d9c23"
+    },
+    "m2_prom_wave.sv": {
+      "bytes": 6357,
+      "sha256": "fa606e6e05ed36ad9b880f19684a0b7859262e56c9a104df30bef59d8b04f909"
+    }
+  },
+  "change_scope": "private read ROM replaces original read registers, arithmetic/reset/event/calendar preserved",
+  "clipped_source_SHA": "3fd292ab7a3748f10054ec5eb26d44f20b83880073a220aa6b4ddc2f1a98427f",
+  "expected_explicit_pROM_instance_count_N32": 161,
+  "frozen_source_SHA": {
+    "adsr_piano_envelope.sv": "1f4f6b0a53f403192d5089ee18e37717e6a927ffd2434cc2cf59435ea385eaab",
+    "b2_audio_backend.sv": "90d8a09ffef56b873dfe495b9abbc987a0d37a405b4292a26c1327d5ea304452",
+    "pitch_mod_fcw_pipeline.sv": "046c01b7f02f7c3a9ea32f58e21c0833a969e825a06b4a175232005594263588"
+  },
+  "generator_sha256": "b7a5d76f647b0a8fc8209205d55d213795ed3b3e41e8e16860a85b85cbe63473",
+  "instance_count_is_not_actual_BSRAM_report": true,
+  "original_ROMs": {
+    "lfo_sine_q15.mem": {
+      "bytes": 5120,
+      "sha256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060"
+    },
+    "oct_ratio_q16.mem": {
+      "bytes": 300,
+      "sha256": "65185caf2722c98cd5406ecff0819f8b011cbbe6a5b9ae1974d3a03f4cf15fbd"
+    },
+    "piano_band_4x256_8191.mem": {
+      "bytes": 5120,
+      "sha256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1"
+    },
+    "sub_ratio_q16.mem": {
+      "bytes": 6144,
+      "sha256": "9530577dfbc9b901d83abaa1a6f1c929241f7c092b5fc556b106b0c8bffc984e"
+    },
+    "velocity_gain_rom.mem": {
+      "bytes": 5120,
+      "sha256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64"
+    }
+  },
+  "original_algorithm_ROM_changed": false,
+  "original_runtime_ROM_override_support": "NOT_SUPPORTED; fixed frozen ROM identity only, parameter paths retained for mechanical compatibility not configurable numeric source",
+  "physical_STA": "NOT_RUN",
+  "primitive_configuration": "pROM READ_MODE0 synchronous bypass, CE original, RESET0, OCE1",
+  "production_connected": false,
+  "schema": 1,
+  "status": "ISOLATED_PROM_CANDIDATE_NOT_SYNTHESIZED",
+  "synthesized": false,
+  "vendor_model": {
+    "model_version_header": "1.9.10 within installed1.9.11.03",
+    "path": "D:\\Gowin\\Gowin_V1.9.11.03_Education\\Gowin_V1.9.11.03_Education_x64\\IDE\\simlib\\gw5a\\prim_sim.v",
+    "sha256": "202f65ccf77126d04e47db36c95e237e48522f3a105a3e64d9fcbf4e3b782f27"
+  }
+}

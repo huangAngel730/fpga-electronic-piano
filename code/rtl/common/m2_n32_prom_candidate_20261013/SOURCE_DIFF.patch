@@ -1,0 +1,179 @@
+--- readonly_original/m2_adsr_piano_prom.sv
++++ m2_adsr_piano_prom.sv
+@@ -6,7 +6,7 @@
+ // Events win over old in-flight work. One pending sample during preparation.
+ // Normal sample ticks add the unchanged signed Q16 step; ROM is unchanged.
+ `timescale 1ns/1ps
+-module adsr_piano_envelope (
++module m2_adsr_piano_prom (
+     input logic sys_clk, sys_rst_n, sample_tick, note_on, note_off,
+     input logic [9:0] velocity,
+     output logic [15:0] envelope_level,
+@@ -29,27 +29,7 @@
+     logic [31:0] release_start_q16;
+     logic [9:0] rom_addr;
+     logic [15:0] rom_dout;
+-    logic [15:0] gain_rom [0:1023];
+-    // synthesis translate_off
+-    string rom_path;
+-    integer rom_index;
+-    // synthesis translate_on
+-    initial begin
+-        // synthesis translate_off
+-        if ($value$plusargs("VELOCITY_ROM_PATH=%s", rom_path)) begin
+-            $readmemh(rom_path, gain_rom);
+-        end else begin
+-            rom_path="C:/Users/Angel17/.codex/worktrees/m2-138k-migration/fpga_gowin/code/build/138k_polyphony_resource/prepared/N32_R1_20261011_01/rom/velocity_gain_rom.mem";
+-        // synthesis translate_on
+-            $readmemh("C:/Users/Angel17/.codex/worktrees/m2-138k-migration/fpga_gowin/code/build/138k_polyphony_resource/prepared/N32_R1_20261011_01/rom/velocity_gain_rom.mem", gain_rom);
+-        // synthesis translate_off
+-        end
+-        for (rom_index=0; rom_index<1024; rom_index=rom_index+1)
+-            if (^gain_rom[rom_index] === 1'bx)
+-                $fatal(1, "Missing gain ROM word %0d: %s", rom_index, rom_path);
+-        // synthesis translate_on
+-    end
+-    always_ff @(posedge sys_clk) rom_dout <= gain_rom[rom_addr];
++    m2_prom_gain gain_storage(.clk(sys_clk),.ce(1'b1),.addr(rom_addr),.data(rom_dout));
+ 
+     // Preserve M1's public debug encoding (IDLE=0, ATTACK=1,
+     // DECAY=2, SUSTAIN=3, RELEASE=4). LOAD_1/2 are private ROM stages;
+--- readonly_original/m2_pitch_mod_prom.sv
++++ m2_pitch_mod_prom.sv
+@@ -5,7 +5,7 @@
+ // note_on resets LFO whether or not a sample is launched; in-flight results stay
+ // valid. Voice-generation cancellation must be done by the enclosing scheduler.
+ `timescale 1ns/1ps
+-module pitch_mod_fcw_pipeline #(
++module m2_pitch_mod_prom #(
+  parameter OCT_FILE="C:/Users/Angel17/.codex/worktrees/m2-138k-migration/fpga_gowin/code/build/138k_polyphony_resource/prepared/N32_R1_20261011_01/rom/oct_ratio_q16.mem",
+  parameter SUB_FILE="C:/Users/Angel17/.codex/worktrees/m2-138k-migration/fpga_gowin/code/build/138k_polyphony_resource/prepared/N32_R1_20261011_01/rom/sub_ratio_q16.mem",
+  parameter LFO_FILE="C:/Users/Angel17/.codex/worktrees/m2-138k-migration/fpga_gowin/code/build/138k_polyphony_resource/prepared/N32_R1_20261011_01/rom/lfo_sine_q15.mem",
+@@ -21,44 +21,12 @@
+  output logic[31:0]fcw_out,
+  output logic fcw_valid
+ );
+- logic[19:0]oct_lut[0:49],sub_lut[0:1023];
+- logic[19:0]sub_source[0:1023];
+  // Bijective fractional-ROM addressing. Each bit is a real three-input XOR
+  // of registered fraction bits, avoiding bare register-to-BSRAM address wires.
+  // Data permutation is constant initialization; numerical lookup is unchanged.
+  function automatic logic[9:0]encode_fraction(input logic[9:0]value);
+   encode_fraction=value ^ {value[8:0],value[9]} ^ {value[6:0],value[9:7]};
+  endfunction
+- logic signed[15:0]lfo_lut[0:1023];
+- // synthesis translate_off
+- string oct_path,sub_path,lfo_path;
+- integer rom_check;
+- // synthesis translate_on
+- initial begin
+-  $readmemh(OCT_FILE,oct_lut);$readmemh(SUB_FILE,sub_source);$readmemh(LFO_FILE,lfo_lut);
+-  // synthesis translate_off
+-  if($value$plusargs("OCT_PATH=%s",oct_path))begin
+-   rom_check=$fopen(oct_path,"r");if(!rom_check)$fatal(1,"missing requested OCT_PATH");$fclose(rom_check);
+-   $readmemh(oct_path,oct_lut);
+-  end
+-  if($value$plusargs("SUB_PATH=%s",sub_path))begin
+-   rom_check=$fopen(sub_path,"r");if(!rom_check)$fatal(1,"missing requested SUB_PATH");$fclose(rom_check);
+-   $readmemh(sub_path,sub_source);
+-  end
+-  if($value$plusargs("LFO_PATH=%s",lfo_path))begin
+-   rom_check=$fopen(lfo_path,"r");if(!rom_check)$fatal(1,"missing requested LFO_PATH");$fclose(rom_check);
+-   $readmemh(lfo_path,lfo_lut);
+-  end
+-  // synthesis translate_on
+-  for(integer address=0;address<1024;address=address+1)
+-   sub_lut[encode_fraction(10'(address))]=sub_source[address];
+-  // synthesis translate_off
+-  for(integer i=0;i<50;i++)if(^oct_lut[i]===1'bx)$fatal(1,"pipeline missing oct[%0d]",i);
+-  for(integer i=0;i<1024;i++)begin
+-   if(^sub_lut[i]===1'bx || ^lfo_lut[i]===1'bx)$fatal(1,"pipeline missing sub/LFO[%0d]",i);
+-  end
+-  // synthesis translate_on
+- end
+  logic[31:0]lfo_phase;
+  wire[31:0]phase_now=note_on ? 32'd0 : lfo_phase;
+  always_ff @(posedge sys_clk or negedge sys_rst_n)begin
+@@ -93,10 +61,9 @@
+  wire[32:0]raw_fcw=round_fc_product>>16;
+  // Synchronous ROM captures have no reset, allowing ROM inference. Valid is
+  // reset independently; stale ROM data never qualifies as an output result.
+- always_ff @(posedge sys_clk)begin
+-  if(sample_enable)sine_s0<=lfo_lut[phase_now[31:22]];
+-  if(valid_pipe[2])begin oct_s3<=oct_lut[oct_index];sub_s3<=sub_lut[encode_fraction(sub_index)];end
+- end
++ m2_prom_lfo sine_storage(.clk(sys_clk),.ce(sample_enable),.addr(phase_now[31:22]),.data(sine_s0));
++ m2_prom_oct oct_storage(.clk(sys_clk),.ce(valid_pipe[2]),.addr(oct_index),.data(oct_s3));
++ m2_prom_sub sub_storage(.clk(sys_clk),.ce(valid_pipe[2]),.addr(encode_fraction(sub_index)),.data(sub_s3));
+  always_ff @(posedge sys_clk or negedge sys_rst_n)begin
+   if(!sys_rst_n)begin
+    valid_pipe<=0;fcw_valid<=0;fcw_out<=0;
+--- readonly_original/m2_b2_backend_prom.sv
++++ m2_b2_backend_prom.sv
+@@ -4,7 +4,7 @@
+ // piano wave ROM, signed gain multiplier and serial signed32 accumulation.
+ // Events accepted only idle; request captures all controls/identities atomically.
+ // cancel discards the token/output, NEVER rolls back DDS/ADSR/LFO advancement.
+-module b2_audio_backend #(
++module m2_b2_backend_prom #(
+     parameter integer N = 4,
+     parameter integer WAVE_RESPONSE_CYCLES = 1,
+     parameter WAVE_FILE = "C:/Users/Angel17/.codex/worktrees/m2-138k-migration/fpga_gowin/code/build/138k_polyphony_resource/prepared/N32_R1_20261011_01/rom/piano_band_4x256_8191.mem",
+@@ -76,12 +76,12 @@
+     wire [N-1:0] off_pulse = note_off & {N{accepted_event}};
+ 
+     for(genvar i=0;i<N;i=i+1) begin:g_continuous
+-        adsr_piano_envelope u_adsr(
++        m2_adsr_piano_prom u_adsr(
+             .sys_clk(clk),.sys_rst_n(rst_n),.sample_tick(advance_pulse),
+             .note_on(on_pulse[i]),.note_off(off_pulse[i]),
+             .velocity(velocity[10*i+:10]),
+             .envelope_level(live_envelopes[16*i+:16]),.state_out(live_states[3*i+:3]));
+-        pitch_mod_fcw_pipeline #(.OCT_FILE(OCT_FILE),.SUB_FILE(SUB_FILE),.LFO_FILE(LFO_FILE)) u_pitch(
++        m2_pitch_mod_prom #(.OCT_FILE(OCT_FILE),.SUB_FILE(SUB_FILE),.LFO_FILE(LFO_FILE)) u_pitch(
+             .sys_clk(clk),.sys_rst_n(rst_n),.sample_enable(accepted && occupied[i]),
+             .note_on(on_pulse[i]),.bend($signed(bend[12*i+:12])),
+             .modulation(modulation[12*i+:12]),.pitch_range(pitch_range[5*i+:5]),
+@@ -124,12 +124,9 @@
+ 
+     // One physical synchronous piano-ROM read. WAVE_RESPONSE_CYCLES models
+     // downstream response holding, NOT a claim about the vendor RAM's latency.
+-    logic signed [15:0] wave_rom [0:1023];
+     logic signed [15:0] wave_q;
+     wire [9:0] wave_addr = {active_table[cursor],phase_acc[cursor][31:24]};
+-    initial $readmemh(WAVE_FILE,wave_rom);
+-    always_ff @(posedge clk) if(state==ROM_START && !cancel)
+-        wave_q<=wave_rom[wave_addr];
++    m2_prom_wave wave_storage(.clk(clk),.ce(state==ROM_START && !cancel),.addr(wave_addr),.data(wave_q));
+     wire signed [16:0] positive_env = $signed({1'b0,held_envelopes[16*cursor+:16]});
+     wire signed [32:0] product = wave_q * positive_env;
+     wire signed [32:0] scaled_floor = product >>> 15;
+@@ -219,8 +216,6 @@
+     initial begin
+         if(!(N==4 || N==8 || N==16 || N==32)) $fatal(1,"N_NOT_SUPPORTED");
+         if(WAVE_RESPONSE_CYCLES<1 || WAVE_RESPONSE_CYCLES>64) $fatal(1,"BAD_ROM_RESPONSE_BOUND");
+-        for(integer a=0;a<1024;a=a+1)
+-            if(^wave_rom[a]===1'bx) $fatal(1,"MISSING_PIANO_ROM_WORD");
+     end
+     always @(posedge clk) if(rst_n && state==PITCH && wait_count==1 && !cancel &&
+         (pitch_valid & held_occupied)!=held_occupied) $fatal(1,"PITCH_RESULT_NOT_READY");
+--- readonly_original/m2_b2d_event_audio_prom.sv
++++ m2_b2d_event_audio_prom.sv
+@@ -4,7 +4,7 @@
+ // Whole-domain rst_n asynchronously asserts; upstream synchronizes release.
+ // M2 isolated metadata successor; original b2d, backend math and ROM readonly.
+ // clipped is qualified by result_valid and retained with ID/stereo under HOLD.
+-module b2d_event_audio_clipped #(parameter integer N=8, RESPONSE=1, SW=$clog2(N), TW=72+SW) (
++module m2_b2d_event_audio_prom #(parameter integer N=8, RESPONSE=1, SW=$clog2(N), TW=72+SW) (
+     input wire clk, rst_n, cancel,
+     input wire event_valid, output wire event_ready, input wire [63:0] event_data,
+     input wire sample_valid, output wire sample_ready, input wire [31:0] sample_id,
+@@ -151,7 +151,7 @@
+         .read_valid(read_valid && idle),.read_ready(read_ready),.read_slot(read_slot),
+         .read_out_valid(read_out_valid),.read_context(read_context));
+     assign be_launch=state==LAUNCH && be_ready && !stop;
+-    b2_audio_backend #(.N(N),.WAVE_RESPONSE_CYCLES(RESPONSE)) backend(
++    m2_b2_backend_prom #(.N(N),.WAVE_RESPONSE_CYCLES(RESPONSE)) backend(
+         // A front-end token cancellation must not suppress a router pulse for
+         // an already accepted event while the mathematical backend is empty.
+         // Only an actually owned backend transaction receives token cancel.
