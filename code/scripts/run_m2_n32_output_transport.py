@@ -24,7 +24,7 @@ def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,required=True)
-    parser.add_argument('--case',choices=['base','full32'],default='base');args=parser.parse_args()
+    parser.add_argument('--case',choices=['base','full32','subsystem','subsystem_wait'],default='base');args=parser.parse_args()
     out=args.output.resolve()
     if out.exists() or not out.is_relative_to(ROOT/'code/output') or out==ROOT/'code/output':raise ValueError('OUTPUT_SCOPE_OR_EXISTS')
     out.mkdir(parents=True,exist_ok=False);start=time.monotonic();steps=[];error=None;before={};after={}
@@ -33,6 +33,7 @@ def main():
     env=os.environ.copy();env['YOSYSHQ_ROOT']=str(CAD)+os.sep;env['PATH']=os.pathsep.join([str(CAD/'bin'),str(CAD/'lib'),env.get('PATH','')])
     transport=[BASE/'inputs/sources'/name for name in ['reset_sync.sv','visual_mailbox_cdc.sv','pcm_frame_observer.sv','pcm_waveform_observer_bridge.sv','i2s_tx.sv']]
     transport += [ROOT/'code/rtl/audio_out/pcm_result_hold.sv',ROOT/'code/rtl/audio_out/pcm_frame_buffer.sv',ROOT/'code/rtl/common/pcm_clip_counter.sv',ROOT/'code/rtl/audio_out/m2_polyphony_frame_candidate_20261012/premixed_frame_adapter.sv',RTL]
+    if args.case.startswith('subsystem'):transport += [RTL.with_name('m2_n32_audio_subsystem.sv'),BASE/'inputs/sources/system_status_counters.sv']
     sources=[Path(n.attrib['path']) for n in ET.parse(RESOURCE/'n32_prom_resource.gprj').iter('File') if n.attrib['type']=='file.verilog']
     protected=transport+sources+list(TB.glob('*.sv'))+[VENDOR,Path(__file__),Path(spec.origin),RESOURCE/'resource_receipt.json',BASE/'frozen_receipt.json',CAD/'bin/iverilog.exe',CAD/'bin/vvp.exe']
     try:
@@ -42,6 +43,14 @@ def main():
                 assert sha(p)==receipt['inputs'][p.relative_to(BASE/'inputs').as_posix()]['adapted_sha256']
         resource=json.loads((RESOURCE/'resource_receipt.json').read_bytes())
         assert sha(RESOURCE/'resource_receipt.json')=='f77a526318cd213b164e9bed5d0d1d0f2ca19aad89a61813f082d7d5971151bf'
+        for name,item in resource['artifacts'].items():
+            path=RESOURCE/name
+            if path.stat().st_size!=item['bytes'] or sha(path)!=item['sha256']:raise ValueError('RESOURCE_ARTIFACT_DRIFT:'+name)
+            protected.append(path)
+        for path,digest in resource['include_SHA'].items():
+            header=Path(path)
+            if sha(header)!=digest:raise ValueError('RESOURCE_INCLUDE_DRIFT:'+path)
+            protected.append(header)
         for p,digest in resource['input_SHA'].items():assert sha(Path(p))==digest
         assert sha(VENDOR)=='202f65ccf77126d04e47db36c95e237e48522f3a105a3e64d9fcbf4e3b782f27'
         assert sha(Path(spec.origin))=='5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b'
@@ -81,11 +90,18 @@ def main():
             ('bad_clip','M2_OUTPUT_BAD_CLIP','tb_output_transport',1,'COMMIT_PCM_CLIP_LEDGER_MISMATCH',False),
             ('real_n32',None,'tb_n32_output_path',0,'PASS N32_PROM_OUTPUT_PATH',True)]
         if args.case=='full32':cases=[('real_n32_full32','M2_OUTPUT_FULL32','tb_n32_output_path',0,'PASS N32_PROM_OUTPUT_PATH',True)]
+        if args.case=='subsystem':cases=[
+            ('subsystem',None,'tb_n32_output_path',0,'STAT active=32',True),
+            ('bad_count','M2_SUBSYSTEM_BAD_COUNT','tb_n32_output_path',1,'SUBSYSTEM_ACTIVE_COUNT_MISMATCH',True),
+            ('bad_latency','M2_SUBSYSTEM_BAD_LATENCY','tb_n32_output_path',1,'SUBSYSTEM_FRAME_CREDIT_LATENCY_MISMATCH',True)]
+        if args.case=='subsystem_wait':cases=[('subsystem_wait',None,'tb_n32_output_path',0,'STAT active=32',True)]
         for label,macro,top,wanted,diagnostic,real in cases:
             image=out/(label+'.vvp');files=transport+[TB/(top+'.sv')]
             if real:files=sources+[vendor]+files
             command=[CAD/'bin/iverilog.exe','-g2012','-I',ROOT/'code/build/138k_polyphony_resource/prepared/N32_R1_20261011_01/include','-s',top,'-o',image]
             if macro:command+=['-D'+macro]
+            if args.case.startswith('subsystem'):command+=['-DM2_OUTPUT_FULL32','-DM2_OUTPUT_SUBSYSTEM']
+            if args.case=='subsystem_wait':command+=['-DM2_OUTPUT_READ_SHORT']
             run(label+'_compile',command+files,0)
             run(label+'_simulate',[CAD/'bin/vvp.exe',image],wanted,diagnostic)
         after={p:sha(Path(p)) for p in before}

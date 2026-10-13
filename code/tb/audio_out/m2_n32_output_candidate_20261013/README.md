@@ -29,3 +29,18 @@ python -B -X utf8 code/scripts/run_m2_n32_output_transport.py --case full32 --ou
 M3交接：只引用此新运输模块及公开候选接口；不要覆盖原frame adapter/I2S/observer，不重跑本12frame/两坏接线组。你的新分配器N32后继定版后，M2按新精确组合补必要接入关联验证。你仍负责A/B/C/D及原T052/T060任务；本文件只证明原pROM候选的下游短程功能，不改变资源/时序准入。当前待用户转发，尚未送达。
 
 本轮最终完整仓库门禁九项PASS0、481.235秒/未超时/2922输入SHA前后同。封存 `code/docs/evidence/m2_n32_output_transport_20261013/RAW_EVIDENCE.zip`，108成员/553096字节，SHA `b37d2084fada1cd595f207ec91c99125f28488cad4d07a1576b1e6c6da0c195c`，含最终输入原字节/原日志/工具SHA、两行为错误与门禁；工具exe/vvp二进制留ignored原输出不随包提交。旧试跑原件不回填。
+
+## 后继：独立N32/R1音频子系统壳
+
+新增 `m2_n32_audio_subsystem.sv`只组合原pROM源、本运输模块和原system_status_counters，注入关闭、公开READ保留。通过公开occupied算包含Release的0..32占用数，平衡归约6位后扩32位；公开notes替代旧私有slot别名。`max_processing_cycles`从frame credit下一沿至commit计数，不从actual dispatch起算；READ等待包含，帧到期取消的不完成事务不计成功耗时。候选/运输复位按原异步断言保持，原latency计数器仍同步清零，不宣称停钟后立即清它。
+
+```powershell
+python -B -X utf8 code/scripts/run_m2_n32_output_transport.py --case subsystem --output code/output/NEW_SUBSYSTEM
+python -B -X utf8 code/scripts/run_m2_n32_output_transport.py --case subsystem_wait --output code/output/NEW_SUBSYSTEM_WAIT
+```
+
+跨零后的最终子系统正反例6步13.375秒：32占用/12frame/10结果commit/10非零/2欠载/1510READ阻塞，STAT active32/max351；错误5位计数、错误dispatch起算均compile0/sim1指定拒收。成功等待场景2步9.188秒：32占用/12frame/11结果commit/11非零/1欠载/1009READ阻塞，STAT active32/max516；复位后active/max清零通过。
+
+最终原工程GPRJ/SDC/Tcl和两include也进入原字节身份核验/快照。首轮子系统和等待试跑保留，最终代码只验证这份新壳、状态及等待分支，没有重跑V0323运输/旧声音数学。尚无新分配器、新资源/STA或生产接入，本壳仍使用原pROM N32，旧长路径风险保持；新子系统发布门禁和封存随后以实际收据确认。
+
+后置确认：新子系统精确树九门禁9PASS0/454.531秒/未超时/2923执行输入SHA同。新封存 `code/docs/evidence/m2_n32_audio_subsystem_20261014/RAW_EVIDENCE.zip` 为119成员/573304bytes，SHA `d023119ee903ac90dab708ccd4177b938f017b445885ff9a696dd385acc27159`，原V0323包保留不变；工具二进制/vvp留原ignored输出。实际执行等级只新子系统关联功能L2，不新签声音数学或物理。
