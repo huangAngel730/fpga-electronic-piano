@@ -1,0 +1,55 @@
+{
+  "schema": "t060-ab-repermit-delivery-manifest-v1",
+  "base_head": "f5e03d6c9be992f2d1c31d21c3c640fce6727b4c",
+  "delivery_state": "UNCOMMITTED_REVIEW_CANDIDATE",
+  "status": "PASS_PREPARATION_ONLY_EXECUTION_LOCKED",
+  "files": {
+    "code/software/audio_math_acceptance_candidate/t060_minclosure_20261011/prepare_ab_repermit.py": {
+      "bytes": 23493,
+      "sha256": "8e022332a6c212e6506034c2b06d6e8ff54f5e6f034f7b1d02f94e6f4199e9ff"
+    },
+    "code/software/audio_math_acceptance_candidate/t060_minclosure_20261011/test_ab_repermit.py": {
+      "bytes": 6544,
+      "sha256": "3be9ee8e3946b852af44781775392c053cbc676279192f117e5b3a03378ac25a"
+    },
+    "code/docs/hardware/audio_math_acceptance_v1/T060_MINCLOSURE_20261011/REPERMIT_PREPARATION_20261013_01/README.md": {
+      "bytes": 4964,
+      "sha256": "f3205dca8bd3c1acf3d0c72068f6249aa986fed0ca7fe250fc8edbd8676461c6"
+    },
+    "code/docs/hardware/audio_math_acceptance_v1/T060_MINCLOSURE_20261011/REPERMIT_PREPARATION_20261013_01/PROPOSED_CONFIG_NOT_AUTHORIZED.json": {
+      "bytes": 7159,
+      "sha256": "196574718fd6550d3a1cfb17b37f7f8318eb8338029a628dd19ae09349c353b0"
+    },
+    "code/docs/hardware/audio_math_acceptance_v1/T060_MINCLOSURE_20261011/REPERMIT_PREPARATION_20261013_01/STATIC_SOURCE_RECEIPT.json": {
+      "bytes": 6065,
+      "sha256": "3b59e59673bb2d4460fdbaee904165608fa32aa36f0395c36e947dc130776b1b"
+    },
+    "code/docs/hardware/audio_math_acceptance_v1/T060_MINCLOSURE_20261011/REPERMIT_PREPARATION_20261013_01/PREPARATION_RECEIPT.json": {
+      "bytes": 848,
+      "sha256": "6d076bc9a99627fd6f4a24e4314b8ca1dc27e598b51dee23a43d1f30e9b00354"
+    }
+  },
+  "validation": {
+    "unit_test_command": "E:/FPGA/SDKs/espressif/tools/python_env/idf5.4_py3.11_env/Scripts/python.exe -B -X utf8 code/software/audio_math_acceptance_candidate/t060_minclosure_20261011/test_ab_repermit.py",
+    "unit_tests_passed": 8,
+    "unit_tests_failed": 0,
+    "static_input_pins_matched": "177/177",
+    "static_tool_file_pins_matched": "621/621",
+    "preparation_runtime": "pinned Python file identity recorded in STATIC_SOURCE_RECEIPT.json",
+    "external_subprocesses_spawned_by_preparation_script": 0,
+    "HDL_EDA_tool_calls": 0,
+    "compile_runs": 0,
+    "RTL_runs": 0,
+    "VVP_runs": 0,
+    "EDA_runs": 0,
+    "hardware_operations": 0
+  },
+  "blocking_state": {
+    "old_permission_consumed": true,
+    "M2_compile_diagnostic_completed": false,
+    "new_AB_approval_present": false,
+    "proposed_config_runner_compatible": false,
+    "actual_AB_execution_allowed": false
+  },
+  "manifest_self_identity_omitted": true
+}

@@ -1,0 +1,168 @@
+{
+  "status": "SEALED_SOFTWARE_TAIL_INCREMENT",
+  "zip_bytes": 48574,
+  "zip_sha256": "ece1a173e4d99b747fda266ab852820bea9538a8542f864a9bd726cc36d26219",
+  "members": 76,
+  "sources": {
+    "runner.py": {
+      "bytes": 14549,
+      "sha256": "4709a969a4a85132706b94443900f36a831171f621c22580eb0382c95a655e3a"
+    },
+    "windows_job.py": {
+      "bytes": 3481,
+      "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+    },
+    "delivery.py": {
+      "bytes": 5273,
+      "sha256": "e8a4ee1cff777c1fb749443230246fad52b73f0f4ffd85745366b47a672edc46"
+    },
+    "test_runner.py": {
+      "bytes": 8418,
+      "sha256": "9f81c625f9fa40f6d4540366d053861257da9faae7be0281d06747e8435b3ca6"
+    },
+    "runner_tail_20261013.py": {
+      "bytes": 7875,
+      "sha256": "fb2da5ed12306ff702935235079ad30207525c8275ead75dd73f304bb8cd47aa"
+    },
+    "delivery_tail_20261013.py": {
+      "bytes": 4775,
+      "sha256": "aaee3696c3883af6475216927cf6a910050b02365ba7a35260040290a31ea026"
+    },
+    "test_tail_20261013.py": {
+      "bytes": 4604,
+      "sha256": "4a0530cfd1e63d70ec40bef4f3e369cc57840a1b788b9c3e229aa216f8ee7e12"
+    }
+  },
+  "qualification_receipt": {
+    "status": "SOFTWARE_TAIL_INCREMENT_PASS",
+    "exit_code": 0,
+    "failure": null,
+    "qualification_tools": [
+      "PYTHON_FAKE_TOOL_ONLY"
+    ],
+    "ModelSim_runs": 0,
+    "Icarus_runs": 0,
+    "VVP_runs": 0,
+    "Gowin_runs": 0,
+    "T052_complete": false,
+    "old_nine_cases": "REUSED_NOT_RERUN",
+    "total_limit_seconds": 300,
+    "per_step_limit_seconds": 90,
+    "automatic_retries": 0,
+    "sources_before": {
+      "runner.py": {
+        "bytes": 14549,
+        "sha256": "4709a969a4a85132706b94443900f36a831171f621c22580eb0382c95a655e3a"
+      },
+      "windows_job.py": {
+        "bytes": 3481,
+        "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+      },
+      "delivery.py": {
+        "bytes": 5273,
+        "sha256": "e8a4ee1cff777c1fb749443230246fad52b73f0f4ffd85745366b47a672edc46"
+      },
+      "test_runner.py": {
+        "bytes": 8418,
+        "sha256": "9f81c625f9fa40f6d4540366d053861257da9faae7be0281d06747e8435b3ca6"
+      },
+      "runner_tail_20261013.py": {
+        "bytes": 7875,
+        "sha256": "fb2da5ed12306ff702935235079ad30207525c8275ead75dd73f304bb8cd47aa"
+      },
+      "delivery_tail_20261013.py": {
+        "bytes": 4775,
+        "sha256": "aaee3696c3883af6475216927cf6a910050b02365ba7a35260040290a31ea026"
+      },
+      "test_tail_20261013.py": {
+        "bytes": 4604,
+        "sha256": "4a0530cfd1e63d70ec40bef4f3e369cc57840a1b788b9c3e229aa216f8ee7e12"
+      }
+    },
+    "command": [
+      "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-I",
+      "-S",
+      "-B",
+      "-X",
+      "utf8",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\test_tail_20261013.py",
+      "--evidence-dir",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_runner_tail_20261013_01\\cases",
+      "-v"
+    ],
+    "step": {
+      "label": "tests",
+      "argv": [
+        "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-I",
+        "-S",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\test_tail_20261013.py",
+        "--evidence-dir",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_runner_tail_20261013_01\\cases",
+        "-v"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_runner_tail_20261013_01",
+      "pid": 12448,
+      "timeout_cap_seconds": 90,
+      "effective_timeout_seconds": 90.0,
+      "elapsed_seconds": 3.389999999999418,
+      "exit_code": 0,
+      "timed_out": false,
+      "cleanup": null,
+      "launch_error": null,
+      "stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "bytes": 470,
+        "sha256": "f348ccc002db68b25680182402e6b32229ac8bf464790b8f69ef6716f2f6d66d"
+      }
+    },
+    "test_exit_code": 0,
+    "stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stderr": {
+      "bytes": 470,
+      "sha256": "f348ccc002db68b25680182402e6b32229ac8bf464790b8f69ef6716f2f6d66d"
+    },
+    "sources_after": {
+      "runner.py": {
+        "bytes": 14549,
+        "sha256": "4709a969a4a85132706b94443900f36a831171f621c22580eb0382c95a655e3a"
+      },
+      "windows_job.py": {
+        "bytes": 3481,
+        "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+      },
+      "delivery.py": {
+        "bytes": 5273,
+        "sha256": "e8a4ee1cff777c1fb749443230246fad52b73f0f4ffd85745366b47a672edc46"
+      },
+      "test_runner.py": {
+        "bytes": 8418,
+        "sha256": "9f81c625f9fa40f6d4540366d053861257da9faae7be0281d06747e8435b3ca6"
+      },
+      "runner_tail_20261013.py": {
+        "bytes": 7875,
+        "sha256": "fb2da5ed12306ff702935235079ad30207525c8275ead75dd73f304bb8cd47aa"
+      },
+      "delivery_tail_20261013.py": {
+        "bytes": 4775,
+        "sha256": "aaee3696c3883af6475216927cf6a910050b02365ba7a35260040290a31ea026"
+      },
+      "test_tail_20261013.py": {
+        "bytes": 4604,
+        "sha256": "4a0530cfd1e63d70ec40bef4f3e369cc57840a1b788b9c3e229aa216f8ee7e12"
+      }
+    },
+    "elapsed_seconds": 3.4060000000026776
+  },
+  "T052_complete": false
+}
