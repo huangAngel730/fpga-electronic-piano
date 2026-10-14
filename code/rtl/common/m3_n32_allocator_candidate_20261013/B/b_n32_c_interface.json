@@ -1,0 +1,180 @@
+{
+  "schema": "T061_N32_B_TO_C_INTERFACE_V1",
+  "status": "DRAFT_UNSEALED_WAIT_A_PASS",
+  "module": "b_n32_r1_wrapper",
+  "parameters": {
+    "N": 32,
+    "RESPONSE": 1,
+    "SW": "$clog2(N)",
+    "TW": "72+SW"
+  },
+  "business_inputs": [
+    "clk", "rst_n", "cancel",
+    "event_valid", "event_data",
+    "sample_valid", "sample_id", "result_ready",
+    "inject_valid", "inject_tag", "inject_context",
+    "read_valid", "read_slot"
+  ],
+  "business_outputs": [
+    "event_ready", "sample_ready",
+    "result_valid", "result_id", "left", "right", "late", "clipped",
+    "aborted", "abort_reason", "idle", "fault",
+    "inject_ready", "read_ready", "read_out_valid", "read_context"
+  ],
+  "slot_observation": {
+    "occupied": "[N-1:0]",
+    "releasing": "[N-1:0]",
+    "sources": "[N*4-1:0], lane i at [4*i+:4]",
+    "channels": "[N*4-1:0], lane i at [4*i+:4]",
+    "notes": "[N*8-1:0], lane i at [8*i+:8]",
+    "generations": "[N*32-1:0], lane i at [32*i+:32]"
+  },
+  "control_snapshot_observation": {
+    "valid": "control_snapshot_valid",
+    "ready": "control_snapshot_ready",
+    "id": "control_snapshot_id[31:0]",
+    "value": "control_snapshot_value[N*29-1:0]",
+    "value_layout_lsb_to_msb": [
+      "pitch_bend[N*12-1:0]",
+      "modulation[N*12-1:0]",
+      "pitch_range[N*5-1:0]"
+    ],
+    "identity": [
+      "control_snapshot_occupied[N-1:0]",
+      "control_snapshot_sources[N*4-1:0]",
+      "control_snapshot_channels[N*4-1:0]",
+      "control_snapshot_generations[N*32-1:0]"
+    ]
+  },
+  "release_observation": {
+    "control_batch": [
+      "control_release_valid", "control_release_ready",
+      "control_release_mask[N-1:0]",
+      "control_release_generations[N*32-1:0]"
+    ],
+    "backend_done": [
+      "backend_release_done_valid", "backend_release_done_ready",
+      "backend_release_done_slot[SW-1:0]",
+      "backend_release_done_generation[31:0]",
+      "backend_release_done_mask[N-1:0]"
+    ],
+    "semantics": "backend_release_done_ready is constant one; slot is the lowest asserted lane and mask preserves simultaneous lanes"
+  },
+  "read_observation": [
+    "read_valid", "read_ready", "read_out_valid", "read_slot", "read_context"
+  ],
+  "lifecycle_observation": [
+    "cancel", "rst_n", "aborted", "abort_reason", "idle", "fault",
+    "audio_state[3:0]", "router_state[3:0]", "publish"
+  ],
+  "clock_reset_cancel_semantics": {
+    "clock_domain": "all B state is sampled on the rising edge of clk",
+    "reset": "rst_n assertion is asynchronous across the B composition; deassertion must be synchronized by the caller",
+    "reset_outputs": "reset clears result_valid, clipped, slot state, snapshot valid, release state, and both FSMs to IDLE; aborted is zero while rst_n is zero",
+    "cancel_combinational_fence": "while cancel is high, event_ready, sample_ready, read_ready, publish, and new backend launch are suppressed",
+    "cancel_edge": "on the next rising edge with cancel high, audio_state becomes DRAIN and result_valid is cleared; scheduler/backend owned work is drained or fenced",
+    "cancel_hold": "audio_state remains DRAIN while cancel stays high",
+    "cancel_release": "after cancel is low, DRAIN returns to IDLE only when scheduler is not busy, backend is empty, and the control snapshot channel is empty/ready",
+    "abort_reason": "1 for cancel; 2 for slot-identity drift while audio_state is LOAD_CTL through HOLD; aborted is qualified by rst_n and is low in IDLE/DRAIN"
+  },
+  "public_read_timing": {
+    "acceptance": "read_valid && read_ready on a rising edge",
+    "ready": "read_ready is high only when rst_n, public idle, scheduler read readiness, !sample_valid, and !cancel are all true",
+    "priority": "sample and read are mutually excluded at the public boundary; event ownership is also blocked during either request",
+    "response_latency": "read_out_valid asserts for the cycle immediately following an accepted read (one rising-edge latency)",
+    "payload": "read_context is valid exactly when read_out_valid is high; invalid/unconfigured slots return zero",
+    "streaming": "back-to-back reads are permitted when read_valid remains asserted and each cycle has read_ready high"
+  },
+  "control_snapshot_timing": {
+    "request": "audio_state CONTROL accepts an internal request when the snapshot block request_ready is high",
+    "scan_latency": "for N=32, one lane is read per rising edge and control_snapshot_valid asserts 32 cycles after the request handshake",
+    "ready": "control_snapshot_ready is high in audio_state WAIT_CONTROL or DRAIN",
+    "handshake": "control_snapshot_valid && control_snapshot_ready transfers the full id/value/identity payload on a rising edge",
+    "hold": "valid and the full payload remain stable until the handshake",
+    "drain": "DRAIN keeps ready high to consume any stale snapshot before returning to IDLE"
+  },
+  "control_release_timing": {
+    "meaning": "CC64/note-off/panic release batch emitted by the sustain controller",
+    "valid": "control_release_valid is the OR of the immutable pending mask",
+    "hold": "mask and per-lane generations remain stable while valid is high and ready is low",
+    "ready": "the router asserts control_release_ready only in RELEASE_ACK after scanning and applying every matching lane",
+    "handshake": "valid && ready clears the batch on the rising edge; that same edge cannot accept a new sustain command",
+    "lane_layout": "mask bit i selects generation [32*i+:32]"
+  },
+  "backend_release_done_timing": {
+    "meaning": "observation of backend envelope completion presented to the router retirement fence",
+    "valid": "OR of backend_release_done_mask",
+    "ready": "constant one observation flag; it is not a backpressure input",
+    "slot": "lowest asserted mask lane",
+    "generation": "live slot generation for backend_release_done_slot",
+    "simultaneous_lanes": "backend_release_done_mask is authoritative when more than one lane is asserted",
+    "repeat": "a lane may remain asserted across cycles until router retirement; scoreboards must deduplicate by slot and generation"
+  },
+  "audio_state_encoding": {
+    "IDLE": 0,
+    "WAIT_ROUTER": 1,
+    "SETTLE": 2,
+    "CONTROL": 3,
+    "WAIT_CONTROL": 4,
+    "LOAD_CTL": 5,
+    "LOAD_CFG": 6,
+    "START": 7,
+    "GATHER": 8,
+    "LAUNCH": 9,
+    "RUN": 10,
+    "HOLD": 11,
+    "DRAIN": 12
+  },
+  "router_state_encoding": {
+    "IDLE": 0,
+    "ALLOC_SEND": 1,
+    "ALLOC_APPLY": 2,
+    "CTRL_ON": 3,
+    "CTRL_OFF": 4,
+    "CTRL_PEDAL": 5,
+    "CTRL_PANIC": 6,
+    "RELEASE_SCAN": 7,
+    "RELEASE_SEND": 8,
+    "RELEASE_APPLY": 9,
+    "RELEASE_ACK": 10,
+    "RETIRE": 11,
+    "IGNORE_EVENT": 12
+  },
+  "compile_contract": {
+    "language": "SystemVerilog-2012",
+    "top": "C testbench that instantiates b_n32_r1_wrapper",
+    "required_defines": [],
+    "fixed_instance": "b_n32_r1_wrapper #(.N(32), .RESPONSE(1)); other values terminate with N32_B_FIXED_CONFIGURATION_REQUIRED",
+    "include_directory": "code/rtl/138K_try/hold_trials_20261005/L_locations_guard065/include",
+    "vendor_GSR": "C testbench must instantiate GSR GSR(.GSRI(1'b1)); prim_sim.v is listed before the testbench",
+    "order_rule": "compile_sources is an ordered array; use it exactly and append no active-worktree substitute"
+  },
+  "compile_order": [
+    "code/rtl/138K_try/hold_trials_20261005/L_locations_guard065/sources/audio_defs_pkg.sv",
+    "code/rtl/138K_try/hold_trials_20261005/L_locations_guard065/sources/sustain_control_contract_pkg.sv",
+    "code/rtl/138K_try/hold_trials_20261005/L_locations_guard065/sources/note_pitch.sv",
+    "code/rtl/common/polyphony_scaling_candidate/b1_statebank.sv",
+    "code/rtl/common/polyphony_scaling_candidate/b1_scheduler.sv",
+    "code/rtl/common/m3_n32_allocator_candidate_20261013/m3_balanced_voice_allocator.sv",
+    "code/rtl/common/polyphony_scaling_candidate/b2c_sustain_controller.sv",
+    "code/rtl/common/m3_n32_allocator_candidate_20261013/B/b_n32_event_router.sv",
+    "code/rtl/common/polyphony_scaling_candidate/b2d_control_snapshot.sv",
+    "code/rtl/common/m2_n32_prom_candidate_20261013/m2_prom_gain.sv",
+    "code/rtl/common/m2_n32_prom_candidate_20261013/m2_prom_oct.sv",
+    "code/rtl/common/m2_n32_prom_candidate_20261013/m2_prom_sub.sv",
+    "code/rtl/common/m2_n32_prom_candidate_20261013/m2_prom_lfo.sv",
+    "code/rtl/common/m2_n32_prom_candidate_20261013/m2_prom_wave.sv",
+    "code/rtl/common/m2_n32_prom_candidate_20261013/m2_adsr_piano_prom.sv",
+    "code/rtl/common/m2_n32_prom_candidate_20261013/m2_pitch_mod_prom.sv",
+    "code/rtl/common/m2_n32_prom_candidate_20261013/m2_b2_backend_prom.sv",
+    "code/rtl/common/m3_n32_allocator_candidate_20261013/B/b_n32_event_audio_prom.sv",
+    "code/rtl/common/m3_n32_allocator_candidate_20261013/B/b_n32_r1_wrapper.sv",
+    "E:/FPGA/GAOYUNFPGA/138K/tools/gowin_1_9_11_03/IDE/simlib/gw5a/prim_sim.v",
+    "<C testbench last>"
+  ],
+  "forbidden_access": "C must not use hierarchical reads of B internal registers",
+  "business_path_changed_by_observation_ports": false,
+  "pass_receipt": null,
+  "review_key": null,
+  "fingerprint": null
+}

@@ -1,0 +1,103 @@
+{
+  "schema": "t061-n32c-blocked-manifest-v2",
+  "task": "T061",
+  "stage": "N32-C",
+  "status": "BLOCKED_WAIT_B_EXACT_PASS_AND_DUAL_REVIEW",
+  "execution_authorized": false,
+  "review_key": null,
+  "approval_sha256": null,
+  "identity": {
+    "base_git_sha": "0b5f45388f974ce4ae0a2081eac7add93181c32a",
+    "software_lock_path": "code/software/t061_n32_stress_plan_candidate_20261013/software_snapshot.lock.json",
+    "software_lock_sha256": "0ec316070509ca9989aa45fda41340fad8193efa82d6b0de2df0467f28e4dca5",
+    "workspace_state": "UNSEALED_UNCOMMITTED"
+  },
+  "plan": {
+    "path": "code/software/t061_n32_stress_plan_candidate_20261013/vectors/plan.jsonl",
+    "records": 507,
+    "sha256": "34b15a88ca57825796ca3deec5d4abd3da7d4f8d326812b4942294d169d6e1af"
+  },
+  "expected": {
+    "path": "code/software/t061_n32_stress_plan_candidate_20261013/vectors/expected_skeleton.jsonl",
+    "records": 487,
+    "sha256": "59c4f1c5da74131f5f41ba4b2404a10ad47f1f6236e066b70c5974ebdd5b8d35"
+  },
+  "machine": {
+    "hostname": null,
+    "os_arch": null,
+    "repo_absolute_path": null,
+    "cwd_absolute_path": null
+  },
+  "tools": {},
+  "sources": {},
+  "math": null,
+  "scenarios": [
+    "C00_INITIAL_RESET",
+    "C01_FILL32_STEAL33",
+    "C02_RETRIGGER",
+    "C03_IDENTITY_ISOLATION",
+    "C04_CC64_MULTI_RECYCLE",
+    "C05_CONTROL_SNAPSHOTS",
+    "C06_READ_HOLD_RECOVERY",
+    "C07_CANCEL_RESET",
+    "C08_HIGH_DENSITY"
+  ],
+  "designated_mutations": [
+    "DROP_TRANSACTION",
+    "DUPLICATE_TRANSACTION",
+    "WRONG_SLOT_IDENTITY",
+    "WRONG_STEAL_VICTIM",
+    "WRONG_RESULT_ID",
+    "PCM_LEFT_RIGHT_SWAP",
+    "PCM_WRONG_BEAT",
+    "CLIPPED_MISSING",
+    "CLIPPED_WRONG_BEAT",
+    "CLIPPED_FULLSCALE_DERIVED",
+    "DROP_REQUIRED_HOLD",
+    "HOLD_PAYLOAD_UNSTABLE",
+    "WRONG_READ_CONTEXT",
+    "READ_OUTSIDE_REQUEST",
+    "SAME_EDGE_READ_RESPONSE",
+    "RESULT_BEFORE_ACCEPT",
+    "DROP_ACCEPT",
+    "DUPLICATE_ACCEPT",
+    "CANCEL_NOT_DRIVEN",
+    "STALE_AFTER_CANCEL",
+    "STALE_AFTER_RESET"
+  ],
+  "steps": [],
+  "budget": {
+    "per_tool_seconds_max": 300,
+    "runner_total_seconds_max": 900,
+    "includes_prepare_postcheck_archive_receipt": true
+  },
+  "output": {
+    "directory": null,
+    "reject_overwrite": true,
+    "exclusive_attempt_record_required": true,
+    "private_process_tree_required": true,
+    "stdout_stderr_timestamps_exit_timeout_required": true
+  },
+  "failure_policy": {
+    "stop_on_first_failure": true,
+    "fail_partial_required": true,
+    "auto_retry": false,
+    "tool_switch": false,
+    "machine_switch": false,
+    "timeout_increase": false
+  },
+  "closure": {
+    "source_tool_pre_post_sha_required": true,
+    "artifact_log_sha_required": true,
+    "not_run_unknown_partial_required": true,
+    "sealed_small_archive_required": true
+  },
+  "blocked_reasons": [
+    "A exact functional PASS is not available",
+    "B exact PASS Review-Key and Fingerprint are not available",
+    "B module/parameter/port/source-order binding is not frozen",
+    "independent frozen PCM/clipped ledger is not bound",
+    "machine and exact tools are not bound",
+    "immutable review archive has not been sent to both reviewers"
+  ]
+}

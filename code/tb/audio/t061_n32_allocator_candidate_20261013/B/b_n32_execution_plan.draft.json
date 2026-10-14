@@ -1,0 +1,100 @@
+{
+  "schema_version": 2,
+  "review_key": "T061-N32-B-PLAN-R01-DRAFT",
+  "stage": "N32-B",
+  "state": "DRAFT_WAIT_A_PASS_AND_FINAL_SOURCE_SEAL",
+  "execution_authorized": false,
+  "created_date": "2026-10-14",
+  "machine": {
+    "hostname": "PENDING_FINAL_SEAL",
+    "workspace": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano",
+    "single_machine_required": true
+  },
+  "dependency_gate": {
+    "required_stage": "N32-A",
+    "required_status": "PASS",
+    "allocator_path": "code/rtl/common/m3_n32_allocator_candidate_20261013/m3_balanced_voice_allocator.sv",
+    "candidate_sha256_unreviewed": "51472b796c9cd883e0fd07ec304559c249fd055929b64a96d53aad5af5b2ce99",
+    "accepted_sha256": null,
+    "accepted_evidence_sha256": null,
+    "satisfied": false
+  },
+  "scope": {
+    "configuration": {"N": 32, "ROM_RESPONSE_CYCLES": 1},
+    "top": "tb_b_n32_r1",
+    "dut": "b_n32_r1_wrapper",
+    "capture_header": "B2C 32 1 <long_case>",
+    "extra_observation": "K cycle valid ready publish id_hex left_dec right_dec late clipped",
+    "normal_injection_enabled": false
+  },
+  "frozen_dependencies": {
+    "original_allocator_sha256": "9fec9f838a9ef333d01d1b79ecf77d137e41bc0c5e78a40d2820c37739506061",
+    "audio_defs_pkg_sha256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+    "sustain_contract_pkg_sha256": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+    "note_pitch_sha256": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+    "b1_statebank_sha256": "9ab598affbd317dedb5bdd7e099335ad1f60e3c84ed115f6669d52b3966521ed",
+    "b1_scheduler_sha256": "e11c2fb7e4c80160d42b44948003863892435050e27e47afc6e61ad6d5b78c9d",
+    "sustain_controller_sha256": "ebb942402e190c136a6ff0d2fd751cabdbf34a83be75bf7953360f0d8534a2d5",
+    "original_router_sha256": "f87b2f1585dc443093a0f0c4c1134675a6b1647a98c6cbdd0ec04c29099c6791",
+    "control_snapshot_sha256": "9cb23b971d243e1dcf43d2acf0445239f1f26b2f0edc51476ce6a0d5c5d450fd",
+    "prom_event_audio_sha256": "4339784901857cab00ce856dc23ce993a59783398d37aca02648c3123b533e84",
+    "prom_backend_sha256": "6727971f60c5aadab9985641035ec5ff8ad284f1e06adcfd9e58f78cf74d6953",
+    "vendor_gw5a_prim_sim_path": "E:/FPGA/GAOYUNFPGA/138K/tools/gowin_1_9_11_03/IDE/simlib/gw5a/prim_sim.v",
+    "vendor_gw5a_prim_sim_sha256": "202f65ccf77126d04e47db36c95e237e48522f3a105a3e64d9fcbf4e3b782f27"
+  },
+  "tools": {
+    "python": {"path": null, "sha256": null},
+    "compiler": {"path": null, "sha256": null},
+    "simulator": {"path": null, "sha256": null},
+    "all_dependencies_absolute_and_hashed": false,
+    "required_capsule_closure": ["bin/*.dll", "lib/*.dll", "lib/ivl/**"],
+    "required_runtime_dlls": ["libgcc_s_seh-1.dll", "libstdc++-6.dll", "libwinpthread-1.dll"],
+    "compiler_dll_closure_sha256": null,
+    "visible_dll_set_must_equal_manifest": true
+  },
+  "environment": {
+    "policy": "INHERIT_HOST_WITH_EXACT_LOADER_OVERRIDES",
+    "PATH": "<prepared>/tools/iverilog/bin;<prepared>/tools/iverilog/lib",
+    "YOSYSHQ_ROOT": "<prepared>/tools/iverilog",
+    "environment_bat_invoked": false
+  },
+  "lower_calls": 0,
+  "tool_version_calls": 0,
+  "eda_calls": 0,
+  "steps": [
+    {"id": "compile_normal_long", "fixture_long": 1, "calls": 1, "argv": null, "cwd": null, "expected_exit": 0},
+    {"id": "simulate_normal_long", "fixture_long": 1, "calls": 1, "argv": null, "cwd": null, "expected_exit": 0},
+    {"id": "check_normal_long", "fixture_long": 1, "calls": 1, "argv": null, "cwd": null, "expected_exit": 0, "required_marker": "N32_B_R1_EVENT_AUDIO_PASS_T061_PARTIAL"},
+    {"id": "compile_wrong_id", "calls": 1, "argv": null, "cwd": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano", "expected_exit": 0},
+    {"id": "simulate_wrong_id", "calls": 1, "argv": null, "cwd": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano", "expected_exit": 0},
+    {"id": "reject_wrong_id", "calls": 1, "argv": null, "cwd": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano", "expected_exit": 1, "required_reason": "RESULT_ID_LEDGER"},
+    {"id": "compile_wrong_pcm", "calls": 1, "argv": null, "cwd": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano", "expected_exit": 0},
+    {"id": "simulate_wrong_pcm", "calls": 1, "argv": null, "cwd": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano", "expected_exit": 0},
+    {"id": "reject_wrong_pcm", "calls": 1, "argv": null, "cwd": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano", "expected_exit": 1, "required_reason": "RESULT_PCM_LEDGER"},
+    {"id": "compile_wrong_clipped", "calls": 1, "argv": null, "cwd": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano", "expected_exit": 0},
+    {"id": "simulate_wrong_clipped", "calls": 1, "argv": null, "cwd": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano", "expected_exit": 0},
+    {"id": "reject_wrong_clipped", "calls": 1, "argv": null, "cwd": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano", "expected_exit": 1, "required_reason": "RESULT_CLIPPED_LEDGER"}
+  ],
+  "budgets_seconds": {"single_tool_max": 300, "runner_total_max": 900},
+  "output": {
+    "path": null,
+    "must_be_new": true,
+    "refuse_overwrite": true,
+    "required_records": ["attempt", "stdout", "stderr", "elapsed", "exit_code", "timeout", "source_before_after_sha256", "tool_before_after_sha256", "artifact_sha256", "log_sha256"]
+  },
+  "failure_policy": {
+    "stop_immediately": true,
+    "preserve_status": "FAIL_PARTIAL",
+    "automatic_retry": false,
+    "tool_switch": false,
+    "machine_switch": false,
+    "budget_increase": false
+  },
+  "review": {
+    "reviewer_thread": "01a13493-efb9-7ca0-8402-3511f3aa6115",
+    "pre_reviewer_thread": "01a134ab-aab8-7010-9bdf-bcef0630c9de",
+    "same_exact_snapshot_required": true,
+    "reviewed": false
+  },
+  "forbidden": ["Gowin", "synthesis", "place_and_route", "STA", "device_IO", "T052_execution", "T060_execution"]
+}

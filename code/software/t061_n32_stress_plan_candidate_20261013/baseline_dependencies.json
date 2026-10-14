@@ -1,0 +1,65 @@
+{
+  "schema": "t061-n32c-baseline-dependencies-v1",
+  "status": "STATIC_ONLY_WAIT_B",
+  "original_prepared_path": "code/build/138k_polyphony_resource/prepared/N32_R1_20261011_01/sources/b2c_voice_allocator.sv",
+  "original_prepared_path_status": "MISSING",
+  "explicit_same_bytes_alias": {
+    "path": "code/rtl/common/polyphony_scaling_candidate/b2c_voice_allocator.sv",
+    "sha256": "9fec9f838a9ef333d01d1b79ecf77d137e41bc0c5e78a40d2820c37739506061"
+  },
+  "readonly_dependencies": [
+    {
+      "path": "code/rtl/common/polyphony_scaling_candidate/b2c_event_router.sv",
+      "role": "old_router_contract_reference_only",
+      "sha256": "f87b2f1585dc443093a0f0c4c1134675a6b1647a98c6cbdd0ec04c29099c6791"
+    },
+    {
+      "path": "code/rtl/common/polyphony_scaling_candidate/b2c_sustain_controller.sv",
+      "role": "sustain_contract_reference",
+      "sha256": "ebb942402e190c136a6ff0d2fd751cabdbf34a83be75bf7953360f0d8534a2d5"
+    },
+    {
+      "path": "code/rtl/common/polyphony_scaling_candidate/b2d_control_snapshot.sv",
+      "role": "control_snapshot_reference",
+      "sha256": "9cb23b971d243e1dcf43d2acf0445239f1f26b2f0edc51476ce6a0d5c5d450fd"
+    },
+    {
+      "path": "code/rtl/common/polyphony_scaling_candidate/b1_scheduler.sv",
+      "role": "b1_scheduler_reference",
+      "sha256": "e11c2fb7e4c80160d42b44948003863892435050e27e47afc6e61ad6d5b78c9d"
+    },
+    {
+      "path": "code/rtl/common/polyphony_scaling_candidate/b1_statebank.sv",
+      "role": "b1_statebank_reference",
+      "sha256": "9ab598affbd317dedb5bdd7e099335ad1f60e3c84ed115f6669d52b3966521ed"
+    },
+    {
+      "path": "code/rtl/common/m2_n32_prom_candidate_20261013/m2_b2d_event_audio_prom.sv",
+      "role": "accurate_clipped_public_contract",
+      "sha256": "4339784901857cab00ce856dc23ce993a59783398d37aca02648c3123b533e84"
+    },
+    {
+      "path": "code/build/138k_polyphony_resource/prom_candidate_20261013_01/resource_receipt.json",
+      "role": "frozen_resource_input_receipt",
+      "sha256": "f77a526318cd213b164e9bed5d0d1d0f2ca19aad89a61813f082d7d5971151bf"
+    },
+    {
+      "path": "code/software/polyphony_scaling_candidate/b2c_router_model.py",
+      "role": "prior_independent_semantics_reference_only",
+      "sha256": "c860ef37cd0aa0a4cd7aba09c291f7ba21d7101abb336785d00826b980bb8c6c"
+    },
+    {
+      "path": "code/software/polyphony_scaling_candidate/protocol_oracle.py",
+      "role": "prior_transaction_fence_reference_only",
+      "sha256": "b767cb32756cc59a3ad6a566eacea8e37f7ec4758df4af79cae5412ec4b2ca1a"
+    }
+  ],
+  "required_b_binding": {
+    "status": "WAIT_B_EXACT_PASS",
+    "review_key": null,
+    "fingerprint": null,
+    "candidate_files": [],
+    "compile_source_order": [],
+    "pass_evidence": []
+  }
+}
