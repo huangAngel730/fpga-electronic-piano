@@ -3,7 +3,11 @@
 合同：`code/docs/hardware/score_transfer_v1/PROTOCOL.md`。上传事件而非PCM；不自动播放。
 只支持严格JSON，不自动排序，零力度NoteOn转NoteOff。编码无需第三方库。
 
-在仓库根目录执行，输出目录必须不存在：
+## 曲谱来源与目标导入流程（尚未实现）
+
+实际用户从网上下载曲谱文件，再在电脑或安卓手机上选择下载的文件导入；**不要求用户手工逐条输入音符事件**。优先对可解析的 `.mid` 文件做本地转换：按文件时间与 tempo 换算为现有 48 kHz tick 的严格 JSON，随后复用本工具的编码及既有 T057 上传协议。安卓端文件选择与 BLE 实物上传仍须另行接入和验证；不能因现有 C3 固件／APK 可构建就称这些流程已通过。其他下载格式（如 PDF、图片）当前不支持，应明确拒收，不能静默当作可播放曲谱。仓库 `example.json` 是开发／测试夹具，手写它不代表面向用户的曲谱输入方式。本阶段不开发网站爬虫、在线曲库或自动播放。
+
+在仓库根目录执行现有 JSON 编码，输出目录必须不存在：
 
 ```powershell
 python -B -X utf8 code/software/score_transfer_v1/score_transfer.py encode --score code/software/score_transfer_v1/example.json --output code/tb/input/score_transfer_candidate/runs/manual_encode_001
