@@ -35,6 +35,18 @@ def seal(prepared, output, destination, history, prefix=None):
     require(identity(prepared/"plan.json") == receipt["plan"], "C_SEAL_PLAN_BINDING")
     report = read_json(output/"report.json")
     mutations = read_json(output/"mutation_report.json")
+    if plan.get("profile") == "full-v6":
+        require(prefix is None, "C_FULL_NO_PREFIX_COMPOSITION")
+        if "reused_simulation" in plan:
+            require(plan["reused_simulation"].get("origin_profile") == "full-v6"
+                    and receipt.get("execution_mode") == "RTL_REUSED_NO_NEW_SIMULATION"
+                    and plan["full_reuse_qualification"]["status"] ==
+                        "KNOWN_CHECKER_ONLY_FAILURE_FULL_CAPTURE_QUALIFIED",
+                    "C_FULL_REUSED_ORIGINAL_MUST_BE_COMPLETE_FULL")
+        require(report.get("single_continuous_full_C_run") is True
+                and report.get("complete_C_capture") is True
+                and report.get("capture_composition") is False
+                and mutations.get("rejected") == 24, "C_FULL_SEAL_SCOPE")
     capture = Path(plan.get("reused_simulation", {}).get("capture_path", output/"simulate.stdout.bin"))
     require(identity(capture)["sha256"] == report["capture_sha256"]
             and mutations["original_sha256"] == report["capture_sha256"], "C_SEAL_CAPTURE_BINDING")
@@ -116,6 +128,10 @@ def seal(prepared, output, destination, history, prefix=None):
     for name in ("RESULT_20261014.md", "SELF_REVIEW_20261014.md", "NOTICE_TO_M2_20261014.md", "README_V6.md"):
         if (HERE/name).exists():
             add("delivery/"+name, HERE/name)
+    if plan.get("profile") == "full-v6":
+        for name in ("FULL_RESULT_20261014.md", "FULL_NOTICE_TO_M2_20261014.md"):
+            require((HERE/name).is_file(), "C_FULL_CURRENT_DELIVERY_REQUIRED:"+name)
+            add("delivery/"+name, HERE/name)
     add("delivery/actual_sealer.py", Path(__file__))
     if prefix is not None:
         add("composition/prefix_report.json", prefix)
@@ -128,6 +144,9 @@ def seal(prepared, output, destination, history, prefix=None):
     if composition is not None:
         manifest["composition"] = composition
         manifest["status"] = composition["status"]
+    if plan.get("profile") == "full-v6":
+        manifest.update(single_continuous_full_C_run=True, capture_composition=False,
+                        status="N32_C_FULL_CONTINUOUS_FUNCTION_MATH_PASS_T061_PARTIAL")
     destination.mkdir(parents=True)
     write_json(destination/"MANIFEST.json", manifest)
     archive = destination/"snapshot.zip"

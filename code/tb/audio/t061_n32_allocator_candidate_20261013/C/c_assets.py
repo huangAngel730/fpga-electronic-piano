@@ -40,7 +40,7 @@ def build(output, profile="v4"):
     tool_before = identity(sys.executable)
     started = time.monotonic()
     data = output/"data"
-    version = "v6" if profile == "suffix-v6" else "v4"
+    version = "v6" if profile in ("suffix-v6", "full-v6") else "v4"
     steps = [
         {"name": "operation_guard_tests", "argv": [sys.executable, "-I", "-S", "-B",
              str(HERE/"test_operation_progress.py")], "cwd": str(ROOT), "timeout_seconds": 90},
@@ -51,6 +51,15 @@ def build(output, profile="v4"):
              str(HERE/"generate_tb_v4.py"), "--plan", str(data/("plan_"+version+".jsonl")),
              "--output", str(data/("c_plan_"+version+".svh"))], "cwd": str(ROOT), "timeout_seconds": 300},
     ]
+    if profile == "full-v6":
+        steps[1]["argv"] += ["--segment", "FULL"]
+        steps.insert(1, {"name": "full_identity_tests", "argv": [sys.executable,
+            "-I", "-S", "-B", "-X", "utf8", str(HERE/"test_full_closure.py")],
+            "cwd": str(ROOT), "timeout_seconds": 90})
+        steps[2:2] = [{"name": name, "argv": [sys.executable, "-I", "-S", "-B", "-X", "utf8",
+            str(HERE/file)], "cwd": str(ROOT), "timeout_seconds": 90} for name, file in (
+                ("full_steal_tests", "test_full_steal_successor.py"),
+                ("full_reuse_guard_tests", "test_full_reuse_guard.py"))]
     receipt = {"schema": "T061_N32_C_ASSET_BUILD_V4", "status": "FAIL_PARTIAL",
                "profile": profile,
                "sources_before": before, "tool_before": tool_before,
@@ -88,7 +97,7 @@ def build(output, profile="v4"):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--profile", choices=("v4", "suffix-v6"), default="v4")
+    parser.add_argument("--profile", choices=("v4", "suffix-v6", "full-v6"), default="v4")
     args = parser.parse_args()
     try:
         print(json.dumps(build(args.output, args.profile)))

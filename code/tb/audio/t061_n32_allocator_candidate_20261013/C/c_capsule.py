@@ -98,6 +98,8 @@ def prepare(args):
                  row["snapshot"], {k: row[k] for k in ("bytes", "sha256")})
     for relative in (C_SOFTWARE, C_TB):
         for origin in sorted((root / relative).rglob("*")):
+            if args.profile == "full-v6" and any(part.startswith("SEALED_") for part in origin.parts):
+                continue  # Historical archives are evidence, not FULL execution dependencies.
             if origin.is_file() and "__pycache__" not in origin.parts:
                 copy_one(origin, origin.relative_to(root))
     for origin in sorted(args.assets.rglob("*")):
@@ -126,9 +128,10 @@ def prepare(args):
     compiler = bplan["tools"]["compile"]
     image = output / "work/sim.vvp"
     work = output / "work"
-    version = "v6" if args.profile == "suffix-v6" else "v4"
+    version = "v6" if args.profile in ("suffix-v6", "full-v6") else "v4"
     require(asset_receipt.get("profile", "v4") == args.profile, "C_ASSET_PROFILE")
-    checker = snapshot / C_SOFTWARE / ("check_"+version+".py")
+    checker = snapshot / C_SOFTWARE / ("check_full_v6.py" if args.profile == "full-v6"
+                                       else "check_"+version+".py")
     top = "tb_c_n32_r1_"+version
     tb = snapshot / C_TB / (top+".sv")
     compile_argv = [compiler, "-B", bplan["compiler_lib"], "-g2012", "-I", str(include),
@@ -166,6 +169,10 @@ def prepare(args):
             "execution_profile": "HOST_PROCESS_OWNED_JOB;CODEX_ESCALATED_LAUNCH",
             "intermediate_review": "USER_WAIVED;ROOT_AND_SUBAGENTS_SELF_REVIEW",
             "T061_complete": False}
+    if args.profile == "full-v6":
+        require(read_json(snapshot/"assets/asset_build_receipt.json")["profile"] == "full-v6",
+                "C_FULL_ASSETS_REQUIRED")
+        plan["execution_authority"] = "USER_20261014_C_FULL_CONTINUOUS_COMPLETION_SELFTEST_AND_PUBLISH"
     if args.reuse_run is not None:
         prior_output = within_output(root, args.reuse_run)
         prior_receipt_path = prior_output / "receipt.json"
@@ -181,14 +188,27 @@ def prepare(args):
         require(identity(raw_capture) == simulation[0]["stdout"], "C_REUSE_CAPTURE_PIN")
         old_sources = {r["snapshot"]: {k: r[k] for k in ("bytes", "sha256")}
                        for r in prior_plan["inputs"]}
+        if args.profile == "full-v6":
+            sys.path.insert(0, str(root/C_SOFTWARE))
+            from full_reuse_guard import qualify, unchanged_normal_functions
+            new_sources = {r["snapshot"]: {k: r[k] for k in ("bytes", "sha256")} for r in inputs}
+            proof = qualify(prior_plan, prior_receipt, read_json(prior_output/"report.json"),
+                            read_json(prior_output/"mutation_report.json"), old_sources,
+                            new_sources, plan["tool_files"])
+            old_checker = Path(prior_plan["prepared"])/"snapshot"/C_SOFTWARE/"check_full_v6.py"
+            unchanged_normal_functions(old_checker.read_bytes(), (snapshot/C_SOFTWARE/"check_full_v6.py").read_bytes())
+            plan["full_reuse_qualification"] = proof
         for row in inputs:
             rel = Path(row["snapshot"])
-            if rel.suffix in (".sv", ".v", ".svh", ".mem") or rel.name == "plan_v4.jsonl":
+            if rel.suffix in (".sv", ".v", ".svh", ".mem") or rel.name in (
+                    "plan_v4.jsonl", "plan_v6.jsonl", "expected_v6.jsonl"):
                 require(old_sources.get(row["snapshot"]) == {k: row[k] for k in ("bytes", "sha256")},
                         "C_REUSE_STIMULUS_OR_HDL_DRIFT:" + row["snapshot"])
         plan["reused_simulation"] = {"receipt_path": str(prior_receipt_path),
             "receipt": identity(prior_receipt_path), "capture_path": str(raw_capture),
-            "capture": identity(raw_capture), "status": "REUSED_COMPLETED_RTL_CAPTURE_ONLY"}
+            "capture": identity(raw_capture), "status": "REUSED_COMPLETED_RTL_CAPTURE_ONLY",
+            "origin_profile": prior_plan.get("profile"),
+            "origin_report": identity(prior_output/"report.json")}
         for check_step in steps[-2:]:
             check_step["argv"][check_step["argv"].index("--input")+1] = str(raw_capture)
         plan["steps"] = steps[-2:]
@@ -250,6 +270,11 @@ def execute(args):
             require(identity(reused["receipt_path"]) == reused["receipt"]
                     and identity(reused["capture_path"]) == reused["capture"], "C_REUSED_EVIDENCE_DRIFT")
             receipt["reused_simulation"] = reused
+            if plan.get("profile") == "full-v6":
+                require(plan["full_reuse_qualification"]["execution_mode"] == "RTL_REUSED_NO_NEW_SIMULATION",
+                        "C_FULL_REUSE_QUALIFICATION_REQUIRED")
+                receipt["full_reuse_qualification"] = plan["full_reuse_qualification"]
+                receipt["execution_mode"] = "RTL_REUSED_NO_NEW_SIMULATION"
         (output / "work").mkdir()
         helpers = snapshot / "code/software/t052_runner_acceptance_candidate_20261012"
         for step in plan["steps"]:
@@ -261,9 +286,16 @@ def execute(args):
                     "C_STEP_FAILED:" + step["name"])
         report = read_json(output / "report.json")
         require(report.get("status") == "N32_C_STRESS_PASS_T061_PARTIAL", "C_CHECKER_NOT_PASS")
+        if plan.get("profile") == "full-v6":
+            require(report.get("single_continuous_full_C_run") is True
+                    and report.get("complete_C_capture") is True
+                    and report.get("capture_composition") is False, "C_FULL_REPORT_SCOPE")
         mutations = read_json(output/"mutation_report.json")
         require(mutations.get("status") == "N32_C_MUTATIONS_PASS"
                 and mutations.get("rejected", 0) >= 10, "C_MUTATIONS_NOT_PASS")
+        if plan.get("profile") == "full-v6":
+            require(mutations.get("profile") == "FULL_C00_C09_SINGLE_CONTINUOUS_CAPTURE"
+                    and mutations.get("rejected") == 24, "C_FULL_MUTATION_SCOPE")
         verify(plan, snapshot)
         receipt["inputs_after"] = {r["snapshot"]: identity(snapshot/r["snapshot"])
                                     for r in plan["inputs"]}
@@ -311,7 +343,7 @@ def main():
     p.add_argument("--b-seal-sha", required=True)
     p.add_argument("--review-key", required=True)
     p.add_argument("--reuse-run", type=Path)
-    p.add_argument("--profile", choices=("v4", "suffix-v6"), default="v4")
+    p.add_argument("--profile", choices=("v4", "suffix-v6", "full-v6"), default="v4")
     p = subs.add_parser("execute")
     p.add_argument("--plan", type=Path, required=True)
     p.add_argument("--plan-sha", required=True)
