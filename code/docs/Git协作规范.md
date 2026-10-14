@@ -80,6 +80,47 @@ D014 正文按「只追加不改写」保持原样。
 
 禁止使用 `git push --force` 覆盖队友提交。需要回退时用 `git revert` 产生新提交。
 
+## Codex 本机 Git 写入与沙盒诊断（2026-10-14 实测）
+
+本节记录一次具体故障，不改变上文的分支、编号、门禁和复核规则。M2 的
+`C:\Users\Angel17\.codex\worktrees\m2-138k-migration\fpga_gowin`
+是 detached HEAD worktree，其 `.git` 指向
+`D:\17\project_17\fpga_gowin\.git\worktrees\fpga_gowin3`；共同对象库存于
+`D:\17\project_17\fpga_gowin\.git\objects`。正常 Windows ACL 看似允许
+Authenticated Users 修改，仍不能代表沙盒内的 Git 进程可写。
+
+- 故障时，`git fetch`／`git merge` 单独调用可以成功；把 `git add`、检查和状态查询
+  放在同一个 `pwsh -Command`，用分号或管道串接，会使该复合调用的执行规则解析为
+  `unknown`，不命中单条 Git 命令的允许规则，于是留在受限沙盒，报
+  `insufficient permission for adding an object ... .git/objects`。
+  本次一次带多个文件路径的 `git add -- ...` 也失败；**每次仅指定一个文件路径、
+  一条简单 `git add` 调用**，实际上能创建新对象并完成暂存。
+- 每个写入动作与每个检查动作分别调用，绝不把它们拼在同一条 shell 命令里：
+
+  ```powershell
+  git fetch origin develop
+  git add code/docs/任务看板.md
+  git diff --cached --name-only
+  git diff --cached --check
+  git commit -m "docs(register): record validated result"
+  ```
+
+  上面是**五次独立调用的示意**，并非可整段粘贴执行的复合脚本。多文件时逐文件
+  `git add`，再核暂存区仅包含本次授权文件，保持既有未跟踪文件不动；随后按既有流程
+  完成九项门禁、最后 fetch、取号和普通推送。
+- `git add --intent-to-add` 对已有跟踪文件返回 0，不证明新 Git 对象可写；
+  `git hash-object -w` 若对象已存在也可能返回 0，不能据此宣布 `git add` 已修复。
+  本次确认的方法是单文件 `git add` 一个**此前不存在于对象库**的新交付文件，并
+  核暂存区只含该文件。探针及 `reset --` 不能代替实际暂存、门禁与远端核验。
+- 如 worktree 正在 detached HEAD，不要假装当前是本地 `develop`；先单独 fetch、
+  核远端为当前 HEAD 的祖先，门禁和取号合规后才明确 `git push origin HEAD:develop`，
+  推送后再 fetch 核 `origin/develop` 与提交 SHA 相同。绝不 `--force`。本次
+  T060 原 H 证据提交 `853734b`、V0328 登记 `e0c6af7` 按此流程普通推送并核同。
+
+若**单文件简单 Git 命令**仍失败，保留完整原命令与错误，检查执行规则的实际匹配
+结果和进程身份；不要自动重试、改 ACL 掩盖沙盒问题、复制到别的 checkout 或改用
+临时 index／其他写入 API 绕过审批。权限不足时如实标记本地待发布。
+
 ## 工作流程
 
 1. **开工前先同步**：`git fetch origin`，然后 `git pull --rebase origin develop`。

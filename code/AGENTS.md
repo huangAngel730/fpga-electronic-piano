@@ -72,6 +72,7 @@
   **复核动作本身不强制留痕**，只有复核发现问题时才补一行。
 - 涉及时钟、复位、CDC、FIFO 或引脚时，完成对应专项检查。
 - 禁止 `git push --force`；回退用 `git revert`。
+- 本机 Codex 的 Git 写命令需逐条、按文件调用；复合 PowerShell 命令可能不命中执行规则，出现 `.git/objects` 假性权限故障。诊断、detached HEAD 的普通推送和验证边界见 `docs/Git协作规范.md`「Codex 本机 Git 写入与沙盒诊断」。
 
 ## 脚本编写约定（PowerShell）
 
