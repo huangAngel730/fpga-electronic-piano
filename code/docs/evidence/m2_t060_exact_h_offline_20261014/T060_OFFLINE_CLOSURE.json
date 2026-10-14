@@ -1,0 +1,400 @@
+{
+  "schema": 1,
+  "status": "T060_EXACT_H_OFFLINE_ACCEPTANCE_SCOPE_COMPLETE",
+  "acceptance_scope": "Signed original H capture2 math/route/strict structure plus new exact H A/B functional gap evidence; approved original diagnostic exclusions retained",
+  "t060_offline_acceptance_complete": true,
+  "all_possible_inputs_verified": false,
+  "production_N32_verified": false,
+  "physical_STA_verified": false,
+  "board_audio_verified": false,
+  "t061_complete": false,
+  "original_receipts_unchanged": true,
+  "old_exit3_unchanged": true,
+  "old_failure_unchanged": true,
+  "diagnostic_elapsed_seconds": 34.625,
+  "new_AB_elapsed_seconds": 289.34300000000076,
+  "new_attempt": {
+    "bytes": 716,
+    "sha256": "614c6e50c57d541fb60cddcc7a4fb3d407a4cc97fba5b239a259fbf8a696f848"
+  },
+  "new_config": {
+    "bytes": 315303,
+    "sha256": "3cbceb9d04e4e55c16cc8094da502103cb710daa1388bd51bd9cb4a91bf977bb"
+  },
+  "new_approval": {
+    "bytes": 426,
+    "sha256": "c6008a310bc82b5844c0f932cbf6b9590b8a26d354e8a183b5b6f76b670a2a64"
+  },
+  "original_signed_scope_REUSED": {
+    "schema": 1,
+    "status": "T060_REUSED_EVIDENCE_SCOPE_PARTIAL",
+    "t060_complete": false,
+    "original_input_sha256": {
+      "audio_observation.jsonl": "d17cf87952ac0c663e681e0b47051e9412af4a2979fb509aaa5d7114d5b32cc5",
+      "midi_pcm.capture": "bd0035de464cb8c757c7e29a132073181e9e8179aa8303ab1ec110c6990042d6"
+    },
+    "END_metadata": [
+      {
+        "field": "control_stalls",
+        "observed": 28,
+        "expected": null,
+        "disposition": "metadata_expectation_excluded",
+        "independently_recomputed": false
+      },
+      {
+        "field": "center_samples",
+        "observed": 697,
+        "expected": null,
+        "disposition": "metadata_expectation_excluded",
+        "independently_recomputed": false
+      },
+      {
+        "field": "checks",
+        "observed": 6228000,
+        "expected": null,
+        "disposition": "metadata_expectation_excluded",
+        "independently_recomputed": false
+      }
+    ],
+    "exact_fixture_flags": [
+      {
+        "epoch": 1,
+        "cycle": 1744211,
+        "request_id": 2094,
+        "observed": 1,
+        "expected": null,
+        "disposition": "metadata_expectation_excluded",
+        "PCM_math_and_timing_excluded": false
+      },
+      {
+        "epoch": 1,
+        "cycle": 1745045,
+        "request_id": 2095,
+        "observed": 1,
+        "expected": null,
+        "disposition": "metadata_expectation_excluded",
+        "PCM_math_and_timing_excluded": false
+      }
+    ],
+    "independently_verified_counters": {
+      "status": "REUSED",
+      "review": "V0283",
+      "full_pop_push": 1,
+      "edge_events": 19
+    },
+    "mandatory_strict_checks": [
+      "strict JSONL/F schema/order/type/epoch/ID",
+      "END exists exactly once with exact arity/integer ranges and no trailing records",
+      "all other verified END counts",
+      "new two END counters",
+      "all other independently known fixture flags",
+      "fixture values remain strict 0/1",
+      "all PCM including two excluded-metadata points",
+      "original independent DDS/envelope/ROM/gain/mix and submit arithmetic/timing",
+      "source/capture/ROM identity and expected nonzero rejection diagnoses"
+    ],
+    "functional_gaps_not_waived": [
+      "real retirement and accepted panic",
+      "frame/math overlap cancellation and nonrollback"
+    ],
+    "old_entry": {
+      "status": "PARTIAL",
+      "exit_code": 3,
+      "modified": false,
+      "unsupported": "ROUTER_OVERLAPPING_FRAME_MATH_UNCOVERED"
+    },
+    "physical": {
+      "new_STA_run": false,
+      "new_device_operation": false,
+      "verified": false
+    },
+    "no_flag_based_golden_selection": true,
+    "applies_to_other_inputs": false,
+    "new_RTL_execution_authorized": false,
+    "old_big_replay_executed": false,
+    "old_56_negatives_executed": false,
+    "reused_router_and_math": {
+      "status": "REUSED",
+      "new_execution": false,
+      "receipt_member": "code/output/m3_audio_router_final_20261010_01/receipt.json",
+      "receipt_sha256": "1eeaaf8ad6c635d673a9db197b4bfe638872c310aa18fd3527d1709b014dff17",
+      "receipt_original_exit_code": 3,
+      "limited_offline_math_L3": true,
+      "current_counter_review": "V0283",
+      "retirement_capture_proved": false,
+      "overlap_capture_proved": false,
+      "scope": "exact H/capture2 only"
+    },
+    "reused_sources": {
+      "code/docs/evidence/m2_t060_counter_closure_review_20261011/ACCEPTANCE_SCOPE.json": {
+        "bytes": 2376,
+        "sha256": "793a586add95ed4f766690b50258971e3895eba13e0c169831ac37cd3143f0a2"
+      },
+      "code/docs/evidence/m2_t060_counter_closure_review_20261011/SUMMARY.json": {
+        "bytes": 1539,
+        "sha256": "75078c3200922df24495b95c4274fd48d15cab10d5bd701d47680a3542876500"
+      },
+      "code/docs/hardware/audio_math_acceptance_v1/ROUTER_EVIDENCE_MANIFEST_20261010.json": {
+        "bytes": 61954,
+        "sha256": "a349cef541c7a490277f6384ed7f9c82b99d072f94246bdf446efdc05c111d3a"
+      },
+      "code/docs/hardware/audio_math_acceptance_v1/ROUTER_EVIDENCE_20261010.json.gz.b64": {
+        "bytes": 545553,
+        "sha256": "a6e33c1ef54ebc955e029b201f474f027a7273839f3e17539465fcb8043cfd34"
+      },
+      "code/docs/hardware/audio_math_acceptance_v1/CLOSURE_20261011_02/manifest.json": {
+        "bytes": 43209,
+        "sha256": "66f1df54bdb98c2b5d11734b1d65a8a2937e6d05c9710165ec9cf9fb31c02fc7"
+      },
+      "code/docs/hardware/audio_math_acceptance_v1/CLOSURE_20261011_02/seal_receipt.json": {
+        "bytes": 566,
+        "sha256": "87a3bf8ee933e4177ec17a3bb3d41e2de8a9542386e9d66b2b7de4a2c8eaed81"
+      },
+      "code/docs/hardware/audio_math_acceptance_v1/CLOSURE_20261011_02/evidence.zip.b64": {
+        "bytes": 3104052,
+        "sha256": "8898f017509dad5a380d1692a30af6628d9cfc0c958924dd9d565d77bcb888cf"
+      }
+    }
+  },
+  "original_signed_sources": {
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\docs\\evidence\\m2_t060_counter_closure_review_20261011\\ACCEPTANCE_SCOPE.json": {
+      "bytes": 2376,
+      "sha256": "793a586add95ed4f766690b50258971e3895eba13e0c169831ac37cd3143f0a2"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\docs\\evidence\\m2_t060_counter_closure_review_20261011\\SUMMARY.json": {
+      "bytes": 1539,
+      "sha256": "75078c3200922df24495b95c4274fd48d15cab10d5bd701d47680a3542876500"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\docs\\hardware\\audio_math_acceptance_v1\\ROUTER_EVIDENCE_MANIFEST_20261010.json": {
+      "bytes": 61954,
+      "sha256": "a349cef541c7a490277f6384ed7f9c82b99d072f94246bdf446efdc05c111d3a"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\docs\\hardware\\audio_math_acceptance_v1\\ROUTER_EVIDENCE_20261010.json.gz.b64": {
+      "bytes": 545553,
+      "sha256": "a6e33c1ef54ebc955e029b201f474f027a7273839f3e17539465fcb8043cfd34"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\docs\\hardware\\audio_math_acceptance_v1\\CLOSURE_20261011_02\\manifest.json": {
+      "bytes": 43209,
+      "sha256": "66f1df54bdb98c2b5d11734b1d65a8a2937e6d05c9710165ec9cf9fb31c02fc7"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\docs\\hardware\\audio_math_acceptance_v1\\CLOSURE_20261011_02\\seal_receipt.json": {
+      "bytes": 566,
+      "sha256": "87a3bf8ee933e4177ec17a3bb3d41e2de8a9542386e9d66b2b7de4a2c8eaed81"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\docs\\hardware\\audio_math_acceptance_v1\\CLOSURE_20261011_02\\evidence.zip.b64": {
+      "bytes": 3104052,
+      "sha256": "8898f017509dad5a380d1692a30af6628d9cfc0c958924dd9d565d77bcb888cf"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\software\\audio_math_acceptance_candidate\\t060_minclosure_20261011\\scope.py": {
+      "bytes": 7436,
+      "sha256": "cd55b1053801be53c38f2f864a0a7ea8c12d0e0d0cb300c184609c2d83e8f923"
+    }
+  },
+  "new_captures": {
+    "A": {
+      "path": "D:\\17\\project_17\\fpga_gowin\\code\\output\\M2_T060_fresh_AB_20261014_01\\snapshot\\future_group_A\\minclosure.jsonl",
+      "bytes": 17048113,
+      "sha256": "7458854565d73258b4fd66bd86380f0e66189239066d42cc1d4ad688a47ee369",
+      "records": 24586,
+      "END": {
+        "tag": "END",
+        "cycle": 4095000,
+        "counts": {
+          "EDGE": 24583,
+          "RESET": 1
+        }
+      },
+      "commits": 4914,
+      "independent_check": "PASS_ACTUALLY_EXECUTED",
+      "checker_execution": {
+        "label": "A_exact_check",
+        "argv": [
+          "C:/Users/Angel17/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\M2_T060_fresh_AB_20261014_01\\snapshot\\code\\software\\audio_math_acceptance_candidate\\t060_minclosure_20261011\\check_minclosure.py",
+          "--capture",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\M2_T060_fresh_AB_20261014_01\\snapshot\\future_group_A\\minclosure.jsonl",
+          "--plan",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\M2_T060_fresh_AB_20261014_01\\snapshot\\plan_A.json"
+        ],
+        "cwd": "D:\\17\\project_17\\fpga_gowin\\code\\output\\M2_T060_fresh_AB_20261014_01\\snapshot\\future_group_A",
+        "pid": 39216,
+        "cap_seconds": 90,
+        "effective_timeout_seconds": 90,
+        "elapsed_seconds": 14.937000000001717,
+        "exit_code": 0,
+        "expected_exit": 0,
+        "diagnostic": null,
+        "timeout": false,
+        "cleanup": null,
+        "cleanup_failure": null,
+        "stdout": {
+          "bytes": 138,
+          "sha256": "3411739627ab09d6a819721fd6dd14bb962f948e068123e8c990d99367f59b85"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    "B": {
+      "path": "D:\\17\\project_17\\fpga_gowin\\code\\output\\M2_T060_fresh_AB_20261014_01\\snapshot\\future_group_B\\minclosure.jsonl",
+      "bytes": 1063096,
+      "sha256": "aa7be937660321d10620676b26d98905faac4e03b943efb2096e8b34fdfdec47",
+      "records": 1595,
+      "END": {
+        "tag": "END",
+        "cycle": 1600,
+        "counts": {
+          "EDGE": 1591,
+          "RESET": 2
+        }
+      },
+      "commits": 5,
+      "independent_check": "PASS_ACTUALLY_EXECUTED",
+      "checker_execution": {
+        "label": "B_exact_check",
+        "argv": [
+          "C:/Users/Angel17/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "utf8",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\M2_T060_fresh_AB_20261014_01\\snapshot\\code\\software\\audio_math_acceptance_candidate\\t060_minclosure_20261011\\check_minclosure.py",
+          "--capture",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\M2_T060_fresh_AB_20261014_01\\snapshot\\future_group_B\\minclosure.jsonl",
+          "--plan",
+          "D:\\17\\project_17\\fpga_gowin\\code\\output\\M2_T060_fresh_AB_20261014_01\\snapshot\\plan_B.json"
+        ],
+        "cwd": "D:\\17\\project_17\\fpga_gowin\\code\\output\\M2_T060_fresh_AB_20261014_01\\snapshot\\future_group_B",
+        "pid": 39140,
+        "cap_seconds": 90,
+        "effective_timeout_seconds": 90,
+        "elapsed_seconds": 0.6409999999996217,
+        "exit_code": 0,
+        "expected_exit": 0,
+        "diagnostic": null,
+        "timeout": false,
+        "cleanup": null,
+        "cleanup_failure": null,
+        "stdout": {
+          "bytes": 137,
+          "sha256": "66250bbffd766b123c8178c103b84c8e6831bc200bd08c34eb1acd3b45031e9f"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    }
+  },
+  "real_retirement": {
+    "release_tick_count": 4800,
+    "release_done_first_cycle": 4026791,
+    "retirement_command_cycle": 4026793,
+    "occupied_clear_cycle": 4026796,
+    "reallocate_accept_cycle": 4060400,
+    "reallocated_generation": 2,
+    "sample_cadence": "833/833/834 source plan unchanged",
+    "reset_not_used_for_retirement": true
+  },
+  "accepted_panic": {
+    "cycle": 4072400,
+    "source": 1,
+    "channel": 0,
+    "previously_deferred": true,
+    "release_observed_by_cycle": 4072600,
+    "not_immediate_occupied_clear": true
+  },
+  "cancellation_cases": [
+    {
+      "case": "before_math",
+      "hit_cycle": 105,
+      "old_id": 1,
+      "actual_phase": 2,
+      "old_commit": 0,
+      "recovery_cycle": 136,
+      "recovery_id": 2,
+      "recovery_PCM": [
+        1280,
+        1280
+      ]
+    },
+    {
+      "case": "advance_same_edge",
+      "hit_cycle": 424,
+      "old_id": 3,
+      "actual_phase": 5,
+      "old_commit": 0,
+      "recovery_cycle": 455,
+      "recovery_id": 4,
+      "recovery_PCM": [
+        5376,
+        5376
+      ]
+    },
+    {
+      "case": "after_advance",
+      "hit_cycle": 725,
+      "old_id": 5,
+      "actual_phase": 6,
+      "old_commit": 0,
+      "recovery_cycle": 756,
+      "recovery_id": 6,
+      "recovery_PCM": [
+        22016,
+        22016
+      ]
+    },
+    {
+      "case": "held_backpressure",
+      "hit_cycle": 1033,
+      "old_id": 7,
+      "actual_phase": 7,
+      "old_commit": 0,
+      "recovery_cycle": 1064,
+      "recovery_id": 8,
+      "recovery_PCM": [
+        41472,
+        41472
+      ]
+    }
+  ],
+  "reset_recovery": {
+    "epoch": 2,
+    "release_cycle": 1514,
+    "new_commit_cycle": 1571,
+    "new_id": 1
+  },
+  "four_complete_capture_refusals": {
+    "A_reject_retirement_reuse_wrong_generation": {
+      "exit": 1,
+      "diagnostic": "MINCLOSURE_RETIRE_IDENTITY"
+    },
+    "A_reject_accepted_panic_missing_off": {
+      "exit": 1,
+      "diagnostic": "MINCLOSURE_PANIC_RELEASE"
+    },
+    "B_reject_frame_accepts_old_result": {
+      "exit": 1,
+      "diagnostic": "MINCLOSURE_CANCEL_OLD_ID"
+    },
+    "B_reject_advance_rolled_back": {
+      "exit": 1,
+      "diagnostic": "MINCLOSURE_ADVANCE_NONROLLBACK_MATH"
+    }
+  },
+  "new_EDA_calls": 0,
+  "new_device_operations": 0,
+  "old_56_counterexamples_replayed": false,
+  "old_4207_or_capture2_math_replayed": false,
+  "repository_registered": false,
+  "git_published": false,
+  "remaining": "Hardware/production integration and generic workload coverage are outside this offline acceptance scope; N32/T061 separate and still PARTIAL."
+}
