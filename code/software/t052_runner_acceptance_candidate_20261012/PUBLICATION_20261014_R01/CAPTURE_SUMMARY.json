@@ -1,0 +1,80 @@
+{
+  "status": "CAPTURE_AND_CHECKER_PASS_PENDING_M2",
+  "T052_status": "PARTIAL",
+  "config": {
+    "bytes": 4826,
+    "sha256": "d7140f0c4c3e294d4fc3de0edaf1aeae7dad874434616533ba3a53b7ec154433"
+  },
+  "tool_count": 1014,
+  "source_count": 7,
+  "pre_post_sha_equal": true,
+  "steps": [
+    {
+      "label": "compile",
+      "exit_code": 0,
+      "elapsed_seconds": 0.07800000000861473,
+      "pid": 54484
+    },
+    {
+      "label": "run",
+      "exit_code": 0,
+      "elapsed_seconds": 0.01600000000325963,
+      "pid": 48056
+    },
+    {
+      "label": "check",
+      "exit_code": 0,
+      "elapsed_seconds": 0.5940000000118744,
+      "pid": 9872
+    }
+  ],
+  "checker": {
+    "RTL_verified": true,
+    "T052_complete": false,
+    "audio_math": "NOT_RERUN",
+    "exit_code": 0,
+    "expected_pins": 128,
+    "inputs": {
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\t052_publication_acceptance_20261012\\M2_CONTROL_PLAN_20261012\\controls_proposed.jsonl": {
+        "bytes": 19004,
+        "sha256": "b2d0cb1ba0bf3cd4b2d636f3d4cb7ac286558238ae2b52c3e9e43ba54ee5ef02"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_host_capture_20261014_01\\actual_run_receipt.json": {
+        "bytes": 285226,
+        "sha256": "3b2499aaaf88dfda2adfad14d9e697ec5d571c93e23ab587d40a0cc92b579410"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_host_capture_20261014_01\\work\\t052_controls_actual.jsonl": {
+        "bytes": 18191,
+        "sha256": "b4d8fe359a53bdac3f730154279e1aeab91657d0479ff504d4ce2598b565f15a"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_host_capture_20261014_01\\work\\t052_observations_actual.jsonl": {
+        "bytes": 10435,
+        "sha256": "562f4052e437184a04cd6f0cc378ae461985f2378b9b39515d2f95045c39e316"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_host_capture_20261014_01\\work\\t052_publications_actual.jsonl": {
+        "bytes": 1722,
+        "sha256": "8e87391e522c814a0d79f4fb8c358695fdada5342ea2bbc11762fd7e2c2b4a25"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_host_capture_20261014_01\\work\\t052_reset_events_actual.jsonl": {
+        "bytes": 949,
+        "sha256": "902ccd318e208c9663f60e64effce35325fc23729b2a169e04da4fb888a4fddc"
+      },
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_host_capture_plan_20261014_01\\prepared\\manifest.json": {
+        "bytes": 252741,
+        "sha256": "15fc387996e069d363c82129882fcdb11cdd4dda078d54cd00e7047f32c0fc74"
+      }
+    },
+    "ledger": {
+      "accepted": 6,
+      "cancelled": 3,
+      "open": 0,
+      "published": 3,
+      "type": "END"
+    },
+    "reset_edges": 4,
+    "status": "RTL_CONTROL_WINDOW_PASS"
+  },
+  "review": "Implementation window self-review; no reviewer messages sent.",
+  "test_context": "Prior preparation: 5 envelope tests passed against new controller; zero-tool verify passed. No checker rerun during sealing.",
+  "boundary": "No hardware/synthesis/timing validation. Audio math not rerun. No commit/push or shared status changes."
+}

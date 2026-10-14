@@ -113,10 +113,15 @@ module t052_public_observer_v2 (
         end else if (frame_tick || cancel) begin
             if (pending) begin
                 cancelled_count = cancelled_count + 1;
-                $fdisplay(publications_file,
-                    "{\"event\":\"CANCEL\",\"cycle\":%0d,\"time\":%0d,\"epoch\":%0d,\"serial\":%0d,\"req_id\":%0d,\"reason\":\"%s\"}",
-                    cycle, $time, pending_epoch, pending_serial, pending_id,
-                    frame_tick ? "frame" : "cancel");
+                if (frame_tick) begin
+                    $fdisplay(publications_file,
+                        "{\"event\":\"CANCEL\",\"cycle\":%0d,\"time\":%0d,\"epoch\":%0d,\"serial\":%0d,\"req_id\":%0d,\"reason\":\"frame\"}",
+                        cycle, $time, pending_epoch, pending_serial, pending_id);
+                end else begin
+                    $fdisplay(publications_file,
+                        "{\"event\":\"CANCEL\",\"cycle\":%0d,\"time\":%0d,\"epoch\":%0d,\"serial\":%0d,\"req_id\":%0d,\"reason\":\"cancel\"}",
+                        cycle, $time, pending_epoch, pending_serial, pending_id);
+                end
             end
             pending = 1'b0;
         end else begin

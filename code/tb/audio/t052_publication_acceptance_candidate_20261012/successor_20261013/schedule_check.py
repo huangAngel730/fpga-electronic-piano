@@ -130,6 +130,11 @@ def check_observer(text):
              'META_MISSING:' + name)
     need('$isunknown' in source and 'T052_RESET_UNKNOWN' in source,
          'FOUR_STATE_REJECTION_REQUIRED')
+    need('frame_tick ? "frame" : "cancel"' not in source,
+         'OBSERVER_REASON_WIDTH')
+    need(r'\"reason\":\"frame\"' in source and
+         r'\"reason\":\"cancel\"' in source,
+         'OBSERVER_REASON_CONTRACT')
     return {'sampling': 'PRE_NBA', 'time_unit': '1ns', 'time_precision': '1ps',
             'async_reset_transition_observation': True,
             'note': 'Source checks only, not HDL elaboration or runtime proof.'}

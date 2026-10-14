@@ -76,6 +76,18 @@ class ScheduleTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'OBSERVER_PUBLIC_ONLY'):
             self.run_audit(observer=self.observer.replace('if (pending)', 'if (dut.pending)'))
 
+    def test_observer_cancel_reason_is_exact_and_unpadded(self):
+        padded = self.observer.replace('reason\\\":\\\"frame',
+                                       'reason\\\":\\\" frame', 1)
+        self.assertNotEqual(padded, self.observer)
+        with self.assertRaisesRegex(ValueError, 'OBSERVER_REASON_CONTRACT'):
+            self.run_audit(observer=padded)
+        ternary = self.observer.replace('if (frame_tick) begin',
+                                        'if (frame_tick ? "frame" : "cancel") begin', 1)
+        self.assertNotEqual(ternary, self.observer)
+        with self.assertRaisesRegex(ValueError, 'OBSERVER_REASON_WIDTH'):
+            self.run_audit(observer=ternary)
+
     def test_original_source_is_not_accepted_as_successor(self):
         old = (audit.HERE.parent / 'tb_t052_publication_control_128.sv').read_text(encoding='utf-8')
         regression = audit.reproduce_legacy(old)

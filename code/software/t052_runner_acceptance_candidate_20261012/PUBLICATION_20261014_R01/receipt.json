@@ -1,0 +1,259 @@
+{
+  "status": "T052_128_WINDOW_PASS",
+  "exit_code": 0,
+  "failure": null,
+  "config_sha256": "d7140f0c4c3e294d4fc3de0edaf1aeae7dad874434616533ba3a53b7ec154433",
+  "approval_sha256": "c81d20d4d205beed4f757e015019f397163dfc6d0393e3e030f7d89ad44cfddc",
+  "environment": {
+    "COMSPEC": "C:\\WINDOWS\\System32\\cmd.exe",
+    "IVERILOG_ROOT": "D:\\Gowin\\oss-cad-suite\\lib\\ivl",
+    "PATH": "D:\\Gowin\\oss-cad-suite\\bin;D:\\Gowin\\oss-cad-suite\\lib;C:\\WINDOWS\\System32",
+    "PYTHONHASHSEED": "0",
+    "PYTHONIOENCODING": "utf-8",
+    "SystemRoot": "C:\\WINDOWS",
+    "TEMP": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_host_capture_20261014_01\\work",
+    "TMP": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_host_capture_20261014_01\\work",
+    "WINDIR": "C:\\WINDOWS"
+  },
+  "steps": [
+    {
+      "label": "compile",
+      "argv": [
+        "D:/Gowin/oss-cad-suite/bin/iverilog.exe",
+        "-B",
+        "D:\\Gowin\\oss-cad-suite\\lib\\ivl",
+        "-g2012",
+        "-s",
+        "tb_t052_control_128_v2",
+        "-o",
+        "t052_control_v2.vvp",
+        "readonly/t052_polyphony_test_source.sv",
+        "readonly/dds_oscillator.sv",
+        "readonly/pcm_mixer_4voice.sv",
+        "t052_public_observer_v2.sv",
+        "tb_t052_control_128_v2.sv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_host_capture_20261014_01\\work",
+      "pid": 54484,
+      "timeout_cap_seconds": 90,
+      "effective_timeout_seconds": 90.0,
+      "elapsed_seconds": 0.07800000000861473,
+      "exit_code": 0,
+      "timed_out": false,
+      "cleanup": null,
+      "launch_error": null,
+      "stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "run",
+      "argv": [
+        "D:/Gowin/oss-cad-suite/bin/vvp.exe",
+        "t052_control_v2.vvp",
+        "+DUT_SHA=89ddb8b73bda6e5c83c7b617640cddf3294fb194a9b7955746c28a2e0f2eddeb",
+        "+ROM_SHA=5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2",
+        "+PLAN_SHA=b2d0cb1ba0bf3cd4b2d636f3d4cb7ac286558238ae2b52c3e9e43ba54ee5ef02",
+        "+TB_SHA=d6712a053b0a20b27c3227bbbc36776c654a56f42e5c558fb63103c3653c4d24",
+        "+OBSERVER_SHA=ec5e18ddc6d41f6de8ec229da42ccbd9550bfbb85eb9cbf461181c811e7769d3",
+        "+TOOL_SHA=d38cc76e6946136aaf46db8a3bf34bec2a54bad564dfe146686579ca2d39c9ed"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_host_capture_20261014_01\\work",
+      "pid": 48056,
+      "timeout_cap_seconds": 90,
+      "effective_timeout_seconds": 90.0,
+      "elapsed_seconds": 0.01600000000325963,
+      "exit_code": 0,
+      "timed_out": false,
+      "cleanup": null,
+      "launch_error": null,
+      "stdout": {
+        "bytes": 272,
+        "sha256": "08e387a83691df47beac958339c9bc9e952200e86234a3bee9ceacb28fc39cd2"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "check",
+      "argv": [
+        "C:/Users/songdongkuan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-I",
+        "-S",
+        "-B",
+        "-X",
+        "utf8",
+        "-c",
+        "import hashlib,importlib.util,json,pathlib,sys\ncp=pathlib.Path(sys.argv[1]).resolve();cn=int(sys.argv[2]);ch=sys.argv[3]\nap=pathlib.Path(sys.argv[4]).resolve();an=int(sys.argv[5]);ah=sys.argv[6]\nmp=pathlib.Path(sys.argv[7]).resolve();mn=int(sys.argv[8]);mh=sys.argv[9]\ncb=cp.read_bytes();ab=ap.read_bytes();mb=mp.read_bytes()\nif len(cb)!=cn or hashlib.sha256(cb).hexdigest()!=ch: raise SystemExit('CHECKER_IDENTITY')\nif len(ab)!=an or hashlib.sha256(ab).hexdigest()!=ah: raise SystemExit('CALENDAR_IDENTITY')\nif len(mb)!=mn or hashlib.sha256(mb).hexdigest()!=mh: raise SystemExit('MANIFEST_IDENTITY')\na=sys.argv[10:];snap={ap:ab,mp:mb}\nif a[a.index('--manifest')+1]!=str(mp) or a[a.index('--manifest-sha')+1]!=mh: raise SystemExit('MANIFEST_ARG')\nfor z in ('--plan','--receipt','--controls','--observations','--publications','--resets'):\n p=pathlib.Path(a[a.index(z)+1]).resolve();snap[p]=p.read_bytes()\nrp=pathlib.Path(a[a.index('--receipt')+1]).resolve()\nif hashlib.sha256(snap[rp]).hexdigest()!=a[a.index('--receipt-sha')+1]: raise SystemExit('RECEIPT_IDENTITY')\nm=json.loads(mb);pp=pathlib.Path(a[a.index('--plan')+1]).resolve();ps=m['plan']\nif len(snap[pp])!=ps['bytes'] or hashlib.sha256(snap[pp]).hexdigest()!=ps['sha256']: raise SystemExit('PLAN_IDENTITY')\nrb=pathlib.Path.read_bytes;rt=pathlib.Path.read_text\ndef br(self):\n q=self.resolve();return snap[q] if q in snap else rb(self)\ndef tr(self,encoding=None,errors=None):\n q=self.resolve();return snap[q].decode(encoding or 'utf-8',errors or 'strict') if q in snap else rt(self,encoding=encoding,errors=errors)\npathlib.Path.read_bytes=br;pathlib.Path.read_text=tr\nclass L:\n def create_module(self,s): return None\n def exec_module(self,m): exec(compile(ab,str(ap),'exec'),m.__dict__,m.__dict__)\no=importlib.util.spec_from_file_location\ndef f(n,p,*a,**k):\n q=pathlib.Path(p).resolve()\n return importlib.util.spec_from_loader(n,L(),origin=str(q)) if q==ap else o(n,p,*a,**k)\nimportlib.util.spec_from_file_location=f\nsys.argv=[str(cp),*a]\ng={'__name__':'t052_pinned_checker','__file__':str(cp),'__package__':None,'__cached__':None}\nexec(compile(cb,str(cp),'exec'),g,g)\nraise SystemExit(g['main']())\n",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_publication_acceptance_candidate_20261012\\rtl_capture_precheck_20261012\\successor_20261013\\checker.py",
+        "15927",
+        "dd15c40566c30e8e3c9e2eb96c297db762daacb0984543231766fb72db87f74c",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_publication_acceptance_candidate_20261012\\publication.py",
+        "11166",
+        "0fdf4bb1530453cbbce14136bcae082ca1ff28e04d96402065f4c916ecf36058",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_host_capture_plan_20261014_01\\prepared\\manifest.json",
+        "252741",
+        "15fc387996e069d363c82129882fcdb11cdd4dda078d54cd00e7047f32c0fc74",
+        "actual",
+        "--manifest",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_host_capture_plan_20261014_01\\prepared\\manifest.json",
+        "--manifest-sha",
+        "15fc387996e069d363c82129882fcdb11cdd4dda078d54cd00e7047f32c0fc74",
+        "--plan",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\t052_publication_acceptance_20261012\\M2_CONTROL_PLAN_20261012\\controls_proposed.jsonl",
+        "--receipt",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_host_capture_20261014_01\\actual_run_receipt.json",
+        "--receipt-sha",
+        "3b2499aaaf88dfda2adfad14d9e697ec5d571c93e23ab587d40a0cc92b579410",
+        "--approval-sha",
+        "c81d20d4d205beed4f757e015019f397163dfc6d0393e3e030f7d89ad44cfddc",
+        "--controls",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_host_capture_20261014_01\\work\\t052_controls_actual.jsonl",
+        "--observations",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_host_capture_20261014_01\\work\\t052_observations_actual.jsonl",
+        "--publications",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_host_capture_20261014_01\\work\\t052_publications_actual.jsonl",
+        "--resets",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_host_capture_20261014_01\\work\\t052_reset_events_actual.jsonl"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_t052_host_capture_20261014_01\\work",
+      "pid": 9872,
+      "timeout_cap_seconds": 90,
+      "effective_timeout_seconds": 90.0,
+      "elapsed_seconds": 0.5940000000118744,
+      "exit_code": 0,
+      "timed_out": false,
+      "cleanup": null,
+      "launch_error": null,
+      "stdout": {
+        "bytes": 1905,
+        "sha256": "a235e0a1a4245e18e42a00ee9d23cd43a1c2f7600b76f5534f042d0ee67e97fe"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "T052_complete": false,
+  "artifacts": {
+    "actual_run_receipt.json": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/actual_run_receipt.json",
+      "bytes": 285226,
+      "sha256": "3b2499aaaf88dfda2adfad14d9e697ec5d571c93e23ab587d40a0cc92b579410"
+    },
+    "check.receipt.json": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/check.receipt.json",
+      "bytes": 5089,
+      "sha256": "7c20809e6f6514cb8d77945a3a1f9060195627f9bf5f4af2ff6e5a8a475a78ab"
+    },
+    "check.stderr.bin": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/check.stderr.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "check.stdout.bin": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/check.stdout.bin",
+      "bytes": 1905,
+      "sha256": "a235e0a1a4245e18e42a00ee9d23cd43a1c2f7600b76f5534f042d0ee67e97fe"
+    },
+    "compile.receipt.json": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/compile.receipt.json",
+      "bytes": 969,
+      "sha256": "8c7f670f1f0b1617de4fc1f040b390f32fe00632bc63bd56027281dd83c6cd94"
+    },
+    "compile.stderr.bin": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/compile.stderr.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "compile.stdout.bin": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/compile.stdout.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "run.receipt.json": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/run.receipt.json",
+      "bytes": 1155,
+      "sha256": "61eb77266395d28d4d76e69a709115a779839fbcf7ceae256f82e1a61761dda7"
+    },
+    "run.stderr.bin": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/run.stderr.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "run.stdout.bin": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/run.stdout.bin",
+      "bytes": 272,
+      "sha256": "08e387a83691df47beac958339c9bc9e952200e86234a3bee9ceacb28fc39cd2"
+    },
+    "work/controls_128.hex": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/work/controls_128.hex",
+      "bytes": 5632,
+      "sha256": "060d9cf951e8cb2eaf98283b0de758812aed21dfecfd5554814c5ac7f02d0e82"
+    },
+    "work/t052_controls_actual.jsonl": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/work/t052_controls_actual.jsonl",
+      "bytes": 18191,
+      "sha256": "b4d8fe359a53bdac3f730154279e1aeab91657d0479ff504d4ce2598b565f15a"
+    },
+    "work/t052_control_v2.vvp": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/work/t052_control_v2.vvp",
+      "bytes": 61353,
+      "sha256": "1541300d1c35cab37e7edd12d0da8ce77868e8dfb1dadd76cee3b07cb79a05f6"
+    },
+    "work/t052_observations_actual.jsonl": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/work/t052_observations_actual.jsonl",
+      "bytes": 10435,
+      "sha256": "562f4052e437184a04cd6f0cc378ae461985f2378b9b39515d2f95045c39e316"
+    },
+    "work/t052_publications_actual.jsonl": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/work/t052_publications_actual.jsonl",
+      "bytes": 1722,
+      "sha256": "8e87391e522c814a0d79f4fb8c358695fdada5342ea2bbc11762fd7e2c2b4a25"
+    },
+    "work/t052_public_observer_v2.sv": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/work/t052_public_observer_v2.sv",
+      "bytes": 8327,
+      "sha256": "ec5e18ddc6d41f6de8ec229da42ccbd9550bfbb85eb9cbf461181c811e7769d3"
+    },
+    "work/t052_reset_events_actual.jsonl": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/work/t052_reset_events_actual.jsonl",
+      "bytes": 949,
+      "sha256": "902ccd318e208c9663f60e64effce35325fc23729b2a169e04da4fb888a4fddc"
+    },
+    "work/tb_t052_control_128_v2.sv": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/work/tb_t052_control_128_v2.sv",
+      "bytes": 3300,
+      "sha256": "d6712a053b0a20b27c3227bbbc36776c654a56f42e5c558fb63103c3653c4d24"
+    },
+    "work/readonly/dds_oscillator.sv": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/work/readonly/dds_oscillator.sv",
+      "bytes": 2691,
+      "sha256": "3cd758e28da8f76a30da38cb2dfcd458db5743d4ea4f38e072a43d7f83719f04"
+    },
+    "work/readonly/pcm_mixer_4voice.sv": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/work/readonly/pcm_mixer_4voice.sv",
+      "bytes": 2068,
+      "sha256": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a"
+    },
+    "work/readonly/sine_1024_8192.mem": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/work/readonly/sine_1024_8192.mem",
+      "bytes": 5120,
+      "sha256": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2"
+    },
+    "work/readonly/t052_polyphony_test_source.sv": {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_t052_host_capture_20261014_01/work/readonly/t052_polyphony_test_source.sv",
+      "bytes": 7331,
+      "sha256": "89ddb8b73bda6e5c83c7b617640cddf3294fb194a9b7955746c28a2e0f2eddeb"
+    }
+  },
+  "elapsed_seconds": 2.0469999999913853
+}
