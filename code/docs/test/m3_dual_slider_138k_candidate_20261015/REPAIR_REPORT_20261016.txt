@@ -1,0 +1,54 @@
+D双滑块隔离候选修复结果（2026-10-16）
+
+结论：本次隔离软件/模块修复与自审完成，L2_ISOLATED_CANDIDATE_FIXTURE_PASS，待M2最终限定复核。
+用户直接授权“允许修改D 请解决D遇到的问题”。新repair_run_01/02为独立修复批次，
+原run_night_01/02/03及delivery_night_r02仍为原失败/未验证时点，旧额度2/2不恢复。
+本窗口无Git写入，沿最新分工由总控统一发布。本报告没有提交号或已上传GitHub声明。
+
+根因与修复
+1. 原wrapper传给visual_scene_renderer的JUDGE_Y=H-1、KEYBOARD_TOP=H违反旧模块严格范围。
+   已有静态修复H-2/H-1本次实际验证有效；不改原renderer，不关闭原断言。
+2. 历史runner的CREATE_SUSPENDED常量与局部PATH缺lib问题沿用已修正的新入口。
+   run_repair.py把原夜间账本保留为2组，并单列用户新授权批次、独占输出和新标记。
+   同Icarus14.0(devel)套件与438项工具/依赖、8项原视觉/公共源、WindowsJob/Python对原SHA核同。
+   每工具90秒、每组300秒、本批累计自限900秒；只运行本组编译成功的新.vvp。
+3. 新入口严格核唯一整行PASS、CHECK计数相等、stdout/stderr错误拒收。
+   负例要求退出1及指定REJECT诊断；旧run_candidate.py保持历史原件，不作为新执行入口。
+4. 子智能体与本窗口只读自审发现旧TB的非背景像素判据、运动与音频时间重叠、
+   在途CDC复位覆盖不足。新TB增量：上飘87c7cb/下落c773db精确RGB与区间外背景，
+   每显示帧间至少1000个40MHz系统周期，检查音频帧增量；mode/score/event源接受后共享复位，
+   验证无幽灵切换、残留音符、drop或desync。旧视觉/公共源、D wrapper逻辑保持不变。
+
+实际验证
+repair_run_01：2.110秒，8工具启动；版本0/0、compile0、positive0（46检查），
+  negative_1/2/3/4均1；模式消息丢失/错域直连、下落卡帧、音频欠载分别命中预期。
+repair_run_02：3.281秒，8工具启动；版本0/0、compile0、positive0（99检查），
+  同四负例均1且命中MODE_CDC_DELIVERY、MODE_CDC_DELIVERY、FALLING_FRAME_PROGRESS、AUDIO_UNDERRUN。
+  正例包含47次显示帧期间音频增量检查，12帧下落独立整数几何预期、释放/退出、
+  source/channel同音身份隔离、零力度释放、帧边界切换、精确RGB、blanking及两类复位。
+  运动阶段真实观测夹具音频计数递增；该计数器未接正式PCM/I2S链，按夹具限定报告。
+本批总16启动=4版本+2compile+10产物VVP（2正例、8故障注入）。
+连同原夜间6启动，总历史22；新工具无超时，前后输入/438工具SHA均一致。
+每步argv/cwd/env/原双流/退出码/耗时/进程ID见相应launch/receipt，before/after及products逐项SHA。
+编译日志有Icarus always_* constant-select敏感集保守展开提示，编译0；未忽略语法错误或改变原源。
+
+精确当前身份
+RTL a8116d04f7fa70ba4500c4819e3ffb939fcc7096acef9bb7f87004e1e648868f
+TB 1554f41a7532e747f7571346b731ddb4929fb94e259eaa0ef36e2f73f449225a
+runner cd00dc4835a144f2bdfacf256d861b253c11700aad8b216da185fc17243b9e4e
+源/原依赖/各次执行副本、旧参数diff、TB增量diff、新runner diff、原vvp与所有日志包含在新包。
+旧封包SHA 6cee5e409e0082f5590ca68f45f61933eab15c4700e272c4f1195316d81185bc保持不变。
+
+失败历史与证据边界
+旧夜间常量/依赖/参数三次失败及两次平台执行拒绝均保留，不改旧收据状态。
+本批首次新runner AST检查因生成替换展开了美元符号导致SyntaxError，未运行脚本或创建工具。
+原失败源和原因保存repair_preflight_failure_01.txt；修后AST退出0。
+该首次AST的错误原文在对话工具合并输出，没有另存stderr原流，不伪称其双流完整。
+repair_run_01已通过后，因自审具体覆盖问题修改TB，再使用全新repair_run_02，不是同源盲重试。
+
+尚未执行/未签收
+测试几何128x64、4显示槽；40MHz sys/25MHz pixel异步夹具，显示帧加速。未外推其它分辨率及实屏。
+无真实音频链/整机音画共存、无正式138K集成、无新综合/PnR/STA、无设备操作。
+旧下落命中闪光FAIL按原任务暂缓且关闭；不声称命中反馈通过。
+board_release_allowed=false。基础R05同版准入、正式整机验证和上板由M2依既定流程决定。
+本窗口及子智能体自审，不启动审核员/预审员窗口。待用户转发，尚未送达。

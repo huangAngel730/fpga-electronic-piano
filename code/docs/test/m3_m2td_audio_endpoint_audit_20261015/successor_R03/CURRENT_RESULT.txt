@@ -1,0 +1,94 @@
+B / D 当前限定交付，2026-10-16
+================================
+主对话4负责B及D；仅总控统一Git发布。本窗口未提交/推送，不修改共享状态/编号表。
+当前HEAD核对：8b64a352464932a28df565038cafc8d623dea5c9。
+依据四项主责、夜间八小时及候选权限预授权；跨机纯路径迁移已获用户明确许可。
+本包封存/读回不是新的物理工具尝试。所有硬件调用0，board_release_allowed=false。
+
+B 实际结果
+-----------
+ISOLATED_DIRECTED_B_CANDIDATE_PASS_PENDING_M2。
+实际Gowin外层启动1次，round1已消费；344.813秒/1800秒，退出0，无超时。
+private Windows Job监督，完整argv/cwd/显式环境及退出链见stage顶层收据。
+本次同版副本完成综合/PnR/STA；不是正式共享树签收，不放行生成码流。
+首轮通过，不允许为“更好证据”启动第二轮。实际旧32/13组均只读复用，未重跑。
+
+五对原报告实际对象在新报告均有精确Setup/Hold行（单位ns）：
+post_right_ram_address       22.505 / 0.000
+voice_lane2_phase_to_rom     22.534 / 0.000
+pitch_lane3_total_to_oct     20.908 / 0.000
+pitch_lane0_total_to_sub     22.511 / 0.000
+event_fifo_to_audio_slot      1.736 / 2.814
+均sys_clk:[R]到sys_clk:[R]、25ns Setup/0ns Hold关系。
+所报告表中最低Setup 1.736、Hold 0.000，不等于全音频链端点覆盖。
+Logic 27879/138240，Register 9582/139095，DSP 50/298，BSRAM 28/340。
+
+身份与差异
+-----------
+physical ZIP：17e71ebd5b54743fd0214af5fbfdfd1a4cca4eddbcedab56f7b3df7b3ca521ff。
+portable ZIP：1101f1af0809530a150143456aab8ff9a1c66373e9ccbc174c6459e8c916b3bf。
+84原输入逐项大小/SHA核同：69直接保留，15由收据逆映射精确恢复，明确派生身份。
+40处绝对路径跨15文件、9个不同依赖；38处在GPRJ列举源，2处在排除的旧dds源。
+不能把40处称为40条已实例化活跃路径。迁移逐处记录位置/用途/目标依赖SHA；
+逆替换恢复每个原文件精确字节。仅这15源和隔离SDC产生差异。
+原SDC前24106字节未变，仅追加10条精确report_timing；CST/ROM/器件/时钟不变。
+GPRJ新路径可逆，原69项条目不增删；Tcl增加冻结include目录查找，不改RTL逻辑。
+工具gw_sh：E:/FPGA/GAOYUNFPGA/138K/tools/gowin_1_9_11_03/IDE/bin/gw_sh.exe，
+SHA 4c172d4c0d2a4c7ef5c764d091a315cbcde2127573554bfd7d09ac6f2e5ea535。
+原收据同launcher，DLL实际版本字串V1.9.11.03 Education，2518工具/依赖文件冻结。
+工具退出即刻收据保存核同布尔值；完整后SHA清单为随后重采，时间如实注明，未冒充同期快照。
+原件SHA/迁移前后SHA/工具清单见PATH_MIGRATION、PREFLIGHT、RUN_RECEIPT及TOOL_AFTER_RESNAPSHOT。
+
+原报告SHA 68f3d8f410efc0a2aafd6c96b1ef694a7a1c1157115bc03cebf2231a568bb2ff。
+RUN_RECEIPT SHA bee129d8c7ebacf82764d7cf52904e5cb24e2a0728d7a54ed48b5670d75fa75c。
+新.vg是本轮综合网表，不是post-PnR网表；base_s1/base_s2原名未出现不证明功能被移除。
+交付包含新.vg及原始报告。fs/bin/binx和大型实现数据库不交付，排除清单记录SHA。
+
+验证与自审
+-----------
+新增恢复边界最初12项通过，补强后13项通过；verification_r02两子命令均退出0。
+新checker最终15项正负例通过，candidate_checker_tests_r03退出0，原始双流保留。
+覆盖精确双分析、缺对象/单分析/inactive/错时钟/负slack/NaN等，并用原HTML解析回归
+验证真实Report Command:前缀，不仅使用合成fixture。
+实际check_candidate_report.py退出0，ENDPOINT_CHECK_R01绑定原报告和run收据SHA，10行有字节span。
+该实际checker命令终端输出未另存原始双流；不把后来摘要冒充同期stdout/stderr。
+EDA原始双流和所有新单测双流齐全；checker JSON本体包含可核结果。
+本窗口及只读子智能体核84原输入、15文件/40路径逆恢复、约束追加、工具身份、
+私有Job/一次标记/预算，以及精确报告对象。自审不替代M2最终复核。
+本地SUG940手册及旧真实报告仅核查询语法；新报告已证明literal[]在Tcl braces中的实际匹配，
+没有拿旧时序slack拼签新结果，没有修改原checker。
+
+失败历史（不抹除旧文件）
+-------------------------
+1. -I模式首次直接import失败；改为固定文件importlib加载后新留痕验证通过。
+   首失败仅工具合并输出，没有另存原始双流，明确证据缺口。
+2. 新checker测试r01 13/14：NaN正确拒收，测试错误匹配“finite”；修断言，原失败源/流保留。
+3. r02虽14项通过，自审发现fixture漏真实Report Command:前缀；增量修新checker及fixture，
+   增加真实原HTML回归后r03 15项通过。发生在实际checker运行前，未重跑物理工具。
+4. CIM查询权限拒绝，未声称检查成功；用Get-Process可用只读检查。
+5. Windows rg通配路径诊断命令报错，改实际目录查找；不涉及物理额度。
+6. 总控跨对话消息被平台拒绝，尚未送达，未绕过或例行重发。
+7. 封存前读两个不存在的测试流文件名报错；按实际文件清单封包，不伪造缺名文件。
+
+D 当前状态及移交
+-----------------
+PARTIAL，两组动态额度2/2已消费，不得第三组。包见D delivery_night_r02。
+night01入口常量错误、Popen前失败：0工具/0组。
+night02组1：iverilog版本0，vvp版本3221225595/0xC000007B；未编译。
+修局部PATH同suite/lib并冻结其依赖，不换工具/不改系统。
+night03组2：版本0/0，compile0，positive VVP1；t=0原renderer拒无效参数。
+总6工具启动（4版本/1compile/1artifact VVP）；0正例PASS，0负例运行。
+当前仅新wrapper参数静态改为H-2/H-1，未编译/未仿真：
+RTL SHA a8116d04f7fa70ba4500c4819e3ffb939fcc7096acef9bb7f87004e1e648868f。
+TB SHA 1ed079f600ef8d762fb131b0987d050a3ac248d053c99d6f25ee9865e7e40932。
+旧编译成功只对应旧SHA，不能签当前源码L1/L2。四负例、运动/CDC/音频共存待验。
+flash旧FAIL暂缓/禁用；音频只是cadence夹具，不是A真链。无EDA/硬件。
+D包SHA 6cee5e409e0082f5590ca68f45f61933eab15c4700e272c4f1195316d81185bc，340291字节/117成员。
+失败日志、原命令、消费标记、各次源、依赖SHA、失败.vvp封存，不再次运行失败产物。
+
+下一责任
+---------
+总控：读取B/D原包，按最终精确共享树门禁串行发布；本窗口不代发其他包。
+M2：限定复核B同版身份/五pair报告，决定正式准入；不据此放行实物或整机。
+M2：决定D修后新SHA是否给新的回归预算；旧2组不恢复。当前PARTIAL不改成完成。
+待用户转发，尚未送达。
