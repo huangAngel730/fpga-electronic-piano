@@ -1,0 +1,29 @@
+本窗口40MHz端点准备失败历史（只读/纯软件；0 EDA/RTL/设备）
+
+1. inline Python两次带正则引号的PowerShell命令退出1、工具输出为空。
+   工具chunk 6fe2d9、1edb51；不将其当EDA失败或实际报告结论。
+   改用保存的inspect_original.py避免多层引号。原始双流未独立重定向，只有工具回执；明确证据边界。
+
+2. inspect_original.py初稿C4C4A943A5E00CF98A2A5FB6031D07C83F6F2833112364523FB02C5FA3F98BD0
+   命令 --output .../observed_r01，exit1，OBSERVATION_REJECTED: unexpected archive member set。
+   当时错误硬编码16成员，实际ZIP15。只读枚举exit0证实15，改为精确名称集合比较，SHA门槛不变。
+   原初稿源码未实时另存，保存此SHA及已知最小差异，不声称初稿完整源码原件仍在。
+   output在拒绝前未创建；observed_r01不存在是正常失败结果，不伪造产物。
+
+3. observed_r02成功exit0，但自审发现同Hold_Analysis8下多表同名片段覆盖，
+   完整原timing.html/各row字节定位仍保留。修文件名加原字节偏移、补routed_node_locations。
+   observed_r02所有原产物保留，observed_r03新输出exit0，五张详细片段各自保留。
+
+4. verification_r01命令退出1，observe/derive均0，unit1，13项中12通过1失败。
+   测试硬编码voice phase_acc起点LOC为R53C106[2][A]，原详细报告实际R102C83[1][A]。
+   直接检查observed_r03/fragments/Hold_Analysis8_byte2390398.html后仅修测试预期。
+   verification_r01/unit.stderr.log及test_observations_failed_original.py完整保留。
+   verification_r02新目录全3命令0、13/13 PASS，源码/输入前后同。
+   未改原报告或解析结果来迎合测试，不属于放宽STA判据。
+
+5. 主控开工/材料差异回执send_message_to_thread被平台auto-review拒绝。
+   无消息送达，不绕过拒绝；最终交付经本窗口最终响应/由用户或授权总控读取。
+   不把收到总控消息或读取其用户授权等同于平台发送成功。
+
+原observed_r02/r03/r04、source_derived_r01/r02、verification_r01/r02均不覆盖、不删。
+最终verification_r03及封包另存，不回填旧失败PASS。

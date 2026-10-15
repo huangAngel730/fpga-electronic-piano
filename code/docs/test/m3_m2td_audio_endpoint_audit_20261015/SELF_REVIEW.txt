@@ -1,0 +1,27 @@
+本窗口自审与只读子智能体增量自审，2026-10-15
+
+未启用审核员/预审员；不是M2最终复核，也不是新STA签收。
+
+主窗口：
+- 对照原物理ZIP 15个成员及manifest逐字节SHA，复制仅12个必要报告/约束/收据。
+- 发现并修复重复anchor原片段文件名覆盖；最后文件名加原字节偏移，完整原HTML始终保留。
+- 单测错误预期LOC按原表改正，不改原报告/解析结果/STA阈值。
+- 核两源码派生前原成员及逆适配后SHA，写明不是网表原件。
+- 没有任何其他文件写集、Git/EDA/RTL/STA/硬件操作；并发T052/R04文件不碰。
+
+只读子智能体sta_source_identity：
+- 同次.vg未找到，权限拒绝的历史目录不强闯；不借旧网表。
+- 核base_s1/base_s2源级32位流水关系、同sys_clk及分级valid使能。
+- 核逆适配后SHA与物理input_files一致；结论限定源码，不推断物理对象保留。
+
+只读子智能体sta_offline_selfcheck：
+- 用Python标准库独立从原ZIP读原timing.html，exit0；未写文件/未启动EDA。
+- 原ZIP及报告SHA匹配；五行起终点/类型/slack/时钟、raw byte offsets、fragment SHA匹配。
+- 十个起终点物理位置匹配；四条仅Hold、第五条仅Setup，未误称reg-reg或双分析。
+- 无网表、base零匹配维持UNKNOWN正确；未错误推断综合优化。
+- 派生标识、query/STA未执行、activity UNKNOWN、board_release_allowed=false边界明确。
+- 本次diff范围未发现阻断；命令集合/转义语义仍由M2获准工具窗口核实。
+
+最终软件证据：verification_r03/RECEIPT.json。
+3实际子命令exit0/0/0，13/13测试PASS，输入及源码前后SHA一致。
+全部结论只L0/L1准备与软件自审，不替主对话2验收器或总控综合联测。

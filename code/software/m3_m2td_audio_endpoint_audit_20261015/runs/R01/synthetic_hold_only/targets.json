@@ -1,0 +1,28 @@
+{
+  "schema": "m3_audio_endpoint_targets_v1",
+  "clock": "sys_clk",
+  "period_ns": "25.000",
+  "source": {
+    "kind": "SYNTHETIC_TEST_ONLY",
+    "report_sha256": "fc4ceb72e2eb2e46acd8d86eaa3a6990bba87b022cb48cdd351ecfcf54ca6493",
+    "metadata": {
+      "Report Title": "Timing Analysis Report",
+      "Design File": "SYNTHETIC_TEST_ONLY/design.vg",
+      "Physical Constraints File": "SYNTHETIC_TEST_ONLY/design.cst",
+      "Timing Constraint File": "SYNTHETIC_TEST_ONLY/design.sdc",
+      "Tool Version": "SYNTHETIC_TEST_ONLY (Gowin V1.9.11.03 grammar)",
+      "Part Number": "SYNTHETIC_TEST_ONLY",
+      "Device": "SYNTHETIC_TEST_ONLY",
+      "Device Version": "SYNTHETIC_TEST_ONLY",
+      "Created Time": "SYNTHETIC_TEST_ONLY"
+    }
+  },
+  "targets": [
+    {
+      "id": "pitch_mod_lane3_total_to_oct_address",
+      "from_node": "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane[3].u_control/total_s2_10_s0/Q",
+      "to_node": "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane[3].u_control/oct_lut_oct_lut_0_0_s/AD[7]",
+      "require_directed": false
+    }
+  ]
+}

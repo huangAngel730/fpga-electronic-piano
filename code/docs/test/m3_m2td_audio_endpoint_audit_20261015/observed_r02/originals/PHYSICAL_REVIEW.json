@@ -1,0 +1,358 @@
+{
+  "status": "PHYSICAL_REPORT_PASS_FUNCTIONAL_PENDING",
+  "errors": [],
+  "expected_new_combo_differences": [
+    "actual fixed FF location mismatch/missing g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[2].u_control/base_s1_18_s0",
+    "actual fixed FF location mismatch/missing g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[2].u_control/base_s2_18_s0",
+    "frozen resource footprint changed BSRAM",
+    "frozen resource footprint changed DSP"
+  ],
+  "slacks_ns": {
+    "Setup": 1.736,
+    "Hold": 0.0,
+    "Recovery": 1.41,
+    "Removal": 0.492
+  },
+  "fmax_MHz": {
+    "sys_clk": 42.984,
+    "video_serial": 1280.0,
+    "video_pixel": 34.555
+  },
+  "resources": {
+    "Logic": {
+      "used": 27879,
+      "total": 138240
+    },
+    "Register": {
+      "used": 9582,
+      "total": 139095
+    },
+    "DSP": {
+      "used": 50,
+      "total": 298
+    },
+    "BSRAM": {
+      "used": 28,
+      "total": 340
+    }
+  },
+  "TNS": [
+    [
+      "ref_clk",
+      "Setup",
+      "0.000",
+      "0"
+    ],
+    [
+      "ref_clk",
+      "Hold",
+      "0.000",
+      "0"
+    ],
+    [
+      "sys_clk",
+      "Setup",
+      "0.000",
+      "0"
+    ],
+    [
+      "sys_clk",
+      "Hold",
+      "0.000",
+      "0"
+    ],
+    [
+      "video_serial",
+      "Setup",
+      "0.000",
+      "0"
+    ],
+    [
+      "video_serial",
+      "Hold",
+      "0.000",
+      "0"
+    ],
+    [
+      "video_pixel",
+      "Setup",
+      "0.000",
+      "0"
+    ],
+    [
+      "video_pixel",
+      "Hold",
+      "0.000",
+      "0"
+    ]
+  ],
+  "visual_CDC_gate": {
+    "summary": {
+      "Setup Delay Model": "Slow 0.855V 0C C1/I0",
+      "Hold Delay Model": "Fast 0.945V 85C C1/I0",
+      "Numbers of Paths Analyzed": "140106",
+      "Numbers of Endpoints Analyzed": "38925",
+      "Numbers of Falling Endpoints": "4",
+      "Numbers of Setup Violated Endpoints": "0",
+      "Numbers of Hold Violated Endpoints": "0"
+    },
+    "bus_path_count": {
+      "u_event_bridge": 23,
+      "u_control/u_score_mailbox": 50
+    }
+  },
+  "actual_pins": {
+    "sys_clk": {
+      "Diff Pair": "-",
+      "Loc./Bank": "V22/4",
+      "Constraint": "Y",
+      "Dir.": "in",
+      "IO Type": "LVCMOS33",
+      "BankVccio": "3.3",
+      "Pull Mode": "NONE",
+      "Drive": "OFF"
+    },
+    "sys_rst_n": {
+      "Diff Pair": "-",
+      "Loc./Bank": "AA13/5",
+      "Constraint": "Y",
+      "Dir.": "in",
+      "IO Type": "LVCMOS33",
+      "BankVccio": "3.3",
+      "Pull Mode": "UP",
+      "Drive": "OFF"
+    },
+    "key_n[0]": {
+      "Diff Pair": "-",
+      "Loc./Bank": "AB13/5",
+      "Constraint": "Y",
+      "Dir.": "in",
+      "IO Type": "LVCMOS33",
+      "BankVccio": "3.3",
+      "Pull Mode": "UP",
+      "Drive": "OFF"
+    },
+    "key_n[1]": {
+      "Diff Pair": "-",
+      "Loc./Bank": "Y12/5",
+      "Constraint": "Y",
+      "Dir.": "in",
+      "IO Type": "LVCMOS33",
+      "BankVccio": "3.3",
+      "Pull Mode": "UP",
+      "Drive": "OFF"
+    },
+    "midi_rx": {
+      "Diff Pair": "-",
+      "Loc./Bank": "R17/4",
+      "Constraint": "Y",
+      "Dir.": "in",
+      "IO Type": "LVCMOS33",
+      "BankVccio": "3.3",
+      "Pull Mode": "UP",
+      "Drive": "OFF"
+    },
+    "i2s_bclk": {
+      "Diff Pair": "-",
+      "Loc./Bank": "Y17/5",
+      "Constraint": "Y",
+      "Dir.": "out",
+      "IO Type": "LVCMOS33",
+      "BankVccio": "3.3",
+      "Pull Mode": "NONE",
+      "Drive": "8"
+    },
+    "i2s_lrck": {
+      "Diff Pair": "-",
+      "Loc./Bank": "AB17/5",
+      "Constraint": "Y",
+      "Dir.": "out",
+      "IO Type": "LVCMOS33",
+      "BankVccio": "3.3",
+      "Pull Mode": "NONE",
+      "Drive": "8"
+    },
+    "i2s_din": {
+      "Diff Pair": "-",
+      "Loc./Bank": "AA16/5",
+      "Constraint": "Y",
+      "Dir.": "out",
+      "IO Type": "LVCMOS33",
+      "BankVccio": "3.3",
+      "Pull Mode": "NONE",
+      "Drive": "8"
+    },
+    "pa_en": {
+      "Diff Pair": "-",
+      "Loc./Bank": "AB16/5",
+      "Constraint": "Y",
+      "Dir.": "out",
+      "IO Type": "LVCMOS33",
+      "BankVccio": "3.3",
+      "Pull Mode": "NONE",
+      "Drive": "8"
+    },
+    "uart_tx": {
+      "Diff Pair": "-",
+      "Loc./Bank": "U15/5",
+      "Constraint": "Y",
+      "Dir.": "out",
+      "IO Type": "LVCMOS33",
+      "BankVccio": "3.3",
+      "Pull Mode": "UP",
+      "Drive": "8"
+    },
+    "tmds_clk_p": {
+      "Diff Pair": "tmds_clk_n",
+      "Loc./Bank": "G15,G16/3",
+      "Constraint": "Y",
+      "Dir.": "out",
+      "IO Type": "LVDS25",
+      "BankVccio": "3.3",
+      "Pull Mode": "NONE",
+      "Drive": "3.5"
+    },
+    "tmds_data_p[0]": {
+      "Diff Pair": "tmds_data_n[0]",
+      "Loc./Bank": "J14,H14/3",
+      "Constraint": "Y",
+      "Dir.": "out",
+      "IO Type": "LVDS25",
+      "BankVccio": "3.3",
+      "Pull Mode": "NONE",
+      "Drive": "3.5"
+    },
+    "tmds_data_p[1]": {
+      "Diff Pair": "tmds_data_n[1]",
+      "Loc./Bank": "J15,H15/3",
+      "Constraint": "Y",
+      "Dir.": "out",
+      "IO Type": "LVDS25",
+      "BankVccio": "3.3",
+      "Pull Mode": "NONE",
+      "Drive": "3.5"
+    },
+    "tmds_data_p[2]": {
+      "Diff Pair": "tmds_data_n[2]",
+      "Loc./Bank": "K17,J17/3",
+      "Constraint": "Y",
+      "Dir.": "out",
+      "IO Type": "LVDS25",
+      "BankVccio": "3.3",
+      "Pull Mode": "NONE",
+      "Drive": "3.5"
+    }
+  },
+  "reset_and_diagnostic_LOC": {
+    "u_visual/u_serial_reset/sync_chain_0_s0": [
+      "R44C168[1][A]"
+    ],
+    "u_visual/u_serial_reset/sync_chain_1_s0": [
+      "R44C168[1][B]"
+    ],
+    "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[2].u_control/base_s1_18_s0": [],
+    "g_polyphonic.u_audio_core/u_bank/u_pitch_mod/g_lane[2].u_control/base_s2_18_s0": []
+  },
+  "minimum_pulse_ns": 1.823,
+  "audio_timing_paths": [
+    [
+      "Hold_Slack_Table8",
+      0.0,
+      "g_polyphonic.u_audio_core/u_chain/u_post/u_right/wr_ptr_7_s1/Q",
+      "g_polyphonic.u_audio_core/u_chain/u_post/u_right/buffer[0]_ER_RS_buffer[0]_ER_RS_0_0_s38/WAD[1]"
+    ],
+    [
+      "Hold_Slack_Table8",
+      0.0,
+      "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/g_lane[2].u_voice/u_piano/phase_acc_30_s0/Q",
+      "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/g_lane[2].u_voice/u_piano/u_table/rom_data_rom_data_0_0_s/AD[10]"
+    ],
+    [
+      "Hold_Slack_Table8",
+      0.0,
+      "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane[3].u_control/total_s2_10_s0/Q",
+      "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane[3].u_control/oct_lut_oct_lut_0_0_s/AD[7]"
+    ],
+    [
+      "Hold_Slack_Table8",
+      0.0,
+      "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane[0].u_control/total_s2_6_s0/Q",
+      "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane[0].u_control/sub_lut_sub_lut_0_0_s/AD[10]"
+    ],
+    [
+      "Hold_Slack_Table8",
+      0.0,
+      "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_events/held_event.note_number_0_s0/Q",
+      "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_events/slot_notes_24_s0/D"
+    ],
+    [
+      "Hold_Slack_Table8",
+      0.0,
+      "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_events/slot_generation[0]_10_s0/Q",
+      "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/frozen_generations_10_s0/D"
+    ],
+    [
+      "Hold_Slack_Table8",
+      0.0,
+      "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/g_lane[0].u_envelope/rom_addr_2_s0/Q",
+      "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/g_lane[0].u_envelope/gain_rom_gain_rom_0_0_s/AD[6]"
+    ],
+    [
+      "Hold_Slack_Table8",
+      0.0,
+      "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_events/slot_generation[2]_26_s0/Q",
+      "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/frozen_generations_90_s0/D"
+    ],
+    [
+      "Setup_Slack_Table10",
+      1.736,
+      "u_performance_event_fifo/rd_ptr_2_s0/Q",
+      "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_events/target_slot_0_s0/CE"
+    ],
+    [
+      "Setup_Slack_Table10",
+      1.736,
+      "u_performance_event_fifo/rd_ptr_2_s0/Q",
+      "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_events/target_slot_1_s0/CE"
+    ],
+    [
+      "Setup_Slack_Table10",
+      2.429,
+      "u_performance_event_fifo/rd_ptr_2_s0/Q",
+      "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_events/state_3_s0/D"
+    ]
+  ],
+  "artifact_sha256": {
+    "m2_fourvoice_timbre_delay_board_top_tr_content.html": {
+      "bytes": 2715163,
+      "sha256": "524cea6ebb93eca719c5aa86cd6413129299ac2c9da78467ac7709cdf4e8ec62"
+    },
+    "m2_fourvoice_timbre_delay_board_top.rpt.txt": {
+      "bytes": 84136,
+      "sha256": "c065287476e2f338fe1031831766c72328ee3e8e6a2fbe7368cf09eb7d72cb04"
+    },
+    "m2_fourvoice_timbre_delay_board_top.pin.html": {
+      "bytes": 97937,
+      "sha256": "58b8ff84533bbc231431874101a466bc313dec9e579b18256accd884a556cf9c"
+    },
+    "audio_visual_hold055.sdc": {
+      "bytes": 24106,
+      "sha256": "a8791f826c0bd8630483ce28c44636c24e4e28c041a9622d17d0b1764a8f888f"
+    },
+    "cmd.do": {
+      "bytes": 833,
+      "sha256": "8c0d86b767a91f83f0c7900033a1e0fe1deae71d0c7a6591e685659f5a41cd36"
+    },
+    "device.cfg": {
+      "bytes": 605,
+      "sha256": "79ba1b7ed107b7e76bd3e27dbc482c595c63451857ae30252a0207364397112c"
+    },
+    "m2_fourvoice_timbre_delay_board_top.fs": {
+      "bytes": 37517739,
+      "sha256": "5f4960d91ffb7ccd22ac5f79526cf45b55bbc20836285a5f9b328cc3cfc27c10"
+    }
+  },
+  "board_release_allowed": false,
+  "new_board_functional_RTL": "NOT_RUN",
+  "old_L5_transfer": false
+}

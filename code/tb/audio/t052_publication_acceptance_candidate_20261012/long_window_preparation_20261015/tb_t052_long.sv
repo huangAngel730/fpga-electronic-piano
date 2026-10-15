@@ -34,7 +34,7 @@ module tb_t052_long;
     );
     t052_long_observer observer (.*);
 
-    // DRIVER_BEGIN: initialization row0, then exactly one row per negedge.
+    // DRIVER_BEGIN: row0 at t0, then one row per positive-time negedge.
     initial begin
         clk = 0;
         driver_index = 0;
@@ -45,7 +45,9 @@ module tb_t052_long;
         forever #10 clk = ~clk;
     end
     always @(negedge clk) begin
-        if (driver_index < LAST_CYCLE) begin
+        // X -> 0 at initialization may trigger this block in the t0 region.
+        // A delta delay (#0) would still be t0; explicitly exclude time zero.
+        if (($time > 0) && (driver_index < LAST_CYCLE)) begin
             driver_index = driver_index + 1;
             apply_next();
         end

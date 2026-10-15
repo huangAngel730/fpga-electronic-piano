@@ -1,0 +1,30 @@
+{
+  "schema": "m3_audio_endpoint_targets_v1",
+  "clock": "sys_clk",
+  "period_ns": "25.000",
+  "source": {
+    "kind": "FROZEN_PHYSICAL_ZIP",
+    "report_sha256": "524cea6ebb93eca719c5aa86cd6413129299ac2c9da78467ac7709cdf4e8ec62",
+    "metadata": {
+      "Report Title": "Timing Analysis Report",
+      "Design File": "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\impl\\gwsynthesis\\m2_fourvoice_timbre_delay_board_top.vg",
+      "Physical Constraints File": "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\constraints\\audio_visual.cst",
+      "Timing Constraint File": "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\constraints\\audio_visual_hold055.sdc",
+      "Tool Version": "V1.9.11.03 Education",
+      "Part Number": "GW5AST-LV138PG484AC1/I0",
+      "Device": "GW5AST-138",
+      "Device Version": "C",
+      "Created Time": "Thu Oct 15 10:48:37 2026"
+    },
+    "archive_sha256": "17e71ebd5b54743fd0214af5fbfdfd1a4cca4eddbcedab56f7b3df7b3ca521ff",
+    "member": "pnr/timing.html"
+  },
+  "targets": [
+    {
+      "id": "pitch_mod_lane3_total_to_oct_address",
+      "from_node": "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane[3].u_control/total_s2_10_s0/Q",
+      "to_node": "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane[3].u_control/oct_lut_oct_lut_0_0_s/AD[7]",
+      "require_directed": false
+    }
+  ]
+}

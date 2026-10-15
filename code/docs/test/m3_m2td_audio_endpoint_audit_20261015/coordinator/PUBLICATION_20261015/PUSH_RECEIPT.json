@@ -1,0 +1,49 @@
+{
+  "status": "PUSHED_AND_REMOTE_SHA_VERIFIED",
+  "date": "2026-10-15",
+  "branch": "develop",
+  "commit": "72561ce249a9d8f6a7dd190ffaeb81a1f4947294",
+  "remote_sha_verified": "72561ce249a9d8f6a7dd190ffaeb81a1f4947294",
+  "url": "https://github.com/huangAngel730/fpga-electronic-piano/commit/72561ce249a9d8f6a7dd190ffaeb81a1f4947294",
+  "parent": "5cb6d959f75fe7868d8993241b56fcd55d58d6fe",
+  "publication_file_count": 9,
+  "source_scope": "L0/L1_ENDPOINT_PREPARATION_PARTIAL_PENDING_SAME_RUN_NETLIST",
+  "software_tests": 32,
+  "observation_tests": 13,
+  "integration_pairs": 5,
+  "query_alignment_checks": 10,
+  "gate": {
+    "original_script": "code/scripts/check_repo.ps1",
+    "R01": {"exit_code": 1, "pass_count": 6, "elapsed_seconds": 29.76599999999962, "cause": "child python not found, exit 9009; raw evidence retained"},
+    "R02": {"exit_code": 0, "pass_count": 9, "elapsed_seconds": 127.0, "exact_inputs_unchanged": true},
+    "R02_archive_sha256": "d4e96d92b7fea438746877983ac67f2e6e11fc8d7e347ebe05717094610dd03a",
+    "repair": "process-local Python PATH prefix only; no system/Git config or repository gate edits"
+  },
+  "git_commands": [
+    {"command": "git fetch origin", "exit_code": 1, "note": "last direct HTTPS fetch timed out; no claim of success"},
+    {"command": "git -c http.proxy=http://127.0.0.1:7892 fetch origin develop", "exit_code": 0, "role": "final fetch before push"},
+    {"command": "git -c http.proxy=http://127.0.0.1:7892 push origin HEAD:develop", "exit_code": 0},
+    {"command": "git -c http.proxy=http://127.0.0.1:7892 fetch origin develop", "exit_code": 0, "role": "post-push verification"}
+  ],
+  "original_bundle_sha256": "7de228bea2cf49341a9be10ac44d493a5c46792bde78e72faf6451ba0da70c52",
+  "original_bundle_bytes": 1181740,
+  "mistaken_chat4_publication": {
+    "created_commit": false,
+    "pushed": false,
+    "unstaged_exact_files": 21,
+    "recoverable_backup": "E:/FPGA/GAOYUNFPGA/Callback3/chat7/chat4_upload_rollback_20261015",
+    "other_worktree_materials_preserved": true
+  },
+  "main_workspace": {
+    "head_after_safe_fast_forward": "72561ce249a9d8f6a7dd190ffaeb81a1f4947294",
+    "staged_files_after_sync": 0,
+    "protected_t052_file_sha256_before_equals_after": {
+      "README.md": "f7c04d2204e2057c676444fc86282734aa8c6053ce8101169a7b56c2a90d7252",
+      "prepare.py": "86e29fe302ec896cc5d7ab9e563765fc84dbd5214d82f5fe163e66fd08399ef5",
+      "tb_t052_long.sv": "daf67848153214d791d1f51e348dbbe7c7995c06424f0a819a23080c1fba3e20"
+    }
+  },
+  "new_gowin_or_targeted_sta_executed": false,
+  "board_release_allowed": false,
+  "M2_human_delivery": "PENDING_USER_FORWARD"
+}

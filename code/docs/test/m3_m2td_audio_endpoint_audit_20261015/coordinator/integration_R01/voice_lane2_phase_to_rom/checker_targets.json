@@ -1,0 +1,30 @@
+{
+  "schema": "m3_audio_endpoint_targets_v1",
+  "clock": "sys_clk",
+  "period_ns": "25",
+  "source": {
+    "kind": "FROZEN_PHYSICAL_ZIP",
+    "report_sha256": "524cea6ebb93eca719c5aa86cd6413129299ac2c9da78467ac7709cdf4e8ec62",
+    "archive_sha256": "17e71ebd5b54743fd0214af5fbfdfd1a4cca4eddbcedab56f7b3df7b3ca521ff",
+    "member": "pnr/timing.html",
+    "metadata": {
+      "Report Title": "Timing Analysis Report",
+      "Design File": "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\impl\\gwsynthesis\\m2_fourvoice_timbre_delay_board_top.vg",
+      "Physical Constraints File": "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\constraints\\audio_visual.cst",
+      "Timing Constraint File": "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\constraints\\audio_visual_hold055.sdc",
+      "Tool Version": "V1.9.11.03 Education",
+      "Part Number": "GW5AST-LV138PG484AC1/I0",
+      "Device": "GW5AST-138",
+      "Device Version": "C",
+      "Created Time": "Thu Oct 15 10:48:37 2026"
+    }
+  },
+  "targets": [
+    {
+      "id": "voice_lane2_phase_to_rom",
+      "from_node": "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/g_lane[2].u_voice/u_piano/phase_acc_30_s0/Q",
+      "to_node": "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/g_lane[2].u_voice/u_piano/u_table/rom_data_rom_data_0_0_s/AD[10]",
+      "require_directed": false
+    }
+  ]
+}

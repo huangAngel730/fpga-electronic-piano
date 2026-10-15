@@ -1,0 +1,85 @@
+{
+  "status": "SPECIFIED_REPORT_ENDPOINTS_SHOWN",
+  "scope": "SOFTWARE_L0_L1_RAW_REPORT_AUDIT_ONLY",
+  "board_release_allowed": false,
+  "new_sta_executed": false,
+  "physical_signoff": false,
+  "source_kind": "SYNTHETIC_TEST_ONLY",
+  "report_sha256": "5a75959bbae4fd078bd783656dc183689067af196d28120b521bf59e94b8ba28",
+  "metadata": {
+    "Report Title": "Timing Analysis Report",
+    "Design File": "SYNTHETIC_TEST_ONLY/design.vg",
+    "Physical Constraints File": "SYNTHETIC_TEST_ONLY/design.cst",
+    "Timing Constraint File": "SYNTHETIC_TEST_ONLY/design.sdc",
+    "Tool Version": "SYNTHETIC_TEST_ONLY (Gowin V1.9.11.03 grammar)",
+    "Part Number": "SYNTHETIC_TEST_ONLY",
+    "Device": "SYNTHETIC_TEST_ONLY",
+    "Device Version": "SYNTHETIC_TEST_ONLY",
+    "Created Time": "SYNTHETIC_TEST_ONLY"
+  },
+  "clock_evidence": {
+    "period_ns": "25.000",
+    "frequency_mhz": "40.000",
+    "objects": "SYNTHETIC/PLL/CLKOUT2",
+    "row_span": {
+      "byte_start": 1030,
+      "byte_end_exclusive": 1204,
+      "line_start": 15,
+      "line_end": 15,
+      "fragment_sha256": "4eb76d7111c69a8a3e191e7e27849726b5aae65f2d1a72b1028c56c4c21bb8ed"
+    }
+  },
+  "observations": [
+    {
+      "target_id": "pitch_mod_lane3_total_to_oct_address",
+      "analysis": "setup",
+      "from_node": "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane[3].u_control/total_s2_10_s0/Q",
+      "to_node": "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane[3].u_control/oct_lut_oct_lut_0_0_s/AD[7]",
+      "clock": "sys_clk",
+      "slack_ns": "0.125",
+      "activity": "ACTIVE_REPORTED_FINITE_TIMING_ROW",
+      "command": "Report Command:report_timing -setup -max_paths 10 -max_common_paths 1",
+      "row_span": {
+        "byte_start": 1587,
+        "byte_end_exclusive": 1926,
+        "line_start": 20,
+        "line_end": 20,
+        "fragment_sha256": "c75a190e05fbf4d6a2b95f824a3d78903f3ff1a7ab68084119f51f53313f6601"
+      },
+      "table_span": {
+        "byte_start": 1401,
+        "byte_end_exclusive": 1937,
+        "line_start": 18,
+        "line_end": 21,
+        "fragment_sha256": "fef13de0cc78351473f305c0159bde8e4785ae835cf95008f6852e95c3942d2a"
+      }
+    },
+    {
+      "target_id": "pitch_mod_lane3_total_to_oct_address",
+      "analysis": "hold",
+      "from_node": "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane[3].u_control/total_s2_10_s0/Q",
+      "to_node": "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane[3].u_control/oct_lut_oct_lut_0_0_s/AD[7]",
+      "clock": "sys_clk",
+      "slack_ns": "0.125",
+      "activity": "ACTIVE_REPORTED_FINITE_TIMING_ROW",
+      "command": "Report Command:report_timing -hold -max_paths 10 -max_common_paths 1",
+      "row_span": {
+        "byte_start": 2262,
+        "byte_end_exclusive": 2600,
+        "line_start": 25,
+        "line_end": 25,
+        "fragment_sha256": "c9df00d40db1bbf98f0aea44d8cdbdf633eadfe1aaec2d7445d99507f0273067"
+      },
+      "table_span": {
+        "byte_start": 2076,
+        "byte_end_exclusive": 2611,
+        "line_start": 23,
+        "line_end": 26,
+        "fragment_sha256": "4c445a8468eaec00fc68ca77337d6fca9912e4668bd8a6befd859bf16506c46e"
+      }
+    }
+  ],
+  "limitation": "Pinned identities require independent M2 confirmation; hashes do not authenticate provenance.",
+  "targets_sha256": "00b0220debaa1e61f3ce5d3a5318d7ed8744cbfb45dea2794a5a7bed07661ac1",
+  "archive_sha256": null
+}

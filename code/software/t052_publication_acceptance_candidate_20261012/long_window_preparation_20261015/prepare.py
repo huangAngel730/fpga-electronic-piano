@@ -57,6 +57,8 @@ def audit_sources():
             raise ValueError("PUBLIC_PRE_NBA_BOUNDARY")
     if "cycle <= cycle + 1" not in tb or "always @(negedge clk)" not in tb:
         raise ValueError("DRIVER_SCHEDULE")
+    if "if (($time > 0) && (driver_index < LAST_CYCLE))" not in tb:
+        raise ValueError("T0_NEGEDGE_NOT_GUARDED")
     if "LAST_CYCLE = 8536335" not in tb or "#170726720" not in tb:
         raise ValueError("SIM_WINDOW")
     if "always @(rst_n)" not in observer or 'transaction("CANCEL", "reset")' not in observer:

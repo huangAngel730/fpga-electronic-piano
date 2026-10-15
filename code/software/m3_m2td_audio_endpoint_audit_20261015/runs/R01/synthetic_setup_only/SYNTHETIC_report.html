@@ -1,0 +1,22 @@
+<html><head><title>Timing Analysis Report</title></head><body>
+<!-- SYNTHETIC_TEST_ONLY, NOT AN EDA RUN -->
+<h1><a name="Message">Timing Messages</a></h1><table>
+<tr><td>Report Title</td><td>Timing Analysis Report</td></tr>
+<tr><td>Design File</td><td>SYNTHETIC_TEST_ONLY/design.vg</td></tr>
+<tr><td>Physical Constraints File</td><td>SYNTHETIC_TEST_ONLY/design.cst</td></tr>
+<tr><td>Timing Constraint File</td><td>SYNTHETIC_TEST_ONLY/design.sdc</td></tr>
+<tr><td>Tool Version</td><td>SYNTHETIC_TEST_ONLY (Gowin V1.9.11.03 grammar)</td></tr>
+<tr><td>Part Number</td><td>SYNTHETIC_TEST_ONLY</td></tr>
+<tr><td>Device</td><td>SYNTHETIC_TEST_ONLY</td></tr>
+<tr><td>Device Version</td><td>SYNTHETIC_TEST_ONLY</td></tr>
+<tr><td>Created Time</td><td>SYNTHETIC_TEST_ONLY</td></tr>
+</table><h2><a name="Clock_Report">Clock Summary:</a></h2><table>
+<tr><th>NO.</th><th>Clock Name</th><th>Type</th><th>Period</th><th>Frequency(MHz)</th><th>Rise</th><th>Fall</th><th>Source</th><th>Master</th><th>Objects</th></tr>
+<tr><td>1</td><td>sys_clk</td><td>Generated</td><td>25.000</td><td>40.000</td><td>0.000</td><td>12.500</td><td>sys_clk</td><td>ref_clk</td><td>SYNTHETIC/PLL/CLKOUT2</td></tr>
+</table><h1><a name="Detail">Timing Details</a></h1>
+<h3><a name="Setup_Slack_Table">Setup Paths Table</a></h3>
+<h4>Report Command:report_timing -setup -max_paths 10 -max_common_paths 1</h4><table>
+<tr><th>Path Number</th><th>Path Slack</th><th>From Node</th><th>To Node</th><th>From Clock</th><th>To Clock</th><th>Relation</th><th>Clock Skew</th><th>Data Delay</th></tr>
+<tr><td>1</td><td>0.125</td><td>g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane[3].u_control/total_s2_10_s0/Q</td><td>g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane[3].u_control/oct_lut_oct_lut_0_0_s/AD[7]</td><td>sys_clk:[R]</td><td>sys_clk:[R]</td><td>25.000</td><td>0.000</td><td>0.500</td></tr>
+</table>
+</body></html>

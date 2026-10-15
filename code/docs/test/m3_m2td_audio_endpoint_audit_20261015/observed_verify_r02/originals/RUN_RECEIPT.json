@@ -1,0 +1,788 @@
+{
+  "status": "TOOL_EXIT0_REPORTS_REQUIRE_INDEPENDENT_REVIEW",
+  "board_release_allowed": false,
+  "tool_calls": 1,
+  "command": [
+    "D:\\Gowin\\Gowin_V1.9.11.03_Education\\Gowin_V1.9.11.03_Education_x64\\IDE\\bin\\gw_sh.exe",
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_gowin_20261015_02\\run.tcl"
+  ],
+  "cwd": "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06",
+  "timeout_seconds": 1200,
+  "timed_out": false,
+  "exit_code": 0,
+  "error": null,
+  "input_before": {
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\constraints\\audio_visual.cst": {
+      "bytes": 8922,
+      "sha256": "1f22af2d963315cfe625af5f22b25c9ce68152ee0ec2bed859d36b3a196e723d"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\constraints\\audio_visual_hold055.sdc": {
+      "bytes": 24106,
+      "sha256": "a8791f826c0bd8630483ce28c44636c24e4e28c041a9622d17d0b1764a8f888f"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\include\\sine_table.svh": {
+      "bytes": 5648,
+      "sha256": "969fc7d1036e359fc55c3b0ca18eaf3c8a123a146ed95c32a81e52ee10519cca"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\include\\sustain_controller_ports.svh": {
+      "bytes": 827,
+      "sha256": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\rom\\lfo_sine_q15.mem": {
+      "bytes": 6144,
+      "sha256": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\rom\\oct_ratio_q16.mem": {
+      "bytes": 350,
+      "sha256": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\rom\\piano_band_4x256_8191.mem": {
+      "bytes": 5120,
+      "sha256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\rom\\sine_1024_32767.mem": {
+      "bytes": 5120,
+      "sha256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\rom\\sine_1024_8192.mem": {
+      "bytes": 5120,
+      "sha256": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\rom\\sine_wavetable.hex": {
+      "bytes": 5206,
+      "sha256": "1abfd5c47759cd4089f4b39069b3ff0ab388838502b325d9ef7d9e01549ec7f4"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\rom\\sub_ratio_q16.mem": {
+      "bytes": 7168,
+      "sha256": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\rom\\triangle_wavetable.hex": {
+      "bytes": 5210,
+      "sha256": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\rom\\velocity_gain_rom.mem": {
+      "bytes": 5120,
+      "sha256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\adsr_piano_envelope.sv": {
+      "bytes": 9406,
+      "sha256": "eb9b34b8870b2822ff023d2121e9cb57edd0350d450f0a467574e85cf960f80d"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\audio_defs_pkg.sv": {
+      "bytes": 12334,
+      "sha256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\audio_visual_coexistence_top.sv": {
+      "bytes": 36774,
+      "sha256": "401b691320938a10c68f2c66a4ab4d6a94ec56ce9273eac3eb110a74aeb33eb6"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\audio_visual_display_probe.sv": {
+      "bytes": 7018,
+      "sha256": "df1f05b4a6a06deddd9d3a2244106ec29bb0d15e5dd808fc9bef9436d710a5cf"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\button_debouncer.sv": {
+      "bytes": 6376,
+      "sha256": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\button_event_converter.sv": {
+      "bytes": 10529,
+      "sha256": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\dds_oscillator.sv": {
+      "bytes": 2978,
+      "sha256": "9dff3507ac0c7c4215d28486055d3f2dea38682c9bff46b1e5f400c2343a4891"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\DVI_TX_Top.v": {
+      "bytes": 84311,
+      "sha256": "162f68cab4262f8a3acae17f2fc66b6d9ef403815fd5ebeeecf30b59d88e203c"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\i2s_tx.sv": {
+      "bytes": 17021,
+      "sha256": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_adsr_piano_envelope.sv": {
+      "bytes": 9411,
+      "sha256": "c58dc75a685500e6474438f1e6eb821b822c3c4818854ab3f802047f613bf3ef"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_audio_candidate.sv": {
+      "bytes": 3078,
+      "sha256": "0c590da6f1271b10006c89ab4bd91db4e715c87ef74a2484d9351d6a1a150748"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_dds_oscillator.sv": {
+      "bytes": 2983,
+      "sha256": "797eac349dedf95d8600f9d433cdb259891daf7ae3aa9eefa92291350901921d"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_delay_effect.sv": {
+      "bytes": 6160,
+      "sha256": "07bcc6f4d0a448e029b5349a43fa8bcaa4afac32323bffb21fdc0e7c6a9633ac"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_note_pitch.sv": {
+      "bytes": 8117,
+      "sha256": "3dde1ca9d72da29030e03940504abe758856fffbaf9a637867a2ebf27f3194d6"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_pcm_clip_counter.sv": {
+      "bytes": 1020,
+      "sha256": "49c812edd27f0ac1dc33f59f902037c5ee92b9d6e56fcedbdaf1fbe82f8f4f8d"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_pcm_frame_buffer.sv": {
+      "bytes": 3801,
+      "sha256": "a576073d2d5f7b095531aa3fb758a243a49eb5eb577d85dc5d620b85103e592e"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_pcm_mixer_4voice.sv": {
+      "bytes": 2073,
+      "sha256": "e3a91180581d434204c6e6f1c5022a4a1447a1810fdd19e505ca0c892fa4553a"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_performance_control_snapshot.sv": {
+      "bytes": 5054,
+      "sha256": "4c108c889a548656ebcdd8d645530a97ddacdce6be200cd92f9e8b750d0fed60"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_piano_dds_oscillator.sv": {
+      "bytes": 6406,
+      "sha256": "ee9cfb142ac853ffbe611a18e4a8cad98a8f0269d6b99b429ee388c880d5eada"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_piano_triangle_voice.sv": {
+      "bytes": 2478,
+      "sha256": "37ef37f50d5ce1b85377154779329be7622193aead167659539cea1d20727c3b"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_pitch_mod_fcw_pipeline.sv": {
+      "bytes": 6045,
+      "sha256": "5997ae2eddb483f95dbb10cdac6cfdac3d61a857046e95e136099e11cf0ecabb"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_pitch_mod_snapshot_pipeline.sv": {
+      "bytes": 3875,
+      "sha256": "c35bc435a98d541e176ea59373bffd0ded9c346c1954118c6fde21c65a4ee601"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv": {
+      "bytes": 11481,
+      "sha256": "dd5fb61620462a0e29f9ceae56386818d31b41aa12441e348ef3ce52023b2400"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_polyphonic_event_router.sv": {
+      "bytes": 10466,
+      "sha256": "f86dc783534c7e3897197d3a967c94d614642196c8d67bff9493d70d1a5fc808"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_stereo_delay.sv": {
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_sustain_controller.sv": {
+      "bytes": 6115,
+      "sha256": "26a801c2e80653b8a9206b8c25f27d32d61610339c2641b669451ae815dc11a3"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_timbre_delay_chain.sv": {
+      "bytes": 2999,
+      "sha256": "72c8e06b83fab7d5264a4ac79d27f33035da8ada509c4f59e4d8b658ee4641b5"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_timbre_oscillator.sv": {
+      "bytes": 5241,
+      "sha256": "3bdbacceba4779a910ace9a508e5e6dbc849d94441c9f7f6e27a3d09329cdac2"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_voice_allocator_4.sv": {
+      "bytes": 4897,
+      "sha256": "76154c355e1cc17a78707b618909395fcf539bcbc158a887a4572f142ea24eae"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_voice_gain_q15_candidate.sv": {
+      "bytes": 902,
+      "sha256": "771ac92ef2ff2de11c61832bf09fb11f761e1dcd617f84cb22bd63f8b7570e14"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m2_fourvoice_timbre_delay_board_top.sv": {
+      "bytes": 37390,
+      "sha256": "f2a8f30fef8ad2da26d1d3b80793b727f45806b6d5c78f2a071fb383322639be"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m2_fourvoice_timbre_delay_frame_core.sv": {
+      "bytes": 3990,
+      "sha256": "6d32ddc33aa0fed39ea1290f1d6e490f241c7b20fb6c9d8f02e7317e45201e2e"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m3_visualizer.sv": {
+      "bytes": 6897,
+      "sha256": "c3940203be5616d3cb923552267d7485d494bfd0e6a5410d7a7f3651e1fd0d2a"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\midi_event_parser.sv": {
+      "bytes": 23632,
+      "sha256": "336d867856a7b3956d524105137c035ec2637fea936538979182669987212071"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\midi_input.sv": {
+      "bytes": 3331,
+      "sha256": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\note_pitch.sv": {
+      "bytes": 8092,
+      "sha256": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\pcm_clip_counter.sv": {
+      "bytes": 1015,
+      "sha256": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\pcm_frame_buffer.sv": {
+      "bytes": 3796,
+      "sha256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\pcm_mixer_4voice.sv": {
+      "bytes": 2068,
+      "sha256": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\pcm_result_hold.sv": {
+      "bytes": 2658,
+      "sha256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\performance_control_snapshot.sv": {
+      "bytes": 5049,
+      "sha256": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\performance_event_fifo.sv": {
+      "bytes": 2538,
+      "sha256": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\piano_dds_oscillator.sv": {
+      "bytes": 6391,
+      "sha256": "139b4edefd4495c3ca7c0257815bec424bd6f35929e5cab9f0f9c8ef8f8bfe63"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\pitch_mod_fcw_pipeline.sv": {
+      "bytes": 6040,
+      "sha256": "ff7ef337118d14091e00684507518cc39aa37aa6edb4af76545f8ce94918128a"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\pitch_mod_snapshot_pipeline.sv": {
+      "bytes": 3865,
+      "sha256": "7d4388c3785072249ded5328bc92389259b61ba6909ab0bf297563954b57e9bb"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\polyphonic_audio_core.sv": {
+      "bytes": 3282,
+      "sha256": "7f9fcfdcbfc232463b261e2e61e0ba469e63c55a86df94f998f735e1f6bda3a7"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\polyphonic_envelope_bank.sv": {
+      "bytes": 11240,
+      "sha256": "ff18bc6f5de1478f8472a71b15399ab9ee4c496eeca700b0905baa6b0363c40c"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\polyphonic_event_router.sv": {
+      "bytes": 9875,
+      "sha256": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\polyphonic_pcm_commit.sv": {
+      "bytes": 2587,
+      "sha256": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\premixed_frame_adapter.sv": {
+      "bytes": 3940,
+      "sha256": "d7952a5f986eb8b609cbe657907e418cfe751c6492d6e49469b5e37c390bb56c"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\reset_sync.sv": {
+      "bytes": 1713,
+      "sha256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\simple_voice.sv": {
+      "bytes": 9455,
+      "sha256": "eab4974b0315c75a8076b21afea1dade122fecbcc672eb0802ba0e358a1bf274"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\sine_table.svh": {
+      "bytes": 5648,
+      "sha256": "969fc7d1036e359fc55c3b0ca18eaf3c8a123a146ed95c32a81e52ee10519cca"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\sustain_controller.sv": {
+      "bytes": 6110,
+      "sha256": "dd244b99b06eaa2ed7e7deda1c08aeb119f002bff939ce5941e5e81a559cbc4e"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\sustain_controller_ports.svh": {
+      "bytes": 827,
+      "sha256": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\sustain_control_contract_pkg.sv": {
+      "bytes": 846,
+      "sha256": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\system_status_counters.sv": {
+      "bytes": 1948,
+      "sha256": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\TMDS_PLL_800_600_60.v": {
+      "bytes": 4903,
+      "sha256": "7d6006749d113207bcc2246d0415c874570db0c92e8563bbd55eea6ed17fce20"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\uart_rx.sv": {
+      "bytes": 10342,
+      "sha256": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\uart_status_reporter.sv": {
+      "bytes": 5476,
+      "sha256": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\uart_tx.sv": {
+      "bytes": 8233,
+      "sha256": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\video_scan_timing.sv": {
+      "bytes": 1953,
+      "sha256": "0b7b3def84043ddd40ed2c1e237bb2d528a117e4fc15195d40b33b0fe78b2069"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\visual_control_bridge.sv": {
+      "bytes": 3172,
+      "sha256": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\visual_event_bridge.sv": {
+      "bytes": 5118,
+      "sha256": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\visual_hit_flash.sv": {
+      "bytes": 1862,
+      "sha256": "1cd4cc1e3459a41ee26122bee014afd552b697e80c1900f658cc03a73ebe03e3"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\visual_live_state.sv": {
+      "bytes": 6534,
+      "sha256": "ad5c124a1f621ef95524f998efc4ca7ed0d7840d8297af8a97cd1460f88f5938"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\visual_mailbox_cdc.sv": {
+      "bytes": 2786,
+      "sha256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\visual_scene_renderer.sv": {
+      "bytes": 11242,
+      "sha256": "8062253766925a3c6fce11aad820f51dfcf7444501164d53e95d817c3e62a8d1"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\visual_score_tracker.sv": {
+      "bytes": 22348,
+      "sha256": "7e5c630fddf3da60f5fe6bd67721736ee7624817355822dadc4a09dc4cffe0dc"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\voice_allocator_4.sv": {
+      "bytes": 4892,
+      "sha256": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\voice_gain_q15_candidate.sv": {
+      "bytes": 897,
+      "sha256": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\m2_fourvoice_timbre_delay_board_top.gprj": {
+      "bytes": 13595,
+      "sha256": "412e93b60d40bf5a98de698ea3e9c1e511002206a2c0525c42e6e223a82f9ee4"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\PREPARATION_RECEIPT.json": {
+      "bytes": 55119,
+      "sha256": "1d426c14a9a339c5e92fb982857189a473c336249a1f1c9584435512c37f72c2"
+    },
+    "D:\\Gowin\\Gowin_V1.9.11.03_Education\\Gowin_V1.9.11.03_Education_x64\\IDE\\bin\\gw_sh.exe": {
+      "bytes": 33064,
+      "sha256": "4c172d4c0d2a4c7ef5c764d091a315cbcde2127573554bfd7d09ac6f2e5ea535"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py": {
+      "bytes": 3481,
+      "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\scripts\\run_m2_m1td_whole_once_20261015.py": {
+      "bytes": 6450,
+      "sha256": "ea2be119ea6ea26f7ee4fb8e768b8e3c0f8f812e38168219ff9e902d3f30c3df"
+    }
+  },
+  "tcl": {
+    "bytes": 495,
+    "sha256": "e2a8253a4dd591c8d8f7da7139e9b3ad487cb881687943c570eb2775e9cee3b9"
+  },
+  "preparation_receipt": {
+    "bytes": 55119,
+    "sha256": "1d426c14a9a339c5e92fb982857189a473c336249a1f1c9584435512c37f72c2"
+  },
+  "project": {
+    "bytes": 13595,
+    "sha256": "412e93b60d40bf5a98de698ea3e9c1e511002206a2c0525c42e6e223a82f9ee4"
+  },
+  "seconds": 1171.498,
+  "input_after": {
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\constraints\\audio_visual.cst": {
+      "bytes": 8922,
+      "sha256": "1f22af2d963315cfe625af5f22b25c9ce68152ee0ec2bed859d36b3a196e723d"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\constraints\\audio_visual_hold055.sdc": {
+      "bytes": 24106,
+      "sha256": "a8791f826c0bd8630483ce28c44636c24e4e28c041a9622d17d0b1764a8f888f"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\include\\sine_table.svh": {
+      "bytes": 5648,
+      "sha256": "969fc7d1036e359fc55c3b0ca18eaf3c8a123a146ed95c32a81e52ee10519cca"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\include\\sustain_controller_ports.svh": {
+      "bytes": 827,
+      "sha256": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\rom\\lfo_sine_q15.mem": {
+      "bytes": 6144,
+      "sha256": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\rom\\oct_ratio_q16.mem": {
+      "bytes": 350,
+      "sha256": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\rom\\piano_band_4x256_8191.mem": {
+      "bytes": 5120,
+      "sha256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\rom\\sine_1024_32767.mem": {
+      "bytes": 5120,
+      "sha256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\rom\\sine_1024_8192.mem": {
+      "bytes": 5120,
+      "sha256": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\rom\\sine_wavetable.hex": {
+      "bytes": 5206,
+      "sha256": "1abfd5c47759cd4089f4b39069b3ff0ab388838502b325d9ef7d9e01549ec7f4"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\rom\\sub_ratio_q16.mem": {
+      "bytes": 7168,
+      "sha256": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\rom\\triangle_wavetable.hex": {
+      "bytes": 5210,
+      "sha256": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\rom\\velocity_gain_rom.mem": {
+      "bytes": 5120,
+      "sha256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\adsr_piano_envelope.sv": {
+      "bytes": 9406,
+      "sha256": "eb9b34b8870b2822ff023d2121e9cb57edd0350d450f0a467574e85cf960f80d"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\audio_defs_pkg.sv": {
+      "bytes": 12334,
+      "sha256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\audio_visual_coexistence_top.sv": {
+      "bytes": 36774,
+      "sha256": "401b691320938a10c68f2c66a4ab4d6a94ec56ce9273eac3eb110a74aeb33eb6"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\audio_visual_display_probe.sv": {
+      "bytes": 7018,
+      "sha256": "df1f05b4a6a06deddd9d3a2244106ec29bb0d15e5dd808fc9bef9436d710a5cf"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\button_debouncer.sv": {
+      "bytes": 6376,
+      "sha256": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\button_event_converter.sv": {
+      "bytes": 10529,
+      "sha256": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\dds_oscillator.sv": {
+      "bytes": 2978,
+      "sha256": "9dff3507ac0c7c4215d28486055d3f2dea38682c9bff46b1e5f400c2343a4891"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\DVI_TX_Top.v": {
+      "bytes": 84311,
+      "sha256": "162f68cab4262f8a3acae17f2fc66b6d9ef403815fd5ebeeecf30b59d88e203c"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\i2s_tx.sv": {
+      "bytes": 17021,
+      "sha256": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_adsr_piano_envelope.sv": {
+      "bytes": 9411,
+      "sha256": "c58dc75a685500e6474438f1e6eb821b822c3c4818854ab3f802047f613bf3ef"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_audio_candidate.sv": {
+      "bytes": 3078,
+      "sha256": "0c590da6f1271b10006c89ab4bd91db4e715c87ef74a2484d9351d6a1a150748"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_dds_oscillator.sv": {
+      "bytes": 2983,
+      "sha256": "797eac349dedf95d8600f9d433cdb259891daf7ae3aa9eefa92291350901921d"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_delay_effect.sv": {
+      "bytes": 6160,
+      "sha256": "07bcc6f4d0a448e029b5349a43fa8bcaa4afac32323bffb21fdc0e7c6a9633ac"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_note_pitch.sv": {
+      "bytes": 8117,
+      "sha256": "3dde1ca9d72da29030e03940504abe758856fffbaf9a637867a2ebf27f3194d6"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_pcm_clip_counter.sv": {
+      "bytes": 1020,
+      "sha256": "49c812edd27f0ac1dc33f59f902037c5ee92b9d6e56fcedbdaf1fbe82f8f4f8d"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_pcm_frame_buffer.sv": {
+      "bytes": 3801,
+      "sha256": "a576073d2d5f7b095531aa3fb758a243a49eb5eb577d85dc5d620b85103e592e"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_pcm_mixer_4voice.sv": {
+      "bytes": 2073,
+      "sha256": "e3a91180581d434204c6e6f1c5022a4a1447a1810fdd19e505ca0c892fa4553a"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_performance_control_snapshot.sv": {
+      "bytes": 5054,
+      "sha256": "4c108c889a548656ebcdd8d645530a97ddacdce6be200cd92f9e8b750d0fed60"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_piano_dds_oscillator.sv": {
+      "bytes": 6406,
+      "sha256": "ee9cfb142ac853ffbe611a18e4a8cad98a8f0269d6b99b429ee388c880d5eada"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_piano_triangle_voice.sv": {
+      "bytes": 2478,
+      "sha256": "37ef37f50d5ce1b85377154779329be7622193aead167659539cea1d20727c3b"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_pitch_mod_fcw_pipeline.sv": {
+      "bytes": 6045,
+      "sha256": "5997ae2eddb483f95dbb10cdac6cfdac3d61a857046e95e136099e11cf0ecabb"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_pitch_mod_snapshot_pipeline.sv": {
+      "bytes": 3875,
+      "sha256": "c35bc435a98d541e176ea59373bffd0ded9c346c1954118c6fde21c65a4ee601"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv": {
+      "bytes": 11481,
+      "sha256": "dd5fb61620462a0e29f9ceae56386818d31b41aa12441e348ef3ce52023b2400"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_polyphonic_event_router.sv": {
+      "bytes": 10466,
+      "sha256": "f86dc783534c7e3897197d3a967c94d614642196c8d67bff9493d70d1a5fc808"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_stereo_delay.sv": {
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_sustain_controller.sv": {
+      "bytes": 6115,
+      "sha256": "26a801c2e80653b8a9206b8c25f27d32d61610339c2641b669451ae815dc11a3"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_timbre_delay_chain.sv": {
+      "bytes": 2999,
+      "sha256": "72c8e06b83fab7d5264a4ac79d27f33035da8ada509c4f59e4d8b658ee4641b5"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_timbre_oscillator.sv": {
+      "bytes": 5241,
+      "sha256": "3bdbacceba4779a910ace9a508e5e6dbc849d94441c9f7f6e27a3d09329cdac2"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_voice_allocator_4.sv": {
+      "bytes": 4897,
+      "sha256": "76154c355e1cc17a78707b618909395fcf539bcbc158a887a4572f142ea24eae"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m1td_voice_gain_q15_candidate.sv": {
+      "bytes": 902,
+      "sha256": "771ac92ef2ff2de11c61832bf09fb11f761e1dcd617f84cb22bd63f8b7570e14"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m2_fourvoice_timbre_delay_board_top.sv": {
+      "bytes": 37390,
+      "sha256": "f2a8f30fef8ad2da26d1d3b80793b727f45806b6d5c78f2a071fb383322639be"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m2_fourvoice_timbre_delay_frame_core.sv": {
+      "bytes": 3990,
+      "sha256": "6d32ddc33aa0fed39ea1290f1d6e490f241c7b20fb6c9d8f02e7317e45201e2e"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\m3_visualizer.sv": {
+      "bytes": 6897,
+      "sha256": "c3940203be5616d3cb923552267d7485d494bfd0e6a5410d7a7f3651e1fd0d2a"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\midi_event_parser.sv": {
+      "bytes": 23632,
+      "sha256": "336d867856a7b3956d524105137c035ec2637fea936538979182669987212071"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\midi_input.sv": {
+      "bytes": 3331,
+      "sha256": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\note_pitch.sv": {
+      "bytes": 8092,
+      "sha256": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\pcm_clip_counter.sv": {
+      "bytes": 1015,
+      "sha256": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\pcm_frame_buffer.sv": {
+      "bytes": 3796,
+      "sha256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\pcm_mixer_4voice.sv": {
+      "bytes": 2068,
+      "sha256": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\pcm_result_hold.sv": {
+      "bytes": 2658,
+      "sha256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\performance_control_snapshot.sv": {
+      "bytes": 5049,
+      "sha256": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\performance_event_fifo.sv": {
+      "bytes": 2538,
+      "sha256": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\piano_dds_oscillator.sv": {
+      "bytes": 6391,
+      "sha256": "139b4edefd4495c3ca7c0257815bec424bd6f35929e5cab9f0f9c8ef8f8bfe63"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\pitch_mod_fcw_pipeline.sv": {
+      "bytes": 6040,
+      "sha256": "ff7ef337118d14091e00684507518cc39aa37aa6edb4af76545f8ce94918128a"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\pitch_mod_snapshot_pipeline.sv": {
+      "bytes": 3865,
+      "sha256": "7d4388c3785072249ded5328bc92389259b61ba6909ab0bf297563954b57e9bb"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\polyphonic_audio_core.sv": {
+      "bytes": 3282,
+      "sha256": "7f9fcfdcbfc232463b261e2e61e0ba469e63c55a86df94f998f735e1f6bda3a7"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\polyphonic_envelope_bank.sv": {
+      "bytes": 11240,
+      "sha256": "ff18bc6f5de1478f8472a71b15399ab9ee4c496eeca700b0905baa6b0363c40c"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\polyphonic_event_router.sv": {
+      "bytes": 9875,
+      "sha256": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\polyphonic_pcm_commit.sv": {
+      "bytes": 2587,
+      "sha256": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\premixed_frame_adapter.sv": {
+      "bytes": 3940,
+      "sha256": "d7952a5f986eb8b609cbe657907e418cfe751c6492d6e49469b5e37c390bb56c"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\reset_sync.sv": {
+      "bytes": 1713,
+      "sha256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\simple_voice.sv": {
+      "bytes": 9455,
+      "sha256": "eab4974b0315c75a8076b21afea1dade122fecbcc672eb0802ba0e358a1bf274"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\sine_table.svh": {
+      "bytes": 5648,
+      "sha256": "969fc7d1036e359fc55c3b0ca18eaf3c8a123a146ed95c32a81e52ee10519cca"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\sustain_controller.sv": {
+      "bytes": 6110,
+      "sha256": "dd244b99b06eaa2ed7e7deda1c08aeb119f002bff939ce5941e5e81a559cbc4e"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\sustain_controller_ports.svh": {
+      "bytes": 827,
+      "sha256": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\sustain_control_contract_pkg.sv": {
+      "bytes": 846,
+      "sha256": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\system_status_counters.sv": {
+      "bytes": 1948,
+      "sha256": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\TMDS_PLL_800_600_60.v": {
+      "bytes": 4903,
+      "sha256": "7d6006749d113207bcc2246d0415c874570db0c92e8563bbd55eea6ed17fce20"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\uart_rx.sv": {
+      "bytes": 10342,
+      "sha256": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\uart_status_reporter.sv": {
+      "bytes": 5476,
+      "sha256": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\uart_tx.sv": {
+      "bytes": 8233,
+      "sha256": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\video_scan_timing.sv": {
+      "bytes": 1953,
+      "sha256": "0b7b3def84043ddd40ed2c1e237bb2d528a117e4fc15195d40b33b0fe78b2069"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\visual_control_bridge.sv": {
+      "bytes": 3172,
+      "sha256": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\visual_event_bridge.sv": {
+      "bytes": 5118,
+      "sha256": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\visual_hit_flash.sv": {
+      "bytes": 1862,
+      "sha256": "1cd4cc1e3459a41ee26122bee014afd552b697e80c1900f658cc03a73ebe03e3"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\visual_live_state.sv": {
+      "bytes": 6534,
+      "sha256": "ad5c124a1f621ef95524f998efc4ca7ed0d7840d8297af8a97cd1460f88f5938"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\visual_mailbox_cdc.sv": {
+      "bytes": 2786,
+      "sha256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\visual_scene_renderer.sv": {
+      "bytes": 11242,
+      "sha256": "8062253766925a3c6fce11aad820f51dfcf7444501164d53e95d817c3e62a8d1"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\visual_score_tracker.sv": {
+      "bytes": 22348,
+      "sha256": "7e5c630fddf3da60f5fe6bd67721736ee7624817355822dadc4a09dc4cffe0dc"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\voice_allocator_4.sv": {
+      "bytes": 4892,
+      "sha256": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\inputs\\sources\\voice_gain_q15_candidate.sv": {
+      "bytes": 897,
+      "sha256": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\m2_fourvoice_timbre_delay_board_top.gprj": {
+      "bytes": 13595,
+      "sha256": "412e93b60d40bf5a98de698ea3e9c1e511002206a2c0525c42e6e223a82f9ee4"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\output\\m2_m1td_whole_prepare_20261015_06\\PREPARATION_RECEIPT.json": {
+      "bytes": 55119,
+      "sha256": "1d426c14a9a339c5e92fb982857189a473c336249a1f1c9584435512c37f72c2"
+    },
+    "D:\\Gowin\\Gowin_V1.9.11.03_Education\\Gowin_V1.9.11.03_Education_x64\\IDE\\bin\\gw_sh.exe": {
+      "bytes": 33064,
+      "sha256": "4c172d4c0d2a4c7ef5c764d091a315cbcde2127573554bfd7d09ac6f2e5ea535"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py": {
+      "bytes": 3481,
+      "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+    },
+    "C:\\Users\\Angel17\\.codex\\worktrees\\m2-138k-migration\\fpga_gowin\\code\\scripts\\run_m2_m1td_whole_once_20261015.py": {
+      "bytes": 6450,
+      "sha256": "ea2be119ea6ea26f7ee4fb8e768b8e3c0f8f812e38168219ff9e902d3f30c3df"
+    }
+  },
+  "input_unchanged": true,
+  "log_sha256": {
+    "stdout.log": {
+      "bytes": 33000,
+      "sha256": "8e72f3d3099026ddad5d5e39c6edb7d1eba78c5c44e7cafd070def209456ea68"
+    },
+    "stderr.log": {
+      "bytes": 98,
+      "sha256": "936c2bad3f475031ac36e1c5e5d5cb40677c1c722becaace91ed3db636ea6359"
+    }
+  },
+  "pnr_artifacts": {
+    "m2_fourvoice_timbre_delay_board_top.fs": {
+      "bytes": 37517739,
+      "sha256": "5f4960d91ffb7ccd22ac5f79526cf45b55bbc20836285a5f9b328cc3cfc27c10"
+    },
+    "m2_fourvoice_timbre_delay_board_top.pin.html": {
+      "bytes": 97937,
+      "sha256": "58b8ff84533bbc231431874101a466bc313dec9e579b18256accd884a556cf9c"
+    },
+    "m2_fourvoice_timbre_delay_board_top.power.html": {
+      "bytes": 18934,
+      "sha256": "bc8c085318bb190bb0160ab62e88a6487a4ef03797faf8bd262405f0f9d92662"
+    },
+    "m2_fourvoice_timbre_delay_board_top.rpt.html": {
+      "bytes": 104677,
+      "sha256": "30c1ce73885b4d33bdb74bf3abdfa0fbe3a7d29ff1f3921895cf0f81dca54dd2"
+    },
+    "m2_fourvoice_timbre_delay_board_top.rpt.txt": {
+      "bytes": 84136,
+      "sha256": "c065287476e2f338fe1031831766c72328ee3e8e6a2fbe7368cf09eb7d72cb04"
+    },
+    "m2_fourvoice_timbre_delay_board_top.tr.html": {
+      "bytes": 405,
+      "sha256": "10f00555314c02bfbd91a1fd249103a07767f253f2f1b4f84e61e38f0892c580"
+    },
+    "m2_fourvoice_timbre_delay_board_top_tr_cata.html": {
+      "bytes": 16058,
+      "sha256": "8f3d6b9c821f39f245ffd59de6180725730b7c0773e1fced8211a290f35b3f92"
+    },
+    "m2_fourvoice_timbre_delay_board_top_tr_content.html": {
+      "bytes": 2715163,
+      "sha256": "524cea6ebb93eca719c5aa86cd6413129299ac2c9da78467ac7709cdf4e8ec62"
+    }
+  }
+}

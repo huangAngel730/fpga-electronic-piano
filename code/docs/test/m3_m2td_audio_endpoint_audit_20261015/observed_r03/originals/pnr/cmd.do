@@ -1,0 +1,18 @@
+-d C:\Users\Angel17\.codex\worktrees\m2-138k-migration\fpga_gowin\code\output\m2_m1td_whole_prepare_20261015_06\impl\gwsynthesis\m2_fourvoice_timbre_delay_board_top.vg
+-p GW5AST-138C-PBGA484A-1
+-pn GW5AST-LV138PG484AC1/I0
+-cst C:\Users\Angel17\.codex\worktrees\m2-138k-migration\fpga_gowin\code\output\m2_m1td_whole_prepare_20261015_06\inputs\constraints\audio_visual.cst
+-cfg C:\Users\Angel17\.codex\worktrees\m2-138k-migration\fpga_gowin\code\output\m2_m1td_whole_prepare_20261015_06\impl\pnr\device.cfg
+-sdc C:\Users\Angel17\.codex\worktrees\m2-138k-migration\fpga_gowin\code\output\m2_m1td_whole_prepare_20261015_06\inputs\constraints\audio_visual_hold055.sdc
+-bit
+-tr
+-ph
+-timing
+-cst_error
+-convert_sdp32_36_to_sdp16_18
+-place_option 0
+-route_option 2
+-clock_route_order 0
+-correct_hold 1
+-route_maxfan 23
+-global_freq 100.000

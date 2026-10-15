@@ -1,0 +1,527 @@
+{
+  "schema": "m3_audio_endpoint_software_run_v1",
+  "started_utc": "2026-10-15T13:29:09.762859+00:00",
+  "machine": "LAPTOP-KSS1MRR7",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python_version": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)]",
+  "python": {
+    "path": "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+    "bytes": 104208,
+    "sha256": "4e5a83fcdcd12bcb9ae4dc98c5405effe35dc5ac10d89982c6a6a3646493f88a"
+  },
+  "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+  "output": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02",
+  "single_process_budget_s": 90,
+  "total_budget_s": 300,
+  "source_before": {
+    "endpoint_audit.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\endpoint_audit.py",
+      "bytes": 22168,
+      "sha256": "5e50e8c74f82f01b0640005788ea9e09c8d3c8f5cd82839a88f5bac65de7318e"
+    },
+    "FAILURE_HISTORY.md": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\FAILURE_HISTORY.md",
+      "bytes": 1928,
+      "sha256": "ab7a33ea6579dae1b3075eaf181fb9e1968ec77b012c598ae3fbd1673081357d"
+    },
+    "fixtures.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\fixtures.py",
+      "bytes": 6507,
+      "sha256": "f1004cc955facca752e3c7a213c8a076b9eaaca90c4a0906ab5b9ecddcfc7ad4"
+    },
+    "README.md": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\README.md",
+      "bytes": 5639,
+      "sha256": "285f00ca9e36248349ace3134eef2be43def6e7ba8c8ee39256a8fbf7fa5f1fd"
+    },
+    "run_selftest.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\run_selftest.py",
+      "bytes": 7832,
+      "sha256": "0d3b6fd36565791242572fb2e2e7c8bb3d099f959e5ce6a5075ab867b6d6a662"
+    },
+    "seal_software.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\seal_software.py",
+      "bytes": 3176,
+      "sha256": "bedd896a4ebd0fdeb9d39596656b80da6673ccf70a6b929d967228b2edf944b2"
+    },
+    "TARGET_SCHEMA.md": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\TARGET_SCHEMA.md",
+      "bytes": 4890,
+      "sha256": "1069dbe887242ce5d5cd5e049dc8a5bc73bb36b076011944fe80cd82b8e83ad8"
+    },
+    "test_endpoint_audit.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\test_endpoint_audit.py",
+      "bytes": 11939,
+      "sha256": "a315f47ca7012c0c47daca21c793a3688d148202cfcdbb6da47001c47652d795"
+    }
+  },
+  "calls": [
+    {
+      "name": "original_pitch_hold_only",
+      "argv": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\endpoint_audit.py",
+        "--zip",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\evidence\\m2_m1td_physical_20261015\\M2_138K_M1TD_整机PnR_STA_20261015.zip",
+        "--zip-sha256",
+        "17e71ebd5b54743fd0214af5fbfdfd1a4cca4eddbcedab56f7b3df7b3ca521ff",
+        "--targets",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\originals\\targets.json",
+        "--targets-sha256",
+        "70c7575d2a7e8ad178687deb345134e177918cd9103b08751aa131c3b778c2c6"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "elapsed_s": 0.9690000000009604,
+      "budget_s": 90,
+      "timeout": false,
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\original_pitch_hold_only.stdout.txt",
+        "bytes": 191,
+        "sha256": "10139c1dacda94b539a8d8ed3293b6ad785a8089e0be213bd960019c38b3aca0"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\original_pitch_hold_only.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "expected_diagnostic": "MISSING_SETUP",
+      "actual_diagnostic": "MISSING_SETUP",
+      "passed": true
+    },
+    {
+      "name": "synthetic_positive",
+      "argv": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\endpoint_audit.py",
+        "--report",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_positive\\SYNTHETIC_report.html",
+        "--targets",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_positive\\targets.json",
+        "--targets-sha256",
+        "00b0220debaa1e61f3ce5d3a5318d7ed8744cbfb45dea2794a5a7bed07661ac1"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "elapsed_s": 0.10899999999855936,
+      "budget_s": 90,
+      "timeout": false,
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_positive.stdout.txt",
+        "bytes": 3530,
+        "sha256": "619580fbf7d85e16880a92d522c8c3c5fe758bb3f90b69c9d308c356a5df3712"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_positive.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "expected_diagnostic": "SPECIFIED_REPORT_ENDPOINTS_SHOWN",
+      "actual_diagnostic": "SPECIFIED_REPORT_ENDPOINTS_SHOWN",
+      "passed": true
+    },
+    {
+      "name": "synthetic_missing_endpoint",
+      "argv": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\endpoint_audit.py",
+        "--report",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_missing_endpoint\\SYNTHETIC_report.html",
+        "--targets",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_missing_endpoint\\targets.json",
+        "--targets-sha256",
+        "02b05bc420c0c9246e49aa75c61e1d1fae7c38c1865b96251ef45ba5464d0d0d"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "elapsed_s": 0.10899999999855936,
+      "budget_s": 90,
+      "timeout": false,
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_missing_endpoint.stdout.txt",
+        "bytes": 193,
+        "sha256": "2791418d2454dfdfd6799f1f8c75d94f21083f9c1201d6c7bbfc3a617dfb4bc1"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_missing_endpoint.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "expected_diagnostic": "ENDPOINT_ABSENT",
+      "actual_diagnostic": "ENDPOINT_ABSENT",
+      "passed": true
+    },
+    {
+      "name": "synthetic_inactive",
+      "argv": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\endpoint_audit.py",
+        "--report",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_inactive\\SYNTHETIC_report.html",
+        "--targets",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_inactive\\targets.json",
+        "--targets-sha256",
+        "7d33f0dd359db9f71ab90ff2c63a241d725d6659be16b97b830601753626c7fb"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "elapsed_s": 0.11000000000058208,
+      "budget_s": 90,
+      "timeout": false,
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_inactive.stdout.txt",
+        "bytes": 191,
+        "sha256": "12a8b0d17b82f308fa158ee5b6d3d26af66b9f1e6d3801400b359f2a6a9c89b0"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_inactive.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "expected_diagnostic": "INACTIVE_PATH",
+      "actual_diagnostic": "INACTIVE_PATH",
+      "passed": true
+    },
+    {
+      "name": "synthetic_only_unrelated_audio",
+      "argv": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\endpoint_audit.py",
+        "--report",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_only_unrelated_audio\\SYNTHETIC_report.html",
+        "--targets",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_only_unrelated_audio\\targets.json",
+        "--targets-sha256",
+        "d759becccc338919ca9000204b5bfbe61c7b0945d21b84d9e182fe73f68c4a73"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "elapsed_s": 0.10900000000037835,
+      "budget_s": 90,
+      "timeout": false,
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_only_unrelated_audio.stdout.txt",
+        "bytes": 193,
+        "sha256": "2791418d2454dfdfd6799f1f8c75d94f21083f9c1201d6c7bbfc3a617dfb4bc1"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_only_unrelated_audio.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "expected_diagnostic": "ENDPOINT_ABSENT",
+      "actual_diagnostic": "ENDPOINT_ABSENT",
+      "passed": true
+    },
+    {
+      "name": "synthetic_setup_only",
+      "argv": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\endpoint_audit.py",
+        "--report",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_setup_only\\SYNTHETIC_report.html",
+        "--targets",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_setup_only\\targets.json",
+        "--targets-sha256",
+        "8e1511e0cfdb4d7857ddf9d21f6e14fe0878a6706ff321f31032db760152a6f1"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "elapsed_s": 0.10900000000037835,
+      "budget_s": 90,
+      "timeout": false,
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_setup_only.stdout.txt",
+        "bytes": 190,
+        "sha256": "ae49b3b23ec303e316a50b7218967f13f2e80c09f603e7eed7589390cffabd51"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_setup_only.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "expected_diagnostic": "MISSING_HOLD",
+      "actual_diagnostic": "MISSING_HOLD",
+      "passed": true
+    },
+    {
+      "name": "synthetic_hold_only",
+      "argv": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\endpoint_audit.py",
+        "--report",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_hold_only\\SYNTHETIC_report.html",
+        "--targets",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_hold_only\\targets.json",
+        "--targets-sha256",
+        "75984830e39f380d9bbe4b7928e1ee71890df3440d01615cb1cf9524c68c1dde"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "elapsed_s": 0.09399999999914144,
+      "budget_s": 90,
+      "timeout": false,
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_hold_only.stdout.txt",
+        "bytes": 191,
+        "sha256": "10139c1dacda94b539a8d8ed3293b6ad785a8089e0be213bd960019c38b3aca0"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_hold_only.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "expected_diagnostic": "MISSING_SETUP",
+      "actual_diagnostic": "MISSING_SETUP",
+      "passed": true
+    },
+    {
+      "name": "synthetic_negative_slack",
+      "argv": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\endpoint_audit.py",
+        "--report",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_negative_slack\\SYNTHETIC_report.html",
+        "--targets",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_negative_slack\\targets.json",
+        "--targets-sha256",
+        "df383b3249a554034c9bd32432a1a2f8442c682cb2556bf0452e73bda0e980b5"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "elapsed_s": 0.0930000000007567,
+      "budget_s": 90,
+      "timeout": false,
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_negative_slack.stdout.txt",
+        "bytes": 192,
+        "sha256": "b4b30378f4af863b72a5fe9617cfa0e8e4993a68ca89b11e1316a0d83f218ca3"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_negative_slack.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "expected_diagnostic": "NEGATIVE_SLACK",
+      "actual_diagnostic": "NEGATIVE_SLACK",
+      "passed": true
+    },
+    {
+      "name": "synthetic_wrong_clock",
+      "argv": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\endpoint_audit.py",
+        "--report",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_wrong_clock\\SYNTHETIC_report.html",
+        "--targets",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_wrong_clock\\targets.json",
+        "--targets-sha256",
+        "948f10375d63a1fff1d1a00e0babce78925f7a3d1292e8f13276253e407955ee"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "elapsed_s": 0.11000000000058208,
+      "budget_s": 90,
+      "timeout": false,
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_wrong_clock.stdout.txt",
+        "bytes": 188,
+        "sha256": "616ff8119ef8706281d9ee398e434f35eee8c383b7d9b2e734dfad9cb22bc011"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\synthetic_wrong_clock.stderr.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "expected_diagnostic": "PATH_CLOCK",
+      "actual_diagnostic": "PATH_CLOCK",
+      "passed": true
+    },
+    {
+      "name": "unit_tests",
+      "argv": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015",
+        "-p",
+        "test_endpoint_audit.py",
+        "-v"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "elapsed_s": 2.639999999999418,
+      "budget_s": 90,
+      "timeout": false,
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\unit_tests.stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\unit_tests.stderr.txt",
+        "bytes": 3620,
+        "sha256": "2b7bf27a2642c6427fcba78e291affb8523b49b02e45922984785d1921703c0d"
+      },
+      "expected_diagnostic": null,
+      "passed": true
+    }
+  ],
+  "board_release_allowed": false,
+  "new_sta_executed": false,
+  "eda_calls": 0,
+  "status": "SOFTWARE_SELFTEST_PASS",
+  "python_dependencies": {
+    "html.parser": {
+      "path": "C:\\Users\\songdongkuan\\miniconda3\\Lib\\html\\parser.py",
+      "bytes": 17054,
+      "sha256": "ab5a0a2fce2bec75d969dbe057b490ef574f9ac57cce9e0eaaf7a220b301e838"
+    },
+    "html.entities": {
+      "path": "C:\\Users\\songdongkuan\\miniconda3\\Lib\\html\\entities.py",
+      "bytes": 75512,
+      "sha256": "d9c65fb2828dbc1f3e399058a341d51e9375ec5bca95a8e92599c41bd5b78bde"
+    },
+    "json": {
+      "path": "C:\\Users\\songdongkuan\\miniconda3\\Lib\\json\\__init__.py",
+      "bytes": 14020,
+      "sha256": "d5d41e2c29049515d295d81a6d40b4890fbec8d8482cfb401630f8ef2f77e4d5"
+    },
+    "decimal": {
+      "path": "C:\\Users\\songdongkuan\\miniconda3\\Lib\\decimal.py",
+      "bytes": 2805,
+      "sha256": "6cb648bf8c466ed08eaa46fb94d18b3e2f5e939946d4efe75bf6fd7ceb58a696"
+    },
+    "hashlib": {
+      "path": "C:\\Users\\songdongkuan\\miniconda3\\Lib\\hashlib.py",
+      "bytes": 9349,
+      "sha256": "6dbdebf270868b391080e21dc9687eddfaf321c965ad979f68d3f5c423c613ab"
+    },
+    "zipfile": {
+      "path": "C:\\Users\\songdongkuan\\miniconda3\\Lib\\zipfile\\__init__.py",
+      "bytes": 87706,
+      "sha256": "eb37f9fb0bb23795bbb6a310530a99e5a99dff5acc78e6f2cc17fbefc8d7a311"
+    },
+    "argparse": {
+      "path": "C:\\Users\\songdongkuan\\miniconda3\\Lib\\argparse.py",
+      "bytes": 101454,
+      "sha256": "2acf90321c8d7cc2fb3e1b0a248ec8df8431c4c095e99604aa71faec48455100"
+    },
+    "unittest": {
+      "path": "C:\\Users\\songdongkuan\\miniconda3\\Lib\\unittest\\__init__.py",
+      "bytes": 3487,
+      "sha256": "32ed48385c0377bc2900a76e9a6acc3705aeef402c72de8554b3c637420506f0"
+    },
+    "subprocess": {
+      "path": "C:\\Users\\songdongkuan\\miniconda3\\Lib\\subprocess.py",
+      "bytes": 88725,
+      "sha256": "baa9f9138d8d20df6284f67e7d2e790f847f65e2c5370de322d54cccd737f2d9"
+    },
+    "pathlib": {
+      "path": "C:\\Users\\songdongkuan\\miniconda3\\Lib\\pathlib.py",
+      "bytes": 51108,
+      "sha256": "bb172ea6ff01dfe574b0dab3e1642abc38ca176a308ab1785b014408c0cbe621"
+    }
+  },
+  "input_archive": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\evidence\\m2_m1td_physical_20261015\\M2_138K_M1TD_整机PnR_STA_20261015.zip",
+    "bytes": 132953,
+    "sha256": "17e71ebd5b54743fd0214af5fbfdfd1a4cca4eddbcedab56f7b3df7b3ca521ff"
+  },
+  "input_report": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\runs\\R02\\originals\\timing.html",
+    "bytes": 2715163,
+    "sha256": "524cea6ebb93eca719c5aa86cd6413129299ac2c9da78467ac7709cdf4e8ec62"
+  },
+  "actual_report_summary": {
+    "setup_rows": 241,
+    "hold_rows": 28,
+    "all_audio_target_setup_hold": false
+  },
+  "source_after": {
+    "endpoint_audit.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\endpoint_audit.py",
+      "bytes": 22168,
+      "sha256": "5e50e8c74f82f01b0640005788ea9e09c8d3c8f5cd82839a88f5bac65de7318e"
+    },
+    "FAILURE_HISTORY.md": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\FAILURE_HISTORY.md",
+      "bytes": 1928,
+      "sha256": "ab7a33ea6579dae1b3075eaf181fb9e1968ec77b012c598ae3fbd1673081357d"
+    },
+    "fixtures.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\fixtures.py",
+      "bytes": 6507,
+      "sha256": "f1004cc955facca752e3c7a213c8a076b9eaaca90c4a0906ab5b9ecddcfc7ad4"
+    },
+    "README.md": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\README.md",
+      "bytes": 5639,
+      "sha256": "285f00ca9e36248349ace3134eef2be43def6e7ba8c8ee39256a8fbf7fa5f1fd"
+    },
+    "run_selftest.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\run_selftest.py",
+      "bytes": 7832,
+      "sha256": "0d3b6fd36565791242572fb2e2e7c8bb3d099f959e5ce6a5075ab867b6d6a662"
+    },
+    "seal_software.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\seal_software.py",
+      "bytes": 3176,
+      "sha256": "bedd896a4ebd0fdeb9d39596656b80da6673ccf70a6b929d967228b2edf944b2"
+    },
+    "TARGET_SCHEMA.md": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\TARGET_SCHEMA.md",
+      "bytes": 4890,
+      "sha256": "1069dbe887242ce5d5cd5e049dc8a5bc73bb36b076011944fe80cd82b8e83ad8"
+    },
+    "test_endpoint_audit.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_m2td_audio_endpoint_audit_20261015\\test_endpoint_audit.py",
+      "bytes": 11939,
+      "sha256": "a315f47ca7012c0c47daca21c793a3688d148202cfcdbb6da47001c47652d795"
+    }
+  },
+  "elapsed_s": 5.889999999999418,
+  "software_process_count": 10
+}

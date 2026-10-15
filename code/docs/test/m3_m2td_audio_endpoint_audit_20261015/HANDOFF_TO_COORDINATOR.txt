@@ -1,0 +1,40 @@
+总控：主对话4已完成本轮40MHz音频端点任务单第1/2项的可实现离线准备。
+
+实际工作区：E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano。
+仅写code/docs/test/m3_m2td_audio_endpoint_audit_20261015/，coordinator/未动。
+指派消息所报初始HEAD=39b2ab2eef49e47f7816dd86b4f1901f96aea3ca；任务输入origin/develop=e2200b2...。
+交付前实际只读git rev-parse HEAD=e2200b2571afe3c38807a2d8ee2e4264c5881fd8；
+共享checkout期间HEAD已变化，本窗口未执行任何Git写命令、不推定由谁变更。
+本窗口无Git写入、fetch/merge/pull/switch，无新STA/EDA/ModelSim/下载；没有改共享状态/编号。
+
+入口：README.txt、targets.json、observed_r03/observations.json、STA_PROPOSAL_NOT_EXECUTABLE.tcl.txt。
+targets使用M3_M2TD_ENDPOINT_TARGET_PROPOSAL_V1（观察schema）；按你的约定由coordinator/适配
+主对话2checker schema，本窗口未联动/修改软件窗口。
+
+实际原件SHA17e71e...中找到5条具名真实路径；4条Hold0，1条Setup1.736；
+包含2条pitch total_s2→ROM和真正piano phase_acc→ROM路径，有原字节定位/完整原报告/10个LOC。
+每对缺另一类，exact_pair_both_analyses=UNKNOWN，不能给总任务PASS或正式board release。
+
+重要材料缺口：原ZIP实际15成员，无.vg；预期output目录本机不存在，限定枚举未找到同次.vg。
+原timing报告base_s1/base_s2各0匹配，不代表已优化；因此不能提供真实base寄存器物理pair。
+两同源fcw/snapshot源已按原portable收据逆适配并匹配物理SHA，明确标派生重建/保留portable原成员。
+voice→mix、PCM/I2S精确寄存器对仍UNKNOWN。M2需提供同次网表/数据库并决定实际端点及STA范围。
+
+verify_local.py --run-id r03：0；三个子命令observe/derive/unit 0/0/0；13/13 PASS。
+原始双流、绝对argv/cwd、退出码、输入/源码前后SHA在verification_r03/RECEIPT.json及logs；
+verify r01失败及12/13、初稿拒绝/片段缺陷保留，见FAILURE_HISTORY.txt。
+本窗口与两个只读子智能体自审未见现有范围阻断，见SELF_REVIEW.txt。
+
+封包：delivery_r02/MAIN_CHAT4_ENDPOINT_PREPARATION.zip及DELIVERY.json（准确SHA见JSON）。
+旧delivery_r01原封保留；R02只更正共享HEAD观察和封包元数据，无端点/测试/判据变化。
+包排除coordinator/，含本窗口源码、观察原件、派生证明、原片段、测试/日志、失败历史和SHA清单。
+本窗口未提交/未推送，由总控按本次用户授权统一综合发布与M2复核；不占T/V/D号。
+
+平台拒绝过直接开工回执发送，因此不声称已直接送达总控/M2；本文件供总控读取或用户转发。
+发给M2的建议文字：
+M2，40MHz音频定向准备已完成可核原报告端点清单及离线自审（L0/L1）。
+现有原报告支持5条具体单类路径事实，未支持任何该清单精确pair的setup+hold完整签收；
+原物理ZIP不含同次综合网表，base_s1/base_s2物理pair未知。请补原网表/实现数据库、
+核真实保留对象及提案query语义后，另定工具/机器/精确命令/新输出目录/预算执行范围。
+board_release_allowed=false，不恢复旧LOC，不代签新L5、R04功能或实物。
+主对话2验收器和总控综合联测结果由总控另附。待用户转发，尚未送达。
