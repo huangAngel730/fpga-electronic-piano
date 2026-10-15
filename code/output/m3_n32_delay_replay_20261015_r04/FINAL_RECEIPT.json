@@ -1,0 +1,83 @@
+{
+  "checker_calls": 2,
+  "compile_calls": 2,
+  "device_operations": 0,
+  "elapsed_seconds": 23.875,
+  "gowin_calls": 0,
+  "limits": [
+    "C_FULL source left/right are equal and source clipped is always zero.",
+    "No claim of unequal-stereo swap or nonzero-clip phase coverage is made.",
+    "No production integration, synthesis, PnR, STA, device, or audible test was run."
+  ],
+  "negative": {
+    "checker_exit_code": 2,
+    "compiled": true,
+    "diagnostic": "COMMIT_PCM_MISMATCH",
+    "macro": "M2_OUTPUT_BAD_LEFT",
+    "simulated": true
+  },
+  "positive": {
+    "cancels": 1,
+    "clip_commits": 0,
+    "commits": 1299,
+    "configs": 5,
+    "first_valids": 1300,
+    "frames": 1304,
+    "history_flushes": 4,
+    "hold_edges": 5,
+    "hold_request_ids": [
+      "0000000b"
+    ],
+    "i2s": {
+      "bclk_rises": 83456,
+      "clip_count": 0,
+      "lrck_edges": 2607,
+      "observation_drops": 0
+    },
+    "limitations": [
+      "C_FULL real publications have equal left/right PCM and clipped=0.",
+      "Observer pins carry sequence and PCM, not request ID or clipped; those use the commit ledger.",
+      "This is isolated functional replay, not production realtime N32, STA, or hardware audio proof."
+    ],
+    "maximum_enabled_samples_after_flush": 1220,
+    "pixel_samples": 1303,
+    "request_indications": 1304,
+    "requests": 1300,
+    "results": 1299,
+    "source_scope": {
+      "nonzero_clip": 0,
+      "reset_lifetimes": [
+        1
+      ],
+      "source_ids": 1300,
+      "unequal_stereo": 0
+    },
+    "status": "PASS",
+    "unaccepted_requests_after_source_exhaustion": 4,
+    "underrun_or_repeat_frames": 4,
+    "wrap_depth": 1024
+  },
+  "scope": "ISOLATED_REAL_C_FULL_PCM_TO_M1_DELAY_TO_M2_TRANSPORT_REPLAY",
+  "seal": {
+    "execution_member_count": 32,
+    "manifest": {
+      "bytes": 6466,
+      "sha256": "b9933e6f0c73ba4d8be346174168e9761dbf5bd03d3e4d813ebcd7969e08a33d"
+    },
+    "snapshot": {
+      "bytes": 290374,
+      "sha256": "0bdc24fb27e05b584df9640c02e61811d5a1be5b0c41cc6730001df5d8451595"
+    },
+    "source_member_count": 7
+  },
+  "simulation_calls": 2,
+  "source_caveat": "The original M1 ZIP is absent on this machine; exact source bytes are taken from the existing M2 evidence capsule whose preparation receipt attests the required original ZIP SHA.",
+  "status": "PASS",
+  "tool_calls": 9,
+  "transfer": {
+    "bytes": 269739,
+    "path": "code/output/m3_n32_delay_replay_20261015_r04/transfer/M3_N32_DELAY_REPLAY_20261015.zip",
+    "sha256": "d3a5ec86aa96ce573a2466a2e702dba25d8a1bb2a09c9911479d4976bbd7dff5",
+    "status": "READY_TO_FORWARD_NOT_DELIVERED"
+  }
+}

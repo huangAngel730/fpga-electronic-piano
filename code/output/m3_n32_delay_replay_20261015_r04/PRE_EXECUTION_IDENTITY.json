@@ -1,0 +1,141 @@
+{
+  "budget": {
+    "checker_timeout_seconds_each": 30,
+    "compile_timeout_seconds_each": 90,
+    "device_operations_allowed": 0,
+    "gowin_calls_allowed": 0,
+    "selftest_timeout_seconds": 30,
+    "simulation_timeout_seconds_each": 180,
+    "vector_count": 1300
+  },
+  "inputs": {
+    "c_full_outer": {
+      "bytes": 7689052,
+      "path": "code/output/n32_c_full_publication_20261014_r01/transfer/M3_N32_C_FULL_20261014.zip",
+      "sha256": "eac6e9371a96e91447a75d869d7e7a6dc76252fd89d6c8b621953a396a42c726"
+    },
+    "m1": {
+      "evidence_capsule": {
+        "bytes": 358367,
+        "path": "code/docs/evidence/m2_fourvoice_timbre_delay_stage_20261015.zip",
+        "sha256": "90fb74ae1782cb3810a425ce4f357d7f519cd4294fe707ec76d32709711debce"
+      },
+      "original_archive": {
+        "attestation": "PREPARATION_RECEIPT.json inside the M2 evidence capsule",
+        "attested_sha256": "5c18926ae307301e91ec0e44dcf4a48b2fb57adec71ad46c494b14df59913b06",
+        "availability": "NOT_PRESENT_ON_THIS_MACHINE"
+      },
+      "sources": {
+        "m1td_delay_effect.sv": {
+          "bytes": 6160,
+          "evidence_member": "code/output/m2_m1td_whole_prepare_20261015_05/inputs/sources/m1td_delay_effect.sv",
+          "sha256": "07bcc6f4d0a448e029b5349a43fa8bcaa4afac32323bffb21fdc0e7c6a9633ac"
+        },
+        "m1td_stereo_delay.sv": {
+          "bytes": 5550,
+          "evidence_member": "code/output/m2_m1td_whole_prepare_20261015_05/inputs/sources/m1td_stereo_delay.sv",
+          "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+        }
+      }
+    },
+    "m2": {
+      "evidence_capsule": {
+        "bytes": 553096,
+        "path": "code/docs/evidence/m2_n32_output_transport_20261013/RAW_EVIDENCE.zip",
+        "sha256": "b37d2084fada1cd595f207ec91c99125f28488cad4d07a1576b1e6c6da0c195c"
+      },
+      "sources": {
+        "code/rtl/audio_out/i2s_tx.sv": {
+          "bytes": 17021,
+          "sha256": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad"
+        },
+        "code/rtl/audio_out/m2_n32_output_candidate_20261013/m2_n32_output_transport.sv": {
+          "bytes": 3490,
+          "sha256": "d2b6d311fd990072f399d4e42413c47ef70f2f6f2473b1308b085d9aa49ad154"
+        },
+        "code/rtl/audio_out/m2_polyphony_frame_candidate_20261012/premixed_frame_adapter.sv": {
+          "bytes": 3940,
+          "sha256": "d7952a5f986eb8b609cbe657907e418cfe751c6492d6e49469b5e37c390bb56c"
+        },
+        "code/rtl/audio_out/pcm_frame_buffer.sv": {
+          "bytes": 3796,
+          "sha256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997"
+        },
+        "code/rtl/audio_out/pcm_result_hold.sv": {
+          "bytes": 2658,
+          "sha256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f"
+        },
+        "code/rtl/common/pcm_clip_counter.sv": {
+          "bytes": 1015,
+          "sha256": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca"
+        },
+        "code/rtl/common/pcm_waveform_observer_candidate/pcm_frame_observer.sv": {
+          "bytes": 1118,
+          "sha256": "f0f755558fbd40a103c1d7d6c73c102eb4f83bf54cc41b09a78fd65609fe13a8"
+        },
+        "code/rtl/common/pcm_waveform_observer_candidate/pcm_waveform_observer_bridge.sv": {
+          "bytes": 4966,
+          "sha256": "0b937e2d23dc090b5094d789edba5216c34a96eb84eb96d002cdab8aa0c45cfb"
+        },
+        "code/rtl/common/reset_sync.sv": {
+          "bytes": 1713,
+          "sha256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777"
+        },
+        "code/rtl/common/visual_mailbox_cdc.sv": {
+          "bytes": 2786,
+          "sha256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c"
+        }
+      }
+    },
+    "task_sources": {
+      "DELIVERY.md": {
+        "bytes": 1040,
+        "sha256": "bd56ad3dbee003930beb8925c31a1428eb505a1bf8fc18ab73503f9e81191ddc"
+      },
+      "README.md": {
+        "bytes": 3357,
+        "sha256": "d91e4057b0da1f58490d68f2ea9f2b465dc12dd8e37f47d9eed412bf40cf9a5a"
+      },
+      "capture_extract.py": {
+        "bytes": 11017,
+        "sha256": "1903d41f9f7967b3cdcd6a792c92ea08e818b405b7730055064f670d34ca4030"
+      },
+      "check_replay.py": {
+        "bytes": 18246,
+        "sha256": "8bb672064f21fbf9b9f462a73172c2cc7707666a9634b7d3f792d9e295b19408"
+      },
+      "run_replay.py": {
+        "bytes": 20825,
+        "sha256": "d6d912e5401232eda4f15b1eaac0bca4224d337ee61410c94db103142f24364b"
+      },
+      "tb_m3_n32_delay_replay.sv": {
+        "bytes": 14796,
+        "sha256": "0ee405332648484c79b61041dfcfb41b7d60c5cbfccb7518d68113e86bc43426"
+      },
+      "test_self.py": {
+        "bytes": 3208,
+        "sha256": "e172498bc12fb31e6f461d4f8cb9f4dd1231946000c916bd5f1a4069389c3be3"
+      }
+    }
+  },
+  "machine": {
+    "computername": "LAPTOP-KSS1MRR7",
+    "hostname": "LAPTOP-KSS1MRR7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+    "python_version": "3.12.4"
+  },
+  "output_directory": "code/output/m3_n32_delay_replay_20261015_r04",
+  "recorded_at_utc": "2026-10-15T00:17:16.921118+00:00",
+  "status": "RECORDED_BEFORE_TOOL_EXECUTION",
+  "tools": {
+    "iverilog": {
+      "path": "E:/FPGA/GAOYUNFPGA/138K/tools/icarus_oss_copy/bin/iverilog.exe",
+      "sha256": "5c1f4e38c6dc0807aeab8814d63af97313bef5813e815e17021ae8e36e0a0bab"
+    },
+    "vvp": {
+      "path": "E:/FPGA/GAOYUNFPGA/138K/tools/icarus_oss_copy/bin/vvp.exe",
+      "sha256": "d38cc76e6946136aaf46db8a3bf34bec2a54bad564dfe146686579ca2d39c9ed"
+    }
+  }
+}
