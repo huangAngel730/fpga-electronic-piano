@@ -1,0 +1,96 @@
+M3 四包集中交付／总控复核，2026-10-16
+状态：待用户转发，尚未送达；候选限定结果待 M2 最终复核。
+
+当前入口与版本优先级
+------------------
+以本文件、A REWORK_20261016_R02/RESULT_AND_HANDOFF.md、D REPAIR_REPORT_20261016.txt
+为当前结论。A 旧 README/SEAL_20261016_R01 的 BLOCKED_TOOL、B 包附带的旧 D PARTIAL
+是历史时点，不能作为当前结论，也不删除、重写这些失败原件。
+主对话2独占 A/C，主对话4独占 B/D；总控仅核交付、写本 coordinator 并串行发布。
+未联系3/5或启用审核员制度。用户直接追加 A、D 返工授权的记录随包保留。
+
+A：R05 真实功能隔离候选，L2，CONSISTENT_PENDING_M2
+------------------------------------------------
+原 R05 ZIP dcf15f5d3ded1a0b160f55eab43066c728f80b3c329c44ea9f099c63f178696a。
+原 TB 6e677154d0a53ff97e794555ef57695e385a9963de43f1ac9135a54c32fc9777。
+候选 TB 24e7407f6abfcc28ed9dd886f41539e8f07b64da6e67c5932abbe504f6b5096a。
+实际 ModelSim SE-64 2020.4；vlib -help 联合安装身份、vlog/vsim -version 核版本。
+工具完整路径/SHA、静态依赖、库/许可、Python、69编译单元/ROM及前后身份见原回执。
+修自有监督器 stdin/启动阶段记录及 vlib 预检；未修改系统/安装/许可或永久环境。
+第一轮真链 vsim 虽 exit0，原 TB 6ms watchdog Fatal，checker拒收，失败原件保留。
+固定流程最早 PASS 为6.327ms。用户追加返工授权后，仅新复制TB watchdog 6→7ms，
+3516字节仅一个数字字符不同；事件、等待、断言、算法及ROM未改，可逆还原原SHA。
+第二轮 vlib/vlog/vsim 全 exit0，3.844秒（各步0.078/0.156/2.781秒），
+6327us真实PASS；6接受、4活动声部、303提交、258非零提交、303帧、serial3905。
+DUT自报max35不能代逐请求deadline。32项软件测试通过，首失败及两份消费标记保留。
+原失败不是工具300秒墙钟超时；受限环境623未被证明是安装故障，不能声称底层修复。
+额外observer仅L0；逐请求833拍、四独立频率到输出、逐样本左右串行解码仍未由A覆盖。
+完整argv/cwd/六原始流/退出码/SHA在 REWORK_AUTHORIZED_RUN_01 和 REWORK_WATCHDOG_RUN_02。
+
+B：138K C／40MHz 五对端点定向物理候选，L4＋限定L5结果
+-------------------------------------------------------
+Gowin V1.9.11.03 Education，同版原 _06 输入，84项身份核对。
+用户允许40处旧绝对路径在15份隔离源中可逆迁移，9不同依赖原字节相等；
+38处属GPRJ列举源，2处为排除旧DDS，不能声称40条活跃路径。
+原SDC前24106字节不变，仅追加10条定向report；原CST/ROM/器件/时钟未改。
+一次综合/PnR/STA，344.813秒，exit0，无超时；首轮通过，不再使用第二轮。
+五对 setup/hold(ns)：post_right_ram_address 22.505/0.000；
+voice_lane2_phase_to_rom 22.534/0.000；pitch_lane3_total_to_oct 20.908/0.000；
+pitch_lane0_total_to_sub 22.511/0.000；event_fifo_to_audio_slot 1.736/2.814。
+均sys_clk R→R，setup关系25ns、hold关系0ns。最低1.736/0.000仅限这些实际报告行，
+不是全音频端点覆盖或正式整机签收。新.vg是综合网表，不是post-PnR网表。
+新增恢复边界13项、checker15项通过；原32/13组未重跑。
+gw_sh SHA 4c172d4c0d2a4c7ef5c764d091a315cbcde2127573554bfd7d09ac6f2e5ea535。
+原HTML SHA 68f3d8f410efc0a2aafd6c96b1ef694a7a1c1157115bc03cebf2231a568bb2ff。
+EDA双流齐全；实际checker终端stdout/stderr未另存，JSON本体绑定10行原报告字节span，
+如实保留此证据缺口，不以后来摘要冒充。完整后工具SHA清单为事后重采，时间单列。
+命令/退出码见封包 RUN_RECEIPT、ENDPOINT_CHECK_R01 和 successor_R03/CURRENT_RESULT.txt。
+
+C：PCM/PT8211 公开端口模块，L2／软件checker L1
+--------------------------------------------
+Icarus14 devel；只读R05 buffer/tx和tick原源，诊断生产者不等于真实R05算法。
+历史最终R04 exit0，13.469秒、9子命令；120024连续sys沿、2复位代，
+每代72帧，71间隔=48×833+23×834。独立引脚解码140立体声帧。
+142请求中136完整串行、4尾部未完整、2刻意欠载保持旧值。
+136已闭合请求最大1687拍=42.175us；不是MIDI全链或模拟≤10ms。
+clip为诊断元数据，不证明算法clip接入。左右错接变体编译0、仿真0、checker1正确拒收。
+20软件例通过；原4轮失败/修复完整留存，原始版本查询缺单独双流亦如实标注。
+两组限制公布后0新RTL执行，不重置历史额度；历史额度解释交M2/用户。
+入口 run.py 已停止执行，非新许可。命令及双流见 R04/RUN_RECEIPT，封包README列明边界。
+
+D：双滑块新授权修复，L2隔离显示夹具
+-----------------------------------
+wrapper renderer范围改为H-2/H-1，不改旧renderer或关断言。
+新独立repair两组：2.110/3.281秒，各8工具启动；最终99检查通过，
+四故障注入均exit1并命中指定诊断。原夜间2/2和失败历史不恢复、不回填。
+128×64/4槽、40MHz系统/25MHz像素的加速显示夹具：长条/松键上移、
+12帧下落与退出、精确RGB/边界/消隐、帧边界切换、同音来源/通道和在途共享复位。
+音频仅cadence计数夹具，不是真实PCM或正式音画共存；命中闪光旧FAIL继续暂缓。
+原源及438项工具/依赖前后SHA不变，完整原双流/命令/退出码见repair_run_01/02。
+RTL a8116d04f7fa70ba4500c4819e3ffb939fcc7096acef9bb7f87004e1e648868f。
+TB 1554f41a7532e747f7571346b731ddb4929fb94e259eaa0ef36e2f73f449225a。
+
+四份原件封包 SHA-256
+--------------------
+A M3_A_R05_WATCHDOG_REPAIR_20261016.zip
+92b8c3e36196c7c5996b724e04054909d8eeb5cc6a2e37f0eec3338b854faaf0
+B B_DIRECTED_STA_CANDIDATE_20261016.zip
+59f40000f25bccc492199e4a0f6e843e4a7ccf68ddaeab5823c756b888d44ce3
+C M3_C_PCM_SERIAL_MODULE_HISTORY_20261016.zip
+da480517d5729f6cd15227549a43c59a0b56c883fad9242d53f999b613196aca
+D DUAL_SLIDER_REPAIR_PASS_20261016.zip
+ac3df441c8bda0d9b839bff903b520b5705df4ebbba9c666a749f0fb8a68a56d
+总控逐成员CRC/manifest SHA/大小及46份当前软件/RTL/TB与封包原字节核同；
+详情 DELIVERY_VERIFICATION.json。没有为汇总重跑EDA或RTL，没有删文件。
+封包不含厂商EXE/DLL、下载.fs或大型实现数据库；源码Git按仓库LF规则，
+原封包保持原始字节，原日志/源码/工具/输入输出SHA以包内manifest和原回执为准。
+
+尚未完成与需要M2决定
+------------------
+四包不是正式共享树集成闭环：A逐请求公开账本/与物理源的最终绑定、
+真实R05的C逐样本串行capture尚缺；D未接真实音频，未做正式138K STA/实屏，
+模拟延迟及所有本轮板测未验。全部 board_release_allowed=false，不放行下载码流。
+请M2限定复核 A watchdog候选及两轮原件、B同版迁移/定向端点、C历史/模块边界、
+D新授权批次及99项结果，决定哪些进入正式共享树与后续准入；更新任务看板/当前状态
+和验证编号。总控不修改共享状态、正式top、原约束、原ROM或算法。
+发布提交/远端核验及9项门禁另见同目录最终发布回执；尚未签收项不得记整机完成。
