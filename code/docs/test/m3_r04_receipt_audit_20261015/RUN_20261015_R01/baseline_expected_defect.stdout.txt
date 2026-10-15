@@ -1,0 +1,23 @@
+{
+  "evidence_kind": "SYNTHETIC",
+  "baseline": true,
+  "actual_modelsim_calls": 0,
+  "cases": [
+    {
+      "tool": "vlog",
+      "position": "after",
+      "diagnostic": "Error: synthetic diagnostic",
+      "expected_rejected": true,
+      "actual_rejected": false,
+      "case": "SYNTHETIC_00_vlog_after"
+    },
+    {
+      "tool": "vsim",
+      "position": "after",
+      "diagnostic": "Error: synthetic diagnostic",
+      "expected_rejected": true,
+      "actual_rejected": false,
+      "case": "SYNTHETIC_01_vsim_after"
+    }
+  ]
+}
