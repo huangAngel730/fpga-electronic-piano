@@ -95,6 +95,7 @@ Authenticated Users 修改，仍不能代表沙盒内的 Git 进程可写。
   `insufficient permission for adding an object ... .git/objects`。
   本次一次带多个文件路径的 `git add -- ...` 也失败；**每次仅指定一个文件路径、
   一条简单 `git add` 调用**，实际上能创建新对象并完成暂存。
+- **2026-10-15 C 盘 M2 worktree 实测补充**：对 `code/scripts/check_m2_m1td_physical_20261015.py` 与 `code/scripts/run_m2_m1td_whole_once_20261015.py` 的两次单文件 `git add -- 路径` 在 Codex 工具进程报 `.git/objects` `insufficient permission`，没有完成暂存；用户交互 PowerShell 和随后本工具进程分别以 `git add 路径`（**省略 `--`**）成功暂存，`git status --short`／`git diff --cached --name-only` 核到目标。对不以 `-` 开头的普通仓库相对路径，当前本机优先用**每次一文件、一条独立调用的 `git add 路径`**；路径可能被解释为选项时仍须 `--`。这只记录本机命令形态与结果，**不能断定 `--` 本身造成权限故障**，也不能把命令变形当作绕过明确拒绝授权的方法。失败时保存原命令/错误并核执行规则；不批量 add、不换 checkout、不改 ACL。
 - 每个写入动作与每个检查动作分别调用，绝不把它们拼在同一条 shell 命令里：
 
   ```powershell
