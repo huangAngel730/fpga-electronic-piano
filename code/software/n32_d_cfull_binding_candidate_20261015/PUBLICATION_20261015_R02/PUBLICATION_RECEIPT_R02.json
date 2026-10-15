@@ -1,0 +1,96 @@
+{
+  "schema": "M3_THREE_SOFTWARE_REPAIRS_PUBLICATION_V1",
+  "functional_tree": "c47b2cc6d03fb6bd1ef86a3125c6bdd329fadc8d",
+  "remote_base_at_final_fetch": "5a677bcf97655bd7b33d50432bc540fcf38187f6",
+  "commits": {
+    "rom": "6ade5517c2248c87abc0f78d1223b63acb27cb7e",
+    "midi": "07d202b951ca6dfa767bc9d00c3078928381b17f",
+    "binding": "b2b0b9610a1c7e0f6a0a7b0ceabc936f941fd3b2"
+  },
+  "repository_gate": {
+    "checks": 9,
+    "exit_code": 0,
+    "sha256_raw": "d9b4da62b1b0788b46e4ef5c78c3fedaf5a440e37a48c314b8b1d0d4dc023256",
+    "raw_log_container": "FINAL_PUBLICATION_EVIDENCE_R02.zip",
+    "note": "New merged and renumbered exact tree c47b2cc passed all nine checks; business sources unchanged. Later commit only appends publication evidence."
+  },
+  "midi": {
+    "cases": 38,
+    "passed": 37,
+    "skipped": 1,
+    "skip_reason": "WinError1314 file symlink creation privilege missing; not counted as passed",
+    "tk_checks_passed": 7,
+    "native_picker_tested": false,
+    "main_seconds": 18.922,
+    "pub_seconds": 17.219,
+    "main_process_starts": 27,
+    "bound_identities": 434,
+    "sha_equal": true,
+    "package_bytes": 3744569,
+    "package_sha256": "b291705fe560d93f40c86dada8d912e36dfe796c85644c189e8e1affeaf841c6",
+    "real_original_delivery_sha256": "4529de965b76e70b6bbbfba02b33e86eff48afb4a0307a51dd490e6660644eb0",
+    "historical_missing_evidence": "Some old publication R01 overlong receipts could not be written. Preserve available originals; do not infer a complete old invocation count."
+  },
+  "binding": {
+    "cases": 71,
+    "passed": 71,
+    "main_stages_exit": [
+      0,
+      0,
+      0
+    ],
+    "pub_stages_exit": [
+      0,
+      0,
+      0
+    ],
+    "main_seconds": 8.75,
+    "pub_seconds": 8.485,
+    "bound_identities_main": 171,
+    "sha_equal": true,
+    "shared_inputs": 25,
+    "d_manifest_records": 45,
+    "historical_tool_records": 7023,
+    "scope": "STATIC_BINDING_ONLY",
+    "EDA_calls": 0,
+    "RTL_calls": 0,
+    "device_calls": 0,
+    "resources": "UNKNOWN",
+    "STA": "NOT_RUN",
+    "T061_complete": false,
+    "package_bytes": 383135,
+    "package_sha256": "90ec71872509601fdae2d098d94f176849e1f05eb8a1f7a8e7011bdb92168186"
+  },
+  "rom": {
+    "cases": 42,
+    "strict_vvp_starts": 3,
+    "strict_chain_tool_starts_including_failed_lower": 10,
+    "package_sha256": "e48db85f07b2f7c7bdbfee5afecbea5c3ba7533c55b8231d663140a773c5914b",
+    "formal_runner_adopted": false
+  },
+  "review": "Self-reviewed only. M2 final acceptance pending. No external reviewer messages.",
+  "delivery": "Pending user forwarding; not sent.",
+  "hardware_claim": false,
+  "verification_records": {
+    "rom": "V0347",
+    "midi": "V0352",
+    "binding": "V0353",
+    "retained_remote_record": "V0351"
+  },
+  "git_published": true,
+  "verified_remote_head_at_publication": "c47b2cc6d03fb6bd1ef86a3125c6bdd329fadc8d",
+  "push_attempts": [
+    {
+      "head": "fd448c4cacd84b312a2e082bec5d789c4ff262a5",
+      "exit_code": 1,
+      "result": "rejected fetch first; no force",
+      "evidence": "PUSH_R01_TOOL_RESULT.txt is original tool-return text transcription, not separately captured stdout/stderr"
+    },
+    {
+      "head": "c47b2cc6d03fb6bd1ef86a3125c6bdd329fadc8d",
+      "exit_code": 0,
+      "result": "5a677bc..c47b2cc HEAD -> develop",
+      "remote_sha_verified": true
+    }
+  ]
+}
