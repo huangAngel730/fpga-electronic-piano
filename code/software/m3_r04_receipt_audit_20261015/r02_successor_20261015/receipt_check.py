@@ -27,12 +27,7 @@ R04_MANIFEST_SHA256 = (
 R04_PASS_MARKER = "PASS M2_M1TD_REAL_CHAIN_BOARD_FUNCTIONAL_ONLY"
 
 _COMPILE_PASS_RE = re.compile(
-    r"^\s*(?:#\s*)?Errors\s*:\s*0\b",
-    re.IGNORECASE | re.MULTILINE,
-)
-_COMPILE_ERROR_RE = re.compile(
-    r"^\s*(?:#\s*)?\*\*\s*Error\b|"
-    r"^\s*(?:#\s*)?Errors\s*:\s*[1-9][0-9]*\b",
+    r"^[ \t]*(?:#[ \t]*)?Errors[ \t]*:[ \t]*0+(?=[ \t]*(?:,|$))",
     re.IGNORECASE | re.MULTILINE,
 )
 _FATAL_OR_TIMEOUT_RE = re.compile(
@@ -42,9 +37,26 @@ _FATAL_OR_TIMEOUT_RE = re.compile(
 )
 _ERROR_OR_FAILURE_RE = re.compile(
     r"\berror\s*:|\*\*\s*error\b|"
-    r"\berrors\s*:\s*[1-9][0-9]*\b|\b(?:fail|failed|failure)\b",
+    r"\b(?:fail|failed|failure)\b|"
+    r"\bassert(?:ion)?\s+(?:failed|failure|violated|violation)\b",
     re.IGNORECASE,
 )
+_ERROR_COUNT_RE = re.compile(r"\berrors[ \t]*:[ \t]*([^\s,;]*)", re.IGNORECASE)
+
+
+def _has_error_diagnostic(text: str) -> bool:
+    """Parse the whole decimal count: leading zeros never hide a nonzero.
+
+    Testing all digits for zero is exact integer-zero comparison without an
+    integer-conversion length limit. Uninterpretable count tokens fail closed.
+    """
+    if _ERROR_OR_FAILURE_RE.search(text) or _FATAL_OR_TIMEOUT_RE.search(text):
+        return True
+    for match in _ERROR_COUNT_RE.finditer(text):
+        token = match.group(1)
+        if re.fullmatch(r"[0-9]+", token) is None or token.strip("0"):
+            return True
+    return False
 
 
 class ReceiptFormatError(ValueError):
@@ -88,9 +100,24 @@ def _read_text(path: Path) -> str:
         raise ReceiptFormatError(f"not UTF-8: {path}") from exc
 
 
+def _strict_json_loads(text: str) -> Any:
+    def unique_pairs(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ReceiptFormatError(f"duplicate JSON key: {key}")
+            result[key] = value
+        return result
+
+    def reject_constant(value):
+        raise ReceiptFormatError(f"nonfinite JSON constant: {value}")
+
+    return json.loads(text, object_pairs_hook=unique_pairs, parse_constant=reject_constant)
+
+
 def _read_json(path: Path) -> Mapping[str, Any]:
     try:
-        value = json.loads(_read_text(path))
+        value = _strict_json_loads(_read_text(path))
     except json.JSONDecodeError as exc:
         raise ReceiptFormatError(f"invalid JSON: {path}: {exc}") from exc
     if not isinstance(value, dict):
@@ -128,7 +155,7 @@ def _load_expected_package(
             f"expected {expected_manifest_sha256}, got {manifest_sha}"
         )
     try:
-        manifest = json.loads(manifest_bytes.decode("utf-8"))
+        manifest = _strict_json_loads(manifest_bytes.decode("utf-8"))
     except (UnicodeDecodeError, json.JSONDecodeError) as exc:
         raise ReceiptFormatError("sealed R04 MANIFEST.json is invalid") from exc
     if not isinstance(manifest, dict) or not isinstance(manifest.get("members"), dict):
@@ -262,8 +289,8 @@ def check_receipt(
         ),
         Check(
             "vlog_no_compile_error",
-            not bool(_COMPILE_ERROR_RE.search(vlog_log)),
-            "no ModelSim compile error summary" if not _COMPILE_ERROR_RE.search(vlog_log)
+            not _has_error_diagnostic(vlog_log),
+            "no ModelSim compile error summary" if not _has_error_diagnostic(vlog_log)
             else "compile error marker found",
         ),
         Check(
@@ -274,9 +301,9 @@ def check_receipt(
         ),
         Check(
             "logs_no_error_or_failure",
-            not bool(_ERROR_OR_FAILURE_RE.search(vlog_log + "\n" + vsim_log)),
+            not (_has_error_diagnostic(vlog_log) or _has_error_diagnostic(vsim_log)),
             "Error:/nonzero Errors:/** Error/FAIL/FAILED/Failure is absent"
-            if not _ERROR_OR_FAILURE_RE.search(vlog_log + "\n" + vsim_log)
+            if not (_has_error_diagnostic(vlog_log) or _has_error_diagnostic(vsim_log))
             else "error or failure diagnostic found; PASS does not override it",
         ),
         Check(
@@ -324,6 +351,9 @@ def _build_parser() -> argparse.ArgumentParser:
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = _build_parser().parse_args(argv)
+    if args.json_out is not None and args.json_out.exists():
+        print(f"R04_RECEIPT_INVALID: output already exists: {args.json_out}", file=sys.stderr)
+        return 2
     try:
         result = check_receipt(
             package_path=args.package,
@@ -338,13 +368,15 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 2
 
     payload = json.dumps(result.to_dict(), ensure_ascii=False, indent=2)
-    print(payload)
     if args.json_out is not None:
-        if args.json_out.exists():
-            print(f"R04_RECEIPT_INVALID: output already exists: {args.json_out}", file=sys.stderr)
+        try:
+            args.json_out.parent.mkdir(parents=True, exist_ok=True)
+            with args.json_out.open("x", encoding="utf-8", newline="\n") as stream:
+                stream.write(payload + "\n")
+        except OSError as exc:
+            print(f"R04_RECEIPT_INVALID: cannot create output: {exc}", file=sys.stderr)
             return 2
-        args.json_out.parent.mkdir(parents=True, exist_ok=True)
-        args.json_out.write_text(payload + "\n", encoding="utf-8")
+    print(payload)
     return 0 if result.accepted else 1
 
 

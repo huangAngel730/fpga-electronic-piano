@@ -17,8 +17,7 @@ from receipt_check import (
     R04_MANIFEST_SHA256,
     R04_PASS_MARKER,
     _COMPILE_PASS_RE,
-    _ERROR_OR_FAILURE_RE,
-    _FATAL_OR_TIMEOUT_RE,
+    _has_error_diagnostic,
     _identity_check,
     _load_expected_package,
     _normal_sha,
@@ -158,7 +157,7 @@ def audit(root: Path, record: Path, confirmation: Path, confirmation_sha: str) -
         # Scan each stream independently: an unterminated stdout line must not
         # hide a diagnostic or manufacture a PASS at the start of stderr.
         for stream_name, text in (("stdout", stdout), ("stderr", stderr)):
-            if _ERROR_OR_FAILURE_RE.search(text) or _FATAL_OR_TIMEOUT_RE.search(text):
+            if _has_error_diagnostic(text):
                 reasons.append(f"{name.upper()}_{stream_name.upper()}_DIAGNOSTIC")
             if re.search(r"\bsynthetic\b", text, re.IGNORECASE):
                 reasons.append("SYNTHETIC_OR_UNDECLARED_EVIDENCE")
