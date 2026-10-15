@@ -1,0 +1,43 @@
+{
+  "contract": {
+    "allowed_frame_cycles": [
+      833,
+      834
+    ],
+    "max_processing_cycles_must_be_less_than": 834,
+    "required_fields": [
+      "frame_index",
+      "frame_cycles",
+      "max_processing_cycles",
+      "underrun_count"
+    ],
+    "underrun_count_must_finish_at": 0
+  },
+  "input": {
+    "bytes": 98,
+    "path": "samples\\fail_processing_834.csv",
+    "sha256": "08a2beee460418693f8ab274e1dded0adbe8d825b9322e19ffe24dd488be7624"
+  },
+  "limitations": [
+    "No ModelSim, RTL, synthesis, PnR, STA, or device operation was run.",
+    "A PASS validates the CSV contract only; it does not prove the R04 whole system.",
+    "The cumulative max counter is checked for monotonicity and deadline only; the CSV does not independently reconstruct internal processing latency."
+  ],
+  "observed": {
+    "final_max_processing_cycles": 834,
+    "final_underrun_count": 0,
+    "first_frame_index": 0,
+    "frame_cycles_distribution": {
+      "833": 2,
+      "834": 1
+    },
+    "last_frame_index": 2,
+    "rows": 3
+  },
+  "reasons": [
+    "MAX_PROCESSING_DEADLINE_FAIL: 834 is not less than 834"
+  ],
+  "schema": "r04_frame_budget_offline_v1",
+  "scope": "SYNTHETIC_OR_FUTURE_EXPORTED_CSV_ONLY",
+  "status": "FAIL"
+}

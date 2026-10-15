@@ -1,0 +1,41 @@
+{
+  "contract": {
+    "allowed_frame_cycles": [
+      833,
+      834
+    ],
+    "max_processing_cycles_must_be_less_than": 834,
+    "required_fields": [
+      "frame_index",
+      "frame_cycles",
+      "max_processing_cycles",
+      "underrun_count"
+    ],
+    "underrun_count_must_finish_at": 0
+  },
+  "input": {
+    "bytes": 122,
+    "path": "samples\\pass_833_834.csv",
+    "sha256": "d2fedd0b9d80b80d6caa2263b368ab1cb5a8c506328a5417a43a6f3e9084ab05"
+  },
+  "limitations": [
+    "No ModelSim, RTL, synthesis, PnR, STA, or device operation was run.",
+    "A PASS validates the CSV contract only; it does not prove the R04 whole system.",
+    "The cumulative max counter is checked for monotonicity and deadline only; the CSV does not independently reconstruct internal processing latency."
+  ],
+  "observed": {
+    "final_max_processing_cycles": 812,
+    "final_underrun_count": 0,
+    "first_frame_index": 0,
+    "frame_cycles_distribution": {
+      "833": 3,
+      "834": 2
+    },
+    "last_frame_index": 4,
+    "rows": 5
+  },
+  "reasons": [],
+  "schema": "r04_frame_budget_offline_v1",
+  "scope": "SYNTHETIC_OR_FUTURE_EXPORTED_CSV_ONLY",
+  "status": "PASS"
+}
