@@ -1,0 +1,41 @@
+任务1失败历史与修复增量（保留旧原件，不回填通过）
+
+1. 软件自检R01：16测试，15通过、1失败，进程退出1。
+   原因是主窗口测试错误地断言三个历史顶层日志全部包含readmem错误。
+   实际固定音tb_electronic_piano_top使用SOURCE_MODE=1，不实例化四声部音色ROM；
+   另两个顶层各有8条readmem读取错误。修正的是独立测试预期，不删原日志或放宽门禁。
+   原stdout/stderr、receipt、测试失败前源码保存在repo_gate_rom_audit_tests_r01。
+   修正并增加config反例后R02共29测试通过；后续副本篡改覆盖R03共30测试通过。
+
+2. 核心自审增量（零HDL调用）：原波表有合法//注释，纯split会误拒收；
+   修为剥离注释后检查1024个16位字，原ROM字节未改。前版核心源码原件保存在
+   repo_gate_rom_audit_core_prepare_r01/rom_gate_before_rom_comment_fix.py。
+   同时补config硬闭包、runner实际路径、机器和显式环境核验。
+   不把这些静态发现冒写为已执行的编译或仿真失败。
+
+3. 真实topR01：仅原工具Yosys allocator兼容转换启动一次，exit1；compile/VVP均0次。
+   read_slang插件把包裹输入文件名的双引号当成文件名字符，报No such file/ERROR。
+   保留config、消费标记、原双流、receipt及rom_gate.failed_source.txt。
+   修复将原allocator字节复制到新stage/allocator_source.sv并核SHA；转换命令使用
+   固定相对ASCII basename，未改变业务RTL、原工具或数学定义。旧attempt不复用。
+   新topR02、keysR01实际均3阶段退出0；执行源码c84172fc06f0002b26acc9ad130c8323f9b3cc6ddf0fbeba552b3606fc843593
+   分别以rom_gate.executed_source.txt保留在对应目录。
+
+4. 后续自审发现finally异常收据缺口：若执行后expected.json删除或某工具不可读，
+   旧finally再次异常可能漏receipt。改用已绑定键集并逐项记录None及错误、强制失败，
+   另校验scope固定值；不改工具命令、预算、ROM映射或正常运行语义。
+   通过零真实工具的故障注入覆盖删除本任务stage副本及模拟不可读（不删原源或工具）。
+   最终测试及MIDI顶层实际结果以交付RESULT_AND_M2_HANDOFF.txt和原收据为准。
+
+所有新工具尝试使用全新目录/config/标记；没有同源码盲重试、提高预算、更换工具、
+Gowin/综合资源/STA或设备操作。历史原门禁passed=true与错误原件均原样保留。
+
+5. 干净发布树首轮迁移预检失败：旧108项含本机忽略历史头文件副本，Git树不存在。
+   初次失败发生在输出目录创建前，工具会话有traceback/退出1，但未另外落原始双流文件；
+   此缺口如实披露，不补造原stdout/stderr。修复runner先创建独占目录，预检异常也留收据；
+   指定旧清单的负例随后实际返回原生2（PowerShell外层1），保留双流/失败收据、0HDL。
+   同时修为实际递归include闭包；新46项是旧108子集、SHA与工具/执行命令全同，
+   原成功捕获不重跑。最终主工作区和干净发布树各42软件测试通过。
+6. 新静态证明脚本首次在-I下未显式加本地模块目录，ModuleNotFoundError/退出1，
+   原异常仅工具会话保存，未单独落双流；加明确bootstrap后零工具证明通过。
+   以上均非DUT/工具身份或数学变更；历史原件/旧清单/中间核心保持。
