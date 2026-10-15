@@ -6,6 +6,7 @@ import hashlib
 import importlib.util
 import json
 import os
+import platform
 from pathlib import Path
 import re
 import shutil
@@ -20,6 +21,7 @@ PREFIX = "repo_gate_rom_audit_"
 TOTAL_SECONDS = 300
 JOB_REL = "code/software/t052_runner_acceptance_candidate_20261012/windows_job.py"
 JOB_SHA = "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+ALLOCATOR_REL = "code/rtl/audio/voice_allocator_4.sv"
 TOPS = {
     "tb_electronic_piano_top": ">>> 顶层自检 PASS",
     "tb_key_to_tone": "PASS tb_key_to_tone checks=",
@@ -104,7 +106,65 @@ def identity(root: Path, table: dict) -> dict:
     return actual
 
 
-def required_files(repo: Path) -> tuple[list[str], list[Path]]:
+def include_closure(repo: Path, sources: list[Path], cwd: Path | None = None) -> dict:
+    """Resolve only literal includes using the exact Icarus search roots.
+
+    No source-parent directory is invented: this runner does not enable
+    Icarus relative_include. Multiple existing candidates are rejected even
+    if search order would otherwise pick one, to prevent silent shadowing.
+    """
+    repo = Path(repo).resolve()
+    search = ([Path(cwd).resolve()] if cwd is not None else []) + [
+        repo / "code/rtl/board", repo / "code/rtl/common"]
+    files, edges, visited, active = set(), [], set(), set()
+
+    def visit(source):
+        source = Path(source).resolve()
+        if not source.is_relative_to(repo):
+            raise GateError("INCLUDE_SOURCE_OUTSIDE_REPO:" + str(source))
+        if source in active:
+            raise GateError("INCLUDE_CYCLE:" + source.relative_to(repo).as_posix())
+        if source in visited:
+            return
+        active.add(source)
+        text = source.read_text(encoding="utf-8")
+        text = re.sub(r"/\*.*?\*/|//[^\n]*", "", text, flags=re.S)
+        for directive in re.finditer(r"^\s*`include\b([^\n]*)", text, flags=re.M):
+            literal = re.fullmatch(r'\s*"([^"\r\n]+)"\s*', directive[1])
+            if literal is None:
+                raise GateError("DYNAMIC_INCLUDE_REJECT:" + source.relative_to(repo).as_posix())
+            name = literal[1]
+            if Path(name).is_absolute() or ".." in Path(name).parts or ":" in name or "\\" in name:
+                raise GateError("UNSAFE_INCLUDE_PATH:" + name)
+            candidates = []
+            for base in search:
+                candidate = (base / name).resolve()
+                if not candidate.is_relative_to(repo):
+                    raise GateError("INCLUDE_OUTSIDE_REPO:" + name)
+                if candidate.is_file() and candidate not in candidates:
+                    candidates.append(candidate)
+            if not candidates:
+                raise GateError("MISSING_INCLUDE:" + source.relative_to(repo).as_posix() + ":" + name)
+            if len(candidates) != 1:
+                raise GateError("AMBIGUOUS_INCLUDE:" + name)
+            target = candidates[0]
+            relative = target.relative_to(repo).as_posix()
+            files.add(relative)
+            edges.append({"parent": source.relative_to(repo).as_posix(), "include": name,
+                          "resolved": relative,
+                          "search_root": next(base.relative_to(repo).as_posix()
+                                              for base in search if (base / name).resolve() == target)})
+            visit(target)
+        active.remove(source)
+        visited.add(source)
+
+    for source in sources:
+        visit(source)
+    return {"files": sorted(files), "edges": sorted(edges, key=lambda row: (row["parent"], row["include"])),
+            "search_policy": "stage_cwd_then_Iboard_then_Icommon; reject_shadowing; no_relative_include"}
+
+
+def required_files(repo: Path, cwd: Path | None = None) -> tuple[list[str], list[Path]]:
     project = repo / PROTECTED[0]
     sources = []
     for element in ET.parse(project).findall(".//File"):
@@ -117,8 +177,9 @@ def required_files(repo: Path) -> tuple[list[str], list[Path]]:
                                   "sustain_control_contract_pkg.sv": 1}.get(path.name, 2))
     required = set(PROTECTED) | set(ROMS)
     required.update(path.relative_to(repo).as_posix() for path in sources)
-    required.update(path.relative_to(repo).as_posix() for path in (repo / "code/rtl").rglob("*.svh"))
-    required.update("code/tb/board/" + top + ".sv" for top in TOPS)
+    testbenches = [repo / ("code/tb/board/" + top + ".sv") for top in TOPS]
+    required.update(path.relative_to(repo).as_posix() for path in testbenches)
+    required.update(include_closure(repo, sources + testbenches, cwd)["files"])
     return sorted(required), sources
 
 
@@ -161,7 +222,7 @@ def environment(tool_root: Path, output: Path) -> dict:
 def commands(repo: Path, output: Path, tool_root: Path, top: str) -> list[dict]:
     if top not in TOPS:
         raise GateError("UNSUPPORTED_TOP:" + top)
-    _, source_paths = required_files(repo)
+    _, source_paths = required_files(repo, output)
     allocator = repo / "code/rtl/audio/voice_allocator_4.sv"
     sources = [output / "allocator.v" if path == allocator else path for path in source_paths]
     sources.append(repo / ("code/tb/board/" + top + ".sv"))
@@ -177,9 +238,10 @@ def commands(repo: Path, output: Path, tool_root: Path, top: str) -> list[dict]:
 
 
 def lower_text(repo: Path, output: Path) -> str:
-    return ('read_slang --top voice_allocator_4 "' + (repo / "code/rtl/audio/voice_allocator_4.sv").as_posix()
-            + '"\nproc\nopt\ntechmap\nopt\nwrite_verilog -noattr "'
-            + (output / "allocator.v").as_posix() + '"\n')
+    # read_slang treats quotes as filename bytes in this frozen plugin version.
+    # Both names are fixed ASCII basenames resolved from the bound stage cwd.
+    return ("read_slang --top voice_allocator_4 allocator_source.sv\n"
+            "proc\nopt\ntechmap\nopt\nwrite_verilog -noattr allocator.v\n")
 
 
 def rom_contract(repo: Path, output: Path) -> dict:
@@ -188,7 +250,7 @@ def rom_contract(repo: Path, output: Path) -> dict:
     This deliberately accepts the audited original expression set only. It is
     not a general Verilog elaborator and refuses new dynamic read expressions.
     """
-    _, sources = required_files(repo)
+    _, sources = required_files(repo, output)
     declarations, read_calls, propagation = [], [], []
     allowed = {"ROM_FILE", "wavetable_path", "rom_path", "SINE_ROM_FILE", "TRIANGLE_ROM_FILE",
                '"model/generated/wavetables/velocity_gain_rom.mem"'}
@@ -209,7 +271,8 @@ def rom_contract(repo: Path, output: Path) -> dict:
         raise GateError("READMEM_CLOSURE_COUNT_CHANGED:" + str(len(read_calls)))
     words = {}
     for relative in ROMS:
-        tokens = (repo / relative).read_text(encoding="ascii").split()
+        raw = (repo / relative).read_text(encoding="ascii")
+        tokens = re.sub(r"/\*.*?\*/|//[^\n]*", "", raw, flags=re.S).split()
         if len(tokens) != 1024 or any(not re.fullmatch(r"[0-9A-Fa-f]{4}", token) for token in tokens):
             raise GateError("ROM_WORD_CONTRACT_REJECT:" + relative)
         words[relative] = {"words": 1024, "bits": 16}
@@ -238,7 +301,7 @@ def prepare(repo: Path, output: Path, expected: Path, tool_root: Path,
         raise GateError("EXPECTED_SCHEMA_REJECT")
     if Path(frozen["tool_root"]).resolve() != tool_root:
         raise GateError("TOOL_ROOT_REJECT")
-    required, _ = required_files(repo)
+    required, source_paths = required_files(repo, output)
     missing = set(required) - set(frozen.get("files", {}))
     if missing:
         raise GateError("MISSING_FROZEN_INPUT:" + ",".join(sorted(missing)))
@@ -251,9 +314,13 @@ def prepare(repo: Path, output: Path, expected: Path, tool_root: Path,
         raise GateError("OWNED_JOB_IDENTITY_REJECT")
     bound_commands = commands(repo, output, tool_root, top)
     closure = rom_contract(repo, output)
+    allocator_text = (repo / ALLOCATOR_REL).read_text(encoding="utf-8")
+    if "`include" in allocator_text or "$readmem" in allocator_text:
+        raise GateError("ALLOCATOR_COPY_DEPENDENCY_CHANGED")
     output.mkdir(parents=True, exist_ok=False)
     (output / "temp").mkdir()
     shutil.copyfile(expected, output / "expected.json")
+    shutil.copyfile(repo / ALLOCATOR_REL, output / "allocator_source.sv")
     mapped = {}
     for relative in ROMS:
         target = output / relative[5:]
@@ -263,6 +330,7 @@ def prepare(repo: Path, output: Path, expected: Path, tool_root: Path,
     (output / "lower.ys").write_text(lower_text(repo, output), encoding="utf-8", newline="\n")
     generated = {relative: sha(output / relative) for relative in mapped}
     generated["lower.ys"] = sha(output / "lower.ys")
+    generated["allocator_source.sv"] = before_files[ALLOCATOR_REL]
     runner = Path(__file__).resolve()
     config = {
         "schema": SCHEMA, "repo": str(repo), "output": str(output),
@@ -273,8 +341,10 @@ def prepare(repo: Path, output: Path, expected: Path, tool_root: Path,
         "inputs_before": before_files, "tools_before": before_tools,
         "mapped_roms": mapped, "generated": generated,
         "runner": str(runner), "runner_sha256": sha(runner),
+        "machine": platform.node(),
         "scope": "ISOLATED_TOP_SIMULATION_NOT_HARDWARE",
         "rom_contract": closure,
+        "include_closure": include_closure(repo, source_paths + [repo / ("code/tb/board/" + name + ".sv") for name in TOPS], output),
     }
     config_path = output / "config.json"
     write_json(config_path, config)
@@ -287,6 +357,8 @@ def verify(config: Path) -> dict:
     frozen_config = read_json(config_path)
     if frozen_config.get("schema") != SCHEMA:
         raise GateError("CONFIG_SCHEMA_REJECT")
+    if frozen_config.get("scope") != "ISOLATED_TOP_SIMULATION_NOT_HARDWARE":
+        raise GateError("SCOPE_BINDING_REJECT")
     output = Path(frozen_config["output"]).resolve()
     if config_path != output / "config.json":
         raise GateError("CONFIG_LOCATION_REJECT")
@@ -296,23 +368,44 @@ def verify(config: Path) -> dict:
     if not output.is_relative_to(repo / "code/output") or not output.name.startswith(PREFIX):
         raise GateError("OUTPUT_SCOPE_REJECT")
     expected = read_json(output / "expected.json")
+    if expected.get("schema") != EXPECTED_SCHEMA or Path(expected["tool_root"]).resolve() != tool_root:
+        raise GateError("EXPECTED_CONTRACT_REJECT")
     if sha(output / "expected.json") != frozen_config["expected_sha256"]:
         raise GateError("EXPECTED_SHA_REJECT")
     if sha(Path(frozen_config["expected_origin"])) != frozen_config["expected_sha256"]:
         raise GateError("EXPECTED_ORIGIN_CHANGED")
-    required, _ = required_files(repo)
+    required, source_paths = required_files(repo, output)
     if set(required) - set(expected["files"]) or required_tools(tool_root) - set(expected["tools"]):
         raise GateError("CLOSURE_CHANGED")
     if frozen_config["inputs_before"] != expected["files"] or frozen_config["tools_before"] != expected["tools"]:
         raise GateError("EXPECTED_BINDING_REJECT")
+    mapped = {relative[5:]: expected["files"][relative] for relative in ROMS}
+    if frozen_config["mapped_roms"] != mapped:
+        raise GateError("ROM_MAPPING_BINDING_REJECT")
+    if set(frozen_config["generated"]) != set(mapped) | {"lower.ys", "allocator_source.sv"}:
+        raise GateError("GENERATED_CLOSURE_REJECT")
+    if any(frozen_config["generated"][relative] != value for relative, value in mapped.items()):
+        raise GateError("GENERATED_ROM_IDENTITY_REJECT")
+    if frozen_config["generated"]["allocator_source.sv"] != expected["files"][ALLOCATOR_REL]:
+        raise GateError("STAGED_SOURCE_IDENTITY_REJECT")
+    allocator_text = (repo / ALLOCATOR_REL).read_text(encoding="utf-8")
+    if "`include" in allocator_text or "$readmem" in allocator_text:
+        raise GateError("ALLOCATOR_COPY_DEPENDENCY_CHANGED")
     if frozen_config["commands"] != commands(repo, output, tool_root, frozen_config["top"]):
         raise GateError("COMMAND_BINDING_REJECT")
     if frozen_config["rom_contract"] != rom_contract(repo, output):
         raise GateError("ROM_CONTRACT_BINDING_REJECT")
+    actual_include = include_closure(repo, source_paths + [repo / ("code/tb/board/" + name + ".sv") for name in TOPS], output)
+    if frozen_config["include_closure"] != actual_include:
+        raise GateError("INCLUDE_CLOSURE_BINDING_REJECT")
     if frozen_config["environment"] != environment(tool_root, output):
         raise GateError("ENVIRONMENT_DRIFT")
     if frozen_config["total_seconds"] != TOTAL_SECONDS or frozen_config["pass_token"] != TOPS[frozen_config["top"]]:
         raise GateError("CONTRACT_BINDING_REJECT")
+    if Path(frozen_config["runner"]).resolve() != Path(__file__).resolve():
+        raise GateError("RUNNER_PATH_REJECT")
+    if frozen_config["machine"] != platform.node():
+        raise GateError("MACHINE_DRIFT")
     if sha(Path(frozen_config["runner"])) != frozen_config["runner_sha256"]:
         raise GateError("RUNNER_CHANGED")
     identity(repo, expected["files"])
@@ -440,14 +533,32 @@ def run(config: Path) -> dict:
     except Exception as error:
         receipt["error"] = type(error).__name__ + ":" + str(error)
     finally:
-        expected = read_json(output / "expected.json")
+        # The expected copy may be the very object that failed verification.
+        # Use the originally bound key sets and preserve failures per object,
+        # rather than losing the entire receipt on a second exception here.
+        after_errors = []
+
+        def after_hash(root, names, group):
+            actual = {}
+            for name in names:
+                try:
+                    target = inside(root, name)
+                    actual[name] = sha(target)
+                except Exception as error:
+                    actual[name] = None
+                    after_errors.append({"group": group, "path": name,
+                                         "error": type(error).__name__ + ":" + str(error)})
+            return actual
+
         receipt["inputs_before"], receipt["tools_before"] = frozen["inputs_before"], frozen["tools_before"]
-        receipt["inputs_after"] = {name: sha(inside(repo, name)) if inside(repo, name).is_file() else None for name in expected["files"]}
+        receipt["inputs_after"] = after_hash(repo, frozen["inputs_before"], "inputs")
         tool_root = Path(frozen["tool_root"])
-        receipt["tools_after"] = {name: sha(inside(tool_root, name)) if inside(tool_root, name).is_file() else None for name in expected["tools"]}
-        receipt["artifacts"] = {name: sha(output / name) for name in ("allocator.v", "tb.vvp") if (output / name).is_file()}
+        receipt["tools_after"] = after_hash(tool_root, frozen["tools_before"], "tools")
+        artifacts = [name for name in ("allocator.v", "tb.vvp") if (output / name).exists()]
+        receipt["artifacts"] = after_hash(output, artifacts, "artifacts")
+        receipt["after_identity_errors"] = after_errors
         receipt["elapsed_seconds"] = time.monotonic() - started
-        if receipt["elapsed_seconds"] > TOTAL_SECONDS or receipt["inputs_before"] != receipt["inputs_after"] or receipt["tools_before"] != receipt["tools_after"]:
+        if after_errors or receipt["elapsed_seconds"] > TOTAL_SECONDS or receipt["inputs_before"] != receipt["inputs_after"] or receipt["tools_before"] != receipt["tools_after"]:
             receipt["passed"] = False
         receipt["runner_exit"] = 0 if receipt["passed"] else 1
         write_json(output / "receipt.json", receipt)
@@ -477,7 +588,11 @@ def main() -> int:
         elif args.operation == "verify":
             result = verify(args.config)
         elif args.operation == "run":
-            result = run(args.config)
+            receipt = run(args.config)
+            receipt_path = args.config.resolve().parent / "receipt.json"
+            result = {key: receipt.get(key) for key in (
+                "passed", "top", "tool_calls", "runner_exit", "error")}
+            result.update({"receipt": str(receipt_path), "receipt_sha256": sha(receipt_path)})
         else:
             result = audit_logs(args.stdout, args.stderr, args.exit_code, args.pass_token, not args.no_finish)
         print(json.dumps(result, ensure_ascii=False, indent=2))

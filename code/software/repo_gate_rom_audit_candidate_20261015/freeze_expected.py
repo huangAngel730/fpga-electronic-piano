@@ -23,7 +23,10 @@ def main():
     if output.parent != allowed or not output.name.startswith('repo_gate_rom_audit_'):
         parser.error('output must be a fresh task-prefixed directory under code/output')
     project = root / 'code/build/electronic_piano.gprj'
-    paths = {project, *list((root / 'code/rtl').rglob('*.svh'))}
+    # Independently audited literal includes from the enabled GPRJ sources.
+    # Do not sweep ignored historical build/recovery copies into the input set.
+    paths = {project, root / 'code/rtl/board/sustain_controller_ports.svh',
+             root / 'code/rtl/common/sine_table.svh'}
     for element in ET.parse(project).findall('.//File'):
         if element.get('type') == 'file.verilog' and element.get('enable', '1') == '1':
             path = (project.parent / element.attrib['path']).resolve()
@@ -55,6 +58,7 @@ def main():
     document = {
         'schema': 'rom-gate-expected-v1',
         'provenance': 'Operator snapshot before candidate prepare; not auto-updated by verifier.',
+        'include_scope': 'Two independently audited original literal headers; candidate must verify recursive closure.',
         'tool_root': str(tools),
         'files': {p.relative_to(root).as_posix(): digest(p) for p in sorted(paths)},
         'tools': {p.relative_to(tools).as_posix(): digest(p) for p in sorted(binaries)},

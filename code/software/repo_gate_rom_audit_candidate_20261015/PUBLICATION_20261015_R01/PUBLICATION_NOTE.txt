@@ -1,0 +1,25 @@
+任务1完整独立ROM门禁候选发布（2026-10-15，M3本窗口/子智能体自审）
+
+最终源码rom_gate.py SHA9f9bc28c3297d07eac8121d46c5787ac9ceef05b6e510b48d87d5c6873cf6fb9。
+最终封存ROM_GATE_DELIVERY_R02.zip：2116807字节，184成员，SHA256
+e48db85f07b2f7c7bdbfee5afecbea5c3ba7533c55b8231d663140a773c5914b。
+R01旧包保留，不用其旧108输入口径替代R02实际46项闭包。
+
+主工作区和干净发布树各42软件测试PASS/exit0；新严格入口三个原顶层实际
+各lower/compile/VVP退出0，原日志/各自执行源码SHA/失败历史均在R02包。
+最终新增include范围是原冻结集子集，原字节/861工具/实际运行命令不变，
+零工具proof及六个递归include独立反例已核，不冒称对最终源码重新运行三次RTL。
+发布R03门禁9PASS/0（edf0327基线）；同步远端纯文档后R04门禁9PASS/0
+（52f552d基线），本功能输入未改，原输出分别保留。
+
+旧正式check_repo/run_t007/run_t025只读，原正式日志仍可能readmem ERROR却PASS。
+本候选严格入口已拒收并以映射修复；正式入口采用须M2决定，不回填历史通过。
+不修改公共接口/ROM/DUT，未运行Gowin/STA/设备，T052/T060/N32签收范围不变。
+远端023ec74曾包含本任务中间版，本次只发布本任务最终增量及完整证据，不改他人文件。
+功能提交及其后独立验证登记以Git日志/验证记录为准；本说明形成于功能提交前，
+最终远端核验与可复制M2消息由用户转发包另附，不把待发布自动当作已送达。
+
+完整交接：../RESULT_AND_M2_HANDOFF.txt。
+软件自审：python -B -X utf8 .../run_acceptance.py --expected <独立46项expected.json> --output <全新任务目录>
+独立freeze/prepare/verify/run、预算与拒收用法见../README.txt。
+M2复核/正式采纳待进行；待用户转发，尚未送达。

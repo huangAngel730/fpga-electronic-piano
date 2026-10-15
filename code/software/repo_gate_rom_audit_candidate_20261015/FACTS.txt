@@ -23,9 +23,22 @@ ROM 路径根因与修复边界（只读源事实，2026-10-15）
 
 5. 原 GPRJ enabled verilog 源按包优先顺序，原 allocator 由原 read_slang
    路线 lower 成全新 allocator.v，其余 DUT/TB 全部直接读取原冻结源码。
+   原 allocator 已核无 include/readmem，按原字节复制至 stage/allocator_source.sv，
+   复制源及目的 SHA 均绑定独立清单，generated 硬闭包包含此文件。
+   read_slang/write_verilog 使用固定 ASCII basename 相对已绑定 stage cwd：
+   本机插件会把参数引号当 filename 字节；首轮真实 lower 因此 exit1，
+   原源码/日志/消费标记保留，不复用旧 attempt。
    原三个正式入口保持只读；这是一套完整独立严格后继，不是静默替换。
 
-6. 独立清单固定所有 GPRJ 源/三个TB/rtl svh/原runner/监督模块/四ROM。
+6. 独立清单固定所有 GPRJ enabled源/三个TB/实际include闭包/原runner/监督模块/四ROM。
+   不再递归收集全 rtl 下所有 .svh：其中有未跟踪、忽略的历史实验副本，
+   它们并未参与本次编译，不能凭本机存在便当作必要冻结依赖。
+   真实闭包为 sustain_controller.sv -> board/sustain_controller_ports.svh，
+   simple_voice.sv -> common/sine_table.svh。literal include 递归解析按
+   实际 stage cwd、-Iboard、-Icommon 查找；未启用 source-relative include。
+   动态include、越root、缺件、循环和多个同名候选都拒收，parent/include/
+   resolved/search_root 图写入 config 并重新推导核对。旧108输入清单与
+   所有已运行证据保留；精简清单必须由操作窗口独立确认是旧集合同SHA子集。
    原工具闭包含 bin 全文件、lib 根文件、lib/ivl 全文件、lib 动态库/VPI/IVL
    和 share/yosys 全文件、environment.bat。实际机器的 share/iverilog 不存在；
    Icarus 内部位置是 lib/ivl，不以想象中的目录代替真实依赖。

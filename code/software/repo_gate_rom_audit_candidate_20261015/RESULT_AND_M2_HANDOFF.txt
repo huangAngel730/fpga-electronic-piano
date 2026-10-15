@@ -1,0 +1,77 @@
+M2：任务1“ROM依赖闭包与严格诊断独立入口”实现、验证及本窗口自审完成。
+待用户转发，尚未送达。M2最终复核/正式入口采纳尚未进行。
+
+目录：code/software/repo_gate_rom_audit_candidate_20261015/
+新增freeze_expected.py、rom_gate.py、test_rom_gate.py、run_acceptance.py、
+seal_delivery.py及README/FACTS/FAILURE_HISTORY/本交接说明；原DUT/TB/GPRJ/ROM/
+check_repo.ps1/run_t007_sim.ps1/run_t025_top_stat.py保持原字节，未改受控接口。
+
+根因：原runner以全新临时目录为cwd，只给velocity/piano显式路径；原实例的
+model/generated/sine_wavetable.hex与triangle_wavetable.hex在该cwd不存在。
+原日志判据不拒收ERROR/readmem，故两个四声部顶层报错仍passed=true。
+固定音SOURCE_MODE=1历史顶层并无该错误，不能把三个一概说成失败。
+
+完成内容：显式独立freeze，108项原输入和861项实际工具依赖；prepare/verify
+核机器、runner、命令、cwd、环境、ROM映射及生成文件硬闭包。四ROM原字节映射，
+原allocator仅复制后按原工具read_slang路线兼容lower，DUT/算法不改。
+Windows私有Job监督；三个top各自总300秒，lower/compile各最多90，simulate
+用剩余预算；失败即停，非零编译产物不续跑，全新config/output/consumed。
+日志需正确顶层PASS、随后finish、完整尾行、无ERROR/FATAL/readmem短/长表。
+输入/工具不可读等异常也记录失败收据。不提供跳检工具身份或修改预期SHA开关。
+
+实际新验证：
+最终软件R04：36测试，0失败/错误/跳过，exit0；23.417秒测试主体。
+含真实历史两份false-green拒收、正常固定音历史日志接受，独立literal正负例，
+cwd/错误SHA/缺ROM/依赖漏列/config伪造/预算与scope伪造/副本篡改/消费拒复用，
+及无真实工具的删除stageexpected、模拟不可读工具后仍保留receipt故障注入。
+真实topR02：lower/compile/simulate均exit0，总26.719秒，12项TB检查。
+真实keysR01：lower/compile/simulate均exit0，总70.844秒，13项TB检查。
+真实midiR01：lower/compile/simulate均exit0，总38.766秒，8项TB检查。
+三个新simulate原双流无ROM读取错误、完整finish；108输入和861工具前后SHA相同。
+累计真实HDL工具调用10次：首失败lower1次，加三个有效top各3次；实际VVP3次。
+原lower兼容转换不是新Gowin资源综合；Gowin/STA/串口/设备调用均0。
+
+精确身份：
+独立expected.json SHA 2b6dc5ff5a11539ccb8eefd25ec1ffddbab3b8dddc693d66c3a905b92701a6b8。
+topR02 config SHA 897492b34c73d1a42e5b1489b6c890daca436d35eada6d894c6cb328385b9c78。
+keysR01 config SHA dafda5e022d8f0dc432966b5f390cf6a2102ec60b926a68a63e7c8530d47f115。
+midiR01 config SHA d76cd3677fe095883024ae647038020ea96942dd7fc5c021a62c5194a9da0b19。
+top/keys执行核心SHA c84172fc06f0002b26acc9ad130c8323f9b3cc6ddf0fbeba552b3606fc843593。
+midi及最终36自检核心SHA 89eadb670a3aea7d7d8f48aaf9d67be2dc18c3c91a137e3c272816327422dc15。
+两个核心间仅固定scope及finally逐项异常收据修复；命令/ROM/预算/环境相同。
+每份实际执行源码都随原证据保存，不能将不同版本混称同一源码运行。
+全部输入、工具、日志、产物SHA及命令/退出码在config/receipt/封存manifest。
+
+失败历史：软件R01因测试错误假设退出1，原源码/双流保留；真实topR01因插件
+把引号当文件名只lower exit1，未compile/VVP，旧marker保留。增量修复后才新建
+目录执行。原ROM注释解析及config/异常留证发现列为静态自审增量，不虚构工具失败。
+没有相同源码盲重试或提高时限。Icarus既有constant-select/unique警告原样保留。
+
+实际等级：新独立软件L0/L1；三个原top隔离自检L2。非新PCM数学L3、资源/STA/
+硬件/138K准入或实物发声验收。未重复T052/T060/N32专项，aac0d4b和七份trace不动。
+
+需要M2决定的唯一接入事项：正式入口是受控只读，本任务未静默修改它。
+建议原run_t007_sim.ps1三个top分支改为显式freeze→新rom_gate prepare/run，
+或将相同四ROM原字节stage映射及严格audit判据纳入原runner；采用时重新绑定
+当时精确树/工具/预算并验证，不从本工具通过回填历史原门禁已修复。
+其余非顶层测试原有compile是否仅看产物的独立问题不在本次ROM任务内冒称解决。
+
+封存包：本轮code/output/repo_gate_rom_audit_delivery_r01/ROM_GATE_DELIVERY.zip；
+包含新源码、108冻结输入原件、独立expected、历史原日志、全部新尝试日志/
+config/marker/receipt与失败源快照。可执行VVP、exe/DLL和波形不入可转发包；
+它们只在原本机新目录保留，SHA在原收据。包CRC/全成员大小SHA独立读回核验。
+本文件不预写Git提交号；实际发布门禁、提交及远端核验另由PUBLICATION回执注明。
+最终发布补充（此节优先于前文阶段结果）
+最终核心SHA 9f9bc28c3297d07eac8121d46c5787ac9ceef05b6e510b48d87d5c6873cf6fb9。
+修正旧rglob误纳本机忽略历史副本的问题，按真实GPRJ/TB literal include递归闭合，
+只有sustain_controller_ports.svh和sine_table.svh；动态/缺件/越root/歧义/循环拒收。
+新的必要输入46项严格属于旧108项，所有保留SHA和861工具完全相同；原三个实际
+尝试命令/环境逐项相同。proof.json为零工具静态证明，旧108清单和成功原件不改。
+新expected_r02 SHA 95fb3f3d100bc5fad00cd888d98cd615facb8f1dbbdb128d31d98f96ea55b179。
+主工作区R05及同步远端后的干净发布树R02各42软件测试PASS/exit0；后者23.133秒。
+最终核心的新增闭包逻辑有六个独立夹具覆盖；没有为此重跑已通过的三个HDL捕获。
+先前三个真实捕获仍分别绑定前文各自执行源码SHA，不冒充同一最终源码运行。
+发布树九项门禁R03 PASS/exit0，前R01/R02旧树门禁原日志分别保留，不回填新树。
+最终可转发原件为repo_gate_rom_audit_delivery_r02/ROM_GATE_DELIVERY.zip，
+Git内PUBLICATION_20261015_R01/ROM_GATE_DELIVERY_R02.zip；R01旧包亦保留。
+正式共享门禁入口仍未接入，原有读取错误判据缺口不会因本候选通过自动消失。
