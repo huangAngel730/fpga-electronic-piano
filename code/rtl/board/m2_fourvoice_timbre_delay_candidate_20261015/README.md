@@ -1,5 +1,9 @@
 # 138K C 四声部双音色＋立体声延迟：M2 私有整机候选
 
+## 当日新增物理后继（晚于下述静态与 Icarus 失败）
+
+新隔离拷贝 `_06` 已由 M2 用 Gowin 单次 `run all` 完成完整综合、PnR、STA；工具退出0，Setup +1.736、Hold 0、Recovery +1.410、Removal +0.492 ns，Logic27879/FF9582/DSP50/BSRAM28。专用新组合报告复核通过原平台检查中的引脚、时钟、CDC及四类时序判据，旧 L 两条内部音频定点路径和旧 DSP/BSRAM 相等判据仅对旧网表有效。证据与精确 SHA 见 `code/docs/evidence/m2_m1td_physical_20261015/README.md`。**真实 M1 全链在新板级的 RTL 仿真仍未通过/未重试，ModelSim R04 增量输入仅静态准备；这份新 `.fs` 不是可下载版本。**以下小节保留构建前历史状态，不作为最新阶段结论。
+
 2026-10-15。此候选只从 T056 `L_locations_guard065` 一次完整构建已验精确工程与 M1 封存包生成，不改冻结 L、公共包、原 ROM、正式顶层/CST/SDC 或生产码流。**当前完成静态接线核验；新整机功能编译 FAIL_PARTIAL，未仿真、未综合/PnR/STA、未上板，不能当新 L5 或可下载工程。**
 
 阶段封存证据包：`code/docs/evidence/m2_fourvoice_timbre_delay_stage_20261015.zip`（SHA-256 `90fb74ae1782cb3810a425ce4f357d7f519cd4294fe707ec76d32709711debce`），含按包内manifest校验的实际源码快照、收据与M1/M3待转发回执；包内生成期“未提交”仍为历史时态。
