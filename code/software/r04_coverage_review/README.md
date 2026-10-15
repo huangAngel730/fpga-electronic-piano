@@ -21,7 +21,7 @@
 | ZIP 内 `README.md` | 854 | `5468b35d36c84cec3ca1310078d7fa327420bdb4559a0108120dc89d04381d8e` | 执行边界和预期命令 |
 | ZIP 内 `inputs/compile.f` | 2203 | `99279bbab257786467495ba95ee311b969ed72f94ffe458e1e935a5f29bfd2bb` | 69 个编译单元清单 |
 | ZIP 内 `inputs/tb_m2_m1td_real_chain.sv` | 3485 | `6325f8f0e332e30cb32d573080c5191b7a516b821a3e08bb531a1b53f9148ee6` | 本覆盖矩阵唯一 TB 源码 |
-| `code/docs/M1_完赛任务单_2026-10-15.md` | 以仓库原件为准 | `01c3e2d607f8225b9fda6b41f75b44b284a0c4a2edd078bc589b797c68c3f8c0` | R04 验收范围和执行许可边界 |
+| `code/docs/M1_完赛任务单_2026-10-15.md` | 以仓库原件为准 | `2467de1756e4c3d66bdc03302fb22a1de4718f29345aa3c49ac0daf04cdf2f81` | R04 验收范围和执行许可边界 |
 
 补充口径：ZIP 实际共有 **92** 个条目，其中 `MANIFEST.json` 自身不列入自己的 `members`；`members` 中有 **91** 个受长度和 SHA 约束的成员。`PREPARATION_RECEIPT.json` 声明原 M1 双音色／延迟封存 ZIP SHA-256 为 `5c18926ae307301e91ec0e44dcf4a48b2fb57adec71ad46c494b14df59913b06`；本次只核对该声明与 R04 封包，没有另取原 M1 ZIP 重算。
 
