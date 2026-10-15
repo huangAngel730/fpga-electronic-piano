@@ -44,4 +44,7 @@ python -X utf8 code/software/repo_gate_rom_audit_candidate_20261015/rom_gate.py 
 命令成功退出 0，实际拒收退出 1，参数/原件/配置异常退出 2。
 
 ROM 路径合同详见 FACTS.txt 和每份 config.json 的 rom_contract。
+include 闭包仅从 GPRJ enabled 源及三个 TB 的实际 literal include 递归解析，
+不把忽略的历史实验头文件当必要依赖；查找为 stage cwd、-Iboard、-Icommon，
+动态/缺件/越root/循环/同名歧义拒收，config 保留父子映射图供独立核验。
 测试及实际验证范围以本批次主窗口封存收据为准；本说明不预写实测通过。
