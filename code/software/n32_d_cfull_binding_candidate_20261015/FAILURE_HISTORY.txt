@@ -1,0 +1,22 @@
+N32 D/C_FULL 静态关联后继失败历史
+
+仅新工具的软件静态测试，不执行包内Python/RTL/Tcl、checker、Gowin或设备动作。
+每次run_acceptance使用全新n32_d_cfull_binding_*输出；失败原双流、source_before、
+逐case变异字节/具体拒收、输入/工具前后SHA及总receipt保留，不覆盖旧attempt。
+
+开发期尚无正式suite运行结果，不预写通过。具体运行回执由主窗口完成后追加。
+旧D/R02没有回写、没有重绑；原C分段、R05/R06失败和C_FULL首软件反例失败原件保留。
+本后继仅提供静态关联，D仍prepare L0/L1、资源UNKNOWN、STA NOT_RUN、T061 PARTIAL。
+ZIP/JSON坏例是独立小字节夹具；纯语义坏例从签收原dict只读复制后定点改变字段，
+不修改原包，不把外层SHA一挡即拒收当作所有深层语义均测到。
+
+正式R01真实失败：
+code/output/n32_d_cfull_binding_acceptance_20261015_r01/software_tests_logs/stderr.log
+保留71项中70通过、test_backslash_member唯一失败的原双流/source_before/rawfixture/receipt。
+software_tests退出1，总入口退出1；prepare/verify均未启动，EDA/RTL调用0。
+原因是测试用zipfile.ZipInfo/writestr在Windows下将反斜杠文件名规范化成正斜杠，
+原输入.zip实际不是恶意反斜杠路径，故不应被核心拒收；这不是核心漏检。
+修复仅测试构造：先生成合法a/x ZIP，再等长替换local及central两处原始文件名
+为a+0x5c+x，明确断言替换数为2且原始ZIP确含恶意字节，保留构造说明及坏ZIP。
+不修改binding_check.py、EXPECTED或原大包；R01原件不覆写，新R02重新执行。
+sealer新增显式--history纳入R01原件而非复制改写日志；尚未预写R02通过。

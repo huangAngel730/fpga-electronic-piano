@@ -1,0 +1,35 @@
+{
+  "schema": "N32_D_CFULL_INDEPENDENT_EXPECTATIONS_V1",
+  "basis": "M2 exact accepted packages and original D handoff; never supplied by the candidate manifest",
+  "sources": {
+    "m2_receipt": {"path": "E:/FPGA/GAOYUNFPGA/Callback3/chat6/M2_REVIEW_RECEIPT.json", "sha256": "e0447a093fc6d2cc593d9012f8ac2be0585aeed33cee447bc02ffbe84d795fbe"},
+    "m2_review": {"path": "E:/FPGA/GAOYUNFPGA/Callback3/chat6/M2_REVIEW.md", "sha256": "1e5ac08b191e56529fd3edcf4290d5777f4fed478313d40fec331af175f42300"},
+    "d_handoff": {"path": "code/build/138k_polyphony_resource/m3_n32_allocator_candidate_20261013/D_N32_R1_EXACT_HANDOFF_20261015.md", "sha256": "dfa5a6aaf132aa3ef22a6c423b90a47398a68ba9e760425adff766c6c94b67b3"}
+  },
+  "abcd": {"bytes": 36986296, "sha256": "ba9e4f42d9aa5bb60c6d5122ae271fc58b3b9e7d27cca4caa48fd9740d85aa36", "members": 185, "commit": "f548decb6eaa97c5e387bb00eda3e9f5db4ff8ac"},
+  "cfull": {"bytes": 7689052, "sha256": "eac6e9371a96e91447a75d869d7e7a6dc76252fd89d6c8b621953a396a42c726", "members": 76, "commit": "340c3b23cc252d4306aacd3232438be0ea376cda"},
+  "d_inner": {
+    "snapshot": {"bytes": 3269968, "sha256": "256551be862a5945b51350dfe155699fe1400470d6b7d2a66c079701c3e621e5"},
+    "manifest": {"bytes": 21106, "sha256": "d21e69b816303308ad057380b8d9e491fb2713fcf51486232cb8e55156225323"},
+    "seal": {"bytes": 386, "sha256": "bdcc3ce5e3ecc08cd5986fbdda5b04fcfe0b225a4dff1c585d4ff0550ceaa456"},
+    "members": 125
+  },
+  "cfull_inner": {
+    "snapshot": {"bytes": 9906219, "sha256": "15372b95e41463ce6dc459269cf5a60134bda1f7434f41ffc50f9ac2e74d0c9e"},
+    "manifest": {"bytes": 66309, "sha256": "1a41b93e62e230074527fdba985126fc51e45cff29d0645c4fea15693a280e88"},
+    "seal": {"bytes": 421, "sha256": "a20f9857ae12958c0fef8087aabf1addd993cd3a48ae106bd04f01af1e8ac045"},
+    "members": 339
+  },
+  "d_project_manifest": {"bytes": 227802, "sha256": "9367dae17e2ff066c39a169f98673905954485a33ec0d19553f4675cc2dc639b"},
+  "d_top": {"path": "sources/m3_n32_resource.sv", "bytes": 1612, "sha256": "a7d193a27994a218fa6961b7eae66be29e648b9df2a2470d436982f063ecbb3f"},
+  "c_wrapper": {"path": "code/rtl/common/m3_n32_allocator_candidate_20261013/B/b_n32_r1_wrapper.sv", "bytes": 6961, "sha256": "c7776858b508cc9069d5a36f1fcedb3348ab5648be6a84120fc1589f3cd33000"},
+  "capture": {"bytes": 45522685, "sha256": "daf92770d8b92ec283d9eae726c5a39a8023a28808b0b262376d44c09654c79d"},
+  "original_plan": {"bytes": 1931569, "sha256": "8c759b5e9273569044217f5601938179eaac963aa93860a6a1a999130f6d24c7"},
+  "original_receipt": {"bytes": 1914295, "sha256": "44cd3fc2d997456356e844a7aba79b271e6b88383f477d8a5a399ec10b781b6f"},
+  "current_plan": {"bytes": 1931453, "sha256": "efabf748b5085679e067292a99437dbe689ebb19db698b22670b2aab2bf4eb28"},
+  "current_receipt": {"bytes": 1912116, "sha256": "efbb45bc2b3263b045ce7ccc4271b6b18e3414f73181ada296e460624bffd8e9"},
+  "counts": {"source": 18, "top": 1, "include": 2, "rom": 5, "evidence": 16, "gprj": 1, "sdc": 1, "tcl": 1},
+  "source_order": ["audio_defs_pkg.sv", "sustain_control_contract_pkg.sv", "note_pitch.sv", "b1_statebank.sv", "b1_scheduler.sv", "m3_balanced_voice_allocator.sv", "b2c_sustain_controller.sv", "b_n32_event_router.sv", "b2d_control_snapshot.sv", "m2_prom_gain.sv", "m2_prom_oct.sv", "m2_prom_sub.sv", "m2_prom_lfo.sv", "m2_prom_wave.sv", "m2_adsr_piano_prom.sv", "m2_pitch_mod_prom.sv", "m2_b2_backend_prom.sv", "b_n32_event_audio_prom.sv", "m3_n32_resource.sv"],
+  "limits": {"operations": 10376, "sample_accepts": 4945, "publications": 4942, "slot_results": 158144, "retirements": 4, "maximum_first_result_cycles": 347, "named_mutations": 24, "unique_mutated_payloads": 23},
+  "scope": {"status": "STATIC_BINDING_ONLY", "T061_complete": false, "resources": "UNKNOWN", "STA": "NOT_RUN", "actual_EDA_calls": 0, "RTL_calls": 0, "device_calls": 0, "synthesis_authorized": false}
+}
