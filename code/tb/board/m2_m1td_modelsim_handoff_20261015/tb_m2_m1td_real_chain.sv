@@ -33,12 +33,12 @@ module tb_m2_m1td_real_chain;
         #4000;if(pa_en!==0 || config_count!=1)$fatal(1,"M1TD_CONFIG_OR_PLL_STARTUP");
         midi_byte(8'h90);midi_byte(8'd69);midi_byte(8'd100);
         #220000;
-        if(accepted<1 || dut.status_active_voice_count<1 || commits<3 || nonzero<3)
+        if(accepted<1 || (dut.status_active_voice_count>=1)!==1'b1 || commits<3 || nonzero<3)
             $fatal(1,"M1TD_REAL_PIANO_EVENT_TO_PCM_MISSING");
         midi_byte(8'hC0);midi_byte(8'd1);
         midi_byte(8'h90);midi_byte(8'd64);midi_byte(8'd80);
         #220000;
-        if(accepted<3 || dut.status_active_voice_count<2 || commits<10 || nonzero<10 || serial_ones<5)
+        if(accepted<3 || (dut.status_active_voice_count>=2)!==1'b1 || commits<10 || nonzero<10 || serial_ones<5)
             $fatal(1,"M1TD_REAL_PROGRAM_EVENT_TO_AUDIO_MISSING");
         // The four notes overlap in the 40 MHz board graph. Existing allocator
         // identity/steal mathematics are reused, but this checks the new graph.
@@ -52,13 +52,13 @@ module tb_m2_m1td_real_chain;
         #220000;
         if(accepted<=before_fifth || dut.status_active_voice_count!==4 ||
            frames<=before_frames+2 || commits<=before_commit+2 ||
-           dut.status_max_processing_cycles>=834)
+           (dut.status_max_processing_cycles<834)!==1'b1)
             $fatal(1,"M1TD_FIFTH_STEAL_OR_833_CYCLE_DEADLINE_FAIL");
         $display("END REAL_M1 accepted=%0d active=%0d commits=%0d nonzero=%0d frames=%0d serial=%0d max_cycles=%0d",
             accepted,dut.status_active_voice_count,commits,nonzero,frames,serial_ones,
             dut.status_max_processing_cycles);
         sys_rst_n=0;#1000;
-        if(pa_en!==1 || dut.status_active_voice_count!=0 || dut.buffered_left!=0 || dut.buffered_right!=0)
+        if(pa_en!==1 || dut.status_active_voice_count!==0 || dut.buffered_left!==0 || dut.buffered_right!==0)
             $fatal(1,"M1TD_SHARED_RESET_NOT_CLEAN");
         $display("PASS M2_M1TD_REAL_CHAIN_BOARD_FUNCTIONAL_ONLY");$finish;
     end
