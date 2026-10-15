@@ -1,0 +1,16 @@
+M2：M3任务5／B本地MIDI导入候选交付入口。
+
+基线：a98dd03a8152fbdb9db1da9dc628183e0e1bd111。
+写集：code/software/score_midi_import_candidate_20261014/；临时验收输出为code/output/score_midi_import_acceptance_*。
+源码与测试未提交／未推送；本轮依用户要求仅独立实现、自审、验证、封存，未联系审核员／预审员，未编辑共享状态表或编号表。
+
+实现：严格SMF Type0／Type1 PPQN解析、tempo绝对时间精确累计与48kHz统一四舍五入、稳定跨轨合并及来源映射、512事件容量检查、原T057编码器调用、独立位运算CRC／记录解码／完整BEGIN-DATA-COMMIT离线核同。
+使用与实际限制见README.txt，执行结果、精确源码／依赖／输入SHA、命令／退出码和失败历史以验收输出receipt.json、各步骤原日志及TASK_B_EVIDENCE.zip为准。
+不更改原T057协议／编码器／播放器。CC、ProgramChange、PitchBend等无法表达的事件明确拒收；不会静默丢弃。track不写协议，因此重叠同channel/note和跨轨配对生命周期拒收，保留精确接口限制说明。
+
+当前真实用户.mid及来源证明未找到，合成夹具只支持软件开发／边界结论，真实文件验收待补；本地文件选择框真实桌面交互待实测。
+没有串口／网络产品功能／RTL／EDA／设备调用，不把离线核同当FPGA ACK、播放或发声。
+
+建议统一发布时仅纳入本目录源、测试、README及交接说明，并按项目流程跑精确树门禁、最后fetch取号与普通推送。code/output内原件不直接散入Git，按需要导入独立证据封存。
+请复核软件候选实际证据并决定限定范围签收；曲谱RAM到演奏事件播放仍属于后续M2接口工作。
+待用户转发，尚未送达。

@@ -1,0 +1,19 @@
+新会话审计候选失败历史（不修改原MIDI任务证据）
+
+增补软件测试期间出现一次test_session_audit.py语法错误；随后仅删除列表赋值末尾多余冒号，再次检查通过。此前子智能体把该次写成“exit1”，这是根据Python惯例的推断，更正为：具体退出码未打印／未留存，不能宣称实际观察到1。
+失败stdout/stderr没有分流保存，修复前源码原字节也未留存。下列内容是工具输出和patch的转录，不是原始日志文件或修复前源码原件；不得伪称失败原件齐套。此证据保留缺口无法事后补造，未重跑失败来冒充原件。
+
+实际命令：
+& 'C:\Users\songdongkuan\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -B -X utf8 code/software/score_session_audit_candidate_20261015/test_session_audit.py
+
+工具输出转录：
+  File "E:\FPGA\GAOYUNFPGA\team\fpga-electronic-piano\code\software\score_session_audit_candidate_20261015\test_session_audit.py", line 162
+    ("ack_timeout_us", 0), ("ack_timeout_us", 500001)]:
+                                                      ^
+SyntaxError: invalid syntax
+
+最小修复转录：列表赋值末尾 ]: 改为 ]，不修改生产状态检查器来通过测试。
+后续子智能体22项自检通过；主窗口最终整套35测试零失败，实际原日志与退出0见原SESSION_AUDIT_EVIDENCE.zip。
+
+另有自审定位后、最终验收前的功能增量：保守累计会话耗时，STATUS／READ／早期NACK不得刷新5s计时；新增三个超时边界测试，未覆盖或延长实际硬件超时。
+本历史说明在最终软件验收封存后新增，不修改原ZIP；外层交付包将其与原证据包一起绑定。

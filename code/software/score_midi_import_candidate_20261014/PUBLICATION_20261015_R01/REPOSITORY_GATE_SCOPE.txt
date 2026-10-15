@@ -1,0 +1,19 @@
+This publication gate covers both score_midi_import_candidate_20261014 and
+score_session_audit_candidate_20261015. R02 check_repo.ps1: nine PASS, exit 0.
+The original R01 timeout evidence is retained in REPOSITORY_GATE_R01_FAILURE.zip.
+R02 used unchanged RTL, tools, gate scripts and original budgets; no suppression.
+REPOSITORY_GATE_R02_LOGS.zip retains three top-level raw stdout/stderr, receipts
+and generated commands. It contains no executable VVP simulation artifact.
+
+Existing gate limitation: top-level stdout contains $readmemh errors for
+model/generated/sine_wavetable.hex and triangle_wavetable.hex relative paths.
+The existing gate still reports PASS. This publication did not modify that
+shared harness or RTL and does not claim that all ROM dependency paths are
+qualified. M2 should determine active/unused branches and commission an
+isolated ROM dependency/fail-closed diagnostic follow-up if appropriate.
+
+The two delivered tools are offline software only. Their own 40 and 35 tests
+passed with independent expectations; no FPGA ACK, audio or hardware claim.
+M2 final review remains pending. Historical unpublished statements inside
+frozen source/evidence are not rewritten; actual Git publication is reported
+by the final commit and remote-head verification, not by older source prose.

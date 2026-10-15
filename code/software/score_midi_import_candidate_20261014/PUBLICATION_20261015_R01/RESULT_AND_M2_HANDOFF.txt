@@ -1,0 +1,39 @@
+M2：M3任务5／B本地MIDI导入可实现的软件交付已完成，待你限定范围签收。
+
+基线提交：a98dd03a8152fbdb9db1da9dc628183e0e1bd111。
+本轮未git add／commit／push，未编辑共享任务看板／当前状态／编号表，未向审核员或预审员发送消息。用户授权实现窗口及子智能体自审。
+
+结果：SOFTWARE_ACCEPTANCE_PASS_REAL_USER_FILE_PENDING。
+机器：LAPTOP-KSS1MRR7；Python 3.12.14。
+完整新软件验收：40测试，0失败／0错误／0跳过，7个Python文件AST通过。
+根runner四步骤：unit_tests=0、demo_import=0、demo_verify=0、demo_bad_readback=1（预期拒收，精确诊断READBACK_RECORD_MISMATCH）。各限90秒，总限300秒；含封存实际2.406秒，无超时。
+13项源码／合同输入和732项本地Python运行时文件前后SHA完全一致。39个封存数据成员CRC及SHA复核通过。
+另有子智能体独立软件检查：解析23测试通过、读回10测试通过；没有软件测试失败。子智能体普通命令遇到执行环境初始化错误，未启动目标工具进程；按正式审批使用同一本地解释器完成检查。
+自审在整套验收前补上verify输入大小限制、指定拒收原因断言和封存后总预算判定，之后整套验收一次通过；没有覆盖旧失败。
+
+实现：严格SMF Type0／Type1 PPQN、tempo精确绝对时间累计与48kHz最后取整、多轨稳定顺序与来源、零力度NoteOn归一、512事件边界、冻结原T057编码器调用、独立记录／BEGIN-DATA-COMMIT解码与位运算CRC核同、明确不支持语义事件拒收。
+支持本地路径和可选本地文件选择框；无网络产品功能、串口、RTL、EDA或设备操作，不宣称FPGA ACK、播放或发声。
+
+关键边界：可访问项目路径没有找到有可核来源的真实.mid/.midi；补查15个旧输出目录拒绝访问，不声称绝对不存在。当前正例全为合成开发夹具，真实用户文件验收待补；选择框真实桌面交互待实测。T057无track、CC、ProgramChange或PitchBend字段，相关语义限制和拒收条件见README.txt，未修改协议。
+验证等级：L0／L1及本地软件自检，未新增RTL L2、声音数学L3、综合、STA或上板结论。
+
+建议后续统一发布文件（全部在code/software/score_midi_import_candidate_20261014/）：
+OWNERSHIP.txt
+midi_import.py
+offline_readback.py
+midi_fixtures.py
+test_midi_import.py
+test_offline_readback.py
+test_cli.py
+run_acceptance.py
+README.txt
+M2_HANDOFF.txt
+发布时遵循精确树门禁、最后fetch取号、单文件独立git add、普通提交推送并核远端；本轮未执行上述发布步骤。
+
+原件：本目录TASK_B_EVIDENCE.zip，171046字节。
+SHA256：02aaea3594c6c0f9d6b3b51c686b3046fcaea251bd29e15dd0883e3f34ece9a2
+包内含原日志、计划、输入／源码／运行时前后SHA、每步argv/cwd/退出码、合成演示输入及正负例收据、源码快照。delivery.json为包身份及封存总耗时的外层收据。
+本交接文字在封存完成后生成，不修改原证据包。
+
+请复核实际证据并决定软件范围签收。RAM到演奏事件、板卡ACK和真实发声属于后续工作。
+待用户转发，尚未送达。

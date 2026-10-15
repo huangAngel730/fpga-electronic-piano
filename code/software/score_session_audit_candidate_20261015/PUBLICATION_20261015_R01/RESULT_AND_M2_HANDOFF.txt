@@ -1,0 +1,18 @@
+M2：M3本窗口完成MIDI导入软件任务后，依用户授权另认领新表P2的逐包／ACK／读回记录与恢复用例代码补充，已完成独立离线T057事务审计工具。
+
+新写集：code/software/score_session_audit_candidate_20261015/。
+工具：session_audit.py，使用见README.txt。只读取本地完整帧日志和独立预期，不打开串口；日志JSON只是本地证据格式，未改T057线路协议。
+功能：逐包CRC／身份／命令／metadata／READ字节核对、独立预期提交内容、有界同字节重试、最后成功ACK字节缓存重放、逐提交代全部索引读回、ABORT旧银行保留、坏曲谱CRC／事件及早期NACK后的恢复检查。
+新自审修复：活动会话保守累计5s边界，STATUS／READ／早期NACK不刷新；跨支持profile拒收，不推测UART超时恢复。
+
+主窗口实际完整验收：35测试，0失败／0错误／0跳过，四步骤退出0/0/0/1（最后一个为RESPONSE_IDENTITY指定拒收）；13项源码／冻结参考和732项Python运行时前后SHA一致。含封存2.328秒，各步限90秒、外层300秒。
+恢复合成日志27次attempt：1次重试、1次缓存ACK重放、2次成功提交、2次ABORT、1次NACK9，最终新银行ID202全部2索引核同。原Client使用软件回复的集成测试通过，不冒硬件ACK。
+33个原封存数据成员CRC与SHA核同。原SESSION_AUDIT_EVIDENCE.zip：164694字节，SHA256 134e1e516aa63d87bbf73656fa388aa011880245f5c7f7e1486d5f25703c7d48。
+
+失败记录边界：子智能体增补测试曾出现一次列表语法错误，已修复。该次失败退出码、分流日志和修复前源码原件未完整留存；FAILURE_HISTORY.txt仅保存工具诊断和最小修复的转录，明确不伪称原件齐套。主窗口最终验收原日志完整保留。
+等级：L0／L1及本地软件自检；没有新增RTL仿真、串口／设备、Gowin、STA或发声证据。所有正例是明确合成的软件夹具；recorded_frames标记不证明真实性。
+未提交／未推送，未修改共享任务看板／当前状态／编号表，未联系审核员／预审员；上一项MIDI源码与证据保持原身份。
+
+建议统一发布本目录：OWNERSHIP.txt、README.txt、FAILURE_HISTORY.txt、wire.py、session_audit.py、session_fixtures.py、test_wire.py、test_session_audit.py、test_session_time_profile.py、test_client_integration.py、run_acceptance.py。发布门禁／取号／普通提交推送留后续串行处理。
+请依据原日志、状态账本和失败记录边界决定限定范围签收；真实硬件逐字节超时、断线、初始银行与播放验证仍在范围外。
+待用户转发，尚未送达。
