@@ -1,0 +1,60 @@
+{
+  "status": "FAIL",
+  "checks": [
+    {
+      "name": "vlog_exit_zero",
+      "passed": true,
+      "detail": "exit_code=0"
+    },
+    {
+      "name": "vsim_exit_zero",
+      "passed": true,
+      "detail": "exit_code=0"
+    },
+    {
+      "name": "bounded_execution_no_timeout",
+      "passed": true,
+      "detail": "vlog_timed_out=False, vsim_timed_out=False"
+    },
+    {
+      "name": "vlog_compile_success_marker",
+      "passed": true,
+      "detail": "found 'Errors: 0'"
+    },
+    {
+      "name": "vlog_no_compile_error",
+      "passed": true,
+      "detail": "no ModelSim compile error summary"
+    },
+    {
+      "name": "logs_no_fatal_or_timeout",
+      "passed": true,
+      "detail": "no FATAL/timeout token"
+    },
+    {
+      "name": "logs_no_error_or_failure",
+      "passed": false,
+      "detail": "error or failure diagnostic found; PASS does not override it"
+    },
+    {
+      "name": "vsim_required_pass_marker",
+      "passed": true,
+      "detail": "required marker: PASS M2_M1TD_REAL_CHAIN_BOARD_FUNCTIONAL_ONLY"
+    },
+    {
+      "name": "before_input_identity",
+      "passed": true,
+      "detail": "archive, manifest and 2 member identities match"
+    },
+    {
+      "name": "after_input_identity",
+      "passed": true,
+      "detail": "archive, manifest and 2 member identities match"
+    }
+  ],
+  "scope": "R04_LOG_AND_INPUT_IDENTITY_ONLY",
+  "accepted": false,
+  "real_execution_validated": false,
+  "per_request_deadline": "UNKNOWN",
+  "required_real_receipt_contract": "REAL_RECEIPT_CONTRACT.md"
+}
