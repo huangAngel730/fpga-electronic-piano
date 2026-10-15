@@ -1,0 +1,16 @@
+本任务新增验收工具失败史（原已发布导入器及合同未修改）
+
+R01下载/首次CLI检查：真实Commons短旋律import实际exit0；真实charge.mid在meta0x54
+按既有合同实际exit1，属于正确拒收。原文件和首次结果保持，未过滤不支持事件。
+
+R02独立验收：实际入口exit1，停止在第1步骤6个oracle单元测试：5通过，1 error。
+故障是test_half_sample_up误用了division=48000；SMF PPQN只能使用低15位，48000最高位
+为1，被正确按不支持的SMPTE时间基准拒收ORACLE_TIMEBASE。测试夹具错误，不是原导入器
+或oracle拒收规则错误。没有启动真实import/verify后续步骤。
+修法仅改夹具为合法PPQN9600、tempo100000微秒/四分音符、1个MIDI tick仍恰好半样本。
+未改时间定义、oracle预检、原协议、原MIDI字节、生产导入器或encoder。
+实际失败双流、命令、exit1、修前完整源码和前后SHA已封存，文件未覆盖：
+code/output/score_midi_real_input_20261015_r02/REAL_MIDI_OFFLINE_EVIDENCE.zip
+SHA256 3fcafba1fc1ca21b8d75e4bd675ee521df081a9feb87a91e77431177eba56d5f
+本目录history/REAL_MIDI_R02_FAILURE.zip为该失败封存原字节副本。
+R03只在增量修正后使用全新输出目录验证，不恢复或改写R02收据。

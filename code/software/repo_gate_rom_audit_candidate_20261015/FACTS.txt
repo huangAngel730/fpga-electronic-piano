@@ -1,0 +1,45 @@
+ROM 路径根因与修复边界（只读源事实，2026-10-15）
+
+1. 原 run_t025_top_stat.py 在 code/output/<新stage> 作为实际 cwd 运行 VVP。
+   原命令只绑定 +VELOCITY_ROM_PATH 和 +WAVETABLE_PATH。
+   原 accept 判据排除 FATAL/[FAIL]/>>>FAIL，但没有排除 ERROR/$readmemh。
+   因此 readmem ERROR 与后续 PASS 同时出现时可能被原入口误收。
+
+2. 原 piano_triangle_voice.sv 的 SINE_ROM_FILE 默认值是
+   model/generated/sine_wavetable.hex，TRIANGLE_ROM_FILE 默认值是
+   model/generated/triangle_wavetable.hex。
+   polyphonic_envelope_bank 原样向它传递这两个默认路径；它继续向
+   timbre_oscillator 传递参数。虽然 timbre_oscillator 独立模块的参数默认
+   仅是 basename，这不是顶层实例的实际有效参数。
+
+3. timbre_oscillator 的 sine_rom/triangle_rom 均有无条件 initial $readmemh。
+   注释说 sine 在综合时可能删除，不等于模拟时可以不提供 sine 文件。
+   两个路径是相对 VVP 的 cwd，而不是源文件目录或仓库 code 目录。
+
+4. 修复在全新 stage 下创建 model/generated/... 四文件映射，字节必须与
+   主窗口独立冻结清单一致。SINE/TRIANGLE 按原实例参数相对 cwd 加载；
+   VELOCITY/PIANO 按显式绝对 +plusarg 加载。
+   不改原源码路径、不改音色/数学，不修改 checker 容错来接受坏格式。
+
+5. 原 GPRJ enabled verilog 源按包优先顺序，原 allocator 由原 read_slang
+   路线 lower 成全新 allocator.v，其余 DUT/TB 全部直接读取原冻结源码。
+   原三个正式入口保持只读；这是一套完整独立严格后继，不是静默替换。
+
+6. 独立清单固定所有 GPRJ 源/三个TB/rtl svh/原runner/监督模块/四ROM。
+   原工具闭包含 bin 全文件、lib 根文件、lib/ivl 全文件、lib 动态库/VPI/IVL
+   和 share/yosys 全文件、environment.bat。实际机器的 share/iverilog 不存在；
+   Icarus 内部位置是 lib/ivl，不以想象中的目录代替真实依赖。
+
+7. 显式环境不启动 environment.bat，避免其中 gdk cache updater 额外工具调用。
+   原 environment.bat 仍冻结；PATH 只含同一工具 bin/lib 与同系统目录，
+   IVERILOG_ROOT 绑定同工具 lib/ivl。不继承可注入依赖的用户 PATH/PYTHONPATH。
+   系统 DLL 仍由 Windows 加载策略处理；本后继不声称证明全部系统 DLL 根因。
+
+8. 静态 ROM 合同核四文件分别 1024 个 16-bit hex word；运行日志还必须
+   拒绝 readmem 无法打开/不足/超量及所有 ERROR/FATAL。
+   config 的 source_declarations、instance_parameter_propagation、readmem_calls
+   和 actual_resolution 分列静态声明与有效 runtime 路径，不混淆两种身份。
+
+9. 独立日志审计接受实际正常固定音模式日志，并拒绝另两份带 readmem ERROR
+   的历史顶层日志；历史原 passed=true 收据原样保留，不回写历史结果。
+   完整三顶层是否实际通过仅以本轮新目录原日志及 receipt 为准。
