@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "scope": "R04_OFFLINE_RECEIPT_CHECKER_ONLY",
+  "machine": "LAPTOP-KSS1MRR7",
+  "python": "C:/Users/songdongkuan/miniconda3/python.exe 3.12.4",
+  "unit_test": {
+    "command": "C:/Users/songdongkuan/miniconda3/python.exe -X utf8 code/software/r04_receipt_check/test_receipt_check.py -v",
+    "tests": 11,
+    "result": "OK",
+    "exit_code": 0,
+    "covered_rejections": [
+      "missing required PASS marker",
+      "FATAL after PASS marker",
+      "non-zero vlog exit",
+      "non-zero vsim exit",
+      "timeout flag",
+      "missing compile success marker",
+      "post-run input identity drift",
+      "malformed receipt"
+    ]
+  },
+  "python_compile": {
+    "command": "C:/Users/songdongkuan/miniconda3/python.exe -X utf8 -m py_compile code/software/r04_receipt_check/receipt_check.py code/software/r04_receipt_check/snapshot_inputs.py code/software/r04_receipt_check/test_receipt_check.py",
+    "result": "PASS",
+    "exit_code": 0
+  },
+  "frozen_r04_identity_integration": {
+    "archive_sha256": "1101f1af0809530a150143456aab8ff9a1c66373e9ccbc174c6459e8c916b3bf",
+    "manifest_sha256": "015bf0199c5118ecfe7ec96bfd0b216d8f195daaf4989ec6bc08779def180815",
+    "members_checked_before": 91,
+    "members_checked_after": 91,
+    "before_snapshot_exit_code": 0,
+    "after_snapshot_exit_code": 0,
+    "checker_exit_code": 0,
+    "result": "PASS_WITH_SYNTHETIC_LOGS"
+  },
+  "actual_modelsim_calls": 0,
+  "limitations": [
+    "Synthetic logs only; no real vlog/vsim result was produced.",
+    "This PASS validates the offline parser and frozen input identity chain only.",
+    "M2 must still approve the exact real ModelSim inputs, tools, cwd, output directory and budgets."
+  ]
+}

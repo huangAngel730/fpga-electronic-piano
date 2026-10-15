@@ -1,0 +1,133 @@
+{
+  "cases": [
+    {
+      "actual_exit_code": 0,
+      "command": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "test_frame_budget_offline.py"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\frame_budget_offline",
+      "expected_exit_code": 0,
+      "name": "unit_tests",
+      "passed": true,
+      "stderr": "test_accepts_833_834_distribution_below_processing_deadline (test_frame_budget_offline.FrameBudgetOfflineTests.test_accepts_833_834_distribution_below_processing_deadline) ... ok\ntest_missing_field_is_schema_error (test_frame_budget_offline.FrameBudgetOfflineTests.test_missing_field_is_schema_error) ... ok\ntest_rejects_counter_rollback (test_frame_budget_offline.FrameBudgetOfflineTests.test_rejects_counter_rollback) ... ok\ntest_rejects_frame_period_outside_833_834 (test_frame_budget_offline.FrameBudgetOfflineTests.test_rejects_frame_period_outside_833_834) ... ok\ntest_rejects_nonzero_underrun (test_frame_budget_offline.FrameBudgetOfflineTests.test_rejects_nonzero_underrun) ... ok\ntest_rejects_processing_deadline_equal_to_834 (test_frame_budget_offline.FrameBudgetOfflineTests.test_rejects_processing_deadline_equal_to_834) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.011s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "actual_exit_code": 0,
+      "command": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "frame_budget_offline.py",
+        "samples/pass_833_834.csv",
+        "--summary",
+        "evidence/pass_summary.json"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\frame_budget_offline",
+      "expected_exit_code": 0,
+      "name": "valid_833_834_distribution",
+      "passed": true,
+      "stderr": "",
+      "stdout": "PASS summary=evidence\\pass_summary.json\n"
+    },
+    {
+      "actual_exit_code": 1,
+      "command": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "frame_budget_offline.py",
+        "samples/fail_processing_834.csv",
+        "--summary",
+        "evidence/fail_processing_834_summary.json"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\frame_budget_offline",
+      "expected_exit_code": 1,
+      "name": "reject_processing_834",
+      "passed": true,
+      "stderr": "",
+      "stdout": "FAIL summary=evidence\\fail_processing_834_summary.json\n"
+    },
+    {
+      "actual_exit_code": 1,
+      "command": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "frame_budget_offline.py",
+        "samples/fail_underrun.csv",
+        "--summary",
+        "evidence/fail_underrun_summary.json"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\frame_budget_offline",
+      "expected_exit_code": 1,
+      "name": "reject_underrun",
+      "passed": true,
+      "stderr": "",
+      "stdout": "FAIL summary=evidence\\fail_underrun_summary.json\n"
+    },
+    {
+      "actual_exit_code": 2,
+      "command": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "frame_budget_offline.py",
+        "samples/error_missing_field.csv",
+        "--summary",
+        "evidence/error_missing_field_summary.json"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\frame_budget_offline",
+      "expected_exit_code": 2,
+      "name": "reject_missing_field_schema",
+      "passed": true,
+      "stderr": "",
+      "stdout": "ERROR summary=evidence\\error_missing_field_summary.json\n"
+    }
+  ],
+  "limitations": [
+    "Only synthetic CSV inputs were analyzed.",
+    "ModelSim, RTL simulation, synthesis, PnR, STA, and device calls were not run.",
+    "This receipt does not prove the R04 whole-system frame budget."
+  ],
+  "python_executable": "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+  "python_version": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)]",
+  "schema": "r04_frame_budget_offline_acceptance_v1",
+  "scope": "SYNTHETIC_ANALYZER_ONLY_NO_MODELSIM",
+  "source_identities": {
+    "README.md": {
+      "bytes": 4110,
+      "sha256": "c4ecef317e599494e3e2aea64f2e6c2c05b01f3d4669041b704e01ac2c3bc6d8"
+    },
+    "frame_budget_offline.py": {
+      "bytes": 7210,
+      "sha256": "5ca148fb73576168909554424c5de03ed3f3f741519ce087972b9ec77fccb9d8"
+    },
+    "run_acceptance.py": {
+      "bytes": 4489,
+      "sha256": "d805d3bff7e0ff27853cd5fbed5247ab150165d6bc2ffe5de5dd536dda4bb1dd"
+    },
+    "samples\\error_missing_field.csv": {
+      "bytes": 57,
+      "sha256": "ff50e956662d9f6c720caab3d44733b7f23427dfe9b14d6d95fdb23ff0383f04"
+    },
+    "samples\\fail_processing_834.csv": {
+      "bytes": 98,
+      "sha256": "08a2beee460418693f8ab274e1dded0adbe8d825b9322e19ffe24dd488be7624"
+    },
+    "samples\\fail_underrun.csv": {
+      "bytes": 110,
+      "sha256": "63e28c3b66fab300b2dd9641645b8270abfad1ddfca73c0d89a057488dcd736f"
+    },
+    "samples\\pass_833_834.csv": {
+      "bytes": 122,
+      "sha256": "d2fedd0b9d80b80d6caa2263b368ab1cb5a8c506328a5417a43a6f3e9084ab05"
+    },
+    "test_frame_budget_offline.py": {
+      "bytes": 3092,
+      "sha256": "4c46dc7e74b3d02834ca30ba6443d8f57c5a4333b46d45678977adaacb0e6ff9"
+    }
+  },
+  "status": "PASS"
+}
