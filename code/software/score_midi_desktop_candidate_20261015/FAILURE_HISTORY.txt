@@ -1,0 +1,57 @@
+桌面候选失败历史与修复规则
+
+本文件不提前宣称软件或Tk实际通过。每次run_acceptance使用全新task目录，
+保留source_before、双流、private process receipts、actual fixture及总receipt。
+失败由主窗口定位并记录具体目录/退出码/源码SHA；不得覆盖旧目录或原样盲重试。
+
+测试开发阶段静态更正（未执行失败工具）：
+1. 权利原件文件名由目录只读核对为beatscribe_README_original.txt，
+   不使用凭空假设的beatscribe_README_CC0.txt；原件不变。
+2. Tk smoke不手动重复调用_tick，避免额外after回调混入关闭路径。
+
+真实与合成边界：
+GolhaMedia CC0真实原件固定c0a8cb.../44事件/末384000样本；Beatscribe charge.mid
+固定f48614...，meta0x54必须非零拒收。其余fixture明确为合成开发边界输入。
+注入runner的故障场景均tool_calls=0；只有真实私有Job子进程收据可计实际调用。
+Tk自动部件smoke不等于真人操作Windows原生文件选择器，不输出伪截图。
+
+正式R01软件测试（主窗口实际运行）：
+code/output/score_midi_desktop_acceptance_20261015_r01/ 原源码快照、双流与receipt保留。
+30项测试29通过、1失败，software_tests退出1，总入口退出1；Tk未启动。
+唯一失败 test_half_sample_absolute_ties_up：测试误把精确有理数的表示要求为
+已约分(1,2)。原provenance合法保留(4800000000,9600000000)，有理值相同，
+实际sample_tick=1也符合恰半向上。修复仅测试比较Fraction(num,den)==Fraction(1,2)，
+仍逐事件核原独立样本tick=1，不改核心、原协议、原provenance或原输入。
+失败断言源码由R01 source_before原件保留；后续必须用全新R02，不复用R01。
+
+正式R02实际结果：30项测试全通过，Tk创建/update/按钮/44行表/确认取消与导出/
+关闭均通过，入口exit0，总11.360秒；输入/源码/原依赖/运行时前后SHA相同。
+GUI测试使用注入chooser与confirm；不是人工Windows原生picker操作。
+
+开发r01新核心没有即时全源码快照；其后曾补receipt/provenance检查，不能将
+现源码冒称开发r01执行源码。source_pre_site_isolation是当时后续补保存原件；
+source_r01_reconstructed_not_contemporaneous明确为事后重建，不作原始执行证据。
+正式R01/R02及最终轮的source_before与前后SHA才是各轮权威身份。
+最终封存增强为可显式带入所有失败/开发历史，修改的是封装，不改核心/输入/合同。
+该增量后的新正式验证结果以最新独占目录receipt.json为准，不预写完成。
+不重复原40/35组，不修改原导入器/编码器/协议，不用离线通过代替FPGA ACK。
+
+发布树R01真实失败（本地通过不替代迁移验证）：
+主窗口独立发布树 score_midi_desktop_publish_validation_20261015_r01/
+software_tests_logs/stderr.bin 保留6项原失败、双流、源码快照及receipt。
+根因均为Windows MAX_PATH：测试把完整方法名、workspace长标识和stage/logs随机标识
+叠加到较长worktree路径后，原Python文件打开/目录创建超出传统路径预算。
+失败后未原样重试，未提高预算、改运行时或改原MIDI/协议。
+测试增量改为短case/workspace标识，并保存TEST_INDEX.jsonl完整测试名到短路径映射；
+Tk工作目录缩为w/wc。核心由本窗口另一个子智能体增加提前明确workspace长度拒收；
+本测试新增overlong_workspace反例，必须清晰DesktopError且不创建目录，不能靠OSError误拒收。
+下一轮须新输出目录，原发布R01不得复用或覆盖；本段不预写新结果通过。
+增量测试还固定workspace的UTF16 198/199边界、非BMP字符按两单位计数，
+source拒收不得破坏当前选择；export拒收不得建目录或启动worker；directrunner长logs/
+executable拒收不得建日志目录或调用WinDLL。上述超界反例均零真实工具调用。
+最后自审增量（实现说明，不预写通过）：最终file symlink按INPUT_FILE_SYMLINK提前拒收，
+新增条件实际symlink夹具核checked_read/select_file/load_preview三入口；本机权限不允许
+创建时写SYMLINK_SKIP.json，unittest明确skip原因，不算作该边界已通过。
+原charge.mid meta0x54非零拒收用例新增dependency_before.json/dependency_after.json断言，
+核5项依赖/解释器身份前后同、matches_before及原始IMPORT_EXIT/0x54诊断均保留。
+没有为此额外重跑原导入专项或新增一次同样真实导入调用；最终以新独占目录38项结果为准。
