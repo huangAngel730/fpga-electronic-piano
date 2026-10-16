@@ -1,0 +1,145 @@
+{
+  "schema": "M3_R05_NIGHT_PARTIAL_RECEIPT_V1",
+  "created_utc": "2026-10-15T18:23:02.655163+00:00",
+  "head": "c12636c034be62e10c564217298564422a533b9c",
+  "role": "night_task_2_A",
+  "task": "R05 UART MIDI board public pre-NBA capture/deadline increment",
+  "status": "PARTIAL_BLOCKED_PLATFORM_APPROVAL",
+  "functional_process_count": 0,
+  "functional_allowance_consumed": false,
+  "new_modelsim_compile_run": false,
+  "probe": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RUN_01\\RUN_RECEIPT.json",
+    "bytes": 41005,
+    "sha256": "3bcde9c4446084fbf726e6761d3383d7c2ed0218bf0fdc783a2ab374390e2080"
+  },
+  "probe_winerror": 623,
+  "probe_exit_code": null,
+  "probe_process_created": false,
+  "platform_denials": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\PLATFORM_REJECTIONS.json",
+    "bytes": 1410,
+    "sha256": "0a54113bd66d1078f43c7cb40c3b2ef959311656871d2bb706042b31dab34912"
+  },
+  "platform_denials_count": 2,
+  "software_receipt": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\SOFTWARE_R04\\RUN_RECEIPT.json",
+    "bytes": 6617,
+    "sha256": "cc917c994824d9955ab92fba4aa8dda6f064cc2dfbf9e4f30040df23d17eff9e"
+  },
+  "software_test_count": 14,
+  "software_exit_code": 0,
+  "software_elapsed_s": 1.5,
+  "software_logs": {
+    "stdout": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\SOFTWARE_R04\\static_tests.stdout.log",
+      "bytes": 39,
+      "sha256": "abd847fcacf8b8717bb677017671eabe827f519ad647850ef7a6ae5c32d4f505"
+    },
+    "stderr": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\SOFTWARE_R04\\static_tests.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "static_checks": {
+    "board_reverse_exact_r05": true,
+    "header_before_initial_state": true,
+    "no_time_zero_edge_writer": true,
+    "no_new_hierarchical_observation": true,
+    "observer_initial_epoch_zero": true,
+    "python_compile_only": true
+  },
+  "source_identities": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_r05_functional_integration_20261015\\night_20261016\\prepare_capture.py",
+      "bytes": 6736,
+      "sha256": "3757c09bac83a6843796404f5447970c20117be85874f1b399ed548dc0adaef4"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_r05_functional_integration_20261015\\night_20261016\\public_ledger.py",
+      "bytes": 7732,
+      "sha256": "268baf3cb3696060bed9e45c6575417892c1f87bc632e01a97d645ccff57189a"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_r05_functional_integration_20261015\\night_20261016\\relocate_observation_tb.py",
+      "bytes": 2021,
+      "sha256": "12d27561be71619daf1d9b5962c30d2ef2ab5a9a5f30269d777a686c18b71fe4"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_r05_functional_integration_20261015\\night_20261016\\repair_static.py",
+      "bytes": 2723,
+      "sha256": "df6f382ae74901e770d0be8a858378e6ad02c71921ab726c93bedffa67ee8b5a"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_r05_functional_integration_20261015\\night_20261016\\run_capture.py",
+      "bytes": 7223,
+      "sha256": "c32a1a1de7c11c5ac6d1a5914da33c2c06192ee9254b729602f0f527066e9856"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_r05_functional_integration_20261015\\night_20261016\\run_static_tests.py",
+      "bytes": 1071,
+      "sha256": "07df7715f1284cb9d102f073e42f61a761f1e9668b49dbf894275bc1f58b28aa"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_r05_functional_integration_20261015\\night_20261016\\seal_partial.py",
+      "bytes": 5838,
+      "sha256": "f66a172b9053b5b41e9a6913ec6fe0b79986fdfebf528881057c17438d56d9fa"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_r05_functional_integration_20261015\\night_20261016\\test_static.py",
+      "bytes": 7590,
+      "sha256": "845060f0b4d37f71f9fca1f3cf36b7969dc9ea3bc3f5a6f77f4283014e296201"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_r05_functional_integration_20261015\\night_20261016\\m3_r05_public_observer.sv",
+      "bytes": 2497,
+      "sha256": "f799f40dffabf68e5f6bce335c53a80ff0a472cfc36f7858627cab78bee0a2ef"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_r05_functional_integration_20261015\\night_20261016\\tb_r05_observed_7ms.sv",
+      "bytes": 3717,
+      "sha256": "456fdc12f6c3ba5325c07917df02385cda54f5a1ea522bb7545081d7de7720a6"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_night_fourvoice_integration_candidate_20261015\\night_20261016\\m2_fourvoice_timbre_delay_board_observed.sv",
+      "bytes": 40012,
+      "sha256": "08a48e62d2c2205789cb24a6bc611bd75246f4f02f3288735c776e7750927285"
+    }
+  ],
+  "frozen_r05": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\evidence\\m2_m1td_physical_20261015\\M2_138K_M1TD_R05_XSAFE_ModelSim输入_20261015.zip",
+    "bytes": 273908,
+    "sha256": "dcf15f5d3ded1a0b160f55eab43066c728f80b3c329c44ea9f099c63f178696a"
+  },
+  "input_binding": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\INPUT_BINDING.json",
+    "bytes": 62739,
+    "sha256": "e75b13b86cffab11aecbb1a4d0211bb11121e7b6c94cd63cc2e0253dd4b4e549"
+  },
+  "changes": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\CANDIDATE_CHANGES_R04.json",
+    "bytes": 2284,
+    "sha256": "963be5108d30cd8072abd3c6a3dc1b0978f8e1bd270c2bd8e1dbe5afb8592cfb"
+  },
+  "prior_run01_preparation_limit": "Source bodies of initial failed runner were not frozen then; staged HDL/initial source SHA survive. No reconstructed source is represented as original.",
+  "missing_platform_original_file": "Inline original tool errors only; PLATFORM_REJECTIONS.json is a transcription, not raw subprocess output",
+  "limits": {
+    "new_observation_rtl": "L0_STATIC_ONLY",
+    "ledger": "L1_SYNTHETIC_SOFTWARE_ONLY",
+    "real_capture": "UNKNOWN_NOT_GENERATED",
+    "real_per_request_deadline": "UNKNOWN",
+    "real_serial_sample_decode": "UNKNOWN",
+    "first_valid": "UNKNOWN_NOT_EXPORTED",
+    "analog_latency": "UNKNOWN_NOT_MEASURED",
+    "physical_signoff": false,
+    "board_release_allowed": false
+  },
+  "git": {
+    "committed": false,
+    "pushed": false,
+    "owner": "night_coordinator"
+  },
+  "delivery": "Files prepared for coordinator; M2 human handoff pending user forwarding, not delivered",
+  "next_owner": "Night coordinator seals all packages; M2 reviews later. Actual capture requires effective platform permission before running."
+}

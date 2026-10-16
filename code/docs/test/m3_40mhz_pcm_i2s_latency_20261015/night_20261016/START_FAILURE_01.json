@@ -1,0 +1,9 @@
+{
+  "phase": "SOFTWARE_RUNNER_START",
+  "command": "python -X utf8 code/software/m3_40mhz_pcm_i2s_latency_20261015/night_20261016/run_command.py --output code/docs/test/m3_40mhz_pcm_i2s_latency_20261015/night_20261016/software_R01 -- python -X utf8 code/software/m3_40mhz_pcm_i2s_latency_20261015/night_20261016/test_consumer.py --output code/docs/test/m3_40mhz_pcm_i2s_latency_20261015/night_20261016/software_R01/cases",
+  "shell_exit_code": 1,
+  "created_python_processes": 0,
+  "actual_error": "ResourceUnavailable: Program python.exe failed to run. Cannot access C:\\Users\\songdongkuan\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
+  "diagnosis": "PATH selected Windows Store alias; historical actual Python executable located in A receipt at C:/Users/songdongkuan/miniconda3/python.exe",
+  "correction": "Use verified absolute installed Python path; no installation or EDA execution."
+}

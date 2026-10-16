@@ -1,0 +1,429 @@
+[
+  {
+    "name": "synthetic_positive",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY",
+    "capture_sha256": "843119839c1a08beec986ade7d7b2ca3e5237f36e987a737be8e8391d40ea57e"
+  },
+  {
+    "name": "missing_tick",
+    "expected": [
+      "TICK_ORDER_MISSING_DUPLICATE_OR_EPOCH"
+    ],
+    "actual": "TICK_ORDER_MISSING_DUPLICATE_OR_EPOCH",
+    "passed": true,
+    "sha256": "5b98409f277b98b65fed37aa3b6e2c300a4daa23977269dcc37978bb060e5e4c",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "duplicate_tick",
+    "expected": [
+      "TICK_ORDER_MISSING_DUPLICATE_OR_EPOCH"
+    ],
+    "actual": "TICK_ORDER_MISSING_DUPLICATE_OR_EPOCH",
+    "passed": true,
+    "sha256": "9f3b871f520247730e42f5a8a5e3d70b4d08ceb99ed5dae01aa9f7de34781549",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "out_of_order",
+    "expected": [
+      "TICK_ORDER_MISSING_DUPLICATE_OR_EPOCH"
+    ],
+    "actual": "TICK_ORDER_MISSING_DUPLICATE_OR_EPOCH",
+    "passed": true,
+    "sha256": "95deb195eb43cf38194904798979bbd1bef888e08f32d5acd3d19fa721d883e0",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "missing_end",
+    "expected": [
+      "END_MISSING"
+    ],
+    "actual": "END_MISSING",
+    "passed": true,
+    "sha256": "75cb2c58fa59bf4f7357defe1e67cb3ba556095163bd5c1276dabf6b1b22d8ab",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "duplicate_end",
+    "expected": [
+      "RECORD_AFTER_END"
+    ],
+    "actual": "RECORD_AFTER_END",
+    "passed": true,
+    "sha256": "c062263b716e4a341ef201ea10122ca6b3be69e4f799b0e571eba1d61c9ab417",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "wrong_end",
+    "expected": [
+      "END_COUNTERS"
+    ],
+    "actual": "END_COUNTERS",
+    "passed": true,
+    "sha256": "47d259742675b6c88c2271c58a78f27b515a03448bc558c53d4a2171260a5360",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "missing_field",
+    "expected": [
+      "TICK_FIELDS"
+    ],
+    "actual": "TICK_FIELDS",
+    "passed": true,
+    "sha256": "65ec7e14ba88193cebcc8d5c1034a968664c58eda3b40267fb19a6cf8c8ed963",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "invented_first_valid",
+    "expected": [
+      "BIT_OR_FIRST_VALID"
+    ],
+    "actual": "BIT_OR_FIRST_VALID",
+    "passed": true,
+    "sha256": "5cc7c928759a90342c5237db0cb824f4a686801b34f01f1bc0c8baebda14cda1",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "x_pin",
+    "expected": [
+      "X_OR_NONINTEGER"
+    ],
+    "actual": "X_OR_NONINTEGER",
+    "passed": true,
+    "sha256": "ec4b2ef98134a4f2d6024c4ea9f97b90a522b2f47d6500e87fa8bfa9e93a2c6b",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "bool_pin",
+    "expected": [
+      "X_OR_NONINTEGER"
+    ],
+    "actual": "X_OR_NONINTEGER",
+    "passed": true,
+    "sha256": "7a630ea2db3587d62f99c443a761e0abf9ff03f56a9f8018a20716bba4a3b9fa",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "out_of_range_bit",
+    "expected": [
+      "BIT_OR_FIRST_VALID"
+    ],
+    "actual": "BIT_OR_FIRST_VALID",
+    "passed": true,
+    "sha256": "81d7e4807c96fcdb8dc42c86cef98455d53d17fc8c5c0442cffd146725e5abb7",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "pcm_range",
+    "expected": [
+      "PCM24_RANGE"
+    ],
+    "actual": "PCM24_RANGE",
+    "passed": true,
+    "sha256": "107ac0ec991f3b288afe74ca8f7693000311913a79144c8046a2551307667dc1",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "pcm_negative_range",
+    "expected": [
+      "PCM24_RANGE"
+    ],
+    "actual": "PCM24_RANGE",
+    "passed": true,
+    "sha256": "58e0dc56e6cdb374eab4580165986e4102d47b6cb2302d8c5d69182103d7ca99",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "wrong_pcm",
+    "expected": [
+      "PLAY_PCM_COMMIT_OR_HOLD_ALIGNMENT"
+    ],
+    "actual": "PLAY_PCM_COMMIT_OR_HOLD_ALIGNMENT",
+    "passed": true,
+    "sha256": "064b878378b79552195c99b1863ecc6af165a3037f6a78313d55f990b4d2db18",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "wrong_commit_id",
+    "expected": [
+      "STALE_DUPLICATE_OR_UNREQUESTED_COMMIT"
+    ],
+    "actual": "STALE_DUPLICATE_OR_UNREQUESTED_COMMIT",
+    "passed": true,
+    "sha256": "4c0c25041747a3978d87de7e5470740feac563dfbe6ad7e38b7edc7835d06ffd",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "missing_accept",
+    "expected": [
+      "STALE_DUPLICATE_OR_UNREQUESTED_COMMIT"
+    ],
+    "actual": "STALE_DUPLICATE_OR_UNREQUESTED_COMMIT",
+    "passed": true,
+    "sha256": "6be295a129b563978277a117a83bad2c84b0cb719e5ca3b4d59315bf1a4d4bef",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "duplicate_accept",
+    "expected": [
+      "DUPLICATE_REQUEST_ID"
+    ],
+    "actual": "DUPLICATE_REQUEST_ID",
+    "passed": true,
+    "sha256": "3f13d4608dc5e50473e5a88c1296a341b8cb90f91a188413f0bb680244b52497",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "wrong_clip",
+    "expected": [
+      "CLIP_COUNT_ALIGNMENT"
+    ],
+    "actual": "CLIP_COUNT_ALIGNMENT",
+    "passed": true,
+    "sha256": "d4a02588bc4ca5928232dabeb4457f0251b601ea86060249dd466280fc17fab3",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "wrong_pending",
+    "expected": [
+      "PENDING_ALIGNMENT"
+    ],
+    "actual": "PENDING_ALIGNMENT",
+    "passed": true,
+    "sha256": "070f17c04e2e2797bc5866ed6ae748622be54de98607b2070cd06a63e8131c9f",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "underflow",
+    "expected": [
+      "UNEXPECTED_UNDERFLOW"
+    ],
+    "actual": "UNEXPECTED_UNDERFLOW",
+    "passed": true,
+    "sha256": "d12f14b90b4e56be47aa6eb1c0fd7fe4999bf5aca47582f4c6b6d40c1cacb41d",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "same_frame_commit",
+    "expected": [
+      "FRAME_FENCE_HANDSHAKE"
+    ],
+    "actual": "FRAME_FENCE_HANDSHAKE",
+    "passed": true,
+    "sha256": "5a185add204663d213262c1d2de37d7c4cfd3ef9e6982001df1b96fe3ceca083",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "first_request_misses_frame",
+    "expected": [
+      "REQUEST_NEXT_FRAME_DEADLINE_MISSED"
+    ],
+    "actual": "REQUEST_NEXT_FRAME_DEADLINE_MISSED",
+    "passed": true,
+    "sha256": "180f38da5a9606ee95b880476730b23be815a6b335097ff90657b24850c79c97",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "reset_then_end_without_tick",
+    "expected": [
+      "END_WITH_UNOBSERVED_RESET"
+    ],
+    "actual": "END_WITH_UNOBSERVED_RESET",
+    "passed": true,
+    "sha256": "a387e8a4880b4ac1af3109d9124fb292ef4ce44cebc64d6d5a3209ee2b9a8a5b",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "bclk_stalled_tail",
+    "expected": [
+      "BCLK_STALLED_OR_MISSING_EDGE"
+    ],
+    "actual": "BCLK_STALLED_OR_MISSING_EDGE",
+    "passed": true,
+    "sha256": "ae4ce6a813c3cde03789d5b34a30ba64844f4fded37d7587c193dba0699ad4ee",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "missing_reset",
+    "expected": [
+      "TICK_ORDER_MISSING_DUPLICATE_OR_EPOCH"
+    ],
+    "actual": "TICK_ORDER_MISSING_DUPLICATE_OR_EPOCH",
+    "passed": true,
+    "sha256": "3fe14b181a7423880d47afbe92154e70342054d519f9969b19f107265d70e76a",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "wrong_reset_epoch",
+    "expected": [
+      "RESET_SEQUENCE"
+    ],
+    "actual": "RESET_SEQUENCE",
+    "passed": true,
+    "sha256": "973a7567720f561d9d21941a4ffc7dad3f6cfb112b58e5640d45e89e8fcab96b",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "reset_nonzero",
+    "expected": [
+      "RESET_OUTPUT_NOT_ZERO"
+    ],
+    "actual": "RESET_OUTPUT_NOT_ZERO",
+    "passed": true,
+    "sha256": "aa2bcda70024ee4b0ff7050a0360e3b6dea120e399caa94b0a288d3d1b8ab499",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "wrong_frame_phase",
+    "expected": [
+      "FRAME_TICK_BCLK_PHASE",
+      "FRAME_WS_BOUNDARY_PHASE"
+    ],
+    "actual": "FRAME_TICK_BCLK_PHASE",
+    "passed": true,
+    "sha256": "9eefbc571ad171739be9d6036166ff1d60cca2cd869e758138cfbc6e40de159a",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "wrong_serial_bits",
+    "expected": [
+      "WS_DIN_CHANGED_OUTSIDE_FALLING_BCLK",
+      "LSBJ_PADDING_OR_PHASE"
+    ],
+    "actual": "WS_DIN_CHANGED_OUTSIDE_FALLING_BCLK",
+    "passed": true,
+    "sha256": "9c813d3fa9cac12c855fc1f6d4c0a360e37b7bec8177ad4badad4a9f98d14b4c",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "swap_channels",
+    "expected": [
+      "WS_DIN_CHANGED_OUTSIDE_FALLING_BCLK",
+      "FRAME_WS_BOUNDARY_PHASE",
+      "SERIAL_PCM_OR_CHANNEL_MISMATCH"
+    ],
+    "actual": "WS_DIN_CHANGED_OUTSIDE_FALLING_BCLK",
+    "passed": true,
+    "sha256": "0d14f8b310c17ffd362fbee5b525d668b0e3155a87a02f1756e9a86138eacfbd",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "serial_channels_swapped_with_valid_pin_phase",
+    "expected": "SERIAL_PCM_OR_CHANNEL_MISMATCH",
+    "actual": "SERIAL_PCM_OR_CHANNEL_MISMATCH",
+    "passed": true,
+    "kind": "SYNTHETIC_SERIAL_GENERATOR",
+    "sha256": "0406586c919c00d4050f5198e969863a6935bf996abd87e0970fc201d5cf859c"
+  },
+  {
+    "name": "serial_load_one_slot_early",
+    "expected": "SERIAL_PCM_OR_CHANNEL_MISMATCH",
+    "actual": "SERIAL_PCM_OR_CHANNEL_MISMATCH",
+    "passed": true,
+    "kind": "SYNTHETIC_SERIAL_GENERATOR",
+    "sha256": "2141a5a62a82079834782a22f58f77ea2cc5bf8e52ef5bbb0b378120dd96845f"
+  },
+  {
+    "name": "commit_reset_before_sample_known_cancel",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "digital_10_400010",
+    "passed": true,
+    "expected": null,
+    "actual": null,
+    "kind": "SYNTHETIC_TIMESTAMPS_ONLY"
+  },
+  {
+    "name": "digital_10_400011",
+    "passed": true,
+    "expected": "DIGITAL_LATENCY_OVER_10MS",
+    "actual": "DIGITAL_LATENCY_OVER_10MS",
+    "kind": "SYNTHETIC_TIMESTAMPS_ONLY"
+  },
+  {
+    "name": "digital_10_9",
+    "passed": true,
+    "expected": "DIGITAL_TIME_ORDER",
+    "actual": "DIGITAL_TIME_ORDER",
+    "kind": "SYNTHETIC_TIMESTAMPS_ONLY"
+  },
+  {
+    "name": "quantize_8388607",
+    "passed": true,
+    "expected": 32767,
+    "actual": 32767,
+    "kind": "INTEGER_BOUNDARY"
+  },
+  {
+    "name": "quantize_-8388608",
+    "passed": true,
+    "expected": -32768,
+    "actual": -32768,
+    "kind": "INTEGER_BOUNDARY"
+  },
+  {
+    "name": "quantize_8388480",
+    "passed": true,
+    "expected": 32767,
+    "actual": 32767,
+    "kind": "INTEGER_BOUNDARY"
+  },
+  {
+    "name": "quantize_127",
+    "passed": true,
+    "expected": 0,
+    "actual": 0,
+    "kind": "INTEGER_BOUNDARY"
+  },
+  {
+    "name": "quantize_128",
+    "passed": true,
+    "expected": 1,
+    "actual": 1,
+    "kind": "INTEGER_BOUNDARY"
+  },
+  {
+    "name": "quantize_-128",
+    "passed": true,
+    "expected": 0,
+    "actual": 0,
+    "kind": "INTEGER_BOUNDARY"
+  },
+  {
+    "name": "quantize_-129",
+    "passed": true,
+    "expected": -1,
+    "actual": -1,
+    "kind": "INTEGER_BOUNDARY"
+  },
+  {
+    "name": "tail_deadline_unknown",
+    "passed": true,
+    "kind": "SYNTHETIC_COVERAGE"
+  },
+  {
+    "name": "reset_cancellation",
+    "passed": true,
+    "kind": "SYNTHETIC_COVERAGE"
+  },
+  {
+    "name": "serial_signed_stereo",
+    "passed": true,
+    "kind": "SYNTHETIC_COVERAGE"
+  },
+  {
+    "name": "duplicate_json_key",
+    "passed": true,
+    "actual": "JSON_DUPLICATE_KEY",
+    "kind": "SYNTHETIC_MUTATION"
+  },
+  {
+    "name": "sha_mismatch",
+    "passed": true,
+    "actual": "CAPTURE_SHA_MISMATCH"
+  }
+]

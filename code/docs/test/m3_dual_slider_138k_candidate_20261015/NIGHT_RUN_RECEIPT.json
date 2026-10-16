@@ -1,0 +1,317 @@
+{
+  "status": "PARTIAL_STOPPED_TWO_GROUPS_CONSUMED",
+  "validation": "L1_EXECUTED_OLD_SHA_COMPILE_PASS_L2_SIM_FAIL_CURRENT_STATIC_FIX_UNTESTED",
+  "git_head_at_preflight": "8b64a352464932a28df565038cafc8d623dea5c9",
+  "prior_platform_denials": 2,
+  "zero_tool_precheck_failures": 1,
+  "real_groups_consumed": 2,
+  "max_groups": 2,
+  "tool_starts": 6,
+  "iverilog_version_calls": 2,
+  "vvp_version_calls": 2,
+  "compile_calls": 1,
+  "artifact_vvp_calls": 1,
+  "negative_runs": 0,
+  "positive_passes": 0,
+  "eda_calls": 0,
+  "hardware_calls": 0,
+  "git_write_calls": 0,
+  "actual_tool_elapsed_seconds": 0.625,
+  "actual_artifact_simulation_seconds": 0.0319999999992433,
+  "per_tool_limit_seconds": 90,
+  "group_limit_seconds": 300,
+  "current_source": {
+    "code\\rtl\\input\\m3_dual_slider_138k_candidate_20261015\\dual_slider_candidate.sv": {
+      "bytes": 7491,
+      "sha256": "a8116d04f7fa70ba4500c4819e3ffb939fcc7096acef9bb7f87004e1e648868f"
+    },
+    "code\\tb\\input\\visualizer\\m3_dual_slider_138k_candidate_20261015\\tb_dual_slider.sv": {
+      "bytes": 7246,
+      "sha256": "1ed079f600ef8d762fb131b0987d050a3ac248d053c99d6f25ee9865e7e40932"
+    },
+    "code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_candidate.py": {
+      "bytes": 11054,
+      "sha256": "9cd01208e2e850b250d7db6d4537fd5083977ead6a43336c0a0310d229c22462"
+    }
+  },
+  "runs": [
+    {
+      "directory": "run_night_01",
+      "candidate_identity": {
+        "code\\rtl\\input\\m3_dual_slider_138k_candidate_20261015\\dual_slider_candidate.sv": "42e3b795b80183e629746d16ac61e1883ee4eb30dc5530b0c72ab34ccce2cbfa",
+        "code\\tb\\input\\visualizer\\m3_dual_slider_138k_candidate_20261015\\tb_dual_slider.sv": "1ed079f600ef8d762fb131b0987d050a3ac248d053c99d6f25ee9865e7e40932",
+        "code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_candidate.py": "35b0eebe710424a36233ae1000a236c6a11791d75b7acc101c89cee5e94b66a1"
+      },
+      "tools_files": 172,
+      "tool_snapshot_before": {
+        "bytes": 36108,
+        "sha256": "e55d3bd4c7674626d14f6170cb4cf0931d1ba853e16d257a58b48164dc59f543"
+      },
+      "tool_snapshot_after": {
+        "bytes": 36108,
+        "sha256": "e55d3bd4c7674626d14f6170cb4cf0931d1ba853e16d257a58b48164dc59f543"
+      },
+      "source_and_tools_unchanged_during_run": true,
+      "result": "AttributeError: module 'subprocess' has no attribute 'CREATE_SUSPENDED'",
+      "steps": [
+        {
+          "label": "iverilog_version",
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+            "-V"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_01\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": null,
+          "timeout": false,
+          "process_created": false,
+          "elapsed_seconds": 0.0,
+          "receipt": {
+            "bytes": 371,
+            "sha256": "a9759f94884c1213d9deb66a09cb0c8b1131842ad3463abadfb430f747e52fb3"
+          },
+          "stdout": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        }
+      ],
+      "tool_starts": 0,
+      "group_consumed": false
+    },
+    {
+      "directory": "run_night_02",
+      "candidate_identity": {
+        "code\\rtl\\input\\m3_dual_slider_138k_candidate_20261015\\dual_slider_candidate.sv": "42e3b795b80183e629746d16ac61e1883ee4eb30dc5530b0c72ab34ccce2cbfa",
+        "code\\tb\\input\\visualizer\\m3_dual_slider_138k_candidate_20261015\\tb_dual_slider.sv": "1ed079f600ef8d762fb131b0987d050a3ac248d053c99d6f25ee9865e7e40932",
+        "code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_candidate.py": "69ceb242791f172f084e2992deca8902acafd547a632bb61d7d70ac0e7f0916b"
+      },
+      "tools_files": 172,
+      "tool_snapshot_before": {
+        "bytes": 36108,
+        "sha256": "c33e4eda2c913b4fb1fc38f81e0ddeabbcac234b535221d60534494fdf82ddb8"
+      },
+      "tool_snapshot_after": {
+        "bytes": 36108,
+        "sha256": "c33e4eda2c913b4fb1fc38f81e0ddeabbcac234b535221d60534494fdf82ddb8"
+      },
+      "source_and_tools_unchanged_during_run": true,
+      "result": "RuntimeError: vvp_version_NONZERO",
+      "steps": [
+        {
+          "label": "iverilog_version",
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+            "-V"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_02\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 0,
+          "timeout": false,
+          "process_created": true,
+          "pid": 18996,
+          "elapsed_seconds": 0.3120000000017171,
+          "receipt": {
+            "bytes": 398,
+            "sha256": "661241d1ad1db2ceba739d02d6c1e2c57dc7de2fe14c76292f49d1190d5a068c"
+          },
+          "stdout": {
+            "bytes": 1717,
+            "sha256": "4dad606e05362670c5fd504e710c2d4f9b7e6a15a991a61ed6962f13a1ee58ac"
+          },
+          "stderr": {
+            "bytes": 239,
+            "sha256": "b78efe61eac11fd98c61aee5888afa70255bffa1c9ca1def0b1db8a0a0c2ad23"
+          }
+        },
+        {
+          "label": "vvp_version",
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+            "-V"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_02\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 3221225595,
+          "timeout": false,
+          "process_created": true,
+          "pid": 45200,
+          "elapsed_seconds": 0.0779999999977008,
+          "receipt": {
+            "bytes": 402,
+            "sha256": "d6f24d2e5bc0d30c2d3ff5ff436cba7f01c1155691588150a550b2c1a6bc1d86"
+          },
+          "stdout": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        }
+      ],
+      "tool_starts": 2,
+      "group_consumed": true
+    },
+    {
+      "directory": "run_night_03",
+      "candidate_identity": {
+        "code\\rtl\\input\\m3_dual_slider_138k_candidate_20261015\\dual_slider_candidate.sv": "42e3b795b80183e629746d16ac61e1883ee4eb30dc5530b0c72ab34ccce2cbfa",
+        "code\\tb\\input\\visualizer\\m3_dual_slider_138k_candidate_20261015\\tb_dual_slider.sv": "1ed079f600ef8d762fb131b0987d050a3ac248d053c99d6f25ee9865e7e40932",
+        "code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_candidate.py": "9cd01208e2e850b250d7db6d4537fd5083977ead6a43336c0a0310d229c22462"
+      },
+      "tools_files": 438,
+      "tool_snapshot_before": {
+        "bytes": 85921,
+        "sha256": "53d30f6b9803f3c18f1fcc5b8e90e7ca7b580ac5cb47f0aa45d177f03a81c3e6"
+      },
+      "tool_snapshot_after": {
+        "bytes": 85921,
+        "sha256": "53d30f6b9803f3c18f1fcc5b8e90e7ca7b580ac5cb47f0aa45d177f03a81c3e6"
+      },
+      "source_and_tools_unchanged_during_run": true,
+      "result": "RuntimeError: POSITIVE_REJECTED",
+      "steps": [
+        {
+          "label": "compile",
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+            "-g2012",
+            "-Wall",
+            "-s",
+            "tb_dual_slider",
+            "-o",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_03\\stage\\candidate.vvp",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_03\\stage\\s00.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_03\\stage\\s01.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_03\\stage\\s02.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_03\\stage\\s03.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_03\\stage\\s04.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_03\\stage\\s05.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_03\\stage\\s06.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_03\\stage\\s07.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_03\\stage\\s08.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_03\\stage\\s09.sv"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_03\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 0,
+          "timeout": false,
+          "process_created": true,
+          "pid": 39356,
+          "elapsed_seconds": 0.0930000000007567,
+          "receipt": {
+            "bytes": 2048,
+            "sha256": "32919e002ff8c02d8f61e40d8ec87bcf5b8d713a92a23b596e3b8cb8507313ec"
+          },
+          "stdout": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stderr": {
+            "bytes": 4436,
+            "sha256": "c557e656d202bde826ac0e6157e8f25e24383c61c85e41e84e8569102efb3ea0"
+          }
+        },
+        {
+          "label": "iverilog_version",
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+            "-V"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_03\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 0,
+          "timeout": false,
+          "process_created": true,
+          "pid": 632,
+          "elapsed_seconds": 0.09400000000096043,
+          "receipt": {
+            "bytes": 397,
+            "sha256": "33494db9d0dc994ead93a9002550c4e2eb8f595912d2797790bcf6c759ed4c9f"
+          },
+          "stdout": {
+            "bytes": 3483,
+            "sha256": "6c5f5f5f242410266fcd6b69342d43a928e2f95d6cc9dd373dc9a5aa224ed0d5"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "label": "positive",
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_03\\stage\\candidate.vvp"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_03\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 1,
+          "timeout": false,
+          "process_created": true,
+          "pid": 19872,
+          "elapsed_seconds": 0.0319999999992433,
+          "receipt": {
+            "bytes": 534,
+            "sha256": "82f998c06afd06d733dc32b0001e3cd9151b8706c9001243df0c6628dc086511"
+          },
+          "stdout": {
+            "bytes": 234,
+            "sha256": "17af46edcc8a2b9cf2c5cc866864c725309cbe3ddbbd375c7a497921e4c7cbc2"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "label": "vvp_version",
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+            "-V"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\run_night_03\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 0,
+          "timeout": false,
+          "process_created": true,
+          "pid": 44420,
+          "elapsed_seconds": 0.01599999999962165,
+          "receipt": {
+            "bytes": 394,
+            "sha256": "1f44462e804a77b10c58daecada5bcb73052aa66e48604e77ad83b860869147c"
+          },
+          "stdout": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stderr": {
+            "bytes": 861,
+            "sha256": "ac9585062b38df08a9a3422b0d77952b2bff7d99789563718a6e6e3804f53ccc"
+          }
+        }
+      ],
+      "tool_starts": 4,
+      "group_consumed": true
+    }
+  ],
+  "old_run_night_01_fixed_L2_label_is_not_valid_evidence": true,
+  "hit_flash": "KNOWN_FAIL_DEFERRED_NOT_REPAIRED",
+  "real_audio_chain": false,
+  "formal_integration": false,
+  "board_release_allowed": false,
+  "forwarding_status": "PENDING_USER_FORWARD_NOT_DELIVERED"
+}

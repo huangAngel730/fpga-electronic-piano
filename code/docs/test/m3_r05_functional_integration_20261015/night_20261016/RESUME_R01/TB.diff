@@ -1,0 +1,12 @@
+--- TB_original
++++ TB_candidate
+@@ -57,6 +57,9 @@
+         $display("END REAL_M1 accepted=%0d active=%0d commits=%0d nonzero=%0d frames=%0d serial=%0d max_cycles=%0d",
+             accepted,dut.status_active_voice_count,commits,nonzero,frames,serial_ones,
+             dut.status_max_processing_cycles);
++        // Finish at a complete frame fence. Two core clocks allow that fence
++        // to be recorded pre-NBA, then reset cancels the new pending request.
++        @(posedge dut.i2s_frame_tick); #50;
+         sys_rst_n=0;#1000;
+         if(pa_en!==1 || dut.status_active_voice_count!==0 || dut.buffered_left!==0 || dut.buffered_right!==0)
+             $fatal(1,"M1TD_SHARED_RESET_NOT_CLEAN");

@@ -1,0 +1,19 @@
+--- old_ledger_read_only
++++ night_ledger
+@@ -53,6 +53,7 @@
+                 raise Refusal("CAPTURE_RESET", "reset fields must be nonnegative integers")
+             if item["epoch"] != epoch + 1 or item["cycle"] != cycle:
+                 raise Refusal("CAPTURE_RESET", "wrong reset lifetime/cycle")
++            previous_reset = 0
+             epoch = item["epoch"]
+             cancelled += len(outstanding)
+             outstanding.clear()
+@@ -91,7 +92,7 @@
+         previous_reset = 1
+         if item["underflow"]:
+             raise Refusal("UNDERFLOW", str(cycle))
+-        if initialized and item["clip_count"] != (last_clip + clip_pending) & 0xFFFFFFFF:
++        if initialized and item["clip_count"] != min(last_clip + clip_pending, 0xFFFFFFFF):
+             raise Refusal("CLIP_COUNT_ALIGNMENT", str(cycle))
+         initialized = True
+         last_clip = item["clip_count"]

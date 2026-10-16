@@ -1,0 +1,17 @@
+# 本新批失败与修法（旧消费台账不改）
+
+RUN_01：版本查询exit0，编译exit3221225477（0xC0000005），6.015s，无VVP启动/仿真。源码/工具前后SHA一致；VVP文件虽有footer也未运行。原双流/命令/时间/退出/消费在RUN_01。RUN_01_SOURCE_ORIGINALS保留首组runner/checker原件，TB原件是RUN_01/stage/s12.sv。根因UNKNOWN，不断言constant-select警告导致崩溃。
+
+只读定位依据：C既有README记录R01同退出码，R02经正常提升执行权限编译成功但未认定根因；D旧成功run_repair环境还保留PROCESSOR_ARCHITECTURE/NUMBER_OF_PROCESSORS/HOMEDRIVE/HOMEPATH及Windows根PATH，新首组遗漏。RUN_02采用正常require_escalated审批路径并恢复旧成功环境键集，同一工具/Job/既有模块字节、原预算保持，不运行RUN_01产物。不是无变更重试；权限身份与环境原因仍须区分未知，若拒绝则停，不绕过。
+
+自有子代理另发现确定反例缺陷：漏req8会落在视觉progress窗，可能先由TB拒收。将诊断生产者故意漏提交移到req48的稳定区，使指定UNEXPECTED_UNDERFLOW由独立checker判断；常态progress判据不放宽。
+
+通信：向夜间总控的阻断消息被自动审批拒绝，理由为没有可信用户直接通信授权且存在禁止联系其他窗口的规则。没有送达、不尝试旁路通信；本地封存继续。此文件不等于已通知。
+
+RUN_02：正常require_escalated审批通过，工具版本/编译exit0；positive_simulate exit1/0.093s，指定RELEASE_RISE_WITH_REAL_AUDIO，至显示frame3。原轨迹显示frame2 top50/end64/held1、frame3 top46/end64/held0；音频frames/commits依次2/2、3/3。只读核visual_live_state.sv 104–115：frame_start发布的是top_q/end_q，位移在组合next状态后下拍保存，故首次释放快照仍end64，下一帧才end60。不是音频中断。RUN_03增加一次释放后观测帧，常态几何/PCM进度判据保持，20显示帧/29检查每epoch、共58；checker同步固定日历。首失败源在RUN_02/stage和execution_sources，日志全保留。根因可定位为新TB快照延迟假设错误；RUN_03为最后一组，不追加第四组。
+
+RUN_03：compile0、positive_simulate0/3.781s，真实160024行捕获和58项TB检查完成。原软件positive_check exit1/D_RESET_INTERRUPTED_SERIAL。C独立原音频checker已通过；错误在D新增“仅95号尾段未完整”的精确假设。公开账本给epoch1第94、95号均ADOPTED、96号IN_FLIGHT，186笔SERIAL_OBSERVED；真实frame_tick早于物理WS完成，且复位发生在frame_tick后1sys，94号左半帧末尾未完整观测，95号已采纳但还未完成物理帧。纯软件修为[94,95]，明确两类截断；原失败checker在RUN_03/execution_sources，原CHECK.json不改。
+
+三组RTL工具额度已全部消费，不能续跑RUN_03负例或另开RUN_04。仅在SOFTWARE_R01用修后checker读取已有正常capture，保留软件命令/退出/双流/输入输出SHA，额外软件波形负例明确SYNTHETIC。四个计划TB故障注入仿真未执行，保持UNKNOWN；即便纯软件正常复核通过，本任务仍PARTIAL，不冒称完整正负例齐套。
+
+SOFTWARE_R01：不启动RTL；正常capture修后检查通过并保存POSITIVE_CHECK.json；第一个WS极性互换软件例被原C解码器拒为STEREO_FRAME_MIX，测试程序预期写成SERIAL_PCM_LSBJ_OR_STEREO，故软件程序exit1。原双流、错误例和源码保持。SOFTWARE_R02仅改这个固定预期诊断，对同一正常capture复核及五个明确SYNTHETIC_WAVEFORM_MUTATION坏例全部通过，exit0；C原解码器/判据未变。此软件修复不新增、不恢复RTL组数。

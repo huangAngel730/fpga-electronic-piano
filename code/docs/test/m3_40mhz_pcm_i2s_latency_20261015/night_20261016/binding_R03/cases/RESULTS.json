@@ -1,0 +1,182 @@
+[
+  {
+    "name": "exact_identity",
+    "expected": null,
+    "actual": null,
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "wrong_identity_sha",
+    "expected": "IDENTITY_BYTES_OR_SHA",
+    "actual": "IDENTITY_BYTES_OR_SHA",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "wrong_identity_bytes",
+    "expected": "IDENTITY_BYTES_OR_SHA",
+    "actual": "IDENTITY_BYTES_OR_SHA",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "missing_identity_field",
+    "expected": "IDENTITY_FIELDS",
+    "actual": "IDENTITY_FIELDS",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "failed_producer",
+    "expected": "PRODUCER_RUN_NOT_SUCCESSFUL",
+    "actual": "PRODUCER_RUN_NOT_SUCCESSFUL",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "failed_producer_wrong_sha",
+    "expected": "PRODUCER_RECEIPT_SHA",
+    "actual": "PRODUCER_RECEIPT_SHA",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "old_fixture_receipt",
+    "expected": "PRODUCER_RUN_NOT_SUCCESSFUL",
+    "actual": "PRODUCER_RUN_NOT_SUCCESSFUL",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "old_fixture_receipt_wrong_sha",
+    "expected": "PRODUCER_RECEIPT_SHA",
+    "actual": "PRODUCER_RECEIPT_SHA",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "old_a_success_without_new_capture",
+    "expected": "PRODUCER_RUN_NOT_SUCCESSFUL",
+    "actual": "PRODUCER_RUN_NOT_SUCCESSFUL",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "old_a_success_without_new_capture_wrong_sha",
+    "expected": "PRODUCER_RECEIPT_SHA",
+    "actual": "PRODUCER_RECEIPT_SHA",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "schema_missing",
+    "expected": "PRODUCER_RUN_NOT_SUCCESSFUL",
+    "actual": "PRODUCER_RUN_NOT_SUCCESSFUL",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "schema_missing_wrong_sha",
+    "expected": "PRODUCER_RECEIPT_SHA",
+    "actual": "PRODUCER_RECEIPT_SHA",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "synthetic_input_timeline_positive",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "missing_input_tick",
+    "expected": "INPUT_ORDER_OR_BITS",
+    "actual": "INPUT_ORDER_OR_BITS",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "repeated_input_tick",
+    "expected": "INPUT_ORDER_OR_BITS",
+    "actual": "INPUT_ORDER_OR_BITS",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "wrong_timebase",
+    "expected": "INPUT_40MHZ_TIMEBASE",
+    "actual": "INPUT_40MHZ_TIMEBASE",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "wrong_input_reset",
+    "expected": "INPUT_AUDIO_TICK_ALIGNMENT",
+    "actual": "INPUT_AUDIO_TICK_ALIGNMENT",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "event_hex_x",
+    "expected": "INPUT_EVENT_OR_VOICE_RANGE",
+    "actual": "INPUT_EVENT_OR_VOICE_RANGE",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "input_bool",
+    "expected": "INPUT_X_OR_TYPE",
+    "actual": "INPUT_X_OR_TYPE",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "voice_range",
+    "expected": "INPUT_EVENT_OR_VOICE_RANGE",
+    "actual": "INPUT_EVENT_OR_VOICE_RANGE",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "input_end_missing",
+    "expected": "INPUT_AUDIO_LENGTH_OR_END",
+    "actual": "INPUT_AUDIO_LENGTH_OR_END",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "input_end_duplicate",
+    "expected": "INPUT_AFTER_END",
+    "actual": "INPUT_AFTER_END",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "raw_midi_x",
+    "expected": "RAW_INPUT_EDGE",
+    "actual": "RAW_INPUT_EDGE",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "initial_inputs_missing",
+    "expected": "INITIAL_INPUTS_MISSING",
+    "actual": "INITIAL_INPUTS_MISSING",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "initial_inputs_x",
+    "expected": "INITIAL_INPUTS_CONTRACT",
+    "actual": "INITIAL_INPUTS_CONTRACT",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  },
+  {
+    "name": "reset_timestamp_outside_tick",
+    "expected": "RESET_TIME_OUTSIDE_TICK_WINDOW",
+    "actual": "RESET_TIME_OUTSIDE_TICK_WINDOW",
+    "passed": true,
+    "kind": "SYNTHETIC_SOFTWARE_ONLY"
+  }
+]

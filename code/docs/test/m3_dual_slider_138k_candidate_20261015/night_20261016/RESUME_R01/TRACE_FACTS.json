@@ -1,0 +1,75 @@
+{
+  "normal_capture_sha256": "45678d9e408fe9d38a9a9c6e797a4725d28439c03abfdda814928acdb3e6e87f",
+  "normal_rerun": false,
+  "cases": [
+    {
+      "mutation": 1,
+      "capture_sha256": "982e0bd1837a1839584da69bfffe253143f4bfc7fbc4d636fa6a087fe017b676",
+      "rows": 160024,
+      "public_pcm_commits": 189,
+      "epoch1_req48_commits": 0,
+      "max_underflow_by_epoch": {
+        "1": 1,
+        "2": 0
+      },
+      "pcm_public_trace_identical_to_normal": false,
+      "pcm_different_rows": 39992,
+      "pin_different_rows": 404,
+      "first_pin_difference_cycle": 41068,
+      "actual_reject_diagnostic": "UNEXPECTED_UNDERFLOW",
+      "source_of_fault": "REAL_RTL_TB_RUNTIME_INJECTION_NOT_CAPTURE_EDIT"
+    },
+    {
+      "mutation": 2,
+      "capture_sha256": "d313ca1b6ae3fe25bfd44873522237167098e008af8e163ebb09d269ada5a2f3",
+      "rows": 160024,
+      "public_pcm_commits": 190,
+      "epoch1_req48_commits": 1,
+      "max_underflow_by_epoch": {
+        "1": 0,
+        "2": 0
+      },
+      "pcm_public_trace_identical_to_normal": true,
+      "pcm_different_rows": 0,
+      "pin_different_rows": 35150,
+      "first_pin_difference_cycle": 1902,
+      "actual_reject_diagnostic": "SERIAL_PCM_LSBJ_OR_STEREO",
+      "source_of_fault": "REAL_RTL_TB_RUNTIME_INJECTION_NOT_CAPTURE_EDIT"
+    },
+    {
+      "mutation": 3,
+      "capture_sha256": "ac9e761d13d400fdc1ab64d1431d02d544695951272b6b2e2de8292995843584",
+      "rows": 160024,
+      "public_pcm_commits": 190,
+      "epoch1_req48_commits": 1,
+      "max_underflow_by_epoch": {
+        "1": 0,
+        "2": 0
+      },
+      "pcm_public_trace_identical_to_normal": true,
+      "pcm_different_rows": 0,
+      "pin_different_rows": 18154,
+      "first_pin_difference_cycle": 1915,
+      "actual_reject_diagnostic": "SERIAL_PCM_LSBJ_OR_STEREO",
+      "source_of_fault": "REAL_RTL_TB_RUNTIME_INJECTION_NOT_CAPTURE_EDIT"
+    },
+    {
+      "mutation": 4,
+      "capture_sha256": "4fd260bbf8bdf749a25ceec33eb5adb694d769a06e3079185b7454a0bd144176",
+      "rows": 160024,
+      "public_pcm_commits": 190,
+      "epoch1_req48_commits": 1,
+      "max_underflow_by_epoch": {
+        "1": 0,
+        "2": 0
+      },
+      "pcm_public_trace_identical_to_normal": true,
+      "pcm_different_rows": 0,
+      "pin_different_rows": 6708,
+      "first_pin_difference_cycle": 6068,
+      "actual_reject_diagnostic": "SERIAL_PCM_LSBJ_OR_STEREO",
+      "source_of_fault": "REAL_RTL_TB_RUNTIME_INJECTION_NOT_CAPTURE_EDIT"
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "E:\FPGA\GAOYUNFPGA\team\fpga-electronic-piano\code\docs\test\m3_dual_slider_138k_candidate_20261015\night_20261016\postprocess.py", line 77, in main
+    module.check(bad_audio, bad_visual)
+  File "E:\FPGA\GAOYUNFPGA\team\fpga-electronic-piano\code\docs\test\m3_dual_slider_138k_candidate_20261015\night_20261016\check_coexist.py", line 22, in check
+    audio = decoder.check(audio_path, expected_underflows=0)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\FPGA\GAOYUNFPGA\team\fpga-electronic-piano\code\software\m3_40mhz_pcm_i2s_latency_20261015\check_capture.py", line 196, in check
+    require(adopt["frame"]==adoption["frame"],"STEREO_FRAME_MIX")
+  File "E:\FPGA\GAOYUNFPGA\team\fpga-electronic-piano\code\software\m3_40mhz_pcm_i2s_latency_20261015\check_capture.py", line 20, in require
+    raise ValueError(diagnostic)
+ValueError: STEREO_FRAME_MIX
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\FPGA\GAOYUNFPGA\team\fpga-electronic-piano\code\docs\test\m3_dual_slider_138k_candidate_20261015\night_20261016\postprocess.py", line 98, in <module>
+    main()
+  File "E:\FPGA\GAOYUNFPGA\team\fpga-electronic-piano\code\docs\test\m3_dual_slider_138k_candidate_20261015\night_20261016\postprocess.py", line 82, in main
+    raise RuntimeError("WRONG_DIAGNOSTIC:" + name + ":" + diagnostic) from exc
+RuntimeError: WRONG_DIAGNOSTIC:swap_serial_ws:STEREO_FRAME_MIX

@@ -1,0 +1,275 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "legal_async_reset",
+      "expected": "PASS",
+      "actual": "PASS",
+      "fixture": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\SOFTWARE_R03\\cases\\SYNTHETIC_legal_async_reset.jsonl",
+        "bytes": 1214093,
+        "sha256": "4f518c5e603850849f255335bf5306486bba0ff6cfa7f473250b567c9ad09f36"
+      },
+      "result": {
+        "status": "PUBLIC_LEDGER_CONSISTENT",
+        "ticks": 4500,
+        "epochs": 2,
+        "accepted": 5,
+        "committed": 4,
+        "cancelled": 1,
+        "pending_at_end": 0,
+        "frame_intervals": [
+          833,
+          833,
+          834,
+          833
+        ],
+        "max_accept_to_commit_cycles": 20,
+        "commits_with_observed_next_frame_deadline": 4,
+        "commits_without_observed_next_frame_boundary": 0,
+        "per_request_deadline": "CONSISTENT_FOR_OBSERVED_FRAME_WINDOWS",
+        "first_valid": "UNKNOWN_NOT_EXPORTED",
+        "serial_decode": "DELEGATED_TO_C_RAW_PIN_CHECKER",
+        "clip_math": "UNKNOWN_ONLY_PUBLIC_ALIGNMENT_CHECKED",
+        "analog_latency": "UNKNOWN_NOT_MEASURED",
+        "board_release_allowed": false
+      }
+    },
+    {
+      "name": "missing_reset_record",
+      "expected": "CAPTURE_RESET",
+      "actual": "CAPTURE_RESET",
+      "fixture": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\SOFTWARE_R03\\cases\\SYNTHETIC_missing_reset_record.jsonl",
+        "bytes": 1214036,
+        "sha256": "de81e72b6916553a7dc7322db91753b1ddaadb21c96a923915183b02c435e965"
+      },
+      "result": {
+        "diagnostic": "CAPTURE_RESET",
+        "message": "reset assertion missing independent RESET record"
+      }
+    },
+    {
+      "name": "wrong_reset_epoch",
+      "expected": "CAPTURE_RESET",
+      "actual": "CAPTURE_RESET",
+      "fixture": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\SOFTWARE_R03\\cases\\SYNTHETIC_wrong_reset_epoch.jsonl",
+        "bytes": 1214093,
+        "sha256": "aa4545b90cb56bf2d7eff913cda2723d0f016edfcce7312e9b75b8e1a2ec0f28"
+      },
+      "result": {
+        "diagnostic": "CAPTURE_RESET",
+        "message": "wrong reset lifetime/cycle"
+      }
+    },
+    {
+      "name": "reset_tick_wrong_epoch",
+      "expected": "CAPTURE_ORDER",
+      "actual": "CAPTURE_ORDER",
+      "fixture": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\SOFTWARE_R03\\cases\\SYNTHETIC_reset_tick_wrong_epoch.jsonl",
+        "bytes": 1214093,
+        "sha256": "9f6bc258ac7e91c6b545a6119f9ec4aa88c3c37ae2440bedbcdc086b3c9ba019"
+      },
+      "result": {
+        "diagnostic": "CAPTURE_ORDER",
+        "message": "missing/repeated/out-of-order tick"
+      }
+    },
+    {
+      "name": "missing_tick",
+      "expected": "CAPTURE_ORDER",
+      "actual": "CAPTURE_ORDER",
+      "fixture": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\SOFTWARE_R03\\cases\\SYNTHETIC_missing_tick.jsonl",
+        "bytes": 1213824,
+        "sha256": "e5058fb45ee51b2842c5492faabae7cf3548fdf218f30da88352395b2fe6b3f7"
+      },
+      "result": {
+        "diagnostic": "CAPTURE_ORDER",
+        "message": "missing/repeated/out-of-order tick"
+      }
+    },
+    {
+      "name": "unknown_pcm",
+      "expected": "CAPTURE_X_OR_TYPE",
+      "actual": "CAPTURE_X_OR_TYPE",
+      "fixture": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\SOFTWARE_R03\\cases\\SYNTHETIC_unknown_pcm.jsonl",
+        "bytes": 1214095,
+        "sha256": "8aa458d9794c38f9eaee631397ce05ee4a1cb2fce483e4b6ea03a3ab5af68da7"
+      },
+      "result": {
+        "diagnostic": "CAPTURE_X_OR_TYPE",
+        "message": "left"
+      }
+    },
+    {
+      "name": "missing_end",
+      "expected": "CAPTURE_END",
+      "actual": "CAPTURE_END",
+      "fixture": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\SOFTWARE_R03\\cases\\SYNTHETIC_missing_end.jsonl",
+        "bytes": 1214055,
+        "sha256": "1500678573afa8fbea6dea329106c220e7b4c77e5fbd6bfdff2fef02a0bef1f5"
+      },
+      "result": {
+        "diagnostic": "CAPTURE_END",
+        "message": "missing unique terminal END"
+      }
+    },
+    {
+      "name": "wrong_commit_id",
+      "expected": "STALE_OR_DUPLICATE_COMMIT",
+      "actual": "STALE_OR_DUPLICATE_COMMIT",
+      "fixture": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\SOFTWARE_R03\\cases\\SYNTHETIC_wrong_commit_id.jsonl",
+        "bytes": 1214094,
+        "sha256": "2f062fa052e9e5cf65c65043b6f5bb2dc173ef99072d68291ca04f04dccf2ee5"
+      },
+      "result": {
+        "diagnostic": "STALE_OR_DUPLICATE_COMMIT",
+        "message": "(0, 10)"
+      }
+    },
+    {
+      "name": "unexpected_underflow",
+      "expected": "UNDERFLOW",
+      "actual": "UNDERFLOW",
+      "fixture": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\SOFTWARE_R03\\cases\\SYNTHETIC_unexpected_underflow.jsonl",
+        "bytes": 1214093,
+        "sha256": "905adb6779f85041032924af5cbcde3f001edb17f6fbea2baa98f8b1221d5bcf"
+      },
+      "result": {
+        "diagnostic": "UNDERFLOW",
+        "message": "100"
+      }
+    },
+    {
+      "name": "accept_on_frame_fence",
+      "expected": "SAME_FRAME_ACCEPT_OR_COMMIT",
+      "actual": "SAME_FRAME_ACCEPT_OR_COMMIT",
+      "fixture": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\SOFTWARE_R03\\cases\\SYNTHETIC_accept_on_frame_fence.jsonl",
+        "bytes": 1214093,
+        "sha256": "4f48edf233fa6e90c5dce4304f1f940ed09ad133aa0d949e025bc33dbf2d554c"
+      },
+      "result": {
+        "diagnostic": "SAME_FRAME_ACCEPT_OR_COMMIT",
+        "message": "834"
+      }
+    },
+    {
+      "name": "invented_first_valid",
+      "expected": "CAPTURE_BIT",
+      "actual": "CAPTURE_BIT",
+      "fixture": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\SOFTWARE_R03\\cases\\SYNTHETIC_invented_first_valid.jsonl",
+        "bytes": 1214090,
+        "sha256": "538acd3bd9b0285ea8800c84b9ea641c4ea11cd274b92b514a9033a171b1d3ab"
+      },
+      "result": {
+        "diagnostic": "CAPTURE_BIT",
+        "message": "invalid bit or invented first valid"
+      }
+    },
+    {
+      "name": "tail_boundary_unknown",
+      "expected": "PASS",
+      "actual": "PASS",
+      "fixture": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\SOFTWARE_R03\\cases\\SYNTHETIC_tail_boundary_unknown.jsonl",
+        "bytes": 1214093,
+        "sha256": "54c2a37f015d5bed2923b9d037efc6a06adf3a8d29e2aa21becebb2a525bcd6f"
+      },
+      "result": {
+        "status": "PUBLIC_LEDGER_CONSISTENT",
+        "ticks": 4500,
+        "epochs": 2,
+        "accepted": 5,
+        "committed": 5,
+        "cancelled": 0,
+        "pending_at_end": 0,
+        "frame_intervals": [
+          833,
+          833,
+          834,
+          833
+        ],
+        "max_accept_to_commit_cycles": 20,
+        "commits_with_observed_next_frame_deadline": 4,
+        "commits_without_observed_next_frame_boundary": 1,
+        "per_request_deadline": "UNKNOWN_TAIL_BOUNDARY",
+        "first_valid": "UNKNOWN_NOT_EXPORTED",
+        "serial_decode": "DELEGATED_TO_C_RAW_PIN_CHECKER",
+        "clip_math": "UNKNOWN_ONLY_PUBLIC_ALIGNMENT_CHECKED",
+        "analog_latency": "UNKNOWN_NOT_MEASURED",
+        "board_release_allowed": false
+      }
+    },
+    {
+      "name": "saturated_clip_counter",
+      "expected": "PASS",
+      "actual": "PASS",
+      "fixture": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\SOFTWARE_R03\\cases\\SYNTHETIC_saturated_clip_counter.jsonl",
+        "bytes": 1251893,
+        "sha256": "b2faa6405510670af24fd9853a3c99766c41e7e515c6f4124ec40bdd0a33c103"
+      },
+      "result": {
+        "status": "PUBLIC_LEDGER_CONSISTENT",
+        "ticks": 4500,
+        "epochs": 2,
+        "accepted": 5,
+        "committed": 4,
+        "cancelled": 1,
+        "pending_at_end": 0,
+        "frame_intervals": [
+          833,
+          833,
+          834,
+          833
+        ],
+        "max_accept_to_commit_cycles": 20,
+        "commits_with_observed_next_frame_deadline": 4,
+        "commits_without_observed_next_frame_boundary": 0,
+        "per_request_deadline": "CONSISTENT_FOR_OBSERVED_FRAME_WINDOWS",
+        "first_valid": "UNKNOWN_NOT_EXPORTED",
+        "serial_decode": "DELEGATED_TO_C_RAW_PIN_CHECKER",
+        "clip_math": "UNKNOWN_ONLY_PUBLIC_ALIGNMENT_CHECKED",
+        "analog_latency": "UNKNOWN_NOT_MEASURED",
+        "board_release_allowed": false
+      }
+    },
+    {
+      "name": "clip_increment_missing",
+      "expected": "CLIP_COUNT_ALIGNMENT",
+      "actual": "CLIP_COUNT_ALIGNMENT",
+      "fixture": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\SOFTWARE_R03\\cases\\SYNTHETIC_clip_increment_missing.jsonl",
+        "bytes": 1214093,
+        "sha256": "68fc32f8d0b2ad53a2f143345a00a6640086cebfab5b8cb8ebf4ea1761b0fe8d"
+      },
+      "result": {
+        "diagnostic": "CLIP_COUNT_ALIGNMENT",
+        "message": "856"
+      }
+    }
+  ],
+  "static_checks": {
+    "board_reverse_exact_r05": true,
+    "header_before_initial_state": true,
+    "no_time_zero_edge_writer": true,
+    "no_new_hierarchical_observation": true,
+    "observer_initial_epoch_zero": true,
+    "python_compile_only": true
+  },
+  "board_source": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\board\\m3_night_fourvoice_integration_candidate_20261015\\night_20261016\\m2_fourvoice_timbre_delay_board_observed.sv",
+    "bytes": 40012,
+    "sha256": "08a48e62d2c2205789cb24a6bc611bd75246f4f02f3288735c776e7750927285"
+  },
+  "level": "L1_SOFTWARE_AND_L0_STATIC_RTL_ONLY"
+}

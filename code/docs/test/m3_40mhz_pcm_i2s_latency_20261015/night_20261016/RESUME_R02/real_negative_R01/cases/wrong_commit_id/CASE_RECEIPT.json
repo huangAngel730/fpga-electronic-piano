@@ -1,0 +1,31 @@
+{
+  "name": "wrong_commit_id",
+  "expected": "STALE_DUPLICATE_OR_UNREQUESTED_COMMIT",
+  "actual": "STALE_DUPLICATE_OR_UNREQUESTED_COMMIT",
+  "passed": true,
+  "exit_code": 1,
+  "seconds": 0.13999999999941792,
+  "argv": [
+    "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+    "-X",
+    "utf8",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\consume_capture.py",
+    "code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\real_negative_R01\\cases\\wrong_commit_id\\DAMAGED_FROM_REAL_CAPTURE.jsonl",
+    "--sha256",
+    "ad99815247bb861faee8083b5a41dd51e5655494c2836ca4c65ea5423a56cf1d",
+    "--output",
+    "code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\real_negative_R01\\cases\\wrong_commit_id\\REJECTION.json"
+  ],
+  "original_capture_sha256": "a2509a2b5555437ff8ee1da4799e8210ad80e95a058881a5d26111a935e5b5d3",
+  "damaged_capture_sha256": "ad99815247bb861faee8083b5a41dd51e5655494c2836ca4c65ea5423a56cf1d",
+  "damaged_bytes": 74394882,
+  "changes": [
+    {
+      "cycle": 953,
+      "action": "MODIFIED_FIELDS"
+    }
+  ],
+  "stdout_sha256": "b275f46f2deda70eba8c4c43f11016eb82b3591d224f5fbeec6c1fad3c3701be",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "kind": "FULL_DAMAGED_DERIVATIVE_NOT_A_NEW_RTL_RUN"
+}
