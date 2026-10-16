@@ -1,0 +1,81 @@
+chat8 回执处理／白天总控分工，2026-10-16
+
+发起人：用户本轮明确授权本对话调度主对话2/3/4/5，五窗口可互发必要消息，结果回本总控。
+本对话ID 01a0a0c6-5875-7432-940f-2e184e3a9c05，实际标题“总控”。
+当前 HEAD 与 fetch 后 origin/develop 均57ad4aeb8ef0a1dad3fcfaf68f83aad6d08b0af3。
+没有变更仓库任务优先级、公共接口或执行额度；本文件只分配现有工作范围。
+用户名单重复主对话4，按其随后明确的“控制2 3 4 5”落实为四个既有窗口，不创建新窗口。
+
+已读输入
+E:/FPGA/GAOYUNFPGA/Callback3/chat8/ 六份MD：M1冻结声音判据、138K现场单、
+72561ce端点复核、R04/M1R02复核、T052与三软件复核、T052长窗R02执行决定。
+另核仓库c12636c限定复核、夜间R05/STA复核、R06闭包/视觉接入清单和最新岗位单/总览。
+chat8中旧端点“可开始”、旧A/C“尚缺轨迹”已被后续交付部分覆盖，不重复从零实施。
+
+最新增量（未冒充M2已签）
+夜间最新总包 code/docs/test/m3_r05_functional_integration_20261015/coordinator/
+night_20261016/RESUME_R02/M3_ABCD_LOCAL_DELIVERY_20261016.zip，
+SHA 3ad04475e5fa032453872354b5b13c9a165b6e3bf2efb09f3a1653e028248585。
+其LOCAL_ABCD_RESULT.md记A真实采集、C303请求期限和302双声道帧、D音频共存/四RTL反例。
+当前新包L=R/clip=0，四独立频率PCM黄金、first-valid、启动/末尾复位恢复等仍缺。
+B旧五pair已签隔离L5，不重跑。新包未见M2最终复核，不能代原件与独立判断。
+6ms原TB失败保留；固定流程PASS为6.327ms，差0.327ms。7ms后继L2已获限定复核，
+这是测试看门狗，不是音频处理延迟或赛题10ms超标。禁止回填6ms为PASS。
+
+文件独占分工（下述均仓库相对路径；仅创建新子目录，不改其父目录旧文件）
+1. 主对话2（原A/C owner）：R05/R06与M1冻结数学输入、夜间实际capture的增量对齐。
+   独占 code/software/m3_r05_functional_integration_20261015/chat8_20261016/
+   及 code/docs/test/m3_r05_functional_integration_20261015/chat8_20261016/
+   复用实际capture和模型，只补必要的软件分析/负例。重点每声部身份/相位与PCM、
+   gain/mix/delay/clip、Program锁定。数据未导出就UNKNOWN并给最小新增观察条件，
+   不拿4槽/nonzero/多谐波代四路独立频率。不得新编译/仿真R05、不得消耗旧剩余组。
+2. 主对话3（原T052 owner）：执行前机器/来源/工具/显式环境与资源补件。
+   独占 code/software/t052_publication_acceptance_candidate_20261012/
+          long_window_preparation_20261015/chat8_readiness_20261016/
+   及 code/docs/test/t052_publication_acceptance_20261012/
+          long_window_preparation_20261015/chat8_readiness_20261016/
+   依T052 R02 M2决定冻结现机SHA、PATH/IVERILOG_ROOT、Job继承环境、磁盘可用及
+   独占输出/额度未占用证明。可做必要Python假进程增量和只读版本盘点，分别计数。
+   原proposal approved=false，不编译/采集/check真实T052，不用历史工具身份代当前事实。
+3. 主对话4（原B/D owner）：B已签结果复用、新D与M2受控接入清单的默认几何/CDC差异。
+   独占 code/docs/test/m3_m2td_audio_endpoint_audit_20261015/successor_R03/chat8_20261016/
+   及 code/docs/test/m3_dual_slider_138k_candidate_20261015/chat8_20261016/
+   只核现有原件/源码，列640x480八槽相对已跑夹具的真实缺口、模式/98bit曲谱/复位/
+   RGB/TMDS单路径及约束对象变化。需要脚本只写上述目录；无新EDA/RTL工具运行。
+   不改原B/D、正式top/CST/SDC，命中闪光继续暂缓，不提前做波形/传谱/N32。
+4. 主对话5（原R04回执owner）：最新夜间A/C交付的原始来源与执行回执独立核账。
+   独占 code/software/m3_r04_receipt_audit_20261015/chat8_provenance_20261016/
+   及 code/docs/test/m3_r04_receipt_audit_20261015/chat8_provenance_20261016/
+   旧R04/R02已签84项不重测。针对新夜间原件核SHA、六流/启动与消费/命令、
+   数据253456沿来源和同链绑定，输出具体缺件/矛盾及最小修法；不审数学、不改他人
+   checker或成果、不代签M2。确需新增核验器仅限这些自有新目录及必要Python软件例。
+5. 总控：仅独占本coordinator/chat8_20261016/，汇总六回执新旧关系、冻结目录所有权、
+   统一接受结果和必要许可请求，最后集中Git门禁/发布。现场操作只由用户另行明确启动。
+
+并发、权限与交付
+五窗口可按用户本轮授权直接交流，常规只发一次开工与一次最终结果；跨窗口依赖传
+不可变路径/SHA，不请对方编辑自己的文件。同一文件只有上列owner可写，总控不代改。
+夜间1/2/3/4及其旧成果只读，不重启、不恢复夜间许可；若发现其仍活跃抢写先报告。
+不得编辑共享任务看板/当前状态/编号表，不改正式顶层/公共包/ROM/时钟/引脚/原约束。
+本轮分工不增加A/B/C/D仿真/STA、T052动态、SRAM/Flash/仪器执行许可。
+各窗口可用自有子智能体自审，明确只读或不重叠写集；不启用审核员/预审员制度。
+阶段/最终回本总控ID，简列改动清单、输入/输出SHA、命令/原双流/退出码、
+实际等级、正负例/未验项、剩余具体许可。已签工作不重复，没有可行动增量即停止。
+本批所有Git写由总控集中串行处理，子窗口不得add/commit/push或自行fetch/merge共同树。
+存在的未跟踪夜间转发说明保留，不删除/代发。board_release_allowed=false。
+给真人M1/M2的交接仍待用户转发，不因窗口消息/文件创建记为已经通知。
+
+实际调度回执
+四次send_message_to_thread均成功返回对应threadId：
+主对话2 01a0dd47-1e43-7280-8aad-60480acdc803
+主对话3 01a0e1c6-f8c9-7363-a0a5-482d539b5361
+主对话4 01a0e216-8b43-7351-8b8c-517abc9074be
+主对话5 01a1349c-c719-79c3-b8fc-6bf152c1d282
+消息已经送达四个AI窗口；此记录不代表工作已完成或M2已收到/签收。
+本轮仅新增本分工文件，未提交/推送，未启动业务RTL/EDA/设备。
+
+主对话3路径边界回执
+旧bounded_runner要求拒收收据位于code/output，本批两条独占新目录不含code/output。
+总控未扩大写集；该位置真实可写性记WRITE_PROBE_SCOPE_NOT_GRANTED。
+其余现机SHA、显式环境/Job纯Python探针及资源证明继续；最终汇总精确位置与最小
+仅Python拒收探针许可请求交M2。不得改旧runner或用docs写成功替代真实输出路径。

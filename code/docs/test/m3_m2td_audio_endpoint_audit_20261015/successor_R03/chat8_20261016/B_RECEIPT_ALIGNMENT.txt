@@ -1,0 +1,33 @@
+B / chat8 回执对齐，2026-10-16，主对话4自审
+范围：L0原件及签收关系核对；不重新执行已签STA，不新增执行许可。
+
+结论
+chat8 的72561ce“端点准备可继续”是旧准备阶段通知，不能作为今天再跑一轮的理由。
+后续 M2_夜间R05功能与音频端点_限定复核_2026-10-16.md 已签原五对隔离定向L5。
+“M3本地当时缺vg/db”也不是“M2或项目没有原物理文件”。旧失败及准备包保持原样。
+
+被复用的原件（仓库根相对路径）
+code/docs/M3_40MHz音频端点准备_72561ce_M2限定复核_2026-10-16.md
+code/docs/M2_夜间R05功能与音频端点_限定复核_2026-10-16.md
+code/docs/test/m3_m2td_audio_endpoint_audit_20261015/successor_R03/delivery_night_r03/B_DIRECTED_STA_CANDIDATE_20261016.zip
+ZIP SHA256 59f40000f25bccc492199e4a0f6e843e4a7ccf68ddaeab5823c756b888d44ce3
+M2原审记录：518份manifest载荷；实际gw_sh 1次，344.813秒/exit0。
+本轮只重新核该ZIP字节SHA，不再次展开整包、跑checker或重审518份载荷。
+
+签收范围（ns，来自上述M2原审，不是本轮测量）
+post_right_ram_address       setup22.505 hold0.000
+voice_lane2_phase_to_rom      setup22.534 hold0.000
+pitch_lane3_total_to_oct      setup20.908 hold0.000
+pitch_lane0_total_to_sub      setup22.511 hold0.000
+event_fifo_to_audio_slot      setup 1.736 hold2.814
+0.000仅表示报告精度内非负，不称“正裕量”。
+工具/器件：Gowin1.9.11.03 Education，GW5AST-LV138PG484AC1/I0，40MHz/25ns。
+原HTML SHA256 68f3d8f410efc0a2aafd6c96b1ef694a7a1c1157115bc03cebf2231a568bb2ff。
+
+仍不被覆盖
+完整base_s1/base_s2、voice→mix、PCM→I2S路径全集；新的D组合、修改层级后的视觉CDC；
+生产树全STA、上板、模拟声和BLE。不能把这五pair推广成全音频或正式音画通过。
+新的D接入若改变层级/综合映射，需要该新树自己的对象计数和时序证据；不是重做旧B。
+
+本次执行：EDA/RTL/设备0，旧许可消费0，Git写0；只读文件盘点见D同批STATIC_EVIDENCE.json。
+本项回执对齐完成；B保持原限定L5，不升级范围。交总控集中发布，真人M2待用户转发。

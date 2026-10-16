@@ -1,0 +1,52 @@
+2026-10-16 / 主对话4 / chat8 B-D / 本批限定静态任务完成
+基线：57ad4aeb8ef0a1dad3fcfaf68f83aad6d08b0af3（只读现有引用，未fetch）。
+受控范围：coordinator/chat8_20261016/DISPATCH.txt 指定的B/D两个新子目录。
+本轮没有编辑旧源码、旧收据、旧包、正式工程、共享状态和编号表。
+
+实际执行与原件
+cwd E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano
+Python C:/Users/songdongkuan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe
+argv: -X utf8 code/docs/test/m3_dual_slider_138k_candidate_20261015/chat8_20261016/audit_snapshot.py
+实际由Start-Process -WindowStyle Hidden启动，WaitForExit(60000)上限，正常退出0。
+原stdout=STATIC_EVIDENCE.json，原stderr=audit.stderr.log（0字节）。
+14个输入前后SHA一致，4个R06 ZIP成员独立读取并记录行号；4项已知冻结身份全部匹配。
+工具是Python文件/ZIP读取，不启动compile/VVP/checker/Gowin/ModelSim/串口/硬件。
+脚本和python.exe SHA见原stdout。标准库随本机Python使用；不声称冻结整套Python依赖闭包。
+本轮功能正负例执行数=0；引用既有58/4及B五pair是证据复用，不计成本轮测试。
+Git写入/远端操作=0；git diff --check退出0（只覆盖已跟踪diff，不冒充新文件全门禁）。
+
+只读核对的小问题（非RTL失败）
+查找旧scene第一次用了不存在的code/rtl/input/m3_visualizer.sv，rg报找不到文件。
+改用rg --files发现实际code/rtl/input/visualizer/m3_visualizer.sv，再查成功。
+额外直接读取R06 ZIP inputs/sources/m3_visualizer.sv确认同沿模式差异：
+SHA c3940203be5616d3cb923552267d7485d494bfd0e6a5410d7a7f3651e1fd0d2a；
+67: wire contact_mode_enabled=frame_start ? mode_request : display_mode;
+112: .performance_fire(performance_fire), .match_enabled(contact_mode_enabled),
+该补查是静态读取，未另跑功能测试。PowerShell对象计数显示数组后改用@(...).Count核得14/4；
+不是输入遗漏或审计失败。三次Python内联ZIP阅读及一次audit子进程均正常退出0。
+历史RTL失败及其处理以D_INTEGRATION_GAPS.txt和原RESULT为准，旧原件未修改。
+
+自审结论
+本窗口核过R06原probe/top/scan/SDC、D wrapper/control bridge与最新夜间TB。
+自有子智能体只读交叉核对CDC/几何/复位/RGB及事件队列，未编辑和执行工具链。
+新增关键差异：原32深度事件队列→D固定8；TB跨读current_frame不能照搬RTL；
+原probe还提供整机40MHz，不能整块删除；SDC旧层级需新网表确认；M2文字SDC SHA缺中段。
+未启用审核员/预审员，未向他们发消息；不替代M2最终签收。
+
+交付文件
+B successor_R03/chat8_20261016/B_RECEIPT_ALIGNMENT.txt
+D chat8_20261016/D_INTEGRATION_GAPS.txt
+D chat8_20261016/audit_snapshot.py、STATIC_EVIDENCE.json、audit.stderr.log
+D chat8_20261016/EXECUTION_AND_HANDOFF.txt、seal_delivery.py
+封存脚本仅将以上7份新文件按仓库相对路径封包，内置MANIFEST.json；外附ZIP SHA收据。
+原大包不重复装入：STATIC_EVIDENCE.json列出原文件路径/SHA，原ZIP仍在本仓库可直接转交。
+
+给总控 / 可转发M2（真人待用户转发，尚未送达）
+M2，chat8 B/D静态增量对齐已完成：旧B准备通知已由您签收的五pair隔离L5覆盖，
+本轮未重跑。D新夜间模块共存58检查/188双声道帧及四RTL故障已补，不再列为未跑；
+但仍是128×64/S4、诊断PCM和加速帧，不是640×480/S8/preview120、R05正式音画。
+请按D_INTEGRATION_GAPS.txt确认后续复制候选的队列32/8选择、mode请求来源、98bit
+score帧epoch来源和受控写集/新执行额度；保持PLL/core_clk与唯一RGB寄存/TMDS链。
+当前不请求恢复旧额度、不重做B、不改正式工程。命中闪光暂缓，board_release_allowed=false。
+本轮实际L0，仅文件/ZIP静态核验；没有新RTL/EDA/设备操作，未提交/推送，交总控统一发布。
+请总控将本批文件与其他窗口成果串行门禁/发布；不要据此签正式D或整机通过。

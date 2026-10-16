@@ -1,0 +1,88 @@
+D / chat8 最小受控接入差异，2026-10-16，主对话4及只读子智能体自审
+本轮完成的是L0静态核对，不是D生产接入完成。旧源码、失败、许可、原件均只读。
+依据：M2_R06同版闭包与双滑块受控接入清单_2026-10-16.md及R06原ZIP，
+D wrapper、night_20261016/RESULT.md、RESUME_R01/RESULT.md及其实际TB。
+精确路径、SHA及原文片段见STATIC_EVIDENCE.json；相同行号对应冻结原字节。
+
+一、新旧证据关系
+1. 老D 99检查/4反例是隔离加速夹具，原音频计数不能证明真实音频模块共存。
+2. 新夜间D已实例化原sample_tick_gen、pcm_frame_buffer、i2s_tx，和D共享40MHz系统时钟。
+   正常组58检查、160024系统沿、188完整双声道帧、40个加速显示帧，underflow=0。
+   PCM由诊断producer生成，左右非对称；不是R05四声音频算法的真实PCM。
+   新正常RESULT里“四RTL反例未跑”的旧结论，已由RESUME_R01四组真实RTL故障补齐。
+3. 四故障的VVP均exit0且58显示检查，checker均预期exit1：漏交PCM→UNEXPECTED_UNDERFLOW；
+   左右交换、DIN迟一BCLK、按显示模式错误关TXvalid→SERIAL_PCM_LSBJ_OR_STEREO。
+   正常capture未改字节；软件篡改capture五负例与这四RTL反例不是同一类证据。
+4. 历史RUN01编译0xC0000005，RUN02 TB断言失败；RUN03仿真通过但软件尾部判定失败，
+   SOFTWARE_R02修checker后只读复核通过。保留原失败，不用最后PASS覆盖。
+   正常SOFTWARE_R02依赖表未动态列C decoder，最后SHA核同不等于补回历史前后记录。
+5. 新证据缩小“真实音频模块共存/故障敏感性”缺口，但仍非完整raster/TMDS/R05生产链。
+   最新夜间增量未在本轮代签M2。命中闪光仍FAIL/暂缓，flash输出固定0。
+
+二、默认几何与已跑夹具（wrapper:5–7；夜间TB:19–23,105–113）
+项目                  已跑夜间夹具             wrapper默认/待接入
+宽×高                 128×64                   640×480
+SLOTS / Y_WIDTH       4 / 8                    8 / 10
+PREVIEW_FRAMES        8                        120
+BASE_NOTE / NOTE_COUNT 60 / 8                   36 / 49（36..84）
+live JUDGE_Y          54                       470
+RISE_STEP             4像素/帧                 4像素/帧
+显示时序              手动frame_start/定点采样  原800×525总扫描、25MHz候选
+不能以“参数可设置”替代默认配置仿真。原scan默认推算16.8ms/帧、约59.524Hz；
+这是L0算术，不是显示器实测，也不是冻结新的HDMI标准。120帧约2.016秒，非夹具8帧。
+剩余：槽4–7占满/回收/溢出、49音高分区、四屏边/消隐/同步与整帧逐像素、长条出界、
+默认预览跨度、模式切换和复位期间音频不退化。当前40加速帧没有覆盖这些项目。
+
+三、接入最小差异与不变项（以下是提案，尚未修改RTL）
+A. 保留时钟骨架。R06 probe:70–72不仅产生25/125MHz，还输出整机40MHz core_clk；
+   不得整块删probe直接换D。只在新复制候选替换旧事件/控制CDC和m3_visualizer场景段。
+   保留PLL、scanner、串行复位和唯一DVI_TX_Top；D本身不含PLL/扫描器/TMDS。
+B. accepted副本。top:679–685仅复制shared_event_valid && shared_event_ready及原64bit数据；
+   显示ready、mode_ready、score_ready绝不返回音频ready链。队列满时沿用丢弃/失同步诊断。
+   新发现：probe:73原DEPTH=32，D:55固定DEPTH=8。8个显示槽不等于8深度事件队列。
+   最小建议在获批复制候选中参数化并保持32；若保留8，需明确变更和突发容量证明。
+   当前慢速单音夹具不能证明8深度可替代32，不能静默缩容。
+C. 模式。40MHz请求生产者需保持valid直到ready，一次操作只交一次；原5秒自动切换
+   是诊断，不是用户控制。SOURCE_MODE是音频诊断选择，不可借作显示mode。
+   D:78–85在25MHz域frame_start提交mode_request；mode_pulse和frame_start同沿时，
+   NBA语义为本帧用旧请求、下一个frame_start才提交该脉冲，测试/预期须显式覆盖。
+D. 曲谱。visual_control_bridge:16–38保持16+7+32+1+32+10=98bit整包，握手等待时所有
+   字段稳定；hit_frame/duration仍是帧单位，不换成MIDI tick或样本tick。
+   TB:136直接读current_frame+6是仿真观察，不可复制成40MHz跨读25MHz多位计数器。
+   正式生产者/帧epoch来源需M2确认；若读回帧号应有独立握手CDC，不私改时间合同。
+E. 复位。probe:22共同sys_rst_n && pll_lock异步拉低，各域本地同步释放；D的
+   sys_reset_done/video_reset_done分别汇合事件与控制桥。scanner使用D video_reset_done；
+   串行复位保持原125MHz reset_sync。模式/曲谱生产者也需遵守40MHz释放就绪。
+   禁止只复位像素域而留下在途邮箱。PLL失锁影响core_clk，夜间理想双时钟TB未测此项。
+F. 单RGB路径。probe:100–134保留扫描→D组合RGB→原一拍RGB/HS/VS/DE寄存→唯一DVI/TMDS。
+   不保留旧桥后再串D桥，不并行驱动两套RGB，不只加RGB延迟却不同时对齐HS/VS/DE。
+G. 首个下落帧边界：D:105 match_enabled用旧display_mode；旧m3_visualizer在切换沿
+   可用待提交模式。需登记同沿事件语义差异，不把首轮运动/切换通过写成命中反馈等价。
+   命中闪光仍暂缓，不借本轮扩大修复范围。
+
+四、SDC层级差异（R06原SDC:300–327）
+以下<D>只是未来新wrapper实例占位，不是已存在网表对象；不能据此直接签STA。
+旧相对层级                                 新候选源码相对层级提案
+u_visual/u_event_bridge/...                  u_visual/<D>/u_events/...
+u_visual/u_control/u_score_mailbox/...       u_visual/<D>/u_control/u_score_mailbox/...
+u_visual/u_control/u_mode_mailbox/...        u_visual/<D>/u_control/u_mode_mailbox/...
+七个异步首级：event ack_meta/req_meta/desync_meta；score ack_meta/req_meta；mode ack_meta/req_meta。
+对应次级：event ack_sync/req_sync/video_desync；score及mode ack_sync/req_sync。
+原网表采用*_s0后缀。新综合实际名称/复制/优化均未知，不保证原后缀仍在。
+两组bundled-data：event payload_hold→video_data（64bit），score payload_hold→dst_data（98bit），
+原max_delay各10ns；原七组首→次级setup/hold均须在新网表逐对象查询、报告实际数量。
+要核有效载荷保留/常量化原因与实际被约束位，不以Active或非空匹配代全部位覆盖；
+不得以宽泛clock-group false path掩盖差异。PLL名/输出脚若不改可保留生成时钟语义，
+但新树仍需核其实际命中。新D树的约束闭包不能用B旧五pair已签结果代替。
+R06输入SDC实际SHA为a8791f826c0bd8630483ce28c44636c24e4e28c041a9622d17d0b1764a8f888f。
+M2接入清单中较短SHA文字缺中段，仅登记文字问题；原ZIP/原SDC字节不改。
+
+五、自审及下一次精确授权对象
+本轮只做静态原件SHA/源码定位，不新增功能测试，不重复99/4、58/4、B五pair或旧工具额度。
+新动态验证必须另绑定：复制工程写集、默认640×480/S8/preview120、队列深度选择、
+模式源、98bit曲谱时间源、共同时钟/PLL复位方案、唯一RGB管线、工具身份和执行额度。
+先由M2确认这些受控选择，再跑新候选的边界/复位/跨域/默认raster和同链音频，
+之后才针对新网表核约束和STA；不要求为这份L0文档现在再跑旧签收组。
+基础四音→双音色→双滑块→固定左波形→最小传谱→条件性N32；不提前开后置任务。
+board_release_allowed=false；未下载/烧录、未实测HDMI/模拟声/BLE。
+本轮限定静态对齐交付完成，正式D接入仍待上述受控选择与新动态证据。

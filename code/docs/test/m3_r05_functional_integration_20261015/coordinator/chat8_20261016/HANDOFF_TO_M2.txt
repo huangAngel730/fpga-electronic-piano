@@ -1,0 +1,76 @@
+M3 chat8回执处理及chat9数学增量集中交付，2026-10-16
+待用户转发，尚未送达；窗口消息不代替真人M2签收。
+
+本轮总控统一分工2/3/4/5，旧源/算法/ROM/正式top/CST/SDC/状态表未改。
+开工HEAD57ad4ae，封包前现树/远端fb80c5cd034aec03f765fec74b1bd157adb6e789。
+后者含M2 V0377对旧夜间A/C/D的限定签收，旧已签专项本轮不重跑。
+最新M3执行卡P0/P1/P2/P3及M1新A/B/source0黄金是后续范围，
+本次没有借旧许可启动新采集；以下chat9比较使用第11批冻结模型，非尚未发布的新五目录模型。
+
+主对话2：chat9完整包已到，缺包已解除。
+第11原包750224 bytes/SHA842fa8f75356090440a5e8237acafc209620d114f9e3c0ce2eab5ffdf30862da；
+嵌套模型包SHA5c18926ae307301e91ec0e44dcf4a48b2fb57adec71ad46c494b14df59913b06。
+原90执行树成员核同，用冻结Oracle/PianoDDS/Envelope/voice_pcm/mix_pcm/DelayEffectFixed
+直接加载；参考生成仅收真实控制/reset/frame/request与源码日历，不接收实际PCM/clip结果。
+正常窗口r+23tick、r+28snapshot、r+30效果接受、r+34result_hold、r+35commit；
+303发布的epoch/ID/提交时刻/L/R PCM/clip与独立期望一致；预测范围-2024151..2282322。
+67个请求ID237..303模型四槽各非零，仅模型分解＋总和匹配，不是新增逐槽实测。
+原完整串行只到ID301，末两笔被复位截断，不能说303全部播出。
+CHAT9R01软件exit0/3.156s；R02软件exit0/7.172s，10新软件负例通过，0新RTL/EDA。
+正常日历限定数学对照申请L3复核；一般取消/HOLD/Release、非对称声道、非零clip、
+首次valid/启动及复位后恢复/模拟实物未签。配置载荷来自同SHA board静态常量，非动态导出。
+旧chat8缺包说明保留历史，当前入口CHAT9_RESULT_AND_HANDOFF.md优先。
+新包1176655 bytes/SHA832947a0a0bacb3d604a01e0bb726cf943d007f506e5b51c67d941ee55e31b12，
+153载荷。约123MB旧连续capture/input不重复入包，仓库原路径与完整SHA见引用清单。
+
+主对话3：T052当前机补件完成，真实准入仍PARTIAL。
+现机22源/7输入/325静态工具依赖前后核同；Icarus/VVP14 devel实际-V查询，
+Job纯Python正例全环境摘要核同，改ROOT负例正确拒收。Windows空COLORTERM消失导致
+首失败，后继显式剔除空值键再设置PATH/ROOT，严格完整摘要不放宽，原失败保留。
+当前环境SHA4eec9e0a3d420eaf7c3ec9c6dbb7c38ed9a0f2b0ee10dedb7bb50da69366d9a4，
+最终资源采样11:37:10–13 Asia/Shanghai，之后环境/源/工具/磁盘变化需启动前再核。
+外层exit0只表示允许的软件补件完成；子收集器exit3明确WRITE_PROBE_SCOPE_NOT_GRANTED。
+旧proposal仍approved=false；2GiB空间/路径不存在只读检查不是预留空间、锁或新额度。
+请M2决定：仅准新增code/output/m3_t052_chat8_refusal_probe_20261016_01/的Python独占
+合成拒收写/读/SHA探针（不execute、不HDL、不建实际输出/额度、不消费），以及后续唯一
+组合是否批准真实一次compile/run/check。未获准前继续不执行，不翻旧批准位。
+新包1122239 bytes/SHA281a4fb92fd25c75a16bf6017b1f66ede198a3c23592235ca4f77da809580b7c，
+62载荷；RUN_RECEIPT SHA63a9251d6eb741354d40053dcdca2324c1f8f78a8df411633c80500591883591。
+实际级别L0＋Python软件核验，旧4207 UNKNOWN、完整T052 PARTIAL不变。
+
+主对话4：B/D静态差异完成，L0；旧B五pair隔离L5直接复用。
+D诊断音频模块58检查/188帧/四RTL坏例已由夜间原件支持，不是默认整机。
+实际128x64/S4/preview8不覆盖640x480/S8/preview120；D事件FIFO固定8而原probe32，
+显示槽数不等于队列容量。建议新复制候选保留32或明确容量变更/突发验证。
+模式valid/ready、98bit谱面及其frame epoch、在途共同复位需明确；TB直接读current_frame+6
+不能照搬跨域生产者。保留原40/25/125MHz时钟/唯一扫描-RGB同步寄存-TMDS路径。
+旧七同步首级/两payload组层级变化须新网表逐对象和位数核对，不能借B旧五pair签新组合。
+原R06清单SDC SHA文字缺中段，完整a8791f826c0bd8630483ce28c44636c24e4e28c041a9622d17d0b1764a8f888f，
+仅请M2修文档，原SDC未动。闪光历史FAIL继续暂缓。
+新包20012 bytes/SHAa7d683d2ec41a5e3b55291ce6941eb821e32ded723d78f59c76301035109886b，
+7载荷；audit/seal软件exit0，0新RTL/EDA。请M2选定队列/mode/score epoch和新写集/预算。
+
+主对话5：A→C现存字节链核账一致，L0＋6软件例，不是历史执行独立认证。
+已核A25源/90stage/工具身份、三功能调用六流、精确PASS及253456连续沿；
+C消费命令/结果绑定同一A receipt/capture。A161、C235载荷CRC/大小/SHA核同。
+消费标记是创建时证明，不绑定后形成的最终receipt；C结果由后继nightreceipt/seal绑定，
+原子receipt未直接列结果SHA。动态加载DLL UNKNOWN。未来必要时新finalized receipt增强，
+不改旧标记，不为内部一致就要求重跑真实工具。
+原RUN_02误写软件L1已以LEVEL_AMENDMENT更正，原raw JSON/流不覆写。
+另发现旧test临时目录曾在仓库根output/m3_r04_chat8_provenance_test_tmp_20261016建立，
+越出本批两目录，旧文档误写code/output；owner已修未来路径为自有_test_tmp并加resolve守卫。
+原越界目录现为空，未删/移动；只做AST及一个新路径正负例，不重跑旧6例/A-C核账。
+RUN_02 receipt SHA cfec99220f1081ac33751b4735cc9166c393ca94b3a05db04be485f4647be53d，
+原结果SHA ad45d1b1bb6e3b58f0a296dd15d3a1cbe2bd6cc254568f9692c76e58b6d88e27。
+
+总控核查与统一边界
+四个新小封包CRC/外SHA/所有153/62/21/7载荷已核同，读数学适配/反例、T052预检和
+来源测试路径修正；不重跑窗口业务测试。全部源码/原始命令/双流/退出/SHA/失败史随总包。
+核包器自身引号/根路径/不同manifest格式的准备失败如实记STATUS，不归咎子窗口成果。
+未修改共享状态或预留V/D/T号，未启用审核员制度；最终登记与同版签收归M2。
+6ms首次TB失败照留，正常PASS实际6.327ms，7ms后继L2已签；这不是模拟10ms超标。
+本轮0新业务RTL/EDA/设备。发布门禁的既有T007/T019仅是仓库回归，不冒充专项新采集。
+正式top/约束/新fs/完整同版STA、模拟延迟、实屏和板级仍未验，board_release_allowed=false。
+后续基础四声→双音色→双滑块→固定左波形→最小传谱，N32暂停，不擅开启后置任务。
+请M2限定复核本次chat9数学/机器补件/接入差异/来源修订，并决定精确许可与共享状态登记。
+普通develop发布及远端核验成功后由总控另提供提交号；本文件不冒称已经推送或已通知。

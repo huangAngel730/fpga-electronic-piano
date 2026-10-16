@@ -1,0 +1,59 @@
+chat8 总控接收状态，2026-10-16
+
+主对话4：B/D静态对齐已交，完成的是L0，不是正式视觉接入。
+总控读取B_RECEIPT_ALIGNMENT.txt、D_INTEGRATION_GAPS.txt及SEAL_RECEIPT.json，
+复算交付ZIP SHA a7d683d2ec41a5e3b55291ce6941eb821e32ded723d78f59c76301035109886b，
+20012字节，CRC正常；7载荷逐项长度/SHA及当前工作文件与ZIP原件一致。
+核包命令exit0，未重跑其audit、RTL或EDA。
+关键待决：事件队列原32而D固定8；current_frame跨域不能沿TB直读；
+保留原40/25/125MHz时钟/复位、单RGB/扫描/TMDS；98bit曲谱与新层级约束另核。
+R06清单中的SDC SHA文字缺中段应由M2修文档，原SDC不动。
+默认640x480/S8/preview120尚未由加速夹具证明，旧闪光FAIL继续暂缓。
+这些是下一次受控复制接入的条件，当前没有启动/授权新动态或正式写入。
+
+主对话2：旧chat8软件分析已交，9新增软件例通过；当时完整四频PCM数学PARTIAL。
+新包40895字节/SHA37dff3bf0507d28ad940c740e79f6f89cbedd5248d9e23e557adb54844a4570e，
+总控已核21份载荷CRC/长度/SHA通过；新输入事件和配置握手仅为对应观察/静态合同。
+历史chat8阶段M1第11完整ZIP未找到，搜索范围/40错误如实保留；当时缺原件不写数学通过。
+最新主对话2报告用户已在chat9补原ZIP并在原两写集追加CHAT9R01/R02软件分析，
+不改旧R01/封存，不新增RTL/EDA。新最终软件重算已交，303发布期望/实际一致，
+10新增软件拒收例通过，仅申请当前固定正常日历L3；一般取消/HOLD/Release、
+左右不等/非零clip、逐槽实测与模拟/板级仍缺，不签完整整机。
+新数学封包1176655字节/SHA832947a0a0bacb3d604a01e0bb726cf943d007f506e5b51c67d941ee55e31b12，
+总控已核153载荷CRC/长度/SHA通过并读适配器/反例代码及范围合同。
+主对话5：通过wait快照和直接本地读取已收到来源核账，不重试其被平台拒绝的消息。
+A/C六流、SHA、253456沿和消费关系一致，但不是独立执行认证。
+软件L1措辞已由owner更正为L0＋软件核验，LEVEL_AMENDMENT保留原RUN_02身份。
+总控另发现test_provenance.py import时在output建立临时父目录，越出本批两个写集。
+其parents[4]实际为仓库根，真实目标root/output/m3_r04_chat8_provenance_test_tmp_20261016，
+不是owner旧交接所写code/output；总控初次按文字查code/output不存在，随后核实际路径。
+已交owner最小返工后续路径与写集守卫、补偏差记录，不改RUN_01/02、不删任何旧目录，
+仅准必要AST和一个新路径正负例，不重跑旧六例/A-C核账；owner已完成并留偏差记录，
+总控已读新守卫与WRITE_SET_AMENDMENT，原空目录不删除/移动。
+主对话3：现机补件最终已交。环境空值COLORTERM差异已在新预检规范化并严格核摘要，
+真实T052执行许可仍未批准；外层exit0不抵消子收集器exit3的明确未验状态。
+T052新包1122239字节/SHA281a4fb92fd25c75a16bf6017b1f66ede198a3c23592235ca4f77da809580b7c，
+总控已核62载荷CRC/长度/SHA通过；旧approved=false不变。
+主对话3保持两新目录，code/output真实拒收写探针未获本批写集，单列未验。
+已开始整体集中门禁/发布准备，先保留各窗口原件，不逐包重复请求M2。
+正式board_release_allowed=false；旧未跟踪夜间转发文件保留。
+
+总控自身核包准备失败历史（不是子窗口成果失败）
+首次shell内嵌Python因引号转义SyntaxError，未开始核包/未修改原件；改为独立自有脚本。
+脚本初次根路径parents[4]误指code，FileNotFoundError；改parents[5]后读包，
+发现A清单格式不符合该通用脚本假设，先核实际schema再适配，不改包/不跳过成员校验。
+读取实际清单为members字段后作明确格式适配，最终核A21/D7载荷全部通过，exit0。
+扩展chat9/T052清单时members数组与字典格式不同导致一次TypeError；核schema后
+显式支持path唯一的数组，不跳过成员校验。最终四新包153/62/21/7载荷全部核同。
+以上命令/错误留在本对话工具原输出，不冒称首次通过或子窗口业务测试失败。
+
+发布空白与草稿修订
+首次git diff --cached --check报owner5 WRITE_SET_AMENDMENT.md末尾多余空行。
+总控复合只读检查末尾rev-parse掩盖该命令退出值，误先启动R01仓库门禁；立即按
+具体空白问题交owner删除一多余空行，正文/旧RUN_02不改。当前MD SHA
+fabf08f439a96599399ffca6e826d8b332090294cb028f1fc9cbbb10cb7e9aa9。
+R01原仓库九项PASS/exit0，但总控wrapper发现前后输入变更，最终FAIL、exit1，
+耗时210.922秒；不把它当最终精确树通过，原日志/收据保留。
+原封存草稿、计划、收据和prepare脚本逐字节复制至自有DRAFT_R01，保留不删；
+当前最终包只在备份存在且同字节的保护下重新生成，原子窗口封包从不覆盖。
+后续独立检查cached空白及最终精确树门禁全PASS才允许提交，不放宽仓库检查。
