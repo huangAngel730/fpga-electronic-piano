@@ -1,0 +1,67 @@
+# PROPOSAL ONLY. Do not source this file in Gowin. No STA has been executed.
+# M2 must first approve the exact implementation database, tool/commands/budget/output.
+# Confirm vendor collection cardinality/name inspection semantics before using guards.
+# get_regs queries below must return exactly one cell; get_pins exactly one named terminal.
+# Escaped square brackets represent literal bus/lane names, not wildcard character classes.
+# Record returned object names, associated clock pins, and sys_clk=25.000ns before reporting.
+# Never remove escapes or accept a broader wildcard just to get a nonempty result.
+
+# post_right_ram_address
+# Source register existence query (must have 1 exact object):
+get_regs {g_polyphonic.u_audio_core/u_chain/u_post/u_right/wr_ptr_7_s1}
+# Destination terminal existence query (must have 1 exact object):
+get_pins {g_polyphonic.u_audio_core/u_chain/u_post/u_right/buffer\[0\]_ER_RS_buffer\[0\]_ER_RS_0_0_s38/WAD\[1\]}
+# sys_clk collection must be exact singleton, active, 25.000ns; clock-pin association must be checked.
+get_clocks {sys_clk}
+report_timing -setup -from [get_regs {g_polyphonic.u_audio_core/u_chain/u_post/u_right/wr_ptr_7_s1}] -to [get_pins {g_polyphonic.u_audio_core/u_chain/u_post/u_right/buffer\[0\]_ER_RS_buffer\[0\]_ER_RS_0_0_s38/WAD\[1\]}] -max_paths 1 -max_common_paths 1
+report_timing -hold -from [get_regs {g_polyphonic.u_audio_core/u_chain/u_post/u_right/wr_ptr_7_s1}] -to [get_pins {g_polyphonic.u_audio_core/u_chain/u_post/u_right/buffer\[0\]_ER_RS_buffer\[0\]_ER_RS_0_0_s38/WAD\[1\]}] -max_paths 1 -max_common_paths 1
+# Reject absent/inactive query or no actual path; require exact from/to pin, sys_clk:[R] on both sides,
+# finite slack >= 0.000 for BOTH Setup and Hold from the SAME implementation identity.
+
+# voice_lane2_phase_to_rom
+# Source register existence query (must have 1 exact object):
+get_regs {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/g_lane\[2\].u_voice/u_piano/phase_acc_30_s0}
+# Destination terminal existence query (must have 1 exact object):
+get_pins {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/g_lane\[2\].u_voice/u_piano/u_table/rom_data_rom_data_0_0_s/AD\[10\]}
+# sys_clk collection must be exact singleton, active, 25.000ns; clock-pin association must be checked.
+get_clocks {sys_clk}
+report_timing -setup -from [get_regs {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/g_lane\[2\].u_voice/u_piano/phase_acc_30_s0}] -to [get_pins {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/g_lane\[2\].u_voice/u_piano/u_table/rom_data_rom_data_0_0_s/AD\[10\]}] -max_paths 1 -max_common_paths 1
+report_timing -hold -from [get_regs {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/g_lane\[2\].u_voice/u_piano/phase_acc_30_s0}] -to [get_pins {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/g_lane\[2\].u_voice/u_piano/u_table/rom_data_rom_data_0_0_s/AD\[10\]}] -max_paths 1 -max_common_paths 1
+# Reject absent/inactive query or no actual path; require exact from/to pin, sys_clk:[R] on both sides,
+# finite slack >= 0.000 for BOTH Setup and Hold from the SAME implementation identity.
+
+# pitch_lane3_total_to_oct
+# Source register existence query (must have 1 exact object):
+get_regs {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane\[3\].u_control/total_s2_10_s0}
+# Destination terminal existence query (must have 1 exact object):
+get_pins {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane\[3\].u_control/oct_lut_oct_lut_0_0_s/AD\[7\]}
+# sys_clk collection must be exact singleton, active, 25.000ns; clock-pin association must be checked.
+get_clocks {sys_clk}
+report_timing -setup -from [get_regs {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane\[3\].u_control/total_s2_10_s0}] -to [get_pins {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane\[3\].u_control/oct_lut_oct_lut_0_0_s/AD\[7\]}] -max_paths 1 -max_common_paths 1
+report_timing -hold -from [get_regs {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane\[3\].u_control/total_s2_10_s0}] -to [get_pins {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane\[3\].u_control/oct_lut_oct_lut_0_0_s/AD\[7\]}] -max_paths 1 -max_common_paths 1
+# Reject absent/inactive query or no actual path; require exact from/to pin, sys_clk:[R] on both sides,
+# finite slack >= 0.000 for BOTH Setup and Hold from the SAME implementation identity.
+
+# pitch_lane0_total_to_sub
+# Source register existence query (must have 1 exact object):
+get_regs {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane\[0\].u_control/total_s2_6_s0}
+# Destination terminal existence query (must have 1 exact object):
+get_pins {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane\[0\].u_control/sub_lut_sub_lut_0_0_s/AD\[10\]}
+# sys_clk collection must be exact singleton, active, 25.000ns; clock-pin association must be checked.
+get_clocks {sys_clk}
+report_timing -setup -from [get_regs {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane\[0\].u_control/total_s2_6_s0}] -to [get_pins {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane\[0\].u_control/sub_lut_sub_lut_0_0_s/AD\[10\]}] -max_paths 1 -max_common_paths 1
+report_timing -hold -from [get_regs {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane\[0\].u_control/total_s2_6_s0}] -to [get_pins {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane\[0\].u_control/sub_lut_sub_lut_0_0_s/AD\[10\]}] -max_paths 1 -max_common_paths 1
+# Reject absent/inactive query or no actual path; require exact from/to pin, sys_clk:[R] on both sides,
+# finite slack >= 0.000 for BOTH Setup and Hold from the SAME implementation identity.
+
+# event_fifo_to_audio_slot
+# Source register existence query (must have 1 exact object):
+get_regs {u_performance_event_fifo/rd_ptr_2_s0}
+# Destination terminal existence query (must have 1 exact object):
+get_pins {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_events/target_slot_0_s0/CE}
+# sys_clk collection must be exact singleton, active, 25.000ns; clock-pin association must be checked.
+get_clocks {sys_clk}
+report_timing -setup -from [get_regs {u_performance_event_fifo/rd_ptr_2_s0}] -to [get_pins {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_events/target_slot_0_s0/CE}] -max_paths 1 -max_common_paths 1
+report_timing -hold -from [get_regs {u_performance_event_fifo/rd_ptr_2_s0}] -to [get_pins {g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_events/target_slot_0_s0/CE}] -max_paths 1 -max_common_paths 1
+# Reject absent/inactive query or no actual path; require exact from/to pin, sys_clk:[R] on both sides,
+# finite slack >= 0.000 for BOTH Setup and Hold from the SAME implementation identity.

@@ -1,0 +1,27 @@
+{
+  "definition": "FIX02 producer exact JSON keys frozen before final functional group",
+  "producer_observer": "code/tb/board/m3_r05_functional_integration_20261015/night_20261016/RESUME_R01/FIX_02/m3_r05_public_observer.sv",
+  "producer_board": "code/tb/board/m3_night_fourvoice_integration_candidate_20261015/night_20261016/RESUME_R01/FIX_02/m2_fourvoice_timbre_delay_board_observed.sv",
+  "startup_capture": {
+    "header": {"kind":"HEADER","schema":"M3_R05_STARTUP_PUBLIC_BINARY_V1","clock_hz":40000000},
+    "tick_integer_fields": ["absolute_cycle","time_ps"],
+    "tick_kind":"STARTUP_TICK",
+    "binary_field_widths": {"rst_n":1,"frame_tick":1,"request_accept":1,"request_id":32,"commit":1,"committed_id":32,"left":24,"right":24,"clipped":1,"pending":1,"play_left":24,"play_right":24,"clip_count":32,"underflow":32,"bclk":1,"ws":1,"din":1},
+    "reset_fields": {"kind":"STARTUP_RESET","absolute_cycle":"integer last absolute edge count","time_ps":"integer exact simulator time","rst_n_binary":"1-bit binary string"},
+    "end_fields": ["kind","absolute_edges","main_first_absolute_cycle"]
+  },
+  "startup_inputs": {
+    "header": {"kind":"HEADER","schema":"M3_R05_STARTUP_INPUT_BINARY_V1","clock_hz":40000000},
+    "tick_integer_fields": ["absolute_cycle","time_ps"],
+    "tick_kind":"STARTUP_TICK",
+    "binary_field_widths": {"rst_n":1,"midi_rx":1,"event_valid":1,"event_ready":1,"event_data_binary":64,"config_valid":1,"config_ready":1,"active_voice_count":32},
+    "end_fields": ["kind","absolute_edges"],
+    "raw_input_initial_and_edges": "Preserved in REAL_INPUTS.jsonl from time zero, including INITIAL_INPUTS and all later MIDI_EDGE/RAW_RESET_EDGE, unchanged schema"
+  },
+  "binary_alphabet":"01xXzZ, actual %b formatting with full declared port width",
+  "boundary_raw_exact_keys": ["startup_edges","main_first_absolute_cycle","main_first_relative_cycle","main_first_time_ps","main_first_time_ns"],
+  "boundary_post_identity_keys": ["schema","startup_unknown","clock_hz","clock_period_ps","startup_edges","main_first_absolute_cycle","main_first_relative_cycle","main_first_time_ps","main_first_time_ns","absolute_cycle_offset","selection_predicate","source_contract","startup_capture","startup_inputs","boundary_raw","main_capture","main_inputs","producer_receipt","startup_has_xz","prefix_contiguous","early_business_accepts","limits"],
+  "boundary_schema":"M3_R05_SEGMENTED_BOUNDARY_V1",
+  "identity_shape":["path","bytes","sha256"],
+  "limits": {"startup":"UNKNOWN_NOT_SIGNED","first_valid":"UNKNOWN_NOT_EXPORTED","analog_latency":"UNKNOWN_NOT_MEASURED","board_release_allowed":false}
+}

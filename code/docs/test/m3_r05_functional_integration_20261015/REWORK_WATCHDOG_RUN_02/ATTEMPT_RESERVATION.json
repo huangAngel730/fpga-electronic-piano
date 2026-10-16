@@ -1,0 +1,53 @@
+{
+  "input_sha256": "dcf15f5d3ded1a0b160f55eab43066c728f80b3c329c44ea9f099c63f178696a",
+  "output": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\REWORK_WATCHDOG_RUN_02",
+  "preflight": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\REWORK_WATCHDOG_RUN_02\\PREFLIGHT.json",
+    "bytes": 68987,
+    "sha256": "1656653ba52853046865012d2b011848124dce2f6f4c967418a6cc905bb2a509"
+  },
+  "authorization_reference": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\M3_四项并行主责授权_2026-10-15.md",
+    "bytes": 9447,
+    "sha256": "9fb4166ad018a2f0648d239e531f4133e8871babcfca6539ded580989072539a"
+  },
+  "machine": "LAPTOP-KSS1MRR7",
+  "commands": [
+    [
+      "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vlib.exe",
+      "work"
+    ],
+    [
+      "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vlog.exe",
+      "-sv",
+      "+incdir+include",
+      "-f",
+      "compile.f"
+    ],
+    [
+      "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vsim.exe",
+      "-c",
+      "work.tb_m2_m1td_real_chain",
+      "-do",
+      "run -all; quit -f"
+    ]
+  ],
+  "candidate_overlay": {
+    "kind": "USER_AUTHORIZED_WATCHDOG_ONLY_OVERLAY",
+    "original_tb_sha256": "6e677154d0a53ff97e794555ef57695e385a9963de43f1ac9135a54c32fc9777",
+    "candidate": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_r05_functional_integration_20261015\\tb_r05_watchdog_7ms.sv",
+      "bytes": 3516,
+      "sha256": "24e7407f6abfcc28ed9dd886f41539e8f07b64da6e67c5932abbe504f6b5096a"
+    },
+    "user_scope": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_r05_functional_integration_20261015\\USER_REWORK_SCOPE_20261016.md",
+      "bytes": 1237,
+      "sha256": "c59311fbcca21e945ab5a7ce53c2a851db023a5ad59123fc8ee9a99ba7b30063"
+    },
+    "changed_member": "inputs/tb_m2_m1td_real_chain.sv",
+    "old_watchdog_ns": 6000000,
+    "new_watchdog_ns": 7000000,
+    "reverse_restores_original": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "phase": "SEAL_R01_COPY_READ_ONLY_INPUTS",
+  "command": "C:/Users/songdongkuan/miniconda3/python.exe -X utf8 code/software/m3_40mhz_pcm_i2s_latency_20261015/night_20261016/RESUME_R01/seal_resume.py",
+  "exit_code": 1,
+  "actual_error": "FileNotFoundError: [Errno 2] No such file or directory at shutil.copyfile(path, target), destination SEAL_R01/read_only_inputs/code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R01/RUN_04/stage/inputs/STARTUP_CAPTURE.jsonl",
+  "diagnosis": "Original source exists; nested destination exceeds normal Windows path length.",
+  "correction": "New SEAL_R02 destination uses SHA-derived flat names and explicit original/copy byte/SHA mapping; preserve partial SEAL_R01. No original source or old staged file changes.",
+  "note": "Faithful tool-response error summary, not a claim of independently captured process stderr."
+}

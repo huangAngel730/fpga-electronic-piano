@@ -1,0 +1,175 @@
+{
+  "status": "PARTIAL",
+  "task_complete": false,
+  "git_baseline": "c12636c034be62e10c564217298564422a533b9c",
+  "git_head_at_seal": "c12636c034be62e10c564217298564422a533b9c",
+  "utc": "2026-10-15T18:26:34.427362+00:00",
+  "modified_write_sets": [
+    "code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\night_20261016",
+    "code\\tb\\input\\visualizer\\m3_dual_slider_138k_candidate_20261015\\night_20261016\\tb_slider_audio_coexist.sv"
+  ],
+  "source_sha256": {
+    "code\\tb\\input\\visualizer\\m3_dual_slider_138k_candidate_20261015\\night_20261016\\tb_slider_audio_coexist.sv": "92b8a1873fef2b6d296596c0ba6bfb92ad99ae090869e17b3b3eed958c47ed7b",
+    "code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\night_20261016\\run_coexist.py": "e4eae2ab2dc4745f78afe9fb1189fa394976f10e2673f4bb73955ee214263cc5",
+    "code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\night_20261016\\check_coexist.py": "1d3164dd6efb756b8c29191d57e352ec014af21fc47758b4004ba0cc86324457",
+    "code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\night_20261016\\postprocess.py": "b5dad0465c4f82b2199ccf61e299f2b6d5a38ef0e6917718d3970acaef07e0f1"
+  },
+  "actual_tool_groups_consumed": 3,
+  "old_allowances_restored": false,
+  "actual_compile_starts": 3,
+  "actual_simulation_starts": 2,
+  "actual_runner_child_processes": 12,
+  "simulation_seconds": 3.8739999999997963,
+  "per_tool_limit_seconds": 300,
+  "per_group_limit_seconds": 300,
+  "new_batch_simulation_limit_seconds": 900,
+  "groups": [
+    {
+      "folder": "RUN_01",
+      "passed": false,
+      "error": "RuntimeError('CHILD_FAILED:compile')",
+      "elapsed_seconds": 6.875,
+      "simulation_seconds": 0.0,
+      "receipt_sha256": "f29b693598522a4f54c25c3e42cb25fdb9a11a1152eed6de4e81f66d93bee333"
+    },
+    {
+      "folder": "RUN_02",
+      "passed": false,
+      "error": "RuntimeError('CHILD_FAILED:positive_simulate')",
+      "elapsed_seconds": 0.5940000000009604,
+      "simulation_seconds": 0.0930000000007567,
+      "receipt_sha256": "b7b7dcc0bc8eb8ac54b3a3eda369382731e2900ee9007595191e12b78dee963f"
+    },
+    {
+      "folder": "RUN_03",
+      "passed": false,
+      "error": "RuntimeError('CHILD_FAILED:positive_check')",
+      "elapsed_seconds": 5.515999999999622,
+      "simulation_seconds": 3.7809999999990396,
+      "receipt_sha256": "a3519ba500f471f954f0695851cf23b0107d7df39a17522d69cf1a615ac5eac8"
+    }
+  ],
+  "positive_evidence": {
+    "level": "L2_DIAGNOSTIC_PCM_ORIGINAL_AUDIO_AND_VISUAL_MODULES",
+    "actual_compile_exit": 0,
+    "actual_simulate_exit": 0,
+    "simulation_tb_checks": 58,
+    "raw_capture_rows": 160024,
+    "decoded_stereo_frames": 188,
+    "complete_serial_requests": 186,
+    "underflows": 0,
+    "visual_audio_coverage": {
+      "1": {
+        "display_frames": 20,
+        "checks": 29,
+        "decoded_live_frames": 3,
+        "decoded_falling_frames": 17,
+        "serial_frame_continuity": true
+      },
+      "2": {
+        "display_frames": 20,
+        "checks": 29,
+        "decoded_live_frames": 3,
+        "decoded_falling_frames": 17,
+        "serial_frame_continuity": true
+      }
+    },
+    "reset_cancelled_request_ids_epoch1": [
+      96
+    ],
+    "reset_interrupted_serial_ids_epoch1": [
+      94,
+      95
+    ],
+    "frame_distribution": {
+      "1": {
+        "intervals": 95,
+        "distribution": {
+          "833": 64,
+          "834": 31
+        },
+        "average_hz": 48000.404213930226
+      },
+      "2": {
+        "intervals": 95,
+        "distribution": {
+          "833": 64,
+          "834": 31
+        },
+        "average_hz": 48000.404213930226
+      }
+    },
+    "max_diagnostic_digital_cycles": 1687,
+    "software_postcheck_exit": 0
+  },
+  "software_negative_cases": [
+    {
+      "name": "swap_serial_ws",
+      "evidence_kind": "SYNTHETIC_WAVEFORM_MUTATION",
+      "expected": "STEREO_FRAME_MIX",
+      "actual": "STEREO_FRAME_MIX",
+      "rejected": true,
+      "audio_sha256": "2b655b3656fa3f3b7543d116ff4963c6c9539d15df00803de2915370a7238c12",
+      "visual_sha256": "5734d85eaeb622658a1ec409af75b6b99ffda421236a6514bdb2bb913b0b29e3"
+    },
+    {
+      "name": "flip_payload_bit",
+      "evidence_kind": "SYNTHETIC_WAVEFORM_MUTATION",
+      "expected": "SERIAL_PCM_LSBJ_OR_STEREO",
+      "actual": "SERIAL_PCM_LSBJ_OR_STEREO",
+      "rejected": true,
+      "audio_sha256": "892ca71d9ca2d865c4cd86cda41172b1a5c5116e8adedf02c54ca2fe3aefb21f",
+      "visual_sha256": "5734d85eaeb622658a1ec409af75b6b99ffda421236a6514bdb2bb913b0b29e3"
+    },
+    {
+      "name": "drop_sys_cycle",
+      "evidence_kind": "SYNTHETIC_WAVEFORM_MUTATION",
+      "expected": "MISSING_OR_DUPLICATE_CYCLE",
+      "actual": "MISSING_OR_DUPLICATE_CYCLE",
+      "rejected": true,
+      "audio_sha256": "1b48671749bb434f7286092c43bccf1563b905f99976ccfa38c6fbfa894e94dd",
+      "visual_sha256": "5734d85eaeb622658a1ec409af75b6b99ffda421236a6514bdb2bb913b0b29e3"
+    },
+    {
+      "name": "unknown_pin",
+      "evidence_kind": "SYNTHETIC_WAVEFORM_MUTATION",
+      "expected": "UNKNOWN_OR_NONINTEGER",
+      "actual": "UNKNOWN_OR_NONINTEGER:5021",
+      "rejected": true,
+      "audio_sha256": "16f434b3f83289354f549ba20fa1a0bb0a52fa3a372fc829c67b6be1e2a04edd",
+      "visual_sha256": "5734d85eaeb622658a1ec409af75b6b99ffda421236a6514bdb2bb913b0b29e3"
+    },
+    {
+      "name": "drop_visual_frame",
+      "evidence_kind": "SYNTHETIC_WAVEFORM_MUTATION",
+      "expected": "D_VISUAL_FRAME_COMPLETENESS",
+      "actual": "D_VISUAL_FRAME_COMPLETENESS",
+      "rejected": true,
+      "audio_sha256": "45678d9e408fe9d38a9a9c6e797a4725d28439c03abfdda814928acdb3e6e87f",
+      "visual_sha256": "83006101465c532bffdc069d5390c91e9a71bc399c189119693ddae0d4d4687e"
+    }
+  ],
+  "software_dependency_boundary": "C decoder not separately listed in SOFTWARE_R02 before/after; frozen in RUN_03 and statically matched at seal",
+  "final_static_decoder_sha256": "eea802c41f8edf59787a5cb8f5c2aea5c19c3e3827479eaf52a20dc5424074b6",
+  "rtl_behavioral_negative_cases": {
+    "1": "UNKNOWN_NOT_EXECUTED",
+    "2": "UNKNOWN_NOT_EXECUTED",
+    "3": "UNKNOWN_NOT_EXECUTED",
+    "4": "UNKNOWN_NOT_EXECUTED"
+  },
+  "remaining_required_work": "Explicit new exact permission needed for four unexecuted TB fault injection variants; no fourth group authorized in this batch",
+  "board_release_allowed": false,
+  "r05_true_algorithm": "NOT_EXECUTED",
+  "full_board_top": "NOT_TESTED",
+  "gowin_invocations": 0,
+  "modelsim_invocations": 0,
+  "hardware_invocations": 0,
+  "git_writes": 0,
+  "hit_flash": "KNOWN_FAIL_DEFERRED_NOT_TESTED",
+  "old_99_and_4": "REUSED_NOT_RERUN",
+  "communications": {
+    "direct_message": "AUTO_REVIEW_REJECTED_NOT_DELIVERED",
+    "handoff": "WAITING_USER_FORWARD_NOT_DELIVERED"
+  },
+  "negative_history_retained": true
+}

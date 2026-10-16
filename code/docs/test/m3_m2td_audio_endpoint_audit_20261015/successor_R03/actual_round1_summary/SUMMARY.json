@@ -1,0 +1,93 @@
+{
+  "status": "ISOLATED_DIRECTED_B_CANDIDATE_PASS_PENDING_M2",
+  "observed_utc": "2026-10-15T16:32:58.140657+00:00",
+  "rounds_consumed": 1,
+  "physical_tool_calls": 1,
+  "tool_exit_code": 0,
+  "seconds_total": 344.8130000000019,
+  "timed_out": false,
+  "source_unchanged_during_tool": true,
+  "tool_unchanged_during_tool": true,
+  "source_path_literals_migrated": 40,
+  "source_files_migrated": 15,
+  "frozen_input_count": 84,
+  "query_format": "Vendor literal bracket names inside Tcl braces, not Tcl glob bracket character classes",
+  "pairs": [
+    {
+      "id": "post_right_ram_address",
+      "setup_slack_ns": "22.505",
+      "hold_slack_ns": "0.000"
+    },
+    {
+      "id": "voice_lane2_phase_to_rom",
+      "setup_slack_ns": "22.534",
+      "hold_slack_ns": "0.000"
+    },
+    {
+      "id": "pitch_lane3_total_to_oct",
+      "setup_slack_ns": "20.908",
+      "hold_slack_ns": "0.000"
+    },
+    {
+      "id": "pitch_lane0_total_to_sub",
+      "setup_slack_ns": "22.511",
+      "hold_slack_ns": "0.000"
+    },
+    {
+      "id": "event_fifo_to_audio_slot",
+      "setup_slack_ns": "1.736",
+      "hold_slack_ns": "2.814"
+    }
+  ],
+  "minimum_slack_in_reported_tables_ns": {
+    "setup": "1.736",
+    "hold": "0.000"
+  },
+  "resources": {
+    "Logic": {
+      "used": 27879,
+      "capacity": 138240
+    },
+    "Register": {
+      "used": 9582,
+      "capacity": 139095
+    },
+    "DSP": {
+      "used": 50,
+      "capacity": 298
+    },
+    "BSRAM": {
+      "used": 28,
+      "capacity": 340
+    }
+  },
+  "netlist": {
+    "classification": "CURRENT_RUN_SYNTHESIS_VG_NOT_POST_PNR_NETLIST",
+    "bytes": 10026429,
+    "sha256": "df098dbadce33724d0192298802e348d2adae10bc9a36a283a9393ce36d53437",
+    "requested_base_s1_string_occurrences": 0,
+    "requested_base_s2_string_occurrences": 0,
+    "base_original_name_absence_does_not_prove_functional_removal": true
+  },
+  "report": {
+    "bytes": 2784026,
+    "sha256": "68f3d8f410efc0a2aafd6c96b1ef694a7a1c1157115bc03cebf2231a568bb2ff"
+  },
+  "run_receipt": {
+    "bytes": 52108,
+    "sha256": "bee129d8c7ebacf82764d7cf52904e5cb24e2a0728d7a54ed48b5670d75fa75c"
+  },
+  "checker": {
+    "bytes": 13546,
+    "sha256": "248386e26aa902a6091e918a30d662e6db9707ca1519b50e393b6719d2c51f65"
+  },
+  "second_round": "NOT_USED_FIRST_ROUND_PASSED_NO_REPEAT_AUTHORIZED",
+  "board_release_allowed": false,
+  "limitations": [
+    "No formal M2 L5 signoff",
+    "Not R05 same-version functional signoff",
+    "Not PCM/I2S whole chain endpoint coverage",
+    "No hardware operation",
+    "Generated fs is local-only and excluded from transfer package"
+  ]
+}

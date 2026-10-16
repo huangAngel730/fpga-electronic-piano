@@ -1,0 +1,34 @@
+test_inactive_row (__main__.CandidatePredicateTests.test_inactive_row) ... ok
+test_missing_endpoint (__main__.CandidatePredicateTests.test_missing_endpoint) ... ok
+test_nan_slack (__main__.CandidatePredicateTests.test_nan_slack) ... FAIL
+test_negative_slack (__main__.CandidatePredicateTests.test_negative_slack) ... ok
+test_only_hold (__main__.CandidatePredicateTests.test_only_hold) ... ok
+test_only_setup (__main__.CandidatePredicateTests.test_only_setup) ... ok
+test_summary_command_cannot_replace_directed (__main__.CandidatePredicateTests.test_summary_command_cannot_replace_directed) ... ok
+test_synthetic_literal_brackets_complete (__main__.CandidatePredicateTests.test_synthetic_literal_brackets_complete) ... ok
+test_unrelated_audio_path (__main__.CandidatePredicateTests.test_unrelated_audio_path) ... ok
+test_wildcard_cannot_replace_literal_brackets (__main__.CandidatePredicateTests.test_wildcard_cannot_replace_literal_brackets) ... ok
+test_wrong_clock_object (__main__.CandidatePredicateTests.test_wrong_clock_object) ... ok
+test_wrong_pair_clock (__main__.CandidatePredicateTests.test_wrong_pair_clock) ... ok
+test_wrong_period (__main__.CandidatePredicateTests.test_wrong_period) ... ok
+test_wrong_tool_version (__main__.CandidatePredicateTests.test_wrong_tool_version) ... ok
+
+======================================================================
+FAIL: test_nan_slack (__main__.CandidatePredicateTests.test_nan_slack)
+----------------------------------------------------------------------
+b_signed_raw_parser.AuditError: slack: 'NaN'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\FPGA\GAOYUNFPGA\team\fpga-electronic-piano\code\software\m3_m2td_audio_endpoint_audit_20261015\successor_R03\test_candidate_check.py", line 69, in test_nan_slack
+    self.reject_change(lambda d: d["paths"][1].update({"Path Slack": "NaN"}), "non-finite|finite")
+  File "E:\FPGA\GAOYUNFPGA\team\fpga-electronic-piano\code\software\m3_m2td_audio_endpoint_audit_20261015\successor_R03\test_candidate_check.py", line 34, in reject_change
+    with self.assertRaisesRegex((ValueError, parser.AuditError), code):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "non-finite|finite" does not match "slack: 'NaN'"
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.002s
+
+FAILED (failures=1)

@@ -1,0 +1,34 @@
+{
+  "argv": [
+    "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+    "-B",
+    "-c",
+    "import sys;sys.path.insert(0,'E:\\\\FPGA\\\\GAOYUNFPGA\\\\team\\\\fpga-electronic-piano\\\\code\\\\software\\\\m3_r05_functional_integration_20261015');import ctypes as c;from windows_job import Startup;s=Startup();s.cb=c.sizeof(s);c.WinDLL('kernel32').GetStartupInfoW(c.byref(s));print('SYNTHETIC_STARTUP_STDIN',s.stdin,flush=True);raise SystemExit(7 if s.stdin is None else 8)"
+  ],
+  "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\REWORK_SOFTWARE_03\\SYNTHETIC_qkgozpfi",
+  "exit_code": 8,
+  "timeout": false,
+  "log_limit_exceeded": false,
+  "elapsed_s": 0.07800000000133878,
+  "step_budget_s": 4,
+  "step_deadline_monotonic": 22810.39,
+  "stdout": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\REWORK_SOFTWARE_03\\SYNTHETIC_qkgozpfi\\python.stdout.log",
+    "bytes": 29,
+    "sha256": "8b4697e31a56f3c2b14bee1c4fa89a7dcd3d29598c709e7b084fe9494e741940"
+  },
+  "stderr": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\REWORK_SOFTWARE_03\\SYNTHETIC_qkgozpfi\\python.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "error": null,
+  "process_created": true,
+  "launch_stage_failed": null,
+  "winerror": null,
+  "create_process_attempted": true,
+  "create_process_returned": true,
+  "created_pid": 1956,
+  "stdin_policy": "INHERIT_READ_ONLY_NUL_EOF",
+  "process_tree_policy": "SUSPENDED_START_ASSIGNED_JOB_KILL_ON_CLOSE"
+}

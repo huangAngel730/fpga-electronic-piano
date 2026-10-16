@@ -1,0 +1,18 @@
+--- resume_first_compile_failure_source
++++ observation_declaration_order_fix
+@@ -348,6 +348,7 @@
+     // 注意 sys_rst_n 是 1.5 V 域的用户按键，不是专用复位脚。
+     // -------------------------------------------------------------------------
+     logic rst_sync_n;
++    wire night_config_valid,night_config_ready;
+ 
+     reset_sync #(
+         .STAGES (2)
+@@ -718,7 +719,6 @@
+           night_config_ready,status_active_voice_count);
+     end
+     // These aliases only export the configuration input/output port wires.
+-    wire night_config_valid,night_config_ready;
+     always @(midi_rx) if ($time > 0) $fdisplay(night_input_fd,"{\"kind\":\"MIDI_EDGE\",\"time_ns\":%0d,\"value\":%0d}",$time,midi_rx);
+     always @(sys_rst_n) if ($time > 0) $fdisplay(night_input_fd,"{\"kind\":\"RAW_RESET_EDGE\",\"time_ns\":%0d,\"value\":%0d}",$time,sys_rst_n);
+     final begin

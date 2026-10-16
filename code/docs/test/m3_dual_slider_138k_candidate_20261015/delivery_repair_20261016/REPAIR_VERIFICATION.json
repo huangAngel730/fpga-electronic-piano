@@ -1,0 +1,395 @@
+{
+  "status": "L2_ISOLATED_CANDIDATE_FIXTURE_PASS",
+  "observed_utc": "2026-10-15T17:02:06.324099+00:00",
+  "new_repair_runs": [
+    {
+      "directory": "repair_run_01",
+      "checks": 46,
+      "result": {
+        "status": "PASS",
+        "error": null,
+        "identity_unchanged": true,
+        "results": [
+          {
+            "name": "positive",
+            "exit_code": 0,
+            "accepted": true
+          },
+          {
+            "name": "negative_1",
+            "exit_code": 1,
+            "accepted": false,
+            "expected_rejection": "MODE_CDC_DELIVERY"
+          },
+          {
+            "name": "negative_2",
+            "exit_code": 1,
+            "accepted": false,
+            "expected_rejection": "MODE_CDC_DELIVERY"
+          },
+          {
+            "name": "negative_3",
+            "exit_code": 1,
+            "accepted": false,
+            "expected_rejection": "FALLING_FRAME_PROGRESS"
+          },
+          {
+            "name": "negative_4",
+            "exit_code": 1,
+            "accepted": false,
+            "expected_rejection": "AUDIO_UNDERRUN"
+          }
+        ],
+        "tool_starts": 8,
+        "elapsed_seconds": 2.110000000000582,
+        "validation_level": "L2_ISOLATED_CANDIDATE_FIXTURE",
+        "real_audio_chain": false,
+        "sta_run": false,
+        "hardware_run": false,
+        "original_hit_flash": "KNOWN_FAIL_DEFERRED_NOT_TESTED",
+        "board_release_allowed": false
+      },
+      "calls": {
+        "compile": {
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+            "-g2012",
+            "-Wall",
+            "-s",
+            "tb_dual_slider",
+            "-o",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage\\candidate.vvp",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage\\s00.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage\\s01.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage\\s02.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage\\s03.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage\\s04.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage\\s05.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage\\s06.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage\\s07.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage\\s08.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage\\s09.sv"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 0,
+          "timeout": false,
+          "process_created": true,
+          "pid": 32808,
+          "elapsed_seconds": 0.0790000000015425
+        },
+        "iverilog_version": {
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+            "-V"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 0,
+          "timeout": false,
+          "process_created": true,
+          "pid": 17532,
+          "elapsed_seconds": 0.09399999999732245
+        },
+        "negative_1": {
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage\\candidate.vvp",
+            "+mutation=1"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 1,
+          "timeout": false,
+          "process_created": true,
+          "pid": 32000,
+          "elapsed_seconds": 0.030999999999039574
+        },
+        "negative_2": {
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage\\candidate.vvp",
+            "+mutation=2"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 1,
+          "timeout": false,
+          "process_created": true,
+          "pid": 42724,
+          "elapsed_seconds": 0.031000000002677552
+        },
+        "negative_3": {
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage\\candidate.vvp",
+            "+mutation=3"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 1,
+          "timeout": false,
+          "process_created": true,
+          "pid": 15996,
+          "elapsed_seconds": 0.030999999999039574
+        },
+        "negative_4": {
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage\\candidate.vvp",
+            "+mutation=4"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 1,
+          "timeout": false,
+          "process_created": true,
+          "pid": 29248,
+          "elapsed_seconds": 0.0319999999992433
+        },
+        "positive": {
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage\\candidate.vvp"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 0,
+          "timeout": false,
+          "process_created": true,
+          "pid": 33116,
+          "elapsed_seconds": 0.4850000000005821
+        },
+        "vvp_version": {
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+            "-V"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_01\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 0,
+          "timeout": false,
+          "process_created": true,
+          "pid": 43700,
+          "elapsed_seconds": 0.014999999999417923
+        }
+      },
+      "before_identity": {
+        "bytes": 88061,
+        "sha256": "5fc94d02764dc6a1efe18806571e82a4c10b00fe0606746fa0d14f798f47b19b"
+      },
+      "after_identity": {
+        "bytes": 88061,
+        "sha256": "5fc94d02764dc6a1efe18806571e82a4c10b00fe0606746fa0d14f798f47b19b"
+      }
+    },
+    {
+      "directory": "repair_run_02",
+      "checks": 99,
+      "result": {
+        "status": "PASS",
+        "error": null,
+        "identity_unchanged": true,
+        "results": [
+          {
+            "name": "positive",
+            "exit_code": 0,
+            "accepted": true
+          },
+          {
+            "name": "negative_1",
+            "exit_code": 1,
+            "accepted": false,
+            "expected_rejection": "MODE_CDC_DELIVERY"
+          },
+          {
+            "name": "negative_2",
+            "exit_code": 1,
+            "accepted": false,
+            "expected_rejection": "MODE_CDC_DELIVERY"
+          },
+          {
+            "name": "negative_3",
+            "exit_code": 1,
+            "accepted": false,
+            "expected_rejection": "FALLING_FRAME_PROGRESS"
+          },
+          {
+            "name": "negative_4",
+            "exit_code": 1,
+            "accepted": false,
+            "expected_rejection": "AUDIO_UNDERRUN"
+          }
+        ],
+        "tool_starts": 8,
+        "elapsed_seconds": 3.2810000000026776,
+        "validation_level": "L2_ISOLATED_CANDIDATE_FIXTURE",
+        "real_audio_chain": false,
+        "sta_run": false,
+        "hardware_run": false,
+        "original_hit_flash": "KNOWN_FAIL_DEFERRED_NOT_TESTED",
+        "board_release_allowed": false
+      },
+      "calls": {
+        "compile": {
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+            "-g2012",
+            "-Wall",
+            "-s",
+            "tb_dual_slider",
+            "-o",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage\\candidate.vvp",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage\\s00.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage\\s01.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage\\s02.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage\\s03.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage\\s04.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage\\s05.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage\\s06.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage\\s07.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage\\s08.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage\\s09.sv"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 0,
+          "timeout": false,
+          "process_created": true,
+          "pid": 35608,
+          "elapsed_seconds": 0.0930000000007567
+        },
+        "iverilog_version": {
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+            "-V"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 0,
+          "timeout": false,
+          "process_created": true,
+          "pid": 37128,
+          "elapsed_seconds": 0.07800000000133878
+        },
+        "negative_1": {
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage\\candidate.vvp",
+            "+mutation=1"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 1,
+          "timeout": false,
+          "process_created": true,
+          "pid": 22936,
+          "elapsed_seconds": 0.2959999999984575
+        },
+        "negative_2": {
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage\\candidate.vvp",
+            "+mutation=2"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 1,
+          "timeout": false,
+          "process_created": true,
+          "pid": 40624,
+          "elapsed_seconds": 0.2809999999990396
+        },
+        "negative_3": {
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage\\candidate.vvp",
+            "+mutation=3"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 1,
+          "timeout": false,
+          "process_created": true,
+          "pid": 44948,
+          "elapsed_seconds": 0.31199999999807915
+        },
+        "negative_4": {
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage\\candidate.vvp",
+            "+mutation=4"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 1,
+          "timeout": false,
+          "process_created": true,
+          "pid": 42776,
+          "elapsed_seconds": 0.03200000000288128
+        },
+        "positive": {
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage\\candidate.vvp"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 0,
+          "timeout": false,
+          "process_created": true,
+          "pid": 33016,
+          "elapsed_seconds": 0.9069999999992433
+        },
+        "vvp_version": {
+          "argv": [
+            "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+            "-V"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\repair_run_02\\stage",
+          "timeout_seconds": 90,
+          "owned_process_tree": true,
+          "exit_code": 0,
+          "timeout": false,
+          "process_created": true,
+          "pid": 40808,
+          "elapsed_seconds": 0.0
+        }
+      },
+      "before_identity": {
+        "bytes": 88061,
+        "sha256": "869a3e011ea2dd97f7078db4943f81caf46ecea7f87ab25fa1a6288fb2705e1d"
+      },
+      "after_identity": {
+        "bytes": 88061,
+        "sha256": "869a3e011ea2dd97f7078db4943f81caf46ecea7f87ab25fa1a6288fb2705e1d"
+      }
+    }
+  ],
+  "old_night_tool_starts": 6,
+  "new_tool_starts": 16,
+  "historical_tool_starts_total": 22,
+  "old_allowance_restored": false,
+  "final_positive_checks": 99,
+  "final_expected_negative_rejections": 4,
+  "board_release_allowed": false,
+  "physical_tool_calls": 0,
+  "hardware_calls": 0,
+  "git_writes_by_this_window": 0,
+  "forwarding_status": "PENDING_USER_FORWARD_NOT_DELIVERED"
+}

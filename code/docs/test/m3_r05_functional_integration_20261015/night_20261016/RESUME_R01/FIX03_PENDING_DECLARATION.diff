@@ -1,0 +1,18 @@
+--- failed_FIX02
++++ pending_L0_FIX03
+@@ -349,6 +349,7 @@
+     // -------------------------------------------------------------------------
+     logic rst_sync_n;
+     wire night_config_valid,night_config_ready;
++    wire night_committed_clip;
+ 
+     reset_sync #(
+         .STAGES (2)
+@@ -690,7 +691,6 @@
+ 
+ 
+     // NIGHT OBSERVATION ONLY: all taps are direct public module port wires.
+-    wire night_committed_clip;
+     reg night_capture_enabled=0;
+     wire night_can_start = (rst_sync_n===1'b0) &&
+       ((^{rst_sync_n,i2s_frame_tick,frame_sample_req,sample_req_id,pcm_valid_q,

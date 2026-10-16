@@ -1,0 +1,87 @@
+{
+  "passed": true,
+  "level": "L1_INDEPENDENT_CONSUMER_OF_SUPPLIED_CAPTURE",
+  "capture_sha256": "a2509a2b5555437ff8ee1da4799e8210ad80e95a058881a5d26111a935e5b5d3",
+  "ticks": 253456,
+  "last_epoch": 1,
+  "clock_hz": 40000000,
+  "sample_rate_hz": 48000,
+  "accepted_requests": 303,
+  "committed_requests": 303,
+  "cancelled_requests": 0,
+  "pending_requests_at_end": 0,
+  "commits_with_proven_next_frame_deadline": 303,
+  "commits_with_unknown_next_frame_deadline": 0,
+  "commits_cancelled_by_reset_before_next_frame": 0,
+  "serial_observed_committed_requests": 301,
+  "serial_unobserved_committed_requests": 2,
+  "frame_distribution": {
+    "0": {
+      "833": 202,
+      "834": 101
+    }
+  },
+  "max_accept_to_commit_cycles": 35,
+  "max_request_to_serial_cycles": 1673,
+  "reset_records": [
+    {
+      "kind": "RESET",
+      "epoch": 1,
+      "cycle": 253417,
+      "time_ns": 6335413
+    }
+  ],
+  "partial_serial_aborted_by_reset": 1,
+  "first_valid": "UNKNOWN_NOT_EXPORTED",
+  "clip_math": "UNKNOWN_PUBLIC_METADATA_ONLY",
+  "analog_end_to_end_10ms": "UNKNOWN_NOT_MEASURED",
+  "board_release_allowed": false,
+  "evidence_kind": "A_REAL_R05_KNOWN_RESET_MAIN_WINDOW_WITH_RAW_UNKNOWN_STARTUP",
+  "producer_receipt_sha256": "1516a35e6a5852164866aa729f8897ca5a668a4308f8e1ce60e91fa994211dbc",
+  "serial_stereo_frames": 302,
+  "serial_half_frames": 606,
+  "sampled_frames": 304,
+  "max_accept_to_commit_us": 0.875,
+  "max_request_to_serial_us": 41.825,
+  "equal_channels_all_commits": true,
+  "actual_clip_commits": 0,
+  "committed_serial_reset_aborts": [
+    {
+      "epoch": 0,
+      "id": 302,
+      "request_cycle": 251751,
+      "request_frame_cycle": 251749,
+      "status": "COMMITTED",
+      "deadline": "PROVEN_BEFORE_NEXT_FRAME",
+      "commit_cycle": 251786,
+      "left": 1496034,
+      "right": 1496034,
+      "clipped": 0,
+      "accept_to_commit_cycles": 35,
+      "sample_cycle": 252582,
+      "next_frame_cycle": 252582,
+      "serial_disposition": "CANCELLED_RESET_BEFORE_SERIAL_COMPLETE",
+      "reset_cycle": 253417
+    },
+    {
+      "epoch": 0,
+      "id": 303,
+      "request_cycle": 252584,
+      "request_frame_cycle": 252582,
+      "status": "COMMITTED",
+      "deadline": "PROVEN_BEFORE_NEXT_FRAME",
+      "commit_cycle": 252619,
+      "left": 1390692,
+      "right": 1390692,
+      "clipped": 0,
+      "accept_to_commit_cycles": 35,
+      "sample_cycle": 253416,
+      "next_frame_cycle": 253416,
+      "serial_disposition": "CANCELLED_RESET_BEFORE_SERIAL_COMPLETE",
+      "reset_cycle": 253417
+    }
+  ],
+  "anti_swap_actual_coverage": "NOT_DISTINGUISHABLE_MONO_EQUAL_CHANNELS",
+  "reset_release_after_final_assertion": "NOT_OBSERVED",
+  "analog_10ms": "UNKNOWN_NOT_MEASURED"
+}

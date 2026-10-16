@@ -1,0 +1,79 @@
+{
+  "name": "valid_slot_serial_lsb_corruption",
+  "expected": "SERIAL_PCM_OR_CHANNEL_MISMATCH",
+  "actual": "SERIAL_PCM_OR_CHANNEL_MISMATCH",
+  "passed": true,
+  "exit_code": 1,
+  "seconds": 0.6399999999994179,
+  "argv": [
+    "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+    "-X",
+    "utf8",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\consume_capture.py",
+    "code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\real_negative_R01\\cases\\valid_slot_serial_lsb_corruption\\DAMAGED_FROM_REAL_CAPTURE.jsonl",
+    "--sha256",
+    "5bbe2406ca0e558d2bba49c5cb26e84e319ad85508d29edd6fa6b52dd7b045cf",
+    "--output",
+    "code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\real_negative_R01\\cases\\valid_slot_serial_lsb_corruption\\REJECTION.json"
+  ],
+  "original_capture_sha256": "a2509a2b5555437ff8ee1da4799e8210ad80e95a058881a5d26111a935e5b5d3",
+  "damaged_capture_sha256": "5bbe2406ca0e558d2bba49c5cb26e84e319ad85508d29edd6fa6b52dd7b045cf",
+  "damaged_bytes": 74394880,
+  "changes": [
+    {
+      "cycle": 39667,
+      "action": "MODIFIED_FIELDS"
+    },
+    {
+      "cycle": 39668,
+      "action": "MODIFIED_FIELDS"
+    },
+    {
+      "cycle": 39669,
+      "action": "MODIFIED_FIELDS"
+    },
+    {
+      "cycle": 39670,
+      "action": "MODIFIED_FIELDS"
+    },
+    {
+      "cycle": 39671,
+      "action": "MODIFIED_FIELDS"
+    },
+    {
+      "cycle": 39672,
+      "action": "MODIFIED_FIELDS"
+    },
+    {
+      "cycle": 39673,
+      "action": "MODIFIED_FIELDS"
+    },
+    {
+      "cycle": 39674,
+      "action": "MODIFIED_FIELDS"
+    },
+    {
+      "cycle": 39675,
+      "action": "MODIFIED_FIELDS"
+    },
+    {
+      "cycle": 39676,
+      "action": "MODIFIED_FIELDS"
+    },
+    {
+      "cycle": 39677,
+      "action": "MODIFIED_FIELDS"
+    },
+    {
+      "cycle": 39678,
+      "action": "MODIFIED_FIELDS"
+    },
+    {
+      "cycle": 39679,
+      "action": "MODIFIED_FIELDS"
+    }
+  ],
+  "stdout_sha256": "2cea289096b28e56541058276562646b537c126dec4201d2d22193d3c185b43f",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "kind": "FULL_DAMAGED_DERIVATIVE_NOT_A_NEW_RTL_RUN"
+}

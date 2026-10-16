@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "error": null,
+  "identity_unchanged": true,
+  "results": [
+    {
+      "name": "positive",
+      "exit_code": 0,
+      "accepted": true
+    },
+    {
+      "name": "negative_1",
+      "exit_code": 1,
+      "accepted": false,
+      "expected_rejection": "MODE_CDC_DELIVERY"
+    },
+    {
+      "name": "negative_2",
+      "exit_code": 1,
+      "accepted": false,
+      "expected_rejection": "MODE_CDC_DELIVERY"
+    },
+    {
+      "name": "negative_3",
+      "exit_code": 1,
+      "accepted": false,
+      "expected_rejection": "FALLING_FRAME_PROGRESS"
+    },
+    {
+      "name": "negative_4",
+      "exit_code": 1,
+      "accepted": false,
+      "expected_rejection": "AUDIO_UNDERRUN"
+    }
+  ],
+  "tool_starts": 8,
+  "elapsed_seconds": 3.2810000000026776,
+  "validation_level": "L2_ISOLATED_CANDIDATE_FIXTURE",
+  "real_audio_chain": false,
+  "sta_run": false,
+  "hardware_run": false,
+  "original_hit_flash": "KNOWN_FAIL_DEFERRED_NOT_TESTED",
+  "board_release_allowed": false
+}

@@ -1,0 +1,31 @@
+{
+  "name": "reset_then_end_no_low_tick",
+  "expected": "END_WITH_UNOBSERVED_RESET",
+  "actual": "END_WITH_UNOBSERVED_RESET",
+  "passed": true,
+  "exit_code": 1,
+  "seconds": 3.437999999994645,
+  "argv": [
+    "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+    "-X",
+    "utf8",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\consume_capture.py",
+    "code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\real_negative_R01\\cases\\reset_then_end_no_low_tick\\DAMAGED_FROM_REAL_CAPTURE.jsonl",
+    "--sha256",
+    "fc0c65384d37e28e2c21482a66245ed77fdcc3ac791ab020aa8e1c84985601f0",
+    "--output",
+    "code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\real_negative_R01\\cases\\reset_then_end_no_low_tick\\REJECTION.json"
+  ],
+  "original_capture_sha256": "a2509a2b5555437ff8ee1da4799e8210ad80e95a058881a5d26111a935e5b5d3",
+  "damaged_capture_sha256": "fc0c65384d37e28e2c21482a66245ed77fdcc3ac791ab020aa8e1c84985601f0",
+  "damaged_bytes": 74384277,
+  "changes": [
+    {
+      "kind": "END_IMMEDIATELY_AFTER_REAL_RESET",
+      "cycle": 253417
+    }
+  ],
+  "stdout_sha256": "d6cb878e19d0c73af4274908d4274ea1271d6ebed6cfd215802d7e0b25768e0b",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "kind": "FULL_DAMAGED_DERIVATIVE_NOT_A_NEW_RTL_RUN"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "din_changes_away_from_falling",
+  "expected": "WS_DIN_CHANGED_OUTSIDE_FALLING_BCLK",
+  "actual": "WS_DIN_CHANGED_OUTSIDE_FALLING_BCLK",
+  "passed": true,
+  "exit_code": 1,
+  "seconds": 0.2809999999954016,
+  "argv": [
+    "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+    "-X",
+    "utf8",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\consume_capture.py",
+    "code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\real_negative_R01\\cases\\din_changes_away_from_falling\\DAMAGED_FROM_REAL_CAPTURE.jsonl",
+    "--sha256",
+    "89684462207ec67e6402e45b40d78f728e1fec8168f6def76a55558a6b52711c",
+    "--output",
+    "code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\real_negative_R01\\cases\\din_changes_away_from_falling\\REJECTION.json"
+  ],
+  "original_capture_sha256": "a2509a2b5555437ff8ee1da4799e8210ad80e95a058881a5d26111a935e5b5d3",
+  "damaged_capture_sha256": "89684462207ec67e6402e45b40d78f728e1fec8168f6def76a55558a6b52711c",
+  "damaged_bytes": 74394880,
+  "changes": [
+    {
+      "cycle": 10001,
+      "action": "MODIFIED_FIELDS"
+    }
+  ],
+  "stdout_sha256": "2ef8d4736c64f2a0bb6f55a20a8e745b88131a4746b05c812a3879af383ef2c8",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "kind": "FULL_DAMAGED_DERIVATIVE_NOT_A_NEW_RTL_RUN"
+}

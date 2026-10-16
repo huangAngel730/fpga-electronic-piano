@@ -1,0 +1,43 @@
+CHECK RESET_LOCAL_RELEASE
+CHECK RESET_EMPTY_LIVE_MODE
+FRAME 1 mode=0 live=1 held=1 top=00000036 end=00000040 falling=0 ft=00000000 fe=00000000 audio=0
+CHECK HELD_START_AT_BOTTOM
+FRAME 2 mode=0 live=1 held=1 top=00000032 end=00000040 falling=0 ft=00000000 fe=00000000 audio=0
+CHECK HELD_LENGTH_GROWS
+CHECK LIVE_RENDERER_REAL_PIXEL
+FRAME 3 mode=0 live=3 held=3 top=0000362e end=00004040 falling=0 ft=00000000 fe=00000000 audio=0
+CHECK MULTISOURCE_SAME_NOTE_TWO_BARS
+FRAME 4 mode=0 live=3 held=2 top=0000322a end=00004040 falling=0 ft=00000000 fe=00000000 audio=0
+CHECK NOTE_OFF_PRESERVES_OTHER_SOURCE
+FRAME 5 mode=0 live=3 held=2 top=00002e26 end=0000403c falling=0 ft=00000000 fe=00000000 audio=0
+CHECK RELEASED_BAR_TRANSLATES_ONLY_OWN_INSTANCE
+FRAME 6 mode=0 live=7 held=6 top=00362a22 end=00404038 falling=0 ft=00000000 fe=00000000 audio=0
+CHECK CHANNEL_IDENTITY_DISTINCT
+FRAME 7 mode=0 live=7 held=4 top=0032261e end=00404034 falling=0 ft=00000000 fe=00000000 audio=0
+CHECK ZERO_VELOCITY_RELEASE_IDENTITY
+FRAME 8 mode=0 live=7 held=0 top=002e221a end=00403c30 falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 9 mode=0 live=7 held=0 top=002a1e16 end=003c382c falling=0 ft=00000000 fe=00000000 audio=0
+CHECK FINAL_IDENTITY_RELEASES_KEY
+FRAME 10 mode=0 live=7 held=0 top=00261a12 end=00383428 falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 11 mode=0 live=7 held=0 top=0022160e end=00343024 falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 12 mode=0 live=7 held=0 top=001e120a end=00302c20 falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 13 mode=0 live=7 held=0 top=001a0e06 end=002c281c falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 14 mode=0 live=7 held=0 top=00160a02 end=00282418 falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 15 mode=0 live=7 held=0 top=00120600 end=00242014 falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 16 mode=0 live=7 held=0 top=000e0200 end=00201c10 falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 17 mode=0 live=7 held=0 top=000a0000 end=001c180c falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 18 mode=0 live=7 held=0 top=00060000 end=00181408 falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 19 mode=0 live=7 held=0 top=00020000 end=00141004 falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 20 mode=0 live=6 held=0 top=00000000 end=00100c00 falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 21 mode=0 live=6 held=0 top=00000000 end=000c0800 falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 22 mode=0 live=6 held=0 top=00000000 end=00080400 falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 23 mode=0 live=4 held=0 top=00000000 end=00040000 falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 24 mode=0 live=0 held=0 top=00000000 end=00000000 falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 25 mode=0 live=0 held=0 top=00000000 end=00000000 falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 26 mode=0 live=0 held=0 top=00000000 end=00000000 falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 27 mode=0 live=0 held=0 top=00000000 end=00000000 falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 28 mode=0 live=0 held=0 top=00000000 end=00000000 falling=0 ft=00000000 fe=00000000 audio=0
+FRAME 29 mode=0 live=0 held=0 top=00000000 end=00000000 falling=0 ft=00000000 fe=00000000 audio=0
+CHECK RELEASE_EXIT_RECLAIM
+FATAL: E:\FPGA\GAOYUNFPGA\team\fpga-electronic-piano\code\docs\test\m3_dual_slider_138k_candidate_20261015\repair_run_01\stage\s09.sv:32: REJECT MODE_CDC_DELIVERY checks=13 frame=29
+       Time: 12240000  Scope: tb_dual_slider.check

@@ -1,0 +1,22 @@
+{
+  "status": "L0_STATIC_ONLY_NOT_COMPILED_OR_RUN",
+  "before": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_night_fourvoice_integration_candidate_20261015\\night_20261016\\RESUME_R01\\FIX_02\\m2_fourvoice_timbre_delay_board_observed.sv",
+    "bytes": 42110,
+    "sha256": "b16f19b783da8a5400c9ac9653e12082586e7dfb647dc798c495eb78d27020f3"
+  },
+  "after": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_night_fourvoice_integration_candidate_20261015\\night_20261016\\RESUME_R01\\FIX_03_PENDING\\m2_fourvoice_timbre_delay_board_observed.sv",
+    "bytes": 42110,
+    "sha256": "4734b2dd65d9c732dbe610ecab1cdf7397fba77d905b72d7956a6434336f8e46"
+  },
+  "diff": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\FIX03_PENDING_DECLARATION.diff",
+    "bytes": 586,
+    "sha256": "1c2212f954ac2ffe427b27ba674dc2761f445c49361e987ead4912717e78c158"
+  },
+  "change": "Move observation-only night_committed_clip declaration before generate use",
+  "reason": "Real prefix shows clipped Z; late outer declaration allows an earlier generate-scope implicit net",
+  "remaining_functional_allowance": 0,
+  "algorithm_rom_clock_modified": false
+}

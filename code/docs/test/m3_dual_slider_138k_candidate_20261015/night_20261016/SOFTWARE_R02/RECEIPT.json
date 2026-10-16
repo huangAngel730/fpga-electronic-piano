@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "before": {
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\night_20261016\\RUN_03\\positive\\capture.csv": "45678d9e408fe9d38a9a9c6e797a4725d28439c03abfdda814928acdb3e6e87f",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\night_20261016\\RUN_03\\positive\\visual.csv": "5734d85eaeb622658a1ec409af75b6b99ffda421236a6514bdb2bb913b0b29e3",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\night_20261016\\check_coexist.py": "1d3164dd6efb756b8c29191d57e352ec014af21fc47758b4004ba0cc86324457",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\night_20261016\\postprocess.py": "b5dad0465c4f82b2199ccf61e299f2b6d5a38ef0e6917718d3970acaef07e0f1",
+    "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8"
+  },
+  "after": {
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\night_20261016\\RUN_03\\positive\\capture.csv": "45678d9e408fe9d38a9a9c6e797a4725d28439c03abfdda814928acdb3e6e87f",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\night_20261016\\RUN_03\\positive\\visual.csv": "5734d85eaeb622658a1ec409af75b6b99ffda421236a6514bdb2bb913b0b29e3",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\night_20261016\\check_coexist.py": "1d3164dd6efb756b8c29191d57e352ec014af21fc47758b4004ba0cc86324457",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_dual_slider_138k_candidate_20261015\\night_20261016\\postprocess.py": "b5dad0465c4f82b2199ccf61e299f2b6d5a38ef0e6917718d3970acaef07e0f1",
+    "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8"
+  },
+  "cases": [
+    {
+      "name": "swap_serial_ws",
+      "evidence_kind": "SYNTHETIC_WAVEFORM_MUTATION",
+      "expected": "STEREO_FRAME_MIX",
+      "actual": "STEREO_FRAME_MIX",
+      "rejected": true,
+      "audio_sha256": "2b655b3656fa3f3b7543d116ff4963c6c9539d15df00803de2915370a7238c12",
+      "visual_sha256": "5734d85eaeb622658a1ec409af75b6b99ffda421236a6514bdb2bb913b0b29e3"
+    },
+    {
+      "name": "flip_payload_bit",
+      "evidence_kind": "SYNTHETIC_WAVEFORM_MUTATION",
+      "expected": "SERIAL_PCM_LSBJ_OR_STEREO",
+      "actual": "SERIAL_PCM_LSBJ_OR_STEREO",
+      "rejected": true,
+      "audio_sha256": "892ca71d9ca2d865c4cd86cda41172b1a5c5116e8adedf02c54ca2fe3aefb21f",
+      "visual_sha256": "5734d85eaeb622658a1ec409af75b6b99ffda421236a6514bdb2bb913b0b29e3"
+    },
+    {
+      "name": "drop_sys_cycle",
+      "evidence_kind": "SYNTHETIC_WAVEFORM_MUTATION",
+      "expected": "MISSING_OR_DUPLICATE_CYCLE",
+      "actual": "MISSING_OR_DUPLICATE_CYCLE",
+      "rejected": true,
+      "audio_sha256": "1b48671749bb434f7286092c43bccf1563b905f99976ccfa38c6fbfa894e94dd",
+      "visual_sha256": "5734d85eaeb622658a1ec409af75b6b99ffda421236a6514bdb2bb913b0b29e3"
+    },
+    {
+      "name": "unknown_pin",
+      "evidence_kind": "SYNTHETIC_WAVEFORM_MUTATION",
+      "expected": "UNKNOWN_OR_NONINTEGER",
+      "actual": "UNKNOWN_OR_NONINTEGER:5021",
+      "rejected": true,
+      "audio_sha256": "16f434b3f83289354f549ba20fa1a0bb0a52fa3a372fc829c67b6be1e2a04edd",
+      "visual_sha256": "5734d85eaeb622658a1ec409af75b6b99ffda421236a6514bdb2bb913b0b29e3"
+    },
+    {
+      "name": "drop_visual_frame",
+      "evidence_kind": "SYNTHETIC_WAVEFORM_MUTATION",
+      "expected": "D_VISUAL_FRAME_COMPLETENESS",
+      "actual": "D_VISUAL_FRAME_COMPLETENESS",
+      "rejected": true,
+      "audio_sha256": "45678d9e408fe9d38a9a9c6e797a4725d28439c03abfdda814928acdb3e6e87f",
+      "visual_sha256": "83006101465c532bffdc069d5390c91e9a71bc399c189119693ddae0d4d4687e"
+    }
+  ],
+  "elapsed_seconds": 4.296999999998661,
+  "utc": "2026-10-15T18:23:38.593998+00:00",
+  "rtl_invocations": 0,
+  "tb_behavioral_negatives": "UNKNOWN_NOT_EXECUTED_AFTER_THIRD_GROUP_STOP",
+  "board_release_allowed": false
+}

@@ -1,0 +1,636 @@
+{
+  "schema": "C_HISTORICAL_AUDIT_V1",
+  "head_at_audit": "8b64a352464932a28df565038cafc8d623dea5c9",
+  "initial_runtime_head": "874c097d34140b120d52eaadd9748dd6ae8d5894",
+  "current_authority_inputs": [
+    {
+      "path": "code\\docs\\M3_四项并行主责授权_2026-10-15.md",
+      "bytes": 9447,
+      "sha256": "9fb4166ad018a2f0648d239e531f4133e8871babcfca6539ded580989072539a"
+    },
+    {
+      "path": "code\\docs\\M3_夜间M2候选权限预授权_2026-10-15.md",
+      "bytes": 7064,
+      "sha256": "43596e2900b0844d08745efc05b52f1db20ff30698aa6e2097fcf24ba40df981"
+    },
+    {
+      "path": "code\\docs\\M3_夜间八小时任务单_2026-10-15.md",
+      "bytes": 11254,
+      "sha256": "91c3b02b9bb01899695a0b544ce85cf607825a13326f89dd4366ecf8e2413f3c"
+    }
+  ],
+  "historical_initial_authority_sha256": "6f3a9b03782c5dd10d3548355c84044b36e1da0f8848ba4908ee4dc4fd952e3d",
+  "rounds": [
+    {
+      "run": "R01",
+      "receipt_sha256": "a54cff89af66efbc10234375e8651dbb56f2deaa3218c19ab2ff25a520720fc0",
+      "filesystem_last_write_local": "2026-10-15T22:21:04.789225",
+      "elapsed_seconds": 8.109000000000378,
+      "passed": false,
+      "exit_code": 1,
+      "failure": "RuntimeError('CHILD_FAILED:normal_compile')",
+      "actual_child_invocations": 3,
+      "source_sha256": {
+        "check_capture.py": "1c81b282f6811c252153c517c661b3ad465f3351ef7d6a2948d3d5af7c068e64",
+        "run.py": "dec735b435374124c600ccbcedf3277cd00f47a5ea1d927fa2063a6da0de092e",
+        "test_capture.py": "965a3816d7dddcc368b4a627af85fe987db6de7711c18c03640357e5edb7fb89",
+        "tb_public_serial.sv": "46e0ca336e7bd54048855e223e9e3e00f96714618f6dbb8979cb5858f0c940f3"
+      },
+      "stage_sha256": {
+        "compile.f": "99279bbab257786467495ba95ee311b969ed72f94ffe458e1e935a5f29bfd2bb",
+        "i2s_tx.sv": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+        "MANIFEST.json": "f0d3dcb573bb7d2e1afe130cb9cfbcbceb6acc646063c5f594cc5ef7fcdc98cb",
+        "pcm_frame_buffer.sv": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+        "PREPARATION_RECEIPT.json": "5e76cfa2f04b04c2142818c27d8dc3c91d5cbaf0b47ab8f497bacd5f6159067b",
+        "sample_tick_gen.sv": "0ae119c759ef208560a877c6393d6b1caa2fe0f4aa7f9cc8335b1982e6d139d6",
+        "tb_public_serial.sv": "46e0ca336e7bd54048855e223e9e3e00f96714618f6dbb8979cb5858f0c940f3"
+      }
+    },
+    {
+      "run": "R02",
+      "receipt_sha256": "ebe6da29edc4a154ad49192c1410d9c5b626a3ef6aaed58c0e76bca3d7c7e5f2",
+      "filesystem_last_write_local": "2026-10-15T22:22:33.376211",
+      "elapsed_seconds": 2.67200000000048,
+      "passed": false,
+      "exit_code": 1,
+      "failure": "RuntimeError('CHILD_FAILED:normal_check')",
+      "actual_child_invocations": 5,
+      "source_sha256": {
+        "check_capture.py": "1c81b282f6811c252153c517c661b3ad465f3351ef7d6a2948d3d5af7c068e64",
+        "run.py": "dec735b435374124c600ccbcedf3277cd00f47a5ea1d927fa2063a6da0de092e",
+        "test_capture.py": "965a3816d7dddcc368b4a627af85fe987db6de7711c18c03640357e5edb7fb89",
+        "tb_public_serial.sv": "46e0ca336e7bd54048855e223e9e3e00f96714618f6dbb8979cb5858f0c940f3"
+      },
+      "stage_sha256": {
+        "compile.f": "99279bbab257786467495ba95ee311b969ed72f94ffe458e1e935a5f29bfd2bb",
+        "i2s_tx.sv": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+        "MANIFEST.json": "f0d3dcb573bb7d2e1afe130cb9cfbcbceb6acc646063c5f594cc5ef7fcdc98cb",
+        "pcm_frame_buffer.sv": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+        "PREPARATION_RECEIPT.json": "5e76cfa2f04b04c2142818c27d8dc3c91d5cbaf0b47ab8f497bacd5f6159067b",
+        "sample_tick_gen.sv": "0ae119c759ef208560a877c6393d6b1caa2fe0f4aa7f9cc8335b1982e6d139d6",
+        "tb_public_serial.sv": "46e0ca336e7bd54048855e223e9e3e00f96714618f6dbb8979cb5858f0c940f3"
+      }
+    },
+    {
+      "run": "R03",
+      "receipt_sha256": "ec5d287138d614a8c6293aee99e8ef3209642feffad33ae0e7fad5dfbfb8d229",
+      "filesystem_last_write_local": "2026-10-15T22:23:20.793818",
+      "elapsed_seconds": 3.811999999999898,
+      "passed": false,
+      "exit_code": 1,
+      "failure": "RuntimeError('CHILD_FAILED:normal_check')",
+      "actual_child_invocations": 5,
+      "source_sha256": {
+        "check_capture.py": "1c81b282f6811c252153c517c661b3ad465f3351ef7d6a2948d3d5af7c068e64",
+        "run.py": "dec735b435374124c600ccbcedf3277cd00f47a5ea1d927fa2063a6da0de092e",
+        "test_capture.py": "965a3816d7dddcc368b4a627af85fe987db6de7711c18c03640357e5edb7fb89",
+        "tb_public_serial.sv": "7412e25646da6a06d3b3fdd4957a16dcf9ab3c6e0987b64c6377cdfddae7eced"
+      },
+      "stage_sha256": {
+        "compile.f": "99279bbab257786467495ba95ee311b969ed72f94ffe458e1e935a5f29bfd2bb",
+        "i2s_tx.sv": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+        "MANIFEST.json": "f0d3dcb573bb7d2e1afe130cb9cfbcbceb6acc646063c5f594cc5ef7fcdc98cb",
+        "pcm_frame_buffer.sv": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+        "PREPARATION_RECEIPT.json": "5e76cfa2f04b04c2142818c27d8dc3c91d5cbaf0b47ab8f497bacd5f6159067b",
+        "sample_tick_gen.sv": "0ae119c759ef208560a877c6393d6b1caa2fe0f4aa7f9cc8335b1982e6d139d6",
+        "tb_public_serial.sv": "7412e25646da6a06d3b3fdd4957a16dcf9ab3c6e0987b64c6377cdfddae7eced"
+      }
+    },
+    {
+      "run": "R04",
+      "receipt_sha256": "aa72f2bb9bedb35d91c9d7da4919e8cf0cbb1f848b85027cd53780b738443504",
+      "filesystem_last_write_local": "2026-10-15T22:24:22.133071",
+      "elapsed_seconds": 13.46900000000096,
+      "passed": true,
+      "exit_code": 0,
+      "failure": null,
+      "actual_child_invocations": 9,
+      "source_sha256": {
+        "check_capture.py": "eea802c41f8edf59787a5cb8f5c2aea5c19c3e3827479eaf52a20dc5424074b6",
+        "run.py": "dec735b435374124c600ccbcedf3277cd00f47a5ea1d927fa2063a6da0de092e",
+        "test_capture.py": "965a3816d7dddcc368b4a627af85fe987db6de7711c18c03640357e5edb7fb89",
+        "tb_public_serial.sv": "7412e25646da6a06d3b3fdd4957a16dcf9ab3c6e0987b64c6377cdfddae7eced"
+      },
+      "stage_sha256": {
+        "compile.f": "99279bbab257786467495ba95ee311b969ed72f94ffe458e1e935a5f29bfd2bb",
+        "i2s_tx.sv": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+        "MANIFEST.json": "f0d3dcb573bb7d2e1afe130cb9cfbcbceb6acc646063c5f594cc5ef7fcdc98cb",
+        "pcm_frame_buffer.sv": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+        "PREPARATION_RECEIPT.json": "5e76cfa2f04b04c2142818c27d8dc3c91d5cbaf0b47ab8f497bacd5f6159067b",
+        "sample_tick_gen.sv": "0ae119c759ef208560a877c6393d6b1caa2fe0f4aa7f9cc8335b1982e6d139d6",
+        "tb_public_serial.sv": "7412e25646da6a06d3b3fdd4957a16dcf9ab3c6e0987b64c6377cdfddae7eced"
+      }
+    }
+  ],
+  "all_calls": [
+    {
+      "run": "R01",
+      "category": "VERSION",
+      "name": "iverilog_version",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-V"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R01",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 0.0930000000007567,
+      "stdout_sha256": "6c5f5f5f242410266fcd6b69342d43a928e2f95d6cc9dd373dc9a5aa224ed0d5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "R01",
+      "category": "VERSION",
+      "name": "vvp_version",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "-V"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R01",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 0.09399999999914144,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ac9585062b38df08a9a3422b0d77952b2bff7d99789563718a6e6e3804f53ccc"
+    },
+    {
+      "run": "R01",
+      "category": "RTL_COMPILE",
+      "name": "normal_compile",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-g2012",
+        "-s",
+        "tb_public_serial",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R01\\normal\\sim.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R01\\stage\\sample_tick_gen.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R01\\stage\\pcm_frame_buffer.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R01\\stage\\i2s_tx.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R01\\stage\\tb_public_serial.sv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R01\\normal",
+      "exit_code": 3221225477,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 6.703000000001339,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f523885fb14c5530f105c86e9bd3e26053f0ff39af943f60eb92598ebb85af21"
+    },
+    {
+      "run": "R02",
+      "category": "VERSION",
+      "name": "iverilog_version",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-V"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R02",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 0.15600000000085856,
+      "stdout_sha256": "6c5f5f5f242410266fcd6b69342d43a928e2f95d6cc9dd373dc9a5aa224ed0d5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "R02",
+      "category": "VERSION",
+      "name": "vvp_version",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "-V"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R02",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 0.014999999999417923,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ac9585062b38df08a9a3422b0d77952b2bff7d99789563718a6e6e3804f53ccc"
+    },
+    {
+      "run": "R02",
+      "category": "RTL_COMPILE",
+      "name": "normal_compile",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-g2012",
+        "-s",
+        "tb_public_serial",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R02\\normal\\sim.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R02\\stage\\sample_tick_gen.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R02\\stage\\pcm_frame_buffer.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R02\\stage\\i2s_tx.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R02\\stage\\tb_public_serial.sv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R02\\normal",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 0.07899999999972351,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "7ccd74a782582212df21cbe2fb710c7576cde345b3893cd433ea7af924b77c3b"
+    },
+    {
+      "run": "R02",
+      "category": "RTL_SIMULATE",
+      "name": "normal_simulate",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R02\\normal\\sim.vvp"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R02\\normal",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.6090000000003783,
+      "stdout_sha256": "9072e7cbc4d8dc9f696d560f87295e62a8448b32928a8caf0e0cf614bce700ea",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "R02",
+      "category": "SOFTWARE",
+      "name": "normal_check",
+      "argv": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\check_capture.py",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R02\\normal\\capture.csv",
+        "--output",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R02\\normal\\CHECK.json"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R02\\normal",
+      "exit_code": 1,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 0.07799999999951979,
+      "stdout_sha256": "95b8e14b727070aa7dcb6751224e96603f345c58f004dda87fb2284f6869ed0d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "R03",
+      "category": "VERSION",
+      "name": "iverilog_version",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-V"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R03",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 0.1569999999992433,
+      "stdout_sha256": "6c5f5f5f242410266fcd6b69342d43a928e2f95d6cc9dd373dc9a5aa224ed0d5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "R03",
+      "category": "VERSION",
+      "name": "vvp_version",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "-V"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R03",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 0.014999999999417923,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ac9585062b38df08a9a3422b0d77952b2bff7d99789563718a6e6e3804f53ccc"
+    },
+    {
+      "run": "R03",
+      "category": "RTL_COMPILE",
+      "name": "normal_compile",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-g2012",
+        "-s",
+        "tb_public_serial",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R03\\normal\\sim.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R03\\stage\\sample_tick_gen.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R03\\stage\\pcm_frame_buffer.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R03\\stage\\i2s_tx.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R03\\stage\\tb_public_serial.sv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R03\\normal",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 0.09400000000096043,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "b83a8e2636236385338f968c628d9c46d03e9cad71ac9155b1817d9432d01239"
+    },
+    {
+      "run": "R03",
+      "category": "RTL_SIMULATE",
+      "name": "normal_simulate",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R03\\normal\\sim.vvp"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R03\\normal",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.6720000000004802,
+      "stdout_sha256": "ae36d57a28a96ca36ba96b0adeaf3464a3cb2473eadab948937e9e668896b4a4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "R03",
+      "category": "SOFTWARE",
+      "name": "normal_check",
+      "argv": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\check_capture.py",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R03\\normal\\capture.csv",
+        "--output",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R03\\normal\\CHECK.json"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R03\\normal",
+      "exit_code": 1,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.0,
+      "stdout_sha256": "1e55945490f107de785907058476b6add452b95ab2942af5d973dfb7acd43952",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "R04",
+      "category": "VERSION",
+      "name": "iverilog_version",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-V"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 0.11000000000058208,
+      "stdout_sha256": "6c5f5f5f242410266fcd6b69342d43a928e2f95d6cc9dd373dc9a5aa224ed0d5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "R04",
+      "category": "VERSION",
+      "name": "vvp_version",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "-V"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 0.014999999999417923,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ac9585062b38df08a9a3422b0d77952b2bff7d99789563718a6e6e3804f53ccc"
+    },
+    {
+      "run": "R04",
+      "category": "RTL_COMPILE",
+      "name": "normal_compile",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-g2012",
+        "-s",
+        "tb_public_serial",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\normal\\sim.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\stage\\sample_tick_gen.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\stage\\pcm_frame_buffer.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\stage\\i2s_tx.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\stage\\tb_public_serial.sv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\normal",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 0.06300000000010186,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f2e93aa8c032e3d18fbbb533502661b7e4de5d2d7d9c35f72d89854a8e0101cc"
+    },
+    {
+      "run": "R04",
+      "category": "RTL_SIMULATE",
+      "name": "normal_simulate",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\normal\\sim.vvp"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\normal",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.6720000000004802,
+      "stdout_sha256": "39c2ab4ca6007cd7e302f44f2eb74e1dbca4b685c05df5b8571941598e41d3d7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "R04",
+      "category": "SOFTWARE",
+      "name": "normal_check",
+      "argv": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\check_capture.py",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\normal\\capture.csv",
+        "--output",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\normal\\CHECK.json"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\normal",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.0779999999995198,
+      "stdout_sha256": "1f2cb88686cbd6ac74c5578c9312cd68f620853f7d4f56d0d3aba2423b4ed55c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "R04",
+      "category": "RTL_COMPILE",
+      "name": "wrong_stereo_compile",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-g2012",
+        "-s",
+        "tb_public_serial",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\wrong_stereo\\sim.vvp",
+        "-DWRONG_STEREO",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\stage\\sample_tick_gen.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\stage\\pcm_frame_buffer.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\stage\\i2s_tx.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\stage\\tb_public_serial.sv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\wrong_stereo",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 0.10900000000037835,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f2e93aa8c032e3d18fbbb533502661b7e4de5d2d7d9c35f72d89854a8e0101cc"
+    },
+    {
+      "run": "R04",
+      "category": "RTL_SIMULATE",
+      "name": "wrong_stereo_simulate",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\wrong_stereo\\sim.vvp"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\wrong_stereo",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 1.7969999999986612,
+      "stdout_sha256": "39c2ab4ca6007cd7e302f44f2eb74e1dbca4b685c05df5b8571941598e41d3d7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "R04",
+      "category": "SOFTWARE",
+      "name": "wrong_stereo_check",
+      "argv": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\check_capture.py",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\wrong_stereo\\capture.csv",
+        "--output",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\wrong_stereo\\CHECK.json"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\wrong_stereo",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "timeout": false,
+      "elapsed_seconds": 1.0940000000009604,
+      "stdout_sha256": "b5f3f436aa70286d590437b3655c7e4888a29ca36a8cd7528e3670d38b4d381b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "run": "R04",
+      "category": "SOFTWARE",
+      "name": "software_tests",
+      "argv": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\test_capture.py",
+        "--capture",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\normal\\capture.csv",
+        "--output",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04\\software_cases"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\R04",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 6.484000000000378,
+      "stdout_sha256": "b0174ae3f4ad13b28c124c4f5c55411e41bd80a08a06c1983282030d680f277e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "call_categories": {
+    "VERSION": 8,
+    "RTL_COMPILE": 5,
+    "RTL_SIMULATE": 4,
+    "SOFTWARE": 5
+  },
+  "historical_child_invocations": 22,
+  "historical_iverilog_compilations": 5,
+  "historical_vvp_simulations": 4,
+  "historical_simulation_seconds": 6.75,
+  "historical_simulation_timeouts": 0,
+  "read_only_git_calls_during_audit": [
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+      "exit_code": 0,
+      "timeout": false,
+      "stdout_sha256": "301630e630ead1882847c78f8b0bac725d58c2cb45f4f4aecfce16728e7a26a5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "874c097d34140b120d52eaadd9748dd6ae8d5894:code/docs/M3_四项并行主责授权_2026-10-15.md"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+      "exit_code": 0,
+      "timeout": false,
+      "stdout_sha256": "6f3a9b03782c5dd10d3548355c84044b36e1da0f8848ba4908ee4dc4fd952e3d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "log",
+        "--format=%H %cI %s",
+        "--",
+        "code/docs/M3_夜间M2候选权限预授权_2026-10-15.md"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+      "exit_code": 0,
+      "timeout": false,
+      "stdout_sha256": "002d7eb6540a08ae7ebeac62f60dcbe683014adf98922a94da82a8b43ac3fa15",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "new_rtl_invocations_this_audit": 0,
+  "real_r05_modelsim_invocations": 0,
+  "gowin_invocations": 0,
+  "device_operations": 0,
+  "authority_accounting": {
+    "initial_four_pack_C": "Original 874c097 C authorization permits bounded new isolated software/module runs; no two-group quota appears in that version.",
+    "night_two_group_rule": "First published by 6d6c726 at local Git commit time 2026-10-15T23:52:02+08:00. Historical R01-R04 receipt filesystem times are 22:21:04 through 22:24:22, under initial delegation. Times are historical evidence, not a cryptographically trusted execution timestamp.",
+    "no_replenishment": "Do not reset, erase or recast the four historical rounds as two. Parent instructed no new RTL after recovery. New RTL groups run under night rule by this C window: 0. This audit grants no remaining allowance.",
+    "accounting_owner": "Primary coordinator; all C windows share one history. Any interpretation of historical limit changes belongs to M2/user, not the checker."
+  },
+  "result": {
+    "new_module_fixture": "PASS_R04_ONLY",
+    "earliest_history": "R01_ACCESS_VIOLATION_R02_INITIAL_RESET_X_R03_STARTUP_HALF_ORACLE_FAILURE_RETAINED",
+    "software_cases_passed": 20,
+    "decoded_stereo_frames": 140,
+    "normal_capture_sha256": "55aee525b6932ee6a660d69ea05571e9ea4c5e7713ee13d0d50f5d5a529bbf0f",
+    "request_statuses": {
+      "SERIAL_OBSERVED": 136,
+      "EXPIRED_UNCOMMITTED": 2,
+      "ADOPTED": 4
+    },
+    "digital_latency_max_cycles": 1687,
+    "digital_latency_scope": "136 serial-observed requests only; four adopted tail requests lack complete serial observation; two intentionally expired requests are not new publications.",
+    "analog_latency": "UNKNOWN",
+    "r05_true_chain": "UNKNOWN_NO_PUBLIC_TRACE",
+    "physical_sta": "NOT_EXECUTED",
+    "clip": "Observer source metadata only; frozen pcm_frame_buffer/i2s_tx have no clip output port, so no physical clip propagation claim.",
+    "board_release_allowed": false
+  },
+  "selfreview": {
+    "tested_sources_unchanged_from_R04": true,
+    "added_audit_script": "STATIC_PLUS_SOFTWARE_SEAL_INTEGRITY_ONLY_NOT_RTL_TESTED",
+    "prior_checker_reconstruction": "Derived byte-identical reversal SHA verified; contemporaneous original software file was not separately frozen before R01-R03; receipt SHA and raw logs are original."
+  }
+}

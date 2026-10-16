@@ -1,0 +1,328 @@
+Pre-tool syntax failure. No subprocess or attempt consumed. JS replacement expanded dollar-quote suffix; corrected using literal replacement function.
+Original failed source follows:
+"""New user-authorized D repair batch; preserves the exhausted night ledger."""
+import argparse
+import hashlib
+import importlib.util
+import json
+import os
+import re
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+import time
+
+ROOT = Path(__file__).resolve().parents[4]
+HERE = Path(__file__).resolve().parent
+RTL = ROOT / 'code/rtl/input/m3_dual_slider_138k_candidate_20261015'
+TB = ROOT / 'code/tb/input/visualizer/m3_dual_slider_138k_candidate_20261015'
+TOOLS = Path('D:/Gowin/oss-cad-suite')
+ORIGINALS = [
+    'code/rtl/common/audio_defs_pkg.sv',
+    'code/rtl/common/reset_sync.sv',
+    'code/rtl/common/visual_mailbox_cdc.sv',
+    'code/rtl/common/visual_control_bridge.sv',
+    'code/rtl/common/visual_event_bridge.sv',
+    'code/rtl/input/visualizer/visual_live_state.sv',
+    'code/rtl/input/visualizer/visual_score_tracker.sv',
+    'code/rtl/input/visualizer/visual_scene_renderer.sv',
+]
+JOB = ROOT / 'code/software/t052_runner_acceptance_candidate_20261012/windows_job.py'
+CREATE_SUSPENDED = 0x00000004  # Windows CreateProcess flag; Python does not export it.
+
+
+def sha(path):
+    digest = hashlib.sha256()
+    with path.open('rb') as stream:
+        for block in iter(lambda: stream.read(1048576), b''):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def write(path, value):
+    with path.open('x', encoding='utf-8', newline='\n') as stream:
+        json.dump(value, stream, ensure_ascii=False, indent=2)
+        stream.write('\n')
+
+
+def identities(paths):
+    return [{'path': str(p), 'bytes': p.stat().st_size, 'sha256': sha(p)} for p in paths]
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--output', required=True)
+    args = parser.parse_args()
+    # Interrupted launches count conservatively. A known Popen failure with an
+    # explicit receipt is the only reservation not counted as a started group.
+    previous = []
+    for folder in sorted(HERE.glob('run_*')):
+        reservation = folder / 'TOOL_CREATE_RESERVED.json'
+        if reservation.is_file():
+            receipts_found = list(folder.glob('*.receipt.json'))
+            known_no_start = receipts_found and all(
+                json.loads(p.read_text(encoding='utf-8')).get('process_created') is False
+                for p in receipts_found)
+            if not known_no_start:
+                previous.append(json.loads(reservation.read_text(encoding='utf-8')))
+    candidate_identity = {str(path.relative_to(ROOT)): sha(path) for path in (
+        RTL / 'dual_slider_candidate.sv', TB / 'tb_dual_slider.sv', Path(__file__).resolve())}
+    night_groups = len(previous)
+    if night_groups != 2:
+        parser.error('expected two retained original night groups')
+    repair_groups = []
+    spent = 0.0
+    for folder in sorted(HERE.glob('repair_run_*')):
+        if not (folder / 'TOOL_CREATE_RESERVED.json').exists():
+            continue
+        repair_groups.append(json.loads((folder / 'TOOL_CREATE_RESERVED.json').read_text(encoding='utf-8')))
+        result_file = folder / 'RESULT.json'
+        spent += json.loads(result_file.read_text(encoding='utf-8'))['elapsed_seconds'] if result_file.exists() else 300.0
+    if spent >= 900:
+        parser.error('new repair batch conservative 900 second budget exhausted')
+    previous += repair_groups
+    if any(item['candidate_identity'] == candidate_identity for item in previous):
+        parser.error('same-source retry forbidden')
+    out = Path(args.output).resolve()
+    if out.parent != HERE or not out.name.startswith('repair_run_'):
+        parser.error('output must be a new immediate repair_run_* child of this directory')
+    out.mkdir(exist_ok=False)
+    shutil.copyfile(Path(__file__).resolve(), out / 'runner_source.py')
+    staged = out / 'stage'
+    staged.mkdir()
+    sources = [ROOT / p for p in ORIGINALS] + [RTL / 'dual_slider_candidate.sv', TB / 'tb_dual_slider.sv']
+    local = sorted([p for d in (RTL, TB, HERE) for p in d.glob('*') if p.is_file()])
+    # oss-cad-suite ships runtime DLLs in lib/, not only bin/ or lib/ivl/.
+    tool_files = sorted(set([p for folder in (TOOLS / 'bin', TOOLS / 'lib/ivl')
+                             for p in folder.rglob('*') if p.is_file()]
+                            + [p for p in (TOOLS / 'lib').iterdir() if p.is_file()]))
+    inputs = sorted(set(sources + local + [JOB, Path(sys.executable)]))
+    before = {'inputs': identities(inputs), 'tools': identities(tool_files)}
+    baseline = json.loads((HERE / 'run_night_03/before.json').read_text(encoding='utf-8'))
+    if before['tools'] != baseline['tools']:
+        raise RuntimeError('BOUND_TOOL_CLOSURE_DRIFT')
+    original_baseline = {item['path']: item for item in baseline['inputs']}
+    for original in [ROOT / p for p in ORIGINALS] + [JOB, Path(sys.executable)]:
+        actual = identities([original])[0]
+        if actual != original_baseline[str(original)]:
+            raise RuntimeError('FROZEN_DEPENDENCY_DRIFT:' + str(original))
+    write(out / 'before.json', before)
+    write(out / 'PREFLIGHT.json', {
+        'git_head': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT,
+                                             text=True).strip(),
+        'candidate_identity': candidate_identity,
+        'prior_started_groups': len(previous), 'original_night_groups': night_groups,
+        'new_repair_groups_before': len(repair_groups), 'repair_spent_seconds_before': spent,
+        'per_tool_limit_seconds': 90, 'group_tools_total_seconds': 300,
+        'authorization': '2026-10-16 direct user: 允许修改D 请解决D遇到的问题',
+        'old_night_allowance_restored': False, 'new_repair_total_limit_seconds': 900,
+        'tool_files': len(tool_files), 'board_release_allowed': False})
+    command_environment = {key: os.environ[key] for key in (
+        'SystemRoot', 'WINDIR', 'COMSPEC', 'OS', 'PROCESSOR_ARCHITECTURE',
+        'NUMBER_OF_PROCESSORS', 'USERPROFILE', 'HOMEDRIVE', 'HOMEPATH') if key in os.environ}
+    command_environment.update(PATH=os.pathsep.join((str(TOOLS / 'bin'), str(TOOLS / 'lib'),
+                               str(Path(os.environ['SystemRoot']) / 'System32'), os.environ['SystemRoot'])),
+                               IVERILOG_ROOT=str(TOOLS / 'lib/ivl'),
+                               TEMP=str(out), TMP=str(out))
+    write(out / 'environment.json', command_environment)
+    spec = importlib.util.spec_from_file_location('owned_windows_job', JOB)
+    job_module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(job_module)
+    source_names = []
+    for index, path in enumerate(sources):
+        target = staged / ('s%02d.sv' % index)
+        shutil.copyfile(path, target)
+        if sha(target) != sha(path):
+            raise RuntimeError('STAGE_IDENTITY')
+        source_names.append(str(target))
+    write(out / 'staging.json', identities(sorted(staged.iterdir())))
+    receipts = []
+    started = time.monotonic()
+
+    def run(label, argv):
+        budget = min(90, 300 - (time.monotonic() - started), 900 - spent - (time.monotonic() - started))
+        if budget <= 0:
+            raise RuntimeError('OUTER_TOTAL_BUDGET')
+        receipt = {'argv': argv, 'cwd': str(staged), 'timeout_seconds': budget,
+                   'owned_process_tree': True, 'exit_code': None, 'timeout': False,
+                   'process_created': False}
+        write(out / (label + '.launch.json'), receipt)
+        began = time.monotonic()
+        job = job_module.WindowsJob()
+        try:
+            with (out / (label + '.stdout.txt')).open('xb') as stdout, \
+                    (out / (label + '.stderr.txt')).open('xb') as stderr:
+                if not (out / 'TOOL_CREATE_RESERVED.json').exists():
+                    write(out / 'TOOL_CREATE_RESERVED.json', {
+                        'candidate_identity': candidate_identity,
+                        'group_number': len(previous)+1,
+                        'semantics': 'reservation before process create; unknown interrupted creation consumes conservatively'})
+                process = subprocess.Popen(argv, cwd=staged, env=command_environment,
+                                           stdin=subprocess.DEVNULL, stdout=stdout, stderr=stderr,
+                                           creationflags=CREATE_SUSPENDED)
+                receipt['process_created'] = True
+                receipt['pid'] = process.pid
+                if not (out / 'TOOL_STARTED.json').exists():
+                    write(out / 'TOOL_STARTED.json', {
+                        'first_pid': process.pid, 'first_label': label,
+                        'group_number': len(previous)+1, 'candidate_identity': candidate_identity})
+                job.attach_and_resume(process)
+                try:
+                    receipt['exit_code'] = process.wait(timeout=budget)
+                except subprocess.TimeoutExpired:
+                    receipt['timeout'] = True
+                    job.terminate()
+                    receipt['exit_code'] = process.wait(timeout=5)
+        finally:
+            job.close()
+            receipt['elapsed_seconds'] = time.monotonic() - began
+            write(out / (label + '.receipt.json'), receipt)
+            receipts.append(receipt)
+        if receipt['timeout']:
+            raise RuntimeError(label + '_TIMEOUT')
+        return receipt['exit_code'], (out / (label + '.stdout.txt')).read_text(encoding='utf-8', errors='replace')
+
+    error = None
+    results = []
+    try:
+        binary = staged / 'candidate.vvp'
+        for label, tool in [('iverilog_version', 'iverilog.exe'), ('vvp_version', 'vvp.exe')]:
+            code, _ = run(label, [str(TOOLS / 'bin' / tool), '-V'])
+            if code != 0:
+                raise RuntimeError(label + '_NONZERO')
+        code, _ = run('compile', [str(TOOLS / 'bin/iverilog.exe'), '-g2012', '-Wall',
+                                 '-s', 'tb_dual_slider', '-o', str(binary)] + source_names)
+        if code != 0:
+            raise RuntimeError('COMPILE_NONZERO_NEVER_RUN_ARTIFACT')
+        good, text = run('positive', [str(TOOLS / 'bin/vvp.exe'), str(binary)])
+        positive_err = (out / 'positive.stderr.txt').read_text(encoding='utf-8', errors='replace')
+        summaries = re.findall(r'^PASS DUAL_SLIDER_ISOLATED checks=([1-9][0-9]*)
+            raise RuntimeError('POSITIVE_REJECTED')
+        results.append({'name': 'positive', 'exit_code': good, 'accepted': True})
+        for mutation, diagnostic in [(1, 'MODE_CDC_DELIVERY'), (2, 'MODE_CDC_DELIVERY'),
+                                     (3, 'FALLING_FRAME_PROGRESS'), (4, 'AUDIO_UNDERRUN')]:
+            label = 'negative_%d' % mutation
+            code, text = run(label, [str(TOOLS / 'bin/vvp.exe'), str(binary), '+mutation=%d' % mutation])
+            if code != 1 or 'REJECT ' + diagnostic not in text or 'PASS DUAL_SLIDER' in text:
+                raise RuntimeError(label + '_NOT_REJECTED_AS_EXPECTED')
+            results.append({'name': label, 'exit_code': code, 'accepted': False,
+                            'expected_rejection': diagnostic})
+    except Exception as exc:
+        error = type(exc).__name__ + ': ' + str(exc)
+    after = {'inputs': identities(inputs), 'tools': identities(tool_files)}
+    write(out / 'after.json', after)
+    unchanged = before == after
+    outputs = identities(sorted(p for p in out.rglob('*') if p.is_file()))
+    write(out / 'products.json', outputs)
+    result = {'status': 'PASS' if error is None and unchanged else 'FAIL',
+              'error': error, 'identity_unchanged': unchanged, 'results': results,
+              'tool_starts': sum(r['process_created'] for r in receipts),
+              'elapsed_seconds': time.monotonic()-started,
+              'validation_level': ('L2_ISOLATED_CANDIDATE_FIXTURE' if error is None and unchanged and len(results)==5
+                                   else 'L0_NO_SIMULATION_ACCEPTED'),
+              'real_audio_chain': False, 'sta_run': False, 'hardware_run': False,
+              'original_hit_flash': 'KNOWN_FAIL_DEFERRED_NOT_TESTED',
+              'board_release_allowed': False}
+    write(out / 'RESULT.json', result)
+    write(out / 'NIGHT_RUN_RECEIPT.json', {
+        **result, 'candidate_identity': candidate_identity,
+        'group_number': len(previous)+1,
+        'prior_started_groups': len(previous),
+        'calls': receipts, 'prior_approval_denials': 2,
+        'consumption_marker': 'TOOL_STARTED.json',
+        'reservation_marker': 'TOOL_CREATE_RESERVED.json',
+        'prior_static_package_preserved': True})
+    print(json.dumps(result, ensure_ascii=False))
+    return 0 if result['status'] == 'PASS' else 1
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
+, text, re.M)
+        check_lines = re.findall(r'^CHECK [A-Z0-9_]+
+            raise RuntimeError('POSITIVE_REJECTED')
+        results.append({'name': 'positive', 'exit_code': good, 'accepted': True})
+        for mutation, diagnostic in [(1, 'MODE_CDC_DELIVERY'), (2, 'MODE_CDC_DELIVERY'),
+                                     (3, 'FALLING_FRAME_PROGRESS'), (4, 'AUDIO_UNDERRUN')]:
+            label = 'negative_%d' % mutation
+            code, text = run(label, [str(TOOLS / 'bin/vvp.exe'), str(binary), '+mutation=%d' % mutation])
+            if code == 0 or 'REJECT ' + diagnostic not in text or 'PASS DUAL_SLIDER' in text:
+                raise RuntimeError(label + '_NOT_REJECTED_AS_EXPECTED')
+            results.append({'name': label, 'exit_code': code, 'accepted': False,
+                            'expected_rejection': diagnostic})
+    except Exception as exc:
+        error = type(exc).__name__ + ': ' + str(exc)
+    after = {'inputs': identities(inputs), 'tools': identities(tool_files)}
+    write(out / 'after.json', after)
+    unchanged = before == after
+    outputs = identities(sorted(p for p in out.rglob('*') if p.is_file()))
+    write(out / 'products.json', outputs)
+    result = {'status': 'PASS' if error is None and unchanged else 'FAIL',
+              'error': error, 'identity_unchanged': unchanged, 'results': results,
+              'tool_starts': sum(r['process_created'] for r in receipts),
+              'elapsed_seconds': time.monotonic()-started,
+              'validation_level': ('L2_ISOLATED_CANDIDATE_FIXTURE' if results
+                                   else 'L0_NO_SIMULATION_ACCEPTED'),
+              'real_audio_chain': False, 'sta_run': False, 'hardware_run': False,
+              'original_hit_flash': 'KNOWN_FAIL_DEFERRED_NOT_TESTED',
+              'board_release_allowed': False}
+    write(out / 'RESULT.json', result)
+    write(out / 'NIGHT_RUN_RECEIPT.json', {
+        **result, 'candidate_identity': candidate_identity,
+        'group_number': len(previous)+1,
+        'prior_started_groups': len(previous),
+        'calls': receipts, 'prior_approval_denials': 2,
+        'consumption_marker': 'TOOL_STARTED.json',
+        'reservation_marker': 'TOOL_CREATE_RESERVED.json',
+        'prior_static_package_preserved': True})
+    print(json.dumps(result, ensure_ascii=False))
+    return 0 if result['status'] == 'PASS' else 1
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
+, text, re.M)
+        if (good != 0 or len(summaries) != 1 or int(summaries[0]) != len(check_lines)
+                or re.search(r'REJECT|FATAL|ERROR|FAIL', text + positive_err, re.I)):
+            raise RuntimeError('POSITIVE_REJECTED')
+        results.append({'name': 'positive', 'exit_code': good, 'accepted': True})
+        for mutation, diagnostic in [(1, 'MODE_CDC_DELIVERY'), (2, 'MODE_CDC_DELIVERY'),
+                                     (3, 'FALLING_FRAME_PROGRESS'), (4, 'AUDIO_UNDERRUN')]:
+            label = 'negative_%d' % mutation
+            code, text = run(label, [str(TOOLS / 'bin/vvp.exe'), str(binary), '+mutation=%d' % mutation])
+            if code == 0 or 'REJECT ' + diagnostic not in text or 'PASS DUAL_SLIDER' in text:
+                raise RuntimeError(label + '_NOT_REJECTED_AS_EXPECTED')
+            results.append({'name': label, 'exit_code': code, 'accepted': False,
+                            'expected_rejection': diagnostic})
+    except Exception as exc:
+        error = type(exc).__name__ + ': ' + str(exc)
+    after = {'inputs': identities(inputs), 'tools': identities(tool_files)}
+    write(out / 'after.json', after)
+    unchanged = before == after
+    outputs = identities(sorted(p for p in out.rglob('*') if p.is_file()))
+    write(out / 'products.json', outputs)
+    result = {'status': 'PASS' if error is None and unchanged else 'FAIL',
+              'error': error, 'identity_unchanged': unchanged, 'results': results,
+              'tool_starts': sum(r['process_created'] for r in receipts),
+              'elapsed_seconds': time.monotonic()-started,
+              'validation_level': ('L2_ISOLATED_CANDIDATE_FIXTURE' if results
+                                   else 'L0_NO_SIMULATION_ACCEPTED'),
+              'real_audio_chain': False, 'sta_run': False, 'hardware_run': False,
+              'original_hit_flash': 'KNOWN_FAIL_DEFERRED_NOT_TESTED',
+              'board_release_allowed': False}
+    write(out / 'RESULT.json', result)
+    write(out / 'NIGHT_RUN_RECEIPT.json', {
+        **result, 'candidate_identity': candidate_identity,
+        'group_number': len(previous)+1,
+        'prior_started_groups': len(previous),
+        'calls': receipts, 'prior_approval_denials': 2,
+        'consumption_marker': 'TOOL_STARTED.json',
+        'reservation_marker': 'TOOL_CREATE_RESERVED.json',
+        'prior_static_package_preserved': True})
+    print(json.dumps(result, ensure_ascii=False))
+    return 0 if result['status'] == 'PASS' else 1
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

@@ -1,0 +1,225 @@
+{
+  "schema": "M3_M2TD_SUCCESSOR_R03_PENDING_PLAN_V1",
+  "status": "BLOCKED_INPUT",
+  "user_one_round_authorized": true,
+  "execution_prerequisites_met": false,
+  "physical_allowance_consumed": false,
+  "physical_tool_starts": 0,
+  "frozen_original_input_count": 84,
+  "frozen_audit_sha256": "ca153eb7b4f986a9e19dacf0be189b17f668b8469cd6c6c149217f08ca95fbd8",
+  "reused_target_list_sha256": "c95001a3e8faaac2d66cd8d16c4868e393d631dbaafc8c3afdf7b54070188a15",
+  "reused_old_software_tests": "32+13; NOT_RERUN",
+  "targets": [
+    {
+      "id": "post_right_ram_address",
+      "from_node": "g_polyphonic.u_audio_core/u_chain/u_post/u_right/wr_ptr_7_s1/Q",
+      "to_node": "g_polyphonic.u_audio_core/u_chain/u_post/u_right/buffer[0]_ER_RS_buffer[0]_ER_RS_0_0_s38/WAD[1]",
+      "clock": "sys_clk",
+      "required_analyses": [
+        "Setup",
+        "Hold"
+      ],
+      "slack_min_ns": "0.000"
+    },
+    {
+      "id": "voice_lane2_phase_to_rom",
+      "from_node": "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/g_lane[2].u_voice/u_piano/phase_acc_30_s0/Q",
+      "to_node": "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/g_lane[2].u_voice/u_piano/u_table/rom_data_rom_data_0_0_s/AD[10]",
+      "clock": "sys_clk",
+      "required_analyses": [
+        "Setup",
+        "Hold"
+      ],
+      "slack_min_ns": "0.000"
+    },
+    {
+      "id": "pitch_lane3_total_to_oct",
+      "from_node": "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane[3].u_control/total_s2_10_s0/Q",
+      "to_node": "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane[3].u_control/oct_lut_oct_lut_0_0_s/AD[7]",
+      "clock": "sys_clk",
+      "required_analyses": [
+        "Setup",
+        "Hold"
+      ],
+      "slack_min_ns": "0.000"
+    },
+    {
+      "id": "pitch_lane0_total_to_sub",
+      "from_node": "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane[0].u_control/total_s2_6_s0/Q",
+      "to_node": "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_pitch_mod/g_lane[0].u_control/sub_lut_sub_lut_0_0_s/AD[10]",
+      "clock": "sys_clk",
+      "required_analyses": [
+        "Setup",
+        "Hold"
+      ],
+      "slack_min_ns": "0.000"
+    },
+    {
+      "id": "event_fifo_to_audio_slot",
+      "from_node": "u_performance_event_fifo/rd_ptr_2_s0/Q",
+      "to_node": "g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_events/target_slot_0_s0/CE",
+      "clock": "sys_clk",
+      "required_analyses": [
+        "Setup",
+        "Hold"
+      ],
+      "slack_min_ns": "0.000"
+    }
+  ],
+  "source_register_pair": {
+    "source_relation": "base_s1[31:0] -> base_s2[31:0]",
+    "source_sha256": "5997ae2eddb483f95dbb10cdac6cfdac3d61a857046e95e136099e11cf0ecabb",
+    "source_classification": "DERIVED_RECONSTRUCTION_NOT_ORIGINAL",
+    "synthesis_cell_from": null,
+    "synthesis_cell_to": null,
+    "routed_cell_from": null,
+    "routed_cell_to": null,
+    "same_pair_setup_hold": "UNKNOWN_MISSING_SAME_RUN_NETLIST_AND_REPORT",
+    "not_inferred": "No automatic new prefix + base_s1_18_s0/base_s2_18_s0 construction"
+  },
+  "proposed_stage_prefix": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_m2td_endpoint_probe_20261015_PROPOSED_NOT_CREATED/",
+  "proposed_stage_created": false,
+  "required_new_physical_marker": "EXCLUSIVE_CREATE_ONLY_AFTER_ALL_PREREQUISITES_VERIFIED",
+  "physical_budget_seconds_max": 1800,
+  "failure_policy": "STOP_ON_FIRST_PHYSICAL_FAILURE_NO_RETRY",
+  "unresolved": [
+    "Frozen source absolute ROM/include paths refer to absent original-machine C:/ prefix.",
+    "Original same-run implementation database/.vg missing; base_s1/base_s2 physical pair UNKNOWN.",
+    "Exact get_regs/get_pins query collection semantics and active returned names not executed/verified.",
+    "Launcher SHA matches signed original; loaded dependency identity/runtime version has not been observed."
+  ],
+  "next_responsibility": {
+    "M2": "Provide original _06 netlist/database and SHA, or decide controlled reversible literal relocation scope and object fallback.",
+    "implementation": "Only after identity/query prerequisites hold, use fresh stage/marker and bounded one round; never reuse old artifacts."
+  },
+  "relocation": {
+    "from_prefix": "C:/Users/Angel17/.codex/worktrees/m2-138k-migration/fpga_gowin/code/output/m2_m1td_whole_prepare_20261015_06/",
+    "to_prefix": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/output/m3_m2td_endpoint_probe_20261015_PROPOSED_NOT_CREATED/",
+    "files": [
+      {
+        "path": "inputs/sources/adsr_piano_envelope.sv",
+        "before_sha256": "eb9b34b8870b2822ff023d2121e9cb57edd0350d450f0a467574e85cf960f80d",
+        "proposed_after_sha256": "986fca378cfc0ccf58f0bbb4a275985d9b252947de897b01c0b57d92ad023697",
+        "literal_prefix_replacements": 2,
+        "exact_inverse_matches": true,
+        "classification": "UNAPPROVED_BYTE_CHANGE_PROPOSAL_ONLY_NOT_WRITTEN_OR_EXECUTED"
+      },
+      {
+        "path": "inputs/sources/dds_oscillator.sv",
+        "before_sha256": "9dff3507ac0c7c4215d28486055d3f2dea38682c9bff46b1e5f400c2343a4891",
+        "proposed_after_sha256": "b0d8817a85795bdda957fd5678669946372dc4dec8b53adfb6326e1232d11969",
+        "literal_prefix_replacements": 2,
+        "exact_inverse_matches": true,
+        "classification": "UNAPPROVED_BYTE_CHANGE_PROPOSAL_ONLY_NOT_WRITTEN_OR_EXECUTED"
+      },
+      {
+        "path": "inputs/sources/m1td_adsr_piano_envelope.sv",
+        "before_sha256": "c58dc75a685500e6474438f1e6eb821b822c3c4818854ab3f802047f613bf3ef",
+        "proposed_after_sha256": "86dffe0495521b36ace2a31894a38f41bc6fbe6d2555d9cdb5ad4d4c06098080",
+        "literal_prefix_replacements": 2,
+        "exact_inverse_matches": true,
+        "classification": "UNAPPROVED_BYTE_CHANGE_PROPOSAL_ONLY_NOT_WRITTEN_OR_EXECUTED"
+      },
+      {
+        "path": "inputs/sources/m1td_audio_candidate.sv",
+        "before_sha256": "0c590da6f1271b10006c89ab4bd91db4e715c87ef74a2484d9351d6a1a150748",
+        "proposed_after_sha256": "aae04dd392c1ba7168b18c11414ab2b6ca3bc3f1f89c22fd0d2683e60206958c",
+        "literal_prefix_replacements": 1,
+        "exact_inverse_matches": true,
+        "classification": "UNAPPROVED_BYTE_CHANGE_PROPOSAL_ONLY_NOT_WRITTEN_OR_EXECUTED"
+      },
+      {
+        "path": "inputs/sources/m1td_dds_oscillator.sv",
+        "before_sha256": "797eac349dedf95d8600f9d433cdb259891daf7ae3aa9eefa92291350901921d",
+        "proposed_after_sha256": "d5cebe100f59b34c0828126e5ba16c443c7603139a5729a7353bd87426defb75",
+        "literal_prefix_replacements": 2,
+        "exact_inverse_matches": true,
+        "classification": "UNAPPROVED_BYTE_CHANGE_PROPOSAL_ONLY_NOT_WRITTEN_OR_EXECUTED"
+      },
+      {
+        "path": "inputs/sources/m1td_piano_dds_oscillator.sv",
+        "before_sha256": "ee9cfb142ac853ffbe611a18e4a8cad98a8f0269d6b99b429ee388c880d5eada",
+        "proposed_after_sha256": "fb6df4d59ab88838432f0f7da6df36cff3b83bd21cb72981108df2a59332a903",
+        "literal_prefix_replacements": 2,
+        "exact_inverse_matches": true,
+        "classification": "UNAPPROVED_BYTE_CHANGE_PROPOSAL_ONLY_NOT_WRITTEN_OR_EXECUTED"
+      },
+      {
+        "path": "inputs/sources/m1td_piano_triangle_voice.sv",
+        "before_sha256": "37ef37f50d5ce1b85377154779329be7622193aead167659539cea1d20727c3b",
+        "proposed_after_sha256": "f49279d1183ff733de9b67ec31699dcc02c12502532183038d1b0dffd80e3040",
+        "literal_prefix_replacements": 3,
+        "exact_inverse_matches": true,
+        "classification": "UNAPPROVED_BYTE_CHANGE_PROPOSAL_ONLY_NOT_WRITTEN_OR_EXECUTED"
+      },
+      {
+        "path": "inputs/sources/m1td_pitch_mod_fcw_pipeline.sv",
+        "before_sha256": "5997ae2eddb483f95dbb10cdac6cfdac3d61a857046e95e136099e11cf0ecabb",
+        "proposed_after_sha256": "5ccaa56bbd2c530a9994f21e3cd767268a4ce8efcedb7997f71314252e2d3813",
+        "literal_prefix_replacements": 3,
+        "exact_inverse_matches": true,
+        "classification": "UNAPPROVED_BYTE_CHANGE_PROPOSAL_ONLY_NOT_WRITTEN_OR_EXECUTED"
+      },
+      {
+        "path": "inputs/sources/m1td_pitch_mod_snapshot_pipeline.sv",
+        "before_sha256": "c35bc435a98d541e176ea59373bffd0ded9c346c1954118c6fde21c65a4ee601",
+        "proposed_after_sha256": "874062f65005139caee61c8f133fb2431dc97d462541de9458e501e66220daf1",
+        "literal_prefix_replacements": 3,
+        "exact_inverse_matches": true,
+        "classification": "UNAPPROVED_BYTE_CHANGE_PROPOSAL_ONLY_NOT_WRITTEN_OR_EXECUTED"
+      },
+      {
+        "path": "inputs/sources/m1td_polyphonic_envelope_bank.sv",
+        "before_sha256": "dd5fb61620462a0e29f9ceae56386818d31b41aa12441e348ef3ce52023b2400",
+        "proposed_after_sha256": "e6dfbdc2a6f0b533fecfdb2c29c7893f3af6517f00330ea32a597f3642aa8ab8",
+        "literal_prefix_replacements": 6,
+        "exact_inverse_matches": true,
+        "classification": "UNAPPROVED_BYTE_CHANGE_PROPOSAL_ONLY_NOT_WRITTEN_OR_EXECUTED"
+      },
+      {
+        "path": "inputs/sources/piano_dds_oscillator.sv",
+        "before_sha256": "139b4edefd4495c3ca7c0257815bec424bd6f35929e5cab9f0f9c8ef8f8bfe63",
+        "proposed_after_sha256": "80e3c047cac0bb8346280fb45d2c5a20501124d71681f4cecc99042ba3b32c49",
+        "literal_prefix_replacements": 2,
+        "exact_inverse_matches": true,
+        "classification": "UNAPPROVED_BYTE_CHANGE_PROPOSAL_ONLY_NOT_WRITTEN_OR_EXECUTED"
+      },
+      {
+        "path": "inputs/sources/pitch_mod_fcw_pipeline.sv",
+        "before_sha256": "ff7ef337118d14091e00684507518cc39aa37aa6edb4af76545f8ce94918128a",
+        "proposed_after_sha256": "3fb3b8591a82c140f641ef5e9830f83f06edbc0dbba916ddd6079e1397401cdb",
+        "literal_prefix_replacements": 3,
+        "exact_inverse_matches": true,
+        "classification": "UNAPPROVED_BYTE_CHANGE_PROPOSAL_ONLY_NOT_WRITTEN_OR_EXECUTED"
+      },
+      {
+        "path": "inputs/sources/pitch_mod_snapshot_pipeline.sv",
+        "before_sha256": "7d4388c3785072249ded5328bc92389259b61ba6909ab0bf297563954b57e9bb",
+        "proposed_after_sha256": "5fb7616240d3a5eda77feea6449434631576d00f8e95bd42eb2f06fa419e0c12",
+        "literal_prefix_replacements": 3,
+        "exact_inverse_matches": true,
+        "classification": "UNAPPROVED_BYTE_CHANGE_PROPOSAL_ONLY_NOT_WRITTEN_OR_EXECUTED"
+      },
+      {
+        "path": "inputs/sources/polyphonic_audio_core.sv",
+        "before_sha256": "7f9fcfdcbfc232463b261e2e61e0ba469e63c55a86df94f998f735e1f6bda3a7",
+        "proposed_after_sha256": "370f5eef418ed85c9c9d37f000e1f1ffdd6ea9e3f1fe1a6e27b29e0e5556de92",
+        "literal_prefix_replacements": 2,
+        "exact_inverse_matches": true,
+        "classification": "UNAPPROVED_BYTE_CHANGE_PROPOSAL_ONLY_NOT_WRITTEN_OR_EXECUTED"
+      },
+      {
+        "path": "inputs/sources/polyphonic_envelope_bank.sv",
+        "before_sha256": "ff18bc6f5de1478f8472a71b15399ab9ee4c496eeca700b0905baa6b0363c40c",
+        "proposed_after_sha256": "252151689c6014a741c1f42e5f5e418a222a481b1df77949695b09df58b667de",
+        "literal_prefix_replacements": 4,
+        "exact_inverse_matches": true,
+        "classification": "UNAPPROVED_BYTE_CHANGE_PROPOSAL_ONLY_NOT_WRITTEN_OR_EXECUTED"
+      }
+    ],
+    "all_inverse_matches": true,
+    "applied": false
+  },
+  "board_release_allowed": false,
+  "new_sta_executed": false
+}

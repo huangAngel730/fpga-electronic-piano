@@ -1,0 +1,81 @@
+--- sealed/runner
++++ RESUME_R01/runner
+@@ -13,12 +13,18 @@
+ import time
+ 
+ HERE = Path(__file__).resolve().parent
+-ROOT = HERE.parents[4]
++ROOT = HERE.parents[5]
+ TOOLS = Path("E:/FPGA/GAOYUNFPGA/138K/tools/icarus_oss_copy")
+-TB = ROOT / "code/tb/input/visualizer/m3_dual_slider_138k_candidate_20261015/night_20261016/tb_slider_audio_coexist.sv"
++TB = ROOT / "code/tb/input/visualizer/m3_dual_slider_138k_candidate_20261015/night_20261016/RESUME_R01/tb_slider_audio_coexist.sv"
+ JOB = ROOT / "code/software/t052_runner_acceptance_candidate_20261012/windows_job.py"
+ DECODER = ROOT / "code/software/m3_40mhz_pcm_i2s_latency_20261015/check_capture.py"
+-AUTH = ROOT / "code/docs/test/m3_r05_functional_integration_20261015/coordinator/night_20261016/DISPATCH.md"
++AUTH = ROOT / "code/docs/test/m3_r05_functional_integration_20261015/coordinator/night_20261016/RESUME_R01/AUTHORIZATION_AND_DISPATCH.md"
++OLD_NORMAL = HERE.parent / "RUN_03/positive/capture.csv"
++OLD_TB = TB.parent.parent / TB.name
++OLD_CHECKER = HERE.parent / "check_coexist.py"
++OLD_RUNNER = HERE.parent / "run_coexist.py"
++EXPECTED = {1: "UNEXPECTED_UNDERFLOW", 2: "SERIAL_PCM_LSBJ_OR_STEREO",
++            3: "SERIAL_PCM_LSBJ_OR_STEREO", 4: "SERIAL_PCM_LSBJ_OR_STEREO"}
+ ORIGINALS = [
+     "code/rtl/common/audio_defs_pkg.sv", "code/rtl/common/reset_sync.sv",
+     "code/rtl/common/visual_mailbox_cdc.sv", "code/rtl/common/visual_control_bridge.sv",
+@@ -62,12 +68,21 @@
+     out.mkdir(exist_ok=False)
+     sources = [ROOT / p for p in ORIGINALS] + [TB]
+     tool_files = sorted(p for p in TOOLS.rglob("*") if p.is_file())
+-    inputs = sources + [JOB, DECODER, AUTH, Path(__file__).resolve(), HERE / "check_coexist.py", Path(sys.executable)]
++    inputs = sources + [JOB, DECODER, AUTH, Path(__file__).resolve(), HERE / "check_coexist.py", Path(sys.executable), OLD_NORMAL, OLD_TB, OLD_CHECKER, OLD_RUNNER]
+     before = {"inputs": identities(inputs), "tools": identities(tool_files)}
+     write(out / "before.json", before)
++    old_seal = json.loads((HERE.parent / "MANIFEST.json").read_text())['files']
++    for path in (OLD_NORMAL, OLD_TB, OLD_CHECKER, OLD_RUNNER):
++        entry = old_seal[path.relative_to(ROOT).as_posix()]
++        if entry['sha256'] != sha(path):
++            raise RuntimeError("OLD_SEALED_INPUT_DRIFT:" + str(path))
++    if TB.read_bytes() != OLD_TB.read_bytes():
++        raise RuntimeError("RESUME_TB_MUST_MATCH_PASSED_NORMAL_SOURCE")
++    if (HERE / "check_coexist.py").read_text().replace("parents[6]", "parents[5]") != OLD_CHECKER.read_text():
++        raise RuntimeError("CHECKER_LOGIC_DRIFT")
+     # Relocated DLLs may be in bin instead of lib: compare bytes by historical
+     # basename and SHA. Unused old tools absent from this minimal copy are not run.
+-    baseline = json.loads((HERE.parent / "repair_run_02/before.json").read_text())
++    baseline = json.loads((HERE.parent.parent / "repair_run_02/before.json").read_text())
+     historical = {(Path(x["path"]).name, x["sha256"]) for x in baseline["tools"]}
+     for path in tool_files:
+         if (path.name, sha(path)) not in historical:
+@@ -106,7 +121,7 @@
+                  "candidate": candidate, "authorization": str(AUTH), "old_allowances_restored": False,
+                  "new_batch_group": len(prior)+1, "per_tool_seconds": 300, "group_seconds": 300,
+                  "batch_simulation_seconds": 900, "prior_simulation_seconds": spent,
+-                 "tools_byte_bound_to_old_repair": True, "board_release_allowed": False}
++                 "tools_byte_bound_to_old_repair": True, "board_release_allowed": False, "expected_rejections": EXPECTED, "positive_group_rerun": False, "new_authorization_batch": "RESUME_R01"}
+     write(out / "PREFLIGHT.json", preflight)
+     preserved = out / "execution_sources"
+     preserved.mkdir()
+@@ -160,9 +175,7 @@
+         run("vvp_version", [TOOLS / "bin/vvp.exe", "-V"], stage)
+         binary = stage / "coexist.vvp"
+         run("compile", [TOOLS / "bin/iverilog.exe", "-g2012", "-Wall", "-s", "tb_slider_audio_coexist", "-o", binary] + names, stage)
+-        for mutation, expected_diagnostic in [(0, None), (1, "UNEXPECTED_UNDERFLOW"),
+-                (2, "SERIAL_PCM_LSBJ_OR_STEREO"), (3, "SERIAL_PCM_LSBJ_OR_STEREO"),
+-                (4, "SERIAL_PCM_LSBJ_OR_STEREO")]:
++        for mutation, expected_diagnostic in EXPECTED.items():
+             label = "positive" if mutation == 0 else f"negative_{mutation}"
+             work = out / label
+             work.mkdir()
+@@ -179,10 +192,10 @@
+         error = repr(exc)
+     after = {"inputs": identities(inputs), "tools": identities(tool_files)}
+     write(out / "after.json", after)
+-    result = {"passed": error is None and before == after, "error": error,
++    result = {"passed": error is None and before == after and len(results) == 4, "error": error,
+               "identity_unchanged": before == after, "results": results, "calls": calls,
+               "elapsed_seconds": time.monotonic()-start, "simulation_seconds": simulation_seconds,
+-              "level": "L2_ISOLATED_DIAGNOSTIC_PCM_VISUAL_COEXISTENCE" if error is None and before == after else "PARTIAL",
++              "level": "L2_FOUR_RTL_BEHAVIORAL_NEGATIVE_REJECTIONS" if error is None and before == after else "PARTIAL",
+               "old_99_checks_4_negatives": "REUSED_NOT_RERUN", "old_failures_preserved": True,
+               "board_release_allowed": False, "r05_algorithm": "NOT_RUN", "sta": "NOT_RUN",
+               "hardware": "NOT_RUN", "hit_flash": "KNOWN_FAIL_DEFERRED_NOT_TESTED", **preflight}

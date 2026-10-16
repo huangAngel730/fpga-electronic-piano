@@ -1,0 +1,31 @@
+{
+  "name": "missing_tick",
+  "expected": "TICK_ORDER_MISSING_DUPLICATE_OR_EPOCH",
+  "actual": "TICK_ORDER_MISSING_DUPLICATE_OR_EPOCH",
+  "passed": true,
+  "exit_code": 1,
+  "seconds": 0.14099999999598367,
+  "argv": [
+    "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+    "-X",
+    "utf8",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\consume_capture.py",
+    "code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\real_negative_R01\\cases\\missing_tick\\DAMAGED_FROM_REAL_CAPTURE.jsonl",
+    "--sha256",
+    "dd4ca890e1c95bfe4bc57a4a1e1f78f6ddfbc53ff0c964bcbc279e2c84970de2",
+    "--output",
+    "code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\real_negative_R01\\cases\\missing_tick\\REJECTION.json"
+  ],
+  "original_capture_sha256": "a2509a2b5555437ff8ee1da4799e8210ad80e95a058881a5d26111a935e5b5d3",
+  "damaged_capture_sha256": "dd4ca890e1c95bfe4bc57a4a1e1f78f6ddfbc53ff0c964bcbc279e2c84970de2",
+  "damaged_bytes": 74394610,
+  "changes": [
+    {
+      "cycle": 2000,
+      "action": "REMOVE"
+    }
+  ],
+  "stdout_sha256": "c1837548cb70b1df65c9abeac018f81ab5222dc848db5465a77f4c42f6551449",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "kind": "FULL_DAMAGED_DERIVATIVE_NOT_A_NEW_RTL_RUN"
+}

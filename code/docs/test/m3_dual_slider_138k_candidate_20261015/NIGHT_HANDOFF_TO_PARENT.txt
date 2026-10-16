@@ -1,0 +1,25 @@
+D最新限定交付（覆盖旧HANDOFF_TO_PARENT.txt的“0工具”当前状态，旧文件仍留作历史）：
+PARTIAL，两组真实工具尝试已消费2/2，停止第三组，未完成模块验收。
+
+最终包 delivery_night_r02/DUAL_SLIDER_NIGHT_PARTIAL_20261016.zip
+340291字节，117成员，SHA256 6cee5e409e0082f5590ca68f45f61933eab15c4700e272c4f1195316d81185bc。
+全部成员SHA/CRC已核，DELIVERY.json在同目录。旧delivery_r01及两次审批拒绝原记录保留在包内。
+根NIGHT_RUN_RECEIPT.json为完整当夜总账，NIGHT_FINAL_REPORT.md为易读说明。
+
+run_night_01：批准后Python入口1，未导出的CREATE_SUSPENDED常量在Popen前抛异常，0工具/0组。
+run_night_02：真实组1，iverilog版本0、vvp版本3221225595/C000007B，源工具前后同，compile/artifactVVP0。
+定位本runner漏同suite/lib局部PATH，修正确绑定并增加直属lib依赖SHA，不换EXE/不改系统。
+run_night_03：真实组2，两版本0、compile0、positive VVP1，t=0原renderer拒无效占位参数；四负例均0。
+总6真实工具启动=4版本+1compile+1artifactVVP；0正例PASS，0负例，0EDA/硬件/Git。
+
+原执行RTL SHA42e3b795...e2cbfa，TB1ed079f6...e40932。
+原失败产物candidate.vvp 347061字节/SHA d61c41409bd1a5c7f475c8ddc82e6e5636b46a9967a6ad9a60bf8d36f566263e，不再运行。
+原件stage逐组保存，三份runner按同期SHA精确重建在新delivery/reconstructed_exact_runner_sources，明确非同期快照。
+完整原流、命令/cwd/显式环境、EXE/依赖/输入输出SHA、消费标记、失败历史齐套。
+
+最后仅静态修本新wrapper legacy参数H-2/H-1，原renderer及合同不改。
+修后RTL SHA a8116d04f7fa70ba4500c4819e3ffb939fcc7096acef9bb7f87004e1e648868f；未编译/未仿真。
+旧SHA仅编译通过限定L1，模块仿真L2失败；不能把当前修后源码称编译通过，不能报运动/CDC/音频共存PASS。
+flash已知FAIL仍暂缓/禁用，音频仅夹具设计，真实R05/整机/实屏无证据。
+下一步由M2次晨决定新工具额度和正式边界，现有2组不恢复；无需夜间等待回信。
+仅总控统一发布；待用户转发，尚未送达，board_release_allowed=false。

@@ -1,0 +1,107 @@
+[
+  {
+    "name": "raw_positive_keeps_x",
+    "expected": null,
+    "actual": null,
+    "passed": true,
+    "evidence_kind": "SYNTHETIC_RAW_SCHEMA_ONLY"
+  },
+  {
+    "name": "missing_audio_tick",
+    "expected": "STARTUP_ABSOLUTE_SEQUENCE",
+    "actual": "STARTUP_RESET_FIELDS_OR_POSITION",
+    "passed": false,
+    "evidence_kind": "SYNTHETIC_RAW_SCHEMA_ONLY"
+  },
+  {
+    "name": "duplicate_audio_tick",
+    "expected": "STARTUP_ABSOLUTE_SEQUENCE",
+    "actual": "STARTUP_ABSOLUTE_SEQUENCE",
+    "passed": true,
+    "evidence_kind": "SYNTHETIC_RAW_SCHEMA_ONLY"
+  },
+  {
+    "name": "missing_input_tick",
+    "expected": "STARTUP_ABSOLUTE_SEQUENCE",
+    "actual": "STARTUP_ABSOLUTE_SEQUENCE",
+    "passed": true,
+    "evidence_kind": "SYNTHETIC_RAW_SCHEMA_ONLY"
+  },
+  {
+    "name": "binary_width_wrong",
+    "expected": "STARTUP_BINARY_WIDTH_OR_VALUE",
+    "actual": "STARTUP_BINARY_WIDTH_OR_VALUE",
+    "passed": true,
+    "evidence_kind": "SYNTHETIC_RAW_SCHEMA_ONLY"
+  },
+  {
+    "name": "binary_port_missing",
+    "expected": "STARTUP_TICK_FIELDS",
+    "actual": "STARTUP_TICK_FIELDS",
+    "passed": true,
+    "evidence_kind": "SYNTHETIC_RAW_SCHEMA_ONLY"
+  },
+  {
+    "name": "main_earlier_eligible_was_skipped",
+    "expected": "MAIN_NOT_FIRST_ELIGIBLE_EDGE",
+    "actual": "MAIN_NOT_FIRST_ELIGIBLE_EDGE",
+    "passed": true,
+    "evidence_kind": "SYNTHETIC_RAW_SCHEMA_ONLY"
+  },
+  {
+    "name": "prefix_wrong_time",
+    "expected": "STARTUP_AUDIO_INPUT_ALIGNMENT",
+    "actual": "STARTUP_AUDIO_INPUT_ALIGNMENT",
+    "passed": true,
+    "evidence_kind": "SYNTHETIC_RAW_SCHEMA_ONLY"
+  },
+  {
+    "name": "main_not_reset",
+    "expected": "MAIN_FIRST_NOT_ALL_KNOWN_RESET_LOW",
+    "actual": "MAIN_FIRST_NOT_ALL_KNOWN_RESET_LOW",
+    "passed": true,
+    "evidence_kind": "SYNTHETIC_RAW_SCHEMA_ONLY"
+  },
+  {
+    "name": "main_x",
+    "expected": "MAIN_BINARY_SOURCE_TYPE",
+    "actual": "MAIN_BINARY_SOURCE_TYPE",
+    "passed": true,
+    "evidence_kind": "SYNTHETIC_RAW_SCHEMA_ONLY"
+  },
+  {
+    "name": "boundary_mapping_wrong",
+    "expected": "STARTUP_CYCLE_BOUNDARY",
+    "actual": "STARTUP_CYCLE_BOUNDARY",
+    "passed": true,
+    "evidence_kind": "SYNTHETIC_RAW_SCHEMA_ONLY"
+  },
+  {
+    "name": "boundary_time_wrong",
+    "expected": "STARTUP_MAIN_TIME_MAPPING",
+    "actual": "STARTUP_MAIN_TIME_MAPPING",
+    "passed": true,
+    "evidence_kind": "SYNTHETIC_RAW_SCHEMA_ONLY"
+  },
+  {
+    "name": "startup_end_missing",
+    "expected": "STARTUP_END_MISSING",
+    "actual": "STARTUP_END_MISSING",
+    "passed": true,
+    "evidence_kind": "SYNTHETIC_RAW_SCHEMA_ONLY"
+  },
+  {
+    "name": "startup_reset_time_wrong",
+    "expected": "STARTUP_RECORD_TIME_ORDER",
+    "actual": "STARTUP_RECORD_TIME_ORDER",
+    "passed": true,
+    "evidence_kind": "SYNTHETIC_RAW_SCHEMA_ONLY"
+  },
+  {
+    "name": "business_before_boundary",
+    "expected": "PERFORMANCE_ACCEPT_BEFORE_MAIN",
+    "actual": "PERFORMANCE_ACCEPT_BEFORE_MAIN",
+    "passed": true,
+    "evidence_kind": "SYNTHETIC_RAW_SCHEMA_ONLY"
+  }
+]

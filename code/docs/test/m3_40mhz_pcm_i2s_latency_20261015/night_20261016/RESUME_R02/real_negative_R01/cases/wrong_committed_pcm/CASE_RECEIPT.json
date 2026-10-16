@@ -1,0 +1,31 @@
+{
+  "name": "wrong_committed_pcm",
+  "expected": "PLAY_PCM_COMMIT_OR_HOLD_ALIGNMENT",
+  "actual": "PLAY_PCM_COMMIT_OR_HOLD_ALIGNMENT",
+  "passed": true,
+  "exit_code": 1,
+  "seconds": 0.6089999999967404,
+  "argv": [
+    "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+    "-X",
+    "utf8",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\consume_capture.py",
+    "code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\real_negative_R01\\cases\\wrong_committed_pcm\\DAMAGED_FROM_REAL_CAPTURE.jsonl",
+    "--sha256",
+    "054f563b0b04f87e57cfc928b704637688597965004b236b1a7603d31d5c79b3",
+    "--output",
+    "code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\real_negative_R01\\cases\\wrong_committed_pcm\\REJECTION.json"
+  ],
+  "original_capture_sha256": "a2509a2b5555437ff8ee1da4799e8210ad80e95a058881a5d26111a935e5b5d3",
+  "damaged_capture_sha256": "054f563b0b04f87e57cfc928b704637688597965004b236b1a7603d31d5c79b3",
+  "damaged_bytes": 74394880,
+  "changes": [
+    {
+      "cycle": 38453,
+      "action": "MODIFIED_FIELDS"
+    }
+  ],
+  "stdout_sha256": "83eccc935851e86ca0c6bf18f1a2db22d0b6efe34537b9e6f774a7e955faf610",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "kind": "FULL_DAMAGED_DERIVATIVE_NOT_A_NEW_RTL_RUN"
+}

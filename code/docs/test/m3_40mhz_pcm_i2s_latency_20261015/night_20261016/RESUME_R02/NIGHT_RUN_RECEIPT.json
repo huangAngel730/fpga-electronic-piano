@@ -1,0 +1,404 @@
+{
+  "schema": "C_R02_REAL_R05_DIGITAL_RECEIPT_V1",
+  "status": "LIMITED_MAIN_WINDOW_DIGITAL_PASS",
+  "created_utc": "2026-10-16T02:21:19.293440+00:00",
+  "baseline_head": "c12636c034be62e10c564217298564422a533b9c",
+  "validation": "A_REAL_MODELSIM_L2_CAPTURE_WITH_C_L1_INDEPENDENT_PUBLIC_PCM_SERIAL_CHECKER",
+  "result": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\CONSUME_R01\\REAL_RESULT.json",
+    "bytes": 444378,
+    "sha256": "ec8e03710c18ce6eda50cece7689578bd2ec58bbbddb212b87b68866621eaf98"
+  },
+  "digital_summary": {
+    "passed": true,
+    "level": "L1_INDEPENDENT_CONSUMER_OF_SUPPLIED_CAPTURE",
+    "capture_sha256": "a2509a2b5555437ff8ee1da4799e8210ad80e95a058881a5d26111a935e5b5d3",
+    "ticks": 253456,
+    "last_epoch": 1,
+    "clock_hz": 40000000,
+    "sample_rate_hz": 48000,
+    "accepted_requests": 303,
+    "committed_requests": 303,
+    "cancelled_requests": 0,
+    "pending_requests_at_end": 0,
+    "commits_with_proven_next_frame_deadline": 303,
+    "commits_with_unknown_next_frame_deadline": 0,
+    "commits_cancelled_by_reset_before_next_frame": 0,
+    "serial_observed_committed_requests": 301,
+    "serial_unobserved_committed_requests": 2,
+    "frame_distribution": {
+      "0": {
+        "833": 202,
+        "834": 101
+      }
+    },
+    "max_accept_to_commit_cycles": 35,
+    "max_request_to_serial_cycles": 1673,
+    "reset_records": [
+      {
+        "kind": "RESET",
+        "epoch": 1,
+        "cycle": 253417,
+        "time_ns": 6335413
+      }
+    ],
+    "partial_serial_aborted_by_reset": 1,
+    "first_valid": "UNKNOWN_NOT_EXPORTED",
+    "clip_math": "UNKNOWN_PUBLIC_METADATA_ONLY",
+    "analog_end_to_end_10ms": "UNKNOWN_NOT_MEASURED",
+    "board_release_allowed": false,
+    "evidence_kind": "A_REAL_R05_KNOWN_RESET_MAIN_WINDOW_WITH_RAW_UNKNOWN_STARTUP",
+    "producer_receipt_sha256": "1516a35e6a5852164866aa729f8897ca5a668a4308f8e1ce60e91fa994211dbc",
+    "serial_stereo_frames": 302,
+    "serial_half_frames": 606,
+    "sampled_frames": 304,
+    "max_accept_to_commit_us": 0.875,
+    "max_request_to_serial_us": 41.825,
+    "equal_channels_all_commits": true,
+    "actual_clip_commits": 0,
+    "committed_serial_reset_aborts": [
+      {
+        "epoch": 0,
+        "id": 302,
+        "request_cycle": 251751,
+        "request_frame_cycle": 251749,
+        "status": "COMMITTED",
+        "deadline": "PROVEN_BEFORE_NEXT_FRAME",
+        "commit_cycle": 251786,
+        "left": 1496034,
+        "right": 1496034,
+        "clipped": 0,
+        "accept_to_commit_cycles": 35,
+        "sample_cycle": 252582,
+        "next_frame_cycle": 252582,
+        "serial_disposition": "CANCELLED_RESET_BEFORE_SERIAL_COMPLETE",
+        "reset_cycle": 253417
+      },
+      {
+        "epoch": 0,
+        "id": 303,
+        "request_cycle": 252584,
+        "request_frame_cycle": 252582,
+        "status": "COMMITTED",
+        "deadline": "PROVEN_BEFORE_NEXT_FRAME",
+        "commit_cycle": 252619,
+        "left": 1390692,
+        "right": 1390692,
+        "clipped": 0,
+        "accept_to_commit_cycles": 35,
+        "sample_cycle": 253416,
+        "next_frame_cycle": 253416,
+        "serial_disposition": "CANCELLED_RESET_BEFORE_SERIAL_COMPLETE",
+        "reset_cycle": 253417
+      }
+    ],
+    "anti_swap_actual_coverage": "NOT_DISTINGUISHABLE_MONO_EQUAL_CHANNELS",
+    "reset_release_after_final_assertion": "NOT_OBSERVED",
+    "analog_10ms": "UNKNOWN_NOT_MEASURED"
+  },
+  "runs": {
+    "CONSUME_R01": {
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\CONSUME_R01\\RUN_RECEIPT.json",
+        "bytes": 4549,
+        "sha256": "273bb3b1ccd566b2992d7d4ea7727e195878c705c9d5208dfbae51797f958deb"
+      },
+      "exit_code": 0,
+      "seconds": 8.093999999997322,
+      "argv": [
+        "C:/Users/songdongkuan/miniconda3/python.exe",
+        "-X",
+        "utf8",
+        "code/software/m3_40mhz_pcm_i2s_latency_20261015/night_20261016/RESUME_R02/consume_real.py",
+        "--producer-receipt",
+        "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/RUN_01/RUN_RECEIPT.json",
+        "--receipt-sha256",
+        "1516a35e6a5852164866aa729f8897ca5a668a4308f8e1ce60e91fa994211dbc",
+        "--boundary",
+        "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/STARTUP_BOUNDARY.json",
+        "--boundary-sha256",
+        "bbc78215e6c1f839a4d7789af93fc4d994c3ef6bab22c59448e2b9e710a5e8e7",
+        "--startup-schema",
+        "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/STARTUP_SCHEMA.json",
+        "--schema-sha256",
+        "2e4b9a1d7e19e488f1d06ef1c3a4530900019ab623a7347bad903cc4ef3a0230",
+        "--output",
+        "code/docs/test/m3_40mhz_pcm_i2s_latency_20261015/night_20261016/RESUME_R02/CONSUME_R01/REAL_RESULT.json"
+      ]
+    },
+    "real_negative_R01": {
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\real_negative_R01\\RUN_RECEIPT.json",
+        "bytes": 4584,
+        "sha256": "b3016f359e08643e8fb082cb95143f930bf199f5b37c97046a7664c174bca53f"
+      },
+      "exit_code": 0,
+      "seconds": 23.5,
+      "argv": [
+        "C:/Users/songdongkuan/miniconda3/python.exe",
+        "-X",
+        "utf8",
+        "code/software/m3_40mhz_pcm_i2s_latency_20261015/night_20261016/RESUME_R02/test_real_mutations.py",
+        "--capture",
+        "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/RUN_01/stage/inputs/REAL_CAPTURE.jsonl",
+        "--positive-result",
+        "code/docs/test/m3_40mhz_pcm_i2s_latency_20261015/night_20261016/RESUME_R02/CONSUME_R01/REAL_RESULT.json",
+        "--output",
+        "code/docs/test/m3_40mhz_pcm_i2s_latency_20261015/night_20261016/RESUME_R02/real_negative_R01/cases"
+      ]
+    }
+  },
+  "negative_cases": [
+    {
+      "name": "missing_tick",
+      "expected": "TICK_ORDER_MISSING_DUPLICATE_OR_EPOCH",
+      "actual": "TICK_ORDER_MISSING_DUPLICATE_OR_EPOCH",
+      "passed": true,
+      "exit_code": 1,
+      "seconds": 0.14099999999598367,
+      "damaged_capture_sha256": "dd4ca890e1c95bfe4bc57a4a1e1f78f6ddfbc53ff0c964bcbc279e2c84970de2"
+    },
+    {
+      "name": "duplicate_tick",
+      "expected": "TICK_ORDER_MISSING_DUPLICATE_OR_EPOCH",
+      "actual": "TICK_ORDER_MISSING_DUPLICATE_OR_EPOCH",
+      "passed": true,
+      "exit_code": 1,
+      "seconds": 0.14100000000325963,
+      "damaged_capture_sha256": "4a0a7dac30f81c6fba3dcab0e94b5e660efa4556b5832343f3fb423a3fae97ba"
+    },
+    {
+      "name": "out_of_order",
+      "expected": "TICK_ORDER_MISSING_DUPLICATE_OR_EPOCH",
+      "actual": "TICK_ORDER_MISSING_DUPLICATE_OR_EPOCH",
+      "passed": true,
+      "exit_code": 1,
+      "seconds": 0.13999999999941792,
+      "damaged_capture_sha256": "c468a56ff095903ad8da971c9f8d21ee81b1889cd4a71989aee7b6bd04e77a07"
+    },
+    {
+      "name": "x_pin",
+      "expected": "X_OR_NONINTEGER",
+      "actual": "X_OR_NONINTEGER",
+      "passed": true,
+      "exit_code": 1,
+      "seconds": 0.25,
+      "damaged_capture_sha256": "29151013fc49fdf59bda0a6f4cb468a683432141a8cd1c818e275e4f2159c7f0"
+    },
+    {
+      "name": "wrong_commit_id",
+      "expected": "STALE_DUPLICATE_OR_UNREQUESTED_COMMIT",
+      "actual": "STALE_DUPLICATE_OR_UNREQUESTED_COMMIT",
+      "passed": true,
+      "exit_code": 1,
+      "seconds": 0.13999999999941792,
+      "damaged_capture_sha256": "ad99815247bb861faee8083b5a41dd51e5655494c2836ca4c65ea5423a56cf1d"
+    },
+    {
+      "name": "wrong_committed_pcm",
+      "expected": "PLAY_PCM_COMMIT_OR_HOLD_ALIGNMENT",
+      "actual": "PLAY_PCM_COMMIT_OR_HOLD_ALIGNMENT",
+      "passed": true,
+      "exit_code": 1,
+      "seconds": 0.6089999999967404,
+      "damaged_capture_sha256": "054f563b0b04f87e57cfc928b704637688597965004b236b1a7603d31d5c79b3"
+    },
+    {
+      "name": "din_changes_away_from_falling",
+      "expected": "WS_DIN_CHANGED_OUTSIDE_FALLING_BCLK",
+      "actual": "WS_DIN_CHANGED_OUTSIDE_FALLING_BCLK",
+      "passed": true,
+      "exit_code": 1,
+      "seconds": 0.2809999999954016,
+      "damaged_capture_sha256": "89684462207ec67e6402e45b40d78f728e1fec8168f6def76a55558a6b52711c"
+    },
+    {
+      "name": "valid_slot_serial_lsb_corruption",
+      "expected": "SERIAL_PCM_OR_CHANNEL_MISMATCH",
+      "actual": "SERIAL_PCM_OR_CHANNEL_MISMATCH",
+      "passed": true,
+      "exit_code": 1,
+      "seconds": 0.6399999999994179,
+      "damaged_capture_sha256": "5bbe2406ca0e558d2bba49c5cb26e84e319ad85508d29edd6fa6b52dd7b045cf"
+    },
+    {
+      "name": "first_request_misses_real_frame",
+      "expected": "REQUEST_NEXT_FRAME_DEADLINE_MISSED",
+      "actual": "REQUEST_NEXT_FRAME_DEADLINE_MISSED",
+      "passed": true,
+      "exit_code": 1,
+      "seconds": 0.15600000000267755,
+      "damaged_capture_sha256": "e4ec376e7e460e87b4a07935c5f8a8cb4dc2e004d36d10ea5eee4bd28444324a"
+    },
+    {
+      "name": "reset_then_end_no_low_tick",
+      "expected": "END_WITH_UNOBSERVED_RESET",
+      "actual": "END_WITH_UNOBSERVED_RESET",
+      "passed": true,
+      "exit_code": 1,
+      "seconds": 3.437999999994645,
+      "damaged_capture_sha256": "fc0c65384d37e28e2c21482a66245ed77fdcc3ac791ab020aa8e1c84985601f0"
+    }
+  ],
+  "ready": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\CAPTURE_READY.json",
+    "bytes": 3617,
+    "sha256": "a9f36a26b6fc68d6a84fdda85c1047e79032356f6f78d491527e2d848ef81ab1"
+  },
+  "producer_receipt": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\RUN_RECEIPT.json",
+    "bytes": 83197,
+    "sha256": "1516a35e6a5852164866aa729f8897ca5a668a4308f8e1ce60e91fa994211dbc"
+  },
+  "source": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\consume_capture.py",
+      "bytes": 19277,
+      "sha256": "da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\consume_real.py",
+      "bytes": 14874,
+      "sha256": "0d55248048c86057f38734dfe67a230ec555ecd2b55faef5f251b9f0d48e0098"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\prepare_r02.py",
+      "bytes": 3287,
+      "sha256": "e65ff173e61f97c31bcf364ad0aefc9eaf47f6a20ea8f12a17d1d922507aafc1"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\run_command.py",
+      "bytes": 2650,
+      "sha256": "079d87ad5513815c7579f9c26795c51deede9961274987131d35350b0723f6c7"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\seal_real.py",
+      "bytes": 8827,
+      "sha256": "0205eea58003e3ba4de0c048fefeca8f57f81026bbfb27294329c2a8244a3104"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\startup_adapter.py",
+      "bytes": 10828,
+      "sha256": "6db7ffa4ff258f7debeee904df70fae55230ec22988dc7d38ae159d7333fb17a"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\startup_guards.py",
+      "bytes": 3439,
+      "sha256": "5f5e2914e5603d1514c6f76f3373864b258ebe1c37e7e6da5cca72cb420e7476"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\test_real_mutations.py",
+      "bytes": 7865,
+      "sha256": "e7817ccdd81219fda7e943bebc7be145ef8cc2f905de5d6ef08d5ad6c232e136"
+    }
+  ],
+  "python": {
+    "path": "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+    "bytes": 104208,
+    "sha256": "4e5a83fcdcd12bcb9ae4dc98c5405effe35dc5ac10d89982c6a6a3646493f88a"
+  },
+  "inputs": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\RUN_RECEIPT.json",
+      "bytes": 83197,
+      "sha256": "1516a35e6a5852164866aa729f8897ca5a668a4308f8e1ce60e91fa994211dbc"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\CAPTURE_READY.json",
+      "bytes": 3617,
+      "sha256": "a9f36a26b6fc68d6a84fdda85c1047e79032356f6f78d491527e2d848ef81ab1"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\REAL_CAPTURE.jsonl",
+      "bytes": 74648339,
+      "sha256": "a2509a2b5555437ff8ee1da4799e8210ad80e95a058881a5d26111a935e5b5d3"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\REAL_INPUTS.jsonl",
+      "bytes": 49779940,
+      "sha256": "d001cac94d1520c42b43bcb33ca079c2f1d815c1205deb4a2d87005fe143038b"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\STARTUP_BOUNDARY.json",
+      "bytes": 2898,
+      "sha256": "bbc78215e6c1f839a4d7789af93fc4d994c3ef6bab22c59448e2b9e710a5e8e7"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\STARTUP_SCHEMA.json",
+      "bytes": 2594,
+      "sha256": "2e4b9a1d7e19e488f1d06ef1c3a4530900019ab623a7347bad903cc4ef3a0230"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\STARTUP_SCHEMA.diff",
+      "bytes": 896,
+      "sha256": "874418c9a02e016e4c630d607d1d3358cfbd7784ba0837216dfda92f834e0f1a"
+    }
+  ],
+  "startup": {
+    "startup_edges": 0,
+    "main_first_absolute_cycle": 1,
+    "main_first_time_ps": 12500,
+    "main_first_time_ns": 13,
+    "prefix_edges_with_unknown": 0,
+    "selection": "FIRST_KNOWN_RESET_LOW_WITHIN_64",
+    "absolute_cycle_mapping": "absolute_cycle=relative_cycle+startup_edges",
+    "startup_unknown": true,
+    "startup_signoff": "UNKNOWN_NOT_VALIDATED",
+    "analog_latency": "UNKNOWN_NOT_MEASURED",
+    "board_release_allowed": false,
+    "startup_resets": [],
+    "boundary_sha256": "bbc78215e6c1f839a4d7789af93fc4d994c3ef6bab22c59448e2b9e710a5e8e7",
+    "schema_sha256": "2e4b9a1d7e19e488f1d06ef1c3a4530900019ab623a7347bad903cc4ef3a0230",
+    "raw_file_identities": {
+      "startup_capture": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\STARTUP_CAPTURE.jsonl",
+        "bytes": 147,
+        "sha256": "0933521909074c7fd8db8d05e7d7ca057fa04ed810c746f18381f0a23dc53490"
+      },
+      "startup_inputs": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\STARTUP_INPUTS.jsonl",
+        "bytes": 116,
+        "sha256": "fe4075aa4af6e584e24e78195c8f0fa12e43bd596a72a63e2e5ffaf1af00b1c7"
+      },
+      "boundary_raw": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\STARTUP_BOUNDARY_RAW.json",
+        "bytes": 132,
+        "sha256": "1fb540b2c18bf36c80438804884af94dcf531acec18f19a1de1546a779399f30"
+      },
+      "main_capture": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\REAL_CAPTURE.jsonl",
+        "bytes": 74648339,
+        "sha256": "a2509a2b5555437ff8ee1da4799e8210ad80e95a058881a5d26111a935e5b5d3"
+      },
+      "main_inputs": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\REAL_INPUTS.jsonl",
+        "bytes": 49779940,
+        "sha256": "d001cac94d1520c42b43bcb33ca079c2f1d815c1205deb4a2d87005fe143038b"
+      },
+      "producer_receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\RUN_RECEIPT.json",
+        "bytes": 83197,
+        "sha256": "1516a35e6a5852164866aa729f8897ca5a668a4308f8e1ce60e91fa994211dbc"
+      },
+      "source_contract": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\CAPTURE_INTERFACE.md",
+        "bytes": 4732,
+        "sha256": "476a40009757d16d49bfdd90cc8576840af9442b3f93c70946694dfd1e321744"
+      }
+    }
+  },
+  "old_86_reruns": 0,
+  "C_RTL_or_EDA_invocations": 0,
+  "C_hardware_actions": 0,
+  "C_Git_write_actions": 0,
+  "algorithm_or_interface_modified": false,
+  "startup_signoff": "UNKNOWN_NOT_SIGNED",
+  "analog_10ms": "UNKNOWN_NOT_MEASURED",
+  "physical_PLL_HDMI_STA": "NOT_SIGNED_BY_C",
+  "board_release_allowed": false,
+  "old_sources_unchanged": true,
+  "submitted": false,
+  "pushed": false,
+  "publication_owner": "night coordinator",
+  "self_review": "Read-only local self-review found no concrete blocker within specified source/result/contract scope; no new execution, no full capture reread by subagent."
+}

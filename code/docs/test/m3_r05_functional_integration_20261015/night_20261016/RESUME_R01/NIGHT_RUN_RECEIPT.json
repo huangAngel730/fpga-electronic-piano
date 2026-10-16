@@ -1,0 +1,313 @@
+{
+  "schema": "M3_R05_RESUME_FINAL_RECEIPT_V1",
+  "created_utc": "2026-10-16T01:19:57.697892+00:00",
+  "status": "PARTIAL_BLOCKED_FUNCTIONAL_BUDGET_EXHAUSTED",
+  "baseline_head": "c12636c034be62e10c564217298564422a533b9c",
+  "authorization": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\coordinator\\night_20261016\\RESUME_R01\\AUTHORIZATION_AND_DISPATCH.md",
+    "bytes": 3739,
+    "sha256": "992aef7ccbdc4bdc0ac240b45ede7a1a36019ff45e1fb6065e6671149106d708"
+  },
+  "new_modelsim_version": "SE-64 2020.4",
+  "normal_platform_escalation": "ALLOWED_IN_THIS_RESUME_BATCH",
+  "functional_groups_consumed": 3,
+  "remaining_functional_groups": 0,
+  "preparation_only_run_count": 1,
+  "runs": [
+    {
+      "run": "RUN_01",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_01\\RUN_RECEIPT.json",
+        "bytes": 24017,
+        "sha256": "7b94cd75cc52690f086d6619697e9658f59c6041ef75093c984e06f8d32ab821"
+      },
+      "status": "IDENTITY_CHANGED",
+      "error": "source or tool changed",
+      "functional_attempt_consumed": false,
+      "functional_calls": [],
+      "elapsed_s": 0.18699999999807915,
+      "source_before_equals_after": true,
+      "tool_pin_available": false,
+      "tools_before_equals_after": null
+    },
+    {
+      "run": "RUN_02",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_02\\RUN_RECEIPT.json",
+        "bytes": 66986,
+        "sha256": "a55831c3e424ec71212da79616e56722a233288430fd7329dd3babab03436140"
+      },
+      "status": "FAILED_STOP",
+      "error": "Refusal('vlog')",
+      "functional_attempt_consumed": true,
+      "functional_calls": [
+        {
+          "argv": [
+            "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vlib.exe",
+            "work"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_02\\stage\\inputs",
+          "exit_code": 0,
+          "elapsed_s": 0.07800000000133878,
+          "stdout": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_02\\logs\\vlib.stdout.log",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stderr": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_02\\logs\\vlib.stderr.log",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "process_created": true,
+          "timeout": false
+        },
+        {
+          "argv": [
+            "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vlog.exe",
+            "-sv",
+            "+incdir+include",
+            "-f",
+            "compile.f"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_02\\stage\\inputs",
+          "exit_code": 2,
+          "elapsed_s": 0.17199999999866122,
+          "stdout": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_02\\logs\\vlog.stdout.log",
+            "bytes": 5167,
+            "sha256": "20160a00e81b8340e0f3e971dcb846d4d9f77fd497589ad608a4136e01013b87"
+          },
+          "stderr": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_02\\logs\\vlog.stderr.log",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "process_created": true,
+          "timeout": false
+        }
+      ],
+      "elapsed_s": 1.1719999999986612,
+      "source_before_equals_after": true,
+      "tool_pin_available": true,
+      "tools_before_equals_after": true
+    },
+    {
+      "run": "RUN_03",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_03\\RUN_RECEIPT.json",
+        "bytes": 71148,
+        "sha256": "4b38a4d875c9db58da082a5c4a04a83eda2a7f9769dff06922c093696569b07c"
+      },
+      "status": "FAILED_STOP",
+      "error": "Refusal('vsim')",
+      "functional_attempt_consumed": true,
+      "functional_calls": [
+        {
+          "argv": [
+            "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vlib.exe",
+            "work"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_03\\stage\\inputs",
+          "exit_code": 0,
+          "elapsed_s": 0.0629999999946449,
+          "stdout": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_03\\logs\\vlib.stdout.log",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stderr": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_03\\logs\\vlib.stderr.log",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "process_created": true,
+          "timeout": false
+        },
+        {
+          "argv": [
+            "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vlog.exe",
+            "-sv",
+            "+incdir+include",
+            "-f",
+            "compile.f"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_03\\stage\\inputs",
+          "exit_code": 0,
+          "elapsed_s": 0.15600000000267755,
+          "stdout": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_03\\logs\\vlog.stdout.log",
+            "bytes": 5078,
+            "sha256": "53c475be717f8789a0eb4dc0de508202f07442a37f52cf7e2bbc89fb21a0becf"
+          },
+          "stderr": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_03\\logs\\vlog.stderr.log",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "process_created": true,
+          "timeout": false
+        },
+        {
+          "argv": [
+            "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vsim.exe",
+            "-c",
+            "work.tb_m2_m1td_real_chain",
+            "-do",
+            "run -all; quit -f"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_03\\stage\\inputs",
+          "exit_code": 0,
+          "elapsed_s": 3.360000000000582,
+          "stdout": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_03\\logs\\vsim.stdout.log",
+            "bytes": 2789,
+            "sha256": "e08e7cd6ddb997f9cbe7c3ded478bc78705f20b912f4929f23aa71b62560eca6"
+          },
+          "stderr": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_03\\logs\\vsim.stderr.log",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "process_created": true,
+          "timeout": false
+        }
+      ],
+      "elapsed_s": 4.140999999995984,
+      "source_before_equals_after": true,
+      "tool_pin_available": true,
+      "tools_before_equals_after": true
+    },
+    {
+      "run": "RUN_04",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_04\\RUN_RECEIPT.json",
+        "bytes": 74810,
+        "sha256": "96f07239ee7f755865989cf9068fa33f62c28cfa907dbf96308d4f87d4133d2f"
+      },
+      "status": "FAILED_STOP",
+      "error": "Refusal('vsim')",
+      "functional_attempt_consumed": true,
+      "functional_calls": [
+        {
+          "argv": [
+            "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vlib.exe",
+            "work"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_04\\stage\\inputs",
+          "exit_code": 0,
+          "elapsed_s": 0.07799999999406282,
+          "stdout": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_04\\logs\\vlib.stdout.log",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stderr": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_04\\logs\\vlib.stderr.log",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "process_created": true,
+          "timeout": false
+        },
+        {
+          "argv": [
+            "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vlog.exe",
+            "-sv",
+            "+incdir+include",
+            "-f",
+            "compile.f"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_04\\stage\\inputs",
+          "exit_code": 0,
+          "elapsed_s": 0.15600000000267755,
+          "stdout": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_04\\logs\\vlog.stdout.log",
+            "bytes": 5078,
+            "sha256": "dddadad5184145e12078a14ea33a2bd26c20c635030345c0f4c446988473bef8"
+          },
+          "stderr": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_04\\logs\\vlog.stderr.log",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "process_created": true,
+          "timeout": false
+        },
+        {
+          "argv": [
+            "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vsim.exe",
+            "-c",
+            "work.tb_m2_m1td_real_chain",
+            "-do",
+            "run -all; quit -f"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_04\\stage\\inputs",
+          "exit_code": 0,
+          "elapsed_s": 2.7030000000013388,
+          "stdout": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_04\\logs\\vsim.stdout.log",
+            "bytes": 2799,
+            "sha256": "326cec0d1e77a16593ddc617ac6e6ac5422ce2bc738d757e282a65deafae997c"
+          },
+          "stderr": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_04\\logs\\vsim.stderr.log",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "process_created": true,
+          "timeout": false
+        }
+      ],
+      "elapsed_s": 3.5,
+      "source_before_equals_after": true,
+      "tool_pin_available": true,
+      "tools_before_equals_after": true
+    }
+  ],
+  "capture_artifacts": {
+    "STARTUP_CAPTURE.jsonl": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_04\\stage\\inputs\\STARTUP_CAPTURE.jsonl",
+      "bytes": 33695,
+      "sha256": "b1059bc7c2c8101e79f2f1d1b68b5bbe08f760d58a6918f9081645195a5fd25e"
+    },
+    "STARTUP_INPUTS.jsonl": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_04\\stage\\inputs\\STARTUP_INPUTS.jsonl",
+      "bytes": 19648,
+      "sha256": "effac6c403ad7d3ab72f07329690c877c32a7022abe6d05fc4c280dffbd0c4bb"
+    },
+    "REAL_CAPTURE.jsonl": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_04\\stage\\inputs\\REAL_CAPTURE.jsonl",
+      "bytes": 142,
+      "sha256": "3cb5081163ac86108b0201111692bded58d3fccbdef4269a8ef4ad89abae6f48"
+    },
+    "REAL_INPUTS.jsonl": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\RUN_04\\stage\\inputs\\REAL_INPUTS.jsonl",
+      "bytes": 165,
+      "sha256": "ea60e9648c8305115739c75730dd9c7bed30651197afd052d50c3ef1cc638a24"
+    }
+  },
+  "failed_prefix_inspection": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\FAILED_PREFIX_INSPECTION.json",
+    "bytes": 2100,
+    "sha256": "f28122dee605d7f7e03bd4c77adfaabee9c66c58052c910977df898868ec94da"
+  },
+  "successful_real_business_capture": false,
+  "ready_generated": false,
+  "boundary_generated": false,
+  "initial_reset_explanation": "Earlier static hypothesis, not proved. Latest per-field raw evidence locates persistent observation clipped Z.",
+  "snapshot_layout": "FLAT_RELATIVE_SHA_MAP_V1; see each executed receipt source_snapshot_files",
+  "pending_fix": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R01\\FIX03_PENDING.json",
+    "bytes": 1310,
+    "sha256": "1586fcba72180e44f7fcb561ad6e6c78ba0651b60826e8a21b26e7f53315c2ea"
+  },
+  "candidate_compile_level": "FIX02 compiled; FIX03 pending only L0",
+  "real_per_request_deadline": "UNKNOWN",
+  "serial_pcm_decode": "UNKNOWN",
+  "analog_latency": "UNKNOWN_NOT_MEASURED",
+  "board_release_allowed": false,
+  "git_modified_by_this_window": false,
+  "next_owner": "Night coordinator: stop A/C true consumption; M2 review; no further execution without new authorization",
+  "startup_has_only_failed_prefix": true
+}
