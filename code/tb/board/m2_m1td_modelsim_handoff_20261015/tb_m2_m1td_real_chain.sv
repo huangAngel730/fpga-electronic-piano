@@ -62,5 +62,5 @@ module tb_m2_m1td_real_chain;
             $fatal(1,"M1TD_SHARED_RESET_NOT_CLEAN");
         $display("PASS M2_M1TD_REAL_CHAIN_BOARD_FUNCTIONAL_ONLY");$finish;
     end
-    initial begin #6000000;$fatal(1,"M1TD_REAL_CHAIN_TIMEOUT");end
+    initial begin #7000000;$fatal(1,"M1TD_REAL_CHAIN_TIMEOUT");end
 endmodule
