@@ -1,0 +1,163 @@
+{
+  "schema": "M3_C_INPUT_PLAN_V1",
+  "scope": "SYNTHETIC_FIXTURE_NOT_PRO_DUT",
+  "clock_hz_fixture": 40000000,
+  "frame_starts": [
+    20,
+    853,
+    1686,
+    2520,
+    3353,
+    4186,
+    5020,
+    5853,
+    6686,
+    7520,
+    8353,
+    9186,
+    10020,
+    10853,
+    11686,
+    12520,
+    13353,
+    14186,
+    15020
+  ],
+  "events": [
+    {
+      "cycle": 12,
+      "action": "NOTE_ON",
+      "note": 60,
+      "velocity": 800
+    },
+    {
+      "cycle": 845,
+      "action": "NOTE_OFF",
+      "note": 60,
+      "velocity": 0
+    },
+    {
+      "cycle": 1678,
+      "action": "NOTE_ON",
+      "note": 64,
+      "velocity": 800
+    },
+    {
+      "cycle": 2512,
+      "action": "NOTE_OFF",
+      "note": 64,
+      "velocity": 0
+    },
+    {
+      "cycle": 3345,
+      "action": "NOTE_ON",
+      "note": 67,
+      "velocity": 800
+    },
+    {
+      "cycle": 4178,
+      "action": "NOTE_OFF",
+      "note": 67,
+      "velocity": 0
+    },
+    {
+      "cycle": 5012,
+      "action": "NOTE_ON",
+      "note": 72,
+      "velocity": 800
+    },
+    {
+      "cycle": 5845,
+      "action": "NOTE_OFF",
+      "note": 72,
+      "velocity": 0
+    },
+    {
+      "cycle": 6678,
+      "action": "NOTE_ON",
+      "note": 60,
+      "velocity": 800
+    },
+    {
+      "cycle": 6678,
+      "action": "NOTE_ON",
+      "note": 64,
+      "velocity": 800
+    },
+    {
+      "cycle": 6678,
+      "action": "NOTE_ON",
+      "note": 67,
+      "velocity": 800
+    },
+    {
+      "cycle": 6678,
+      "action": "NOTE_ON",
+      "note": 72,
+      "velocity": 800
+    },
+    {
+      "cycle": 7512,
+      "action": "NOTE_OFF",
+      "note": 60,
+      "velocity": 0
+    },
+    {
+      "cycle": 8345,
+      "action": "NOTE_OFF",
+      "note": 64,
+      "velocity": 0
+    },
+    {
+      "cycle": 9178,
+      "action": "NOTE_OFF",
+      "note": 67,
+      "velocity": 0
+    },
+    {
+      "cycle": 10012,
+      "action": "NOTE_OFF",
+      "note": 72,
+      "velocity": 0
+    },
+    {
+      "cycle": 10845,
+      "action": "NOTE_ON",
+      "note": 69,
+      "velocity": 640
+    }
+  ],
+  "initial_epoch": 0,
+  "reset_cycles": [
+    12560
+  ],
+  "cancel_requests": [
+    {
+      "frame": 14,
+      "lane": 2,
+      "after_accept_cycles": 3
+    }
+  ],
+  "request_stall": {
+    "frame": 13,
+    "lane": 1,
+    "cycles": 3
+  },
+  "end_cycle": 15854,
+  "fixture_rules": {
+    "slots": "lowest_free_immediate_noteoff_release",
+    "lane_slot_map": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "inactive_lanes_tick": true,
+    "request_order": "lane_0_1_2_3_per_frame",
+    "request_base_offset": 4,
+    "lane_spacing": 8,
+    "return_after_accept": 5,
+    "publish_after_accept": 7,
+    "consume_before_next_frame": 2
+  }
+}
