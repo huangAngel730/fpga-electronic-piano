@@ -1,0 +1,48 @@
+{
+  "argv": [
+    "E:\\python3.10\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "D:\\\u5d4c\u8d5b\\\u9ad8\u4e91\u4e8c\\m1_develop_sync_20261015\\code\\model\\m1_visual_audio_guard_20261016\\visual_audio_guard.py",
+    "--before",
+    "D:\\\u5d4c\u8d5b\\\u9ad8\u4e91\u4e8c\\m1_develop_sync_20261015\\code\\docs\\test\\m1_visual_audio_guard_20261016\\selftest_R01\\bad_frame_cadence\\before.json",
+    "--after",
+    "D:\\\u5d4c\u8d5b\\\u9ad8\u4e91\u4e8c\\m1_develop_sync_20261015\\code\\docs\\test\\m1_visual_audio_guard_20261016\\selftest_R01\\bad_frame_cadence\\after.json",
+    "--contract",
+    "D:\\\u5d4c\u8d5b\\\u9ad8\u4e91\u4e8c\\m1_develop_sync_20261015\\code\\docs\\test\\m1_visual_audio_guard_20261016\\selftest_R01\\bad_frame_cadence\\contract.json",
+    "--basis",
+    "D:\\\u5d4c\u8d5b\\\u9ad8\u4e91\u4e8c\\m1_develop_sync_20261015\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\REFERENCE_CONTRACT.json",
+    "--output",
+    "D:\\\u5d4c\u8d5b\\\u9ad8\u4e91\u4e8c\\m1_develop_sync_20261015\\code\\docs\\test\\m1_visual_audio_guard_20261016\\selftest_R01\\bad_frame_cadence\\comparison.json"
+  ],
+  "case": "bad_frame_cadence",
+  "cwd": "D:\\\u5d4c\u8d5b\\\u9ad8\u4e91\u4e8c\\m1_develop_sync_20261015\\code\\model\\m1_visual_audio_guard_20261016",
+  "elapsed_seconds": 0.125,
+  "exit_code": 2,
+  "expected_exit": 2,
+  "expected_rejection_marker": "frame cadence outside",
+  "files": {
+    "after.json": {
+      "bytes": 3470,
+      "sha256": "3152edb63eee5cfb2c512f1b4a7461862a53344bccd737a1ac40d1ab7104e701"
+    },
+    "before.json": {
+      "bytes": 3470,
+      "sha256": "fde3a9a91bcaec1076be6d66ce32ee7f1efa821c0720efce6f14fbb5cb7a74bf"
+    },
+    "contract.json": {
+      "bytes": 379,
+      "sha256": "8883f74bb857a7880c780b9b240c641e8763d08b8a5e45c66a73956787ffbfbb"
+    },
+    "stderr.bin": {
+      "bytes": 94,
+      "sha256": "3f307d5ac33134e29fdc763d2795dd64039125c6add0cfd9a34012ad8da420f8"
+    },
+    "stdout.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "timed_out": false
+}

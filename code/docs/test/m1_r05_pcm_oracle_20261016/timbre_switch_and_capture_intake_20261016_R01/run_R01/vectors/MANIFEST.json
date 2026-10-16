@@ -1,0 +1,119 @@
+{
+  "schema": "M1_TIMBRE_PC_PAIR_BUNDLE_MANIFEST_V1",
+  "result": "SOFTWARE_REFERENCE_GENERATED",
+  "actual_dut_result": "PENDING_REAL_CAPTURE",
+  "source_kind": "SYNTHETIC_ONLY",
+  "profile": "SYNTHETIC_SETTLED_PC_PAIR_NOT_UART_ROUTER_OR_REAL_R06",
+  "basis_contract_sha256": "f7373c1be0d70b9bb45800738b8a992efadd854c1cb1aecf82910f3644cf091e",
+  "clock_hz": 40000000,
+  "sample_rate_hz": 48000,
+  "scenes": [
+    "control_pc0",
+    "switch_ch0_pc1"
+  ],
+  "samples_per_scene": 256,
+  "dependency_identity": {
+    "schema": "M1_R06_PCM_REFERENCE_DEPENDENCIES_V1",
+    "r06_archive_sha256": "4be2b4c185691a3e493827a3a95303fa90f49ba6336eb4a8e0183942c8f05483",
+    "frozen_reference_only_not_reexecuted_old_tests": true,
+    "files": [
+      {
+        "source": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\software\\audio_math_acceptance_candidate\\dds_model.py",
+        "path": "frozen/dds_model.py",
+        "sha256": "c127f5af83e52cbcd7484e96fbb26f149862cdb225023f72041c61f220c0950d",
+        "bytes": 5221
+      },
+      {
+        "source": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\software\\audio_math_acceptance_candidate\\envelope_model.py",
+        "path": "frozen/envelope_model.py",
+        "sha256": "5826bb00da5d8ecc5c2eb3ffe43d159514781bc2f3bb1033965dcf312d12f933",
+        "bytes": 6222
+      },
+      {
+        "source": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\tb\\board\\generate_t010_allocator_vectors.py",
+        "path": "frozen/allocator_oracle.py",
+        "sha256": "634208931558eea580a0a4406d0c45e04fed1afa1e446455e1341cb19171b4a7",
+        "bytes": 4797
+      },
+      {
+        "source": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\model\\m1_timbre_delay_chain_candidate_20261014\\delay_effect_fixed.py",
+        "path": "frozen/delay_effect_fixed.py",
+        "sha256": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+        "bytes": 8971
+      },
+      {
+        "source_zip": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\evidence\\m2_m1td_physical_20261015\\M2_138K_M1TD_R06_XSAFE_7ms_ModelSim输入_20261016.zip",
+        "member": "inputs/rom/piano_band_4x256_8191.mem",
+        "path": "frozen/rom/piano_band_4x256_8191.mem",
+        "sha256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+        "bytes": 5120
+      },
+      {
+        "source_zip": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\evidence\\m2_m1td_physical_20261015\\M2_138K_M1TD_R06_XSAFE_7ms_ModelSim输入_20261016.zip",
+        "member": "inputs/rom/triangle_wavetable.hex",
+        "path": "frozen/rom/triangle_wavetable.hex",
+        "sha256": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+        "bytes": 5210
+      },
+      {
+        "source_zip": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\evidence\\m2_m1td_physical_20261015\\M2_138K_M1TD_R06_XSAFE_7ms_ModelSim输入_20261016.zip",
+        "member": "inputs/rom/velocity_gain_rom.mem",
+        "path": "frozen/rom/velocity_gain_rom.mem",
+        "sha256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+        "bytes": 5120
+      }
+    ]
+  },
+  "source_sha256": {
+    "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\model\\m1_r05_pcm_oracle_20261016\\timbre_switch_pairs_R01.py": "eb07c27e2cd4a682d54f2340b8d55de66ebd240311559de508dedb181ee77df9",
+    "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\model\\m1_r05_pcm_oracle_20261016\\oracle.py": "cb2cda8b6c9c17d7e5f93be4e48407383173934437c0592d2da64f778535d4a3",
+    "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\model\\m1_r05_pcm_oracle_20261016\\test_timbre_switch_pairs_R01.py": "4938dcc0940d4bccd7558f276e0ddb3da52939aa76a6995842707dacfe3bcdb6"
+  },
+  "files": {
+    "control_pc0/EVENT_DECISIONS.json": {
+      "bytes": 2295,
+      "sha256": "3bc4cfed59e5ce0afaa1c38bb0c3cf30e831679cacabedf145916732efcfdb4b"
+    },
+    "control_pc0/EXPECTED_PCM.json": {
+      "bytes": 697739,
+      "sha256": "76a98ace3c3a35a42cf992bc61a6cec30079ce8d62b95d1529fa63631d52c93b"
+    },
+    "control_pc0/MANIFEST.json": {
+      "bytes": 1758,
+      "sha256": "bbeb2dcc880242e413f1d47ac655dc865680451e297916bc16a3d9f6e6c098d4"
+    },
+    "control_pc0/PCM.csv": {
+      "bytes": 31036,
+      "sha256": "33088d1a0b5fadb6c315eb8b6c42b8b53dd61ec91078f949c494b10383053a21"
+    },
+    "control_pc0/STIMULUS.json": {
+      "bytes": 49635,
+      "sha256": "6fc6ea383e35dc23aa78abbf9789e9e3aa1a3d89f199443e0f9e28dbffb5828c"
+    },
+    "QUALIFICATION.json": {
+      "bytes": 6905,
+      "sha256": "f06abd1375af754c3a7d743a84ab1c138b94bb4ca3cd4324efa2bd493044b685"
+    },
+    "switch_ch0_pc1/EVENT_DECISIONS.json": {
+      "bytes": 2298,
+      "sha256": "d92c0fc77c791ccb745ffd7d87850fad478fc51958a72ad5da469df02c30628f"
+    },
+    "switch_ch0_pc1/EXPECTED_PCM.json": {
+      "bytes": 698609,
+      "sha256": "5f3ca6ae8fadc84ae37f17fcf5be84e719a7e92c25cb543d36241d24bd3ba104"
+    },
+    "switch_ch0_pc1/MANIFEST.json": {
+      "bytes": 1761,
+      "sha256": "604586a28eb8ecfbcd92976e38a1382affbe37511463b46a4a7697ab4ba395e6"
+    },
+    "switch_ch0_pc1/PCM.csv": {
+      "bytes": 31867,
+      "sha256": "fa2d7bcd2faf0d74fd8426ea1ebc8b53f27fe086d299ae542076a06982a22322"
+    },
+    "switch_ch0_pc1/STIMULUS.json": {
+      "bytes": 49638,
+      "sha256": "3ec7b1f9abfaff82c9cd2011ca82aae52f86dd6064e3df75273f6e487d10dad6"
+    }
+  },
+  "boundary": "No real capture, UART transmission timing, router latency, or physical/FFT result"
+}

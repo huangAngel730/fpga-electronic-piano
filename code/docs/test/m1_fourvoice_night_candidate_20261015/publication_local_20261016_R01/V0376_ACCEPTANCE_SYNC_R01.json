@@ -1,0 +1,52 @@
+{
+  "schema": "M1_V0376_LIMITED_ACCEPTANCE_SYNC_RECEIPT_R01",
+  "checked_utc": "2026-10-16T04:47:23.703502+00:00",
+  "head": "a67bfec44d03c9def482200a1ebffe0b558874f7",
+  "sync_fetch_exit_code": 0,
+  "sync_fast_forward_exit_code": 0,
+  "synced_document_count": 8,
+  "new_authority": "V0376 limited M2 acceptance of13R02 software artifacts",
+  "m2_report": {
+    "path": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\M2_M1第13批四独奏合奏R02限定复核_2026-10-16.md",
+    "bytes": 4039,
+    "sha256": "43fcb87ebb657d26ca286def2cb87b066db903935c029d381fa674efb732e763"
+  },
+  "accepted_archive_sha256": "e43a836190e484d939fede05f580deb41915ded83b987ee84852b99dafb00b75",
+  "accepted_scope": "L0 sources/contract + software synthetic reference and examples only",
+  "r01_11_r02_1_boundary_retained": true,
+  "last_actual_local_gate": {
+    "head": "632730258d22725cc02fcb6c8b585428dc03eadd",
+    "pass": 7,
+    "fail": 2,
+    "exit_code": 1,
+    "original_receipt_sha256": "f0d4135235084068de1eb0af5d2dacead2b460738402412f458e3817f54bd915"
+  },
+  "new_head_gate_not_rerun": "No script/runtime change; configured Icarus prerequisites still missing. Prior7/9 is not re-labelled as new a67bfec gate result.",
+  "configured_sim_runtime": [
+    {
+      "path": "D:\\Gowin\\oss-cad-suite\\bin\\iverilog.exe",
+      "exists": false
+    },
+    {
+      "path": "D:\\Gowin\\oss-cad-suite\\bin\\vvp.exe",
+      "exists": false
+    },
+    {
+      "path": "D:\\Gowin\\oss-cad-suite\\environment.bat",
+      "exists": false
+    }
+  ],
+  "scripts_sha256": {
+    "code/scripts/enter_fpga_env.ps1": "6582e41b598b207f5fac8fc74a8690a18de7778a53a0146d270f1747f4e4d866",
+    "code/scripts/run_t007_sim.ps1": "1ae6bcf3d1b697409daec3550a4bace211320b9980bbf917ce46f03fefe8eec7",
+    "code/scripts/run_t019_sim.ps1": "be5ecfb11c11a025096fca9463503f15e2b4edf889cd1324894e91232b5a502c"
+  },
+  "source_or_evidence_rewritten": false,
+  "new_tests_or_hdl_eda_device_calls": 0,
+  "committed": false,
+  "pushed": false,
+  "actual_dut_result": "PENDING_REAL_CAPTURE",
+  "board_release_allowed": false,
+  "next_owner": "M2/script owner supplies authorized local Icarus/OSS runtime and path fix, then M1 fetches latest and reruns final exact tree9gate before normal publish",
+  "notification_status": "WAITING_FOR_USER_FORWARD_NOT_DELIVERED"
+}

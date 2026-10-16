@@ -1,0 +1,390 @@
+{
+  "schema": "M1_SOLO_CHORD_SOFTWARE_BUNDLE_V1",
+  "result": "SOFTWARE_REFERENCE_GENERATED",
+  "actual_dut_result": "PENDING_REAL_CAPTURE",
+  "profile": "SYNTHETIC_SETTLED_EVENT_NOT_R06_TB_OR_FFT",
+  "clock_hz": 40000000,
+  "sample_rate_hz": 48000,
+  "basis_contract_sha256": "f7373c1be0d70b9bb45800738b8a992efadd854c1cb1aecf82910f3644cf091e",
+  "samples_per_scene": 256,
+  "scenes": {
+    "solo60": [
+      {
+        "note": 60,
+        "fcw": 23409859,
+        "raw7": 127,
+        "expanded10": 1023,
+        "velocity10": 1023,
+        "timbre": 0,
+        "apply_cycle": 32,
+        "solo_lane": 0,
+        "all_lane": 0,
+        "scene_lane": 0,
+        "source": 0,
+        "channel": 0,
+        "frequency_hz": 261.625561863184
+      }
+    ],
+    "solo63": [
+      {
+        "note": 63,
+        "fcw": 27839171,
+        "raw7": 112,
+        "expanded10": 903,
+        "velocity10": 903,
+        "timbre": 1,
+        "apply_cycle": 64,
+        "solo_lane": 0,
+        "all_lane": 1,
+        "scene_lane": 0,
+        "source": 0,
+        "channel": 0,
+        "frequency_hz": 311.1269809305668
+      }
+    ],
+    "solo67": [
+      {
+        "note": 67,
+        "fcw": 35075158,
+        "raw7": 96,
+        "expanded10": 774,
+        "velocity10": 774,
+        "timbre": 1,
+        "apply_cycle": 80,
+        "solo_lane": 0,
+        "all_lane": 2,
+        "scene_lane": 0,
+        "source": 0,
+        "channel": 0,
+        "frequency_hz": 391.9954374432564
+      }
+    ],
+    "solo70": [
+      {
+        "note": 70,
+        "fcw": 41711627,
+        "raw7": 80,
+        "expanded10": 645,
+        "velocity10": 645,
+        "timbre": 1,
+        "apply_cycle": 96,
+        "solo_lane": 0,
+        "all_lane": 3,
+        "scene_lane": 0,
+        "source": 0,
+        "channel": 0,
+        "frequency_hz": 466.1637581884861
+      }
+    ],
+    "all4": [
+      {
+        "note": 60,
+        "fcw": 23409859,
+        "raw7": 127,
+        "expanded10": 1023,
+        "velocity10": 1023,
+        "timbre": 0,
+        "apply_cycle": 32,
+        "solo_lane": 0,
+        "all_lane": 0,
+        "scene_lane": 0,
+        "source": 0,
+        "channel": 0,
+        "frequency_hz": 261.625561863184
+      },
+      {
+        "note": 63,
+        "fcw": 27839171,
+        "raw7": 112,
+        "expanded10": 903,
+        "velocity10": 903,
+        "timbre": 1,
+        "apply_cycle": 64,
+        "solo_lane": 0,
+        "all_lane": 1,
+        "scene_lane": 1,
+        "source": 0,
+        "channel": 0,
+        "frequency_hz": 311.1269809305668
+      },
+      {
+        "note": 67,
+        "fcw": 35075158,
+        "raw7": 96,
+        "expanded10": 774,
+        "velocity10": 774,
+        "timbre": 1,
+        "apply_cycle": 80,
+        "solo_lane": 0,
+        "all_lane": 2,
+        "scene_lane": 2,
+        "source": 0,
+        "channel": 0,
+        "frequency_hz": 391.9954374432564
+      },
+      {
+        "note": 70,
+        "fcw": 41711627,
+        "raw7": 80,
+        "expanded10": 645,
+        "velocity10": 645,
+        "timbre": 1,
+        "apply_cycle": 96,
+        "solo_lane": 0,
+        "all_lane": 3,
+        "scene_lane": 3,
+        "source": 0,
+        "channel": 0,
+        "frequency_hz": 466.1637581884861
+      }
+    ]
+  },
+  "all_noteons_before_same_first_dsp_sample": true,
+  "simultaneous_frontend_event_edges": false,
+  "dependencies": {
+    "schema": "M1_R06_PCM_REFERENCE_DEPENDENCIES_V1",
+    "r06_archive_sha256": "4be2b4c185691a3e493827a3a95303fa90f49ba6336eb4a8e0183942c8f05483",
+    "frozen_reference_only_not_reexecuted_old_tests": true,
+    "files": [
+      {
+        "source": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\software\\audio_math_acceptance_candidate\\dds_model.py",
+        "path": "frozen/dds_model.py",
+        "sha256": "c127f5af83e52cbcd7484e96fbb26f149862cdb225023f72041c61f220c0950d",
+        "bytes": 5221
+      },
+      {
+        "source": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\software\\audio_math_acceptance_candidate\\envelope_model.py",
+        "path": "frozen/envelope_model.py",
+        "sha256": "5826bb00da5d8ecc5c2eb3ffe43d159514781bc2f3bb1033965dcf312d12f933",
+        "bytes": 6222
+      },
+      {
+        "source": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\tb\\board\\generate_t010_allocator_vectors.py",
+        "path": "frozen/allocator_oracle.py",
+        "sha256": "634208931558eea580a0a4406d0c45e04fed1afa1e446455e1341cb19171b4a7",
+        "bytes": 4797
+      },
+      {
+        "source": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\model\\m1_timbre_delay_chain_candidate_20261014\\delay_effect_fixed.py",
+        "path": "frozen/delay_effect_fixed.py",
+        "sha256": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+        "bytes": 8971
+      },
+      {
+        "source_zip": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\evidence\\m2_m1td_physical_20261015\\M2_138K_M1TD_R06_XSAFE_7ms_ModelSim输入_20261016.zip",
+        "member": "inputs/rom/piano_band_4x256_8191.mem",
+        "path": "frozen/rom/piano_band_4x256_8191.mem",
+        "sha256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+        "bytes": 5120
+      },
+      {
+        "source_zip": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\evidence\\m2_m1td_physical_20261015\\M2_138K_M1TD_R06_XSAFE_7ms_ModelSim输入_20261016.zip",
+        "member": "inputs/rom/triangle_wavetable.hex",
+        "path": "frozen/rom/triangle_wavetable.hex",
+        "sha256": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+        "bytes": 5210
+      },
+      {
+        "source_zip": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\evidence\\m2_m1td_physical_20261015\\M2_138K_M1TD_R06_XSAFE_7ms_ModelSim输入_20261016.zip",
+        "member": "inputs/rom/velocity_gain_rom.mem",
+        "path": "frozen/rom/velocity_gain_rom.mem",
+        "sha256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+        "bytes": 5120
+      }
+    ]
+  },
+  "source_sha256": {
+    "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\model\\m1_r05_pcm_oracle_20261016\\solo_chord_vectors.py": "61a7b08b68afab12b320836a620d9b381d0503a9cf0c8213460e6dfdd7e327f1",
+    "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\model\\m1_r05_pcm_oracle_20261016\\oracle.py": "cb2cda8b6c9c17d7e5f93be4e48407383173934437c0592d2da64f778535d4a3"
+  },
+  "files": {
+    "all4/EVENT_DECISIONS.json": {
+      "bytes": 1075,
+      "sha256": "1bc378399bb610eecd5a75b3cba192109b8ab5108bb8ebe2110293a63c7f9d90"
+    },
+    "all4/EXPECTED_PCM.json": {
+      "bytes": 690863,
+      "sha256": "dce97a106fc0ee0dcf72048ecb02a1165cea569e6ad00963be42a982d422da67"
+    },
+    "all4/NORMALIZED_MATH.json": {
+      "bytes": 71997,
+      "sha256": "cee47b5a0727076d6e0d25b04778ed20c0eb87e0dd923a634864b25a0b8f2031"
+    },
+    "all4/PCM.csv": {
+      "bytes": 19537,
+      "sha256": "eb9b1dfd42ba3af9f2f445509832cf67a7c1931a4e95d5ab2853350f9a61f5ed"
+    },
+    "all4/STIMULUS.json": {
+      "bytes": 48892,
+      "sha256": "e62b7d11d79167f67dbcb11f1c163851fc08f75d214fdc95ddc60d7475235728"
+    },
+    "solo60/EVENT_DECISIONS.json": {
+      "bytes": 412,
+      "sha256": "84deeb644232dc614e97d212348b3eef911d9a33387c44d3913423dee92aa1e9"
+    },
+    "solo60/EXPECTED_PCM.json": {
+      "bytes": 593519,
+      "sha256": "a867f988a2f2f55549a02006df83c1c7b1f7d02b7756f0eb8ed01932fd5becd5"
+    },
+    "solo60/NORMALIZED_MATH.json": {
+      "bytes": 67883,
+      "sha256": "2826053ecb0e44a76e296c9beca73a207b215a03261ebf74bfa8d16c8faaf352"
+    },
+    "solo60/PCM.csv": {
+      "bytes": 15323,
+      "sha256": "6bf5f29d78bca4a7b28b28ac384df1ebf51d9fcee09bb3cb70e27f35a4018121"
+    },
+    "solo60/STIMULUS.json": {
+      "bytes": 48486,
+      "sha256": "a1051bcc08d4cf0f898aed3a207a7ff33fa0b88b79c144ff61de0bbc416c4cfd"
+    },
+    "solo63/EVENT_DECISIONS.json": {
+      "bytes": 411,
+      "sha256": "f4972b145817cf2cafb2ce4291a6aa6818071cdd54fc46c46cd1bdcf8c034460"
+    },
+    "solo63/EXPECTED_PCM.json": {
+      "bytes": 593468,
+      "sha256": "480ed792b4ca6ff8be281d63c0f50880b3b69df2c9b2c4cd721d4513d5604938"
+    },
+    "solo63/NORMALIZED_MATH.json": {
+      "bytes": 67783,
+      "sha256": "746f5155ea848f523c4dc8acb31f56e1e7ce9169b2cdaf5b9e5dd36e9e5de6fb"
+    },
+    "solo63/PCM.csv": {
+      "bytes": 15151,
+      "sha256": "a0e6297b64e4f9235f48c1dd56ea4bba6736ad4cba9fb96efbc1c77d8e24809b"
+    },
+    "solo63/STIMULUS.json": {
+      "bytes": 48485,
+      "sha256": "b63ac063f82783a7c5190ad45fd49dded9848503d68e8c8ab0f697361cd56075"
+    },
+    "solo67/EVENT_DECISIONS.json": {
+      "bytes": 411,
+      "sha256": "c3aad4121ccdf09e874193eba68e40f5f43d4de8f0546b587ccca137dc808232"
+    },
+    "solo67/EXPECTED_PCM.json": {
+      "bytes": 593374,
+      "sha256": "d551f3e8df68a585c59c76b20046a481555a62eb70a7a1d74e3b3b9a864e43f5"
+    },
+    "solo67/NORMALIZED_MATH.json": {
+      "bytes": 67753,
+      "sha256": "bc08acc8356b0a40899c4ca1bc6375964aa17b628c9b0095dd1dfab0b1d15a43"
+    },
+    "solo67/PCM.csv": {
+      "bytes": 15105,
+      "sha256": "90131440317dd752c7c996e31ce82cf34d8889ce527a357292675c76d205d867"
+    },
+    "solo67/STIMULUS.json": {
+      "bytes": 48485,
+      "sha256": "d399718a1f5e2be0de51f4925a07882bdb49f578cac4162a86b8a910c8481073"
+    },
+    "solo70/EVENT_DECISIONS.json": {
+      "bytes": 411,
+      "sha256": "ef26b549b91f31cca3ae2482abdedb33373d35b968858aeba73d8e58c7f938c7"
+    },
+    "solo70/EXPECTED_PCM.json": {
+      "bytes": 593043,
+      "sha256": "2d086035d0f5867d640f54e7350028f0a7711099408d599999c8253ad7812fcd"
+    },
+    "solo70/NORMALIZED_MATH.json": {
+      "bytes": 67621,
+      "sha256": "0e5e2ff3fa962573e299a072ec9de28021cb12d08ddcab21ecc6513dbb4ce8d5"
+    },
+    "solo70/PCM.csv": {
+      "bytes": 14881,
+      "sha256": "201b752551e12265fbc411a1ca47109959279dd4ba4715b8ce34edeaa004af84"
+    },
+    "solo70/STIMULUS.json": {
+      "bytes": 48485,
+      "sha256": "a69bf289ff7a9a8a9d0e2c8c1d76ddf6247e5111965e44fdab7167c00891a0b0"
+    },
+    "SOLO_SUM_EFFECT_WITNESS.json": {
+      "bytes": 526,
+      "sha256": "bd1e3a4d7c3d35705a66de8cf89bfb219a08bd7512cd57f1e81c3639819c5f8e"
+    },
+    "VALIDATION.json": {
+      "bytes": 1566,
+      "sha256": "6cbadb08682a33a1394953631f895659f57d62daa9a511c78235a0afefd8d1f4"
+    }
+  },
+  "validation": {
+    "schema": "M1_SOLO_CHORD_VALIDATION_V1",
+    "profile": "SYNTHETIC_SETTLED_EVENT_NOT_R06_TB_OR_FFT",
+    "actual_dut_result": "PENDING_REAL_CAPTURE",
+    "scene_count": 5,
+    "total_samples": 1280,
+    "tolerance_pcm_lsb": 0,
+    "coverage": {
+      "solo60": {
+        "samples": 256,
+        "selected_notes": [
+          60
+        ],
+        "selected_lane_nonzero_rows": [
+          254
+        ]
+      },
+      "solo63": {
+        "samples": 256,
+        "selected_notes": [
+          63
+        ],
+        "selected_lane_nonzero_rows": [
+          255
+        ]
+      },
+      "solo67": {
+        "samples": 256,
+        "selected_notes": [
+          67
+        ],
+        "selected_lane_nonzero_rows": [
+          254
+        ]
+      },
+      "solo70": {
+        "samples": 256,
+        "selected_notes": [
+          70
+        ],
+        "selected_lane_nonzero_rows": [
+          253
+        ]
+      },
+      "all4": {
+        "samples": 256,
+        "selected_notes": [
+          60,
+          63,
+          67,
+          70
+        ],
+        "selected_lane_nonzero_rows": [
+          254,
+          255,
+          254,
+          253
+        ]
+      }
+    },
+    "final_solo_sum_counterexample": {
+      "source_kind": "SOFTWARE_REFERENCE_ONLY",
+      "actual_dut_result": "PENDING_REAL_CAPTURE",
+      "request_id": 1,
+      "advance_cycle": 961,
+      "solo_effected_left": [
+        3711,
+        255,
+        255,
+        255
+      ],
+      "sum_solo_effected_left": 4476,
+      "saturated_sum_solo_effected_left": 4476,
+      "all4_effected_left": 4479,
+      "all4_mixed_left": 4096,
+      "reason": "sum(each rounded/effected solo) is not the ALL4 golden"
+    },
+    "witness_status": "FOUND"
+  },
+  "boundary": "Synthetic settled calendar; no real R06 capture or FFT proof"
+}
