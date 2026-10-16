@@ -1,0 +1,51 @@
+# DESIGN-ONLY DIFF, NOT APPLY-READY, NOT COMPILED, NOT EXECUTED.
+# R06 7ms successor derived from failed R05 6ms; new observation ports require
+# approval. Existing frozen files MUST NOT be patched by this deliverable.
+# No hierarchical peek/bind into production modules. Forward explicit simulation
+# observation ports in a separately approved isolated copy, preserving logic.
+--- proposed-copy/sources/m1td_polyphonic_envelope_bank.sv
++++ proposed-copy/sources/m1td_polyphonic_envelope_bank.sv
+@@ design-only public simulation observation bundle
++ // Proposed tap mapping at the containing module; not executable declarations.
++ // obs_lane_tick[3:0] <- {4{lane_tick}} (never gate by occupancy/commit)
++ // obs_note_on/off <- slot_note_on/off
++ // obs_occupied/source/channel/note/generation <- existing slot_* wires
++ // obs_velocity/timbre <- slot_velocity/slot_timbre
++ // obs_fcw_comparison_only <- dds_fcw; NEVER a golden model input
++ // obs_math_valid <- u_pitch_mod's connected request_valid predicate
++ // obs_math_ready/id <- fcw_request_ready/control_id
++ // Route u_controls.control_applied to explicit observation output (currently open).
+--- proposed-copy/sources/m1td_polyphonic_event_router.sv
++++ proposed-copy/sources/m1td_polyphonic_event_router.sv
+@@ design-only application observation, not an algorithm rewrite
++ // Export application predicates at their actual update branches:
++ // ALLOC_APPLY && slot_valid, CTRL_TIMBRE, cmd_valid && cmd_ready,
++ // RELEASE_APPLY && release_target_valid && release_slot==release_lane
++ //                && release_matches; RETIRE && cmd_ready; IGNORE_EVENT.
++ // Export held_event, target slot/mask and application kind, not DDS/env outputs.
++ // ingress event_seq maintained independently; autonomous release/retire needs
++ // explicit generation association, not fabricated new incoming event_seq.
++ // Lane consumer pulses observed separately in bank at pre-NBA consumption.
+--- proposed-copy/sources/m1td_timbre_delay_chain.sv
++++ proposed-copy/sources/m1td_timbre_delay_chain.sv
+@@ design-only effect boundary taps and propagation
++ // Tap u_post public input_valid/ready/id/left/right/input_clipped_left/right.
++ // Tap all config ports including payload, not just config_valid/ready.
++ // Tap output_valid/ready/id/left/right/clipped_left/right and frame_tick.
++ // Forward bank/router observation bundles explicitly through candidate/chain.
+--- proposed-copy/sources/m2_fourvoice_timbre_delay_frame_core.sv
++++ proposed-copy/sources/m2_fourvoice_timbre_delay_frame_core.sv
+@@ design-only request/result/commit observation propagation
++ // Tap adapter public candidate_sample_valid/ready/id, current_id;
++ // keep result first-valid/HOLD/handshake separate from buffer commit.
++ // Forward explicit bundles through board wrapper to isolated observer ports.
+--- proposed-copy/tb/observer_calendar.sv
++++ proposed-copy/tb/observer_calendar.sv
+@@ design-only writer, no runnable module in this proposal
++ // Every posedge: serialize PRE-NBA controls and all four lane entries, even idle.
++ // Separate reset-edge logger records all assertions/deassertions, including
++ // pulses between posedges; one epoch per assertion with documented t0 handling.
++ // Reject X/Z at meaningful controls; do not turn unknown payload into zero.
++ // Log disabled/invalid payload explicitly under a separately approved policy.
++ // Preserve original cycle/line/epoch mappings and END counts; never synthesize
++ // absent rows or infer actual event application from fixed elapsed cycles.

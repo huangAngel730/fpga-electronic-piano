@@ -1,0 +1,1034 @@
+{
+  "cycle": {
+    "group": "clock",
+    "source": "m3_r05_public_observer.sv",
+    "candidate_port_set": "posedge clk; time in ps; monotonically numbered edge",
+    "expression": "observer edge counter",
+    "existing_capture": "PARTIAL_EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m3_r05_public_observer.sv",
+      "bytes": 4470,
+      "sha256": "3c171476990bc14277d5e89874ecd0763936771f48148071de6d94a5b430aa65"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "time_ps": {
+    "group": "clock",
+    "source": "m3_r05_public_observer.sv",
+    "candidate_port_set": "posedge clk; time in ps; monotonically numbered edge",
+    "expression": "longint'($realtime*1000.0), timescale 1ns/1ps",
+    "existing_capture": "PARTIAL_EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m3_r05_public_observer.sv",
+      "bytes": 4470,
+      "sha256": "3c171476990bc14277d5e89874ecd0763936771f48148071de6d94a5b430aa65"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "epoch": {
+    "group": "reset",
+    "source": "m3_r05_public_observer.sv",
+    "candidate_port_set": "rst_n; increment epoch on each assertion, independent of request ID",
+    "expression": "observer reset-assertion lifetime counter",
+    "existing_capture": "PARTIAL_EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m3_r05_public_observer.sv",
+      "bytes": 4470,
+      "sha256": "3c171476990bc14277d5e89874ecd0763936771f48148071de6d94a5b430aa65"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "rst_n": {
+    "group": "reset",
+    "source": "m3_r05_public_observer.sv",
+    "candidate_port_set": "rst_n; increment epoch on each assertion, independent of request ID",
+    "expression": "rst_n",
+    "existing_capture": "PARTIAL_EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m3_r05_public_observer.sv",
+      "bytes": 4470,
+      "sha256": "3c171476990bc14277d5e89874ecd0763936771f48148071de6d94a5b430aa65"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "frame_tick": {
+    "group": "frame",
+    "source": "m2_fourvoice_timbre_delay_frame_core.sv",
+    "candidate_port_set": "frame_tick",
+    "expression": "frame_tick",
+    "existing_capture": "EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m2_fourvoice_timbre_delay_frame_core.sv",
+      "bytes": 3990,
+      "sha256": "6d32ddc33aa0fed39ea1290f1d6e490f241c7b20fb6c9d8f02e7317e45201e2e"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "event_valid": {
+    "group": "event",
+    "source": "m2_fourvoice_timbre_delay_frame_core.sv",
+    "candidate_port_set": "event_valid/event_ready/event_data",
+    "expression": "event_valid",
+    "existing_capture": "EXISTING_INGRESS_ONLY",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m2_fourvoice_timbre_delay_frame_core.sv",
+      "bytes": 3990,
+      "sha256": "6d32ddc33aa0fed39ea1290f1d6e490f241c7b20fb6c9d8f02e7317e45201e2e"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "event_ready_observed": {
+    "group": "event",
+    "source": "m2_fourvoice_timbre_delay_frame_core.sv",
+    "candidate_port_set": "event_valid/event_ready/event_data",
+    "expression": "event_ready",
+    "existing_capture": "EXISTING_INGRESS_ONLY",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m2_fourvoice_timbre_delay_frame_core.sv",
+      "bytes": 3990,
+      "sha256": "6d32ddc33aa0fed39ea1290f1d6e490f241c7b20fb6c9d8f02e7317e45201e2e"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "event_data": {
+    "group": "event",
+    "source": "m2_fourvoice_timbre_delay_frame_core.sv",
+    "candidate_port_set": "event_valid/event_ready/event_data",
+    "expression": "event_data",
+    "existing_capture": "EXISTING_INGRESS_ONLY",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m2_fourvoice_timbre_delay_frame_core.sv",
+      "bytes": 3990,
+      "sha256": "6d32ddc33aa0fed39ea1290f1d6e490f241c7b20fb6c9d8f02e7317e45201e2e"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "event_accept_observed": {
+    "group": "event",
+    "source": "m2_fourvoice_timbre_delay_frame_core.sv",
+    "candidate_port_set": "event_valid/event_ready/event_data",
+    "expression": "event_valid && event_ready",
+    "existing_capture": "EXISTING_INGRESS_ONLY",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m2_fourvoice_timbre_delay_frame_core.sv",
+      "bytes": 3990,
+      "sha256": "6d32ddc33aa0fed39ea1290f1d6e490f241c7b20fb6c9d8f02e7317e45201e2e"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "request_valid": {
+    "group": "request",
+    "source": "premixed_frame_adapter.sv",
+    "candidate_port_set": "request_valid/request_ready/request_id/current_req_id",
+    "expression": "candidate_sample_valid",
+    "existing_capture": "PARTIAL_EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\premixed_frame_adapter.sv",
+      "bytes": 3940,
+      "sha256": "d7952a5f986eb8b609cbe657907e418cfe751c6492d6e49469b5e37c390bb56c"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "request_ready_observed": {
+    "group": "request",
+    "source": "premixed_frame_adapter.sv",
+    "candidate_port_set": "request_valid/request_ready/request_id/current_req_id",
+    "expression": "candidate_sample_ready",
+    "existing_capture": "PARTIAL_EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\premixed_frame_adapter.sv",
+      "bytes": 3940,
+      "sha256": "d7952a5f986eb8b609cbe657907e418cfe751c6492d6e49469b5e37c390bb56c"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "request_accept_observed": {
+    "group": "request",
+    "source": "premixed_frame_adapter.sv",
+    "candidate_port_set": "request_valid/request_ready/request_id/current_req_id",
+    "expression": "candidate_sample_valid && candidate_sample_ready",
+    "existing_capture": "PARTIAL_EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\premixed_frame_adapter.sv",
+      "bytes": 3940,
+      "sha256": "d7952a5f986eb8b609cbe657907e418cfe751c6492d6e49469b5e37c390bb56c"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "request_id": {
+    "group": "request",
+    "source": "premixed_frame_adapter.sv",
+    "candidate_port_set": "request_valid/request_ready/request_id/current_req_id",
+    "expression": "candidate_sample_id",
+    "existing_capture": "PARTIAL_EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\premixed_frame_adapter.sv",
+      "bytes": 3940,
+      "sha256": "d7952a5f986eb8b609cbe657907e418cfe751c6492d6e49469b5e37c390bb56c"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "current_id": {
+    "group": "request",
+    "source": "premixed_frame_adapter.sv",
+    "candidate_port_set": "request_valid/request_ready/request_id/current_req_id",
+    "expression": "current_id",
+    "existing_capture": "PARTIAL_EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\premixed_frame_adapter.sv",
+      "bytes": 3940,
+      "sha256": "d7952a5f986eb8b609cbe657907e418cfe751c6492d6e49469b5e37c390bb56c"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "math_valid": {
+    "group": "math",
+    "source": "m1td_polyphonic_envelope_bank.sv",
+    "candidate_port_set": "u_pitch_mod request_valid/request_ready/request_id; observe actual accept including cancelled results",
+    "expression": "control_snapshot_valid && phase==WAIT_CONTROL && !frame_tick (export predicate, not phase)",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv",
+      "bytes": 10785,
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "math_ready_observed": {
+    "group": "math",
+    "source": "m1td_polyphonic_envelope_bank.sv",
+    "candidate_port_set": "u_pitch_mod request_valid/request_ready/request_id; observe actual accept including cancelled results",
+    "expression": "fcw_request_ready",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv",
+      "bytes": 10785,
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "math_accept_observed": {
+    "group": "math",
+    "source": "m1td_polyphonic_envelope_bank.sv",
+    "candidate_port_set": "u_pitch_mod request_valid/request_ready/request_id; observe actual accept including cancelled results",
+    "expression": "math_valid && fcw_request_ready",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv",
+      "bytes": 10785,
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "math_id": {
+    "group": "math",
+    "source": "m1td_polyphonic_envelope_bank.sv",
+    "candidate_port_set": "u_pitch_mod request_valid/request_ready/request_id; observe actual accept including cancelled results",
+    "expression": "control_id",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv",
+      "bytes": 10785,
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "fx_valid": {
+    "group": "effect",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "input_valid/input_ready/input_id/input_left/input_right/input_clipped_left/input_clipped_right",
+    "expression": "input_valid",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "fx_ready_observed": {
+    "group": "effect",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "input_valid/input_ready/input_id/input_left/input_right/input_clipped_left/input_clipped_right",
+    "expression": "input_ready",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "fx_accept_observed": {
+    "group": "effect",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "input_valid/input_ready/input_id/input_left/input_right/input_clipped_left/input_clipped_right",
+    "expression": "input_valid && input_ready",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "fx_id": {
+    "group": "effect",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "input_valid/input_ready/input_id/input_left/input_right/input_clipped_left/input_clipped_right",
+    "expression": "input_id",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "fx_left": {
+    "group": "effect",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "input_valid/input_ready/input_id/input_left/input_right/input_clipped_left/input_clipped_right",
+    "expression": "input_left",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "fx_right": {
+    "group": "effect",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "input_valid/input_ready/input_id/input_left/input_right/input_clipped_left/input_clipped_right",
+    "expression": "input_right",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "fx_clip_left": {
+    "group": "effect",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "input_valid/input_ready/input_id/input_left/input_right/input_clipped_left/input_clipped_right",
+    "expression": "input_clipped_left",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "fx_clip_right": {
+    "group": "effect",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "input_valid/input_ready/input_id/input_left/input_right/input_clipped_left/input_clipped_right",
+    "expression": "input_clipped_right",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "config_valid": {
+    "group": "config",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "config_valid/config_ready/config_enable/config_delay_samples/config_dry_gain/config_wet_gain/config_feedback",
+    "expression": "config_valid",
+    "existing_capture": "MISSING_PAYLOAD_CALENDAR",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "config_ready_observed": {
+    "group": "config",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "config_valid/config_ready/config_enable/config_delay_samples/config_dry_gain/config_wet_gain/config_feedback",
+    "expression": "config_ready",
+    "existing_capture": "MISSING_PAYLOAD_CALENDAR",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "config_accept_observed": {
+    "group": "config",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "config_valid/config_ready/config_enable/config_delay_samples/config_dry_gain/config_wet_gain/config_feedback",
+    "expression": "config_valid && config_ready",
+    "existing_capture": "MISSING_PAYLOAD_CALENDAR",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "config_enable": {
+    "group": "config",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "config_valid/config_ready/config_enable/config_delay_samples/config_dry_gain/config_wet_gain/config_feedback",
+    "expression": "config_enable",
+    "existing_capture": "MISSING_PAYLOAD_CALENDAR",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "config_delay": {
+    "group": "config",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "config_valid/config_ready/config_enable/config_delay_samples/config_dry_gain/config_wet_gain/config_feedback",
+    "expression": "config_delay_samples",
+    "existing_capture": "MISSING_PAYLOAD_CALENDAR",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "config_dry": {
+    "group": "config",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "config_valid/config_ready/config_enable/config_delay_samples/config_dry_gain/config_wet_gain/config_feedback",
+    "expression": "config_dry_gain",
+    "existing_capture": "MISSING_PAYLOAD_CALENDAR",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "config_wet": {
+    "group": "config",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "config_valid/config_ready/config_enable/config_delay_samples/config_dry_gain/config_wet_gain/config_feedback",
+    "expression": "config_wet_gain",
+    "existing_capture": "MISSING_PAYLOAD_CALENDAR",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "config_feedback": {
+    "group": "config",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "config_valid/config_ready/config_enable/config_delay_samples/config_dry_gain/config_wet_gain/config_feedback",
+    "expression": "config_feedback",
+    "existing_capture": "MISSING_PAYLOAD_CALENDAR",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "CONTROL_CALENDAR",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "result_valid": {
+    "group": "result",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "output_valid/output_ready/output_id/output_left/output_right/clipped_left/clipped_right",
+    "expression": "output_valid",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "result_ready": {
+    "group": "result",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "output_valid/output_ready/output_id/output_left/output_right/clipped_left/clipped_right",
+    "expression": "output_ready",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "result_id": {
+    "group": "result",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "output_valid/output_ready/output_id/output_left/output_right/clipped_left/clipped_right",
+    "expression": "output_id",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "result_left": {
+    "group": "result",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "output_valid/output_ready/output_id/output_left/output_right/clipped_left/clipped_right",
+    "expression": "output_left",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "result_right": {
+    "group": "result",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "output_valid/output_ready/output_id/output_left/output_right/clipped_left/clipped_right",
+    "expression": "output_right",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "result_clip_left": {
+    "group": "result",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "output_valid/output_ready/output_id/output_left/output_right/clipped_left/clipped_right",
+    "expression": "clipped_left",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "result_clip_right": {
+    "group": "result",
+    "source": "m1td_stereo_delay.sv",
+    "candidate_port_set": "output_valid/output_ready/output_id/output_left/output_right/clipped_left/clipped_right",
+    "expression": "clipped_right",
+    "existing_capture": "MISSING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "commit": {
+    "group": "commit",
+    "source": "m2_fourvoice_timbre_delay_frame_core.sv",
+    "candidate_port_set": "commit_pulse/committed_id/committed_left/committed_right/committed_clip/clip_count",
+    "expression": "commit_pulse",
+    "existing_capture": "EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m2_fourvoice_timbre_delay_frame_core.sv",
+      "bytes": 3990,
+      "sha256": "6d32ddc33aa0fed39ea1290f1d6e490f241c7b20fb6c9d8f02e7317e45201e2e"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "committed_id": {
+    "group": "commit",
+    "source": "m2_fourvoice_timbre_delay_frame_core.sv",
+    "candidate_port_set": "commit_pulse/committed_id/committed_left/committed_right/committed_clip/clip_count",
+    "expression": "committed_id",
+    "existing_capture": "EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m2_fourvoice_timbre_delay_frame_core.sv",
+      "bytes": 3990,
+      "sha256": "6d32ddc33aa0fed39ea1290f1d6e490f241c7b20fb6c9d8f02e7317e45201e2e"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "committed_left": {
+    "group": "commit",
+    "source": "m2_fourvoice_timbre_delay_frame_core.sv",
+    "candidate_port_set": "commit_pulse/committed_id/committed_left/committed_right/committed_clip/clip_count",
+    "expression": "committed_left",
+    "existing_capture": "EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m2_fourvoice_timbre_delay_frame_core.sv",
+      "bytes": 3990,
+      "sha256": "6d32ddc33aa0fed39ea1290f1d6e490f241c7b20fb6c9d8f02e7317e45201e2e"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "committed_right": {
+    "group": "commit",
+    "source": "m2_fourvoice_timbre_delay_frame_core.sv",
+    "candidate_port_set": "commit_pulse/committed_id/committed_left/committed_right/committed_clip/clip_count",
+    "expression": "committed_right",
+    "existing_capture": "EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m2_fourvoice_timbre_delay_frame_core.sv",
+      "bytes": 3990,
+      "sha256": "6d32ddc33aa0fed39ea1290f1d6e490f241c7b20fb6c9d8f02e7317e45201e2e"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "committed_clip": {
+    "group": "commit",
+    "source": "m2_fourvoice_timbre_delay_frame_core.sv",
+    "candidate_port_set": "commit_pulse/committed_id/committed_left/committed_right/committed_clip/clip_count",
+    "expression": "committed_clip",
+    "existing_capture": "EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m2_fourvoice_timbre_delay_frame_core.sv",
+      "bytes": 3990,
+      "sha256": "6d32ddc33aa0fed39ea1290f1d6e490f241c7b20fb6c9d8f02e7317e45201e2e"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "clip_count": {
+    "group": "commit",
+    "source": "m2_fourvoice_timbre_delay_frame_core.sv",
+    "candidate_port_set": "commit_pulse/committed_id/committed_left/committed_right/committed_clip/clip_count",
+    "expression": "clip_count",
+    "existing_capture": "EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m2_fourvoice_timbre_delay_frame_core.sv",
+      "bytes": 3990,
+      "sha256": "6d32ddc33aa0fed39ea1290f1d6e490f241c7b20fb6c9d8f02e7317e45201e2e"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "pending": {
+    "group": "play",
+    "source": "m2_fourvoice_timbre_delay_frame_core.sv",
+    "candidate_port_set": "pending_valid/play_left/play_right/audio_underrun",
+    "expression": "pending_valid",
+    "existing_capture": "EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m2_fourvoice_timbre_delay_frame_core.sv",
+      "bytes": 3990,
+      "sha256": "6d32ddc33aa0fed39ea1290f1d6e490f241c7b20fb6c9d8f02e7317e45201e2e"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "play_left": {
+    "group": "play",
+    "source": "m2_fourvoice_timbre_delay_frame_core.sv",
+    "candidate_port_set": "pending_valid/play_left/play_right/audio_underrun",
+    "expression": "play_left",
+    "existing_capture": "EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m2_fourvoice_timbre_delay_frame_core.sv",
+      "bytes": 3990,
+      "sha256": "6d32ddc33aa0fed39ea1290f1d6e490f241c7b20fb6c9d8f02e7317e45201e2e"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "play_right": {
+    "group": "play",
+    "source": "m2_fourvoice_timbre_delay_frame_core.sv",
+    "candidate_port_set": "pending_valid/play_left/play_right/audio_underrun",
+    "expression": "play_right",
+    "existing_capture": "EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m2_fourvoice_timbre_delay_frame_core.sv",
+      "bytes": 3990,
+      "sha256": "6d32ddc33aa0fed39ea1290f1d6e490f241c7b20fb6c9d8f02e7317e45201e2e"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "underflow": {
+    "group": "play",
+    "source": "m2_fourvoice_timbre_delay_frame_core.sv",
+    "candidate_port_set": "pending_valid/play_left/play_right/audio_underrun",
+    "expression": "audio_underrun",
+    "existing_capture": "EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m2_fourvoice_timbre_delay_frame_core.sv",
+      "bytes": 3990,
+      "sha256": "6d32ddc33aa0fed39ea1290f1d6e490f241c7b20fb6c9d8f02e7317e45201e2e"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "bclk": {
+    "group": "serial",
+    "source": "m3_r05_public_observer.sv",
+    "candidate_port_set": "bclk/ws/din",
+    "expression": "i2s_bclk",
+    "existing_capture": "EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m3_r05_public_observer.sv",
+      "bytes": 4470,
+      "sha256": "3c171476990bc14277d5e89874ecd0763936771f48148071de6d94a5b430aa65"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "ws": {
+    "group": "serial",
+    "source": "m3_r05_public_observer.sv",
+    "candidate_port_set": "bclk/ws/din",
+    "expression": "i2s_ws",
+    "existing_capture": "EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m3_r05_public_observer.sv",
+      "bytes": 4470,
+      "sha256": "3c171476990bc14277d5e89874ecd0763936771f48148071de6d94a5b430aa65"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "din": {
+    "group": "serial",
+    "source": "m3_r05_public_observer.sv",
+    "candidate_port_set": "bclk/ws/din",
+    "expression": "i2s_din",
+    "existing_capture": "EXISTING",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m3_r05_public_observer.sv",
+      "bytes": 4470,
+      "sha256": "3c171476990bc14277d5e89874ecd0763936771f48148071de6d94a5b430aa65"
+    },
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "missing": "REJECT",
+    "sampling": "posedge_pre_NBA",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "lanes[*].lane": {
+    "source": "m1td_polyphonic_envelope_bank.sv",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv",
+      "bytes": 10785,
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7"
+    },
+    "expression": "generate index i",
+    "existing_capture": "MISSING",
+    "missing": "REJECT",
+    "use": "CONTROL_CALENDAR",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "lanes[*].tick": {
+    "source": "m1td_polyphonic_envelope_bank.sv",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv",
+      "bytes": 10785,
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7"
+    },
+    "expression": "lane_tick (all four lanes, occupied or not)",
+    "existing_capture": "MISSING",
+    "missing": "REJECT",
+    "use": "CONTROL_CALENDAR",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "lanes[*].note_on": {
+    "source": "m1td_polyphonic_envelope_bank.sv",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv",
+      "bytes": 10785,
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7"
+    },
+    "expression": "slot_note_on[i]",
+    "existing_capture": "MISSING",
+    "missing": "REJECT",
+    "use": "CONTROL_CALENDAR",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "lanes[*].note_off": {
+    "source": "m1td_polyphonic_envelope_bank.sv",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv",
+      "bytes": 10785,
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7"
+    },
+    "expression": "slot_note_off[i]",
+    "existing_capture": "MISSING",
+    "missing": "REJECT",
+    "use": "CONTROL_CALENDAR",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "lanes[*].occupied": {
+    "source": "m1td_polyphonic_envelope_bank.sv",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv",
+      "bytes": 10785,
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7"
+    },
+    "expression": "slot_occupied[i]",
+    "existing_capture": "MISSING",
+    "missing": "REJECT",
+    "use": "CONTROL_CALENDAR",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "lanes[*].source": {
+    "source": "m1td_polyphonic_envelope_bank.sv",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv",
+      "bytes": 10785,
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7"
+    },
+    "expression": "slot_sources[4*i+:4]",
+    "existing_capture": "MISSING",
+    "missing": "REJECT",
+    "use": "CONTROL_CALENDAR",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "lanes[*].channel": {
+    "source": "m1td_polyphonic_envelope_bank.sv",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv",
+      "bytes": 10785,
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7"
+    },
+    "expression": "slot_channels[4*i+:4]",
+    "existing_capture": "MISSING",
+    "missing": "REJECT",
+    "use": "CONTROL_CALENDAR",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "lanes[*].note": {
+    "source": "m1td_polyphonic_envelope_bank.sv",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv",
+      "bytes": 10785,
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7"
+    },
+    "expression": "slot_notes[8*i+:8]",
+    "existing_capture": "MISSING",
+    "missing": "REJECT",
+    "use": "CONTROL_CALENDAR",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "lanes[*].generation": {
+    "source": "m1td_polyphonic_envelope_bank.sv",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv",
+      "bytes": 10785,
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7"
+    },
+    "expression": "slot_generations[32*i+:32]",
+    "existing_capture": "MISSING",
+    "missing": "REJECT",
+    "use": "CONTROL_CALENDAR",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "lanes[*].velocity": {
+    "source": "m1td_polyphonic_envelope_bank.sv",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv",
+      "bytes": 10785,
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7"
+    },
+    "expression": "slot_velocity[10*i+:10]",
+    "existing_capture": "MISSING",
+    "missing": "REJECT",
+    "use": "CONTROL_CALENDAR",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "lanes[*].timbre": {
+    "source": "m1td_polyphonic_envelope_bank.sv",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv",
+      "bytes": 10785,
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7"
+    },
+    "expression": "slot_timbre[i]",
+    "existing_capture": "MISSING",
+    "missing": "REJECT",
+    "use": "CONTROL_CALENDAR",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "lanes[*].fcw_observed": {
+    "source": "m1td_polyphonic_envelope_bank.sv",
+    "source_identity": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv",
+      "bytes": 10785,
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7"
+    },
+    "expression": "dds_fcw[32*i+:32]",
+    "existing_capture": "MISSING",
+    "missing": "REJECT",
+    "use": "OBSERVATION_NOT_GOLDEN",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "applications": {
+    "existing_capture": "MISSING",
+    "missing": "REJECT",
+    "source": "future public observation ports + independent control scoreboard",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  },
+  "cancellations": {
+    "existing_capture": "MISSING",
+    "missing": "REJECT",
+    "source": "future public observation ports + independent control scoreboard",
+    "binding_state": "PROPOSED_NOT_CONNECTED"
+  }
+}
