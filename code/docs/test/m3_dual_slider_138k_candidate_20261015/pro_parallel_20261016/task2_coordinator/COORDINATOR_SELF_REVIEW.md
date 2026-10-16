@@ -1,0 +1,41 @@
+# 四项拓展总控自审记录
+
+范围是新任务单授权的隔离候选和原件，不启用审核员/预审员制度，不替代M2最终复核。总控与自己的只读子智能体不重跑已签专项；新功能执行由各包唯一主责窗口登记。
+
+## E1：复用核查
+
+只读子智能体核六份发布源码/摘要的Git blob、原ZIP的129个成员CRC及128份载荷大小/SHA、实际工具EXE身份与覆盖边界，结果见E1_REUSE_AUDIT.md。总控再次阅读覆盖/原运行基线/正式接入缺件。没有发现必须新修的候选代码；新增E1编译/仿真0。旧487检查/四RTL坏例仅引用，旧闪光FAIL保留。完整E1仍PARTIAL。
+
+## E2：新桥接与独立波形检查
+
+总控只读核新wrapper、TB、prepare.py、check_capture.py、run.py及第3轮收据。新wrapper只连既有观察桥与固定左波形，没有音频ready端口；40/25MHz、显示单独reset、FIFO32加1在途mailbox边界清楚。Python黄金由原捕获及单列合成输入的每4样本signed24 min/max再算术右移16生成；像素检查不读DUT存储。源/观察/消费账本保持原5849采纳点相对833/834拍节奏，公开FIFO出队逐条核同。
+
+历史normal的左右相等，因此左右错误接线坏例依靠明确标注的非对称合成样本，不冒称历史材料覆盖左右差异。五坏例实际干预RTL连线或输入，必须exit1且唯一首拒收匹配PIXEL_REFERENCE、WINDOW_FRAME_TEAR、SAMPLE_SEQ_GAP、RESET_TRACE_STALE、AUDIO_DISPLAY_BACKPRESSURE；正常仿真和独立检查exit0，超时/崩溃不作坏例通过。
+
+第3轮收据passed=true、identity_stable=true、174.531秒，14241输入/观察、14074消费、167观察丢弃、8次快照扫描、5次发布；compile/positive/check退出0，五坏例均1且无timeout。前两轮声明位置和unsigned哨兵测试台失败保原件。只签L2历史RTL捕获重放与合成压力，不签新Pro生产源、完整CDC/STA或实屏；完整E2仍PARTIAL。
+
+本次读取身份：wrapper SHA6034d06fa255f1f4f84c13e632fe0d070a9850aa5e49a8cd9c48aa611c6069ca；TB SHA1a6ffc446a2f85b834b7558c69ac3a22fd16f354f374da49aed21c1c5076c33c；check_capture.py SHA251979d0b6b7f7a6123a86a826fc4f5f507c3eefc690757d384d10fff205576a；ROUND_03/RUN_RECEIPT.json SHA06944e3fa8b39ced8b894171fb780922468a56bc0eee041941171ddba9ff2bfc。此段自审新增功能运行0。
+
+## E3：失败COMMIT合同修复和真实文件链
+
+总控先核PROTOCOL.md第26行及旧模块EXEC/VERIFY，确认新写集可修明确合同缺陷，要求主责修复而不是把它仅列作待件。总控读最小diff、新候选第5轮结果和最终回执；自己的只读子智能体再核同一精确增量及第6轮报告修法，没有发现具体阻断。
+
+新reject_commit使COMMIT语义错误4/5/6/8清active/cache，ERROR_WAIT次拍NACK带active0，不切换已发布银行；成功请求缓存重放优先级保留，前置帧CRC/版本策略及VERIFY9/10未改变。第5轮实际覆盖NACK8后原cached DATA/后续DATA拒收、旧谱保持、新BEGIN恢复，兼核4/5/6错误路径。352字节记录与固定真实MIDI的独立解析结果核同；127cases/112packets、完整UART READ索引0–43、11次完整公开RAM快照。CRC旁路变体正常编译/仿真，case86预期NACK9实际ACK0，由checker退出1拒收。
+
+第6轮仅修覆盖标记并对5个控制条件作软件检查，与第5轮capture/结果/收据SHA绑定，RTL调用0；最终checker没有重新全量跑RTL，不把标签修法写成新的串行PASS。6/6轮消费不可重置。编译受限环境对照另见ENVIRONMENT_COMPARISON.md。实体UART、默认5s新测、正式Pro/完整STA和播放PCM均未验，完整E3仍PARTIAL。
+
+子智能体只读核：RTL在R5/R6/当前同为ff2a24f7494075ec02fafc6a631e5f3c130716d9009f9863d43614be479351d5；build_inputs.py同为e608ebdfbe4bfddf6e2ac8bc17468aff9ee8e5d86f9fc58c0d44bfae51520cbe；R5实际checker为b438a2d507463a8fbc0777f51fc58c6d7be61682baca551320b5bd3e4ec45fca，R6/当前checker为1c88fb24b35a466d9795766d775a4942b4dcd757b476ace8b846f1493d7bac1a。此段总控/自己的子智能体新增功能执行0。
+
+## E4：独立账本、期限及真实坏例
+
+总控读冻结新组合、TB、checker/runner及各轮实际结果；自己的只读子智能体对R1报三项具体缺口：串行期望直接信任DUT play、手动发布缺833拍期限、目标Fatal没有充分固定首失败/退出规则。总控回传最小修法，主责保留原失败，在剩余额度内修复；同一子智能体定向复核这三项已闭环，没有新具体阻断。
+
+修复链为独立槽数学发布→T transfer/commit→独立pending/held→S play比较与PT8211串行解码；不从观测play反推黄金。P/K发布及T提交均要求距接受请求小于833拍；接受/取消/reset/END闭环和epoch核对保留。真实RTL坏例只接受唯一目标Fatal、ModelSim固定exit0，无其他Error/Failure/超时/异常；clipped变体则要求正常仿真后独立checker以指定差异退出1。
+
+N4/N8/N16正常来源及N32正常来源按各轮精确快照区分；修checker时只消费已有原始捕获，不重跑已签正常仿真。N32最终正常检查由R4修复checker消费R3原捕获：64接受/60发布/3取消/1复位取消；32运输接受/返回/提交，最迟349拍；1952逐槽核对、所有32槽有非零贡献，61个完整帧有32个唯一FCW。尾段4802次推进、真实D行OR为ffffffff、所有槽退休，仅签生命周期L2，不外推长窗数学。
+
+串行完整半帧L32/R31，末尾未全部观察完整，不能写成32次commit全都完成双声道串行验证。正常数学clip值按实际原件，不因clipped元数据坏例成功而声称新增非零削波或实物谱峰覆盖；冻结piano不是纯正弦模式。
+
+R4七个实际RTL坏例命中STEAL、RETRIGGER、CC64_DEFER、RELEASE_ACK、HOLD、CANCEL、RESET，旧bad_result_id目标诊断不符失败继续保留。R5新增valid即核ID监视，只运行坏ID及三个未执行坏例；总控读取R5收据，exit0/15.078秒，ID、TRANSPORT_PCM、RETIRE各为唯一目标RTL拒收，clipped变体独立拒收K_ID_PCM_CLIPPED_INDEPENDENT_MATH/exit1。累计11坏例有有效结果，停止功能工具，5/6组不恢复。
+
+复核读取checker SHA58bdce7ba9b6b434a80957ff2dfcaf429a9bb9c48346319281a83d8a49611ee2，runner SHA600129de3a17ebe0fabbda601d14fd850884f46d052fb349a7bbd1199b18aceb，当前TB SHA65281fdbef1b912ee6194017bc26b93adb349ee0ede47896e3e06bc3ffda9501，R4 normal_n32/CHECK_RESULT.json SHAa1b28c806d462dc18c25314c6ac11a08b4661d5182b599791e429f27d0399b5d。正式Pro器件/商业许可/源ROM/CST-SDC条件未齐，物理0/NOT_RUN，所有设备0；完整E4/T061仍PARTIAL。此段总控/自己的子智能体新增功能执行0，不代M2或M1签收。

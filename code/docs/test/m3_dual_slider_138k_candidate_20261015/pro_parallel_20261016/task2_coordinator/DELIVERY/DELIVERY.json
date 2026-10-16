@@ -1,0 +1,82 @@
+{
+  "status": "PARTIAL_FULL_FEATURES_PENDING_FORMAL_PRO_AND_BOARD",
+  "utc": "2026-10-16T18:33:00.379154+00:00",
+  "archive": {
+    "path": "code/docs/test/m3_dual_slider_138k_candidate_20261015/pro_parallel_20261016/task2_coordinator/DELIVERY/M3_TASK2_FOUR_EXTENSIONS_ORIGINALS_20261017.zip",
+    "bytes": 12235550,
+    "sha256": "da9d149b21d17dc2e5c260818d93ec6da3741200103e705ff4e27af1f1a3356b"
+  },
+  "manifest": {
+    "bytes": 21504,
+    "sha256": "15612692dcdcf96ff51d802ae7ba50eff4b1d23d4609af10f215675d2b1cb90e"
+  },
+  "verification": {
+    "bytes": 2191,
+    "sha256": "cf83ee45c7d07f1b087c34c47ca5f5a5008750d40aa777a73f356123bc7fbccb"
+  },
+  "packages": {
+    "E1": {
+      "overall": "PARTIAL",
+      "offline": "REUSED_L2_PLUS_NEW_L0_AUDIT",
+      "new_rounds": 0,
+      "new_round_limit": 6,
+      "new_round_seconds": 0,
+      "reused_old_rounds": 1,
+      "reused_old_seconds": 100.282
+    },
+    "E2": {
+      "overall": "PARTIAL",
+      "offline": "L2_ISOLATED_REPLAY_PASS",
+      "new_rounds": 3,
+      "new_round_limit": 6,
+      "new_round_seconds": 175.59399999999732,
+      "source_frames": 14241,
+      "real_source_frames": 5849,
+      "actual_RTL_negatives": 5
+    },
+    "E3": {
+      "overall": "PARTIAL",
+      "offline": "L2_REAL_MIDI_UART_RAM_SUCCESSOR_PASS",
+      "new_rounds": 6,
+      "new_round_limit": 6,
+      "new_round_seconds": 347.6880000000019,
+      "real_midi_events": 44,
+      "cases": 127,
+      "replies": 112,
+      "NACK8_successor_fixed": true,
+      "round6_scope": "REPORT_CONTROL_SOFTWARE_ONLY"
+    },
+    "E4": {
+      "overall": "PARTIAL",
+      "offline": "L3_SHORT_MATH_TRANSPORT_AND_L2_RETIREMENT",
+      "new_rounds": 5,
+      "new_round_limit": 6,
+      "new_round_seconds": 70.65599999999176,
+      "normal_sizes": [
+        4,
+        8,
+        16,
+        32
+      ],
+      "actual_RTL_negatives": 11,
+      "max_request_commit_cycles": [
+        69,
+        109,
+        189,
+        349
+      ],
+      "serial_complete_halves_per_size": {
+        "left": 32,
+        "right": 31
+      },
+      "Pro_physical": "NOT_RUN",
+      "pure_sine_and_board_spectrum": "PENDING"
+    }
+  },
+  "physical_rounds": 0,
+  "hardware_calls": 0,
+  "board_release_allowed": false,
+  "publication_gate": "PENDING_SEPARATE_POST_SEAL_RECEIPT",
+  "git": "NOT_COMMITTED_NOT_PUSHED_AT_SEAL",
+  "human_handoff": "WAITING_FOR_USER_FORWARD_NOT_DELIVERED"
+}

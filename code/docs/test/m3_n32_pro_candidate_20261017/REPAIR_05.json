@@ -1,0 +1,27 @@
+{
+  "prior_round": 4,
+  "receipt": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_n32_pro_candidate_20261017\\ROUND_04\\RUN_RECEIPT.json",
+    "bytes": 208792,
+    "sha256": "e4ae54cfcfa3fe3a3f085970a7085167b400029099bc924664968bc06915df02"
+  },
+  "failure": "bad_result_id actual RTL rejects at E4_DEADLINE_OPEN rather than predeclared E4_ID because wrong ID permanently prevents downstream ready",
+  "diagnostic_not_accepted_as_pass": true,
+  "change": "Only new TB immediately checks public result_id against independently saved accepted sample_id whenever valid and no cancel/abort, before F/K; no waiting for result_ready",
+  "fixed_tb": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\audio\\m3_n32_pro_candidate_20261017\\tb_e4_n32.sv",
+    "bytes": 16629,
+    "sha256": "65281fdbef1b912ee6194017bc26b93adb349ee0ede47896e3e06bc3ffda9501"
+  },
+  "unchanged_business_RTL": true,
+  "normal_four_scales_and_previous_seven_negatives_rerun": false,
+  "actual_RTL_bad_id_retest": true,
+  "additional_unrun_bad_cases": [
+    "bad_transport_left",
+    "bad_clipped_metadata",
+    "bad_retirement"
+  ],
+  "original_failed_evidence_unchanged": true,
+  "groups_consumed_before": 4,
+  "new_group": 5
+}

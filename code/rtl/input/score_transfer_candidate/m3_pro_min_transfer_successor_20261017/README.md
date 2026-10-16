@@ -1,0 +1,11 @@
+# E3隔离接入说明
+
+本包在新目录提供`score_transfer_e3_successor.sv`，来源为父目录已签`score_transfer_candidate.sv`。旧文件SHA551fc393…63fc537不改；新模块只修v1执行层失败COMMIT的4/5/6/8会话清除与缓存失效，并等一拍构造active=0响应，保留成功请求重放优先级。VERSION/帧CRC错误策略和VERIFY的9/10路径保持原样。来源与精确差异见RTL_PATCH_PROVENANCE.json和每轮源快照。
+
+原common/uart_rx.sv、uart_tx.sv仍只读编译，接口不变；精确字节复制到每轮sources后编译。40MHz同步低有效复位、115200 8N1，正式top/pkg/引脚/约束未动。ROUND_04保存修复前旧模块的限定结果；ROUND_05起才是新后继验证，不混签。
+
+新增testbench把本地CC0真实MIDI经原导入器/T057编码后的352字节发送到实际RTL串口引脚，公开rd_req/rd_event和完整串行READ双路径核对。SESSION_TIMEOUT参数设为2000000拍/50ms只补参数化隔离覆盖，FRAME_TIMEOUT保留800000拍/20ms；旧默认5s已签行为不重复执行，不称本包新验5s。
+
+唯一行为故障变体使用原源码既有MUTANT_SKIP_SCORE_CRC宏：输入整曲CRC故意与同源真实文件记录不符，正常RTL必须NACK9且保留旧曲谱，故障RTL错误发布必须被新checker拒收。宏不进入正式工程。
+
+正式Pro UART端口、pin/Bank/CST、精确码流与实体安全链路待M2准入；当前无下载、串口设备、自动播放或PCM通过结论。NACK8旧实现分歧保留，新后继按书面v1合同修复，待M2复核候选差异与正式接入。

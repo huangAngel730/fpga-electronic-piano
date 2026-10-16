@@ -1,0 +1,631 @@
+{
+  "status": "SIMULATION_ONLY_NEGATIVE_MONITOR_SUCCESSOR_NOT_PRO",
+  "positive_tb_sha256": "38265540a81990ca61bb6e4a4217a4c8d52fc99234f0b4575f12a33b11812bb9",
+  "negative_successor_tb_sha256": "65281fdbef1b912ee6194017bc26b93adb349ee0ede47896e3e06bc3ffda9501",
+  "only_tb_change": "Immediate result-valid ID monitor before F/K; business RTL and stimulus unchanged",
+  "normal_groups_rerun_with_successor_tb": false,
+  "round5_sources": {
+    "vendor/prim_sim.v": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\gowin_1_9_11_03\\IDE\\simlib\\gw5a\\prim_sim.v",
+      "bytes": 709303,
+      "sha256": "202f65ccf77126d04e47db36c95e237e48522f3a105a3e64d9fcbf4e3b782f27"
+    },
+    "code/rtl/138K_try/hold_trials_20261005/L_locations_guard065/include/sine_table.svh": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\L_locations_guard065\\include\\sine_table.svh",
+      "bytes": 5648,
+      "sha256": "969fc7d1036e359fc55c3b0ca18eaf3c8a123a146ed95c32a81e52ee10519cca"
+    },
+    "code/rtl/138K_try/hold_trials_20261005/L_locations_guard065/include/sustain_controller_ports.svh": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\L_locations_guard065\\include\\sustain_controller_ports.svh",
+      "bytes": 827,
+      "sha256": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d"
+    },
+    "code/rtl/138K_try/hold_trials_20261005/L_locations_guard065/rom/lfo_sine_q15.mem": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\L_locations_guard065\\rom\\lfo_sine_q15.mem",
+      "bytes": 5120,
+      "sha256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060"
+    },
+    "code/rtl/138K_try/hold_trials_20261005/L_locations_guard065/rom/oct_ratio_q16.mem": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\L_locations_guard065\\rom\\oct_ratio_q16.mem",
+      "bytes": 300,
+      "sha256": "65185caf2722c98cd5406ecff0819f8b011cbbe6a5b9ae1974d3a03f4cf15fbd"
+    },
+    "code/rtl/138K_try/hold_trials_20261005/L_locations_guard065/rom/piano_band_4x256_8191.mem": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\L_locations_guard065\\rom\\piano_band_4x256_8191.mem",
+      "bytes": 5120,
+      "sha256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1"
+    },
+    "code/rtl/138K_try/hold_trials_20261005/L_locations_guard065/rom/sine_1024_32767.mem": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\L_locations_guard065\\rom\\sine_1024_32767.mem",
+      "bytes": 5120,
+      "sha256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060"
+    },
+    "code/rtl/138K_try/hold_trials_20261005/L_locations_guard065/rom/sine_1024_8192.mem": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\L_locations_guard065\\rom\\sine_1024_8192.mem",
+      "bytes": 5120,
+      "sha256": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2"
+    },
+    "code/rtl/138K_try/hold_trials_20261005/L_locations_guard065/rom/sub_ratio_q16.mem": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\L_locations_guard065\\rom\\sub_ratio_q16.mem",
+      "bytes": 6144,
+      "sha256": "9530577dfbc9b901d83abaa1a6f1c929241f7c092b5fc556b106b0c8bffc984e"
+    },
+    "code/rtl/138K_try/hold_trials_20261005/L_locations_guard065/rom/velocity_gain_rom.mem": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\L_locations_guard065\\rom\\velocity_gain_rom.mem",
+      "bytes": 5120,
+      "sha256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64"
+    },
+    "code/rtl/138K_try/hold_trials_20261005/L_locations_guard065/sources/audio_defs_pkg.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\L_locations_guard065\\sources\\audio_defs_pkg.sv",
+      "bytes": 12334,
+      "sha256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064"
+    },
+    "code/rtl/138K_try/hold_trials_20261005/L_locations_guard065/sources/note_pitch.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\L_locations_guard065\\sources\\note_pitch.sv",
+      "bytes": 8092,
+      "sha256": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69"
+    },
+    "code/rtl/138K_try/hold_trials_20261005/L_locations_guard065/sources/sustain_control_contract_pkg.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_try\\hold_trials_20261005\\L_locations_guard065\\sources\\sustain_control_contract_pkg.sv",
+      "bytes": 846,
+      "sha256": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2"
+    },
+    "code/rtl/audio_out/i2s_tx.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\audio_out\\i2s_tx.sv",
+      "bytes": 17021,
+      "sha256": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad"
+    },
+    "code/rtl/audio_out/m2_n32_output_candidate_20261013/m2_n32_output_transport.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\audio_out\\m2_n32_output_candidate_20261013\\m2_n32_output_transport.sv",
+      "bytes": 3490,
+      "sha256": "d2b6d311fd990072f399d4e42413c47ef70f2f6f2473b1308b085d9aa49ad154"
+    },
+    "code/rtl/audio_out/m2_polyphony_frame_candidate_20261012/premixed_frame_adapter.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\audio_out\\m2_polyphony_frame_candidate_20261012\\premixed_frame_adapter.sv",
+      "bytes": 3940,
+      "sha256": "d7952a5f986eb8b609cbe657907e418cfe751c6492d6e49469b5e37c390bb56c"
+    },
+    "code/rtl/audio_out/pcm_frame_buffer.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\audio_out\\pcm_frame_buffer.sv",
+      "bytes": 3796,
+      "sha256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997"
+    },
+    "code/rtl/audio_out/pcm_result_hold.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\audio_out\\pcm_result_hold.sv",
+      "bytes": 2658,
+      "sha256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f"
+    },
+    "code/rtl/common/m2_n32_prom_candidate_20261013/m2_adsr_piano_prom.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\m2_n32_prom_candidate_20261013\\m2_adsr_piano_prom.sv",
+      "bytes": 8439,
+      "sha256": "d8918defedb1d9bd14a21903d5bc955a815f5064860ed948fa1f38e585e06087"
+    },
+    "code/rtl/common/m2_n32_prom_candidate_20261013/m2_b2_backend_prom.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\m2_n32_prom_candidate_20261013\\m2_b2_backend_prom.sv",
+      "bytes": 11790,
+      "sha256": "6727971f60c5aadab9985641035ec5ff8ad284f1e06adcfd9e58f78cf74d6953"
+    },
+    "code/rtl/common/m2_n32_prom_candidate_20261013/m2_pitch_mod_prom.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\m2_n32_prom_candidate_20261013\\m2_pitch_mod_prom.sv",
+      "bytes": 4790,
+      "sha256": "190cf8a854563ab64cdd1afe16da40a8f061613636b6f3183c28eb8272c33b50"
+    },
+    "code/rtl/common/m2_n32_prom_candidate_20261013/m2_prom_gain.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\m2_n32_prom_candidate_20261013\\m2_prom_gain.sv",
+      "bytes": 6357,
+      "sha256": "5321b6e854ad5be02f78f7e82c8ba311ddce72c28ce7ca72323a9ef84adc17b0"
+    },
+    "code/rtl/common/m2_n32_prom_candidate_20261013/m2_prom_lfo.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\m2_n32_prom_candidate_20261013\\m2_prom_lfo.sv",
+      "bytes": 6356,
+      "sha256": "f5684f760ed41a7ac86284e36ade73bbaa36e0b48dde2c765203843c29283fee"
+    },
+    "code/rtl/common/m2_n32_prom_candidate_20261013/m2_prom_oct.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\m2_n32_prom_candidate_20261013\\m2_prom_oct.sv",
+      "bytes": 6361,
+      "sha256": "2f5d8e901eba60634ae2daa40d29e0c074520e2f7fb5111f00882f5c30874b5b"
+    },
+    "code/rtl/common/m2_n32_prom_candidate_20261013/m2_prom_sub.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\m2_n32_prom_candidate_20261013\\m2_prom_sub.sv",
+      "bytes": 12512,
+      "sha256": "b683d5d49834632e3413a3038ea5b8f5c79c7c783a7cfe47e8c8f8cb124d9c23"
+    },
+    "code/rtl/common/m2_n32_prom_candidate_20261013/m2_prom_wave.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\m2_n32_prom_candidate_20261013\\m2_prom_wave.sv",
+      "bytes": 6357,
+      "sha256": "fa606e6e05ed36ad9b880f19684a0b7859262e56c9a104df30bef59d8b04f909"
+    },
+    "code/rtl/common/m3_n32_allocator_candidate_20261013/B/b_n32_event_audio_prom.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\m3_n32_allocator_candidate_20261013\\B\\b_n32_event_audio_prom.sv",
+      "bytes": 17815,
+      "sha256": "3012fc17def3f431f34061355ea172b7ecd17ac6f6a8913d2c8d518e32f647d3"
+    },
+    "code/rtl/common/m3_n32_allocator_candidate_20261013/m3_balanced_voice_allocator.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\m3_n32_allocator_candidate_20261013\\m3_balanced_voice_allocator.sv",
+      "bytes": 5449,
+      "sha256": "51472b796c9cd883e0fd07ec304559c249fd055929b64a96d53aad5af5b2ce99"
+    },
+    "code/rtl/common/m3_n32_pro_candidate_20261017/b_n32_event_router_e4.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\m3_n32_pro_candidate_20261017\\b_n32_event_router_e4.sv",
+      "bytes": 10743,
+      "sha256": "bc534a83c5245423da0ac88fd403ce63cf1ebabf3ce5e4d210d860ff1a344b80"
+    },
+    "code/rtl/common/m3_n32_pro_candidate_20261017/e4_n32_candidate.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\m3_n32_pro_candidate_20261017\\e4_n32_candidate.sv",
+      "bytes": 4822,
+      "sha256": "d8bc11dea2d4a10463091a6db6a9fa2106f9830062526c2d55e619bcf2622a38"
+    },
+    "code/rtl/common/pcm_clip_counter.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\pcm_clip_counter.sv",
+      "bytes": 1015,
+      "sha256": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca"
+    },
+    "code/rtl/common/pcm_waveform_observer_candidate/pcm_frame_observer.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\pcm_waveform_observer_candidate\\pcm_frame_observer.sv",
+      "bytes": 1118,
+      "sha256": "f0f755558fbd40a103c1d7d6c73c102eb4f83bf54cc41b09a78fd65609fe13a8"
+    },
+    "code/rtl/common/pcm_waveform_observer_candidate/pcm_waveform_observer_bridge.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\pcm_waveform_observer_candidate\\pcm_waveform_observer_bridge.sv",
+      "bytes": 4966,
+      "sha256": "0b937e2d23dc090b5094d789edba5216c34a96eb84eb96d002cdab8aa0c45cfb"
+    },
+    "code/rtl/common/polyphony_scaling_candidate/b1_scheduler.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\polyphony_scaling_candidate\\b1_scheduler.sv",
+      "bytes": 7913,
+      "sha256": "e11c2fb7e4c80160d42b44948003863892435050e27e47afc6e61ad6d5b78c9d"
+    },
+    "code/rtl/common/polyphony_scaling_candidate/b1_statebank.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\polyphony_scaling_candidate\\b1_statebank.sv",
+      "bytes": 3626,
+      "sha256": "9ab598affbd317dedb5bdd7e099335ad1f60e3c84ed115f6669d52b3966521ed"
+    },
+    "code/rtl/common/polyphony_scaling_candidate/b2c_sustain_controller.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\polyphony_scaling_candidate\\b2c_sustain_controller.sv",
+      "bytes": 6647,
+      "sha256": "ebb942402e190c136a6ff0d2fd751cabdbf34a83be75bf7953360f0d8534a2d5"
+    },
+    "code/rtl/common/polyphony_scaling_candidate/b2d_control_snapshot.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\polyphony_scaling_candidate\\b2d_control_snapshot.sv",
+      "bytes": 5388,
+      "sha256": "9cb23b971d243e1dcf43d2acf0445239f1f26b2f0edc51476ce6a0d5c5d450fd"
+    },
+    "code/rtl/common/reset_sync.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\reset_sync.sv",
+      "bytes": 1713,
+      "sha256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777"
+    },
+    "code/rtl/common/visual_mailbox_cdc.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\visual_mailbox_cdc.sv",
+      "bytes": 2786,
+      "sha256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c"
+    },
+    "code/software/audio_math_acceptance_candidate/bundle_replay.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\audio_math_acceptance_candidate\\bundle_replay.py",
+      "bytes": 13514,
+      "sha256": "0312af542eea5fa1a613772a50beb3c5e24d790145422132761900069b207fde"
+    },
+    "code/software/audio_math_acceptance_candidate/check_pair.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\audio_math_acceptance_candidate\\check_pair.py",
+      "bytes": 2154,
+      "sha256": "492209fe04499f79c7ffc988e4ad0f5d1b48be64a095ae1c4bd53fc149de5e84"
+    },
+    "code/software/audio_math_acceptance_candidate/closure_audit.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\audio_math_acceptance_candidate\\closure_audit.py",
+      "bytes": 11629,
+      "sha256": "83bf79ea0260b9d8fb6ac9996c37337ff954896df7e71188015658b2260be886"
+    },
+    "code/software/audio_math_acceptance_candidate/closure_run.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\audio_math_acceptance_candidate\\closure_run.py",
+      "bytes": 6885,
+      "sha256": "b6d66674ba543fc8320e9f0e6be5e76cbdee9d97c5162ced67f3146cb4345fe0"
+    },
+    "code/software/audio_math_acceptance_candidate/dds_model.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\audio_math_acceptance_candidate\\dds_model.py",
+      "bytes": 5221,
+      "sha256": "c127f5af83e52cbcd7484e96fbb26f149862cdb225023f72041c61f220c0950d"
+    },
+    "code/software/audio_math_acceptance_candidate/envelope_model.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\audio_math_acceptance_candidate\\envelope_model.py",
+      "bytes": 6222,
+      "sha256": "5826bb00da5d8ecc5c2eb3ffe43d159514781bc2f3bb1033965dcf312d12f933"
+    },
+    "code/software/audio_math_acceptance_candidate/router_check.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\audio_math_acceptance_candidate\\router_check.py",
+      "bytes": 1765,
+      "sha256": "88680ebe8ae378862af88e3f94ac0b7bca75207a9dda0c07d9aa6a21fc396c7a"
+    },
+    "code/software/audio_math_acceptance_candidate/router_model.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\audio_math_acceptance_candidate\\router_model.py",
+      "bytes": 16770,
+      "sha256": "1c2d4af9282b271fd68b16553ba2036d4cb01420669deafe0818bb2d1082957b"
+    },
+    "code/software/audio_math_acceptance_candidate/router_regression.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\audio_math_acceptance_candidate\\router_regression.py",
+      "bytes": 7981,
+      "sha256": "2ce1df509a3a06372cded947dbca44e8aa41507fa90ac0f177ae6d88ffbc7b0f"
+    },
+    "code/software/audio_math_acceptance_candidate/strict_capture.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\audio_math_acceptance_candidate\\strict_capture.py",
+      "bytes": 13744,
+      "sha256": "bac18df92a3e58bf4e976c3711a5fbb2f7d537637015bbd09e1890d99a5a6164"
+    },
+    "code/software/audio_math_acceptance_candidate/test_audio_math.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\audio_math_acceptance_candidate\\test_audio_math.py",
+      "bytes": 9396,
+      "sha256": "8e3d05343b3b04ca9590802188b4d69ff6761b94f3f5740412ebef42e8544865"
+    },
+    "code/software/audio_math_acceptance_candidate/test_candidates.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\audio_math_acceptance_candidate\\test_candidates.py",
+      "bytes": 21876,
+      "sha256": "56cbffa066d7f6d1751669fe7603b56cde8f7d861814004ef934c0292bff91aa"
+    },
+    "code/software/audio_math_acceptance_candidate/test_closure_audit.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\audio_math_acceptance_candidate\\test_closure_audit.py",
+      "bytes": 3543,
+      "sha256": "ed6e35c3892967c1953ca36ce3c7c2e30996fb0bd31aa37548bbcbd1f01eb866"
+    },
+    "code/software/audio_math_acceptance_candidate/test_router.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\audio_math_acceptance_candidate\\test_router.py",
+      "bytes": 9824,
+      "sha256": "c588544cb3a1683ea5999ae6d83e1a2deffe2aac7ed87a751e323c9dd668b2bf"
+    },
+    "code/software/audio_math_acceptance_candidate/timeline.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\audio_math_acceptance_candidate\\timeline.py",
+      "bytes": 16926,
+      "sha256": "11473197f43575e81b9d78b2b1348fad609efca79ac6c169c3889317d4c6ba80"
+    },
+    "code/software/m3_n32_pro_candidate_20261017/check_e4.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_n32_pro_candidate_20261017\\check_e4.py",
+      "bytes": 21839,
+      "sha256": "58bdce7ba9b6b434a80957ff2dfcaf429a9bb9c48346319281a83d8a49611ee2"
+    },
+    "code/software/m3_n32_pro_candidate_20261017/e4_common.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_n32_pro_candidate_20261017\\e4_common.py",
+      "bytes": 649,
+      "sha256": "de75cc03005dd0fb79ec3af88c959174dfa21fe9f98f54e2b1cb3e3197aef794"
+    },
+    "code/software/m3_n32_pro_candidate_20261017/preflight.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_n32_pro_candidate_20261017\\preflight.py",
+      "bytes": 2363,
+      "sha256": "9354bb7e02ad6064a79ba7810eeae791267a8cd4a2c6fc75bb7f34e796545e59"
+    },
+    "code/software/m3_n32_pro_candidate_20261017/prepare_r03.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_n32_pro_candidate_20261017\\prepare_r03.py",
+      "bytes": 2922,
+      "sha256": "4250e9072c137ab1c329f96488546849cb949dd7eb7deca018d2e8a4f0e590af"
+    },
+    "code/software/m3_n32_pro_candidate_20261017/prepare_r04.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_n32_pro_candidate_20261017\\prepare_r04.py",
+      "bytes": 2022,
+      "sha256": "c4c9e71a523e7b15a6e01de75a4d817ad625a97b3b6d2f2d4c9e8768bcb431aa"
+    },
+    "code/software/m3_n32_pro_candidate_20261017/prepare_r05.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_n32_pro_candidate_20261017\\prepare_r05.py",
+      "bytes": 1894,
+      "sha256": "d4c5404604a2e2879cd0b2015db87d6853109977e46707b54945fc3334206229"
+    },
+    "code/software/m3_n32_pro_candidate_20261017/run_e4.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_n32_pro_candidate_20261017\\run_e4.py",
+      "bytes": 13577,
+      "sha256": "600129de3a17ebe0fabbda601d14fd850884f46d052fb349a7bbd1199b18aceb"
+    },
+    "code/software/m3_r05_functional_integration_20261015/common.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_r05_functional_integration_20261015\\common.py",
+      "bytes": 2078,
+      "sha256": "173e9f6f53772813404520d77308700228f1471e36eec7e27b39b34dfd852bde"
+    },
+    "code/software/m3_r05_functional_integration_20261015/runner.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_r05_functional_integration_20261015\\runner.py",
+      "bytes": 13133,
+      "sha256": "ef9fe0c5fd4cef40c6d5a9dbfa32e7425393cf7f649886ecf73437a5e564f602"
+    },
+    "code/software/m3_r05_functional_integration_20261015/supervised_process.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_r05_functional_integration_20261015\\supervised_process.py",
+      "bytes": 4873,
+      "sha256": "8f4ed7163d918fad4f7ca2b38f13464f3f7d51ba84e969760ce4359593c3be89"
+    },
+    "code/software/m3_r05_functional_integration_20261015/windows_job.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_r05_functional_integration_20261015\\windows_job.py",
+      "bytes": 9600,
+      "sha256": "b55722e869f5acc09d4e2365ec9254c2fe18fbf89f3d917c7d3b53010b9f30a9"
+    },
+    "code/software/polyphony_scaling_candidate/b1_check.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b1_check.py",
+      "bytes": 13318,
+      "sha256": "5b7b086466266ab3d80d36b5e849946b691e8f63f87b3b04b27c47558c9a7179"
+    },
+    "code/software/polyphony_scaling_candidate/b1_counterexamples.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b1_counterexamples.py",
+      "bytes": 3118,
+      "sha256": "4d2939745babbdcd7755307f73cd66dc070e87f334c452c4eb9096c0b0decaa4"
+    },
+    "code/software/polyphony_scaling_candidate/b1_run.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b1_run.py",
+      "bytes": 5287,
+      "sha256": "99fdb3754bdc3dbc98591b7425dff1ac85d871d9415efc23ffc8edb665c76652"
+    },
+    "code/software/polyphony_scaling_candidate/b2_check.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2_check.py",
+      "bytes": 15032,
+      "sha256": "5f223d2403a00e3cb1b5a5eb6740b0ef8b47aaf0467fc98dc87ff8421fae5673"
+    },
+    "code/software/polyphony_scaling_candidate/b2_clock.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2_clock.py",
+      "bytes": 2079,
+      "sha256": "26b858a47424712bcbed2081d9cca9ea8d79dfcf7cb6545f14c80690073459a3"
+    },
+    "code/software/polyphony_scaling_candidate/b2_negatives.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2_negatives.py",
+      "bytes": 3334,
+      "sha256": "27542be391b10ebfbe141667b3cc618d4e5548e3ae9ecdcb701230c6fe3fb1f3"
+    },
+    "code/software/polyphony_scaling_candidate/b2_run.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2_run.py",
+      "bytes": 4361,
+      "sha256": "4d2bdb14673f62474f86eb6cab37172267a7448a2ba45f96a0986957e7853911"
+    },
+    "code/software/polyphony_scaling_candidate/b2_timing_repair.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2_timing_repair.py",
+      "bytes": 13033,
+      "sha256": "e5def4821af0381a322c6f4c8465d0dc472eb565fbede018e35d8d886586ddfc"
+    },
+    "code/software/polyphony_scaling_candidate/b2b_check.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2b_check.py",
+      "bytes": 17067,
+      "sha256": "3a7445235a2d14d438830fd2f7d56be3cc0fa6852d558d1e17eff66b219495f3"
+    },
+    "code/software/polyphony_scaling_candidate/b2b_negatives.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2b_negatives.py",
+      "bytes": 2006,
+      "sha256": "50b3b892e813611b774d81337f9578af31852d66fe4938a3ac6e30b0e9c10160"
+    },
+    "code/software/polyphony_scaling_candidate/b2b_run.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2b_run.py",
+      "bytes": 6483,
+      "sha256": "882e37f47d05a9902c31b9ddd26167660ec94bce9491f8e3ccbdda7dbf28e4cc"
+    },
+    "code/software/polyphony_scaling_candidate/b2c_check.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2c_check.py",
+      "bytes": 18385,
+      "sha256": "d378fafa68384c219490b9352543f03f7431e4878690806af5cd8f1efa67d050"
+    },
+    "code/software/polyphony_scaling_candidate/b2c_router_model.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2c_router_model.py",
+      "bytes": 8740,
+      "sha256": "c860ef37cd0aa0a4cd7aba09c291f7ba21d7101abb336785d00826b980bb8c6c"
+    },
+    "code/software/polyphony_scaling_candidate/b2c_run.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2c_run.py",
+      "bytes": 4485,
+      "sha256": "42b66d7a0f939a878f537dc8819f34833ef29c2a86df9ebad86e78c9773ee563"
+    },
+    "code/software/polyphony_scaling_candidate/b2c_tests.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2c_tests.py",
+      "bytes": 3364,
+      "sha256": "efcf69bdc09d92c4c748a31a2411bfbef6186079b47fc5117368b512ae8e611e"
+    },
+    "code/software/polyphony_scaling_candidate/b2d_check.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2d_check.py",
+      "bytes": 1327,
+      "sha256": "e4a8eba59884bbc731df23a0f311d5f6f3f46559dfe9c96694036e6cdf117629"
+    },
+    "code/software/polyphony_scaling_candidate/b2d_reuse.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2d_reuse.py",
+      "bytes": 4248,
+      "sha256": "dbd35dd1a6396c4624e13ea902d547ec5e701d50e971257e4e8bcfb27acc4ec1"
+    },
+    "code/software/polyphony_scaling_candidate/b2d_run.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2d_run.py",
+      "bytes": 7376,
+      "sha256": "05890d9038d70e05317ff6c256bf9251401d87978e191e371cd2871287e8eeae"
+    },
+    "code/software/polyphony_scaling_candidate/b2d_tests.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2d_tests.py",
+      "bytes": 3518,
+      "sha256": "ed5a0a6b07870f4ff099b912b4643eabd58bac4a2254ea65621b688543cd6c75"
+    },
+    "code/software/polyphony_scaling_candidate/b2e_check.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2e_check.py",
+      "bytes": 1648,
+      "sha256": "b1e32a447a84490a2afd08069e5f66c258f2535d895a12e2f10cd13012b3ccdc"
+    },
+    "code/software/polyphony_scaling_candidate/b2e_run.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2e_run.py",
+      "bytes": 3845,
+      "sha256": "664b4d7f7a62c7e49261e4ae8f2ea299af4774da16194066ca80ed32b4ef09cf"
+    },
+    "code/software/polyphony_scaling_candidate/b2e_tests.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2e_tests.py",
+      "bytes": 5515,
+      "sha256": "07137328c25513f94a32c245590c15ef6efc5042b339362231ee618a252e1832"
+    },
+    "code/software/polyphony_scaling_candidate/b2f_check.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2f_check.py",
+      "bytes": 5314,
+      "sha256": "4adcd7c2e78ac737854c29059552dcd26cb36b1821964ccf78b35810ad2f0292"
+    },
+    "code/software/polyphony_scaling_candidate/b2f_run.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2f_run.py",
+      "bytes": 5353,
+      "sha256": "70e1bfcfced3eea4bcade0bf274d9f2be5f4ce342f0a4d37d80d8687ba54d251"
+    },
+    "code/software/polyphony_scaling_candidate/b2f_tests.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2f_tests.py",
+      "bytes": 4229,
+      "sha256": "03f36f84380805820c43d7edbb4128e2cb7bb75e0063ee5539a5f8c51017dfe9"
+    },
+    "code/software/polyphony_scaling_candidate/b2g_check.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2g_check.py",
+      "bytes": 3095,
+      "sha256": "f65382afe7414ad278a6c11adce04f9f7f834bda715c5a7a81125419c087d8a1"
+    },
+    "code/software/polyphony_scaling_candidate/b2g_run.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2g_run.py",
+      "bytes": 6022,
+      "sha256": "e3d41f50218cbbc85a21e7aef7bc96c7763e29b2b72f380d78e3e073f19bc21a"
+    },
+    "code/software/polyphony_scaling_candidate/b2g_tests.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2g_tests.py",
+      "bytes": 5142,
+      "sha256": "3218e159ce27d2f044cadf304d11a31f246c4aead63f1a24d26bd4633de80dfc"
+    },
+    "code/software/polyphony_scaling_candidate/b2h_check.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2h_check.py",
+      "bytes": 3951,
+      "sha256": "56821d3f9f449088ef6c6e39ec183348dfab49f5b8b17f4ead1aae9df9f645b5"
+    },
+    "code/software/polyphony_scaling_candidate/b2h_run.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2h_run.py",
+      "bytes": 4073,
+      "sha256": "7e7ef929050d2e7e40a651fab2f1cdef4a0c3527b1bbe3f32c96340f8161b97d"
+    },
+    "code/software/polyphony_scaling_candidate/b2h_tests.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2h_tests.py",
+      "bytes": 3880,
+      "sha256": "b4f76d73c1ae8d61cbc4112e8f29e3a2877f52d4b4054089686aad23ff397494"
+    },
+    "code/software/polyphony_scaling_candidate/b2i_audit.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2i_audit.py",
+      "bytes": 25799,
+      "sha256": "6c85086ead91e7389c2331d720345cfa37e7df5061853b0eda0e527c4d1a7ddb"
+    },
+    "code/software/polyphony_scaling_candidate/b2i_run.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2i_run.py",
+      "bytes": 988,
+      "sha256": "fc1e90efc6ac306f4cc9a4d8186a6121549e01e0ce4ef1e437041465a08adb5f"
+    },
+    "code/software/polyphony_scaling_candidate/b2j_check.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2j_check.py",
+      "bytes": 8257,
+      "sha256": "952183595f1cfdd3810432b8a9a4b340a0da66942d1f17a953b9e9b0ffb3db13"
+    },
+    "code/software/polyphony_scaling_candidate/b2j_run.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2j_run.py",
+      "bytes": 10258,
+      "sha256": "70fdb346f14cb2c218de8dd06959d628b4849a6fbd33366d952a692c20d44aeb"
+    },
+    "code/software/polyphony_scaling_candidate/b2k_check.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2k_check.py",
+      "bytes": 11597,
+      "sha256": "53523c66d003074aa0c4baeb6ca6181b161bf2fd439e0ecb5deb1264b097ff8e"
+    },
+    "code/software/polyphony_scaling_candidate/b2k_run.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2k_run.py",
+      "bytes": 10486,
+      "sha256": "7eab0324a6e15094ce492f1e2c3b7458c1868ccf1566405fc4e2cf1839721edb"
+    },
+    "code/software/polyphony_scaling_candidate/b2l_prepare.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2l_prepare.py",
+      "bytes": 9384,
+      "sha256": "381ecb85faffe61b5df2dfec2264922d7dfb1ec820e290dfee6268bea3f192d2"
+    },
+    "code/software/polyphony_scaling_candidate/b2l_run.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2l_run.py",
+      "bytes": 4820,
+      "sha256": "62a9172f67670b2609f53af2f80eca20849135a77b816d22df41588757aaf561"
+    },
+    "code/software/polyphony_scaling_candidate/b2m_check.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2m_check.py",
+      "bytes": 9241,
+      "sha256": "1c01c4e4d310b3cb4f2a4200c970d5b641af434c7147b32847d2eb2a6c907142"
+    },
+    "code/software/polyphony_scaling_candidate/b2m_closure.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2m_closure.py",
+      "bytes": 23873,
+      "sha256": "baedfc098d2e8716a4e3bd07af9aee46869127cb8998b1bb7b4b668df21d8582"
+    },
+    "code/software/polyphony_scaling_candidate/b2m_inputs.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2m_inputs.py",
+      "bytes": 3413,
+      "sha256": "8718949429252a9441928ea97aa655c52392acb050d934136ade639788406048"
+    },
+    "code/software/polyphony_scaling_candidate/b2m_run.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\b2m_run.py",
+      "bytes": 9101,
+      "sha256": "5c8d3ea28a7158f5b2c582d19a743ba71373a5e7c77c6da45981ace462cde2df"
+    },
+    "code/software/polyphony_scaling_candidate/budget.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\budget.py",
+      "bytes": 10908,
+      "sha256": "0ff5a05c4fe9bbb0400cdd51f8b0e2bcdd73d9dba37129d22c9e6ce410cdefe2"
+    },
+    "code/software/polyphony_scaling_candidate/inventory.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\inventory.py",
+      "bytes": 12892,
+      "sha256": "f690caa9b9faad5f97525aa40903e6247e6a05d5eb04beb03e67a269f13522a0"
+    },
+    "code/software/polyphony_scaling_candidate/protocol_oracle.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\protocol_oracle.py",
+      "bytes": 5995,
+      "sha256": "b767cb32756cc59a3ad6a566eacea8e37f7ec4758df4af79cae5412ec4b2ca1a"
+    },
+    "code/software/polyphony_scaling_candidate/review_regression.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\review_regression.py",
+      "bytes": 5492,
+      "sha256": "d28f704595a64ae08cecd9cffa4e268c486d48a51c3f26edd2428bf46729d16e"
+    },
+    "code/software/polyphony_scaling_candidate/test_b1_checker.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\test_b1_checker.py",
+      "bytes": 1697,
+      "sha256": "3638860f3e12fa2c3a78642414e9f95dfdba1ceae22143652b4e7432b77b3388"
+    },
+    "code/software/polyphony_scaling_candidate/test_b2_checker.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\test_b2_checker.py",
+      "bytes": 1614,
+      "sha256": "0626dd09416ae33aacba45200dd7b1793e1c4948b50e63645b222361cd69cd7a"
+    },
+    "code/software/polyphony_scaling_candidate/test_b2_timing.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\test_b2_timing.py",
+      "bytes": 1906,
+      "sha256": "2e0635976cbc86f352189e7feaa267fe9937f9e14ce2c1fbe78ec7c9e92bcbff"
+    },
+    "code/software/polyphony_scaling_candidate/test_b2i.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\test_b2i.py",
+      "bytes": 5519,
+      "sha256": "3614d6f7df603899fbacc273cac9335c00785f016edaab4f2541d5949582f453"
+    },
+    "code/software/polyphony_scaling_candidate/test_b2j.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\test_b2j.py",
+      "bytes": 3607,
+      "sha256": "3b2068c94c6931dc20d3c294becf84d090df61dadfeaf10f85f335828ecbdd10"
+    },
+    "code/software/polyphony_scaling_candidate/test_b2k.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\test_b2k.py",
+      "bytes": 2796,
+      "sha256": "4409b7bdbb92645ef66f7c47ce65d79e4dde5f67b0c15537ef8555783539e520"
+    },
+    "code/software/polyphony_scaling_candidate/test_b2l.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\test_b2l.py",
+      "bytes": 5531,
+      "sha256": "d79a844d15870872120f607a305a182c3ef858305b3157e4cf44205daec378c9"
+    },
+    "code/software/polyphony_scaling_candidate/test_b2m.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\test_b2m.py",
+      "bytes": 3421,
+      "sha256": "a2c6146ee59bc331ab14664545e4c5dc9a4f780b4ce47ff62acfaae319760e1d"
+    },
+    "code/software/polyphony_scaling_candidate/test_b2m_closure.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\test_b2m_closure.py",
+      "bytes": 3324,
+      "sha256": "d3ece603c75abc845fd5035f4e90fe324ef308a42f10766f0b3e041bd5e255ca"
+    },
+    "code/software/polyphony_scaling_candidate/test_candidate.py": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\polyphony_scaling_candidate\\test_candidate.py",
+      "bytes": 17268,
+      "sha256": "734189698b3b832aae0eaa80b11cd09178794e1e0524044630341f044bcf1f62"
+    },
+    "code/tb/audio/m3_n32_pro_candidate_20261017/tb_e4_n32.sv": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\audio\\m3_n32_pro_candidate_20261017\\tb_e4_n32.sv",
+      "bytes": 16629,
+      "sha256": "65281fdbef1b912ee6194017bc26b93adb349ee0ede47896e3e06bc3ffda9501"
+    }
+  },
+  "round5_receipt": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_n32_pro_candidate_20261017\\ROUND_05\\RUN_RECEIPT.json",
+    "bytes": 189019,
+    "sha256": "36ed940dae27f8d043c22142d023e9dea4275118ba42d82c9abaaddd9f162bb8"
+  },
+  "physical_calls": 0,
+  "board_release_allowed": false
+}

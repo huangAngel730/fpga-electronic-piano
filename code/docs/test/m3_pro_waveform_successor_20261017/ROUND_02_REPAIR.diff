@@ -1,0 +1,11 @@
+--- code\docs\test\m3_pro_waveform_successor_20261017\ROUND_02\stage\s06.sv
++++ code\tb\input\pcm_waveform_candidate\m3_pro_waveform_successor_20261017\tb_pro_fixed_left_waveform.sv
+@@ -101,7 +101,7 @@
+                 if (valid) die("RESTART_OVERLAP");
+             end
+             if (valid) begin
+-                if (seq>=14241 || !accepted[seq] || seq<=last_delivered) die("DELIVERY_SEQUENCE_OR_EPOCH");
++                if (seq>=14241 || !accepted[seq] || (delivered!=0 && seq<=last_delivered)) die("DELIVERY_SEQUENCE_OR_EPOCH");
+                 if ({left,right}!==catalogue[seq][63:16]) die("DELIVERY_ATOMIC_PCM");
+                 $display("D %0t %0d %0d %0d",$time,seq,left,right);
+                 delivered=delivered+1;

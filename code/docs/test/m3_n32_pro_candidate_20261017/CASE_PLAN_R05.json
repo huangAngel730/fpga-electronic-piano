@@ -1,0 +1,284 @@
+{
+  "schema": "M3_E4_REAL_RTL_CASE_PLAN_V1",
+  "tools": "Fixed ModelSim SE64 2020.4 only",
+  "single_tool_seconds": 300,
+  "group_seconds_including_cleanup": 900,
+  "Python_cumulative_seconds": 90,
+  "source_mutation": "Compile-time behavioral fault switches in isolated copies; never edit captured text",
+  "cases": [
+    {
+      "name": "bad_result_id",
+      "n": 32,
+      "defines": [
+        "E4_BAD_ID"
+      ],
+      "plusargs": [
+        "+RETIRE=0"
+      ],
+      "rtl_rejection": "E4_ID"
+    },
+    {
+      "name": "bad_transport_left",
+      "n": 32,
+      "defines": [
+        "M2_OUTPUT_BAD_LEFT"
+      ],
+      "plusargs": [
+        "+RETIRE=0"
+      ],
+      "rtl_rejection": "E4_TRANSPORT_PCM"
+    },
+    {
+      "name": "bad_clipped_metadata",
+      "n": 32,
+      "defines": [
+        "E4_BAD_CLIP"
+      ],
+      "plusargs": [
+        "+RETIRE=0"
+      ],
+      "checker_rejection": "K_ID_PCM_CLIPPED_INDEPENDENT_MATH"
+    },
+    {
+      "name": "bad_retirement",
+      "n": 32,
+      "defines": [
+        "B2B_MUTANT_NO_RETIRE"
+      ],
+      "plusargs": [
+        "+RETIRE=1"
+      ],
+      "rtl_rejection": "E4_RETIRE"
+    }
+  ],
+  "limitations": [
+    "Retirement quiet tail is lifecycle L2 only",
+    "Frozen piano ROM is not pure sine/physical spectrum",
+    "No Pro physical or board execution"
+  ],
+  "reuse_signed_normal_sources": "All four normal frozen-piano source/ROM/transport bytes unchanged; only TB immediate result-ID monitor added. Original normal captures/checks are retained, not rerun or relabeled as new TB executions.",
+  "previous_normal_check_receipts": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_n32_pro_candidate_20261017\\ROUND_03\\RUN_RECEIPT.json",
+      "bytes": 184676,
+      "sha256": "9ab11f957def2aa78bde3ff3a520bd04b0fb1e78daa5f48cdd3c7b6964396fd7"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_n32_pro_candidate_20261017\\ROUND_04\\RUN_RECEIPT.json",
+      "bytes": 208792,
+      "sha256": "e4ae54cfcfa3fe3a3f085970a7085167b400029099bc924664968bc06915df02"
+    }
+  ],
+  "previous_actual_bad_cases": [
+    {
+      "case": {
+        "name": "bad_steal",
+        "n": 32,
+        "defines": [
+          "E4_DROP_STEAL"
+        ],
+        "plusargs": [
+          "+RETIRE=0"
+        ],
+        "rtl_rejection": "E4_STEAL"
+      },
+      "compile": 2,
+      "simulate": 3,
+      "sim_stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_n32_pro_candidate_20261017\\ROUND_04\\bad_steal\\logs\\vsim.stdout.log",
+        "bytes": 218168,
+        "sha256": "a5e57d0f549bd0e68f788efe7bc1e7ec02ac0254a9fed33b5a8e211b617d438e"
+      },
+      "reuse_binding": null,
+      "status": "ACTUAL_RTL_TARGET_REJECTED",
+      "diagnostic": "E4_STEAL",
+      "first_failure": {
+        "line": 2232,
+        "severity": "FATAL",
+        "message": "E4_STEAL",
+        "raw": "# ** Fatal: E4_STEAL"
+      },
+      "required_modelsim_exit_code": 0
+    },
+    {
+      "case": {
+        "name": "bad_retrigger",
+        "n": 32,
+        "defines": [
+          "E4_DROP_RETRIGGER"
+        ],
+        "plusargs": [
+          "+RETIRE=0"
+        ],
+        "rtl_rejection": "E4_RETRIGGER"
+      },
+      "compile": 5,
+      "simulate": 6,
+      "sim_stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_n32_pro_candidate_20261017\\ROUND_04\\bad_retrigger\\logs\\vsim.stdout.log",
+        "bytes": 220519,
+        "sha256": "7c8fdb0b02f39b61973e5fed4e44cea4a9c26e1dcf5b727d459fb4f035a0adc7"
+      },
+      "reuse_binding": null,
+      "status": "ACTUAL_RTL_TARGET_REJECTED",
+      "diagnostic": "E4_RETRIGGER",
+      "first_failure": {
+        "line": 2236,
+        "severity": "FATAL",
+        "message": "E4_RETRIGGER",
+        "raw": "# ** Fatal: E4_RETRIGGER"
+      },
+      "required_modelsim_exit_code": 0
+    },
+    {
+      "case": {
+        "name": "bad_cc64",
+        "n": 32,
+        "defines": [
+          "E4_DROP_CC64"
+        ],
+        "plusargs": [
+          "+RETIRE=0"
+        ],
+        "rtl_rejection": "E4_CC64_DEFER"
+      },
+      "compile": 8,
+      "simulate": 9,
+      "sim_stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_n32_pro_candidate_20261017\\ROUND_04\\bad_cc64\\logs\\vsim.stdout.log",
+        "bytes": 224718,
+        "sha256": "66d0d6da54fc59f266b3fe7cef2ccd5e39d05e1f46f0cf7842b80cc219bbb257"
+      },
+      "reuse_binding": null,
+      "status": "ACTUAL_RTL_TARGET_REJECTED",
+      "diagnostic": "E4_CC64_DEFER",
+      "first_failure": {
+        "line": 2244,
+        "severity": "FATAL",
+        "message": "E4_CC64_DEFER",
+        "raw": "# ** Fatal: E4_CC64_DEFER"
+      },
+      "required_modelsim_exit_code": 0
+    },
+    {
+      "case": {
+        "name": "bad_release_ack",
+        "n": 32,
+        "defines": [
+          "E4_BLOCK_RELEASE_ACK"
+        ],
+        "plusargs": [
+          "+RETIRE=0"
+        ],
+        "rtl_rejection": "E4_RELEASE_ACK"
+      },
+      "compile": 11,
+      "simulate": 12,
+      "sim_stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_n32_pro_candidate_20261017\\ROUND_04\\bad_release_ack\\logs\\vsim.stdout.log",
+        "bytes": 231294,
+        "sha256": "fc1459bf11c4e48d0ec6ad3aee85209ee0a125a0d6ec0376527fb09779f90aeb"
+      },
+      "reuse_binding": null,
+      "status": "ACTUAL_RTL_TARGET_REJECTED",
+      "diagnostic": "E4_RELEASE_ACK",
+      "first_failure": {
+        "line": 2346,
+        "severity": "FATAL",
+        "message": "E4_RELEASE_ACK",
+        "raw": "# ** Fatal: E4_RELEASE_ACK"
+      },
+      "required_modelsim_exit_code": 0
+    },
+    {
+      "case": {
+        "name": "bad_hold",
+        "n": 32,
+        "defines": [
+          "E4_BAD_HOLD"
+        ],
+        "plusargs": [
+          "+RETIRE=0"
+        ],
+        "rtl_rejection": "E4_HOLD"
+      },
+      "compile": 14,
+      "simulate": 15,
+      "sim_stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_n32_pro_candidate_20261017\\ROUND_04\\bad_hold\\logs\\vsim.stdout.log",
+        "bytes": 259127,
+        "sha256": "d5c51d6ebf6178d5d02322cf5be355716d7bea5adf7d032ddb26d38c4ed3ef1a"
+      },
+      "reuse_binding": null,
+      "status": "ACTUAL_RTL_TARGET_REJECTED",
+      "diagnostic": "E4_HOLD",
+      "first_failure": {
+        "line": 2761,
+        "severity": "FATAL",
+        "message": "E4_HOLD",
+        "raw": "# ** Fatal: E4_HOLD"
+      },
+      "required_modelsim_exit_code": 0
+    },
+    {
+      "case": {
+        "name": "bad_cancel",
+        "n": 32,
+        "defines": [
+          "E4_BAD_CANCEL"
+        ],
+        "plusargs": [
+          "+RETIRE=0"
+        ],
+        "rtl_rejection": "E4_CANCEL"
+      },
+      "compile": 17,
+      "simulate": 18,
+      "sim_stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_n32_pro_candidate_20261017\\ROUND_04\\bad_cancel\\logs\\vsim.stdout.log",
+        "bytes": 266345,
+        "sha256": "f1213116d184eb511707ba7551064fc9bc832261889ddcf9b9cc865f9b6bc131"
+      },
+      "reuse_binding": null,
+      "status": "ACTUAL_RTL_TARGET_REJECTED",
+      "diagnostic": "E4_CANCEL",
+      "first_failure": {
+        "line": 2873,
+        "severity": "FATAL",
+        "message": "E4_CANCEL",
+        "raw": "# ** Fatal: E4_CANCEL"
+      },
+      "required_modelsim_exit_code": 0
+    },
+    {
+      "case": {
+        "name": "bad_reset",
+        "n": 32,
+        "defines": [
+          "E4_BAD_RESET"
+        ],
+        "plusargs": [
+          "+RETIRE=0"
+        ],
+        "rtl_rejection": "E4_RESET"
+      },
+      "compile": 20,
+      "simulate": 21,
+      "sim_stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_n32_pro_candidate_20261017\\ROUND_04\\bad_reset\\logs\\vsim.stdout.log",
+        "bytes": 269414,
+        "sha256": "881e7b57a509919fd623eba6758600fbdb58333503d6bb9f343ad2625fed046e"
+      },
+      "reuse_binding": null,
+      "status": "ACTUAL_RTL_TARGET_REJECTED",
+      "diagnostic": "E4_RESET",
+      "first_failure": {
+        "line": 2916,
+        "severity": "FATAL",
+        "message": "E4_RESET",
+        "raw": "# ** Fatal: E4_RESET"
+      },
+      "required_modelsim_exit_code": 0
+    }
+  ]
+}

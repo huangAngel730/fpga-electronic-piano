@@ -1,0 +1,18 @@
+--- code\docs\test\m3_pro_waveform_successor_20261017\ROUND_01\stage\s06.sv
++++ code\tb\input\pcm_waveform_candidate\m3_pro_waveform_successor_20261017\tb_pro_fixed_left_waveform.sv
+@@ -10,6 +10,7 @@
+     reg signed [23:0] play_left=0, play_right=0;
+     integer catalogue_id=-1, fault=0;
+     reg bad_backpressure_active=0;
++    wire [15:0] queue_level;
+     wire actual_load = requested_load && !(fault==5 && bad_backpressure_active && queue_level>=32);
+     reg [15:0] x=0,y=0;
+     reg de=1, frame_start=0, enabled=1;
+@@ -18,7 +19,6 @@
+     wire [31:0] gaps, windows, seq, observed_seq, drops;
+     wire signed [23:0] left,right,observed_left,observed_right;
+     wire observed_valid,enqueued,dropped,src_up,pix_up;
+-    wire [15:0] queue_level;
+     wire bad_frame = frame_start || (valid && seq==4096);
+     wire bad_valid = valid && seq!=1000;
+     m3_pro_fixed_left_waveform dut (

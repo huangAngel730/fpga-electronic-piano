@@ -1,0 +1,196 @@
+{
+  "schema": "M3_E4_REAL_RTL_CASE_PLAN_V1",
+  "tools": "Fixed ModelSim SE64 2020.4 only",
+  "single_tool_seconds": 300,
+  "group_seconds_including_cleanup": 900,
+  "Python_cumulative_seconds": 90,
+  "source_mutation": "Compile-time behavioral fault switches in isolated copies; never edit captured text",
+  "cases": [
+    {
+      "name": "normal_n32",
+      "n": 32,
+      "plusargs": [
+        "+RETIRE=1"
+      ],
+      "reuse_simulation": {
+        "receipt_relative": "ROUND_03/RUN_RECEIPT.json",
+        "receipt_sha256": "9ab11f957def2aa78bde3ff3a520bd04b0fb1e78daa5f48cdd3c7b6964396fd7",
+        "simulation_call_index": 11,
+        "reason": "N32 source simulation and4802 all-lane retirement passed; checker-only tail-boundary repair"
+      }
+    },
+    {
+      "name": "bad_steal",
+      "n": 32,
+      "defines": [
+        "E4_DROP_STEAL"
+      ],
+      "plusargs": [
+        "+RETIRE=0"
+      ],
+      "rtl_rejection": "E4_STEAL"
+    },
+    {
+      "name": "bad_retrigger",
+      "n": 32,
+      "defines": [
+        "E4_DROP_RETRIGGER"
+      ],
+      "plusargs": [
+        "+RETIRE=0"
+      ],
+      "rtl_rejection": "E4_RETRIGGER"
+    },
+    {
+      "name": "bad_cc64",
+      "n": 32,
+      "defines": [
+        "E4_DROP_CC64"
+      ],
+      "plusargs": [
+        "+RETIRE=0"
+      ],
+      "rtl_rejection": "E4_CC64_DEFER"
+    },
+    {
+      "name": "bad_release_ack",
+      "n": 32,
+      "defines": [
+        "E4_BLOCK_RELEASE_ACK"
+      ],
+      "plusargs": [
+        "+RETIRE=0"
+      ],
+      "rtl_rejection": "E4_RELEASE_ACK"
+    },
+    {
+      "name": "bad_hold",
+      "n": 32,
+      "defines": [
+        "E4_BAD_HOLD"
+      ],
+      "plusargs": [
+        "+RETIRE=0"
+      ],
+      "rtl_rejection": "E4_HOLD"
+    },
+    {
+      "name": "bad_cancel",
+      "n": 32,
+      "defines": [
+        "E4_BAD_CANCEL"
+      ],
+      "plusargs": [
+        "+RETIRE=0"
+      ],
+      "rtl_rejection": "E4_CANCEL"
+    },
+    {
+      "name": "bad_reset",
+      "n": 32,
+      "defines": [
+        "E4_BAD_RESET"
+      ],
+      "plusargs": [
+        "+RETIRE=0"
+      ],
+      "rtl_rejection": "E4_RESET"
+    },
+    {
+      "name": "bad_result_id",
+      "n": 32,
+      "defines": [
+        "E4_BAD_ID"
+      ],
+      "plusargs": [
+        "+RETIRE=0"
+      ],
+      "rtl_rejection": "E4_ID"
+    },
+    {
+      "name": "bad_transport_left",
+      "n": 32,
+      "defines": [
+        "M2_OUTPUT_BAD_LEFT"
+      ],
+      "plusargs": [
+        "+RETIRE=0"
+      ],
+      "rtl_rejection": "E4_TRANSPORT_PCM"
+    },
+    {
+      "name": "bad_clipped_metadata",
+      "n": 32,
+      "defines": [
+        "E4_BAD_CLIP"
+      ],
+      "plusargs": [
+        "+RETIRE=0"
+      ],
+      "checker_rejection": "K_ID_PCM_CLIPPED_INDEPENDENT_MATH"
+    },
+    {
+      "name": "bad_retirement",
+      "n": 32,
+      "defines": [
+        "B2B_MUTANT_NO_RETIRE"
+      ],
+      "plusargs": [
+        "+RETIRE=1"
+      ],
+      "rtl_rejection": "E4_RETIRE"
+    }
+  ],
+  "limitations": [
+    "Retirement quiet tail is lifecycle L2 only",
+    "Frozen piano ROM is not pure sine/physical spectrum",
+    "No Pro physical or board execution"
+  ],
+  "prior_normal_passes": [
+    {
+      "case": "normal_n4",
+      "result": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_n32_pro_candidate_20261017\\ROUND_03\\normal_n4\\CHECK_RESULT.json",
+        "bytes": 1401,
+        "sha256": "da3caf569ca550dead3dc71b390836ddf1e57362f70121620ad34fb67564d531"
+      },
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_n32_pro_candidate_20261017\\ROUND_03\\RUN_RECEIPT.json",
+        "bytes": 184676,
+        "sha256": "9ab11f957def2aa78bde3ff3a520bd04b0fb1e78daa5f48cdd3c7b6964396fd7"
+      },
+      "new_test_calls": 0,
+      "reason": "New checker change only applies to enabled retirement tail; N4/8/16 RETIRE=0 already passed"
+    },
+    {
+      "case": "normal_n8",
+      "result": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_n32_pro_candidate_20261017\\ROUND_03\\normal_n8\\CHECK_RESULT.json",
+        "bytes": 1618,
+        "sha256": "09add55dc7121db10b95a047f2c9829409579960a154a3e7e287f5f5b14f43a3"
+      },
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_n32_pro_candidate_20261017\\ROUND_03\\RUN_RECEIPT.json",
+        "bytes": 184676,
+        "sha256": "9ab11f957def2aa78bde3ff3a520bd04b0fb1e78daa5f48cdd3c7b6964396fd7"
+      },
+      "new_test_calls": 0,
+      "reason": "New checker change only applies to enabled retirement tail; N4/8/16 RETIRE=0 already passed"
+    },
+    {
+      "case": "normal_n16",
+      "result": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_n32_pro_candidate_20261017\\ROUND_03\\normal_n16\\CHECK_RESULT.json",
+        "bytes": 2070,
+        "sha256": "ed4f505b252f73d364cbfa72604d58b018dff25222a283865588afb0b6ae87fc"
+      },
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_n32_pro_candidate_20261017\\ROUND_03\\RUN_RECEIPT.json",
+        "bytes": 184676,
+        "sha256": "9ab11f957def2aa78bde3ff3a520bd04b0fb1e78daa5f48cdd3c7b6964396fd7"
+      },
+      "new_test_calls": 0,
+      "reason": "New checker change only applies to enabled retirement tail; N4/8/16 RETIRE=0 already passed"
+    }
+  ]
+}

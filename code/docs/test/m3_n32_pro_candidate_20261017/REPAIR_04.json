@@ -1,0 +1,21 @@
+{
+  "prior_round": 3,
+  "receipt": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_n32_pro_candidate_20261017\\ROUND_03\\RUN_RECEIPT.json",
+    "bytes": 184676,
+    "sha256": "9ab11f957def2aa78bde3ff3a520bd04b0fb1e78daa5f48cdd3c7b6964396fd7"
+  },
+  "failure": "N32 actual RTL/retirement PASS; checker resumed math one edge before actual reset, U1743651 after TAIL_END1743650 rejected",
+  "change": "Bound terminal-tail wait until actual reset within8cycles, no new business; bind TAIL_END completion mask to actual public D observations",
+  "checker": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_n32_pro_candidate_20261017\\check_e4.py",
+    "bytes": 21839,
+    "sha256": "58bdce7ba9b6b434a80957ff2dfcaf429a9bb9c48346319281a83d8a49611ee2"
+  },
+  "normal_n4_n8_n16_retested": false,
+  "normal_n32_recompiled_or_resimulated": false,
+  "next_cases": "N32 checker replay + unrun actual RTL mutants only",
+  "first_failure_preserved": true,
+  "groups_already_consumed": 3,
+  "new_group": 4
+}
