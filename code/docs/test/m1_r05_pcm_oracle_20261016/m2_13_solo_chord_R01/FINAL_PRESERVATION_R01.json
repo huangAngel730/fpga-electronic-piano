@@ -1,0 +1,54 @@
+{
+  "schema": "M1_M2_13_FINAL_PRIOR_FILE_PRESERVATION_R01",
+  "prior_untracked_and_scope_files_checked": 871,
+  "changed_or_missing": [],
+  "all_prior_files_preserved": true,
+  "previous_delivery_14_zip_sha256": "8622b9161a568edc7b58223bca0f02768a20f50924adf6b13630c23b0d649f30",
+  "previous_delivery_14_unchanged": true,
+  "git_read_commands": [
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": "d6d7bb48216df81dfa16448ca13521ecec168095\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1",
+        "-uno"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--name-only"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "git_changes_this_task": "fetch and ff-only sync of published documents only; no add/commit/push",
+  "publication": "NOT_COMMITTED_NOT_PUSHED_GATE_BLOCKED"
+}

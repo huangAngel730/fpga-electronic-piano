@@ -1,0 +1,26 @@
+{
+  "schema": "M1_R06_PCM_REFERENCE_CONTRACT_V1",
+  "basis_git_commit": "a6240a9f974440973be63d808ae44bdc5725b618",
+  "r06_archive_sha256": "4be2b4c185691a3e493827a3a95303fa90f49ba6336eb4a8e0183942c8f05483",
+  "clock_hz": 40000000,
+  "sample_rate_hz": 48000,
+  "model_profile": "SYNTHETIC_SETTLED_EVENT_CALENDAR",
+  "real_result": "PENDING_REAL_CAPTURE",
+  "supported": "N=4 independent Piano/Triangle; Program0/1 latched on note-on; integer ADSR gain mix and accepted-transaction delay",
+  "unsupported": [
+    "MIDI/router exact cycle reconstruction",
+    "CC64/panic/pitch bend/modulation",
+    "same-edge retire/retrigger arbitration",
+    "physical FFT or sampling-rate measurement"
+  ],
+  "snapshot": "bank pre-NBA at lane_tick+5; Piano post-tick phase/table, Triangle pre-tick phase",
+  "inputs_must_be_independent": [
+    "applied note event cycles",
+    "every lane_tick including unpublished work",
+    "every postprocessor acceptance including cancelled publication",
+    "reset epochs and effect config acceptances"
+  ],
+  "tolerance_pcm_lsb": 0,
+  "visual_audio_guard_schema": "M1_VISUAL_AUDIO_FRAMES_V1",
+  "boundary": "Synthetic equality proves software arithmetic and comparison only; real streams and mapping remain required"
+}

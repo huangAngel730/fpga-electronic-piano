@@ -1,0 +1,48 @@
+{
+  "schema": "M1_REPOSITORY_GATE_MISSING_TOOL_DIAGNOSIS_R01",
+  "method": "One explicit stdout/stderr capture of each failed gate child; does not reach HDL compile because required file precheck fails",
+  "automatic_retry": false,
+  "commands": [
+    {
+      "name": "run_t007_sim",
+      "argv": [
+        "C:\\Users\\lc\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "D:\\嵌赛\\高云二\\m1_ab_gate_20261016_R01\\code\\scripts\\run_t007_sim.ps1"
+      ],
+      "cwd": "D:\\嵌赛\\高云二\\m1_ab_gate_20261016_R01",
+      "exit_code": 1,
+      "elapsed_seconds": 0.625,
+      "stdout_sha256": "d555c793ce4350cce3ee7ae1bea73cf2a1b4174530e6e5e7b13e25265d4a82eb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stopped_before_compiler": true
+    },
+    {
+      "name": "run_t019_sim",
+      "argv": [
+        "C:\\Users\\lc\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "D:\\嵌赛\\高云二\\m1_ab_gate_20261016_R01\\code\\scripts\\run_t019_sim.ps1"
+      ],
+      "cwd": "D:\\嵌赛\\高云二\\m1_ab_gate_20261016_R01",
+      "exit_code": 1,
+      "elapsed_seconds": 0.594,
+      "stdout_sha256": "2fdc3a1a0cc2351005927ae4cc929f9ada35567b816defdcd309bb7f39934cc8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stopped_before_compiler": true
+    }
+  ],
+  "env_overrides": {
+    "GOWIN_HOME": "D:\\嵌赛\\SOFTWARE\\Gowin\\Gowin_V1.9.11.03_Education_x64",
+    "GOWIN_PROGRAMMER_HOME": "D:\\嵌赛\\SOFTWARE\\Gowin\\Gowin_V1.9.11.03_Education_x64\\Programmer"
+  },
+  "no_iverilog_or_vvp_process_started": true,
+  "script_edits_or_tool_install": false,
+  "next_owner": "M2/script owner: provide actual authorized Icarus/OSS runtime and update hardcoded paths in original scripts if needed; then M1 exact-tree full9 gate again before any commit/push"
+}

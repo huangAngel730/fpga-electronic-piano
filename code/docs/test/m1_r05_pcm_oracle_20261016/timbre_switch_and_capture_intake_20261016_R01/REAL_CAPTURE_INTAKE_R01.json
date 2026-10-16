@@ -1,0 +1,185 @@
+{
+  "schema": "M1_M3_R02_REAL_CAPTURE_READONLY_IDENTITY_INTAKE_R01",
+  "created_utc": "2026-10-16T05:13:12.794095+00:00",
+  "scope": "L0 immutable-source/field/timebase intake only; not execution of M3 checker or independent PCM/serial/deadline signoff",
+  "archive": {
+    "path": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\SEAL_SUCCESS\\M3_NIGHT_A_RESUME_R02_REAL_CAPTURE.zip",
+    "bytes": 4666528,
+    "sha256": "e0e1d77840c353256bbbea18178a198367f234a19bc86f3cbe3fde2688938645",
+    "crc": "ALL_MEMBERS_ACCEPTED"
+  },
+  "source_head": "a67bfec44d03c9def482200a1ebffe0b558874f7",
+  "main_files": [
+    {
+      "ready_key": "main_inputs",
+      "archive_member": "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/RUN_01/stage/inputs/REAL_INPUTS.jsonl",
+      "original_bytes": 49779940,
+      "original_sha256": "d001cac94d1520c42b43bcb33ca079c2f1d815c1205deb4a2d87005fe143038b",
+      "ready_pin_matches": true,
+      "original_line_endings": "CRLF",
+      "working_copy": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\REAL_INPUTS.jsonl",
+      "working_bytes": 49526391,
+      "working_sha256": "6202d7f85a02800da40999408dae63520812ef62cb5930bfb6fc6774f17525e7",
+      "working_line_endings": "LF",
+      "only_change_CRLF_to_LF": true,
+      "tick_rows": 253456,
+      "first_cycle": 1,
+      "last_cycle": 253456,
+      "tick_field_names": [
+        "active_voice_count",
+        "config_ready",
+        "config_valid",
+        "cycle",
+        "event_data_hex",
+        "event_ready",
+        "event_valid",
+        "kind",
+        "midi_rx",
+        "rst_n",
+        "time_ns"
+      ]
+    },
+    {
+      "ready_key": "main_capture",
+      "archive_member": "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/RUN_01/stage/inputs/REAL_CAPTURE.jsonl",
+      "original_bytes": 74648339,
+      "original_sha256": "a2509a2b5555437ff8ee1da4799e8210ad80e95a058881a5d26111a935e5b5d3",
+      "ready_pin_matches": true,
+      "original_line_endings": "CRLF",
+      "working_copy": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\test\\m3_r05_functional_integration_20261015\\night_20261016\\RESUME_R02\\RUN_01\\stage\\inputs\\REAL_CAPTURE.jsonl",
+      "working_bytes": 74394880,
+      "working_sha256": "46957a4ed705b95a05826861147ae0242e41045c682ffc6aba42c51ea2961417",
+      "working_line_endings": "LF",
+      "only_change_CRLF_to_LF": true,
+      "tick_rows": 253456,
+      "first_cycle": 1,
+      "last_cycle": 253456,
+      "tick_field_names": [
+        "bclk",
+        "clip_count",
+        "clipped",
+        "commit",
+        "committed_id",
+        "cycle",
+        "din",
+        "epoch",
+        "first_valid",
+        "frame_tick",
+        "kind",
+        "left",
+        "pending",
+        "play_left",
+        "play_right",
+        "request_accept",
+        "request_id",
+        "right",
+        "rst_n",
+        "underflow",
+        "ws"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "archive_member": "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/CAPTURE_READY.json",
+      "bytes": 3617,
+      "sha256": "a9f36a26b6fc68d6a84fdda85c1047e79032356f6f78d491527e2d848ef81ab1"
+    },
+    {
+      "archive_member": "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/STARTUP_SCHEMA.json",
+      "bytes": 2594,
+      "sha256": "2e4b9a1d7e19e488f1d06ef1c3a4530900019ab623a7347bad903cc4ef3a0230"
+    },
+    {
+      "archive_member": "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/RUN_01/RUN_RECEIPT.json",
+      "bytes": 83197,
+      "sha256": "1516a35e6a5852164866aa729f8897ca5a668a4308f8e1ce60e91fa994211dbc"
+    },
+    {
+      "archive_member": "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/PUBLIC_LEDGER.json",
+      "bytes": 3348,
+      "sha256": "e871d9de3ea22073e07e3ec91caedaad8d21d78a08a9c0eabd39d59374734638"
+    },
+    {
+      "archive_member": "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/CAPTURE_INTERFACE.md",
+      "bytes": 4732,
+      "sha256": "476a40009757d16d49bfdd90cc8576840af9442b3f93c70946694dfd1e321744"
+    },
+    {
+      "archive_member": "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/STARTUP_BOUNDARY.json",
+      "bytes": 2898,
+      "sha256": "bbc78215e6c1f839a4d7789af93fc4d994c3ef6bab22c59448e2b9e710a5e8e7"
+    }
+  ],
+  "accepted_frontdoor_events": [
+    {
+      "cycle": 38003,
+      "event_data_hex": "0011726000000000",
+      "active_voice_count": 0
+    },
+    {
+      "cycle": 72403,
+      "event_data_hex": "8000000000140040",
+      "active_voice_count": 1
+    },
+    {
+      "cycle": 110803,
+      "event_data_hex": "0010285000000000",
+      "active_voice_count": 1
+    },
+    {
+      "cycle": 158003,
+      "event_data_hex": "000f2fd000000000",
+      "active_voice_count": 2
+    },
+    {
+      "cycle": 196403,
+      "event_data_hex": "0010ead000000000",
+      "active_voice_count": 3
+    },
+    {
+      "cycle": 243603,
+      "event_data_hex": "0012376000000000",
+      "active_voice_count": 4
+    }
+  ],
+  "config_handshakes": [
+    {
+      "cycle": 83
+    }
+  ],
+  "old_statement_real_capture_missing": "SUPERSEDED_FOR_THIS_M3_R02_BATCH: real capture exists, independent internal-math calendar still pending",
+  "public_ledger_existing_claims": {
+    "ticks": 253456,
+    "epochs": 2,
+    "accepted": 303,
+    "committed": 303,
+    "cancelled": 0,
+    "pending_at_end": 0,
+    "max_accept_to_commit_cycles": 35,
+    "per_request_deadline": "CONSISTENT_FOR_OBSERVED_FRAME_WINDOWS",
+    "first_valid": "UNKNOWN_NOT_EXPORTED",
+    "serial_decode": "DELEGATED_TO_C_RAW_PIN_CHECKER",
+    "clip_math": "UNKNOWN_ONLY_PUBLIC_ALIGNMENT_CHECKED",
+    "analog_latency": "UNKNOWN_NOT_MEASURED",
+    "board_release_allowed": false
+  },
+  "no_real_PCM_comparison_executed": true,
+  "no_M3_files_changed": true,
+  "no_log_newline_reconstruction_or_replacement": true,
+  "reference_input_contract_still_requires": [
+    "true per-slot NoteOn/Off applied edges and generation/timbre identity derived independently",
+    "every actual lane_tick/DSP advance including unpublished calculations",
+    "post-effect input acceptance and configuration/cancel calendar derived independently from exact source and frontdoor inputs"
+  ],
+  "do_not_equate": [
+    "public event handshake is not automatically slot applied edge",
+    "request_accept is not automatically lane_tick",
+    "commit is not automatically post-effect input acceptance"
+  ],
+  "mapping_result": "PENDING_INDEPENDENT_CALENDAR_MAPPING",
+  "actual_dut_math_result": "PENDING_REAL_CAPTURE",
+  "first_valid": "UNKNOWN_NOT_EXPORTED",
+  "analog": "UNKNOWN_NOT_MEASURED",
+  "board_release_allowed": false
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "M1_NORMALIZED_PCM_MATH_COMPARISON_V1",
+  "scope": "NUMERIC_ROW_EQUALITY_ONLY_NOT_CAPTURE_AUTHENTICATION",
+  "actual_dut_result": "PENDING_REAL_CAPTURE",
+  "accepted": false,
+  "first_difference": {
+    "row": 33,
+    "field": "clipped",
+    "expected": [
+      false,
+      false
+    ],
+    "actual": [
+      true,
+      false
+    ]
+  },
+  "failure": "MATH_MISMATCH",
+  "inputs": {
+    "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\comparison01\\EXPECTED_NORMALIZED_MATH.json": "7fd0177c465561211ab83000414c7fd26e545297d884b9e53a135ff10fcef131",
+    "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\comparison01\\wrong_clip\\SYNTHETIC_ACTUAL.json": "d1e24122a6aff6e952332879a57530ca37cbee7cddb65d15ccd59a7e67120969"
+  }
+}

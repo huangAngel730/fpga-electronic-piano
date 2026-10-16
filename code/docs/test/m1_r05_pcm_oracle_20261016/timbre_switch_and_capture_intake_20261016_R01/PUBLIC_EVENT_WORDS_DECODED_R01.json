@@ -1,0 +1,187 @@
+{
+  "schema": "M1_REAL_R02_PUBLIC_EVENT_WORD_DECODE_L0_R01",
+  "source_archive_sha256": "e0e1d77840c353256bbbea18178a198367f234a19bc86f3cbe3fde2688938645",
+  "original_inputs_sha256": "d001cac94d1520c42b43bcb33ca079c2f1d815c1205deb4a2d87005fe143038b",
+  "layout_source": {
+    "archive_sha256": "4be2b4c185691a3e493827a3a95303fa90f49ba6336eb4a8e0183942c8f05483",
+    "member": "inputs/sources/audio_defs_pkg.sv",
+    "member_sha256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+    "struct_lines": [
+      123,
+      133
+    ],
+    "width_bits": 64,
+    "fields": [
+      {
+        "name": "event_type",
+        "lsb": 61,
+        "bits": 3
+      },
+      {
+        "name": "source_id",
+        "lsb": 57,
+        "bits": 4
+      },
+      {
+        "name": "channel",
+        "lsb": 53,
+        "bits": 4
+      },
+      {
+        "name": "note_number",
+        "lsb": 46,
+        "bits": 7
+      },
+      {
+        "name": "velocity10",
+        "lsb": 36,
+        "bits": 10
+      },
+      {
+        "name": "expression10",
+        "lsb": 26,
+        "bits": 10
+      },
+      {
+        "name": "control_id",
+        "lsb": 18,
+        "bits": 8
+      },
+      {
+        "name": "control_value",
+        "lsb": 6,
+        "bits": 12
+      },
+      {
+        "name": "reserved",
+        "lsb": 0,
+        "bits": 6
+      }
+    ],
+    "CTRL_VOICE_SELECT": 5
+  },
+  "events": [
+    {
+      "public_accept_cycle": 38003,
+      "event_data_hex": "0011726000000000",
+      "kind": "NOTE_ON",
+      "fields": {
+        "event_type": 0,
+        "source_id": 0,
+        "channel": 0,
+        "note_number": 69,
+        "velocity10": 806,
+        "expression10": 0,
+        "control_id": 0,
+        "control_value": 0,
+        "reserved": 0
+      },
+      "active_voice_count_pre_nba": 0,
+      "slot_apply_cycle": null,
+      "slot_generation": null,
+      "boundary": "Decoding of observed shared-event handshake only; not a derived router applied edge or allocator outcome"
+    },
+    {
+      "public_accept_cycle": 72403,
+      "event_data_hex": "8000000000140040",
+      "kind": "PROGRAM_SELECT",
+      "fields": {
+        "event_type": 4,
+        "source_id": 0,
+        "channel": 0,
+        "note_number": 0,
+        "velocity10": 0,
+        "expression10": 0,
+        "control_id": 5,
+        "control_value": 1,
+        "reserved": 0
+      },
+      "active_voice_count_pre_nba": 1,
+      "slot_apply_cycle": null,
+      "slot_generation": null,
+      "boundary": "Decoding of observed shared-event handshake only; not a derived router applied edge or allocator outcome"
+    },
+    {
+      "public_accept_cycle": 110803,
+      "event_data_hex": "0010285000000000",
+      "kind": "NOTE_ON",
+      "fields": {
+        "event_type": 0,
+        "source_id": 0,
+        "channel": 0,
+        "note_number": 64,
+        "velocity10": 645,
+        "expression10": 0,
+        "control_id": 0,
+        "control_value": 0,
+        "reserved": 0
+      },
+      "active_voice_count_pre_nba": 1,
+      "slot_apply_cycle": null,
+      "slot_generation": null,
+      "boundary": "Decoding of observed shared-event handshake only; not a derived router applied edge or allocator outcome"
+    },
+    {
+      "public_accept_cycle": 158003,
+      "event_data_hex": "000f2fd000000000",
+      "kind": "NOTE_ON",
+      "fields": {
+        "event_type": 0,
+        "source_id": 0,
+        "channel": 0,
+        "note_number": 60,
+        "velocity10": 765,
+        "expression10": 0,
+        "control_id": 0,
+        "control_value": 0,
+        "reserved": 0
+      },
+      "active_voice_count_pre_nba": 2,
+      "slot_apply_cycle": null,
+      "slot_generation": null,
+      "boundary": "Decoding of observed shared-event handshake only; not a derived router applied edge or allocator outcome"
+    },
+    {
+      "public_accept_cycle": 196403,
+      "event_data_hex": "0010ead000000000",
+      "kind": "NOTE_ON",
+      "fields": {
+        "event_type": 0,
+        "source_id": 0,
+        "channel": 0,
+        "note_number": 67,
+        "velocity10": 685,
+        "expression10": 0,
+        "control_id": 0,
+        "control_value": 0,
+        "reserved": 0
+      },
+      "active_voice_count_pre_nba": 3,
+      "slot_apply_cycle": null,
+      "slot_generation": null,
+      "boundary": "Decoding of observed shared-event handshake only; not a derived router applied edge or allocator outcome"
+    },
+    {
+      "public_accept_cycle": 243603,
+      "event_data_hex": "0012376000000000",
+      "kind": "NOTE_ON",
+      "fields": {
+        "event_type": 0,
+        "source_id": 0,
+        "channel": 0,
+        "note_number": 72,
+        "velocity10": 886,
+        "expression10": 0,
+        "control_id": 0,
+        "control_value": 0,
+        "reserved": 0
+      },
+      "active_voice_count_pre_nba": 4,
+      "slot_apply_cycle": null,
+      "slot_generation": null,
+      "boundary": "Decoding of observed shared-event handshake only; not a derived router applied edge or allocator outcome"
+    }
+  ],
+  "actual_dut_math_result": "PENDING_REAL_CAPTURE",
+  "no_derived_internal_calendar_claim": true
+}

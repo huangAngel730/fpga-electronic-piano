@@ -1,0 +1,92 @@
+{
+  "schema": "M1_ACTUAL_MACHINE_EXACT_BASE_PLUS_AB_GATE_R01",
+  "started_utc": "2026-10-16T04:34:45.717091+00:00",
+  "argv": [
+    "C:\\Users\\lc\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "D:\\嵌赛\\高云二\\m1_ab_gate_20261016_R01\\code\\scripts\\check_repo.ps1"
+  ],
+  "cwd": "D:\\嵌赛\\高云二\\m1_ab_gate_20261016_R01",
+  "env_overrides": {
+    "GOWIN_HOME": "D:\\嵌赛\\SOFTWARE\\Gowin\\Gowin_V1.9.11.03_Education_x64",
+    "GOWIN_PROGRAMMER_HOME": "D:\\嵌赛\\SOFTWARE\\Gowin\\Gowin_V1.9.11.03_Education_x64\\Programmer"
+  },
+  "head": "632730258d22725cc02fcb6c8b585428dc03eadd",
+  "baseline_tree": "7bd61a1ba53d3397bbf39c036c794bf6687d388d",
+  "whole_content_manifest_sha256": "a650e5cb2a22250be671b8fe11038a40ca516e4f2c937f0e5334a8282ec91269",
+  "baseline_files": 12062,
+  "five_scope_files": 508,
+  "exit_code": 1,
+  "timed_out": false,
+  "timeout_seconds": 120,
+  "elapsed_seconds": 26.515,
+  "checks": [
+    {
+      "state": "PASS",
+      "name": "Required paths present (22)"
+    },
+    {
+      "state": "PASS",
+      "name": "Git whitespace clean"
+    },
+    {
+      "state": "PASS",
+      "name": "Forbidden tracked files"
+    },
+    {
+      "state": "PASS",
+      "name": "Python syntax (279 files)"
+    },
+    {
+      "state": "PASS",
+      "name": "Pin map matches official reference (8 pins)"
+    },
+    {
+      "state": "PASS",
+      "name": "DOCX structure (8 files)"
+    },
+    {
+      "state": "FAIL",
+      "name": "T007 top-level simulation"
+    },
+    {
+      "state": "FAIL",
+      "name": "T019 common-package simulation"
+    },
+    {
+      "state": "PASS",
+      "name": "Reference digests annotated"
+    }
+  ],
+  "pass_count": 7,
+  "fail_count": 2,
+  "all_9_pass": false,
+  "scope_unchanged_after_gate": true,
+  "scope_changed": [],
+  "streams": {
+    "stdout": {
+      "bytes": 721,
+      "sha256": "304e831c50bf2d1f23d10ef354fecc6ac9f774ac2ae8c39c7d77b6e755c3ae1b"
+    },
+    "stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "tool_sha256": {
+    "powershell": "362a356ce7f0940ec74f73a8fc2c990a2cc24a38a11c90bbd8eca947110ad139",
+    "python": "53f323d1e593efc85553553f87a634dd8ed1266593ef7dc1ef6c808809eb8885"
+  },
+  "gate_source_sha256": {
+    "code/scripts/check_repo.ps1": "23c69c10bd84c968f4ee23d186205d47075bfda8359f4df4e8d4196f9891ecaa",
+    "code/scripts/enter_fpga_env.ps1": "6582e41b598b207f5fac8fc74a8690a18de7778a53a0146d270f1747f4e4d866",
+    "code/scripts/run_t007_sim.ps1": "1ae6bcf3d1b697409daec3550a4bace211320b9980bbf917ce46f03fefe8eec7",
+    "code/scripts/run_t019_sim.ps1": "be5ecfb11c11a025096fca9463503f15e2b4edf889cd1324894e91232b5a502c"
+  },
+  "no_old_software_suites_rerun": true,
+  "no_install_or_script_edit": true,
+  "published": false
+}
