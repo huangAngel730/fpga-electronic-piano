@@ -1,0 +1,79 @@
+{
+  "schema": "M1_SOLO_CHORD_VALIDATION_V1",
+  "profile": "SYNTHETIC_SETTLED_EVENT_NOT_R06_TB_OR_FFT",
+  "actual_dut_result": "PENDING_REAL_CAPTURE",
+  "scene_count": 5,
+  "total_samples": 1280,
+  "tolerance_pcm_lsb": 0,
+  "coverage": {
+    "solo60": {
+      "samples": 256,
+      "selected_notes": [
+        60
+      ],
+      "selected_lane_nonzero_rows": [
+        254
+      ]
+    },
+    "solo63": {
+      "samples": 256,
+      "selected_notes": [
+        63
+      ],
+      "selected_lane_nonzero_rows": [
+        255
+      ]
+    },
+    "solo67": {
+      "samples": 256,
+      "selected_notes": [
+        67
+      ],
+      "selected_lane_nonzero_rows": [
+        254
+      ]
+    },
+    "solo70": {
+      "samples": 256,
+      "selected_notes": [
+        70
+      ],
+      "selected_lane_nonzero_rows": [
+        253
+      ]
+    },
+    "all4": {
+      "samples": 256,
+      "selected_notes": [
+        60,
+        63,
+        67,
+        70
+      ],
+      "selected_lane_nonzero_rows": [
+        254,
+        255,
+        254,
+        253
+      ]
+    }
+  },
+  "final_solo_sum_counterexample": {
+    "source_kind": "SOFTWARE_REFERENCE_ONLY",
+    "actual_dut_result": "PENDING_REAL_CAPTURE",
+    "request_id": 1,
+    "advance_cycle": 961,
+    "solo_effected_left": [
+      3711,
+      255,
+      255,
+      255
+    ],
+    "sum_solo_effected_left": 4476,
+    "saturated_sum_solo_effected_left": 4476,
+    "all4_effected_left": 4479,
+    "all4_mixed_left": 4096,
+    "reason": "sum(each rounded/effected solo) is not the ALL4 golden"
+  },
+  "witness_status": "FOUND"
+}

@@ -1,0 +1,67 @@
+{
+  "schema": "M1_NIGHT_FINAL_PRIOR_ORIGINALS_AND_GIT_R01",
+  "checked_utc": "2026-10-16T02:34:45.013686+00:00",
+  "prior_original_files": 455,
+  "changed_or_missing": [],
+  "all_prior_files_preserved": true,
+  "git_read_commands": [
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": "a6240a9f974440973be63d808ae44bdc5725b618\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1",
+        "-uno"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--name-only"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "symbolic-ref",
+        "-q",
+        "--short",
+        "HEAD"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "publication": "NOT_STAGED_NOT_COMMITTED_NOT_PUSHED_GATE_BLOCKED",
+  "shared_state_files_modified": false,
+  "scope": "MORNING_PRESERVATION_CHECK_ONLY",
+  "git_mutations_in_this_preservation_check": false
+}

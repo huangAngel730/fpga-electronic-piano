@@ -1,0 +1,28 @@
+{
+  "schema": "M1_SOLO_CHORD_R01_SOURCE_PROFILE_SELF_AUDIT",
+  "finding": "R01 synthetic profile used source1 from previous abstract fixture; R06 board midi_input source is 0 while key path source is 1",
+  "source": "R06 inputs/sources/m2_fourvoice_timbre_delay_board_top.sv:484 midi_input #(.CLK_HZ(CLK_HZ), .SOURCE_ID(4'd0))",
+  "executed_test_status": "R01 11 software tests passed under source1 profile; no RTL/DUT failure was executed",
+  "minimum_repair": "Only new five-scene source identity and directed source0 test; frozen Reference/ROM/PCM math unchanged",
+  "r01_original_results_untouched": true,
+  "snapshots": [
+    {
+      "original": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\model\\m1_r05_pcm_oracle_20261016\\solo_chord_vectors.py",
+      "historical_copy": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\m2_13_solo_chord_R01\\history_R01_source_id1\\solo_chord_vectors.py",
+      "bytes": 16911,
+      "sha256": "5ad2a63fdcdf77025f0106f7952c52d808548c68321034b3cda8c776443671e7"
+    },
+    {
+      "original": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\model\\m1_r05_pcm_oracle_20261016\\test_solo_chord_vectors.py",
+      "historical_copy": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\m2_13_solo_chord_R01\\history_R01_source_id1\\test_solo_chord_vectors.py",
+      "bytes": 5524,
+      "sha256": "5618dc5c66f1bd0b5ee4bc8e0cd9b15b550ae9c23041d762ce2c51f951c94e7b"
+    },
+    {
+      "original": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\m2_13_solo_chord_R01\\四独奏与合奏_同链映射合同.md",
+      "historical_copy": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\m2_13_solo_chord_R01\\history_R01_source_id1\\四独奏与合奏_同链映射合同.md",
+      "bytes": 6375,
+      "sha256": "86efb66d557b2619b262041b252aaea0c7e3fbd2fad5229b90a34bdf585323b4"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "schema": "M1_SOLO_CHORD_MIDI_MAPPING_SOURCE_L0_R01",
+  "archive": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\evidence\\m2_m1td_physical_20261015\\M2_138K_M1TD_R06_XSAFE_7ms_ModelSim输入_20261016.zip",
+  "archive_sha256": "4be2b4c185691a3e493827a3a95303fa90f49ba6336eb4a8e0183942c8f05483",
+  "members": {
+    "inputs/sources/midi_event_parser.sv": {
+      "sha256": "336d867856a7b3956d524105137c035ec2637fea936538979182669987212071",
+      "bytes": 23632
+    },
+    "inputs/sources/audio_defs_pkg.sv": {
+      "sha256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+      "bytes": 12334
+    }
+  },
+  "parser_call_lines": [
+    200,
+    205
+  ],
+  "mapping_function_lines": [
+    176,
+    179
+  ],
+  "mapping": "velocity10=(velocity7<<3)|(velocity7>>4)",
+  "raw_velocity7": [
+    127,
+    112,
+    96,
+    80
+  ],
+  "expanded_velocity10": [
+    1023,
+    903,
+    774,
+    645
+  ],
+  "raw_midi_note_on_hex": [
+    [
+      "90",
+      "3C",
+      "7F"
+    ],
+    [
+      "90",
+      "3F",
+      "70"
+    ],
+    [
+      "90",
+      "43",
+      "60"
+    ],
+    [
+      "90",
+      "46",
+      "50"
+    ]
+  ],
+  "program1_hex": [
+    "C0",
+    "01"
+  ],
+  "boundary": "Raw byte values only; no actual UART/apply clock prediction or new frontend verification",
+  "actual_dut_result": "PENDING_REAL_CAPTURE"
+}
