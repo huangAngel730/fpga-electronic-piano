@@ -1,0 +1,74 @@
+                            1                                                         2                                                          3                                                         4                                                         5                                                         6
+
+
+                                               MIPI      DPI      CONN.                                                                            FPGA-LCD
+
+
+
+
+                                                       LEDKLEDK11  VLED-VLED-
+A                                                      LEDALEDA22   VLED+VLED+                                                                                                                                                                                                                                                 A
+                                                        GNDGND33                         GNDGND
+                                                        VCCVCC44                      +3V3+3V3
+                                                         R0R0 55                   GND
+                                                         R1R1 66
+                                                         R2R2 77  K17 ,4             MIPI_DPI.D12          {MIPI_DPI}
+                                                         R3R3 88  J18 ,4             MIPI_DPI.D13
+                                                         R4R4 99  H18 ,4             MIPI_DPI.D14
+                                                         R5R51010 G25 ,4             MIPI_DPI.D15
+                                                         R6R61111 J19 ,4             MIPI_DPI.D16
+                                                         R7R71212 H19 ,4             MIPI_DPI.D17
+                                                         G0G01313                  GND
+                                                         G1G11414
+                                                         G2G21515 G20 ,4               MIPI_DPI.D6
+                                                         G3G31616 G21 ,4               MIPI_DPI.D7
+                                                         G4G41717 G22 ,4               MIPI_DPI.D8
+                                                         G5G51818 F22 ,4               MIPI_DPI.D9
+                                                         G6G61919 K15 ,4             MIPI_DPI.D10
+                                                         G7G72020 J16 ,4             MIPI_DPI.D11
+                                           J20J20        B0B02121                  GND
+B                                                        B1B12222                                                                                                                                                                                                                                                              B
+                             FPC-40-0.5mmFPC-40-0.5mm        2323 M16 ,4               MIPI_DPI.D0
+                                                         B2B22424 M17 ,4               MIPI_DPI.D1
+                                                         B3B32525 F18 ,5               MIPI_DPI.D2
+                                                         B4B42626 F19 ,5               MIPI_DPI.D3
+                                                         B5B52727 G19 ,5               MIPI_DPI.D4
+                                                         B6B62828 F20 ,5               MIPI_DPI.D5
+                                                         B7B72929
+                                                        GNDGND3030H21 ,4     GND     MIPI_DPI.CLK
+                                                        CLKCLK3131
+                                                       DISPDISP              +3V3      MIPI_DPI.HS
+                                                     HSYNCHSYNC3232H22,4
+                                                     VSYNCVSYNC3333A23,5               MIPI_DPI.VS
+                                                        DENDEN3434A24 ,5               MIPI_DPI.DE
+                                                         NCNC3535
+                                                        GNDGND3636           GND
+                                                         XRXR3737 K16 ,4                  LCD.INT0         {LCD_INT}
+                                                         YDYD3838 F15 ,5                  LCD.INT1
+                                                         XLXL3939 G15 ,5                  LCD.INT2
+                                                         YUYU4040 G16 ,5                  LCD.INT3
+C                                                      pad1pad1MPMP                                                                                                                                                                                                                                                            C
+                                                       pad2pad2MPMP       GND
+
+
+
+
+                                                  LCD      BACKLIGHT
+
+
+                                            +5V                L7            D40D40  PWR_FLAGPWR_FLAG
+                                                        CMH201609B4R7MT  1N5819WS1N5819WS
+                                                                                                  VLED+VLED+
+                                      C132              6   IN    SW   1             C133C133
+                                 22uF/10V                                         2.2uF/50V2.2uF/50V
+                                      GND               2   GND   OV   5
+                                                                           VLED-VLED-          GNDGND
+                      +3V3+3V3  R196R196    27K/1%27K/1%4   EN    FB   3
+                  LCD_BL       F25 ,4                                                R198                                                                                                         Shenzhen       Sipeed    Technology       Co,Ltd.
+                                      D46D46                  U27                  5.6R/1%                                                                                                         Sheet:   /FPGA_LCD/
+D                             RB161QS-40T18RRB161QS-40T18R  LP3320                                                                                                                                 File:  LCD_DPI.kicad_sch                                                                                                    D
+                                                                                 PWR_FLAG
+                                                                                                                                                                                                   Title:     TANG_MEGA-138K-Pro_Dock-4071f_Schematics
+                                                                                                                                                                                                   Size:  A4                Date:   2025-03-25                                                       Rev:    1.5
+                                                                                                                                                                                                   KiCad    E.D.A.  9.0.1                                                                            Id:  14/19
+                            1                                                         2                                                          3                                                         4                                                         5                                                         6

@@ -1,0 +1,78 @@
+                            1                                                        2                                                         3                                                        4                                                         5                                                        6
+
+                                                                                                                                         EX        CONN.
+
+
+
+
+
+
+A                                                                                                                                                                                                                                                                                                                          A
+                                                                                                                                                                                                                                         SDRAM         CONN.
+                                        ADC       CONN.                                                                                                                                                                                             J23J23
+             {CONN_ADC}                          J3J3                                                                                                                                                                                        Conn_02x20_PINConn_02x20_PIN
+                                            2.54_4P_PIN2.54_4P_PIN                                                                                                                                                     SDRAM_D0     U16  ,2     11        22   V16 ,2    SDRAM_D1
+                  P11  ,10     ADCV_N        33        44    GNDGND                                                                                                                                      {SDRAM}       SDRAM_D2     U15  ,2     33        44   V17 ,2    SDRAM_D3
+                  N12  ,10     ADCV_P        11        22    GNDGND                                                                                                                                                    SDRAM_D4     W21  ,2     55        66   Y21 ,2    SDRAM_D5
+                  R12  ,10     ADCT_P        33        44    GNDGND                                                                                                                                                    SDRAM_D6     P21  ,3     77        88  U17  ,2    SDRAM_D7
+                  R11  ,10     ADCT_N        11        22    GNDGND                                                                                                                                                    SDRAM_D15    P23  ,3     99        1010 P24 ,3    SDRAM_D14
+                                                                                                                                                                                                                                      +5V+5V   1111       1212    GNDGND
+                                                 J4J4                                                                                                                                                                  SDRAM_D13     T23 ,3    1313       1414 R23 ,3   SDRAM_D12
+                                            2.54_4P_PIN2.54_4P_PIN                                                                                                                                                     SDRAM_D11    R25  ,3    1515       1616 T25 ,3   SDRAM_D10
+                                                                                                                                                                                                                       SDRAM_D9     W23  ,2    1717       1818 P25 ,3    SDRAM_D8
+                                                                                                                                                                                                                       SDRAM_A12    U24  ,2    1919       2020 V23 ,2   SDRAM_CLK
+                                                                                                                                                                                                                       SDRAM_A9    AC26  ,2    2121       2222U25  ,2   SDRAM_A11
+                                                                                                                                                                                                                       SDRAM_A7    AB25  ,2    2323       2424AB26 ,2    SDRAM_A8
+                                              PMOD                                                                                            SSPI                                                                     SDRAM_A5    AA25  ,2    2525       2626AA24 ,2    SDRAM_A6
+                 {PMOD0}                                                                                                                                                                                               SDRAM_~{WE}Y26    ,2    2727       2828 Y25 ,2    SDRAM_A4
+                                                                                    +3V3+3V3                              PIN         FUCTION             PMOD0                                                        SDRAM_DM0     L22 ,3    2929       3030M24  ,3  SDRAM_DM1
+                     N18  ,3   PMOD0_IO0    1111      1212PMOD0_IO4      M26  ,3                                                                                                                                       SDRAM_~{CAS}W26   ,2    3131       3232W25  ,2   SDRAM_~{RAS}
+B                    L22  ,3   PMOD0_IO1     99       1010PMOD0_IO5       N17 ,3          C187C187                         N18          SSPI_SO                IO0                                                     SDRAM_~{CS}U26    ,2    3333       3434 V26 ,2   SDRAM_BA0                                          B
+                     R16  ,3   PMOD0_IO2     77        88 PMOD0_IO6       L24 ,3          100nF/25V100nF/25V                                                                                                           SDRAM_BA1    W20  ,2    3535       3636 Y20 ,2   SDRAM_A10
+                     R17  ,3   PMOD0_IO3     55        66 PMOD0_IO7       T24 ,3                                           R16         SSPI_CLK                IO2                                                     SDRAM_A0      V19 ,2    3737       3838W19  ,2    SDRAM_A1
+                                   GNDGND    33        44    GNDGND                  GNDGND                                                                                                                            SDRAM_A2     U22  ,2    3939       4040 V22 ,2    SDRAM_A3
+                                 +3V3+3V3    11        22    +3V3+3V3                                                      R17          SSPI_~{WP}             IO3
+
+                                                J22J22
+                                     Conn_02x06_Pin_SocketConn_02x06_Pin_Socket                                            N17           SSPI_SI               IO5                                                                                  SDRAM_DM0
+                                                                                                                                                                                                                                      SDRAM_DM0     SDRAM_DM1
+                 {PMOD1}                                                            +3V3+3V3                                L24         SSPI_~{CS}             IO6                                                                    SDRAM_DM1
+
+                     C24  ,5   PMOD1_IO0    1111      1212PMOD1_IO4       B24 ,5                                            T24        SSPI_~{HOLD}            IO7
+                     E25  ,4   PMOD1_IO1     99       1010PMOD1_IO5       D25 ,4          C188C188                                                                                                                           GND         R23R23      0R/5%0R/5%SDRAM_DM1
+                     L17  ,4   PMOD1_IO2     77        88 PMOD1_IO6       L18 ,4          100nF/25V100nF/25V                                                                                                               +3V3          R24R24      0R/5%0R/5%SDRAM_DM0
+                     H14  ,5   PMOD1_IO3     55        66 PMOD1_IO7       H15 ,5
+                                   GNDGND    33        44    GNDGND                  GNDGND
+                                 +3V3+3V3    11        22    +3V3+3V3                                                              MIC-ARRAY             CONN.
+
+                                                J24J24
+                                     Conn_02x06_Pin_SocketConn_02x06_Pin_Socket                                                       RN11RN11
+                                                                                                                      PMOD0_IO4    880Rx4/5%0Rx4/5%11LED_CLKM26,3   11
+C                                                                                                                     PMOD0_IO0    77       22LED_DAT   N18  ,3     22                                                                                                                                                     C
+                 {PMOD2}                                                            +3V3+3V3                          PMOD0_IO5    66       33MIC_D0    N17  ,3     33
+
+                     C21  ,5   PMOD2_IO0    1111      1212PMOD2_IO4       B21 ,5                                      PMOD0_IO1    55       44MIC_D1     L22 ,3     44
+                     B20  ,5   PMOD2_IO1     99       1010PMOD2_IO5       A20 ,5          C189C189                    PMOD0_IO6    88       11MIC_D2MIC_D2L24,3     55
+                     B19  ,5   PMOD2_IO2     77        88 PMOD2_IO6       A19 ,5          100nF/25V100nF/25V          PMOD0_IO2    77       22MIC_D3    R16  ,3     66     J28J28
+                     A17  ,5   PMOD2_IO3     55        66 PMOD2_IO7       A18 ,5                                      PMOD0_IO7    66       33MIC_WS     T24 ,3     77     FPC-10P-0.5MM-H2.0MMFPC-10P-0.5MM-H2.0MM
+                                   GNDGND    33        44    GNDGND                  GNDGND                           PMOD0_IO3    55       44MIC_BCK   R17  ,3     88
+                                 +3V3+3V3    11        22    +3V3+3V3                                                                                   +5V+5V      99
+                                                                                                                                      RN10RN10                     1010
+                                                J26J26                                                                             0Rx4/5%0Rx4/5%       GNDGND
+                                                                                                                                                                       Mounting
+                                     Conn_02x06_Pin_SocketConn_02x06_Pin_Socket
+
+
+                                                                                                                                                                      GNDGND
+
+
+
+
+
+                                                                                                                                                                                                Shenzhen      Sipeed     Technology      Co,Ltd.
+                                                                                                                                                                                                Sheet:    /FPGA_EXT_CONN./
+D                                                                                                                                                                                               File:  EX_CONN..kicad_sch                                                                                                  D
+                                                                                                                                                                                                Title:     TANG_MEGA-138K-Pro_Dock-4071f_Schematics
+                                                                                                                                                                                                Size:   A4               Date:   2025-03-25                                                       Rev:   1.5
+                                                                                                                                                                                                KiCad    E.D.A.   9.0.1                                                                           Id: 16/19
+                            1                                                        2                                                         3                                                        4                                                         5                                                        6

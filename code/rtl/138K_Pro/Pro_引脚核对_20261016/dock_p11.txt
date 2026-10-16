@@ -1,0 +1,85 @@
+                            1                                                          2                                                         3                                                         4                                                          5                                                         6
+                                                                                                                                                       MIPI          RX
+
+
+
+
+
+
+                                                                         +3V3                                         +1V8                                                                                                                +3V3                                        +1V8
+A                                                                                                                                                                                                                                                                                                                               A
+
+                                                                    R142            R145                         R146                                                                                                               R150            R153                         R154
+                                                                   0R/5%        5.1K/1%                      5.1K/1%                                                                                                               0R/5%        5.1K/1%                      5.1K/1%
+                       {MUX_TWI6}        MUX_TW6.SCL     K25  ,3                               66       11                         CAM0_SCL_1V8                                        {MUX_TWI7}        MUX_TWI7.SCL    K25  ,3                               66       11                         CAM1_SCL_1V8
+
+                                                                              R144                Q5AQ5A                  R148                                                                                                                R152                Q6AQ6A                  R156
+                                                                    R143      5.1K/1%        2N7002KDW2N7002KDW       5.1K/1%                                                                                                       R151      5.1K/1%        2N7002KDW2N7002KDW       5.1K/1%
+                                         MUX_TW6.SDA     K26  ,3   0R/5%                                33       44                CAM0_SDA_1V8                                                          MUX_TWI7.SDA    K26  ,3   0R/5%                                33       44                CAM1_SDA_1V8
+
+
+                                                                                                           Q5BQ5B                                                                                                                                                          Q6BQ6B
+                                                                                                      2N7002KDW2N7002KDW                                                                                                                                              2N7002KDW2N7002KDW
+                                                                                              CAM0  TWI Level Converter                                                                                                                                       CAM1  TWI Level Converter
+                                      TWI_MUX_CFG:           SEL[0..2]=1,1,0                                                                                                                          TWI_MUX_CFG:           SEL[0..2]=1,1,1
+
+                                      {N19,3}:       SEL0=1                                                                                                                                           {N19,3}:       SEL0=1
+                                      {P19,3}:       SEL1=1                                                                                                                                           {P19,3}:       SEL1=1
+                                      {P26,3}:       SEL2=0                                                                                                                                           {P26,3}:       SEL2=1
+
+
+B                                                                                                                                          J15J15                                                                                                                                                          J16J16               B
+                                         +3V3+3V3                                                                                        11FPC_24PFPC_24P                                                +3V3+3V3                                                                                        11FPC_24PFPC_24P
+                                                                                                          GND                                    GND                                                                                                                       GND                                   GND
+                                               +1V8+1V8                                  {MIPI0_RX}                CAM0_RX1N     AA2 ,M0 22      D3N                                                           +1V8+1V8                                  {MIPI1_RX}                CAM1_RX1N     AE1 ,M1 22      D3N
+                                                                                                                   CAM0_RX1P      Y2 ,M0 33      D3P                                                                                                                               CAM1_RX1P    AD1  ,M1 33      D3P
+                         U18U18                                                                           GND                            44      GND                                     U19U19                                                                            GND                           44      GND
+                  74LVC1T45DW-774LVC1T45DW-7                                                                       CAM0_RX0N     W1  ,M0 55      D2N                              74LVC1T45DW-774LVC1T45DW-7                                                                       CAM1_RX0N    AC1  ,M1 55      D2N
+                                                                                                                   CAM0_RX0P      V1 ,M0 66      D2P                                                                                                                               CAM1_RX0P    AB1  ,M1 66      D2P
+              CAM0.MCK     M14  ,4  44 BB             AA33 CAM0_MCK_1V8                                   GND                            77      GND                          CAM1.MCK      E23 ,4  44 BB             AA33 CAM1_MCK_1V8                                    GND                           77      GND
+                                                                                                                   CAM0_CLKN     AA3 ,M0 88      CKN                                                                                                                               CAM1_CLKN     AF2 ,M1 88      CKN
+                                                   DIRDIR55                                                        CAM0_CLKP      Y3 ,M0 99      CKP                                                               DIRDIR55                                                        CAM1_CLKP     AE2 ,M1 99      CKP
+                                                                                                          GND                           1010     GND                                                                                                                       GND                          1010     GND
+                                                               R141R141                                            CAM0_RX2N     W3  ,M01111     D0N                                                                           R149R149                                            CAM1_RX3N     AF5 ,M11111     D0N
+                                                               10K/5%10K/5%                                        CAM0_RX2P      V3 ,M01212     D0P                                                                           10K/5%10K/5%                                        CAM1_RX3P     AE5 ,M11212     D0P
+                                                                                                          GND                           1313     GND                                                                                                                       GND                          1313     GND
+                                            GND            GNDGND                                                  CAM0_RX3N     W4  ,M01414     D1N                                                        GND            GNDGND                                                  CAM1_RX2N     AF3 ,M11414     D1N
+                                                                                                                   CAM0_RX3P      V4 ,M01515     D1P                                                                                                                               CAM1_RX2P     AE3 ,M11515     D1P
+                                                                                                          GND                           1616     GND                                                                                                                       GND                          1616     GND
+                                                                              M14 ,4 CAM0_MCK_1V8                     R147R147   0R/5%0R/5%1717                                                                                               E23 ,4 CAM1_MCK_1V8                     R155R155   0R/5%0R/5%1717
+                                    D10  1N5819WS                                                                                                MCK                                                D11  1N5819WS                                                                                                MCK
+              CAM0.RSTN     L14 ,4                    CAM0_RST_1V8            L14 ,4 CAM0_RST_1V8                                       CAM0_RST_1V81818~{RST}                CAM1.RSTN     F23 ,4                    CAM1_RST_1V8            F23 ,4 CAM1_RST_1V8                                       1818     ~{RST}
+C                                                                                    CAM0_SDA_1V8                                       1919     SDA                                                                                                 CAM1_SDA_1V8                                       1919     SDA            C
+                                                                                     CAM0_SCL_1V8                                       2020     SCL                                                                                                 CAM1_SCL_1V8                                       2020     SCL
+                                                                                                                                        2121     FSYNC                                                                                                                                                  2121     FSYNC
+                                                                                                                            +3V3        2222     3V3                                                                                                                                        +3V3        2222     3V3
+             {CAM0_GPIO}                 +3V3+3V3          +1V8+1V8                                       GND                           2323     GND                         {CAM1_GPIO}                 +3V3+3V3          +1V8+1V8                                        GND                          2323     GND
+                                                                                                                            +3V3        2424     3V3                                                                                                                                        +3V3        2424     3V3
+                                               C108C108         C109C109                                                                    Mounting                                                           C110C110         C111C111                                                                    Mounting
+                                               100nF/25V100nF/25V100nF/25V100nF/25V                                                                                                                            100nF/25V100nF/25V100nF/25V100nF/25V
+
+                                         GNDGND            GNDGND                                                                          GNDGND                                                        GNDGND            GNDGND                                                                          GNDGND
+
+
+
+
+
+
+
+
+
+
+                                                                                                                                                                                                   Shenzhen      Sipeed     Technology       Co,Ltd.
+                                                                                                                                                                                                   Sheet:    /FPGA_MIPI_RX/
+D                                                                                                                                                                                                  File:  MIPI_RX.kicad_sch                                                                                                     D
+                                                                                                                                                                                                   Title:     TANG_MEGA-138K-Pro_Dock-4071f_Schematics
+                                                                                                                                                                                                   Size:   A4                Date:   2025-03-25                                                       Rev:    1.5
+                                                                                                                                                                                                   KiCad    E.D.A.   9.0.1                                                                            Id:  11/19
+                            1                                                          2                                                         3                                                         4                                                          5                                                         6
+
+
+
+
+
+
+                                                                                                                                                                                                                              GND

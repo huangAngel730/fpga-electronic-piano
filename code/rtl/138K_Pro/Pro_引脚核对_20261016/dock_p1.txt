@@ -1,0 +1,78 @@
+                              1                                                           2                                                            3                                                            4                                                           5                                                            6
+
+
+
+
+
+
+
+                              USB_JTAG                                          FPGA_BTB                                                           FPGA_CLOCK                                                      POWER
+               {PLL0_TWI}       {PLL0_TWI}       {DBG_JTAG}       {DBG_JTAG}     {DBG_JTAG}                       {Q0_REFCLK1}                       {Q0_REFCLK1}      {PLL0_TWI}       {PLL0_TWI}
+               {PLL1_TWI}       {PLL1_TWI}       {DBG_UART}                      {DBG_UART}                       {Q1_REFCLK1}                       {Q1_REFCLK1}      {PLL1_TWI}       {PLL1_TWI}                                         DSK34                   DC-DC              LDO
+A                                                                                                                   USR_CLK_IN                       USR_CLK_IN       {MUX_TWI3}       {MUX_TWI3}                        DBG                                                                                                                 A
+                              File:  USB_JTAG.kicad_sch                                                                                                                                {MUX_TWI4}                        USB    5V                                   3.3V             1.5V
+                                                                                                                  {Q1_REFCLK0}                       {Q1_REFCLK0}     {MUX_TWI4}                                         INPUT            2A   MAX                MT3520B        LN6206P152
+                              TWI_MUX                                                                                                              File:  CLOCK.kicad_sch                                                USB-C
+               {MUX_TWI0}       {MUX_TWI0}                                                                                                                                                                                                                           LDO
+               {MUX_TWI1}       {MUX_TWI1}                                                                                                         FPGA_PCIE                                                                                                         3.0V
+               {MUX_TWI2}       {MUX_TWI2}                                                                        {Q0_REFCLK0}                       {Q0_REFCLK0}                                                                                                LN6206P302
+               {MUX_TWI3}       {MUX_TWI3}         {SYS_TWI}                     {SYS_TWI}                            {Q0_DAT0}                      {Q0_DAT0}                                                           DC   12V
+               {MUX_TWI4}       {MUX_TWI4}        {MUX_SEL}                      {MUX_SEL}                            {Q0_DAT1}                      {Q0_DAT1}        {DBG_JTAG}       {DBG_JTAG}                        INPUT               DC-DC             4A  MAX
+               {MUX_TWI5}       {MUX_TWI5}                                                                            {Q0_DAT2}                      {Q0_DAT2}                                                           DC5521                                                BTB   5V
+               {MUX_TWI6}       {MUX_TWI6}                                                                            {Q0_DAT3}                      {Q0_DAT3}                                                                                5.0V                             OUTPUT
+               {MUX_TWI7}       {MUX_TWI7}                                                                          {PCIE_CRTL}     {PCIE_CRTL}      {PCIE_CRTL}                                                                          SY8105IADC            ORING
+                                                                                                                                                                                                                        PCIe   12V           5A  MAX
+                              File:  TWI_MUX.kicad_sch                                                                                             File:  PCIE_sch.kicad_sch                                             INPUT                                       LDO
+                                                                                                                                                                                                                    GOLDEN    FINGER                                 2.5V
+                              RGMII_ETHNET                                                                                                         FPGA_SFP+
+                                                  {RGMII_TX}                     {RGMII_TX}                        {Q1_DAT0.TX}                      {Q1_DAT0.TX}                                                                                                LN6206P252
+
+                                                  {RGMII_RX}                     {RGMII_RX}                       {Q1_DAT0.RX}                       {Q1_DAT0.RX}                      {MUX_TWI0}
+                                               {EPHY_CTRL}                       {EPHY_CTRL}                       {SFP0_CRTL}                       {SFP0_CRTL}      {MUX_TWI0}                                         SLAVE             DSK34                   DC-DC
+                                                 {RGMII_SMI}                     {RGMII_SMI}                       {Q1_DAT1.TX}                      {Q1_DAT1.TX}     {MUX_TWI1}       {MUX_TWI1}                        USB    5V                                   1.8V
+B                                                                                                                 {Q1_DAT1.RX}                       {Q1_DAT1.RX}                                                        OUTPUT                                                                                                              B
+                              File:  RGMII_sch.kicad_sch                                                           {SFP1_CRTL}                       {SFP1_CRTL}                                                                          2A   MAX                MT3520B
+                                                                                                                                                                                                                         USB-C
+                              DVP_CAMERA                                                                                                           File:  SFP-PLUS.kicad_sch                                       File: POWER.kicad_sch
+               {MUX_TWI5}       {MUX_TWI5}        {DVP_CAM}                      {DVP_CAM}
+                                                                                                                                                   FPGA_STORAGE
+                              File:  DVP.kicad_sch                                                                {Q1_REFCLK0}                       {Q1_REFCLK0}     {MUX_TWI2}       {MUX_TWI2}                  POWER_TREE
+                                                                                                                      {Q1_DAT2}                      {Q1_DAT2}       {PCIE_CRTL}      {PCIE_CRTL}
+                              FPGA_LCD                                                                                {Q1_DAT3}                      {Q1_DAT3}         {M.2_GPIO}       {M.2_GPIO}
+                                                  {MIPI_DPI}                     {MIPI_DPI}                         EEPROM_WP                        EEPROM_WP         40P_EXIO0        40P_EXIO0
+                                                   {LCD_INT}                     {LCD_INT}                         {SDIO_CARD}                       {SDIO_CARD}       40P_EXIO1        40P_EXIO1
+                                                      LCD_BL                     LCD_BL                              {M.2_GPIO}    {M.2_GPIO}                                                                      File: PT.kicad_sch
+                                                                                                                                                   File:  SDIO&M.2.kicad_sch
+                              File:  LCD_DPI.kicad_sch
+                                                                                                                                                   FPGA_MIPI_RX
+                              FPGA_AUDIO                                                                             {MIPI0_RX}                      {MIPI0_RX}
+                                                   {I2S_OUT}                     {I2S_OUT}                         {CAM0_GPIO}                       {CAM0_GPIO}      {MUX_TWI6}       {MUX_TWI6}
+                                                       PA_EN                     PA_EN                               {MIPI1_RX}                      {MIPI1_RX}       {MUX_TWI7}       {MUX_TWI7}
+
+                              File:  DAC+PA.kicad_sch                                                              {CAM1_GPIO}                       {CAM1_GPIO}
+C                                                                                                                                                  File:  MIPI_RX.kicad_sch                                                                                                                                                                  C
+                              FPGA_TMDS_A                                                                                                                                                                                                             H1H1
+                                                   {DVI_TX0}                     {DVI_TX0}                                                         PERIPHERALS                                                      H7_RD1H7_RD1             MountingHole_PadMountingHole_Pad
+                                                   {DVI_TX1}                     {DVI_TX1}                            USR_LED.0                      USR_LED.0                                                MountingHole_PadMountingHole_Pad
+               {MUX_TWI3}       {MUX_TWI3}         {DVI_TX2}                     {DVI_TX2}                     USR_LED{[1..5]}                       USR_LED{[1..5]}                                                              GND1GND1                      GNDSGNDS
+
+                                                   {DVI_TXC}                     {DVI_TXC}                     USR_KEY{[0..3]}                       USR_KEY{[0..3]}                                                H7_RU1H7_RU1
+                                                      CEC_TX                     CEC_TX                          FAN{TAC    PWM}                     FAN{TAC    PWM}                                          MountingHole_PadMountingHole_Pad        H3H3
+                                                 DVI_TX_HPD                      DVI_TX_HPD                              WS2812                      WS2812                                                                                  MountingHole_PadMountingHole_Pad
+                              File:  DVI_TX.kicad_sch                                                               {USB_SOFT}                       {USB_SOFT}                                                                   GND1GND1                      GNDSGNDS
+
+                                                                                                                                                   File:  PERIPHERALS.kicad_sch
+                              FPGA_TMDS_B
+                                                   {DVI_RX0}                     {DVI_RX0}                                                         FPGA_EXT_CONN.
+
+               {MUX_TWI4}                          {DVI_RX1}                     {DVI_RX1}                           {FPGA_ADC}                      {CONN_ADC}
+                                {MUX_TWI4}         {DVI_RX2}                     {DVI_RX2}                              {SDRAM}                      {SDRAM}                            40P_EXIO0
+                                                   {DVI_RXC}                     {DVI_RXC}                              {PMOD0}                      {PMOD0}          SDRAM_DM0         40P_EXIO1
+                                                     CEC_RX                      CEC_RX                                 {PMOD1}                      {PMOD1}          SDRAM_DM1                            Update     notes:    FPGA_CLOCK,        TWI_MUX,      FPGA_TMDS_A/B.
+                                                DVI_RX_HPD                       DVI_RX_HPD                             {PMOD2}                      {PMOD2}                                               Shenzhen       Sipeed     Technology       Co,Ltd.
+                              File:  DVI_RX.kicad_sch                           File: CONN_BTB.kicad_sch                                           File:  EX_CONN..kicad_sch                               Sheet:    /
+D                                                                                                                                                                                                          File:  TANG_MEGA-138K_Dock-4071f3.kicad_sch                                                                                       D
+                                                                                                                                                                                                           Title:      TANG_MEGA-138K-Pro_Dock-4071f_Schematics
+                                                                                                                                                                                                           Size:   A4                 Date:   2025-03-25                                                          Rev:    1.5
+                                                                                                                                                                                                           KiCad    E.D.A.    9.0.1                                                                               Id:  1/19
+                              1                                                           2                                                            3                                                            4                                                           5                                                            6

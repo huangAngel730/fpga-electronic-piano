@@ -1,0 +1,19 @@
+状态：待用户转发，尚未送达。未提交、未推送、未向其他窗口发送。
+
+本轮用户授权：只读chat10的4071/4072 Pro原理图，生成引脚关系表并判断当前四复音工程迁移可行性。成果仅写仓库外chat10/Pro_引脚核对_20261016，没有改原RTL/CST/PLL/SDC/.fs，也没有Pro构建、RTL仿真或硬件操作。
+
+入口：138K_Pro_引脚关系与适配核对.html。结构化原件pin_relationships.json含110条关系、14个现有顶层端口对照、来源路径及SHA。validation.json与ui_validation.json分别保存静态和页面自检结果，evidence含直接对照的核心/底板原图页面。
+
+资料身份：核心4072 Rev1.10，2024-03-25，9页；底板标题4071f Rev1.5，2025-03-25，19页。PDF创建日期底板为2025-04-25。实物PCB修订及器件步进尚未独立确认。原理图旧符号GW5AT-LV138FPG676A与官方工具表GW5AST命名差异保留，不从PDF直接决定实际完整Part。
+
+已确认关键映射：核心50MHz固定晶振U8→P16；UART TX P15→底板R128→BL616 GPIO11，RX=N16；PT8211为底板U6，BCLK=E22、WS=F24、DIN=G24；功放为U32 XPT4809，H17接EN/SD pin5，原厂手册p3明确高工作、低掉电，与当前顶层低有效pa_en相反；耳机口J29，J25是DC电源口。底板S0/K16、S1/F15、S2/G15、S3/G16均低有效；核心SW5/U4是另一组高有效1.5V域按键。Pro R17=PMOD0_IO3=J22/5，与NEO插座针号和IO别名不同。Bank2/4/5默认3.3V可改1.8V，Bank3核心3.3V，实测仍待。
+
+发现资料问题：底板p5 PMOD0_IO1=N26，p16 J22/9与MIC_D1却标L22；SDRAM_DM0/DM1在p16标L22/M24，p5对应PCIE_WAKE/M.2_GPIO0，DM到BTB未闭合。这些线暂不建议使用，需同Rev官方CST/PCB或断电通断测量，不默默选边。
+
+静态结论：硬件可作为四音移植目标，但当前PG484/NEO码流不能直接用于Pro；DDS/包络/混音/延迟/MIDI解析及PT8211 LSBJ发送器可作为复用候选。必须按实物选择FPG676器件/版本，重建CST/PLL/SDC/差分约束，改变pa_en控制极性，重做综合/PnR/STA及相关功能验证。当前40MHz音频核心依赖visual_pll_locked，不能只换约束而忽略PLL。
+
+验证：bundled Python执行build_pin_report.py退出0，14项旧IO_LOC与现有CST一致、数据唯一键、24个PMOD信号、40个SDRAM排针条目均核对。Node执行check_report.cjs退出0：110行、R17搜索、6行音频筛选、冲突筛选、无页面JS错误；两张截图已人工查看。首次沙盒内Edge无界面进程启动失败，命名管道错误；同一脚本通过工具权限审核后成功，未更换实现。未打开串口。
+
+输入/产物SHA与文件本体：原PDF仍在chat10根目录，现有CST/顶层/I2S源码路径及SHA见pin_relationships.json.sources；旧.fs SHA仍为5f4960d91ffb7ccd22ac5f79526cf45b55bbc20836285a5f9b328cc3cfc27c10。manifest.json列出全部本地报告与证据的SHA，不能代替源文件。
+
+需要M2决定：核实实物4072/4071修订与FPG676步进后，是否批准独立Pro工程移植；选择低有效复位/音符按键及MIDI输入候选（保留R17/J22/5需核配置复用，或C21/J26/11），批准顶层功放极性与时钟/约束变更。之后由M2负责正式工程器件、PLL、约束、构建及最终签收。当前仅L0资料分析，不是Pro功能通过或新下载许可。

@@ -1,0 +1,83 @@
+                            1                                                       2                                                        3                                                       4                                                        5                                                        6
+
+
+
+
+
+
+
+
+
+
+
+
+A                                                                                                                                                                                                                                                                                                                      A
+                                                                                                                                                        8-WAY                TWI         MUX
+
+                                                                                    SYS_TWI.SCL    K25 ,3 R229R229   2.2K/5%2.2K/5% +3V3
+                                                                 {SYS_TWI}          SYS_TWI.SDA    K26 ,3 R230R230   2.2K/5%2.2K/5%
+
+
+                                                                                  MUX_TWI0.SCL
+                                                               {MUX_TWI0}         MUX_TWI0.SDA                                                                 IC3IC3
+                                                                                                                                                       74HC4051PW,11874HC4051PW,118
+                                                                                  MUX_TWI1.SCL                                MUX_TWI4.SCL          11  Y4Y4        VCCVCC 1616                                +3V3
+                                                               {MUX_TWI1}         MUX_TWI1.SDA                                MUX_TW6.SCL           22  Y6Y6          Y2Y2 1515MUX_TWI2.SCL
+                                                                                                                              SYS_TWI.SCL           33  ZZ            Y1Y1 1414MUX_TWI1.SCL                C160                    N0.        CONFIG           SEL0        SEL1       SEL2
+                                                                                  MUX_TWI2.SCL                                MUX_TWI7.SCL          44  Y7Y7          Y0Y0 1313MUX_TWI0.SCL                100nF/25V
+                                                               {MUX_TWI2}         MUX_TWI2.SDA                                MUX_TWI5.SCL          55  Y5Y5          Y3Y3 1212MUX_TWI3.SCL                                          0        SFP0                0           0          0
+                                                                                                                              R215R215    0R/5%0R/5%66                     1111  TWI_MUX.S0    N19 ,3
+                                                                                  MUX_TWI3.SCL                        GNDGND                        77  ~{E}~{E}      S0S0 1010  TWI_MUX.S1    P19 ,3                                1        SFP1                0           0          1
+                                                                                                                                          GNDGND        VEEVEE        S1S1                             GND
+                                                               {MUX_TWI3}         MUX_TWI3.SDA                                            GNDGND    88  GNDGND        S2S2 99    TWI_MUX.S2    P26 ,3
+                                                                                                                                                                                                                                     2        EEPROM              0           1          0
+B                                                                                 MUX_TWI4.SCL                                                                                                                                                                                                                         B
+                                                               {MUX_TWI4}         MUX_TWI4.SDA                                                                                                                                       3        DVI_A_DDC           0           1          1
+                                                                                                                                                               IC4IC4                                                                         MS5331-0
+                                                                                  MUX_TWI5.SCL                                                         74HC4051PW,11874HC4051PW,118
+                                                               {MUX_TWI5}         MUX_TWI5.SDA                                MUX_TWI1.SDA          11  Y4Y4        VCCVCC 1616                                +3V3                           DVI_B_DDC
+                                                                                                                              MUX_TWI3.SDA          22  Y6Y6          Y2Y2 1515MUX_TWI2.SDA                                          4                            1           0          0
+                                                                                   MUX_TW6.SCL                                SYS_TWI.SDA           33  ZZ            Y1Y1 1414MUX_TWI4.SDA                C161                               MS5331-1
+                                                               {MUX_TWI6}          MUX_TW6.SDA                                MUX_TWI7.SDA          44  Y7Y7          Y0Y0 1313MUX_TWI0.SDA                100nF/25V
+                                                                                                                              MUX_TWI5.SDA          55  Y5Y5          Y3Y3 1212MUX_TW6.SDA                                           5        DVP_CAM             1           0          1
+                                                                                  MUX_TWI7.SCL                                R216R216    0R/5%0R/5%66                     1111  TWI_MUX.S2    P26 ,3
+                                                                                  MUX_TWI7.SDA                        GNDGND                        77  ~{E}~{E}      S0S0 1010  TWI_MUX.S1    P19 ,3                                6        MIPI_RX0            1           1          0
+                                                               {MUX_TWI7}                                                                 GNDGND        VEEVEE        S1S1                             GND
+                                                                                                                                          GNDGND    88  GNDGND        S2S2 99    TWI_MUX.S0    N19 ,3
+                                                                                  TWI_MUX.S0                                                                                                                                         7        MIPI_RX1            1           1          1
+                                                                {MUX_SEL}         TWI_MUX.S1
+                                                                                  TWI_MUX.S2
+
+
+
+
+
+
+C                                                                                                                                                                                                                                                                                                                      C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                                                                                             Update     notes:   Rename     the   DVI_TX_DDC      to  DVI_A_DDC,     DVI_RX_DDC      to  DVI_B_DDC.
+                                                                                                                                                                                             Shenzhen      Sipeed     Technology      Co,Ltd.
+                                                                                                                                                                                              Sheet:   /TWI_MUX/
+D                                                                                                                                                                                             File: TWI_MUX.kicad_sch                                                                                                  D
+                                                                                                                                                                                              Title:    TANG_MEGA-138K-Pro_Dock-4071f_Schematics
+                                                                                                                                                                                              Size:  A4               Date:   2025-03-25                                                      Rev:   1.5
+                                                                                                                                                                                              KiCad   E.D.A.   9.0.1                                                                          Id: 4/19
+                            1                                                       2                                                        3                                                       4                                                        5                                                        6

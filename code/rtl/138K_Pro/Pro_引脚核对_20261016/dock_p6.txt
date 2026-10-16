@@ -1,0 +1,79 @@
+                            1                                                        2                                                         3                                                        4                                                        5                                                         6
+
+
+           +3V3
+
+                  AVDD33_RF1                                                                                                                                                                                                                                             AP3101AAP3101A
+                                                                                                                                                                   USB-JTAG                      &       UART                                                               Q12Q12
+                                  C44C44                          C53C53
+                                  10pF/50V10pF/50V                10uF/16V10uF/16V                                                                                                                                                                           +5V         33       22     5V_IN5V_IN
+
+
+A                            GNDGND                          GNDGND                                                                                                                                                                                                                                                        A
+                  AVDD33_RF2                     VDD18_FLASH                                                                                                          {PLL0_TWI}                                {PLL1_TWI}                                         R40R40        R136R136
+                                                                   PWR_FLAG                                                                                                                                                                                     100K/1%100K/1%   1.5K/5%1.5K/5%
+
+                                  C45C45                          C54C54                                                                                                                                                                                  GNDGND                   POWER_EN      2,6
+                                  100nF/25V100nF/25V              4.7uF/10V4.7uF/10V
+
+                             GNDGND                          GNDGND                                                                                                      GNDGND                                                                                          FB5FB5
+                                                                                                                                                                                                                                                                 MPZ2012S221AT000MPZ2012S221AT000
+                  AVDD33_AON                     DVDD11       PWR_FLAG                                                                                                                                                                                                                5V_IN5V_IN
+
+                                  C46C46                          C55C55                                                                                                                                                                                       D18       FU2                           J10J10
+                                  100nF/25V100nF/25V              2.2uF/10V2.2uF/10V                                                                                                                                                                        DSK34       6V/2A   5V_USB5V_USBUSB_C_Receptacle_USB2.0USB_C_Receptacle_USB2.0
+                                                                                                                                                                                                                                    U9U9                                                 A4A4 VBUSVBUS
+                             GNDGND                          GNDGND                                                                                                                                                     BL616C-50-Q2I-QFN40BL616C-50-Q2I-QFN40
+                                                                                                                                     BL616_ANT        11  ANTANT                                              VDDIO2VDDIO23030BL616_VDDIO2                   GNDGND  R52R52   5.1K/1%5.1K/1%A5A5CC1CC1
+                PVDD33_DCDC            +2V5      BL616_VDDIO2                                            {DBG_JTAG}                  AVDD33_RF1       22  AVDD33_RF1AVDD33_RF1                               GPIO_22GPIO_222929BL616_IO22                    GNDGND  R53R53   5.1K/1%5.1K/1%B5B5CC2CC2
+                                                                                                                                     AVDD33_RF2       33  AVDD33_RF2AVDD33_RF2                               GPIO_21GPIO_212828BL616_IO21
+                                  C47C47                          C56C56                                                   H11  ,10  JTAG.TMS         44  GPIO_0GPIO_0                                       GPIO_20GPIO_202727BL616_IO20                                                A7A7 D-D-
+                                  4.7uF/10V4.7uF/10V              100nF/25V100nF/25V                                       H12  ,10  JTAG.TCK         55  GPIO_1GPIO_1                                        USB_DMUSB_DM2626BL616_USBN      R50R50    0R/5%0R/5% BL616_USB#_N         B7B7  D-D-
+B                                                                                                                          J10  ,10  JTAG.TDO         66  GPIO_2GPIO_2                                        USB_DPUSB_DP2525BL616_USBP      R51R51    0R/5%0R/5% BL616_USB#_P          A6A6 D+D+                         B
+               Via  to GND   GNDGND                          GNDGND                                                        H10  ,10  JTAG.TDI         77  GPIO_3GPIO_3                                    VDDIO_USBVDDIO_USB2424VDDIO_USB                                               B6B6  D+D+
+                                                                                                                                     BL616_VDDIO1     88  VDDIO1VDDIO1                                        DVDD11DVDD112323     DVDD11
+                   VDDIO_USB               PWR_FLAGPWR_FLAG          AVDDRF                                                          BL616_TX         99  GPIO_10GPIO_10                                   DCDC_OUTDCDC_OUT2222 DCDC_OUT
+                                                                                                                                     BL616_RX        1010 GPIO_11GPIO_11                                    SW_DCDCSW_DCDC2121   SW_DCDC                                                 A8A8 SBU1SBU1
+                                  C48C48                          C57C57                                                                                                                                                                                                                B8B8  SBU2SBU2
+                                  100nF/25V100nF/25V              100nF/25V100nF/25V
+                                                 DCDC_OUT
+                             GNDGND                          GNDGND
+                                                           L1L1
+                  AVDD33_RF3                     CIGT201610LH2R2MNECIGT201610LH2R2MNE                                                                                                                                                                                                                 GNDGND  GND1GND1
+                                                                    SW_DCDC
+                                  C49C49            C58C58
+                                  100nF/25V100nF/25V4.7uF/10V4.7uF/10V                                                                                                                                             POWER_EN           D39D39     0402ESDA-05N0402ESDA-05N   GNDGND 5V_USB          PWR_FLAG
+                                                                                                                                                                                                                   BL616_USB#_N       D15D15      LXES15AAA1-153LXES15AAA1-153GNDGND
+                             GNDGND            GNDGND                                                                                                                                                              BL616_USB#_P       D16D16      LXES15AAA1-153LXES15AAA1-153GNDGND
+                                                                                                                                                                                                                    5V_USB            D17D17     0402ESDA-05N0402ESDA-05N   GNDGND
+              AVDD15                                                    AVDD15                                                                                                                                      5V_USB            D47D47     0402ESDA-05N0402ESDA-05N   GNDGND        C43              C166
+                                                                                                                                                                                               C51C51                                                                                     22uF/10V         100nF/25V
+C                                 C50C50                          C59C59                          {DBG_UART}                                                                                   100nF/25V100nF/25V                                                                                                          C
+                                  2.2uF/10V2.2uF/10V              10pF/50V10pF/50V
+                                                                                                                     N16  ,3 DBG_UART.RX    R95R95     0R/5%0R/5%BL616_TX                 GNDGND                                                                                     GND              GND
+                             GNDGND                          GNDGND                                                  P15  ,3 DBG_UART.TX   R128R128    0R/5%0R/5%BL616_RX
+                                                                                                                                                                                                                                                                                    +3V3+3V3
+                             GNDGNDY3Y3
+                                   40MHz/10pF40MHz/10pF                                                                 BL616     SEL[0..1]    SWITCH                                                                                                                                    R234R234
+              BL616_XOUT     33  11  BL616_XIN        +3V3     BL616_VDDIO1                                                                                                                                                                                                              3.3K/1%3.3K/1%
+                                                                                                                 N0.         CONFIG           SEL0(EN)          SEL1(MODE)                                                                                                                LED6LED6
+                               GND                                               C60C60                                                                                                                                                                                                   OrangeOrange
+                                                                                 100nF/25V100nF/25V                                                                                                                                                                       BL616_IO20
+                                                                                                                  0     Disable  BL616             0                  X
+
+                                                                            GNDGND                                1     BL616   as  Device         1                  1
+                             GND
+                          Via to  GND                                                                             2     BL616   as  Host           1                  0
+
+                             GNDGND                 SW3SW3
+                                                  SW_PushSW_Push                                                                   SW1SW1                                                       Update    notes:   Rename      the  DVI_TX_DDC       DVI_A_DDC,     DVI_RX_DDC       to  DVI_B_DDC.
+                         R47R47                              R49R49                                                               TO-02TO-02
+                    3.3K/5%3.3K/5% BL616_BOOT              3.3K/5%3.3K/5%                 R12R12     100K/1%100K/1%BL616_EN    11         44R46R46     27K/1%27K/1%                             Shenzhen      Sipeed    Technology       Co,Ltd.
+                        C52C52                                        +3V3+3V3   GNDGND   R174R174   100K/1%100K/1%BL616_IO12  22         33R175R175   27K/1%27K/1%+3V3+3V3                     Sheet:   /USB_JTAG/
+D                                      R48       0R/5%     JTAG.TDO              GNDGND                                                                            +3V3+3V3                     File:  USB_JTAG.kicad_sch                                                                                                  D
+                100nF/25V100nF/25V
+                                                                                                                                                                                                Title:     TANG_MEGA-138K-Pro_Dock-4071f_Schematics
+                             GNDGND                                                                                                                                                             Size:   A4               Date:   2025-03-25                                                      Rev:    1.5
+                                           BL616     UPDATE      BUTTON                                                                                                                         KiCad    E.D.A.  9.0.1                                                                           Id:  6/19
+
+                            1                                                        2                                                         3                                                        4                                                        5                                                         6

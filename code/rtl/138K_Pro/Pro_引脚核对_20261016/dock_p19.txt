@@ -1,0 +1,81 @@
+                          1                                                     2                                                     3                                                    4                                                     5                                                     6
+
+
+
+
+
+
+
+
+
+
+
+
+A                                                                                                                                                                                                                                                                                                      A
+
+
+
+
+
+                                                                                                                                                                                      SerDes  VDDT             Q0  VDDT
+
+                                                                                                                                                                             Filter                            Q1  VDDT
+                                                                       DBG             DSK34                 LDO
+                                                                       USB   5V                              3.0V           DVP_AVDD                                0.9V              Core  VCC
+                                                                       INPUT          2A  MAX             LN6206P302                                                                  MIPI  VDD                Q0  VDD
+                                                                       USB-C
+                                                                                                             LDO                                                                      SerDes   VDD             Q1  VDD
+                                                                                                             2.5V           MS5351_VDDO
+
+                                                                       DC  12V                            LN6206P252
+
+                                                                       INPUT            DC-DC            4A MAX
+                                                                       DC5521             5.0V                         BTB  5V                       BTB  5V        1.5V              DDR   VCC                VCCIO6
+                                                                                                                       OUTPUT                         INPUT
+B                                                                                    SY8105IADC          ORING                                                                                                                                                                                         B
+                                                                      PCIe  12V         5A  MAX                                                                                                                VCCIO7
+                                                                       INPUT
+                                                                  GOLDEN   FINGER                                                                    DGB  5V                          SerDes   VDDHA           Q0  VDDHA
+                                                                                                                                                     INPUT
+                                                                                                                                                                             Filter                            Q1  VDDHA
+
+                                                                       SLAVE           DSK34                DC-DC                                                   1.8V              VCCX
+
+                                                                       USB   5V                              1.8V                                                                     MIPI_VDDX      1.2V      VCC_REG
+                                                                       OUTPUT         2A  MAX              MT3520B
+                                                                      USB-C
+                                                                                                            DC-DC
+                                                                                                             3.3V                                                   3.3V                VBAIS                  VCCIO10
+
+                                                                                                           MT3520B          LDO                                                                                VCCIO3
+                                                                                                                            1.5V
+                                                                                                                        LN6206P152                     1.8V                  Opt.                              VCCIO2
+                                                                                                                                                      External                               BTB
+                                                                                                                                                                                             CONN.             VCCIO4
+                                                                                                                                  DVP_AVDD             3.3V                 Defualt
+C                                                                                                                                                     External                                                 VCCIO5                                                                                  C
+                                                                                   DOCK            BOARD                                                                SOM          BOARD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                                                                                    Update   notes:   Rename     the  DVI_TX_DDC     DVI_A_DDC,     DVI_RX_DDC     to  DVI_B_DDC.
+                                                                                                                                                                                    Shenzhen     Sipeed    Technology     Co,Ltd.
+                                                                                                                                                                                    Sheet:   /POWER_TREE/
+D                                                                                                                                                                                   File: PT.kicad_sch                                                                                                 D
+                                                                                                                                                                                    Title:    TANG_MEGA-138K-Pro_Dock-4071f_Schematics
+                                                                                                                                                                                    Size:  A4              Date:   2025-03-25                                                  Rev:   1.5
+                                                                                                                                                                                    KiCad   E.D.A.  9.0.1                                                                      Id:  19/19
+                          1                                                     2                                                     3                                                    4                                                     5                                                     6

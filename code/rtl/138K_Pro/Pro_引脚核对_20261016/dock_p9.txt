@@ -1,0 +1,81 @@
+                            1                                                          2                                                         3                                                         4                                                          5                                                         6
+
+
+                                                                                                                                                                                                                                                                                                    5V_DVI5V_DVI
+                                                                                                                                              DVI         B(RX)
+
+
+
+                                                                                     +3V3+3V3          +3V3+3V3                                      J25  ,4   DVI_RX2.P      C92C92   100nF/25V100nF/25VDVI_RX_D2_P                                                      DVI_RX_D2_P        11 D2+D2+
+                                                                                                                                    {DVI_RX2}        J26  ,4   DVI_RX2.N      C93C93   100nF/25V100nF/25VDVI_RX_D2_N                                                      DVI_RX_D2_N        33 D2-D2-
+                                                                                           R96R96            R104R104                                                                                                                                                     DVI_RX_D1_P        44 D1+D1+
+A                                                                                          1.74K/5%1.74K/5%  1.74K/5%1.74K/5%                        M15  ,4   DVI_RX1.P      C94C94   100nF/25V100nF/25VDVI_RX_D1_P                                                      DVI_RX_D1_N        66 D1-D1-                           A
+                                                                                                                                    {DVI_RX1}        L15  ,4   DVI_RX1.N      C95C95   100nF/25V100nF/25VDVI_RX_D1_N                                                      DVI_RX_D0_P        77 D0+D0+
+                                                                                        DVI_RX2.P         DVI_RX2.N                                                                                                                                                       DVI_RX_D0_N        99 D0-D0-
+                                                                                                                                                                                                                                                                          DVI_RX_CK_P       1010CK+CK+
+                                                                                           R97R97            R105R105                                D19  ,5   DVI_RX0.P      C96C96   100nF/25V100nF/25VDVI_RX_D0_P                                                      DVI_RX_CK_N       1212CK-CK-
+                                                                                           1K/5%1K/5%        1K/5%1K/5%             {DVI_RX0}        C19  ,5   DVI_RX0.N      C97C97   100nF/25V100nF/25VDVI_RX_D0_N                                                                                                 J12J12
+                                                                                                                                                                                                                                                                          DVI_RX_CEC        1313CECCEC               DVI_RX_ADVI_RX_A
+                                                                                      GNDGND            GNDGND                                       K20  ,4   DVI_RXC.P      C98C98   100nF/25V100nF/25VDVI_RX_CK_P
+                                                                                                                                    {DVI_RXC}        J20  ,4   DVI_RXC.N      C99C99   100nF/25V100nF/25VDVI_RX_CK_N                                                      DVI_RX_EDID_CLK1515   SCLSCL
+                                                                                                                                                                                                                                                                          DVI_RX_EDID_DAT1616   SDASDA
+
+                                                                                                                                                                                                                                                                 R127                       1414
+                                                                                     +3V3+3V3          +3V3+3V3                                             D32                                                                               G26 ,4           5.1K/1%    DVI_RXD_HPD       1919UTILITYUTILITY
+                                                                                                                                                     0402ESDA-05N                                                            DVI_RX_HPD                                                         HPDHPD
+                                         U15                                               R98R98            R106R106          5V_DVI                                               GND
+                                   RCLAMP0524P                                                                                                                                                                                                         R126                       D36
+                   DVI_RX_D2_P    1  IN1   OUT1   10 DVI_RX_D2_P                           1.74K/5%1.74K/5%  1.74K/5%1.74K/5%PWR_FLAG                  C89       100nF/25V                                                                         10K/5%            0402ESDA-05N
+                   DVI_RX_D2_N    2  IN2   OUT2   9  DVI_RX_D2_N
+         GND                      3  GND    GND   8                      GND            DVI_RX1.P         DVI_RX1.N                                    C90       4.7uF/10V
+                   DVI_RX_D0_P    4  IN3   OUT3   7  DVI_RX_D0_P                                                                                                                                                                                                                                GNDGND        GNDSGNDS
+                   DVI_RX_D0_N    5  IN4   OUT4   6  DVI_RX_D0_N                           R99R99            R107R107
+B                                                                                          1K/5%1K/5%        1K/5%1K/5%                    R112R112   2.2K/5%2.2K/5%DVI_RX_EDID_CLK                                                                                                                                             B
+                                                                                                                               5V_DVI5V_DVIR113R113   2.2K/5%2.2K/5%DVI_RX_EDID_DAT                               D4D4           0402ESDA-05N0402ESDA-05NDVI_RX_EDID_CLK
+                                         U16                                                                                                                                                            GNDGND   D12D12          0402ESDA-05N0402ESDA-05N   DVI_RX_CEC
+                                   RCLAMP0524P                                        GNDGND            GNDGND                                                                                          GNDGND
+                   DVI_RX_D1_P    1  IN1   OUT1   10 DVI_RX_D1_P                                                                           D31          RB161QS-40T18R               +5V                GNDGND   D37D37          0402ESDA-05N0402ESDA-05NDVI_RX_EDID_DAT
+                   DVI_RX_D1_N    2  IN2   OUT2   9  DVI_RX_D1_N
+          GND                     3  GND    GND   8                    GND
+                   DVI_RX_CK_P    4  IN3   OUT3   7  DVI_RX_CK_P
+                   DVI_RX_CK_N    5  IN4   OUT4   6  DVI_RX_CK_N                     +3V3+3V3          +3V3+3V3                                                                                                                      +3.3VP
+
+                                                                                           R100R100          R108R108                                                                                {MUX_TWI4}
+
+                                                                                           1.74K/5%1.74K/5%  1.74K/5%1.74K/5%                                                                                                              R125
+                                                                                                                                                            D33                                                                            2.2K/5%
+                                                                                        DVI_RX0.P         DVI_RX0.N                                 LXES15AAA1-153                                     K25  ,3   MUX_TWI4.SCL                               11       66DVI_RX_EDID_CLK
+
+                                                                                           R101R101          R109R109          +3.3VP                                               GND                                              R124                      Q3AQ3A
+
+                                                                                           1K/5%1K/5%        1K/5%1K/5%     PWR_FLAG                   C91       100nF/25V                                                           2.2K/5%               2N7002KDW2N7002KDW
+                                                                                                                                                                                                       K26  ,3   MUX_TWI4.SDA                      44       33        DVI_RX_EDID_DAT
+                                                                                      GNDGND            GNDGND
+                                                                                                                                                                                                                                                      Q3BQ3B                 TWI_MUX_CFG:            SEL[0..2]=1,0,0
+C                                                                                                                                                                                                                                                 2N7002KDW2N7002KDW                                                            C
+                                                                                                                                           R114R114    49.9R/1%49.9R/1%DVI_RX_D2_P                                                                                           {N19,3}:       SEL0=1
+                                                                                                                               +3.3VP+3.3VPR115R115    49.9R/1%49.9R/1%DVI_RX_D2_N                                                                                           {P19,3}:       SEL1=0
+                                                                                     +3V3+3V3          +3V3+3V3                                                                                                               R122                                           {P26,3}:       SEL2=0
+                                                                                                                                           R116R116    49.9R/1%49.9R/1%DVI_RX_D1_P                           H26  ,4       100R/5%                           DVI_RX_CEC
+                                                                                           R102R102          R110R110                      R117R117    49.9R/1%49.9R/1%DVI_RX_D1_N                CEC_RX
+                                                                                           1.74K/5%1.74K/5%  1.74K/5%1.74K/5%                                                                                                 R123
+                                                                                                                                           R118R118    49.9R/1%49.9R/1%DVI_RX_D0_P                                          27K/1%
+                                                                                        DVI_RXC.P         DVI_RXC.N                        R119R119    49.9R/1%49.9R/1%DVI_RX_D0_N              +3.3VP
+
+
+                                                                                           R103R103          R111R111                      R120R120    49.9R/1%49.9R/1%DVI_RX_CK_P
+                                                                                           1K/5%1K/5%        1K/5%1K/5%                    R121R121    49.9R/1%49.9R/1%DVI_RX_CK_N
+
+
+                                                                                      GNDGND            GNDGND
+
+
+
+                                                                                                                                                                                                   Update     notes:   Rename      the  DVI_RX     to  DVI_B(RX)
+                                                                                                                                                                                                   Shenzhen      Sipeed     Technology       Co,Ltd.
+                                                                                                                                                                                                   Sheet:    /FPGA_TMDS_B/
+D                                                                                                                                                                                                  File:  DVI_RX.kicad_sch                                                                                                      D
+                                                                                                                                                                                                   Title:      TANG_MEGA-138K-Pro_Dock-4071f_Schematics
+                                                                                                                                                                                                   Size:   A4                Date:   2025-03-25                                                       Rev:    1.5
+                                                                                                                                                                                                   KiCad    E.D.A.   9.0.1                                                                            Id:  9/19
+                            1                                                          2                                                         3                                                         4                                                          5                                                         6

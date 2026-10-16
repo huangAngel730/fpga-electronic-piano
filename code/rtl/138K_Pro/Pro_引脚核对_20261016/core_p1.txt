@@ -1,0 +1,79 @@
+                            1                                                          2                                                         3                                                          4                                                         5                                                          6
+
+
+
+        POWER                                                                                                      BANK2&3                                                                      JTAG&CONFIG                                                             FPGA_SERDES
+                                                                                                                                          N16_FPGA_RXD              N16     N16_FPGA_RXD          FPGA_RXD                      ADCT_N     R11     ADCT_N                ADCT_N
+                                                                                                                                           P15_FPGA_TXD             P15     P15_FPGA_TXD          FPGA_TXD                      ADCT_P     R12     ADCT_P                ADCT_P
+
+                                                                                                                                                                                                                                 ~{RECFG}AE16      AE16_RECONFIG_N       ~{RECFG}
+
+A                                                SerDes   VDDT               Q0  VDDT                                                                                                                                         SSPI_CLK     R16     R16_IOR98A            R16_IOR98A                                              A
+                                                                                                                                                                                                                            SSPI_WP_N      R17     R17_IOR98B            R17_IOR98B
+                                                                             Q1  VDDT                                                       N18_SSPI_SO             N18     N18_SSPI_SO           SSPI_SO
+                                       Filter                                                                                                N17_SSPI_SI            M17     N17_SSPI_SI           SSPI_SI                SSPI_HOLD_N        T24    T24_IOR58A            T24_IOR58A
+                                                                                                                                                                                                                         MIPI0_EXIO02       T25    T25_IOR58B            T25_IOR58B
+                              0.9V                Core  VCC                                                                                 R15_IOR105B             R15     R15_SERIAL_DIN        SERIAL_DIN
+                                                  MIPI  VDD                  Q0  VDD                                                         N21_IOR80A             N21     N21_IOR80A            N21_IOR80A             MIPI0_EXIO05      P25     P25_IOR60B            P25_IOR60B
+                                                                                                                                             N22_IOR80B             N22     N22_IOR80B            N22_IOR80B                 SFP1_LOS      R25     R25_IOR60A            R25_IOR60A
+                                                  SerDes   VDD               Q1  VDD
+                                                                                                                                                                                                                         MIPI0_EXIO07      P24     P24_IOR74B            P24_IOR74B
+                                                                                                                                              L24_IOR89A            L24     L24_IOR89A            SSPI_CS_N              MIPI0_EXIO08      P23     P23_IOR74A            P23_IOR74A
+
+                                                                                                                                                                                                                         MIPI0_EXIO03       T23    T23_IOR62A            T23_IOR62A
+                                                                                                                                             N23_IOR67A             N23     LVDS_IOR76P           MIPI0_EXIO06               SFP0_LOS      R23     R23_IOR62B            R23_IOR62B
+                              1.5V                DDR   VCC                  VCCIO6                                                          N24_IOR67B             N24     LVDS_IOR76N           DOUT_CSO_B
+                                                                                                                                                                                                                         MIPI1_EXIO04      P21     P21_IOR78B            P21_IOR78B
+                 5V                                                          VCCIO7
+               INPUT                                                                                                                        M19_IOR109A             M19     M19_IOR109A           MIPI1_EXIO03            SFP0_TX_OFF      R18     R18_IOR73A            R18_IOR73A
+
+                                                  SerDes   VDDHA             Q0  VDDHA                                                        L20_IOR92B            L20     LVDS_IOR92N           MIPIE_IO03
+B                                      Filter                                                                                                M20_IOR92A             M20     LVDS_IOR92P           SFP1_TX_OFF                                                                                                                    B
+                                                                             Q1  VDDHA
+
+                              1.8V                VCCX                                                                                                                                                                                                                   USR_KEY
+                                                                  1.2V       VCC_REG
+                                                  MIPI_VDDX                                                                                                                                                                                                             File: FPAG_SERDES.kicad_sch
+                                                                  LDO                                                                       LVDS_IOR85P             L22     LVDS_IOR85P           SFP1_TX_P
+                                                                                                                                            LVDS_IOR85N             L23     LVDS_IOR85N           SFP1_TX_N                                                             DDR3
+                              3.3V                 VBAIS                     VCCIO10                                                         M24_IOR87A             M24     M24_IOR87A            SFP1_RX_P                   USR_KEY                 U4_USR_KEY         USR_KEY
+                                                                                                                                             M25_IOR87B             M25     M25_IOR87B            SFP1_RX_N                  USR_KEY1                 T8_USR_KEY1        USR_KEY1
+                                                                             VCCIO3                                                                                                                                          USR_KEY2                 T7_USR_KEY2        USR_KEY2
+                                                                                                                                             M21_IOR83A             M21     LVDS_IOR83P           USER_CLOCK_P
+                1.8V                                                         VCCIO2                                                          M22_IOR83B             M22     LVDS_IOR83N           USER_CLOCK_N                                                          File: DDR3.kicad_sch
+              External                  Opt.
+                                                                             VCCIO4                                                          N26_IOR76A             N26     LVDS_IOR67P           PCIE_WAKE_B                                                           BANK4&5
+                3.3V                                                                                                                         M26_IOR76B             M26     LVDS_IOR67N           PCIE_PERST                  JTAG_TMS                H11_JTAG_TMS       JTAG_TMS
+              External                 Defualt                               VCCIO5                                                         LVDS_IOR94P             K25     LVDS_IOR94P           IIC_SCL_MAIN                JTAG_TDO                J10_JTAG_TDO       JTAG_TDO
+                                                                                                                                            LVDS_IOR94N             K26     LVDS_IOR94N           IIC_SDA_MAIN                 JTAG_TDI               H10_JTAG_TDI       JTAG_TDI
+                                                                                                                                              R26_IOR65A            R26     LVDS_IOR65P           MIPI0_EXIO04                JTAG_TCK                H12_JTAG_TCK       JTAG_TCK
+                                                                                                                                             P26_IOR65B             P26     LVDS_IOR65N           IIC_MUX_RESET_B
+C                                                                                                                                             P19_IOR71A            P19     LVDS_IOR71P           IIC_MUX_RESET_B_1             ADCV_N                P11   ADCV_N       ADCV_N                                                  C
+                                                                                                                                             N19_IOR71B             N19     LVDS_IOR71N           IIC_MUX_RESET_B_2             ADCV_P                N12   ADCV_P       ADCV_P
+
+        File: POWER.kicad_sch                                                                                      File: BANK2&3.kicad_sch                                                      File: JTAG.kicad_sch                                                    File: BANK4&5.kicad_sch
+
+
+
+
+                                                                                                                                                                                                      H1H1                       H2H2                       H3H3                      H4H4
+        FPGA_VCC                                                                                                   FPGA_NC&GND                                                                        MountingHole_PadMountingHole_PadMountingHole_PadMountingHole_PadMountingHole_PadMountingHole_PadMountingHole_PadMountingHole_Pad
+
+
+                                                                                                                                                                                                 GNDGND                     GNDGND                    GNDGND                     GNDGND
+
+
+
+
+
+
+
+                                                                                                                                                                                                   A  Compact      SOM    for  Arora    V
+                                                                                                                                                                                                   Shenzhen       Sipeed    Technology       Co,Ltd.
+                                                                                                                   File: FPGA_NC&GND.kicad_sch                                                      Sheet:   /
+D                                                                                                                                                                                                   File:  TANG_MEGA-138K-Pro_4072.kicad_sch                                                                                     D
+        File: FPGA_VCC.kicad_sch
+                                                                                                                                                                                                    Title:     TANG_MEGA-138K-Pro_4072_Schematics
+                                                                                                                                                                                                    Size:  A4                Date:    2024-03-25                                                       Rev:   1.10
+                                                                                                                                                                                                    KiCad    E.D.A.    kicad   7.0.10                                                                  Id:  1/9
+                            1                                                          2                                                         3                                                          4                                                         5                                                          6

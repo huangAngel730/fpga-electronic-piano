@@ -1,0 +1,75 @@
+                            1                                                        2                                                        3                                                        4                                                        5                                                        6
+
+                                                                                                                                                                                                                                             SFP+
+
+
+
+                                            L3                                                          PWR_FLAGPWR_FLAG
+                                    WPN4020H4R7MT
+A                                                              C100C100         C104C104          C106C106                                                                                                                                                                                                                A
+       +3V3                                                    100nF/25V100nF/25V22uF/10V22uF/10V 22uF/10V22uF/10V                                                                                                                           SFP0_RX_LOS                           TP4
+                                            L4                                                                           SFP0                                                                                                                                            SFP0_RX_LOS
+                                    WPN4020H4R7MT         GNDGND           GNDGND            GNDGND
+                                                               C101C101                 PWR_FLAGPWR_FLAG        J13J13
+                                                               100nF/25V100nF/25V                               1367073-11367073-1
+                                                                                                                                                                                                                                             SFP0_RS0             R223        5.1K/1%        GND
+                                                          GNDGND                                                RX_LOSRX_LOS88                        SFP0_RX_LOS        V18  ,2     {SFP0_CRTL}
+                                           {MUX_TWI0}            K26 ,3    MUX_TWI0.SDA         44 SDASDA
+                                          {SFP0_CRTL}            K25 ,3    MUX_TWI0.SCL         55 SCLSCL           RD+RD+1313                           Q1_L0.RXP      AC14  ,Q1
+                                                                   TP2     SFP0_MOD_DET         66 MOD_ABSMOD_ABS   RD-RD-1212                           Q1_L0.RXN      AD14  ,Q1    {Q1_DAT0.RX}
+                                                                   SPF0_MOD_DET
+                                     R129R129     5.1K/1%5.1K/1%           SFP0_RS0             77 RS0RS0           TD+TD+1818                           Q1_L0.TXP       AC8  ,Q1                                                            SFP0_RS1             R224        5.1K/1%        GND
+                                     R130R130     5.1K/1%5.1K/1%           SFP0_RS1             99 RS1RS1           TD-TD-1919                           Q1_L0.TXN       AD8  ,Q1    {Q1_DAT0.TX}
+                                     R131R131     5.1K/1%5.1K/1% R18 ,3    SFP0_TX_DIS          33 TX_DISABLETX_DISABLE
+                                                                               {SFP0_CRTL}                     TX_FAULTTX_FAULT22SFP0_TX_FAULT                           GND
+
+                                                                                                                                                 LED8      R267
+                          TWI_MUX_CFG:           SEL[0..2]=0,0,0                                                                               Orange    2.2K/5%                                                                             SFP0_TX_DIS          R225        5.1K/1%
+                                                                                                                               The  model   of the  CAGE   is 2227302-1                                                                                                                      GND
+B                         {N19,3}:      SEL0=0                                                                                 Alternative  model   HC-SFP-02L                                                                                                                                                            B
+                          {P19,3}:      SEL1=0
+                          {P26,3}:      SEL2=0                                                       GNDS  GND
+
+
+
+
+
+
+
+
+                                               L5                                                          PWR_FLAGPWR_FLAG
+                                       WPN4020H4R7MT
+                                                                  C102C102         C105C105          C107C107
+          +3V3                                                    100nF/25V100nF/25V22uF/10V22uF/10V 22uF/10V22uF/10V                                                                                                                        SFP1_RX_LOS                              TP6
+                                               L6                                                                        SFP1                                                                                                                                               SFP1_RX_LOS
+                                       WPN4020H4R7MT         GNDGND           GNDGND            GNDGND
+                                                                  C103C103                 PWR_FLAGPWR_FLAG        J14J14
+                                                                  100nF/25V100nF/25V                               1367073-11367073-1
+                                                                                                                                                                                                                                             SFP1_RS0                R226        5.1K/1%       GND
+                                                             GNDGND                                                RX_LOSRX_LOS88                     SFP1_RX_LOS        W18  ,2     {SFP1_CRTL}
+C                                             {MUX_TWI1}           K26  ,3    MUX_TWI1.SDA         44 SDASDA                                                                                                                                                                                                              C
+                                             {SFP1_CRTL}           K25  ,3    MUX_TWI1.SCL         55 SCLSCL           RD+RD+1313                        Q1_L1.RXP      AC12  ,Q1
+                                                                      TP3     SFP1_MOD_DET         66 MOD_ABSMOD_ABS   RD-RD-1212                        Q1_L1.RXN      AD12  ,Q1    {Q1_DAT1.RX}
+                                                                      SPF0_MOD_DET
+                                        R132R132     5.1K/1%5.1K/1%           SFP1_RS0             77 RS0RS0           TD+TD+1818                        Q1_L1.TXP      AC10  ,Q1                                                            SFP1_RS1                R227        5.1K/1%       GND
+                                        R133R133     5.1K/1%5.1K/1%           SFP1_RS1             99 RS1RS1           TD-TD-1919                        Q1_L1.TXN      AD10  ,Q1    {Q1_DAT1.TX}
+                                        R134R134     5.1K/1%5.1K/1%M20  ,3    SFP1_TX_DIS          33 TX_DISABLETX_DISABLE
+                                                                                  {SFP1_CRTL}                    TX_FAULTTX_FAULT22SFP1_TX_FAULT                            GND
+
+                                                                                                                                                   LED9       R268
+                          TWI_MUX_CFG:           SEL[0..2]=0,0,1                                                                                  Orange    2.2K/5%                                                                          SFP1_TX_DIS             R228        5.1K/1%
+                                                                                                                      The  model   of  the CAGE   is 2227302-1                                                                                                                                 GND
+                          {N19,3}:      SEL0=0                                                                        Alternative  model   HC-SFP-02L
+                          {P19,3}:      SEL1=0
+                          {P26,3}:      SEL2=1                                                          GNDS  GND
+
+
+
+
+                                                                                                                                                                                               Shenzhen      Sipeed    Technology       Co,Ltd.
+                                                                                                                                                                                               Sheet:    /FPGA_SFP+/
+D                                                                                                                                                                                              File:  SFP-PLUS.kicad_sch                                                                                                  D
+                                                                                                                                                                                               Title:     TANG_MEGA-138K-Pro_Dock-4071f_Schematics
+                                                                                                                                                                                               Size:   A4               Date:   2025-03-25                                                      Rev:    1.5
+                                                                                                                                                                                               KiCad    E.D.A.   9.0.1                                                                          Id:  10/19
+                            1                                                        2                                                        3                                                        4                                                        5                                                        6

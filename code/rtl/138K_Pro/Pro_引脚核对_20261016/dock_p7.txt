@@ -1,0 +1,77 @@
+                            1                                                          2                                                         3                                                         4                                                          5                                                         6
+
+                                                                                                                               PCI-Express                          X4
+
+
+
+
+
+
+A                                                                                                                                                                                                                                                                                                                                A
+
+
+
+
+
+
+
+
+                                                                                                                                                                                                                        PCIE_+12VPCIE_+12V
+                                                                                                                                                                                                                                +3.3V+3.3V
+                                     U3                                                                                                      JTAG.TCK
+                 JTAG5_TMS    1RCLAMP0524P   10 JTAG5_TMS                                                       {DBG_JTAG}                   JTAG.TDI
+                 JTAG4_TDO    2  IN1   OUT1   9 JTAG4_TDO                                                                                   JTAG.TDO                                                                                          B30B30
+                              3  IN2   OUT2   8                                                                                             JTAG.TMS                                                                                    RSVDRSVDA32A32
+    GND           JTAG3_TDI      GND    GND     JTAG3_TDI           GND                                                                                                                                                                 RSVDRSVD
+                              4  IN3   OUT3   7                                                                                                                                                                 B5B5SMCLKSMCLK          RSVDRSVDA19A19
+                 JTAG2_TCK    5  IN4   OUT4   6 JTAG2_TCK                                                                                                                                                       B6B6SMDATSMDAT          RSVDRSVDB12B12
+
+                                                                                                             {Q0_REFCLK0}             Q0_REFCLK0.P            C34C34   10nF/50V10nF/50VPCIE_REFCLK_P  F11 ,Q0  A13A13REFCLK+REFCLK+    ~{WAKE}~{WAKE}B11B11PCIE_~{WAKE}R44R44 0R/5%0R/5%      L22 ,3 PCIE.~{WAKE}
+          PCIE_REFCLK_P       D13D13     LXES15AAA1-153LXES15AAA1-153GNDGND                                                           Q0_REFCLK0.N            C35C35   10nF/50V10nF/50VPCIE_REFCLK_N  E11 ,Q0  A14A14REFCLK-REFCLK-   ~{PERST}~{PERST}A11A11PCIE_PE~{RST}R45R4515R/1%15R/1%   L23 ,3   PCIE.~{RST}
+          PCIE_REFCLK_N       D14D14     LXES15AAA1-153LXES15AAA1-153GNDGND                                                                                                                                                                                             RN1
+B                                                                                                                                                                                   PCIE_PRSNT1                 A1A1~{PRSNT1}~{PRSNT1} JTAG1JTAG1B9B9               22R*4/5%                                                     B
+                                     U5                                                                                              Q0_L0.RXN                                      PCIE_PRSNT2_X1             B17B17~{PRSNT2}~{PRSNT2}JTAG2JTAG2A5A5JTAG2_TCK       8        1              H12  ,10     JTAG.TCK
+                               RCLAMP0524P                                                                        {Q0_DAT0}          Q0_L0.RXP                                      PCIE_PRSNT2_X4             B31B31~{PRSNT2}~{PRSNT2}JTAG3JTAG3A6A6 JTAG3_TDI      7        2              H10  ,10     JTAG.TDI
+               PCIE_L1_TXN    1  IN1   OUT1  10 PCIE_L1_TXN                                                                          Q0_L0.TXN                                                                                         JTAG4JTAG4A7A7JTAG4_TDO       6        3               J10 ,10     JTAG.TDO
+               PCIE_L1_TXP    2  IN2   OUT2   9 PCIE_L1_TXP                                                                          Q0_L0.TXP                                                                                         JTAG5JTAG5A8A8JTAG5_TMS       5        4              H11  ,10     JTAG.TMS
+      GND                     3  GND    GND   8                     GND
+               PCIE_L0_TXN    4  IN3   OUT3   7 PCIE_L0_TXN                                                                                                                         Q0_L0.RXP         D12 ,Q0  B14B14PETp0PETp0       PERp0PERp0A16A16PCIE_L0_TXP  C36C36     220nF/25V220nF/25VD10,Q0  Q0_L0.TXP
+               PCIE_L0_TXP    5  IN4   OUT4   6 PCIE_L0_TXP                                                                          Q0_L1.RXN                                      Q0_L0.RXN         C12 ,Q0  B15B15PETn0PETn0       PERn0PERn0A17A17PCIE_L0_TXN  C37C37     220nF/25V220nF/25VC10,Q0  Q0_L0.TXN
+                                                                                                                  {Q0_DAT1}          Q0_L1.RXP                                      Q0_L1.RXP         D14 ,Q0  B19B19PETp1PETp1       PERp1PERp1A21A21PCIE_L1_TXP  C38C38     220nF/25V220nF/25VD8,Q0   Q0_L1.TXP
+                                     U7                                                                                              Q0_L1.TXN                                      Q0_L1.RXN         C14 ,Q0  B20B20PETn1PETn1       PERn1PERn1A22A22PCIE_L1_TXN  C39C39     220nF/25V220nF/25VC8,Q0   Q0_L1.TXN
+                               RCLAMP0524P                                                                                           Q0_L1.TXP                                      Q0_L2.RXP         B13 ,Q0  B23B23PETp2PETp2       PERp2PERp2A25A25PCIE_L2_TXP  C17C17     220nF/25V220nF/25VB9,Q0   Q0_L2.TXP
+                 Q0_L0.RXP    1  IN1   OUT1  10 Q0_L0.RXP                                                                                                                           Q0_L2.RXN         A13 ,Q0  B24B24PETn2PETn2       PERn2PERn2A26A26PCIE_L2_TXN  C18C18     220nF/25V220nF/25VA9,Q0   Q0_L2.TXN
+                 Q0_L0.RXN    2  IN2   OUT2   9 Q0_L0.RXN                                                                                                                           Q0_L3.RXP         N12 ,Q0  B27B27PETp3PETp3       PERp3PERp3A29A29PCIE_L3_TXP  C77C77     220nF/25V220nF/25VB7,Q0   Q0_L3.TXP
+    GND                       3  GND    GND   8                     GND                                                                                                             Q0_L3.RXN         P11 ,Q0  B28B28PETn3PETn3       PERn3PERn3A30A30PCIE_L3_TXNC192C192     220nF/25V220nF/25VA7,Q0   Q0_L3.TXN
+                 Q0_L1.RXP    4  IN3   OUT3   7 Q0_L1.RXP                                                                            Q0_L2.TXP
+                 Q0_L1.RXN    5  IN4   OUT4   6 Q0_L1.RXN                                                         {Q0_DAT2}          Q0_L2.TXN
+                                                                                                                                     Q0_L2.RXP                                                                                     J9J9
+                                    U14                                                                                              Q0_L2.RXN                                                                                     Bus_PCI_Express_x4Bus_PCI_Express_x4
+
+                               RCLAMP0524P                                                                                                                                                                                    GNDGND
+C              PCIE_L3_TXN    1  IN1   OUT1  10 PCIE_L3_TXN                                                                                                                                                                                                                                                                      C
+               PCIE_L3_TXP    2  IN2   OUT2   9 PCIE_L3_TXP                                                                                                                                  +3V3+3V3
+    GND                       3  GND    GND   8                     GND                                                                                                                                          +3.3V       +3.3V+3.3V
+               PCIE_L2_TXN    4  IN3   OUT3   7 PCIE_L2_TXN                                                                          Q0_L3.TXP                                                    R41R41
+               PCIE_L2_TXP    5  IN4   OUT4   6 PCIE_L2_TXP                                                       {Q0_DAT3}          Q0_L3.TXN                                                    5.1K/1%5.1K/1%                  R43R43
+                                                                                                                                     Q0_L3.RXP                                     PCIE_PE~{RST}                                  3.3K/1%3.3K/1%     PCIE_PRSNT1      R3         0R/5%           PCIE_PRSNT2_X1
+                                    U17                                                                                              Q0_L3.RXN                                                                                      LED7LED7
+                               RCLAMP0524P                                                                                                                                                        R42R42                            OrangeOrange                      R4         0R/5%           PCIE_PRSNT2_X4
+                 Q0_L2.RXP    1  IN1   OUT1  10 Q0_L2.RXP                                                                                                                                         5.1K/1%5.1K/1%
+                 Q0_L2.RXN    2  IN2   OUT2   9 Q0_L2.RXN                                                                                                                                                      PWR_FLAG       GNDGND
+    GND                       3  GND    GND   8                     GND                                         {PCIE_CRTL}                   PCIE.~{WAKE}                                    GNDGND
+                 Q0_L3.RXP    4  IN3   OUT3   7 Q0_L3.RXP                                                                                       PCIE.~{RST}
+                 Q0_L3.RXN    5  IN4   OUT4   6 Q0_L3.RXN
+
+                                                                                                                                             U31U31
+                 PCIE_~{WAKE}D9D9        LXES15AAA1-153LXES15AAA1-153                                                                      CH213KCH213K
+                PCIE_PE~{RST}D35D35      LXES15AAA1-153LXES15AAA1-153GNDGND                                                            5.5V,5.5V,500mA500mA
+                                                                   GNDGND                                                                  C27459C27459
+
+                                                                                                                        +3.3V+3.3V    33  VIVI    VOVO 22       +3V3+3V3                           Shenzhen      Sipeed     Technology       Co,Ltd.
+                                                                                                                                                                                                   Sheet:    /FPGA_PCIE/
+D                                                                                                                                                                                                  File:  PCIE_sch.kicad_sch                                                                                                     D
+                                                                                                                                                                                                   Title:      TANG_MEGA-138K-Pro_Dock-4071f_Schematics
+                                                                                                                                             GNDGND                                                Size:   A4                Date:   2025-03-25                                                        Rev:   1.5
+                                                                                                                                                                                                   KiCad    E.D.A.   9.0.1                                                                             Id: 7/19
+                            1                                                          2                                                         3                                                         4                                                          5                                                         6

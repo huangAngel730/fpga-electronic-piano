@@ -1,0 +1,76 @@
+                           1                                                        2                                                       3                                                       4                                                       5                                                        6
+
+                                                                                                                                FPGA-Audio
+
+
+                      STEREO         DAC                                                                                                                                              AUDIO        POWER                               PWR_FLAG
+A                                                         U6                                                                                                                                                                                                                                                         A
+                                                      PT8211-S                                                                                                                                                                 U33U33
+                            I2S_BCLK     E22 ,5  1                   8       HP_RCH                                                                                                                                       LN6206P332LN6206P332
+                            I2S_LRCK     F24 ,4  2 BCK         RCH   7                                                                                                                                     GND           11 GNDGND
+          {I2S_OUT}         I2S_DIN      G24 ,4  3 WS           NC   6       HP_LCH        C175C175                                                                                                                                VINVIN33  5V0A
+                                                   DIN         LCH                      100nF/25V100nF/25V                                                                 3V3A                                          22                                           C183C183         C186C186+5V+5V
+                                  GND            4 GND         VDD   5    3V3A                      GNDGND                                                   PWR_FLAGPWR_FLAG                       C178C178          C180C180VOUTVOUT            FB16FB16            100nF/25V100nF/25V10uF/16V10uF/16V
+
+                                                                                                    GNDGND                                                                       FB10FB10           100nF/25V100nF/25V22uF/10V22uF/10V   UPZ1005D121-1R3TFUPZ1005D121-1R3TF
+                                                                                                                                                                        UPZ1005D121-1R3TFUPZ1005D121-1R3TF                                                       GNDGND           GNDGND
+                                                                                            C23C23                                                                                              GNDGND           GNDGND        FB17FB17
+                                                                                        22uF/10V22uF/10V                                                                                                               MPZ2012S221AT000MPZ2012S221AT000
+
+                                                                                                                                                                                                                      GNDGND            GNDAGNDA
+
+
+
+                      LOW-PASS             FILTER
+                                                                                                                                                                                      HEADPHONE              AMP.                               5V0A
+                                                                                                                                                                                                                                                        C181C181  100nF/25V100nF/25VGNDAGNDA
+B                                                                                                                                                                                                                              U32                                                                                   B
+                                                                                                                                                                                                                            XPT4809                     C182C182  22uF/10V22uF/10VGNDAGNDA
+                                          GNDA                5V0A                                                                                  HP_OUTL    C176        22uF/10V                                   1  OUTA        VDD  8
+                                                                    C171C171  100nF/25V100nF/25VGNDAGNDA                                                                                R242R242      22K/1%22K/1%    2  INA        OUTB  7                   AMP_OUTR   C112        22uF/10V        HP_OUTR
+                                                                                                                                                    HP_LCHU    C177        470nF/25V    R243R243      22K/1%22K/1%    3  BYP         INB  6      R246R246      22K/1%22K/1%
+                                                C21                 C172C172  22uF/10V22uF/10VGNDAGNDA                                                                           5V0A   R244R244     100K/1%100K/1%   4  GND          EN  5      R247R247      22K/1%22K/1%C185     470nF/25V       HP_RCHU
+                                                470pF/25V                                                                                                                               R245R245     110K/1%110K/1%                              R248R248     100K/1%100K/1%                   H17 ,5   PA_EN
+
+                 R238             R240                                                                                                                                                   C179         4.7uF/6.3V
+     HP_LCH    5.1K/1%          5.1K/1%                  11               U8U8
+                                                            ++          44LMV321LMV321 HP_LCHU                                                                               GNDA
+
+                                                         33 --
+
+                                  C169                                                                                                                                           HEADPHONE             JACK       3.5MM        CTIA                              SPEAKER          CONN.        R-CH
+                               10nF/50V
+                                                           GNDAGNDA                                                                                                                                                                                                                 GNDAGNDA   11     J30J30
+
+                                                                                                                                                                                      22  MICMIC                                                AMP_OUTC24          22uF/10V   SPK_AUDIO       22
+                                                                                                                                                                        HP_OUTR                                                                                                                       Conn_01x02Conn_01x02
+                                                                                                                                                                                      44  RR
+
+                                                                                                                                                                                      66  R_DETR_DET
+C                                                                                                                                                                       HP_DETL       77  L_DETL_DET                                                                U20A                              3V3A           C
+                                                                                                                                        GNDAGNDA R264R264     10K/5%10K/5%HP_OUTL     55  LL                                                                      BL1551
+
+                                                                                                                                                                                      33  GNDGND
+                                          GNDA                5V0A                                                                                                        GNDAGNDA                                                                                           3   AMP_OUT
+                                                                    C173C173  100nF/25V100nF/25VGNDAGNDA                                                                                              PJ-342PJ-342                     3V3A       AMP_OUTR    4
+                                                                                                                                                                                                      J29J29                                                                 1                              U20BU20B
+                                                C22                 C174C174  22uF/10V22uF/10V                                                                                               MIC      G      R       L              R177R177    R176R176                                                    BL1551BL1551
+                                                470pF/25V                                   GNDAGNDA                                                                                                                            100K/1%100K/1%1.5K/5%1.5K/5%
+                                                                                                                                                                                                                                 HP_DETL
+                 R239             R241
+     HP_RCH    5.1K/1%          5.1K/1%                  11               U23U23                                                                                                                                                                                      R263
+                                                            ++          44LMV321LMV321 HP_RCHU                                                                    When   the  jack is  unpluged,  L/R_DET    is connected   to L/R.                        HP_OUTR    0R/5% SPK_AUDIO                    GNDAGNDA
+
+                                                         33 --
+
+                                  C170
+                               10nF/50V
+                                                           GNDAGNDA
+                                                                                                                                                                                            Update    notes:   Added    DC   bias   to  the  AUDIO_OUTR       network    to  work   with   analog    switches.
+                                                                                                                                                                                            Shenzhen      Sipeed    Technology      Co,Ltd.
+                                                                                                                                                                                            Sheet:    /FPGA_AUDIO/
+D                                                                                                                                                                                           File:  DAC+PA.kicad_sch                                                                                                  D
+                                                                                                                                                                                            Title:     TANG_MEGA-138K-Pro_Dock-4071f_Schematics
+                                                                                                                                                                                            Size:   A4               Date:   2025-03-25                                                     Rev:   1.5
+                                                                                                                                                                                            KiCad    E.D.A.   9.0.1                                                                         Id:  18/19
+                           1                                                        2                                                       3                                                       4                                                       5                                                        6

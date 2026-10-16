@@ -1,0 +1,77 @@
+                           1                                                       2                                                      3                                                       4                                                       5                                                       6
+
+                                                                                                                                             DVP-CAMERA
+
+
+
+
+
+
+A                                                                                                                                                                                                                                                                                                                 A
+
+
+
+                                                                                                                                                                                       J17J17
+                                                                                                                                                                                  11    NCNC
+                                                                                                         GND                       R178R178  0R/5%0R/5%                           22    AGNDAGND
+                                                                                             {MUX_TWI5}          MUX_TWI5.SDA     R172R172  0R/5%0R/5% K26 ,3DVP_SBDA             33    SIO_DSIO_D            TWI_MUX_CFG:          SEL[0..2]=1,0,1
+                                                                                                                                                                      +3V0+3V0    44    AVDD3AVDD3
+                                                                                                                 MUX_TWI5.SCL     R171R171  0R/5%0R/5% K25 ,3 DVP_SBCL            55    SIO_CSIO_C            {N19,3}:      SEL0=1
+                                                                                                                 DVP_~{RST}    10K/5%10K/5%  R167R167  F17 ,5 DVP_RSTN            66    RESETRESET            {P19,3}:      SEL1=0
+                                                                                              {DVP_CAM}                                                G17 ,5 DVP_VSYNC           77    VSYNCVSYNC            {P26,3}:      SEL2=1
+                                                                                                                 DVP_~{PWDN}   10K/5%        R168      D16 ,5 DVP_PWDN            88    PWDNPWDN
+                                                                                                                                                       E16 ,5 DVP_HSYNC           99    HSYNCHSYNC
+                                                                                                                                                                     +1V5+1V5     1010  DVDDDVDD
+                                                                                                                                            +3V0                                  1111  DOVDDDOVDD
+                                                                                                                                                       B17 ,5 DVP_D7              1212  D7D7
+                                                                                                                                                       C17 ,5 DVP_MCLK            1313  MCLKMCLK
+                                                                                                                                                       C18 ,5 DVP_D6              1414  D6D6
+                                                                                                                                             GND                                  1515  GNDGND
+                                                                                                                                                       D18 ,5 DVP_D5              1616  D5D5
+B                                                                                                                                                      D20 ,5 DVP_PCLK            1717  PCLKPCLK                                                                                                                  B
+                                                                                                                                                       E20 ,5 DVP_D4              1818  D4D4
+                                                                                                                                                       D21 ,5 DVP_D0              1919  D0D0
+                                                                                                                                                       E21 ,5 DVP_D3              2020  D3D3
+                                                                                                                                                       A22 ,4 DVP_D1              2121  D1D1
+                                                                                                                                                       B22 ,4 DVP_D2              2222  D2D2
+                                                                                                                                                                                  2323  Y1/AFVCCY1/AFVCC
+                                                                                                                                                                                  2424  Y0/AFGNDY0/AFGND
+
+                                                                                                                 MUX_TWI5.SDA     R10R10    2.2K/5%2.2K/5%  +3V0                 MPMP   GNDGND
+                                                                                                                 MUX_TWI5.SCL     R11R11    2.2K/5%2.2K/5%             GNDGND    MPMP
+                                                                                                                                                                       GNDGND           GNDGND
+
+                                                                                                                                                                                       FPC_24PFPC_24P
+
+                                                                                                                                                                       U21
+                                                                                                                                     +5V           FB11FB11       LN6206P302         PWR_FLAGPWR_FLAG+3V0+3V0
+                                                                                                                +3V0+3V0                          0R/5%0R/5%             VOUT  2
+                                                                                                                                                                 3  VIN                C120C120         C122C122
+                                                                                                                      C114C114            C118C118                        GND  1       47uF/10V47uF/10V 100nF/25V100nF/25V
+C                                                                                                                     100nF/25V100nF/25V  22uF/10V22uF/10V                                                                                                                                                        C
+
+                                                                                                                 GNDGND              GNDGND                                       GND              GND
+                                                                                                                                                                       U22
+                                                                                                                                    +3V3           FB12FB12       LN6206P152         PWR_FLAGPWR_FLAG+1V5+1V5
+                                                                                                                 +3V3+3V3                         0R/5%0R/5%             VOUT  2
+                                                                                                                                                                 3  VIN                C121C121         C123C123
+                                                                                                                      C113C113            C119C119                        GND  1       47uF/10V47uF/10V 100nF/25V100nF/25V
+                                                                                                                      100nF/25V100nF/25V  22uF/10V22uF/10V
+
+                                                                                                                 GNDGND              GNDGND                                       GND              GND
+
+
+
+
+
+
+
+
+
+                                                                                                                                                                                          Shenzhen      Sipeed    Technology      Co,Ltd.
+                                                                                                                                                                                          Sheet:    /DVP_CAMERA/
+D                                                                                                                                                                                         File:  DVP.kicad_sch                                                                                                    D
+                                                                                                                                                                                          Title:     TANG_MEGA-138K-Pro_Dock-4071f_Schematics
+                                                                                                                                                                                          Size:   A4               Date:   2025-03-25                                                    Rev:   1.5
+                                                                                                                                                                                          KiCad    E.D.A.  9.0.1                                                                         Id:  12/19
+                           1                                                       2                                                      3                                                       4                                                       5                                                       6
