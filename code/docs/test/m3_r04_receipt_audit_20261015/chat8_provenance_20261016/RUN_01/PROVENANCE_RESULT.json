@@ -1,0 +1,47 @@
+{
+  "status": "PROVENANCE_BYTE_CHAIN_CONSISTENT_LIMITED",
+  "level": "L0_STATIC_IDENTITY_PLUS_L1_SOFTWARE_READ_ONLY_AUDIT",
+  "a": {
+    "receipt_sha256": "1516a35e6a5852164866aa729f8897ca5a668a4308f8e1ce60e91fa994211dbc",
+    "source_files": 25,
+    "staged_inputs": 90,
+    "probe_calls": 3,
+    "probe_streams": 6,
+    "functional_calls": 3,
+    "functional_streams": 6,
+    "capture_sha256": "a2509a2b5555437ff8ee1da4799e8210ad80e95a058881a5d26111a935e5b5d3",
+    "capture_ticks": 253456,
+    "input_sha256": "d001cac94d1520c42b43bcb33ca079c2f1d815c1205deb4a2d87005fe143038b",
+    "input_ticks": 253456,
+    "archive_sha256": "e0e1d77840c353256bbbea18178a198367f234a19bc86f3cbe3fde2688938645",
+    "manifest_members": 161,
+    "zip_members": 162
+  },
+  "c": {
+    "run_receipt_sha256": "273bb3b1ccd566b2992d7d4ea7727e195878c705c9d5208dfbae51797f958deb",
+    "result_sha256": "ec8e03710c18ce6eda50cece7689578bd2ec58bbbddb212b87b68866621eaf98",
+    "producer_receipt_sha256": "1516a35e6a5852164866aa729f8897ca5a668a4308f8e1ce60e91fa994211dbc",
+    "capture_sha256": "a2509a2b5555437ff8ee1da4799e8210ad80e95a058881a5d26111a935e5b5d3",
+    "consumed_ticks": 253456,
+    "archive_sha256": "e894e81afa9fae37b71b52c245a11cfbe1fc4c617720728d23bc6acbf7952dd9",
+    "manifest_members": 235,
+    "zip_members": 236
+  },
+  "cross_binding": {
+    "producer_receipt": "EXACT",
+    "capture": "EXACT",
+    "tick_count": "EXACT_253456",
+    "consumer_command": "EXACT",
+    "consumer_result": "BOUND_BY_NIGHT_RECEIPT_AND_SEAL"
+  },
+  "gaps": [
+    "A_CONSUMPTION_MARKER_BINDS_PROCESS_CREATION_AND_PREFLIGHT_BUT_NOT_FINAL_RECEIPT_SHA",
+    "C_CHILD_RUN_RECEIPT_BINDS_COMMAND_STREAMS_AND_SOURCES_BUT_RESULT_SHA_IS_BOUND_BY_NIGHT_RECEIPT_AND_SEAL",
+    "DYNAMIC_LOADED_MODELSIM_DEPENDENCIES_UNKNOWN_NOT_MEASURED",
+    "SELF_GENERATED_RECEIPTS_AND_MANIFESTS_DO_NOT_INDEPENDENTLY_AUTHENTICATE_HISTORICAL_PROCESS_EXECUTION",
+    "FIRST_VALID_STARTUP_CLIP_ENDPOINTS_AND_ANALOG_BOARD_RESULTS_REMAIN_OUT_OF_SCOPE"
+  ],
+  "mathematics_reviewed": false,
+  "new_rtl_or_eda_invocations": 0,
+  "board_release_allowed": false
+}
