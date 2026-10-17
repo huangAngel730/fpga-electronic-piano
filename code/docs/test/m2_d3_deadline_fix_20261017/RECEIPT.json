@@ -1,0 +1,2389 @@
+{
+  "status": "PASS",
+  "scope_result": "24_TARGETED_AND_OLD_BUG_REPRODUCED",
+  "exit_code": 0,
+  "started_utc": "2026-10-17T06:25:57.026522+00:00",
+  "finished_utc": "2026-10-17T06:26:05.368635+00:00",
+  "elapsed_seconds": 8.3402246000187,
+  "level": "L1_SYNTHETIC_SOFTWARE_DEADLINE_ONLY",
+  "new_cases": 24,
+  "new_positive": 8,
+  "new_rejections": 16,
+  "baseline_known_bug": 1,
+  "actual_cli_launches": 25,
+  "group_timeout_seconds": 90.0,
+  "case_timeout_seconds": 5.0,
+  "sources_unchanged": true,
+  "harness_failure": null,
+  "pro_dut_pass": false,
+  "board_release_allowed": false,
+  "results": [
+    {
+      "name": "00_old_original_counterexample",
+      "expected_exit_code": 0,
+      "expected_first_failure": null,
+      "baseline_known_bug": true,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\before_ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\before_ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\00_old_original_counterexample\\inputs\\manifest.json",
+        "--sha256",
+        "eaf23f79728c72e0e9dd8fca12c49815ebd11032d0834c6e75cba606f57ec3b9"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\00_old_original_counterexample\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\00_old_original_counterexample\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\00_old_original_counterexample\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "eaf23f79728c72e0e9dd8fca12c49815ebd11032d0834c6e75cba606f57ec3b9"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\00_old_original_counterexample\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\00_old_original_counterexample\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\00_old_original_counterexample\\inputs\\trace.jsonl",
+          "bytes": 1642,
+          "sha256": "95e0f822554349e1a3a7dd6274a8688547e7d34f1ca8a23cffb26dfe037709aa"
+        }
+      },
+      "started_utc": "2026-10-17T06:25:58.621738+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:25:58.966849+00:00",
+      "elapsed_seconds": 0.34393529998487793,
+      "actual_exit_code": 0,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\00_old_original_counterexample\\stdout.raw",
+        "bytes": 1101,
+        "sha256": "6c8d0ea5ad49e14f9c68106cf57b8cb0704eed61d29d1f6eb97f8f0ce39257ab"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\00_old_original_counterexample\\stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual_json": {
+        "status": "INTAKE_FIXTURE_PASS",
+        "level": "L1",
+        "board_release_allowed": false,
+        "pro_dut_pass": false,
+        "provenance": "SYNTHETIC_FIXTURE",
+        "manifest_sha256": "eaf23f79728c72e0e9dd8fca12c49815ebd11032d0834c6e75cba606f57ec3b9",
+        "artifacts": [
+          {
+            "role": "source",
+            "path": "source.txt",
+            "bytes": 58,
+            "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+          },
+          {
+            "role": "rom",
+            "path": "rom.txt",
+            "bytes": 58,
+            "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+          },
+          {
+            "role": "contract",
+            "path": "contract.json",
+            "bytes": 190,
+            "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+          },
+          {
+            "role": "calendar",
+            "path": "calendar.json",
+            "bytes": 285,
+            "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+          },
+          {
+            "role": "trace",
+            "path": "trace.jsonl",
+            "bytes": 1642,
+            "sha256": "95e0f822554349e1a3a7dd6274a8688547e7d34f1ca8a23cffb26dfe037709aa"
+          }
+        ],
+        "consumed": 1,
+        "frame_gaps": [
+          833,
+          834
+        ],
+        "legacy_decoder_sha256": "da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb",
+        "real_trace_status": "PENDING_PRO_SOURCE_OR_TRACE"
+      },
+      "actual_first_failure": null,
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "KNOWN_BUG_REPRODUCED"
+    },
+    {
+      "name": "normal_consume_age833",
+      "expected_exit_code": 0,
+      "expected_first_failure": null,
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\normal_consume_age833\\inputs\\manifest.json",
+        "--sha256",
+        "28c28dc52d96d895d870e8e85ee677cc49e1f54b6490b0bdc58904e77f87c688"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\normal_consume_age833\\inputs\\calendar.json",
+          "bytes": 192,
+          "sha256": "e1068a70e35150d5dd142bb116a4ae61bca521e15d517eaa6539805a95bf4d6f"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\normal_consume_age833\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\normal_consume_age833\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "28c28dc52d96d895d870e8e85ee677cc49e1f54b6490b0bdc58904e77f87c688"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\normal_consume_age833\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\normal_consume_age833\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\normal_consume_age833\\inputs\\trace.jsonl",
+          "bytes": 1013,
+          "sha256": "b863a3e7096c44884f0546b3c2864316bc479ca26088fa169912614d247949d8"
+        }
+      },
+      "started_utc": "2026-10-17T06:25:59.004844+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:25:59.225386+00:00",
+      "elapsed_seconds": 0.2188142000231892,
+      "actual_exit_code": 0,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\normal_consume_age833\\stdout.raw",
+        "bytes": 1096,
+        "sha256": "2e1f1a9b3f91b7fd0122ccc5a08e914a107bd2752a63d38bb52b253808a16c08"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\normal_consume_age833\\stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual_json": {
+        "status": "INTAKE_FIXTURE_PASS",
+        "level": "L1",
+        "board_release_allowed": false,
+        "pro_dut_pass": false,
+        "provenance": "SYNTHETIC_FIXTURE",
+        "manifest_sha256": "28c28dc52d96d895d870e8e85ee677cc49e1f54b6490b0bdc58904e77f87c688",
+        "artifacts": [
+          {
+            "role": "source",
+            "path": "source.txt",
+            "bytes": 58,
+            "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+          },
+          {
+            "role": "rom",
+            "path": "rom.txt",
+            "bytes": 58,
+            "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+          },
+          {
+            "role": "contract",
+            "path": "contract.json",
+            "bytes": 190,
+            "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+          },
+          {
+            "role": "calendar",
+            "path": "calendar.json",
+            "bytes": 192,
+            "sha256": "e1068a70e35150d5dd142bb116a4ae61bca521e15d517eaa6539805a95bf4d6f"
+          },
+          {
+            "role": "trace",
+            "path": "trace.jsonl",
+            "bytes": 1013,
+            "sha256": "b863a3e7096c44884f0546b3c2864316bc479ca26088fa169912614d247949d8"
+          }
+        ],
+        "consumed": 1,
+        "frame_gaps": [
+          833
+        ],
+        "legacy_decoder_sha256": "da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb",
+        "real_trace_status": "PENDING_PRO_SOURCE_OR_TRACE"
+      },
+      "actual_first_failure": null,
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "normal_consume_age834",
+      "expected_exit_code": 0,
+      "expected_first_failure": null,
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\normal_consume_age834\\inputs\\manifest.json",
+        "--sha256",
+        "781bea7bed9911d55774d8079a27fe451521e382b9b7a8214283326aac0733af"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\normal_consume_age834\\inputs\\calendar.json",
+          "bytes": 192,
+          "sha256": "e1068a70e35150d5dd142bb116a4ae61bca521e15d517eaa6539805a95bf4d6f"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\normal_consume_age834\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\normal_consume_age834\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "781bea7bed9911d55774d8079a27fe451521e382b9b7a8214283326aac0733af"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\normal_consume_age834\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\normal_consume_age834\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\normal_consume_age834\\inputs\\trace.jsonl",
+          "bytes": 1169,
+          "sha256": "29676bc01a2ef290c753c8529d0ad0690c00de57b08f6e8a9603e67892b93f2f"
+        }
+      },
+      "started_utc": "2026-10-17T06:25:59.271757+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:25:59.459998+00:00",
+      "elapsed_seconds": 0.18774470000062138,
+      "actual_exit_code": 0,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\normal_consume_age834\\stdout.raw",
+        "bytes": 1096,
+        "sha256": "73e45fa5eb416108baa52f8eede73cf0b77e319b65ddf062a233fa3d26e1c063"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\normal_consume_age834\\stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual_json": {
+        "status": "INTAKE_FIXTURE_PASS",
+        "level": "L1",
+        "board_release_allowed": false,
+        "pro_dut_pass": false,
+        "provenance": "SYNTHETIC_FIXTURE",
+        "manifest_sha256": "781bea7bed9911d55774d8079a27fe451521e382b9b7a8214283326aac0733af",
+        "artifacts": [
+          {
+            "role": "source",
+            "path": "source.txt",
+            "bytes": 58,
+            "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+          },
+          {
+            "role": "rom",
+            "path": "rom.txt",
+            "bytes": 58,
+            "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+          },
+          {
+            "role": "contract",
+            "path": "contract.json",
+            "bytes": 190,
+            "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+          },
+          {
+            "role": "calendar",
+            "path": "calendar.json",
+            "bytes": 192,
+            "sha256": "e1068a70e35150d5dd142bb116a4ae61bca521e15d517eaa6539805a95bf4d6f"
+          },
+          {
+            "role": "trace",
+            "path": "trace.jsonl",
+            "bytes": 1169,
+            "sha256": "29676bc01a2ef290c753c8529d0ad0690c00de57b08f6e8a9603e67892b93f2f"
+          }
+        ],
+        "consumed": 1,
+        "frame_gaps": [
+          834
+        ],
+        "legacy_decoder_sha256": "da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb",
+        "real_trace_status": "PENDING_PRO_SOURCE_OR_TRACE"
+      },
+      "actual_first_failure": null,
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "cancel832_requested",
+      "expected_exit_code": 0,
+      "expected_first_failure": null,
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_requested\\inputs\\manifest.json",
+        "--sha256",
+        "c0daf238eeba337351f8ab956639510926a0cdc93580bf26c2929497e2fba855"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_requested\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_requested\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_requested\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "c0daf238eeba337351f8ab956639510926a0cdc93580bf26c2929497e2fba855"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_requested\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_requested\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_requested\\inputs\\trace.jsonl",
+          "bytes": 1209,
+          "sha256": "f87e310b840f2696ece2c1ef65b36bd17d2d062aa6d92eeb8240ad2c15afcd64"
+        }
+      },
+      "started_utc": "2026-10-17T06:25:59.498202+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:25:59.718671+00:00",
+      "elapsed_seconds": 0.21994189999531955,
+      "actual_exit_code": 0,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_requested\\stdout.raw",
+        "bytes": 1101,
+        "sha256": "406a6b8a5b8d0da20e5c67254cc844bc8e92fd5275868ad38051a21aa87229d8"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_requested\\stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual_json": {
+        "status": "INTAKE_FIXTURE_PASS",
+        "level": "L1",
+        "board_release_allowed": false,
+        "pro_dut_pass": false,
+        "provenance": "SYNTHETIC_FIXTURE",
+        "manifest_sha256": "c0daf238eeba337351f8ab956639510926a0cdc93580bf26c2929497e2fba855",
+        "artifacts": [
+          {
+            "role": "source",
+            "path": "source.txt",
+            "bytes": 58,
+            "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+          },
+          {
+            "role": "rom",
+            "path": "rom.txt",
+            "bytes": 58,
+            "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+          },
+          {
+            "role": "contract",
+            "path": "contract.json",
+            "bytes": 190,
+            "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+          },
+          {
+            "role": "calendar",
+            "path": "calendar.json",
+            "bytes": 285,
+            "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+          },
+          {
+            "role": "trace",
+            "path": "trace.jsonl",
+            "bytes": 1209,
+            "sha256": "f87e310b840f2696ece2c1ef65b36bd17d2d062aa6d92eeb8240ad2c15afcd64"
+          }
+        ],
+        "consumed": 1,
+        "frame_gaps": [
+          833,
+          834
+        ],
+        "legacy_decoder_sha256": "da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb",
+        "real_trace_status": "PENDING_PRO_SOURCE_OR_TRACE"
+      },
+      "actual_first_failure": null,
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "reset832_requested",
+      "expected_exit_code": 0,
+      "expected_first_failure": null,
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_requested\\inputs\\manifest.json",
+        "--sha256",
+        "c40a03f2d061c48da6f95d992e99d214a621fb688294b35110aa508cb50d8df6"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_requested\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_requested\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_requested\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "c40a03f2d061c48da6f95d992e99d214a621fb688294b35110aa508cb50d8df6"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_requested\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_requested\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_requested\\inputs\\trace.jsonl",
+          "bytes": 1195,
+          "sha256": "0a32606b7921d1431b795f71e7d5d47e874e6f7679cefbb48fee15d34d8f9845"
+        }
+      },
+      "started_utc": "2026-10-17T06:25:59.749740+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:25:59.954137+00:00",
+      "elapsed_seconds": 0.2031598000030499,
+      "actual_exit_code": 0,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_requested\\stdout.raw",
+        "bytes": 1101,
+        "sha256": "992cbf3b000e78862bc87d38cca8b66fea98b456e6dff9e6248d1604e517a8e3"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_requested\\stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual_json": {
+        "status": "INTAKE_FIXTURE_PASS",
+        "level": "L1",
+        "board_release_allowed": false,
+        "pro_dut_pass": false,
+        "provenance": "SYNTHETIC_FIXTURE",
+        "manifest_sha256": "c40a03f2d061c48da6f95d992e99d214a621fb688294b35110aa508cb50d8df6",
+        "artifacts": [
+          {
+            "role": "source",
+            "path": "source.txt",
+            "bytes": 58,
+            "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+          },
+          {
+            "role": "rom",
+            "path": "rom.txt",
+            "bytes": 58,
+            "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+          },
+          {
+            "role": "contract",
+            "path": "contract.json",
+            "bytes": 190,
+            "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+          },
+          {
+            "role": "calendar",
+            "path": "calendar.json",
+            "bytes": 285,
+            "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+          },
+          {
+            "role": "trace",
+            "path": "trace.jsonl",
+            "bytes": 1195,
+            "sha256": "0a32606b7921d1431b795f71e7d5d47e874e6f7679cefbb48fee15d34d8f9845"
+          }
+        ],
+        "consumed": 1,
+        "frame_gaps": [
+          833,
+          834
+        ],
+        "legacy_decoder_sha256": "da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb",
+        "real_trace_status": "PENDING_PRO_SOURCE_OR_TRACE"
+      },
+      "actual_first_failure": null,
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "cancel832_accepted",
+      "expected_exit_code": 0,
+      "expected_first_failure": null,
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_accepted\\inputs\\manifest.json",
+        "--sha256",
+        "f467e122734a987801ac19a06174db0edf6600d75320d712a35af6840e448dc0"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_accepted\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_accepted\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_accepted\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "f467e122734a987801ac19a06174db0edf6600d75320d712a35af6840e448dc0"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_accepted\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_accepted\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_accepted\\inputs\\trace.jsonl",
+          "bytes": 1560,
+          "sha256": "1c547a5f6bc49c74c9a2d4234a45c8887187a4905171690e7fe10f37a23768a6"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:00.009283+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:00.275257+00:00",
+      "elapsed_seconds": 0.26420380000490695,
+      "actual_exit_code": 0,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_accepted\\stdout.raw",
+        "bytes": 1101,
+        "sha256": "61239b6728f91f1af53f1b40c7a7d6ebf4287fb2f2a01a4cb1f4d60a2a07523a"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_accepted\\stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual_json": {
+        "status": "INTAKE_FIXTURE_PASS",
+        "level": "L1",
+        "board_release_allowed": false,
+        "pro_dut_pass": false,
+        "provenance": "SYNTHETIC_FIXTURE",
+        "manifest_sha256": "f467e122734a987801ac19a06174db0edf6600d75320d712a35af6840e448dc0",
+        "artifacts": [
+          {
+            "role": "source",
+            "path": "source.txt",
+            "bytes": 58,
+            "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+          },
+          {
+            "role": "rom",
+            "path": "rom.txt",
+            "bytes": 58,
+            "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+          },
+          {
+            "role": "contract",
+            "path": "contract.json",
+            "bytes": 190,
+            "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+          },
+          {
+            "role": "calendar",
+            "path": "calendar.json",
+            "bytes": 285,
+            "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+          },
+          {
+            "role": "trace",
+            "path": "trace.jsonl",
+            "bytes": 1560,
+            "sha256": "1c547a5f6bc49c74c9a2d4234a45c8887187a4905171690e7fe10f37a23768a6"
+          }
+        ],
+        "consumed": 1,
+        "frame_gaps": [
+          833,
+          834
+        ],
+        "legacy_decoder_sha256": "da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb",
+        "real_trace_status": "PENDING_PRO_SOURCE_OR_TRACE"
+      },
+      "actual_first_failure": null,
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "reset832_accepted",
+      "expected_exit_code": 0,
+      "expected_first_failure": null,
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_accepted\\inputs\\manifest.json",
+        "--sha256",
+        "1ede2fbd2484cd83e2055a7be9d4abefda31b2e7e6ce2f7cbd90e94d00e1f04d"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_accepted\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_accepted\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_accepted\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "1ede2fbd2484cd83e2055a7be9d4abefda31b2e7e6ce2f7cbd90e94d00e1f04d"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_accepted\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_accepted\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_accepted\\inputs\\trace.jsonl",
+          "bytes": 1546,
+          "sha256": "e8ce0ff2f6a883d4454643eaa9807ab8a3e5cba48819760c041681c6b6b3756c"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:00.315855+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:00.535717+00:00",
+      "elapsed_seconds": 0.21816280001075938,
+      "actual_exit_code": 0,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_accepted\\stdout.raw",
+        "bytes": 1101,
+        "sha256": "201b469d399e1d44b97adb0b8e88168093669dd105a8d088b3f97ffe847af746"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_accepted\\stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual_json": {
+        "status": "INTAKE_FIXTURE_PASS",
+        "level": "L1",
+        "board_release_allowed": false,
+        "pro_dut_pass": false,
+        "provenance": "SYNTHETIC_FIXTURE",
+        "manifest_sha256": "1ede2fbd2484cd83e2055a7be9d4abefda31b2e7e6ce2f7cbd90e94d00e1f04d",
+        "artifacts": [
+          {
+            "role": "source",
+            "path": "source.txt",
+            "bytes": 58,
+            "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+          },
+          {
+            "role": "rom",
+            "path": "rom.txt",
+            "bytes": 58,
+            "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+          },
+          {
+            "role": "contract",
+            "path": "contract.json",
+            "bytes": 190,
+            "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+          },
+          {
+            "role": "calendar",
+            "path": "calendar.json",
+            "bytes": 285,
+            "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+          },
+          {
+            "role": "trace",
+            "path": "trace.jsonl",
+            "bytes": 1546,
+            "sha256": "e8ce0ff2f6a883d4454643eaa9807ab8a3e5cba48819760c041681c6b6b3756c"
+          }
+        ],
+        "consumed": 1,
+        "frame_gaps": [
+          833,
+          834
+        ],
+        "legacy_decoder_sha256": "da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb",
+        "real_trace_status": "PENDING_PRO_SOURCE_OR_TRACE"
+      },
+      "actual_first_failure": null,
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "cancel832_returned",
+      "expected_exit_code": 0,
+      "expected_first_failure": null,
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_returned\\inputs\\manifest.json",
+        "--sha256",
+        "09cb594bf32878cb4ccf40c3073b32a05fc1aa08b9ce496320fe3b1fb93d8532"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_returned\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_returned\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_returned\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "09cb594bf32878cb4ccf40c3073b32a05fc1aa08b9ce496320fe3b1fb93d8532"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_returned\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_returned\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_returned\\inputs\\trace.jsonl",
+          "bytes": 1642,
+          "sha256": "ad7877ec581dba47027c1f424635164748ee8b5bf221c3dd9cfb26e78e1175e2"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:00.597054+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:00.796590+00:00",
+      "elapsed_seconds": 0.1979359000106342,
+      "actual_exit_code": 0,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_returned\\stdout.raw",
+        "bytes": 1101,
+        "sha256": "644f8a68162404ddd5bd58c725cde49f7931bbf946253b64e5b9abc6859acbd6"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel832_returned\\stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual_json": {
+        "status": "INTAKE_FIXTURE_PASS",
+        "level": "L1",
+        "board_release_allowed": false,
+        "pro_dut_pass": false,
+        "provenance": "SYNTHETIC_FIXTURE",
+        "manifest_sha256": "09cb594bf32878cb4ccf40c3073b32a05fc1aa08b9ce496320fe3b1fb93d8532",
+        "artifacts": [
+          {
+            "role": "source",
+            "path": "source.txt",
+            "bytes": 58,
+            "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+          },
+          {
+            "role": "rom",
+            "path": "rom.txt",
+            "bytes": 58,
+            "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+          },
+          {
+            "role": "contract",
+            "path": "contract.json",
+            "bytes": 190,
+            "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+          },
+          {
+            "role": "calendar",
+            "path": "calendar.json",
+            "bytes": 285,
+            "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+          },
+          {
+            "role": "trace",
+            "path": "trace.jsonl",
+            "bytes": 1642,
+            "sha256": "ad7877ec581dba47027c1f424635164748ee8b5bf221c3dd9cfb26e78e1175e2"
+          }
+        ],
+        "consumed": 1,
+        "frame_gaps": [
+          833,
+          834
+        ],
+        "legacy_decoder_sha256": "da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb",
+        "real_trace_status": "PENDING_PRO_SOURCE_OR_TRACE"
+      },
+      "actual_first_failure": null,
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "reset832_returned",
+      "expected_exit_code": 0,
+      "expected_first_failure": null,
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_returned\\inputs\\manifest.json",
+        "--sha256",
+        "cedc9a1a0aaa9004f282cb13e8b683f573c4c2672a97a17dd4e0c1dddba89914"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_returned\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_returned\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_returned\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "cedc9a1a0aaa9004f282cb13e8b683f573c4c2672a97a17dd4e0c1dddba89914"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_returned\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_returned\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_returned\\inputs\\trace.jsonl",
+          "bytes": 1628,
+          "sha256": "216184a1e7ddcd91d33e9ee5ea38ad908963c37996470ce21ae876183dda7f38"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:00.843129+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:01.152022+00:00",
+      "elapsed_seconds": 0.3068135999783408,
+      "actual_exit_code": 0,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_returned\\stdout.raw",
+        "bytes": 1101,
+        "sha256": "715026b4e753f08c75f770eec3ea5b66f634b41eb186acd7a41c13d4c4cf1c5c"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset832_returned\\stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "actual_json": {
+        "status": "INTAKE_FIXTURE_PASS",
+        "level": "L1",
+        "board_release_allowed": false,
+        "pro_dut_pass": false,
+        "provenance": "SYNTHETIC_FIXTURE",
+        "manifest_sha256": "cedc9a1a0aaa9004f282cb13e8b683f573c4c2672a97a17dd4e0c1dddba89914",
+        "artifacts": [
+          {
+            "role": "source",
+            "path": "source.txt",
+            "bytes": 58,
+            "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+          },
+          {
+            "role": "rom",
+            "path": "rom.txt",
+            "bytes": 58,
+            "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+          },
+          {
+            "role": "contract",
+            "path": "contract.json",
+            "bytes": 190,
+            "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+          },
+          {
+            "role": "calendar",
+            "path": "calendar.json",
+            "bytes": 285,
+            "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+          },
+          {
+            "role": "trace",
+            "path": "trace.jsonl",
+            "bytes": 1628,
+            "sha256": "216184a1e7ddcd91d33e9ee5ea38ad908963c37996470ce21ae876183dda7f38"
+          }
+        ],
+        "consumed": 1,
+        "frame_gaps": [
+          833,
+          834
+        ],
+        "legacy_decoder_sha256": "da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb",
+        "real_trace_status": "PENDING_PRO_SOURCE_OR_TRACE"
+      },
+      "actual_first_failure": null,
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "cancel833_requested",
+      "expected_exit_code": 1,
+      "expected_first_failure": "CANCEL_AFTER_UNOBSERVED_DEADLINE",
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_requested\\inputs\\manifest.json",
+        "--sha256",
+        "7d4a6305efa6fb6b896fb1335cf0737c5722a51f56f85cd467f1886ebb11473f"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_requested\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_requested\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_requested\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "7d4a6305efa6fb6b896fb1335cf0737c5722a51f56f85cd467f1886ebb11473f"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_requested\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_requested\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_requested\\inputs\\trace.jsonl",
+          "bytes": 1269,
+          "sha256": "3eddfe9471650cf980fd27bd949d59f91d4e0e381aa2c6b2a7cdecb31553eca7"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:01.223319+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:01.489476+00:00",
+      "elapsed_seconds": 0.26265789999160916,
+      "actual_exit_code": 1,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_requested\\stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_requested\\stderr.raw",
+        "bytes": 130,
+        "sha256": "f820bdd6941f7683672b26c7dcd2420c6f97904a2b3061a92d006a068c3e012e"
+      },
+      "actual_json": {
+        "status": "REJECT",
+        "first_failure": "CANCEL_AFTER_UNOBSERVED_DEADLINE",
+        "pro_dut_pass": false,
+        "board_release_allowed": false
+      },
+      "actual_first_failure": "CANCEL_AFTER_UNOBSERVED_DEADLINE",
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "reset833_requested",
+      "expected_exit_code": 1,
+      "expected_first_failure": "RESET_AFTER_UNOBSERVED_DEADLINE",
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_requested\\inputs\\manifest.json",
+        "--sha256",
+        "f9eac09b84996aadb8ab3c88a931a06e7641bbef9bd68331f83002c590e6ea58"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_requested\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_requested\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_requested\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "f9eac09b84996aadb8ab3c88a931a06e7641bbef9bd68331f83002c590e6ea58"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_requested\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_requested\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_requested\\inputs\\trace.jsonl",
+          "bytes": 1255,
+          "sha256": "77c8086b85157674f10847b00af1782bc0427c8727052f557fef895cac897e02"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:01.543635+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:01.745093+00:00",
+      "elapsed_seconds": 0.199817200016696,
+      "actual_exit_code": 1,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_requested\\stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_requested\\stderr.raw",
+        "bytes": 129,
+        "sha256": "a28a02595364a51b652d1b3e118a6e6964605f1c881b6612f16c0740e3d9d063"
+      },
+      "actual_json": {
+        "status": "REJECT",
+        "first_failure": "RESET_AFTER_UNOBSERVED_DEADLINE",
+        "pro_dut_pass": false,
+        "board_release_allowed": false
+      },
+      "actual_first_failure": "RESET_AFTER_UNOBSERVED_DEADLINE",
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "cancel833_accepted",
+      "expected_exit_code": 1,
+      "expected_first_failure": "CANCEL_AFTER_UNOBSERVED_DEADLINE",
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_accepted\\inputs\\manifest.json",
+        "--sha256",
+        "a6b23937b8257a4fc173ba962ce687b47adf947c3c268c4c7c2a573964ecc1f0"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_accepted\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_accepted\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_accepted\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "a6b23937b8257a4fc173ba962ce687b47adf947c3c268c4c7c2a573964ecc1f0"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_accepted\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_accepted\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_accepted\\inputs\\trace.jsonl",
+          "bytes": 1560,
+          "sha256": "5ff03ddab7f7c938960bf726263b0ccc5c987682bdb9bb06b634497dd3069ec4"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:01.789904+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:01.986506+00:00",
+      "elapsed_seconds": 0.19551960000535473,
+      "actual_exit_code": 1,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_accepted\\stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_accepted\\stderr.raw",
+        "bytes": 130,
+        "sha256": "f820bdd6941f7683672b26c7dcd2420c6f97904a2b3061a92d006a068c3e012e"
+      },
+      "actual_json": {
+        "status": "REJECT",
+        "first_failure": "CANCEL_AFTER_UNOBSERVED_DEADLINE",
+        "pro_dut_pass": false,
+        "board_release_allowed": false
+      },
+      "actual_first_failure": "CANCEL_AFTER_UNOBSERVED_DEADLINE",
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "reset833_accepted",
+      "expected_exit_code": 1,
+      "expected_first_failure": "RESET_AFTER_UNOBSERVED_DEADLINE",
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_accepted\\inputs\\manifest.json",
+        "--sha256",
+        "4fd472bc54bc336ba3a0ab73718c0b115973de11c7d8cd10149e2710d685da0d"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_accepted\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_accepted\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_accepted\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "4fd472bc54bc336ba3a0ab73718c0b115973de11c7d8cd10149e2710d685da0d"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_accepted\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_accepted\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_accepted\\inputs\\trace.jsonl",
+          "bytes": 1546,
+          "sha256": "26e9980710cb2753ac7614455ed000f63d7ea35b4f0335bd37c35a586a58f3da"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:02.031799+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:02.305137+00:00",
+      "elapsed_seconds": 0.27144479998969473,
+      "actual_exit_code": 1,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_accepted\\stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_accepted\\stderr.raw",
+        "bytes": 129,
+        "sha256": "a28a02595364a51b652d1b3e118a6e6964605f1c881b6612f16c0740e3d9d063"
+      },
+      "actual_json": {
+        "status": "REJECT",
+        "first_failure": "RESET_AFTER_UNOBSERVED_DEADLINE",
+        "pro_dut_pass": false,
+        "board_release_allowed": false
+      },
+      "actual_first_failure": "RESET_AFTER_UNOBSERVED_DEADLINE",
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "cancel833_returned",
+      "expected_exit_code": 1,
+      "expected_first_failure": "CANCEL_AFTER_UNOBSERVED_DEADLINE",
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_returned\\inputs\\manifest.json",
+        "--sha256",
+        "8f78d689087afcc64917c5a7267af18e457f3cc92ad63cfa943b90ae244eed6e"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_returned\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_returned\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_returned\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "8f78d689087afcc64917c5a7267af18e457f3cc92ad63cfa943b90ae244eed6e"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_returned\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_returned\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_returned\\inputs\\trace.jsonl",
+          "bytes": 1642,
+          "sha256": "a15f4683cd0e075cea9a0f0935ac2b72361ec6f70334e39bb3e3a28e484756c8"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:02.324856+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:02.552651+00:00",
+      "elapsed_seconds": 0.22691510000731796,
+      "actual_exit_code": 1,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_returned\\stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel833_returned\\stderr.raw",
+        "bytes": 130,
+        "sha256": "f820bdd6941f7683672b26c7dcd2420c6f97904a2b3061a92d006a068c3e012e"
+      },
+      "actual_json": {
+        "status": "REJECT",
+        "first_failure": "CANCEL_AFTER_UNOBSERVED_DEADLINE",
+        "pro_dut_pass": false,
+        "board_release_allowed": false
+      },
+      "actual_first_failure": "CANCEL_AFTER_UNOBSERVED_DEADLINE",
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "reset833_returned",
+      "expected_exit_code": 1,
+      "expected_first_failure": "RESET_AFTER_UNOBSERVED_DEADLINE",
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_returned\\inputs\\manifest.json",
+        "--sha256",
+        "94efaa2564b84a10171eebd5368debf5186dff3ef46b17b92b28e25bb31c7c9d"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_returned\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_returned\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_returned\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "94efaa2564b84a10171eebd5368debf5186dff3ef46b17b92b28e25bb31c7c9d"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_returned\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_returned\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_returned\\inputs\\trace.jsonl",
+          "bytes": 1628,
+          "sha256": "5f40f29f9013152cbfb5252a7cff038c0fafcbc1cc680e39dfb2f0da6172d496"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:02.590313+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:02.779606+00:00",
+      "elapsed_seconds": 0.18856810001307167,
+      "actual_exit_code": 1,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_returned\\stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset833_returned\\stderr.raw",
+        "bytes": 129,
+        "sha256": "a28a02595364a51b652d1b3e118a6e6964605f1c881b6612f16c0740e3d9d063"
+      },
+      "actual_json": {
+        "status": "REJECT",
+        "first_failure": "RESET_AFTER_UNOBSERVED_DEADLINE",
+        "pro_dut_pass": false,
+        "board_release_allowed": false
+      },
+      "actual_first_failure": "RESET_AFTER_UNOBSERVED_DEADLINE",
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "cancel834_accepted",
+      "expected_exit_code": 1,
+      "expected_first_failure": "CANCEL_AFTER_UNOBSERVED_DEADLINE",
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel834_accepted\\inputs\\manifest.json",
+        "--sha256",
+        "01dd304affb9e70e79bf79d8c11753757666ba57ca52431187a55493771c4123"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel834_accepted\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel834_accepted\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel834_accepted\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "01dd304affb9e70e79bf79d8c11753757666ba57ca52431187a55493771c4123"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel834_accepted\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel834_accepted\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel834_accepted\\inputs\\trace.jsonl",
+          "bytes": 1560,
+          "sha256": "87c2feb380872cefcb1bd1cbc825297a2e6fc15f21d0334aeddf56e5d48e469a"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:02.796963+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:03.002078+00:00",
+      "elapsed_seconds": 0.2046314000035636,
+      "actual_exit_code": 1,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel834_accepted\\stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel834_accepted\\stderr.raw",
+        "bytes": 130,
+        "sha256": "f820bdd6941f7683672b26c7dcd2420c6f97904a2b3061a92d006a068c3e012e"
+      },
+      "actual_json": {
+        "status": "REJECT",
+        "first_failure": "CANCEL_AFTER_UNOBSERVED_DEADLINE",
+        "pro_dut_pass": false,
+        "board_release_allowed": false
+      },
+      "actual_first_failure": "CANCEL_AFTER_UNOBSERVED_DEADLINE",
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "reset834_accepted",
+      "expected_exit_code": 1,
+      "expected_first_failure": "RESET_AFTER_UNOBSERVED_DEADLINE",
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset834_accepted\\inputs\\manifest.json",
+        "--sha256",
+        "171fb1f823435f10121c2121006baaa24f26e4f5f36fc8e7b0d93dd10fc38eb6"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset834_accepted\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset834_accepted\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset834_accepted\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "171fb1f823435f10121c2121006baaa24f26e4f5f36fc8e7b0d93dd10fc38eb6"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset834_accepted\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset834_accepted\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset834_accepted\\inputs\\trace.jsonl",
+          "bytes": 1546,
+          "sha256": "fdf5b92013b460ac37cc4ec84ebd5f030a43eda459b9a4f7967bedbc16ddb1d4"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:03.018070+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:03.224709+00:00",
+      "elapsed_seconds": 0.2059847000055015,
+      "actual_exit_code": 1,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset834_accepted\\stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset834_accepted\\stderr.raw",
+        "bytes": 129,
+        "sha256": "a28a02595364a51b652d1b3e118a6e6964605f1c881b6612f16c0740e3d9d063"
+      },
+      "actual_json": {
+        "status": "REJECT",
+        "first_failure": "RESET_AFTER_UNOBSERVED_DEADLINE",
+        "pro_dut_pass": false,
+        "board_release_allowed": false
+      },
+      "actual_first_failure": "RESET_AFTER_UNOBSERVED_DEADLINE",
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "cancel835_returned",
+      "expected_exit_code": 1,
+      "expected_first_failure": "CANCEL_AFTER_UNOBSERVED_DEADLINE",
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel835_returned\\inputs\\manifest.json",
+        "--sha256",
+        "eaf23f79728c72e0e9dd8fca12c49815ebd11032d0834c6e75cba606f57ec3b9"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel835_returned\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel835_returned\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel835_returned\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "eaf23f79728c72e0e9dd8fca12c49815ebd11032d0834c6e75cba606f57ec3b9"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel835_returned\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel835_returned\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel835_returned\\inputs\\trace.jsonl",
+          "bytes": 1642,
+          "sha256": "95e0f822554349e1a3a7dd6274a8688547e7d34f1ca8a23cffb26dfe037709aa"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:03.245657+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:03.494673+00:00",
+      "elapsed_seconds": 0.24804710000171326,
+      "actual_exit_code": 1,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel835_returned\\stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\cancel835_returned\\stderr.raw",
+        "bytes": 130,
+        "sha256": "f820bdd6941f7683672b26c7dcd2420c6f97904a2b3061a92d006a068c3e012e"
+      },
+      "actual_json": {
+        "status": "REJECT",
+        "first_failure": "CANCEL_AFTER_UNOBSERVED_DEADLINE",
+        "pro_dut_pass": false,
+        "board_release_allowed": false
+      },
+      "actual_first_failure": "CANCEL_AFTER_UNOBSERVED_DEADLINE",
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "reset835_returned",
+      "expected_exit_code": 1,
+      "expected_first_failure": "RESET_AFTER_UNOBSERVED_DEADLINE",
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset835_returned\\inputs\\manifest.json",
+        "--sha256",
+        "90663eb35ba8e7153e46249c7d6293bba9c4516ece3acc6a2f1cd0e399987a54"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset835_returned\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset835_returned\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset835_returned\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "90663eb35ba8e7153e46249c7d6293bba9c4516ece3acc6a2f1cd0e399987a54"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset835_returned\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset835_returned\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset835_returned\\inputs\\trace.jsonl",
+          "bytes": 1628,
+          "sha256": "7bc0f8ca6a5cbdbb6f2f8d5f35c3d493281b4395e1dbb292f99277ddb12d9f5b"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:03.541676+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:03.760545+00:00",
+      "elapsed_seconds": 0.21564280000166036,
+      "actual_exit_code": 1,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset835_returned\\stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\reset835_returned\\stderr.raw",
+        "bytes": 129,
+        "sha256": "a28a02595364a51b652d1b3e118a6e6964605f1c881b6612f16c0740e3d9d063"
+      },
+      "actual_json": {
+        "status": "REJECT",
+        "first_failure": "RESET_AFTER_UNOBSERVED_DEADLINE",
+        "pro_dut_pass": false,
+        "board_release_allowed": false
+      },
+      "actual_first_failure": "RESET_AFTER_UNOBSERVED_DEADLINE",
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "return_age833",
+      "expected_exit_code": 1,
+      "expected_first_failure": "RETURN_AFTER_UNOBSERVED_DEADLINE",
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\return_age833\\inputs\\manifest.json",
+        "--sha256",
+        "c8013569a6efdedbb6926cae8cd1f37075d1bdcf19192055b6af2f86fba3e90a"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\return_age833\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\return_age833\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\return_age833\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "c8013569a6efdedbb6926cae8cd1f37075d1bdcf19192055b6af2f86fba3e90a"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\return_age833\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\return_age833\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\return_age833\\inputs\\trace.jsonl",
+          "bytes": 1583,
+          "sha256": "52f132c1e1dc3cfd1fa5880c38dcec4314d62c717af50462b3b156d4c49f92a5"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:03.791386+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:03.983360+00:00",
+      "elapsed_seconds": 0.1910236999974586,
+      "actual_exit_code": 1,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\return_age833\\stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\return_age833\\stderr.raw",
+        "bytes": 130,
+        "sha256": "ae242ae397104b581ec449d84dc329f9a65e85f12230b0b88bcffe06d29836cf"
+      },
+      "actual_json": {
+        "status": "REJECT",
+        "first_failure": "RETURN_AFTER_UNOBSERVED_DEADLINE",
+        "pro_dut_pass": false,
+        "board_release_allowed": false
+      },
+      "actual_first_failure": "RETURN_AFTER_UNOBSERVED_DEADLINE",
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "return_age834",
+      "expected_exit_code": 1,
+      "expected_first_failure": "RETURN_AFTER_UNOBSERVED_DEADLINE",
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\return_age834\\inputs\\manifest.json",
+        "--sha256",
+        "7115bf74a7dc004b03d44498cfa152308044006977e6cbb557ab8cd9140ff432"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\return_age834\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\return_age834\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\return_age834\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "7115bf74a7dc004b03d44498cfa152308044006977e6cbb557ab8cd9140ff432"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\return_age834\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\return_age834\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\return_age834\\inputs\\trace.jsonl",
+          "bytes": 1583,
+          "sha256": "7e65c4c715d1077a7ae90817feff9806ddcc39cae33ef0295baab62b5c6db706"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:04.026198+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:04.262295+00:00",
+      "elapsed_seconds": 0.2343630000250414,
+      "actual_exit_code": 1,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\return_age834\\stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\return_age834\\stderr.raw",
+        "bytes": 130,
+        "sha256": "ae242ae397104b581ec449d84dc329f9a65e85f12230b0b88bcffe06d29836cf"
+      },
+      "actual_json": {
+        "status": "REJECT",
+        "first_failure": "RETURN_AFTER_UNOBSERVED_DEADLINE",
+        "pro_dut_pass": false,
+        "board_release_allowed": false
+      },
+      "actual_first_failure": "RETURN_AFTER_UNOBSERVED_DEADLINE",
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "end835_pending",
+      "expected_exit_code": 1,
+      "expected_first_failure": "UNFINISHED_TRANSACTION",
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\end835_pending\\inputs\\manifest.json",
+        "--sha256",
+        "519cee6c607e4e43722a660d82cbe84cf90061962a5d0536fcb301f7253ac88a"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\end835_pending\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\end835_pending\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\end835_pending\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "519cee6c607e4e43722a660d82cbe84cf90061962a5d0536fcb301f7253ac88a"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\end835_pending\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\end835_pending\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\end835_pending\\inputs\\trace.jsonl",
+          "bytes": 1583,
+          "sha256": "4dff00591066aacb154cd69e5f28bdc550307677926d8417647a3b0091a78fbb"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:04.298579+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:04.512114+00:00",
+      "elapsed_seconds": 0.21229660001699813,
+      "actual_exit_code": 1,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\end835_pending\\stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\end835_pending\\stderr.raw",
+        "bytes": 120,
+        "sha256": "540c4b91b412e02e6bf0ca2e131c2aa2db4113334b1e57b703ffe52a33d68076"
+      },
+      "actual_json": {
+        "status": "REJECT",
+        "first_failure": "UNFINISHED_TRANSACTION",
+        "pro_dut_pass": false,
+        "board_release_allowed": false
+      },
+      "actual_first_failure": "UNFINISHED_TRANSACTION",
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "due_frame_then_cancel",
+      "expected_exit_code": 1,
+      "expected_first_failure": "CANCEL_AFTER_DUE_FRAME",
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_cancel\\inputs\\manifest.json",
+        "--sha256",
+        "b53d9ee78e2c9bc26f1d5d34f226b077a0613506367c990afd50efcb881f31b8"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_cancel\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_cancel\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_cancel\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "b53d9ee78e2c9bc26f1d5d34f226b077a0613506367c990afd50efcb881f31b8"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_cancel\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_cancel\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_cancel\\inputs\\trace.jsonl",
+          "bytes": 1702,
+          "sha256": "4a788de5cbee996346267b7dd98df827f4a7d8121eeaedae10cd8a3f3d9116f3"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:04.552464+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:04.749621+00:00",
+      "elapsed_seconds": 0.19638579999445938,
+      "actual_exit_code": 1,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_cancel\\stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_cancel\\stderr.raw",
+        "bytes": 120,
+        "sha256": "8fd0be3f5608410abbaa312eee610f7cbeee27dacc512740d65cf0b36c73945b"
+      },
+      "actual_json": {
+        "status": "REJECT",
+        "first_failure": "CANCEL_AFTER_DUE_FRAME",
+        "pro_dut_pass": false,
+        "board_release_allowed": false
+      },
+      "actual_first_failure": "CANCEL_AFTER_DUE_FRAME",
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "due_frame_then_reset",
+      "expected_exit_code": 1,
+      "expected_first_failure": "RESET_UNCONSUMED_DUE_FRAME",
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_reset\\inputs\\manifest.json",
+        "--sha256",
+        "368bd07c486023bdeb30b1170226e91bdd19601fc86b5abce15f670292cba893"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_reset\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_reset\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_reset\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "368bd07c486023bdeb30b1170226e91bdd19601fc86b5abce15f670292cba893"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_reset\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_reset\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_reset\\inputs\\trace.jsonl",
+          "bytes": 1688,
+          "sha256": "8c31e38806e35f7e531f9f9ef7d7ffb7c75912a7cbfd26bebdc7089921dccb00"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:04.804818+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:05.039390+00:00",
+      "elapsed_seconds": 0.23307029998977669,
+      "actual_exit_code": 1,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_reset\\stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_reset\\stderr.raw",
+        "bytes": 124,
+        "sha256": "693477d232817453aff19de665f03c044c599c97b151302fda5cfddaffc16cf8"
+      },
+      "actual_json": {
+        "status": "REJECT",
+        "first_failure": "RESET_UNCONSUMED_DUE_FRAME",
+        "pro_dut_pass": false,
+        "board_release_allowed": false
+      },
+      "actual_first_failure": "RESET_UNCONSUMED_DUE_FRAME",
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    },
+    {
+      "name": "due_frame_then_end",
+      "expected_exit_code": 1,
+      "expected_first_failure": "UNFINISHED_TRANSACTION",
+      "baseline_known_bug": false,
+      "source": "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "argv": [
+        "D:\\ProgramData\\anaconda3\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\17\\project_17\\fpga_gowin\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+        "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_end\\inputs\\manifest.json",
+        "--sha256",
+        "e5fa94d756d31fb4f8a07197622825f0928ec5b66ee5e0bed809daad52c589e2"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "inputs": {
+        "calendar.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_end\\inputs\\calendar.json",
+          "bytes": 285,
+          "sha256": "a8a322d2b0a67fd9ae0d32dd6e367958a489b4f7420e5ef21088664341793467"
+        },
+        "contract.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_end\\inputs\\contract.json",
+          "bytes": 190,
+          "sha256": "3ab5be48b23acc8123b7825bac1af95b9aff58046ecce4193622717a1596119d"
+        },
+        "manifest.json": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_end\\inputs\\manifest.json",
+          "bytes": 1033,
+          "sha256": "e5fa94d756d31fb4f8a07197622825f0928ec5b66ee5e0bed809daad52c589e2"
+        },
+        "rom.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_end\\inputs\\rom.txt",
+          "bytes": 58,
+          "sha256": "600a848a2ed54d1e9b753ee6eae3aa6958e1a605a53a7c3ec5d6099521b9c21f"
+        },
+        "source.txt": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_end\\inputs\\source.txt",
+          "bytes": 58,
+          "sha256": "99d75e151d13d08da92217c69d2be6d053b99d8355a44211fcc08a1315036664"
+        },
+        "trace.jsonl": {
+          "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_end\\inputs\\trace.jsonl",
+          "bytes": 1643,
+          "sha256": "23eba3f9e4f8409ee87e7dc7af9ea08f728eb902609b766c28bdf0de3310fbfc"
+        }
+      },
+      "started_utc": "2026-10-17T06:26:05.074417+00:00",
+      "timeout": false,
+      "case_timeout_seconds": 5.0,
+      "group_timeout_seconds": 90.0,
+      "execution_scope": "L1_SYNTHETIC_SOFTWARE_ONLY",
+      "pro_dut_pass": false,
+      "board_release_allowed": false,
+      "finished_utc": "2026-10-17T06:26:05.344046+00:00",
+      "elapsed_seconds": 0.26904929999727756,
+      "actual_exit_code": 1,
+      "stdout": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_end\\stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\17\\project_17\\fpga_gowin\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\ingest_deadline_fix_20261017\\RUN_01\\due_frame_then_end\\stderr.raw",
+        "bytes": 120,
+        "sha256": "540c4b91b412e02e6bf0ca2e131c2aa2db4113334b1e57b703ffe52a33d68076"
+      },
+      "actual_json": {
+        "status": "REJECT",
+        "first_failure": "UNFINISHED_TRANSACTION",
+        "pro_dut_pass": false,
+        "board_release_allowed": false
+      },
+      "actual_first_failure": "UNFINISHED_TRANSACTION",
+      "expectation_met": true,
+      "input_identities_unchanged": true,
+      "status": "PASS"
+    }
+  ]
+}

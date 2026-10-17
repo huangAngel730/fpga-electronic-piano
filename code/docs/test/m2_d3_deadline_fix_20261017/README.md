@@ -1,0 +1,3 @@
+# D3定向修复证据
+
+只限L1合成软件期限拒收。RECEIPT为新一组25CLI，旧反例错误接受不算正例；最终版8合法/16拒收。原始输入/双流及前后源码/工具身份、旧源码和可逆diff在D/ingest_deadline_fix_20261017/M2_D3_DEADLINE_FIX_ORIGINALS_20261017.zip，ARCHIVE_IDENTITY给独立SHA。BASELINE用于保留旧27个D3文件/候选488/他人4脏改动。发布九项门禁及远端SHA另留独立回执。

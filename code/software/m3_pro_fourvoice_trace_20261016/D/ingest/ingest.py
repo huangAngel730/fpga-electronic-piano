@@ -100,7 +100,7 @@ def intake(manifest_path, expected_sha):
                 for item in ledger.values():
                     if item['state'] not in ('CONSUMED', 'CANCELED'):
                         require(item.get('due_cycle') is None, 'RESET_UNCONSUMED_DUE_FRAME')
-                        require(cycle - item['request_cycle'] < 834, 'RESET_AFTER_UNOBSERVED_DEADLINE')
+                        require(cycle - item['request_cycle'] < 833, 'RESET_AFTER_UNOBSERVED_DEADLINE')
                         item['state'] = 'CANCELED'
                 epoch, last_frame, frame_id = row['epoch'], None, None
                 resets += 1
@@ -150,6 +150,7 @@ def intake(manifest_path, expected_sha):
                     item['lanes'].add(row['lane'])
                 elif kind == 'RETURN':
                     require(item['state'] == 'ACCEPTED' and item['lanes'] == {0, 1, 2, 3}, 'RETURN_STATE_OR_MISSING_LANE')
+                    require(cycle - item['request_cycle'] < 833, 'RETURN_AFTER_UNOBSERVED_DEADLINE')
                     legacy.quantize(row['left'])
                     legacy.quantize(row['right'])
                     item['state'] = 'RETURNED'
@@ -164,6 +165,8 @@ def intake(manifest_path, expected_sha):
                 elif kind == 'CANCEL':
                     require(item['state'] in ('REQUESTED', 'ACCEPTED', 'RETURNED'), 'CANCEL_STATE')
                     require(item.get('due_cycle') is None, 'CANCEL_AFTER_DUE_FRAME')
+                    # A missing FRAME must not let cancellation erase overdue work.
+                    require(cycle - item['request_cycle'] < 833, 'CANCEL_AFTER_UNOBSERVED_DEADLINE')
                     item['state'] = 'CANCELED'
                     item['cancel_cycle'] = cycle
     require(ended and observed == set(expected) and consumed > 0 and resets > 0, 'INCOMPLETE_CAPTURE_OR_CALENDAR')

@@ -1,5 +1,13 @@
 # D3：Pro 同版原件摄取入口
 
+## 2026-10-17 M2代修：漏FRAME期限旁路
+
+用户本轮直接授权M2修复旧D3，仅修改本入口的三个期限边界：CANCEL清交易前独立检查`cycle-request_cycle < 833`，RESET由旧`<834`收紧至`<833`，RETURN也须在年龄833之前。即使缺少下一条FRAME，超期CANCEL/RESET仍不能把交易抹去后让END通过；END原有未完成交易检查保留。实际消费仍在下一条833/834拍FRAME同沿，不对已RETURNED等待该FRAME的所有中间记录一律判超时，因此合法834帧间隔及其中PA记录保持可接收。
+
+旧源码SHA `3217f97e57daec534306a213c64566fa111e3116f15a15967ca881847c218e07`原字节另存`../ingest_deadline_fix_20261017/before_ingest.py`，仅供本轮已知缺陷重现，不能作为生产入口。旧R01/R02源码快照、结果、双流与夜间封包不改；下文16例/5例仍是历史版本结果。新定向harness和说明在`../ingest_deadline_fix_20261017/`，新输入/双流/收据与原件ZIP在`code/docs/test/m3_pro_fourvoice_trace_20261016/D/ingest_deadline_fix_20261017/`。本轮确切实际结果及SHA以该目录收据和M2自审报告为准，不把旧例并入最终版全量通过。
+
+本次仍限L1合成软件期限拒收；真实Pro观察、M1黄金、完整链/时序/板测不由该修复签收。执行范围和本轮新有界软件预算见`code/docs/M2_D3期限旁路定向返修执行单_2026-10-17.md`。M3开工和完成消息待用户转发，尚未送达。
+
 本入口只读使用旧 M3 解码器的严格 JSON 解析和 PCM24 舍入/范围判据，固定 SHA `da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb`。未重跑旧捕获或旧专项；不运行采集、RTL、EDA 或设备。
 
 使用示例（先由 M2 固定真实原件，再填写实际 manifest SHA）：
