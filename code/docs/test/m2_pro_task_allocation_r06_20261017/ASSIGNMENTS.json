@@ -1,0 +1,278 @@
+{
+  "version": "R06",
+  "base": "0cbb4a70dcf6e9c706780e705419fd93274e82e8",
+  "packages": [
+    {
+      "id": "M1-R6-1",
+      "owner": "M1",
+      "directory": "source_semantics",
+      "start": "立即",
+      "dependencies": [],
+      "deliverable": "19字段语义与M1公开观察候选",
+      "status": "ASSIGNED_NOT_EXECUTED",
+      "write_roots": [
+        "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/source_semantics/",
+        "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/source_semantics/",
+        "code/rtl/audio/m1_pro_observer_r06_20261017/"
+      ],
+      "dependency_meaning": "prepared interface/software evidence; real capture flows back after exact execution admission"
+    },
+    {
+      "id": "M1-R6-2",
+      "owner": "M1",
+      "directory": "oracle_adapter",
+      "start": "语义齐后",
+      "dependencies": [
+        "M1-R6-1",
+        "M3-R6-2"
+      ],
+      "deliverable": "同源PCM/ID/clip比较适配及首差异",
+      "status": "ASSIGNED_NOT_EXECUTED",
+      "write_roots": [
+        "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/",
+        "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/"
+      ],
+      "dependency_meaning": "prepared interface/software evidence; real capture flows back after exact execution admission"
+    },
+    {
+      "id": "M1-R6-3",
+      "owner": "M1",
+      "directory": "bench_math",
+      "start": "实采后",
+      "dependencies": [
+        "M1-R6-2",
+        "M3-R6-8"
+      ],
+      "deliverable": "四独立音高/逐放/力度的实采数学解释",
+      "status": "ASSIGNED_NOT_EXECUTED",
+      "write_roots": [
+        "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/bench_math/",
+        "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/bench_math/"
+      ],
+      "dependency_meaning": "prepared interface/software evidence; real capture flows back after exact execution admission"
+    },
+    {
+      "id": "M2-R6-1",
+      "owner": "M2",
+      "directory": "public_capture_contract",
+      "start": "立即",
+      "dependencies": [],
+      "deliverable": "采样相位/epoch/13缺失字段归属合同",
+      "status": "ASSIGNED_NOT_EXECUTED",
+      "write_roots": [
+        "code/rtl/board/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/",
+        "code/constraints/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/",
+        "code/build/138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/",
+        "code/tb/board/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/",
+        "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/"
+      ],
+      "dependency_meaning": "prepared interface/software evidence; real capture flows back after exact execution admission",
+      "new_frame_coverage_responsibility": "freeze rate/phase/reset/sampling/window/finish contract"
+    },
+    {
+      "id": "M2-R6-2",
+      "owner": "M2",
+      "directory": "observer_tx_sidecar",
+      "start": "立即并行",
+      "dependencies": [
+        "M2-R6-1"
+      ],
+      "deliverable": "现有20口贯通、9项内部路由与真实TX旁带候选",
+      "status": "ASSIGNED_NOT_EXECUTED",
+      "write_roots": [
+        "code/rtl/board/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/",
+        "code/constraints/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/",
+        "code/build/138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/",
+        "code/tb/board/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/",
+        "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/"
+      ],
+      "dependency_meaning": "prepared interface/software evidence; real capture flows back after exact execution admission"
+    },
+    {
+      "id": "M2-R6-3",
+      "owner": "M2",
+      "directory": "execution_admission",
+      "start": "输入齐后",
+      "dependencies": [
+        "M1-R6-1",
+        "M2-R6-2",
+        "M3-R6-1",
+        "M3-R6-4",
+        "M3-R6-5",
+        "M3-R6-6"
+      ],
+      "deliverable": "后继TB/受控执行器/精确完整链准入",
+      "status": "ASSIGNED_NOT_EXECUTED",
+      "write_roots": [
+        "code/build/138k_pro_fourvoice_candidate_20261016/r06_public_chain_20261017/",
+        "code/tb/board/m2_138k_pro_fourvoice_candidate_20261016/r06_public_chain_20261017/",
+        "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_public_chain_20261017/"
+      ],
+      "dependency_meaning": "prepared interface/software evidence; real capture flows back after exact execution admission"
+    },
+    {
+      "id": "M2-R6-4",
+      "owner": "M2",
+      "directory": "pro_physical_release",
+      "start": "实际条件齐后",
+      "dependencies": [
+        "M2-R6-3",
+        "M3-R6-7"
+      ],
+      "deliverable": "真实Pro工程/完整物理/码流准入",
+      "status": "ASSIGNED_NOT_EXECUTED",
+      "write_roots": [
+        "code/rtl/board/m2_138k_pro_fourvoice_candidate_20261016/r06_pro_physical_20261017/",
+        "code/constraints/m2_138k_pro_fourvoice_candidate_20261016/r06_pro_physical_20261017/",
+        "code/build/138k_pro_fourvoice_candidate_20261016/r06_pro_physical_20261017/",
+        "code/tb/board/m2_138k_pro_fourvoice_candidate_20261016/r06_pro_physical_20261017/",
+        "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_pro_physical_20261017/"
+      ],
+      "dependency_meaning": "prepared interface/software evidence; real capture flows back after exact execution admission"
+    },
+    {
+      "id": "M3-R6-1",
+      "owner": "M3",
+      "directory": "source_target_audit",
+      "start": "无板立即",
+      "dependencies": [],
+      "deliverable": "可运行的source-list/ROM/target闭包审计器",
+      "status": "ASSIGNED_NOT_EXECUTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/source_target_audit/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/source_target_audit/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/source_target_audit/"
+      ],
+      "dependency_meaning": "prepared interface/software evidence; real capture flows back after exact execution admission"
+    },
+    {
+      "id": "M3-R6-2",
+      "owner": "M3",
+      "directory": "midi_stimulus",
+      "start": "无板立即",
+      "dependencies": [],
+      "deliverable": "独立MIDI字节计划与参数化端口driver",
+      "status": "ASSIGNED_NOT_EXECUTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/"
+      ],
+      "dependency_meaning": "prepared interface/software evidence; real capture flows back after exact execution admission"
+    },
+    {
+      "id": "M3-R6-3",
+      "owner": "M3",
+      "directory": "normalized_intake",
+      "start": "无板立即",
+      "dependencies": [],
+      "deliverable": "保留原61字段的摄取归一与29列/D3视图",
+      "status": "ASSIGNED_NOT_EXECUTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/normalized_intake/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/normalized_intake/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/normalized_intake/"
+      ],
+      "dependency_meaning": "prepared interface/software evidence; real capture flows back after exact execution admission",
+      "new_frame_coverage_responsibility": "retain all FRAME original rows including idle and canceled windows"
+    },
+    {
+      "id": "M3-R6-4",
+      "owner": "M3",
+      "directory": "tool_plan_adapter",
+      "start": "无板立即",
+      "dependencies": [],
+      "deliverable": "一次性执行plan/argv/收据与安全软件适配",
+      "status": "ASSIGNED_NOT_EXECUTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/"
+      ],
+      "dependency_meaning": "prepared interface/software evidence; real capture flows back after exact execution admission"
+    },
+    {
+      "id": "M3-R6-5",
+      "owner": "M3",
+      "directory": "event_calendar",
+      "start": "合同齐后",
+      "dependencies": [
+        "M1-R6-1",
+        "M2-R6-1",
+        "M2-R6-2",
+        "M3-R6-2",
+        "M3-R6-3"
+      ],
+      "deliverable": "真实事件/slot生命周期/共同advance日历",
+      "status": "ASSIGNED_NOT_EXECUTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/"
+      ],
+      "dependency_meaning": "prepared interface/software evidence; real capture flows back after exact execution admission",
+      "new_frame_coverage_responsibility": "derive independent expected frame calendar from frozen inputs"
+    },
+    {
+      "id": "M3-R6-6",
+      "owner": "M3",
+      "directory": "tx_clock_reset_checker",
+      "start": "真实观察齐后",
+      "dependencies": [
+        "M2-R6-2",
+        "M3-R6-3",
+        "M3-R6-5"
+      ],
+      "deliverable": "TX/HOLD/startup/finish/期限及串行边界核验器",
+      "status": "ASSIGNED_NOT_EXECUTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/"
+      ],
+      "dependency_meaning": "prepared interface/software evidence; real capture flows back after exact execution admission",
+      "new_frame_coverage_responsibility": "reject missing/duplicate frames through true finish; missing plan PENDING"
+    },
+    {
+      "id": "M3-R6-7",
+      "owner": "M3",
+      "directory": "hardware_identity",
+      "start": "有板并行/无板做资料审计",
+      "dependencies": [],
+      "deliverable": "完整器件/板修订/Bank/MIDI/PA电气原件",
+      "status": "ASSIGNED_NOT_EXECUTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/"
+      ],
+      "dependency_meaning": "prepared interface/software evidence; real capture flows back after exact execution admission"
+    },
+    {
+      "id": "M3-R6-8",
+      "owner": "M3",
+      "directory": "board_capture_acceptance",
+      "start": "精确码流准入后",
+      "dependencies": [
+        "M2-R6-4",
+        "M3-R6-6",
+        "M3-R6-7"
+      ],
+      "deliverable": "四声基础同会话板测/串行/音频原件",
+      "status": "ASSIGNED_NOT_EXECUTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/board_capture_acceptance/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/board_capture_acceptance/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/board_capture_acceptance/"
+      ],
+      "dependency_meaning": "prepared interface/software evidence; real capture flows back after exact execution admission"
+    }
+  ],
+  "foundation": "PARTIAL",
+  "board_release_allowed": false,
+  "new_implementation_executed_this_turn": false,
+  "P7_fresh_full_chain_authorized": false,
+  "human_delivery": "待用户转发，尚未送达",
+  "original_fact_base": "600d5ca8d7f0089b7d46cb5ad071f862a2d6706f",
+  "frame_coverage_scope_decision": "R06 real G1 requires independent full frame plan through true finish; D3 transaction-only L1 unchanged"
+}

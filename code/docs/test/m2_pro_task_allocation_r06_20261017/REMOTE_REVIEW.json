@@ -1,0 +1,66 @@
+{
+  "status": "LIMITED_L0_DIFF_AND_ARCHIVE_IDENTITY_ACCEPTED",
+  "commit": "0cbb4a70dcf6e9c706780e705419fd93274e82e8",
+  "scope": "Seven newly added files only; historical R02 archive identity and R05 reconciliation/counterexample scope.",
+  "seven_git_blob_identities": {
+    "code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/DELIVERY/M3_D3_R02_STATIC_REPAIR_PROPOSAL_20261017.zip": {
+      "bytes": 85974,
+      "sha256": "ac943757a2a3938cf6126c968e04cdde9a89d4680c5daa19d4db730242fabf20"
+    },
+    "code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/DELIVERY/RECEIPT.json": {
+      "bytes": 407,
+      "sha256": "2043bfad1ff950f0b01e0647ccbf23f601730d7eae590fddd90b7f29d5b881f6"
+    },
+    "code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/PUBLICATION_FILES.json": {
+      "bytes": 984,
+      "sha256": "86783c984e8cdd4848ce169b16ddd2debe7c6d6ad1c9fd9ec6f0f31bb21e58d5"
+    },
+    "code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/R05_NEW_COUNTEREXAMPLE.json": {
+      "bytes": 3934,
+      "sha256": "2d66b5d39c0662c531e1b46c38eaf022f132b696a4081e66c1defb3abdcd0197"
+    },
+    "code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/R05_RECONCILIATION.md": {
+      "bytes": 4090,
+      "sha256": "172f04456bcfd06f811ffe6646faba32ce1ece19c9a61502d64928386e21d6e0"
+    },
+    "code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/R05_RECONCILIATION_RECEIPT.json": {
+      "bytes": 1439,
+      "sha256": "1d79d52eb06679ef1f1f3e57620462ad55200b92fdd6e77071707db26a248dec"
+    },
+    "code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/R05_SELF_REVIEW.json": {
+      "bytes": 527,
+      "sha256": "71aba3e255effc5c3147747b89d8c16d723b96d4620ce5771bcd0aa1ba81c889"
+    }
+  },
+  "archive": {
+    "bytes": 85974,
+    "sha256": "ac943757a2a3938cf6126c968e04cdde9a89d4680c5daa19d4db730242fabf20",
+    "members": 43,
+    "manifest_payloads": 42,
+    "manifest_sha256": "cf30d9405ced59c58da27652176775f121dc7c28d65605c87e4f966ba079efb3",
+    "manifest_baseline": "c7e0144ac33acfde9b449183933ef7a21aa9325c",
+    "crc_size_sha_match": true,
+    "errors": []
+  },
+  "semantic_findings": {
+    "reconciliation_explicitly_supersedes_old_R02_patch_and_requests": true,
+    "known_age835_bug_reopened": false,
+    "new_boundary": "Synthetic request at1677; RETURN1712; legal CANCEL2509 age832; omitted FRAME2510; END2511.",
+    "boundary_execution": "NOT_RUN",
+    "boundary_proves_new_D3_defect": false,
+    "boundary_acceptance_scope": "Request to decide independent continuous frame completeness; current R05 limited transaction evidence is not a whole-frame certification."
+  },
+  "M2_scope_decision_review": {
+    "clear_and_consistent": true,
+    "current_D3_L1": "Retain current limited transaction acceptance and existing25CLI originals; do not reopen or rerun them.",
+    "R06_new_requirement": "Independent expected frame plan through real finish, with phase/reset/epoch/window policy frozen by M2-R6-1; M3-R6-3/5/6 implement rejection of missing in-window FRAME.",
+    "missing_independent_plan": "PENDING, never reconstruct expectation from observed trace.",
+    "permission": "Existing new software-package budgets only; no new full-chain, EDA, hardware or old-quota permission.",
+    "static_case_claim_boundary": "Do not state that the static case was executed, reproduced a current bug or invalidated the signed age835 repair."
+  },
+  "new_functional_runs": 0,
+  "proposal_or_D3_invocations": 0,
+  "tests_or_EDA_or_hardware": 0,
+  "git_writes": 0,
+  "writes": "Only own REMOTE_0cbb4a7 audit scripts/blob copies and this REMOTE_REVIEW.json."
+}
