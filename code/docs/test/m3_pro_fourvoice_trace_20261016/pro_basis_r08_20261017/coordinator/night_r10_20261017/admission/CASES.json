@@ -1,0 +1,12 @@
+{
+  "schema": "M3_R10_ADMISSION_SEAM_CASES_V1",
+  "status": "PREPARED_NOT_RUN",
+  "group": "N10-M3-LINK",
+  "execution_owner": "night_task_1",
+  "count": 3,
+  "cases": [
+    {"id": "R10_APPLICATION_PREPARE", "expected": "R10_PROPOSAL_PREPARED_PENDING", "description": "One new R10 output-scope seam with actual unchanged C9/R62/tool identities; explicit unapproved phase candidates and request agree; no trace prerequisite or FRAME generation"},
+    {"id": "R10_REJECT_OLD_OUTPUT", "expected": "OLD_OUTPUT_REJECTED", "description": "Adapter rejects old D4 output root before loading legacy candidate or creating target"},
+    {"id": "R10_REJECT_ROOT_AND_OTHER", "expected": "ROOT_AND_OTHER_REJECTED", "description": "R10 root itself and unrelated sibling output root reject; strict descendant only"}
+  ]
+}

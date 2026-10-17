@@ -1,0 +1,24 @@
+# R10 unified INTEGRATION_HANDOFF preparation
+
+状态：STATIC_READY / L0 / NOT_RUN。本包仅由夜间1总控纳入唯一N10-M3-LINK软件组冻结与执行；夜间3不导入/编译/自测/启动工具，不写Git或网络，不修改旧114例、drill、admission或共享状态。
+
+入口 `handoff.py:assemble(request,out)->dict`，请求详见INTERFACE.json。application_request是实际文件descriptor；application_report是夜间2adapter返回的旧M3_C9_APPLICATION_BUILD_RESULT_V1同shape字典，不把normalize的tuple当report。source_contract_refs应包含M2 DELIVERY_CONTRACT的5个固定原件。context含原START/deadline/Goal以及receipts(role->descriptor列表)，old_software/consumption/first_failure分别按原件绑定。固定source descriptor无原件/SHA错误即拒收；上下文缺/非法则context_known=false并留PENDING，不产生任何权限。
+
+M2合同的package_fields实际是14项，全部逐键输出；派工文字中的15不覆盖冻结JSON。INTEGRATION_HANDOFF另有显式status/HDL状态/权限边界与application_request_ref。
+
+装配核验：
+
+- descriptor逐个核原文件bytes/SHA与路径，读取后再次核同；源ZIP与现存75-unit application固定，C9 base/decision/合同原件固定。ZIP保留实际成员身份，ROM/include旧成员保持同字节；TB/driver/observer与应用成员一致。编译清单仅静态读取文本，graph75项与原列表顺序相同、唯一且都存在，不执行编译。合同角色只从M2固定references路径选择，额外同basename条目不能覆盖。
+- application_request、application报告、BOUND_PLAN的source/tools/execution/window/planSHA同版；capture_id精确相等；reservation/claim/guard按实际内容、claim哈希及capture/nonce/planSHA/output绑定，不能仅凭各文件自身SHA拼包。工具只读原EXTERNAL_INPUTS允许的身份文件，不运行工具，也不签动态依赖鉴真。
+- 输入bytes/reset/ready/plan原件与75closure内成员核同。ready.drv是driver侧输入产物；旧TB没有将其连接成真实DUT背压，本包不签已施加背压。
+- 旧软件收据只标REUSED_PREVIOUS_SOFTWARE_ONLY；不充当当前capture的exit/双流/finish。缺历史收据/首失败原件列具体责任，不推断无失败或重置消费。
+
+输出只含REQUEST、INPUT_IDENTITIES、INTEGRATION_HANDOFF和FRAME_INPUT_DRAFT JSON。所有JSON用UTF-8字节+LF写入。out必须是code/output/m3_c9_chain_night_r10_20261017下不存在的新子目录；失败保留FIRST_FAILURE与已写原件。无RAW/MATH/execution_receipt空文件。
+
+唯一允许状态是SOURCE_BOUND_PREPARATION + HDL_NOT_RUN；execution_allowed/execution_verified/real_verified/math_verified/board_release_allowed全false。数学仅给既有机械math_bundle.py身份和M1 NEXT_INPUT_CONTRACT；真实bundle NOT_RUN，M1负责独立黄金。
+
+FRAME_INPUT_DRAFT不是原生成器可用输入：first_core_ps12500、period25000；epoch0 assert0/release802/stop1000479，epoch1 assert1000480/release1002482/stop=null；finish=null。TB、driver、reset原件精确SHA不符即拒收该草稿，防止换计划仍输出旧数值。旧TB248–251同相负沿finish为D或D+1仍待M2冻结，不调用唯一38592fae...FRAME生成器，不造第二FRAME。草稿M2_frozen=false、generator_invoked=false；实际unique_FRAME_PLAN_ref=null/PENDING_FINISH_PHASE。
+
+四个新case定义见CASES.json，selftest.run_case(id,out)->dict；全部NOT_RUN。fixture_originals保全旧D4已准备申请的10个实际原件，FIXTURE_REUSE逐件给原位置/旧SHA/本体复制位置。FIXTURE_REQUEST仅把旧report的artifact描述符指向这些同字节复制件；旧计划的resolved_output仍是惰性元数据，绝不启动旧申请、FRAME、采集或旧selftest。新断言分别覆盖完整包、capture/source拼包、reservation/claim拼包、未知上下文/缺真实回执不升级。
+
+原START21:52、截止02:52与现有Goal由总控沿用。本成员未领额度或计时Goal；总控先冻结源码/输入/依赖/argv/cwd/out与消费再唯一执行1x120秒，首个具体新缺陷才有一次60秒增量。M2最终限定复核、真实C9执行/数学/物理仍待。

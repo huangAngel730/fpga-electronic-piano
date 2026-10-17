@@ -1,0 +1,71 @@
+{
+  "schema": "NIGHT_HANDOFF_V1",
+  "handoff_id": "M3-N10-LINK-PREPARE-20261018-01",
+  "task_id": "N10-M3-LINK",
+  "plan_version": "R10",
+  "producer": "M3",
+  "consumer": "M2",
+  "base_commit": "4d4afad2f7069c4a8f216b6d915112eb8fc98636",
+  "result_commit": null,
+  "manifest": [
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/DELIVERY/M3_NIGHT_R10_PREPARATION_20261018.zip",
+      "bytes": 1784880,
+      "sha256": "2ab7f98a543518afa4a985e282ab6e07325f77320fd7b0bc09695930782d5e67"
+    }
+  ],
+  "validation": {
+    "level": "L0/L1 SOURCE_BOUND_PREPARATION",
+    "status": "PARTIAL_WAITING_M2_FINISH_PHASE_EXECUTION_AND_M1_MATH",
+    "initial_LINK_exit": 0,
+    "first_defect_increment": {
+      "status": "NOT_CONSUMED",
+      "count_limit": 1,
+      "seconds_limit": 60,
+      "condition": "Only specific new LINK defect after preserving first failure; no whole signed replay"
+    },
+    "new_HDL_EDA_devices": 0,
+    "repository_gate": "REQUIRED_BEFORE_PUSH",
+    "self_review": true
+  },
+  "ready_for": [
+    "M2 exact stop/finish and executor/admission review",
+    "M1 existing math adapter later consumes actual same-source capture"
+  ],
+  "next_action": "M2 review one exact request and freeze stop/finish phase or approve exact TB successor and separately bind trusted executor/tool dependencies/HDL budget; M1 owns math once actual bundle exists",
+  "blockers": [
+    {
+      "item": "FINISH_PHASE_D_OR_D_PLUS_1",
+      "owner": "M2",
+      "condition": "Freeze actual finish/core sampling phase"
+    },
+    {
+      "item": "TRUSTED_EXECUTOR_AND_EXACT_C9_EXECUTION",
+      "owner": "M2",
+      "condition": "New exact execution admission"
+    },
+    {
+      "item": "ACTUAL_RAW_PINS_RESET_EDGES_EXIT_STREAMS",
+      "owner": "M3 after M2 admission",
+      "condition": "Same-capture actual originals"
+    },
+    {
+      "item": "INDEPENDENT_APPLY_PLAN_AND_PCM24_ID_CLIP_GOLDEN",
+      "owner": "M1",
+      "condition": "Supported arithmetic/profile independent results"
+    },
+    {
+      "item": "AUDIO_STABLE_POLICY",
+      "owner": "M2",
+      "condition": "Published implementation/definition"
+    },
+    {
+      "item": "DUT_BACKPRESSURE_NOT_DRIVEN",
+      "owner": "M2/M3",
+      "condition": "ready.drv output is not connected to actual DUT ready"
+    }
+  ],
+  "receipts": [],
+  "originals_resolution": "Top manifest resolves exact binary ZIP; internal raw descriptors resolve archive members preserving source path/bytes",
+  "board_release_allowed": false
+}

@@ -1,0 +1,115 @@
+{
+  "schema": "N10_M3_HANDOFF_READY_V1",
+  "status": "STATIC_READY_L0_NOT_RUN",
+  "prepared_at_utc": "2026-10-17T16:48:44.621Z",
+  "role": "night3/serial only",
+  "entry": "handoff.assemble(request,out)->dict",
+  "source": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/handoff.py",
+    "bytes": 22786,
+    "sha256": "1ccc1c20a756c649fc6f5325eec20408c73d879f61a15e3e207815a7990f388f"
+  },
+  "selftest": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/selftest.py",
+    "bytes": 6675,
+    "sha256": "457e916b205eded4f0e7ebbff7fc5ff92d86cc93ae3e9b2cc2c0ddf974322c24"
+  },
+  "interface": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/INTERFACE.json",
+    "bytes": 3751,
+    "sha256": "3680540ed85c04ef9162e9b3b485b7d63212181a03b0ae8b5c9209cb2a30e539"
+  },
+  "README": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/README.md",
+    "bytes": 4195,
+    "sha256": "a917fc694dffb0cb9e14ba262a5a7f2a8f3f7a6a8a09314b27c0a586b4b5d2d3"
+  },
+  "cases": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/CASES.json",
+    "bytes": 1343,
+    "sha256": "ea089ac1a5adcdd65a7345eb48f03a63e8bee89ad2598e3848e227774964c5ea"
+  },
+  "case_count": 4,
+  "FRAME_INPUT_DRAFT": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/FRAME_INPUT_DRAFT.json",
+    "bytes": 1887,
+    "sha256": "d50c4aee08c48121bc5eb6969268be3a91e8b7d0e13fe1eb4e0c88cfbf2a5534"
+  },
+  "dependencies": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/DEPENDENCIES.json",
+    "bytes": 4819,
+    "sha256": "d23ac9d4f6471b101894e79c4203ea9e972b8d78f6d1ee5327fb603b51ed6e05"
+  },
+  "file_manifest": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/FILE_SHA.json",
+    "bytes": 5257,
+    "sha256": "823e7bcdfdfc06b398520e7140bad43c1f481381280a023b7831b00330ddce60"
+  },
+  "owner_contract": {
+    "path": "code/docs/test/m2_night_r10_20261017/DELIVERY_CONTRACT.json",
+    "bytes": 2847,
+    "sha256": "bc375cadc16188a716e2b710fa337082e252b99193b8d36830e095397f6241bf"
+  },
+  "owner_package_fields": [
+    "schema_version",
+    "capture_id",
+    "source_contract_refs",
+    "source_ROM_include_TB_driver_observer_checker_tool_identities",
+    "independent_input_plan",
+    "clock_reset_profile_and_raw_edges",
+    "unique_FRAME_PLAN_ref",
+    "raw_public_trace_and_pins_or_explicit_NOT_RUN",
+    "math_input_bundle_ref",
+    "exact_argv_cwd_environment_output_budget_request",
+    "assertions_and_software_receipts",
+    "actual_exit_streams_finish_receipts_or_explicit_PENDING",
+    "consumption_and_first_failure_history",
+    "missing_inputs_and_next_owner"
+  ],
+  "owner_package_field_count": 14,
+  "field_count_note": "Dispatch said15; frozen DELIVERY_CONTRACT actually enumerates14. All14 covered, authority and application_request_ref also explicit.",
+  "request_required": [
+    "schema=N10_M3_HANDOFF_REQUEST_V1",
+    "capture_id",
+    "application_request descriptor",
+    "application_report oldbuild_application same-shape result dictionary",
+    "source_contract_refs actual descriptors including all5 fixed owner refs",
+    "context START/deadline/Goal/receipts per INTERFACE"
+  ],
+  "application_source_required_sha256": "b23c65d58e50da089bc78645cf9ec65b5a3be5149f242fbe59d9891c3e44d1a2",
+  "output": "Fresh child of code/output/m3_c9_chain_night_r10_20261017",
+  "status_ceiling": "SOURCE_BOUND_PREPARATION + HDL_NOT_RUN",
+  "execution_allowed": false,
+  "real_verified": false,
+  "math_verified": false,
+  "board_release_allowed": false,
+  "FRAME_boundary": "Only source-pinned draft with first12500/period25000,epoch0 0/802/1000479,epoch1 1000480/1002482/null andfinishnull. M2 finish D/D+1 unfrozen; original38592fae generator only identified, never called.",
+  "math_boundary": "Existing mechanical wrapper code+fixed M1 NEXT_INPUT_CONTRACT only; actual bundle NOT_RUN",
+  "raw_receipt_boundary": "No empty RAW/MATH/execution_receipt generated; all actual trace/exit/stdout/stderr/finish refs null andNOT_RUN/PENDING",
+  "ready_drv_boundary": "Not connected as actual DUT backpressure; not claimed applied",
+  "reuse": "Old114 retained. Fixture only copies10 old source-preparation originals and changes report artifact locations; no oldselftest/assembler/FRAME/capture/math execution.",
+  "self_review": "Readonly child incremental reviews found3 binding issues fixed before freeze; latest increment no concrete blocker. Static only, no test claim.",
+  "member_execution": {
+    "candidate_import": 0,
+    "Python_compile": 0,
+    "selftest": 0,
+    "subprocess": 0,
+    "Git_write": 0,
+    "network": 0,
+    "HDL_EDA_devices": 0
+  },
+  "sole_executor_publisher": "night1",
+  "budget": "Only coordinator may consumeN10-M3-LINK1x120 plus first specific defect1x60; none by member",
+  "original_START": "2026-10-17T21:52:00+08:00",
+  "deadline": "2026-10-18T02:52:00+08:00",
+  "goal_recreated": false,
+  "remaining": [
+    "M2 freeze finish/core sampling phase",
+    "trusted executor/exact firstC9 execution admission",
+    "actual raw/pins/reset/end/execution receipts",
+    "M1 independent accepted/apply mapping and PCM24/ID/clip golden",
+    "audio_stable and real physical/hardware conditions"
+  ],
+  "Git": "Not staged/committed/pushed by member",
+  "handoff": "Local STATIC_READY for coordinator collection; not M2 acceptance"
+}

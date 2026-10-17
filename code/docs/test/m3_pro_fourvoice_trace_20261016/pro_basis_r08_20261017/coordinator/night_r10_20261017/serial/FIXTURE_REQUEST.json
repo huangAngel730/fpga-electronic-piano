@@ -1,0 +1,127 @@
+{
+  "schema": "N10_M3_HANDOFF_REQUEST_V1",
+  "capture_id": "C9_D4_EXAMPLE",
+  "application_request": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/fixture_originals/ORIGINAL_INPUT.json",
+    "bytes": 20293,
+    "sha256": "a30cb2045453db4b3394926d2f1d7c804f780683acdeec64f5910dd1ca481a34"
+  },
+  "application_report": {
+    "schema": "M3_C9_APPLICATION_BUILD_RESULT_V1",
+    "status": "PENDING_M2_EXECUTION_ADMISSION",
+    "artifacts": {
+      "application": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/fixture_originals/application.json",
+        "bytes": 25036,
+        "sha256": "0ab230d8d708777e9a3100e2b0e84f244db3b9412df1a3c64cb12dac6ba2c7ae"
+      },
+      "guard": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/fixture_originals/guard.json",
+        "bytes": 2963,
+        "sha256": "dae7ed483e7e6b74dad062090dc1876e7bd77fd64c0a1c275647d39b530aef75"
+      },
+      "reservation": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/fixture_originals/reservation.json",
+        "bytes": 690,
+        "sha256": "4d061aedcd46015a7e14b44f86a2edba959d8bf63fe6386a8bde7559288cb982"
+      },
+      "dependency_graph": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/fixture_originals/dependency_graph.json",
+        "bytes": 29713,
+        "sha256": "3f293f01cb31bdb82f64526e7b5d295a1fb87ed86225ca4824b4a21392c8b959"
+      },
+      "tools": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/fixture_originals/tools.json",
+        "bytes": 13928,
+        "sha256": "312bb642daf4764a9e572856d9a3076f38deebfd522e610de63dbdd843330481"
+      },
+      "resolved_plan": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/fixture_originals/resolved_plan.json",
+        "bytes": 10436,
+        "sha256": "5e1b43132a9604fa309fb94e58ad6feb88d9153579206ba710a7f2fee7483648"
+      },
+      "source": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/fixture_originals/source.zip",
+        "bytes": 199075,
+        "sha256": "b23c65d58e50da089bc78645cf9ec65b5a3be5149f242fbe59d9891c3e44d1a2"
+      },
+      "claim": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/fixture_originals/claim.json",
+        "bytes": 565,
+        "sha256": "1a4f55e68911d5e72efe40cabadb432ed560371fe3a3a1469322249a84ea3f4c"
+      }
+    },
+    "plan_sha256": "408b5c1fd38afd38765c200c0b2fd1dcc64b146053ce5aec00c43546a5f440b0",
+    "pending": [
+      "M2_TRUSTED_EXECUTOR_AND_EXACT_EXECUTION_ADMISSION",
+      "NATIVE_DYNAMIC_DELAY_LOADER_DEPENDENCIES_UNKNOWN",
+      "WINDOW_PHASE_AND_OWNER_FREEZE_REQUIRED",
+      "PARAMETER_RUNTIME_READMEM_NOT_ELABORATED",
+      "REAL_CAPTURE_PCM_PLAN_MAPPING_AUDIO_STABLE_AND_PHYSICAL_NOT_VERIFIED"
+    ],
+    "source_units": 75,
+    "execution_allowed": false,
+    "real_pass": false,
+    "board_release_allowed": false
+  },
+  "source_contract_refs": [
+    {
+      "path": "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_public_chain_20261017/c9_m1_semantics_20261017/SOURCE_CLOSURE_R06C9.zip",
+      "bytes": 182685,
+      "sha256": "d458ab16277bd46751318ac368b22df1b21b35c4867c47942e7bff7d27fc3aa2"
+    },
+    {
+      "path": "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/c9_m1_semantics_20261017/CAPTURE_CONTRACT_R06C9.json",
+      "bytes": 8582,
+      "sha256": "2a36e92e5ea4c518f9b3a4787e5632271907db7603dcedeed31bf2dfe74a2ead"
+    },
+    {
+      "path": "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/c9_m1_semantics_20261017/NORMALIZED_ROW_SCHEMA_R06C9.json",
+      "bytes": 33317,
+      "sha256": "0fca8cd3deba9f5edd11aa2b97e3023465f3210b03eb6e6115b3eb7eceb927c1"
+    },
+    {
+      "path": "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/c9_m1_semantics_20261017/OBSERVER_EXPORTS_R06C9.json",
+      "bytes": 12066,
+      "sha256": "d8ee0c4c4ffc284e076a89a52aed1dd2363107ab6d7a63f77202b1eeb53a4867"
+    },
+    {
+      "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/NEXT_INPUT_CONTRACT.md",
+      "bytes": 2485,
+      "sha256": "b9cd60d3df2184e318b03e6d973f3ebf319ae73614f6e7deb51f771159a52373"
+    }
+  ],
+  "context": {
+    "original_START": "2026-10-17T21:52:00+08:00",
+    "deadline": "2026-10-18T02:52:00+08:00",
+    "goal": {
+      "threadId": "01a14050-cd98-7c41-8004-5d3e25765167",
+      "createdAt": 1792253457,
+      "status": "active"
+    },
+    "origin": "SYNTHETIC_HANDOFF_SEAM_WITH_REUSED_SOURCE_PREPARATION",
+    "receipts": {
+      "old_software": [
+        {
+          "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/RESULT.json",
+          "bytes": 10535,
+          "sha256": "a4e93f77c5148a9f8b12b379202f3e1c55bb578f56797f56188d16e1bbdf6624"
+        }
+      ],
+      "consumption": [
+        {
+          "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/CONSUMPTION.json",
+          "bytes": 3452,
+          "sha256": "636e58ea5c5c85f0b5315f84acbfc9253bb3743810407cbf44dbd375f5005c9b"
+        }
+      ],
+      "first_failure": [
+        {
+          "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/RESULT.json",
+          "bytes": 10535,
+          "sha256": "a4e93f77c5148a9f8b12b379202f3e1c55bb578f56797f56188d16e1bbdf6624"
+        }
+      ]
+    }
+  }
+}
