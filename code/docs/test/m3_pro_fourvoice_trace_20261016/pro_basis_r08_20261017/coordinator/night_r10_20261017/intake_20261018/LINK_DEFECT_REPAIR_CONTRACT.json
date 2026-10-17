@@ -1,0 +1,25 @@
+{
+  "schema": "N10_M3_LINK_FIRST_DEFECT_REPAIR_CONTRACT_V1",
+  "group": "N10-M3-LINK first_defect_increment",
+  "source_permission": "M3 R10 fourth stage: first specific LINK defect increment once <=60 seconds",
+  "first_defect": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/FIRST_STATIC_DEFECT.json",
+    "bytes": 1480,
+    "sha256": "7d66da8c70d510d06b4a51c434161d0a439b4f1195e36f581d063634f5e5cde3"
+  },
+  "limit_seconds": 60,
+  "group_count_limit": 1,
+  "old_initial_group": "CONSUMED_PASS;7/7 unchanged, not replayed",
+  "exact_scope": "Only new R10 entry dispatch and adapted application-binding/output seam, early reject unfrozen finish/window, reject changed binding/out-of-scope output; no full old chain, normalizer/FRAME/serial/math component replay",
+  "new_source_write_set": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/capture_link_r01/",
+  "docs_write_set": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/",
+  "output": "code/output/m3_c9_chain_night_r10_20261017/CAPTURE_LINK_REPAIR_R01",
+  "original_START": "2026-10-17T21:52:00+08:00",
+  "deadline": "2026-10-18T02:52:00+08:00",
+  "goal_createdAt": 1792257077,
+  "runner": "Freeze source/input/case/argv/cwd before consumption; set existing shared repair ledger CONSUMED_RUNNING before candidate imports; CPython audit forbids subprocess/socket/native/device/external writes;59s hard watchdog includes sealing.",
+  "new_HDL_EDA_devices": 0,
+  "new_budget_granted": false,
+  "same_CASE_in_two_groups": false,
+  "stop": "First actual failing repair result or timeout closes this unique increment; retain failure and do not retry without a new valid permission."
+}

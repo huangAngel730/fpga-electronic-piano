@@ -1,0 +1,49 @@
+{
+  "schema": "M3_R10_MEMBER3_CAPTURE_ADAPTER_READY_V1",
+  "status": "STATIC_SOURCE_READY_ROOT_TARGETED_VALIDATION_PENDING",
+  "prepared_at_utc": "2026-10-17T17:21:13.677Z",
+  "latest_report": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/member3/RESULT_R02.json",
+    "bytes": 6735,
+    "sha256": "fc6d2747435c0c9d6628fc35af449eef56606bcb00d314a9619c47717136837a"
+  },
+  "reports": [
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/member3/RESULT.json",
+      "bytes": 34268,
+      "sha256": "b54c4f40699de55eea53ae49ba20d3af9d784e3b579334efa3c1dc679acc9097"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/member3/RESULT_R02.json",
+      "bytes": 6735,
+      "sha256": "fc6d2747435c0c9d6628fc35af449eef56606bcb00d314a9619c47717136837a"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/member3/REPORT.md",
+      "bytes": 2734,
+      "sha256": "18855eaf8545adb4b2f329761179f359450ad795f81ee462da9bc42549f0c5f1"
+    }
+  ],
+  "source": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/capture_link_r01/application_adapter.py",
+    "bytes": 2904,
+    "sha256": "54d6e962acc014d0711e3369ae27610e01ac9ccdf4bfc688006191afcaa1f899"
+  },
+  "delegated_source": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/admission/adapter.py",
+    "bytes": 4704,
+    "sha256": "91ef6b5e0f757edc3e50363c10ff5196af6ffa6d5d42e1fc6d377ee614eb1c90"
+  },
+  "API": "build_application(request,out)->dict",
+  "root_binding_action": "Replace application descriptor only in NEW D4-style binding; root writes remaining new capture_link files",
+  "member_candidate_execution": 0,
+  "member_Git_network": 0,
+  "old_source_or_frozen_edits": 0,
+  "budget": "Original conditional N10 first-defect<=60s only, root decision/consumption; old7/D4/H54 reused",
+  "self_review": "Readonly no concrete blocker; not runtime PASS",
+  "real_verified": false,
+  "math_verified": false,
+  "execution_allowed": false,
+  "board_release_allowed": false,
+  "publication": "Not committed/pushed by member; night1 only"
+}

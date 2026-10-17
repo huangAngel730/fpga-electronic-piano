@@ -1,0 +1,728 @@
+{
+  "schema": "M3_R10_GAP_INTAKE_MEMBER3_V1",
+  "status": "READONLY_GAP_TRIAGE_COMPLETE",
+  "prepared_at_utc": "2026-10-17T17:16:01.671Z",
+  "task": "R10 phases3/4 and spareR8-19..24 exact dedup/gap triage",
+  "declared_remote": {
+    "source": "night1 dispatch, not independently Git queried by member",
+    "HEAD_origin_develop": "82a9e826",
+    "new_fetch": "No new remote input per coordinator"
+  },
+  "publication": {
+    "source_commit": "26cb6fed2cfa2302a2776cbe010d2e105d428bb1",
+    "receipt_commit_prefix": "82a9e826",
+    "source_receipt_state": "REMOTE_VERIFIED",
+    "scope_note": "Actual local receipt/closure and body SHA read; member did not Git/fetch/network/verify ancestry independently."
+  },
+  "timebox": {
+    "original_START": "2026-10-17T21:52:00+08:00",
+    "deadline": "2026-10-18T02:52:00+08:00",
+    "same_Goal": "01a14050-cd98-7c41-8004-5d3e25765167 / createdAt1792253457",
+    "new_Goal_created": false
+  },
+  "write_scope": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/member3",
+  "read_boundary": "Latest local task cards, published result/receipt/consumption/bindings, phase-related source interfaces and six spare modules; not full old-group re-review or runtime reproduction",
+  "dedup": {
+    "D4": {
+      "old75": 75,
+      "new39": 39,
+      "total114": 114,
+      "remaining": [],
+      "initial_consumed": 1,
+      "repairs_consumed": 3,
+      "per_version": "Each matched assertion is bound to its own frozen run version. Unaffected passed cases are not replayed after targeted repairs; no claim of one complete final-version rerun."
+    },
+    "R10_LINK": {
+      "matched": 7,
+      "exit_code": 0,
+      "seconds": 9.391,
+      "initial_consumed": 1,
+      "repair_consumed": 0,
+      "repair_condition": "Only specific new LINK defect after preserving first failure; no whole signed replay"
+    },
+    "H": {
+      "matched": 54,
+      "total": 54,
+      "exit_code": 0,
+      "seconds": 1.7340000000112923,
+      "initial_consumed": 1,
+      "repair_consumed": 0,
+      "all_current_read_source_test_helper_files_equal_receipt": true,
+      "verified_files": 14,
+      "subset_of_old_R08_204": true,
+      "stale_PREPARED_NOT_RUN_docs": "Historical package README/READY do not override actual H receipt; not grounds for replay."
+    },
+    "current_R10_bound_source_identities_equal": true,
+    "bound_files": 12
+  },
+  "phase3_4_matrix": [
+    {
+      "step": "唯一FRAME_PLAN / F-A / TX / serial",
+      "existing": "D4 chain复用原38592fae生产者及calendar/serial代码，D4新增串行6例匹配，未重跑旧114",
+      "remaining": "M2冻结当前STOP1130660对应D或D+1实际finish/core相位；随后实际reset/公开trace/window原件",
+      "classification": "MISSING_FROZEN_CONTRACT_THEN_REAL_INPUT_NOT_MISSING_GENERATOR",
+      "budget": "N10初组已用；60s仅具体新LINK缺陷，不为null finish调用generator或扩预算",
+      "owner": "M2冻结；M3按新真实材料/准入接入",
+      "evidence": [
+        "R10_chain:33,66",
+        "D4_chain:68,77",
+        "R10_integration.unique_FRAME_PLAN_ref"
+      ]
+    },
+    {
+      "step": "同版RAW→codec→intake→calendar→serial→math→provenance",
+      "existing": "D4 PROCESS_CAPTURE实现在库；当前N10入口33行只允许PREPARE_APPLICATION_ONLY，并66行明确复用挂起",
+      "remaining": "收到冻结finish和真实捕获时，须串行适配N10请求schema/输出scope/application adapter与已有D4捕获管线；当前N10路由不能直接处理capture",
+      "classification": "EXPLICITLY_DEFERRED_ENTRY_INTEGRATION_NOT_ABSENT_CORE_ALGORITHM",
+      "budget": "本轮未获通用新接缝组；新路由不得被包装成已消费初组的对应缺陷或借60s扩展",
+      "owner": "night1整链唯一写者；需有对应新输入和精确软件/工具许可",
+      "no_current_bug_reproduction_claim": true
+    },
+    {
+      "step": "MATH_INPUT_BUNDLE与独立PCM24/ID/clip结果",
+      "existing": "D4机械math_bundle代码和M1 NEXT_INPUT_CONTRACT均有实际固定身份；机械包不是数学黄金",
+      "remaining": "实际同source/capture包、M1独立accepted/apply映射、受支持算术profile及真实黄金/结果",
+      "classification": "M1_MATH_MATERIAL_AND_REAL_CAPTURE_MISSING",
+      "owner": "M1独立数学；M3只机械包装；M2签收",
+      "budget": "无M3代做数学或把observed PCM当黄金许可"
+    },
+    {
+      "step": "同源capture/finish/receipt封存与一份交接",
+      "existing": "D4 provenance/档案与R10 INTEGRATION_HANDOFF/ZIP/RESULT_RECEIPT已发布；R10 SOURCE_BOUND_PREPARATION七例匹配",
+      "remaining": "实际HDL exit/stdout/stderr/reset/raw/finish与可信执行身份；实际M1结果；M2限定复核",
+      "classification": "ACTUAL_EXECUTION_RECEIPTS_AND_ACCEPTANCE_MISSING_NOT_EMPTY_PACKAGE_TASK",
+      "owner": "M2准入/复核，实际执行者交原件；M3机械封存",
+      "budget": "HDL/EDA/设备新增0，不造空文件或软件exit0替代真实执行"
+    }
+  ],
+  "external_blockers": [
+    {
+      "item": "FINISH_PHASE_D_OR_D_PLUS_1",
+      "owner": "M2",
+      "type": "FROZEN_CONTRACT_MISSING"
+    },
+    {
+      "item": "TRUSTED_EXECUTOR_NATIVE_DYNAMIC_DEPENDENCIES_AND_EXACT_FIRST_C9_HDL_BUDGET",
+      "owner": "M2",
+      "type": "EXECUTION_PERMISSION_AND_IDENTITY_MISSING"
+    },
+    {
+      "item": "INDEPENDENT_ACCEPTED_APPLY_MAPPING_SUPPORTED_PROFILE_PCM24_ID_CLIP_GOLDEN",
+      "owner": "M1",
+      "type": "INDEPENDENT_MATH_ORIGINALS_MISSING"
+    },
+    {
+      "item": "AUDIO_STABLE_POLICY",
+      "owner": "M2",
+      "type": "CONTROLLED_DEFINITION_MISSING"
+    },
+    {
+      "item": "READY_DRV_NOT_DUT_BACKPRESSURE",
+      "owner": "M2/M3",
+      "type": "KNOWN_STIMULUS_COVERAGE_LIMIT_REQUIRES_DESIGN_ADMISSION_NOT_FREE_LOCAL_PATCH"
+    },
+    {
+      "item": "PHYSICAL_BOARD_INSTRUMENT_AND_NEW_BUILD_ORIGINALS",
+      "owner": "physical owner/M2",
+      "type": "REAL_PHYSICAL_MATERIAL_MISSING"
+    }
+  ],
+  "spare_matrix": [
+    {
+      "id": "M3-R8-19",
+      "directory": "physical_photo_index",
+      "original_writer": "A",
+      "source": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/physical_photo_index/m3r08_19.py",
+        "bytes": 3532,
+        "sha256": "d6923e087714693585eef022c928e30c970d6acc51a3ff970d4d407f7e55a5b2"
+      },
+      "case_manifest": {
+        "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/physical_photo_index/CASES.json",
+        "bytes": 995,
+        "sha256": "a2c5a04006398346ae7c4735a2cbeac1e0a65cdd0736cfee98f974b54fffb475"
+      },
+      "software_capability": "原图/参考/合成证据、board_id、六身份声明、页码/region/测量引用机械索引",
+      "matched_existing_cases": 6,
+      "expected_existing_cases": 6,
+      "all_definition_cases_matched": true,
+      "case_ids": [
+        "19_synthetic_index",
+        "19_changed_photo_identity",
+        "19_wrong_board",
+        "19_missing_page",
+        "19_reference_not_physical",
+        "19_missing_real_bank_version"
+      ],
+      "actual_level": "H_LIMITED_SYNTHETIC_FILE_SOFTWARE_ONLY",
+      "remaining": "实际芯片完整料号/version、Core/Dock修订、Bank、原图与同板测量/人工确认",
+      "gap_category": "REAL_PHYSICAL_ORIGINALS_MISSING",
+      "primary_function_code_absent": false,
+      "independent_rerun_or_new_test_allowed_now": false,
+      "budget": "H初组已消费；repair0仅条件性缺陷增量，不能用于扩展原始格式适配或重复H54",
+      "next_action": "原件/合同到件后由原唯一写者按实际许可接入；当前报告不重新分配写集/执行权"
+    },
+    {
+      "id": "M3-R8-20",
+      "directory": "io_voltage_budget",
+      "original_writer": "A",
+      "source": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/io_voltage_budget/m3r08_20.py",
+        "bytes": 4988,
+        "sha256": "1b5f59ebcd7a2bf0138cf59feef395dc91a1ddb21f6418ee6a56886dfa01715d"
+      },
+      "case_manifest": {
+        "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/io_voltage_budget/CASES.json",
+        "bytes": 1522,
+        "sha256": "48768eea9443c471c41ae6ec919f9fb1d40c3c190801c2ad5f5792f079fce46f"
+      },
+      "software_capability": "有来源数值/原句/page的Decimal电平及VCCIO裕量；错方向/Bank/无地/5V风险拒收",
+      "matched_existing_cases": 9,
+      "expected_existing_cases": 9,
+      "all_definition_cases_matched": true,
+      "case_ids": [
+        "20_synthetic_margins",
+        "20_negative_margin",
+        "20_direct_five_volts",
+        "20_bank_mismatch",
+        "20_bank_unknown",
+        "20_wrong_direction",
+        "20_missing_ground",
+        "20_missing_quote",
+        "20_real_stays_unknown"
+      ],
+      "actual_level": "H_LIMITED_SYNTHETIC_FILE_SOFTWARE_ONLY",
+      "remaining": "同板Bank/电压实测与对应官方条件原件；不能猜规格或批准接线",
+      "gap_category": "OFFICIAL_AND_SAME_BOARD_MEASUREMENT_INPUTS_MISSING",
+      "primary_function_code_absent": false,
+      "independent_rerun_or_new_test_allowed_now": false,
+      "budget": "H初组已消费；repair0仅条件性缺陷增量，不能用于扩展原始格式适配或重复H54",
+      "next_action": "原件/合同到件后由原唯一写者按实际许可接入；当前报告不重新分配写集/执行权"
+    },
+    {
+      "id": "M3-R8-21",
+      "directory": "measurement_profile",
+      "original_writer": "B",
+      "source": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/measurement_profile/measurement_profile.py",
+        "bytes": 4604,
+        "sha256": "7ca49b20fcace7b526ba7cb1dfa5c3812baa7d8d706f45356aa7b98b067f5729"
+      },
+      "case_manifest": {
+        "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/measurement_profile/CASES.json",
+        "bytes": 1242,
+        "sha256": "b6ada2f6c64f8c169f5dd4229279e603c5cdfbb424300ba47144035291abfa8b"
+      },
+      "software_capability": "归一化仪器设置/profile形状、timebase/session、触发/校准身份声明、量程/分辨率/丢样/饱和检查",
+      "matched_existing_cases": 9,
+      "expected_existing_cases": 9,
+      "all_definition_cases_matched": true,
+      "case_ids": [
+        "SYNTHETIC_PROFILE_READY",
+        "UNKNOWN_CALIBRATION_PENDING",
+        "MISSING_TIMEBASE_PENDING",
+        "SELF_DECLARED_CALIBRATION_PENDING",
+        "MISSING_TRIGGER_PENDING",
+        "DROPPED_SAMPLE_REJECT",
+        "SATURATION_REJECT",
+        "LOW_RATE_REJECT",
+        "NONFINITE_RANGE_REJECT"
+      ],
+      "actual_level": "H_LIMITED_SYNTHETIC_FILE_SOFTWARE_ONLY",
+      "remaining": "原始仪器设置/校准记录/格式与公共时基证据；settings/calibration实际文件哈希读取尚不在core中",
+      "gap_category": "REAL_FORMAT_INPUT_MISSING_WITH_EXPLICIT_NORMALIZED_INPUT_LIMIT",
+      "primary_function_code_absent": false,
+      "independent_rerun_or_new_test_allowed_now": false,
+      "budget": "H初组已消费；repair0仅条件性缺陷增量，不能用于扩展原始格式适配或重复H54",
+      "next_action": "原件/合同到件后由原唯一写者按实际许可接入；当前报告不重新分配写集/执行权"
+    },
+    {
+      "id": "M3-R8-22",
+      "directory": "latency_alignment",
+      "original_writer": "B",
+      "source": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/latency_alignment/latency_alignment.py",
+        "bytes": 8962,
+        "sha256": "8cf77712878d2376ebb5dcae09e288387fc14fca2b7c9f8ae49ca7f2ef91cdd7"
+      },
+      "case_manifest": {
+        "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/latency_alignment/CASES.json",
+        "bytes": 1997,
+        "sha256": "a3ba08f02f1eed893a2f1bbe1207c1a46f98806e2bbb0a54a7cacf9a946a3400"
+      },
+      "software_capability": "消费已有PROFILE_READY及规范event_evidence，选首个因果输入/数字/阈值模拟匹配，给区间/误差",
+      "matched_existing_cases": 13,
+      "expected_existing_cases": 13,
+      "all_definition_cases_matched": true,
+      "case_ids": [
+        "KNOWN_SYNTHETIC_LATENCY",
+        "NO_COMMON_TIMEBASE_UNKNOWN",
+        "EMPTY_IDENTITIES_UNKNOWN",
+        "THRESHOLD_UNSET_UNKNOWN",
+        "TRIGGER_UNSET_UNKNOWN",
+        "CLIPPED_UNKNOWN",
+        "PENDING_PROFILE_UNKNOWN",
+        "PROFILE_SHA_MISMATCH_UNKNOWN",
+        "LATER_MATCH_REJECT",
+        "FIRST_THRESHOLD_CLIPPED_REJECT",
+        "NEGATIVE_UNCERTAINTY_REJECT",
+        "NONFINITE_UNCERTAINTY_REJECT",
+        "EVENT_ORDER_REJECT"
+      ],
+      "actual_level": "H_LIMITED_SYNTHETIC_FILE_SOFTWARE_ONLY",
+      "remaining": "同会话原始MIDI/数字/模拟、冻结触发/阈值、共同时间基准；当前不从RAW/WAV提取事件",
+      "gap_category": "REAL_CAPTURE_AND_THRESHOLD_INPUT_MISSING_WITH_RAW_ADAPTER_LIMIT",
+      "primary_function_code_absent": false,
+      "independent_rerun_or_new_test_allowed_now": false,
+      "budget": "H初组已消费；repair0仅条件性缺陷增量，不能用于扩展原始格式适配或重复H54",
+      "next_action": "原件/合同到件后由原唯一写者按实际许可接入；当前报告不重新分配写集/执行权"
+    },
+    {
+      "id": "M3-R8-23",
+      "directory": "board_session_capture",
+      "original_writer": "C",
+      "source": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/board_session_capture/r08c23_session.py",
+        "bytes": 4767,
+        "sha256": "e28e32378d21194d14c7144c922f6673367848ca52e070f5319cc4e759c7e7cc"
+      },
+      "case_manifest": {
+        "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/board_session_capture/CASES.json",
+        "bytes": 1358,
+        "sha256": "66317dadf3a575bb710513abedd3cac26fb27cd9bfb10bf36f72e252dc5d9be9"
+      },
+      "software_capability": "十角色同会话/同.fs/source/board/timebase关联，真实原件逐件拷贝保全，原WAV检查",
+      "matched_existing_cases": 8,
+      "expected_existing_cases": 8,
+      "all_definition_cases_matched": true,
+      "case_ids": [
+        "H23_PRESERVE_RAW_FILES",
+        "H23_WRONG_SESSION",
+        "H23_REPLACED_UART",
+        "H23_MISSING_MIDI",
+        "H23_WRONG_FS",
+        "H23_PATH_ESCAPE",
+        "H23_SCREENSHOT_NOT_AUDIO",
+        "H23_REAL_UNVERIFIED"
+      ],
+      "actual_level": "H_LIMITED_SYNTHETIC_FILE_SOFTWARE_ONLY",
+      "remaining": "实际同会话MIDI/UART/LA/WAV/SETTINGS/INPUT_PLAN/.fs/source/board/profile；仅结构不能鉴真",
+      "gap_category": "REAL_SAME_SESSION_ORIGINALS_MISSING",
+      "primary_function_code_absent": false,
+      "independent_rerun_or_new_test_allowed_now": false,
+      "budget": "H初组已消费；repair0仅条件性缺陷增量，不能用于扩展原始格式适配或重复H54",
+      "next_action": "原件/合同到件后由原唯一写者按实际许可接入；当前报告不重新分配写集/执行权"
+    },
+    {
+      "id": "M3-R8-24",
+      "directory": "recovery_manifest",
+      "original_writer": "C",
+      "source": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/recovery_manifest/r08c24_recovery.py",
+        "bytes": 4966,
+        "sha256": "242b56b373004a84d82bf008044d5bc1e28f02b702ddc8ce0252fce1f1fa409c"
+      },
+      "case_manifest": {
+        "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/recovery_manifest/CASES.json",
+        "bytes": 1524,
+        "sha256": "5b1f1f11b5fca71ae0d5890daeae28f00c1af6cb95398b82896712e650ff4c1e"
+      },
+      "software_capability": "九物理/构建/恢复文件身份与七类时序覆盖、Part/version、单次SRAM许可机械预检，永不自授权",
+      "matched_existing_cases": 9,
+      "expected_existing_cases": 9,
+      "all_definition_cases_matched": true,
+      "case_ids": [
+        "H24_COMPLETE_STILL_PENDING",
+        "H24_OLD_PG484",
+        "H24_UNKNOWN_VERSION",
+        "H24_MISSING_FS",
+        "H24_MISSING_RECOVERY_REMOVAL",
+        "H24_WRONG_FS_PERMISSION",
+        "H24_FLASH_FORBIDDEN",
+        "H24_CONSUMED_SRAM",
+        "H24_PERMISSION_OTHER_VERSION"
+      ],
+      "actual_level": "H_LIMITED_SYNTHETIC_FILE_SOFTWARE_ONLY",
+      "remaining": "正确实际Part/version与新物理报告/.fs/恢复/精确许可；仅既定normalized JSON报告格式受支持",
+      "gap_category": "M2_PHYSICAL_BUILD_AND_PERMISSION_INPUT_MISSING",
+      "primary_function_code_absent": false,
+      "independent_rerun_or_new_test_allowed_now": false,
+      "budget": "H初组已消费；repair0仅条件性缺陷增量，不能用于扩展原始格式适配或重复H54",
+      "next_action": "原件/合同到件后由原唯一写者按实际许可接入；当前报告不重新分配写集/执行权"
+    }
+  ],
+  "code_gap_assessment": {
+    "missing_core_generator_codec_calendar_serial_math_wrapper_provenance_or_spare_modules_confirmed": 0,
+    "deferred_wiring": "N10 capture dispatch/request+binding/output adaptation is not currently exposed; existing D4 capture core is present. It becomes concrete continuation work after exact inputs/admission, not grounds to repeat already passed prep groups.",
+    "raw_format_limitations": [
+      {
+        "package": "measurement_profile",
+        "locations": [
+          23,
+          47,
+          72,
+          91
+        ],
+        "fact": "assess only validates path/sha identity declaration shape; it does not open raw settings/calibration documents. CLI opens normalized --input only.",
+        "consequence": "Current PROFILE_READY is normalized-input structural readiness, not raw calibration/settings authenticity. Real format-to-profile and byte verification layer is not demonstrated.",
+        "classification": "CODE_CAPABILITY_BOUNDARY_WITH_MISSING_REAL_FORMAT_CONTRACT",
+        "current_action": "Do not declare physical calibration verified or treat H54 as raw parser coverage. Need actual format/originals and scoped new adapter/verification decision; no runtime defect reproduction made."
+      },
+      {
+        "package": "latency_alignment",
+        "locations": [
+          80,
+          125
+        ],
+        "fact": "Consumes supplied event_evidence/sample_index/source_line and profile hashes; no raw LA/WAV threshold extraction route.",
+        "consequence": "Normalized-event interval/first-match calculator exists. Raw-to-event association remains an upstream input/adapter task, not proof that actual raw waveforms were parsed.",
+        "classification": "RAW_INPUT_ADAPTER_NOT_PRESENT_BUT_REAL_FORMAT_THRESHOLD_TIMEBASE_INPUTS_MISSING",
+        "current_action": "Do not synthesize measured events or claim <=10ms. Only after formats/rules/originals arrive can ownerB scope exact import adapter."
+      }
+    ],
+    "not_a_complete_formal_code_audit": true
+  },
+  "budget_decision": {
+    "freely_available_new_business_test_groups": 0,
+    "freely_available_new_HDL_EDA_device_runs": 0,
+    "N10_increment_remaining": "0/1 consumed, <=60s conditional only for concrete corresponding new LINK defect; not generic route/parser enhancement",
+    "H_increment_remaining": "0/1 consumed, <=60s conditional only; original H54 passed with no first-run defect, no new general H batch",
+    "D4_remaining": "None; initial1+repairs3 used,114 matched",
+    "this_task_scope": "Report-only, no candidate execution or source fixes",
+    "newly_reproduced_failure": false
+  },
+  "independently_completable_new_implementation_and_validation_items_now": [],
+  "recommended_disposition": "NO_ACTIONABLE_WORK within current ready inputs and existing unconsumed conditional budgets. Keep precise resumes rather than inventing a new batch or duplicating signed work.",
+  "resume_conditions": [
+    {
+      "when": "M2 freeze actualfinish/window and grant exact C9 execution+trusted dependency contract",
+      "then": "night1 verify original inputs, safely adapt dispatch/bindings as needed, freeze only authorized new assertion/source group; M3 canonical capture with sole originalFRAME producer"
+    },
+    {
+      "when": "M1 independent math originals or supported-profile contract arrives",
+      "then": "mechanical same-capture bundle -> M1 actual engine -> M2 limited acceptance; M3 does not invent golden"
+    },
+    {
+      "when": "Real board/instrument settings/calibration/raw session/new.fs/report originals arrive",
+      "then": "original A/B/C writers inspect exact spare schemas/formats. Scope raw adapter/source delta and necessary new authorization if needed; do not repeat H54"
+    }
+  ],
+  "self_review": "Own read-only child independently agreed no current independently runnable missing task; confirmed normalized-input limits and intentionally deferred N10 capture route. No formal review windows.",
+  "evidence": {
+    "M3_R10_task": {
+      "path": "code/docs/M3_夜间Pro无实物收口任务单_R10_2026-10-17.md",
+      "bytes": 8428,
+      "sha256": "83fc51ccfd9c7061aba788846fd007400ac04bcfd755da52bd41afd660bbfa39"
+    },
+    "R08_task": {
+      "path": "code/docs/Pro基础M3三倍任务单_R08_2026-10-17.md",
+      "bytes": 25318,
+      "sha256": "bc0ce6ed9982011699362ee4fc1b7cb5af6f059141aaba16ce58bb021c1ded02"
+    },
+    "R10_result": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/RESULT.json",
+      "bytes": 2873,
+      "sha256": "4d4f9212fc5415837c954a7c068527f5255e89027c538028bc0a9fc5fb73c670"
+    },
+    "R10_receipt": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/RESULT_RECEIPT.json",
+      "bytes": 4754,
+      "sha256": "5a45f8efdeac96cdd5f9a613e4dc927f8f082dd7de8e5c8575aaf5655431d3f6"
+    },
+    "R10_closure": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/PUBLICATION_SUPPLEMENT/CLOSURE.json",
+      "bytes": 4693,
+      "sha256": "ee9d5012ac96c33e9347bfa0d6a10456d872d3c02ffee0b93d3820230a651a72"
+    },
+    "R10_consumption": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/CONSUMPTION.json",
+      "bytes": 1177,
+      "sha256": "55f13cb309ce3100a4e0f0855f16c96cc5ce20dd38ab27ab9bdc136bbe9cc7c1"
+    },
+    "R10_integration": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/INTEGRATION_HANDOFF.json",
+      "bytes": 49768,
+      "sha256": "8c58686bc40e226859c3e5a6cd4f9c082a07880295f60b62c425b115b3402af7"
+    },
+    "R10_bindings": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/MODULE_BINDINGS.json",
+      "bytes": 3270,
+      "sha256": "9c795e528a45ad0e70f8a32955fcd50c029265ca2e016a4618b50c401f967ca9"
+    },
+    "R10_chain": {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/chain.py",
+      "bytes": 4931,
+      "sha256": "7c975cff2d19b98c2569c56bbb7a4f6f5f4ffeb6a93c59643253e074e5b4127e"
+    },
+    "R10_adapter": {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/admission/adapter.py",
+      "bytes": 4704,
+      "sha256": "91ef6b5e0f757edc3e50363c10ff5196af6ffa6d5d42e1fc6d377ee614eb1c90"
+    },
+    "D4_chain": {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/chain.py",
+      "bytes": 12667,
+      "sha256": "64bfdf4787aa9dd1ddab30a30ed7cf4fb05be763b9303ec965061005430f1c44"
+    },
+    "D4_result": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/RESULT.json",
+      "bytes": 10535,
+      "sha256": "a4e93f77c5148a9f8b12b379202f3e1c55bb578f56797f56188d16e1bbdf6624"
+    },
+    "D4_consumption": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/CONSUMPTION.json",
+      "bytes": 3452,
+      "sha256": "636e58ea5c5c85f0b5315f84acbfc9253bb3743810407cbf44dbd375f5005c9b"
+    },
+    "R08_consumption": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/CONSUMPTION.json",
+      "bytes": 8361,
+      "sha256": "8a274eea54e05eebdef467d6aeaf6d45630277f396fc324fab3a9b66ddeb5141"
+    },
+    "H_receipt": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/RUNS/H/R01/RECEIPT.json",
+      "bytes": 71845,
+      "sha256": "02943b3bf6522d3f752837b9a846e0c86cf20595ccf62f0d5cd1005d5e1a78cf"
+    }
+  },
+  "source_identity_checks": {
+    "H_read_inputs": [
+      {
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/board_session_capture/selftest.py",
+          "bytes": 4535,
+          "sha256": "0dda872b0f87ceb59cbc34c00942f353aabb3ae50ffc2e4473447f1afa107e59"
+        },
+        "matches_H_receipt": true
+      },
+      {
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/board_session_capture/r08c23_session.py",
+          "bytes": 4767,
+          "sha256": "e28e32378d21194d14c7144c922f6673367848ca52e070f5319cc4e759c7e7cc"
+        },
+        "matches_H_receipt": true
+      },
+      {
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/i2s_serial_compare/r08c_common.py",
+          "bytes": 4039,
+          "sha256": "975f52584ff5ddd8d245ca690d99e890a51eb17cd325802c4b653abfdb6f10fa"
+        },
+        "matches_H_receipt": true
+      },
+      {
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/io_voltage_budget/selftest.py",
+          "bytes": 3215,
+          "sha256": "bc7402807b9d39e60c3e89d6fcc329790b8e8fa16f9853c94060b48ef4617874"
+        },
+        "matches_H_receipt": true
+      },
+      {
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/plan_consumption_guard/m3r08_common.py",
+          "bytes": 6657,
+          "sha256": "2cad307f975178cc00994949817b3b1da952628f2b509932bf13112cf6981c33"
+        },
+        "matches_H_receipt": true
+      },
+      {
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/io_voltage_budget/m3r08_20.py",
+          "bytes": 4988,
+          "sha256": "1b5f59ebcd7a2bf0138cf59feef395dc91a1ddb21f6418ee6a56886dfa01715d"
+        },
+        "matches_H_receipt": true
+      },
+      {
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/latency_alignment/selftest.py",
+          "bytes": 6582,
+          "sha256": "2b49f4b2d1762a35d081495f10aff3547d7566a496d928e785dad77e34cd5ce5"
+        },
+        "matches_H_receipt": true
+      },
+      {
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/latency_alignment/latency_alignment.py",
+          "bytes": 8962,
+          "sha256": "8cf77712878d2376ebb5dcae09e288387fc14fca2b7c9f8ae49ca7f2ef91cdd7"
+        },
+        "matches_H_receipt": true
+      },
+      {
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/measurement_profile/selftest.py",
+          "bytes": 3250,
+          "sha256": "8e8ffd841f90585dd2c552db156b1c2988a34d36c941c45f2ff247fa72c91ed3"
+        },
+        "matches_H_receipt": true
+      },
+      {
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/measurement_profile/measurement_profile.py",
+          "bytes": 4604,
+          "sha256": "7ca49b20fcace7b526ba7cb1dfa5c3812baa7d8d706f45356aa7b98b067f5729"
+        },
+        "matches_H_receipt": true
+      },
+      {
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/physical_photo_index/selftest.py",
+          "bytes": 2438,
+          "sha256": "2cbfb9479e07283f775a2f6abb2a8ae6233d8c567856b94ad929c624b055cb77"
+        },
+        "matches_H_receipt": true
+      },
+      {
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/physical_photo_index/m3r08_19.py",
+          "bytes": 3532,
+          "sha256": "d6923e087714693585eef022c928e30c970d6acc51a3ff970d4d407f7e55a5b2"
+        },
+        "matches_H_receipt": true
+      },
+      {
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/recovery_manifest/selftest.py",
+          "bytes": 4815,
+          "sha256": "58a0113f68f0eef29b83f78fdd8cf5fc53975a118df15f78a2df8e786970d77b"
+        },
+        "matches_H_receipt": true
+      },
+      {
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/recovery_manifest/r08c24_recovery.py",
+          "bytes": 4966,
+          "sha256": "242b56b373004a84d82bf008044d5bc1e28f02b702ddc8ce0252fce1f1fa409c"
+        },
+        "matches_H_receipt": true
+      }
+    ],
+    "R10_bindings": [
+      {
+        "role": "existing_chain",
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/chain.py",
+          "bytes": 12667,
+          "sha256": "64bfdf4787aa9dd1ddab30a30ed7cf4fb05be763b9303ec965061005430f1c44"
+        },
+        "matches_published_binding": true
+      },
+      {
+        "role": "application_adapter",
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/admission/adapter.py",
+          "bytes": 4704,
+          "sha256": "91ef6b5e0f757edc3e50363c10ff5196af6ffa6d5d42e1fc6d377ee614eb1c90"
+        },
+        "matches_published_binding": true
+      },
+      {
+        "role": "handoff",
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/handoff.py",
+          "bytes": 22786,
+          "sha256": "1ccc1c20a756c649fc6f5325eec20408c73d879f61a15e3e207815a7990f388f"
+        },
+        "matches_published_binding": true
+      },
+      {
+        "role": "application",
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/assembler.py",
+          "bytes": 22940,
+          "sha256": "ae4ad0f3fefa1bc28e099a2aabcb827f733358d9bd93988af31e5de20a824ccf"
+        },
+        "matches_published_binding": true
+      },
+      {
+        "role": "stream",
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/c9_stream.py",
+          "bytes": 16848,
+          "sha256": "5584ab7201544a8d30bfdd7603a51483d1c5340ccc219e853df0d146d042ebef"
+        },
+        "matches_published_binding": true
+      },
+      {
+        "role": "codec",
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/capture_csv_codec/c9_completion_r01/c9_codec.py",
+          "bytes": 6260,
+          "sha256": "9cc466db9324bb8d770af02e0b11a40ab3bc67f5febc46d044449d7a656832af"
+        },
+        "matches_published_binding": true
+      },
+      {
+        "role": "intake",
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/normalized_intake/c9_completion_r01/intake_adapter.py",
+          "bytes": 8784,
+          "sha256": "7cfaba5c19cefa408f30911f5a69b440302e7bca24d6a2352fce1e48ba2456c0"
+        },
+        "matches_published_binding": true
+      },
+      {
+        "role": "math",
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/math_bundle.py",
+          "bytes": 9608,
+          "sha256": "83659169c25e5d77621e1649eeda25697b7f0eb4767d8321599144a19ceb3854"
+        },
+        "matches_published_binding": true
+      },
+      {
+        "role": "serial",
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/c9_completion_r01/serial.py",
+          "bytes": 31061,
+          "sha256": "c576a5c79169eb5e91d796775aec820260a5df0e47b5c4472acf8630f5dcc5b7"
+        },
+        "matches_published_binding": true
+      },
+      {
+        "role": "frame_generator",
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/frame_plan_generator_candidate.py",
+          "bytes": 10359,
+          "sha256": "38592faebeeeb0a2022668785453760a5b58babd24af6ff18a96f15790597191"
+        },
+        "matches_published_binding": true
+      },
+      {
+        "role": "calendar",
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/r07_fix/calendar_r07_fix_candidate.py",
+          "bytes": 14768,
+          "sha256": "9af7022b0a228e0f8e180fd6a3c58646757cb407dfb132726c8ae0ace28413a5"
+        },
+        "matches_published_binding": true
+      },
+      {
+        "role": "provenance",
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/provenance.py",
+          "bytes": 11138,
+          "sha256": "f76c9538adeb5f96fa4e240f8786d5bc181a6506aa0a4ef638aa1c630b7eabe0"
+        },
+        "matches_published_binding": true
+      }
+    ]
+  },
+  "actions": {
+    "read_text_JSON_hash_only": true,
+    "candidate_import": 0,
+    "compile": 0,
+    "test": 0,
+    "HDL_EDA_devices": 0,
+    "Git": 0,
+    "network": 0,
+    "source_edits": 0,
+    "shared_document_edits": 0
+  },
+  "real_verified": false,
+  "math_verified": false,
+  "board_release_allowed": false
+}

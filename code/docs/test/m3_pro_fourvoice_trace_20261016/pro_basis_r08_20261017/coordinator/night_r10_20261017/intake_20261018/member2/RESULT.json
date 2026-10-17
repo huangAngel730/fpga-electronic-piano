@@ -1,0 +1,293 @@
+{
+  "schema": "M3_R10_MEMBER2_READONLY_GAP_AUDIT_V1",
+  "status": "READONLY_AUDIT_COMPLETE_OVERALL_PARTIAL",
+  "observed_UTC": "2026-10-17T17:19:12Z",
+  "original_START": "2026-10-17T21:52:00+08:00",
+  "deadline": "2026-10-18T02:52:00+08:00",
+  "remaining_seconds_at_report": 5567.0,
+  "Goal": "Existing night1 Goal only; no new Goal",
+  "baseline": {
+    "historical_notice_commit": "16ac226552f6fb65347b229b8fad42146ed45644",
+    "D4_source": "af25fa5e14d9c3a288e7d8a6a6d05f2f9cf75f95",
+    "D4_evidence": "358c16c2a927e3684c075dfc5ede70a6a67e036a",
+    "R10_source": "26cb6fed2cfa2302a2776cbe010d2e105d428bb1",
+    "R10_receipt_prefix": "82a9e826",
+    "HEAD_origin_equal": "Coordinator reported82a9e826; this role does not fetch/query or invent unobserved full receipt SHA"
+  },
+  "conclusion": "C9 same-source information preservation and offline prep have concrete successor artifacts/limited software results. No new semantic preservation blocker found. Real execution/phase/trace/independent mapping/math/stability remain owner dependencies.",
+  "requirements": [
+    {
+      "id": "C9_SOURCE_CLOSURE",
+      "state": "L0_L1_PREPARATION_CLOSED_RUNTIME_PENDING",
+      "evidence": [
+        "C9_closure",
+        "C9_decision",
+        "C9_exports",
+        "C9_row_schema",
+        "actual_application",
+        "actual_graph"
+      ],
+      "actual": {
+        "base_units": 72,
+        "capture_units": 75,
+        "ROMs": 9,
+        "headers": 2,
+        "aliases": 2,
+        "decision_payloads": 86,
+        "inputs": 84,
+        "provenance": 2,
+        "base_members": 87,
+        "application_members": 97
+      },
+      "remaining": "Same-source compilation/elaboration/capture/readmem and trusted native execution",
+      "owner": "M2 admission then M3 permitted execution"
+    },
+    {
+      "id": "C9_FIELDS",
+      "state": "SOURCE_AND_SOFTWARE_PRESERVATION_IMPLEMENTED",
+      "evidence": [
+        "C9_port_map",
+        "observer",
+        "stream",
+        "codec",
+        "intake",
+        "companions"
+      ],
+      "actual": {
+        "observation_ports": 67,
+        "canonical_fields": 74,
+        "legacy_projection": "61+TX explicit derivative with sidecar",
+        "raw_X_null_preserved": true
+      },
+      "remaining": "Actual same-capture full-window originals; no real pass inferred"
+    },
+    {
+      "id": "KIND_MASK_SEQ_CONFIG_CLIPS",
+      "state": "INFORMATION_PRESERVED_NO_NEW_BLOCKER_FOUND",
+      "evidence": [
+        "observer",
+        "stream",
+        "bridge",
+        "C9_port_map"
+      ],
+      "source_lines": [
+        "observer202-210",
+        "stream205-255"
+      ],
+      "actual": [
+        "kind/mask/router_apply_seq/valid retained",
+        "apply_valid and known kind3/4/8 sentinel tuple seq_valid/data/seq=0/0/0",
+        "Unknown X/null preserved, not filled0",
+        "kind1/2 shared seq multi-stage not deduplicated",
+        "actual config_take plus62bit payload, three independent upstream/effect/feedback clip masks"
+      ],
+      "remaining": "Independent input-plan association and actual behavior/math",
+      "owner": "M1 mapping/math; M2 admission"
+    },
+    {
+      "id": "TAG_LANE_FRAME",
+      "state": "SOURCE_ROUTE_DISTINCTIONS_IMPLEMENTED",
+      "evidence": [
+        "lane_bank",
+        "stream",
+        "frame_generator"
+      ],
+      "source_lines": [
+        "lane_bank156,159",
+        "stream247-255"
+      ],
+      "actual": "advance_mask derives actual lane_tick signal; advance tag is pending_req_id, never FRAME F; lane route source is not request acceptance",
+      "remaining": "Actual lane observation and unique independent FRAME from frozen input, not tag/A/constant latency",
+      "owner": "M2 phase; M3 after applicable execution permission"
+    },
+    {
+      "id": "STAGE1_SAFETY",
+      "state": "APPLICATION_SAFETY_SOFTWARE_BOUNDARY_CLOSED",
+      "evidence": [
+        "actual_application",
+        "actual_tools",
+        "D4_result",
+        "D4_consumption",
+        "LINK_result"
+      ],
+      "actual": "NOT_GRANTED; claim is application-output reservation only. Startup/null/ID0/HOLD/cancel/F-A software seams have prior limited receipts",
+      "remaining": "Real process cleanup/trusted execution/dynamic native dependencies/HDL functionality",
+      "owner": "M2"
+    },
+    {
+      "id": "STAGE2_DRIVER_TB",
+      "state": "ACTUAL_SOURCE_AND_R62_PLAN_BOUND_NOT_EXECUTED",
+      "evidence": [
+        "driver",
+        "TB",
+        "R10_handoff"
+      ],
+      "actual": "Unique existing driver/observer/TB; public ready observed; ready.drv output not connected to DUT",
+      "remaining": [
+        "Actual external MIDI arrival/reset edge/pins/END/stdout/stderr",
+        "Actual DUT backpressure injection is not demonstrated; do not force internal ready"
+      ],
+      "owner": "M2 decides boundaries then authorized M3"
+    },
+    {
+      "id": "FINISH_FRAME",
+      "state": "OWNER_DECISION_PENDING",
+      "evidence": [
+        "R10_window",
+        "R10_handoff",
+        "frame_generator"
+      ],
+      "actual": {
+        "first_core_ps": 12500,
+        "period_ps": 25000,
+        "source_release_candidates": [
+          802,
+          1002482
+        ],
+        "second_assert": 1000480,
+        "STOP": 1130660,
+        "possible_finish": [
+          1130660,
+          1130661
+        ],
+        "selected_for_unapproved_argv": 1130661,
+        "FRAME_generator_invoked_R10": false
+      },
+      "remaining": "Freeze source stop/finish scheduling, or approve exact TB successor and version-bound application; no FROZEN_FRAME_INPUT fabricated",
+      "owner": "M2"
+    },
+    {
+      "id": "EQUIVALENCE_STREAM",
+      "state": "LIMITED_SOFTWARE_MATCHED_REAL_PAIR_PENDING",
+      "evidence": [
+        "D4_result",
+        "D4_self_review",
+        "companions",
+        "stream",
+        "codec"
+      ],
+      "actual": "D4 includes >65MiB streaming/full74 CSV, X/null long cell, C9 software pair/companion cases; end-to-end positive is synthetic idle7 rows with separate serial stereo/HOLD/ID0 cases",
+      "remaining": "Actual same-input paired C9 RTL public behavior and full-window evidence",
+      "owner": "M2 exact execution allowance then M3"
+    },
+    {
+      "id": "MATH_INPUT",
+      "state": "MECHANICAL_WRAPPER_EXISTS_ACTUAL_BUNDLE_NOT_RUN",
+      "evidence": [
+        "math_wrapper",
+        "M1_next_input",
+        "R10_handoff"
+      ],
+      "actual": "No second bridge needed; preserves actual event/apply/advance/FX/clip history when supplied",
+      "remaining": "M1 independent accepted/apply mapping, supported profile and PCM24/ID/clip0LSB golden; actual capture bundle",
+      "owner": "M1 and M3 after M2 admission"
+    },
+    {
+      "id": "NOTEON_ERRATUM",
+      "state": "CLOSED_L0_DO_NOT_REASK",
+      "evidence": [
+        "NoteOn_binding"
+      ],
+      "actual": "Frozen original + only /fields/4/definition successor; E=ALLOC, H=first later CTRL_ON&&cmd_ready, C=H+1 without reset abort, earliest E+2, backpressure may defer",
+      "remaining": "Behavior proof only with actual capture/math, not new wording correction"
+    },
+    {
+      "id": "INDEPENDENT_SEQ_AUDIO_STABLE",
+      "state": "EXPLICIT_NULL_PENDING",
+      "evidence": [
+        "C9_port_map",
+        "NoteOn_binding",
+        "R10_handoff"
+      ],
+      "remaining": [
+        "apply_event_seq independent plan/public acceptance association",
+        "M2 approved actual audio_stable implementation/policy"
+      ],
+      "owner": [
+        "M1",
+        "M2"
+      ],
+      "forbidden": "No router-seq substitution, zero-fill, constant delay or raw observed PCM golden"
+    },
+    {
+      "id": "R10_ACTUAL_ROUTE_AND_ACCEPTANCE",
+      "state": "PREPARE_ROUTE_READY_ACTUAL_ROUTE_NOT_RUN",
+      "evidence": [
+        "R10_chain",
+        "old_chain",
+        "R10_modules",
+        "R10_receipt",
+        "R10_handoff"
+      ],
+      "actual": "Current R10 chain only PREPARE_APPLICATION_ONLY; old D4 chain has PROCESS_CAPTURE with its original D4 application binding",
+      "remaining": "After owner inputs, explicitly bind compatible R10 application adapter/F/window/source route and authorized execution; M2 received/accepted/final review not observed in inspected receipts",
+      "note": "Intentional prep boundary is not a new LINK test failure or eligibility for repair quota"
+    }
+  ],
+  "budget": {
+    "D4": "Initial1/1 and repair3/3 consumed;114 matched by per-case frozen versions",
+    "R10_initial": "CONSUMED_PASS7/7 exit0 9.391s<=120s",
+    "R10_repair": {
+      "ledger": "NOT_CONSUMED",
+      "limit_seconds": 60,
+      "eligible_now": false,
+      "condition": "Only first concrete new LINK defect with preserved first failure; current seven passed and no such defect identified"
+    },
+    "old114": "REUSED_NOT_REPLAYED",
+    "old204": "REUSED_NOT_REPLAYED",
+    "other_old_budgets": "Not restored or claimed; original ledgers remain authoritative",
+    "current_new_test_runs_authorized_by_this_readonly_task": 0,
+    "HDL_EDA_devices": 0
+  },
+  "actions_now": [
+    {
+      "action": "Read current docs/source/receipts and calculate hashes; report and precise owner request",
+      "scope": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/member2",
+      "allowed": true
+    },
+    {
+      "action": "New source edits, rerun signed groups, new full LINK group, FRAME generation or real capture",
+      "allowed": false,
+      "reason": "This task is report-only; initial groups consumed; unused repair is conditional, no new failure"
+    },
+    {
+      "action": "M2 exact stop/finish/executor/dependency/HDL allowance, audio_stable/backpressure scope and final review",
+      "allowed": "WAIT_OWNER_INPUT"
+    },
+    {
+      "action": "M1 independent application plan/profile/math; then same-capture original bundle processing",
+      "allowed": "WAIT_OWNER_INPUT_AND_APPLICABLE_EXECUTION_PERMISSION"
+    }
+  ],
+  "evidence_index": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/member2/EVIDENCE.json",
+    "bytes": 15747,
+    "sha256": "2a0ad19cc83bac5435c4cb1ab201430f666be10431b0e5676f60fb85092989d1"
+  },
+  "human_report": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/member2/RESULT.md",
+    "bytes": 7621,
+    "sha256": "a845910d96003f314e07e225dcbcda2cd5f58808793e8c8e60e20117e8cab2e5"
+  },
+  "read_only_auxiliary_review": "Static semantic field-chain review; no concrete preservation gap; no candidate/HDL/test execution or modifications",
+  "inspected_scope": "Listed44 actual artifacts plus selected source/receipt text. No cross-chat reads. No claim of inspecting all later M1/M2 work or independently verifying current remote.",
+  "legacy_notice_adjustments": [
+    "R08 latest36 is historical; current R10 ordering governs",
+    "Old NoteOn wording pending is closed L0 by existing successor binding",
+    "Old C9 onlyL0 does not erase separately authorized completed D4/R10 software evidence",
+    "Old producer D-drive total ZIP not read; repository C9 source/contracts plus D4/R10 artifacts used"
+  ],
+  "candidate_imports": 0,
+  "candidate_compile_AST": 0,
+  "tests_started": 0,
+  "new_HDL_EDA_device_runs": 0,
+  "source_modifications": 0,
+  "Git_writes": 0,
+  "network_calls": 0,
+  "new_Goal_created": false,
+  "M2_acceptance_claimed": false,
+  "real_verified": false,
+  "math_verified": false,
+  "board_release_allowed": false,
+  "communication": "Local report retained; prior direct-message approval rejection not retried or bypassed; coordinator may read declared files"
+}

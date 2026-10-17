@@ -1,0 +1,129 @@
+{
+  "schema": "M3_R10_GAP_INTAKE_MEMBER3_R02_V1",
+  "status": "STATIC_ADAPTER_READY_ROOT_TARGETED_LINK_VALIDATION_PENDING",
+  "prepared_at_utc": "2026-10-17T17:20:53.085Z",
+  "supersedes": {
+    "original_report": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/member3/RESULT.json",
+      "bytes": 34268,
+      "sha256": "b54c4f40699de55eea53ae49ba20d3af9d784e3b579334efa3c1dc679acc9097"
+    },
+    "scope": "Previous no-code-omission/no-current-actionable conclusion only. Dedup and real-material gaps remain valid.",
+    "reason": "Latest explicit coordinator assignment identifies unconnected D4 PROCESS_CAPTURE as concrete R10 LINK completion-condition omission owned by M3 integration, not M2. Original record retained and corrected here."
+  },
+  "assignment": {
+    "source_thread": "01a14050-cd98-7c41-8004-5d3e25765167",
+    "source_scope": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/capture_link_r01/application_adapter.py",
+    "report_scope": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/member3",
+    "other_new_capture_link_files_executor_publisher": "night1",
+    "old_or_shared_edits_allowed": false
+  },
+  "code_omission": {
+    "id": "N10_CAPTURE_ROUTE_APPLICATION_OUTPUT_SCOPE_WIRING",
+    "owner": "M3/night1",
+    "evidence": [
+      {
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/chain.py",
+          "bytes": 4931,
+          "sha256": "7c975cff2d19b98c2569c56bbb7a4f6f5f4ffeb6a93c59643253e074e5b4127e"
+        },
+        "line": 33,
+        "fact": "Only PREPARE_APPLICATION_ONLY exposed."
+      },
+      {
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/chain.py",
+          "bytes": 12667,
+          "sha256": "64bfdf4787aa9dd1ddab30a30ed7cf4fb05be763b9303ec965061005430f1c44"
+        },
+        "line": 24,
+        "fact": "D4 core supports PROCESS_CAPTURE."
+      },
+      {
+        "file": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/chain.py",
+          "bytes": 12667,
+          "sha256": "64bfdf4787aa9dd1ddab30a30ed7cf4fb05be763b9303ec965061005430f1c44"
+        },
+        "line": 63,
+        "fact": "D4 calls modules.application.build_application(request,out/a)."
+      }
+    ],
+    "source": {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/capture_link_r01/application_adapter.py",
+      "bytes": 2904,
+      "sha256": "54d6e962acc014d0711e3369ae27610e01ac9ccdf4bfc688006191afcaa1f899"
+    },
+    "delegated_source": {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/admission/adapter.py",
+      "bytes": 4704,
+      "sha256": "91ef6b5e0f757edc3e50363c10ff5196af6ffa6d5d42e1fc6d377ee614eb1c90"
+    },
+    "API": "build_application(request,out)->dict",
+    "root_minimal_action": "In NEW D4-style module binding replace only application descriptor with this exact file; root writes other capture continuation files. Do not change old chain/common/assembler/frozen bindings.",
+    "behavior": [
+      "No candidate source loading or output at import; only public symbol build_application",
+      "Strict R10 output descendant, excluding root/outside/aliases/device/trailing dot-space",
+      "Pinned published admission source loaded in fresh namespace only on invocation",
+      "Delegates existing validation/reservation/derivation, keeps old result shape, never mutates old modules/cache",
+      "Rechecks source after call and rejects any true execution/real/board flags"
+    ]
+  },
+  "readonly_self_review": "No concrete blocker within new-file scope: depth7, exported API, pin, strict output, unchanged old modules/cache. No runtime PASS claimed.",
+  "root_validation": {
+    "status": "NOT_RUN_BY_MEMBER",
+    "latest_ledger_observation": {
+      "status": "NOT_CONSUMED",
+      "count_limit": 1,
+      "seconds_limit": 60,
+      "condition": "Only specific new LINK defect after preserving first failure; no whole signed replay"
+    },
+    "budget": "Root alone decides/consumes original first specific LINK defect increment <=60s, no new quota; only new capture-link seam, no old7/D4/H54 replay",
+    "expected": [
+      "D4 application binding loads exact new adapter with same API",
+      "Valid fresh R10 output preserves report shape and false authority",
+      "Output root/outside rejected before delegate load",
+      "Aliases/device names rejected",
+      "DelegateSHA mismatch/after-call mutation rejected",
+      "Root preserves first defect, raw actual validation outputs and consumption"
+    ]
+  },
+  "dedup_unchanged": {
+    "D4": "114 MATCHED REUSED; initial1+repair3 used",
+    "old_R08_H": "54 MATCHED REUSED;14 current source/test/helper files equal H receipt",
+    "prior_N10": "7 MATCHED REUSED;9.391s exit0;initial used"
+  },
+  "still_external": [
+    "M2 finish D/D+1 freeze",
+    "Trusted executor/dynamic tool dependencies/exact new C9 HDL permission",
+    "M1 independent mapping/profile/PCM24-ID-clip math",
+    "Actual raw/pins/reset/end/exit/stdout/stderr/finish",
+    "audio_stable/backpressure decision and physical originals"
+  ],
+  "spare_boundaries": "R8-19..24 core modules exist. H21 only normalized settings/calibration identity declarations; H22 event_evidence, no RAW/WAV extraction. Real formats/rules/originals and scoped new adapter decision remain required, not generic H repair.",
+  "timebox": {
+    "original_START": "2026-10-17T21:52:00+08:00",
+    "deadline": "2026-10-18T02:52:00+08:00",
+    "same_Goal": "01a14050-cd98-7c41-8004-5d3e25765167 / createdAt1792253457",
+    "new_Goal_created": false
+  },
+  "member_actions": {
+    "new_source_files": 1,
+    "old_source_edits": 0,
+    "candidate_import": 0,
+    "Python_compile": 0,
+    "test": 0,
+    "subprocess": 0,
+    "Git": 0,
+    "network": 0,
+    "HDL_EDA_devices": 0,
+    "shared_tables": 0
+  },
+  "audit_only_errors": "Missing optional ASSIGNMENTS rg path and report-generation JS errors were metadata failures, not candidate execution. A manually typed SHA comparison was wrong; actual new-source literal, live delegate and published binding were rechecked equal. Old source unchanged.",
+  "Git": "No member stage/commit/push; root only",
+  "real_verified": false,
+  "math_verified": false,
+  "execution_allowed": false,
+  "board_release_allowed": false
+}

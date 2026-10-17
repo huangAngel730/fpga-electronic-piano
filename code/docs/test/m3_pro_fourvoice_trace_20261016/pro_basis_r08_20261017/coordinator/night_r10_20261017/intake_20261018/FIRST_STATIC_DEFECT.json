@@ -1,0 +1,24 @@
+{
+  "schema": "N10_M3_LINK_FIRST_STATIC_DEFECT_V1",
+  "utc": "2026-10-17T17:18:40.875627+00:00",
+  "kind": "STATIC_COMPLETION_CONDITION_FAILURE_NOT_RUNTIME_TEST",
+  "task_completion_condition": "R10 unique runnable entry joins preparation and existing normalization/calendar/TX/serial/math/provenance capture processing",
+  "source": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/chain.py",
+    "bytes": 4931,
+    "sha256": "7c975cff2d19b98c2569c56bbb7a4f6f5f4ffeb6a93c59643253e074e5b4127e"
+  },
+  "witness": [
+    {
+      "line": 33,
+      "text": "    c.require(request[\"mode\"] == \"PREPARE_APPLICATION_ONLY\", \"N10_NO_EXECUTION_OR_CAPTURE_ROUTE\")"
+    }
+  ],
+  "counterexample": "An otherwise eligible PROCESS_CAPTURE request is rejected unconditionally before the existing D4 pipeline is invoked. A later M2 finish/RAW delivery cannot change this branch.",
+  "root_cause": "The prepared handoff inventories existing_chain but the new R10 entry has no capture dispatch, while old application binding still uses the old D4 output root.",
+  "new_LINK_defect": true,
+  "old_signed_cases_replayed": 0,
+  "runtime_exit_code": null,
+  "original_source_preserved": true,
+  "repair_scope": "New successor entry plus application binding adapter. Reuse all frozen D4 algorithms and sole FRAME generator. Target only dispatch, output/binding safety and missing-phase rejection; no synthetic full capture replay."
+}

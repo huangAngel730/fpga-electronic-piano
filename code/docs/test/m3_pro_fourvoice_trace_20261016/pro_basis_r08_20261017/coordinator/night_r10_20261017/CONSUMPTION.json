@@ -25,10 +25,27 @@
     }
   },
   "first_defect_increment": {
-    "status": "NOT_CONSUMED",
+    "status": "CONSUMED_PASS",
     "count_limit": 1,
     "seconds_limit": 60,
-    "condition": "Only specific new LINK defect after preserving first failure; no whole signed replay"
+    "condition": "Only specific new LINK defect after preserving first failure; no whole signed replay",
+    "output": "code/output/m3_c9_chain_night_r10_20261017/CAPTURE_LINK_REPAIR_R01",
+    "spec": {
+      "path": "code/output/m3_c9_chain_night_r10_20261017/CAPTURE_LINK_REPAIR_R01/SPEC.json",
+      "bytes": 1498,
+      "sha256": "c42dc99691e37209aabd1fb1e30ac42479ca1d550c8dc6dc8e16f71c608f7a79"
+    },
+    "first_static_defect": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/FIRST_STATIC_DEFECT.json",
+      "bytes": 1480,
+      "sha256": "7d66da8c70d510d06b4a51c434161d0a439b4f1195e36f581d063634f5e5cde3"
+    },
+    "result": {
+      "path": "code/output/m3_c9_chain_night_r10_20261017/CAPTURE_LINK_REPAIR_R01/RESULT.json",
+      "bytes": 2309,
+      "sha256": "ca2d1867827dd6eb302eeeea165316b45397e1d6c582a142de8089b1806be3af"
+    },
+    "seconds": 0.5
   },
   "old_R08_D4_restored": false,
   "drill_budget_reused": false,
