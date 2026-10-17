@@ -1,0 +1,9 @@
+# 来源刷新补充，优先于原封包中的缺件表述
+
+总控已快进至b6f289110a0b7341f1f9234c945bcb8d31d95aff。M1旧R05五目录现已发布并在本机可读，旧REFERENCE_CONTRACT及DEPENDENCIES现场SHA见SOURCE_REFRESH.json；不能再笼统称M1五目录未发布。原包和原测试基线仍保留ca4859abc…，不回填。
+
+本包只读核新合同，不运行旧303数学/串行或重复已通过19例，新增功能轮0。M2新Pro候选source目录仍不存在；M1旧R05模型可作为只读数学来源，但真正Pro映射仍缺slot/Release生命周期、全部lane_tick采样相位、效果接受/取消/配置和新Pro同版source/ROM/top/trace。尤其本包NoteOff立即释放是toy fixture，不能直接接真实ADSR Release或称M1数学输入已经闭合。
+
+当前交付：C/C2夹具DONE、Pro对照PENDING；Python软件L1，2/6轮，墙钟4.140秒（子工具2.265秒），1正18负，实际拒收码及首差异位置全部匹配。未提交/未推送，board_release_allowed=false。
+
+CALENDAR.json、CALENDAR.jsonl、CALENDAR_CONTRACT.json和原始两轮均保持原SHA。LATEST_RECEIPT.json为当前入口，同时引用原封包本体和本来源补件；给D/M1只读使用。通信首次被自动审批拒绝，尚未送达；授权原文已再次通过read_thread核实，COMMUNICATION_AUTHORIZATION.json给出精确用户消息ID与目标。

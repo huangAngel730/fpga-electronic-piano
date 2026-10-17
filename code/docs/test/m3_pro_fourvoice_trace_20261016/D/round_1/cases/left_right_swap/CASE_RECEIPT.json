@@ -1,0 +1,54 @@
+{
+  "name": "left_right_swap",
+  "argv": [
+    "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+    "-X",
+    "utf8",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\check_fixture.py",
+    "--capture",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_1\\cases\\left_right_swap\\FIXTURE_CAPTURE.jsonl",
+    "--plan",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_1\\cases\\INPUT_PLAN.json",
+    "--output",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_1\\cases\\left_right_swap\\RESULT.json"
+  ],
+  "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+  "seconds": 0.1720000000004802,
+  "exit_code": 1,
+  "expected_exit": 1,
+  "expected_code": "SERIAL_SAMPLE",
+  "actual_code": "SERIAL_SAMPLE",
+  "first_difference": {
+    "code": "SERIAL_SAMPLE",
+    "cycle": 2944,
+    "expected": {
+      "channel": "right",
+      "pcm16": -32768
+    },
+    "actual": {
+      "channel": "right",
+      "pcm16": 32767
+    }
+  },
+  "passed": true,
+  "input_plan": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_1\\cases\\INPUT_PLAN.json",
+    "bytes": 9393,
+    "sha256": "b2a05d35b1e78557242ba0d1b971aaf299b364f8bd5fde67f7f74e0de780c123"
+  },
+  "capture": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_1\\cases\\left_right_swap\\FIXTURE_CAPTURE.jsonl",
+    "bytes": 10728153,
+    "sha256": "a91904e50b425e6b4e7b4f788137e4180ec2735be23bda05db1b816f4e6a54b6"
+  },
+  "stdout": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_1\\cases\\left_right_swap\\stdout.txt",
+    "bytes": 180,
+    "sha256": "bcbd431b47bd406dc512d9bc318546540dcd1510a0ab6ac2019920822f0c2e5c"
+  },
+  "stderr": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_1\\cases\\left_right_swap\\stderr.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

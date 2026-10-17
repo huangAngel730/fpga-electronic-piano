@@ -1,0 +1,62 @@
+--- code/rtl/input/m3_dual_slider_138k_candidate_20261015/dual_slider_candidate.sv
++++ code/rtl/input/m3_dual_slider_138k_candidate_20261015/pro_parallel_20261016/dual_slider_pro_parallel.sv
+@@ -1,13 +1,14 @@
+ // Isolated display-only integration. No audio ready, PCM, clocks or pin outputs.
+ // Shared asynchronous reset assertion is mandatory; release is local per domain.
+ `timescale 1ns/1ps
+-module dual_slider_candidate #(
++module dual_slider_pro_parallel #(
+     parameter integer SLOTS=8, Y_WIDTH=10, SCREEN_WIDTH=640,
+     parameter integer SCREEN_HEIGHT=480, PREVIEW_FRAMES=120,
+-    parameter integer BASE_NOTE=36, NOTE_COUNT=49
++    parameter integer BASE_NOTE=36, NOTE_COUNT=49, EVENT_FIFO_DEPTH=32
+ ) (
+     input logic sys_clk, pixel_clk, rst_n,
+     input logic accepted_valid,
++    input logic display_event_enable, // diagnostic consumer pause; production tie high
+     input audio_defs_pkg::performance_event_t accepted_data,
+     input logic mode_valid,
+     output wire mode_ready,
+@@ -29,12 +30,16 @@
+     output wire [31:0] visual_drop_count, live_drop_count,
+     output wire desync_latched,
+     output wire mode_delivered,
+-    output wire sys_reset_done, video_reset_done
++    output wire sys_reset_done, video_reset_done,
++    output wire [15:0] queue_level, queue_high,
++    output wire display_event_fire, score_event_fire, score_sink_ready,
++    output audio_defs_pkg::performance_event_t display_event_data,
++    output wire [97:0] score_seen_payload
+ );
+     wire event_src_done,event_dst_done,control_src_done,control_dst_done;
+     wire video_event_valid,video_event_ready,video_desync,mode_pulse;
+     audio_defs_pkg::performance_event_t video_event;
+-    wire [15:0] queue_level,queue_high;
++    // Queue watermarks are public diagnostic outputs in this candidate.
+     wire drop_pulse,video_score_valid,video_score_ready;
+     wire [15:0] video_score_id;
+     wire [6:0] video_score_note;
+@@ -52,7 +57,7 @@
+     assign sys_reset_done=event_src_done && control_src_done;
+     assign video_reset_done=event_dst_done && control_dst_done;
+     // Display-only event copy cannot backpressure the audio event consumer.
+-    visual_event_bridge #(.DEPTH(8)) u_events(
++    visual_event_bridge #(.DEPTH(EVENT_FIFO_DEPTH)) u_events(
+         .sys_clk(sys_clk),.video_clk(pixel_clk),.rst_n(rst_n),
+         .accepted_valid(accepted_valid),.accepted_data(accepted_data),
+         .visual_queue_level(queue_level),.visual_queue_high_watermark(queue_high),
+@@ -82,7 +87,13 @@
+             if(frame_start) display_mode<=mode_request;
+         end
+     end
+-    assign video_event_ready=video_reset_done;
++    assign video_event_ready=video_reset_done && display_event_enable;
++    assign display_event_fire=video_event_valid && video_event_ready;
++    assign display_event_data=video_event;
++    assign score_event_fire=video_score_valid && video_score_ready;
++    assign score_sink_ready=video_score_ready;
++    assign score_seen_payload={video_score_id,video_score_note,video_hit_frame,
++        video_duration_valid,video_duration,video_velocity};
+     visual_live_state #(.SLOT_COUNT(SLOTS),.Y_WIDTH(Y_WIDTH),
+         .JUDGE_Y(SCREEN_HEIGHT-10),.RISE_STEP(4)) u_live(
+         .clk(pixel_clk),.rst_n(video_reset_done),.frame_start(frame_start),

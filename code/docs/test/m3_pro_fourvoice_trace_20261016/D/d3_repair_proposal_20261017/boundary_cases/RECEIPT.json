@@ -1,0 +1,69 @@
+{
+  "status": "STATIC_DESIGN_READY_NOT_TESTED",
+  "actual_level": "L0_STATIC_ONLY",
+  "baseline_head": "c7e0144ac33acfde9b449183933ef7a21aa9325c",
+  "declared_case_count": 16,
+  "document_case_entries": 16,
+  "observed_case_results": "ALL_NOT_RUN",
+  "functional_runs": 0,
+  "CLI_import_tests_compile_EDA_hardware": 0,
+  "functional_commands": [],
+  "functional_exit_codes": [],
+  "documentation_operation": "ConvertFrom-Json grammar read and Get-FileHash only; no case expansion/evaluation or audited-module import",
+  "document_operation_exit_code": 0,
+  "start_utc": "2026-10-17T05:30:49.9828845Z",
+  "end_utc": "2026-10-17T05:30:50.3246815Z",
+  "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+  "machine": "LAPTOP-KSS1MRR7",
+  "pid": 46368,
+  "command_line": "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.dll -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\n$ErrorActionPreference='Stop'; $started=[DateTime]::UtcNow; $p='code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/boundary_cases'; $u=[Text.UTF8Encoding]::new($false); $caseDoc=Get-Content -LiteralPath \\\"$p/CASES.json\\\" -Raw -Encoding UTF8 | ConvertFrom-Json; $sourcePaths=@('code/software/m3_pro_fourvoice_trace_20261016/D/ingest/ingest.py','code/docs/test/m2_pro_offline_review_20261017/D3_COUNTEREXAMPLE.json','code/docs/M2_M3_Pro离线两批交付限定复核_2026-10-17.md','code/docs/M3_完赛任务单_2026-10-15.md','code/docs/M3_当日任务单_2026-10-17.md','code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/PLAN.md','code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/INPUT_IDENTITIES.json'); $sources=@(); foreach($path in $sourcePaths){$f=Get-Item -LiteralPath $path; $sources+=[ordered]@{path=$f.FullName; bytes=$f.Length; sha256=(Get-FileHash -LiteralPath $f.FullName -Algorithm SHA256).Hash.ToLowerInvariant()}}; $identity=[ordered]@{baseline_head_at_read='c7e0144ac33acfde9b449183933ef7a21aa9325c'; sources=$sources; source_sha_matches_case_declaration=($sources[0].sha256 -eq $caseDoc.source.sha256); counterexample_sha_matches_case_declaration=($sources[1].sha256 -eq $caseDoc.source.counterexample_sha256); old_sources_modified=$false; executed_cases=0}; [IO.File]::WriteAllText((Join-Path (Get-Location) \\\"$p/SOURCE_IDENTITIES.json\\\"),(ConvertTo-Json $identity -Depth 10)+\\\"`n\\\",$u); $summary='DOCUMENT_JSON_READ_AND_SHA_ONLY; CASE_EXECUTIONS=0; CASE_ENTRIES='+$caseDoc.cases.Count; [IO.File]::WriteAllText((Join-Path (Get-Location) \\\"$p/DOCUMENT_IDENTITY.stdout\\\"),$summary+[Environment]::NewLine,$u); [IO.File]::WriteAllText((Join-Path (Get-Location) \\\"$p/DOCUMENT_IDENTITY.stderr\\\"),'',$u); $outputs=@(); foreach($name in @('START.md','CASES.json','BOUNDARIES.md','RESULT.md','SOURCE_IDENTITIES.json','DOCUMENT_IDENTITY.stdout','DOCUMENT_IDENTITY.stderr')){$f=Get-Item -LiteralPath \\\"$p/$name\\\"; $outputs+=[ordered]@{path=$f.FullName; bytes=$f.Length; sha256=(Get-FileHash -LiteralPath $f.FullName -Algorithm SHA256).Hash.ToLowerInvariant()}}; $tool=(Get-Process -Id $PID).Path; $receipt=[ordered]@{status='STATIC_DESIGN_READY_NOT_TESTED'; actual_level='L0_STATIC_ONLY'; baseline_head='c7e0144ac33acfde9b449183933ef7a21aa9325c'; declared_case_count=$caseDoc.case_count; document_case_entries=$caseDoc.cases.Count; observed_case_results='ALL_NOT_RUN'; functional_runs=0; CLI_import_tests_compile_EDA_hardware=0; functional_commands=@(); functional_exit_codes=@(); documentation_operation='ConvertFrom-Json grammar read and Get-FileHash only; no case expansion/evaluation or audited-module import'; document_operation_exit_code=0; start_utc=$started.ToString('o'); end_utc=[DateTime]::UtcNow.ToString('o'); cwd=(Get-Location).Path; machine=[Environment]::MachineName; pid=$PID; command_line=[Environment]::CommandLine; tool_path=$tool; tool_version=$PSVersionTable.PSVersion.ToString(); tool_sha256=(Get-FileHash -LiteralPath $tool -Algorithm SHA256).Hash.ToLowerInvariant(); outputs=$outputs; self_sha_excluded=$true; board_release_allowed=$false; actual_software_successor='NOT_BOUND_BY_M2'; exact_diagnostic_names_and_phase_contract='PENDING_M2'; submitted=$false; pushed=$false; git_writes=0; communication='LOCAL_COLLECTION_NO_SEND_ATTEMPT'; real_M2_delivery='待用户转发，尚未送达'}; [IO.File]::WriteAllText((Join-Path (Get-Location) \\\"$p/RECEIPT.json\\\"),(ConvertTo-Json $receipt -Depth 12)+\\\"`n\\\",$u); $summary\"",
+  "tool_path": "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+  "tool_version": "7.6.5",
+  "tool_sha256": "362a356ce7f0940ec74f73a8fc2c990a2cc24a38a11c90bbd8eca947110ad139",
+  "outputs": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\d3_repair_proposal_20261017\\boundary_cases\\START.md",
+      "bytes": 1430,
+      "sha256": "4bf61f6b62901a5d41f827f56a4eb8637fa0ab735580896687ac5bc4bfa031d9"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\d3_repair_proposal_20261017\\boundary_cases\\CASES.json",
+      "bytes": 21843,
+      "sha256": "8bf7e0918fa5ceccab1d187c625a1cd3a4f97d282207c8e48ab56235eabb3bcb"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\d3_repair_proposal_20261017\\boundary_cases\\BOUNDARIES.md",
+      "bytes": 5618,
+      "sha256": "7e53ca4749c2a1d9acbdb7e234c29f05acb4e10d09d6205c008f4244be071ee7"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\d3_repair_proposal_20261017\\boundary_cases\\RESULT.md",
+      "bytes": 1857,
+      "sha256": "60e5ab77f7a65287e1d2268664d4a4146e87edcdce1442ac85d31ca70d92c05b"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\d3_repair_proposal_20261017\\boundary_cases\\SOURCE_IDENTITIES.json",
+      "bytes": 2087,
+      "sha256": "fba2f924d1ee159058270cff301bcd16aaf7b5d13d980bf513b1a799ed68d8ad"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\d3_repair_proposal_20261017\\boundary_cases\\DOCUMENT_IDENTITY.stdout",
+      "bytes": 69,
+      "sha256": "5a785f2c7ccd88a82dace4ef088a5895abad03af23b2964f64928ed0d0e0b9cf"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\d3_repair_proposal_20261017\\boundary_cases\\DOCUMENT_IDENTITY.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "self_sha_excluded": true,
+  "board_release_allowed": false,
+  "actual_software_successor": "NOT_BOUND_BY_M2",
+  "exact_diagnostic_names_and_phase_contract": "PENDING_M2",
+  "submitted": false,
+  "pushed": false,
+  "git_writes": 0,
+  "communication": "LOCAL_COLLECTION_NO_SEND_ATTEMPT",
+  "real_M2_delivery": "待用户转发，尚未送达"
+}

@@ -1,0 +1,456 @@
+{
+  "schema": "M3_B1_MINIMAL_OBSERVATION_CONTRACT_V1",
+  "status": "PENDING_PRO_SOURCE_OR_TRACE",
+  "purpose": "Candidate normalized read-only observation contract, not production ports or an implementation",
+  "clock_hz_candidate": 40000000,
+  "nominal_sample_rate_hz_candidate": 48000,
+  "sample_edge": "POSEDGE_PRE_NBA",
+  "fields": [
+    {
+      "name": "cycle",
+      "width": 64,
+      "signed": false,
+      "group": "time_reset",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "epoch",
+      "width": 32,
+      "signed": false,
+      "group": "time_reset",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "rst_n",
+      "width": 1,
+      "signed": false,
+      "group": "time_reset",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "frame_tick",
+      "width": 1,
+      "signed": false,
+      "group": "time_reset",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "event_valid",
+      "width": 1,
+      "signed": false,
+      "group": "event_input_apply",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "event_ready",
+      "width": 1,
+      "signed": false,
+      "group": "event_input_apply",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "event_data",
+      "width": 64,
+      "signed": false,
+      "group": "event_input_apply",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "apply_valid",
+      "width": 1,
+      "signed": false,
+      "group": "event_input_apply",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "apply_event_seq",
+      "width": 32,
+      "signed": false,
+      "group": "event_input_apply",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "apply_data",
+      "width": 64,
+      "signed": false,
+      "group": "event_input_apply",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "occupied_mask",
+      "width": 4,
+      "signed": false,
+      "group": "voice_lifecycle",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "releasing_mask",
+      "width": 4,
+      "signed": false,
+      "group": "voice_lifecycle",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "note_on_mask",
+      "width": 4,
+      "signed": false,
+      "group": "voice_lifecycle",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "note_off_mask",
+      "width": 4,
+      "signed": false,
+      "group": "voice_lifecycle",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "retire_mask",
+      "width": 4,
+      "signed": false,
+      "group": "voice_lifecycle",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "slot_sources",
+      "width": 16,
+      "signed": false,
+      "group": "voice_lifecycle",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "slot_channels",
+      "width": 16,
+      "signed": false,
+      "group": "voice_lifecycle",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "slot_notes",
+      "width": 32,
+      "signed": false,
+      "group": "voice_lifecycle",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "slot_generations",
+      "width": 128,
+      "signed": false,
+      "group": "voice_lifecycle",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "req_valid",
+      "width": 1,
+      "signed": false,
+      "group": "frame_request_advance",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "req_ready",
+      "width": 1,
+      "signed": false,
+      "group": "frame_request_advance",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "req_id",
+      "width": 32,
+      "signed": false,
+      "group": "frame_request_advance",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "advance_mask",
+      "width": 4,
+      "signed": false,
+      "group": "frame_request_advance",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "advance_frame_req_id",
+      "width": 32,
+      "signed": false,
+      "group": "frame_request_advance",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "result_valid",
+      "width": 1,
+      "signed": false,
+      "group": "result_commit",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "result_ready",
+      "width": 1,
+      "signed": false,
+      "group": "result_commit",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "result_id",
+      "width": 32,
+      "signed": false,
+      "group": "result_commit",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "result_left",
+      "width": 24,
+      "signed": true,
+      "group": "result_commit",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "result_right",
+      "width": 24,
+      "signed": true,
+      "group": "result_commit",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "result_clip_mask",
+      "width": 2,
+      "signed": false,
+      "group": "result_commit",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "commit",
+      "width": 1,
+      "signed": false,
+      "group": "result_commit",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "commit_id",
+      "width": 32,
+      "signed": false,
+      "group": "result_commit",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "commit_left",
+      "width": 24,
+      "signed": true,
+      "group": "result_commit",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "commit_right",
+      "width": 24,
+      "signed": true,
+      "group": "result_commit",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "commit_clip",
+      "width": 1,
+      "signed": false,
+      "group": "result_commit",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "cancel",
+      "width": 1,
+      "signed": false,
+      "group": "cancel",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "cancel_reason",
+      "width": null,
+      "signed": false,
+      "group": "cancel",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "config_valid",
+      "width": 1,
+      "signed": false,
+      "group": "config_accept",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "config_ready",
+      "width": 1,
+      "signed": false,
+      "group": "config_accept",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "config_payload",
+      "width": null,
+      "signed": false,
+      "group": "config_accept",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "effect_input_valid",
+      "width": 1,
+      "signed": false,
+      "group": "effect_audio_accept",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "effect_input_ready",
+      "width": 1,
+      "signed": false,
+      "group": "effect_audio_accept",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "effect_input_id",
+      "width": 32,
+      "signed": false,
+      "group": "effect_audio_accept",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "effect_input_left",
+      "width": 24,
+      "signed": true,
+      "group": "effect_audio_accept",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "effect_input_right",
+      "width": 24,
+      "signed": true,
+      "group": "effect_audio_accept",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "effect_input_clip_mask",
+      "width": 2,
+      "signed": false,
+      "group": "effect_audio_accept",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "tx_sample_valid",
+      "width": 1,
+      "signed": false,
+      "group": "tx_adoption_sidecar",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "tx_frame_id",
+      "width": 32,
+      "signed": false,
+      "group": "tx_adoption_sidecar",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "tx_req_id",
+      "width": 32,
+      "signed": false,
+      "group": "tx_adoption_sidecar",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "tx_left",
+      "width": 24,
+      "signed": true,
+      "group": "tx_adoption_sidecar",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "tx_right",
+      "width": 24,
+      "signed": true,
+      "group": "tx_adoption_sidecar",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "tx_clip",
+      "width": 1,
+      "signed": false,
+      "group": "tx_adoption_sidecar",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "tx_hold",
+      "width": 1,
+      "signed": false,
+      "group": "tx_adoption_sidecar",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "tx_startup_zero",
+      "width": 1,
+      "signed": false,
+      "group": "tx_adoption_sidecar",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "bclk",
+      "width": 1,
+      "signed": false,
+      "group": "B2_pins_and_closure",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "ws",
+      "width": 1,
+      "signed": false,
+      "group": "B2_pins_and_closure",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "din",
+      "width": 1,
+      "signed": false,
+      "group": "B2_pins_and_closure",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "pll_locked",
+      "width": 1,
+      "signed": false,
+      "group": "B2_pins_and_closure",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "audio_stable",
+      "width": 1,
+      "signed": false,
+      "group": "B2_pins_and_closure",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "pa_en",
+      "width": 1,
+      "signed": false,
+      "group": "B2_pins_and_closure",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "name": "finish",
+      "width": 1,
+      "signed": false,
+      "group": "B2_pins_and_closure",
+      "mapping_status": "M2_PUBLIC_MAP_REQUIRED"
+    }
+  ],
+  "frame_id_domain": "FRAME_REQUEST",
+  "voice_slot_is_lane_id": false,
+  "advance_modes": [
+    "COMMON_TICK_MASK",
+    "SCALAR_TICK_ONEHOT_PUBLIC_MAP"
+  ],
+  "same_edge_common_tick": "Observed single shared enable advancing four real voices is represented once with mask1111 and frame req ID; never fabricate four staggered transactions",
+  "epoch": "Derive only from same-clock observed reset-entry boundaries; initial reset is mandatory; no toy frame-derived epoch",
+  "tx": "Independently observed TX-adoption sidecar at same cycle/epoch/frame; commit is not sample; ID0 valid; hold/startup metadata required",
+  "completion": "Bound original raw stdout/stderr and successful capture receipt; unique MONITOR_END plus real finish/END; no truncated-success inference",
+  "M2_confirmation_required": "All normalized widths/packed order, public export visibility, acceptance/apply/retirement priority and ID mapping are candidates until bound by M2 exact source",
+  "forbidden_expectation_sources": [
+    "DUT private wave/env/phase",
+    "DUT result/commit as PCM golden",
+    "Commit as TX sample",
+    "Old toy or old PG484 labeled new Pro"
+  ],
+  "pro_dut_pass": false,
+  "board_release_allowed": false
+}

@@ -1,0 +1,922 @@
+{
+  "passed": true,
+  "error": null,
+  "identity_stable": true,
+  "round": 2,
+  "new_round_limit": 3,
+  "start_utc": "2026-10-17T00:50:40.632898+00:00",
+  "end_utc": "2026-10-17T00:50:41.911479+00:00",
+  "seconds": 1.2819999999992433,
+  "machine": "LAPTOP-KSS1MRR7",
+  "python_version": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)]",
+  "calls": [
+    {
+      "label": "python_version",
+      "argv": [
+        "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+        "--version"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:40.632898+00:00",
+      "timeout_s": 240.0,
+      "expected_exit": 0,
+      "exit_code": 0,
+      "timeout": false,
+      "pid": 47508,
+      "seconds": 0.01599999999598367,
+      "end_utc": "2026-10-17T00:50:40.647085+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\python_version.stdout.bin",
+        "bytes": 15,
+        "sha256": "3a6e6d3edcb420b15659931be7ca19385a8239653f80730cf4903e0c1f36cc2c"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\python_version.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "iverilog_version",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-V"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:40.648085+00:00",
+      "timeout_s": 239.98400000000402,
+      "expected_exit": 0,
+      "exit_code": 0,
+      "timeout": false,
+      "pid": 10552,
+      "seconds": 0.0940000000045984,
+      "end_utc": "2026-10-17T00:50:40.744121+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\iverilog_version.stdout.bin",
+        "bytes": 3483,
+        "sha256": "6c5f5f5f242410266fcd6b69342d43a928e2f95d6cc9dd373dc9a5aa224ed0d5"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\iverilog_version.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "vvp_version",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "-V"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:40.746121+00:00",
+      "timeout_s": 239.88999999999942,
+      "expected_exit": 0,
+      "exit_code": 0,
+      "timeout": false,
+      "pid": 20024,
+      "seconds": 0.014999999999417923,
+      "end_utc": "2026-10-17T00:50:40.760121+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\vvp_version.stdout.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\vvp_version.stderr.bin",
+        "bytes": 861,
+        "sha256": "ac9585062b38df08a9a3422b0d77952b2bff7d99789563718a6e6e3804f53ccc"
+      }
+    },
+    {
+      "label": "compile",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_pro_frame_monitor",
+        "-o",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\pro_frame_monitor.sv",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\tb_pro_frame_monitor.sv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:40.761121+00:00",
+      "timeout_s": 239.875,
+      "expected_exit": 0,
+      "exit_code": 0,
+      "timeout": false,
+      "pid": 35548,
+      "seconds": 0.07899999999790452,
+      "end_utc": "2026-10-17T00:50:40.837766+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\compile.stdout.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\compile.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_00",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=0",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_00.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:40.838768+00:00",
+      "timeout_s": 239.7960000000021,
+      "expected_exit": 0,
+      "exit_code": 0,
+      "timeout": false,
+      "pid": 11860,
+      "seconds": 0.10899999999674037,
+      "end_utc": "2026-10-17T00:50:40.936438+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_00.stdout.bin",
+        "bytes": 316,
+        "sha256": "294e4a2c39d1f74771d0ad5dd58d386e35b553a9c4522697421ff859742c294f"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_00.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_23",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=23",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_23.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:40.955821+00:00",
+      "timeout_s": 239.6710000000021,
+      "expected_exit": 0,
+      "exit_code": 0,
+      "timeout": false,
+      "pid": 46160,
+      "seconds": 0.031000000002677552,
+      "end_utc": "2026-10-17T00:50:40.986350+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_23.stdout.bin",
+        "bytes": 323,
+        "sha256": "b3eeee236be34bd6df0c0fc835d0fc5028f8218e648c58404eedff8f1bcda9c9"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_23.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_24",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=24",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_24.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:40.991455+00:00",
+      "timeout_s": 239.63999999999942,
+      "expected_exit": 0,
+      "exit_code": 0,
+      "timeout": false,
+      "pid": 41780,
+      "seconds": 0.030999999995401595,
+      "end_utc": "2026-10-17T00:50:41.021604+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_24.stdout.bin",
+        "bytes": 323,
+        "sha256": "f53914dd5a8732dae75274c73d77814572f82524df78516b016bec5a014050fb"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_24.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_01",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=1",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_01.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.025604+00:00",
+      "timeout_s": 239.60900000000402,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 43932,
+      "seconds": 0.01600000000325963,
+      "end_utc": "2026-10-17T00:50:41.042395+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_01.stdout.bin",
+        "bytes": 347,
+        "sha256": "a52faca41693cf480c98091b7fe33c63d3a1c8d93632116bb396f8561f0b93f8"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_01.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_02",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=2",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_02.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.043278+00:00",
+      "timeout_s": 239.59300000000076,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 9808,
+      "seconds": 0.030999999995401595,
+      "end_utc": "2026-10-17T00:50:41.061087+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_02.stdout.bin",
+        "bytes": 347,
+        "sha256": "30474824084bb9ef2c4f6e27e65c9abdeab982067a5835732d1e9c5683e8d503"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_02.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_03",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=3",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_03.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.062759+00:00",
+      "timeout_s": 239.56200000000536,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 46684,
+      "seconds": 0.01600000000325963,
+      "end_utc": "2026-10-17T00:50:41.078760+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_03.stdout.bin",
+        "bytes": 340,
+        "sha256": "709e0e440378d4603cf2a37e6f9a0eb2b19113a53e3ef999309f8642f1c477a7"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_03.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_04",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=4",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_04.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.079760+00:00",
+      "timeout_s": 239.5460000000021,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 47468,
+      "seconds": 0.014999999999417923,
+      "end_utc": "2026-10-17T00:50:41.095761+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_04.stdout.bin",
+        "bytes": 346,
+        "sha256": "f9fac24fd5d7561d190d21405d1f001457f55179771a776b20cfdceb6df44cb5"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_04.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_05",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=5",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_05.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.096760+00:00",
+      "timeout_s": 239.53100000000268,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 48720,
+      "seconds": 0.01600000000325963,
+      "end_utc": "2026-10-17T00:50:41.113760+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_05.stdout.bin",
+        "bytes": 345,
+        "sha256": "709213cb6cc67614335ec92b4d29ad908a9a6b1749ee8f129c90396ff94433cb"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_05.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_06",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=6",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_06.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.114760+00:00",
+      "timeout_s": 239.51499999999942,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 16660,
+      "seconds": 0.014999999999417923,
+      "end_utc": "2026-10-17T00:50:41.134614+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_06.stdout.bin",
+        "bytes": 355,
+        "sha256": "f92351d347c401c571d5a52f8eb4de2a34239bb9c9ec71974415820e4ead2577"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_06.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_07",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=7",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_07.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.135615+00:00",
+      "timeout_s": 239.5,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 41408,
+      "seconds": 0.01599999999598367,
+      "end_utc": "2026-10-17T00:50:41.153118+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_07.stdout.bin",
+        "bytes": 353,
+        "sha256": "bebdcf2a4b9cb9f0f480ee34e59b5af94ed664938b2978cc31144c08737d8c01"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_07.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_08",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=8",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_08.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.155118+00:00",
+      "timeout_s": 239.46800000000076,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 18724,
+      "seconds": 0.014999999999417923,
+      "end_utc": "2026-10-17T00:50:41.173120+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_08.stdout.bin",
+        "bytes": 353,
+        "sha256": "09d1a92572dd3ad05590a42196e625271b73fde2dec8a957beb5159d289e493b"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_08.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_09",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=9",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_09.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.174120+00:00",
+      "timeout_s": 239.45300000000134,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 49308,
+      "seconds": 0.0319999999992433,
+      "end_utc": "2026-10-17T00:50:41.204672+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_09.stdout.bin",
+        "bytes": 350,
+        "sha256": "93edcea1a3432ed1ddd04abfe378a27c31e43db0f0008572836d6e1b698bc230"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_09.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_10",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=10",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_10.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.207672+00:00",
+      "timeout_s": 239.4210000000021,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 41144,
+      "seconds": 0.031000000002677552,
+      "end_utc": "2026-10-17T00:50:41.237037+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_10.stdout.bin",
+        "bytes": 349,
+        "sha256": "7c09a4d1de88738bed86c56574d5adba093e42a0743f741b057880f52c1e883c"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_10.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_11",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=11",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_11.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.241292+00:00",
+      "timeout_s": 239.38999999999942,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 48424,
+      "seconds": 0.07799999999406282,
+      "end_utc": "2026-10-17T00:50:41.311429+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_11.stdout.bin",
+        "bytes": 355,
+        "sha256": "5952db623062b4d7fbb5baffb22ea2aa344fab36baab77fd8c85d4f742461a59"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_11.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_12",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=12",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_12.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.322428+00:00",
+      "timeout_s": 239.31200000000536,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 35888,
+      "seconds": 0.01600000000325963,
+      "end_utc": "2026-10-17T00:50:41.338705+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_12.stdout.bin",
+        "bytes": 345,
+        "sha256": "f41856f80c09e06112ae3ce81235c49e113706078e2dd478265740cfa56ac95a"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_12.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_13",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=13",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_13.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.341206+00:00",
+      "timeout_s": 239.2960000000021,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 42000,
+      "seconds": 0.031000000002677552,
+      "end_utc": "2026-10-17T00:50:41.358211+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_13.stdout.bin",
+        "bytes": 345,
+        "sha256": "2671859ba749a3e4a469a6ca6babfa73380cf98f6ba34f38de97b93e2347b8e8"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_13.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_14",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=14",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_14.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.359207+00:00",
+      "timeout_s": 239.26499999999942,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 8764,
+      "seconds": 0.014999999999417923,
+      "end_utc": "2026-10-17T00:50:41.376207+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_14.stdout.bin",
+        "bytes": 346,
+        "sha256": "55a8e7f4853684b459557edc8e0868683398f278148fa7eeb788a69bdecabf11"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_14.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_15",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=15",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_15.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.377208+00:00",
+      "timeout_s": 239.25,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 18364,
+      "seconds": 0.01599999999598367,
+      "end_utc": "2026-10-17T00:50:41.394207+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_15.stdout.bin",
+        "bytes": 344,
+        "sha256": "5700d2bf4a59cbdf0f2c3b9ab49d936bf85faf16fedf5b809d27be786345a511"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_15.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_16",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=16",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_16.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.395207+00:00",
+      "timeout_s": 239.23400000000402,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 3668,
+      "seconds": 0.01600000000325963,
+      "end_utc": "2026-10-17T00:50:41.412207+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_16.stdout.bin",
+        "bytes": 350,
+        "sha256": "cd1ae819336b9cf6f4be198abe333daaccd6a7b17cb42cf24786198f84990b88"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_16.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_17",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=17",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_17.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.414207+00:00",
+      "timeout_s": 239.21800000000076,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 39580,
+      "seconds": 0.014999999999417923,
+      "end_utc": "2026-10-17T00:50:41.431209+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_17.stdout.bin",
+        "bytes": 357,
+        "sha256": "aef4d7cf39e8f1b3a1d5ece13bb304cbab1452cfbc8f772f79bcc4c4fa46fd76"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_17.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_18",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=18",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_18.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.432209+00:00",
+      "timeout_s": 239.20300000000134,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 40360,
+      "seconds": 0.0319999999992433,
+      "end_utc": "2026-10-17T00:50:41.464552+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_18.stdout.bin",
+        "bytes": 355,
+        "sha256": "6ff96e28362ea35aa837f91680673bf60f5a681f85db0d8495050ab69ddcb14a"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_18.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_19",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=19",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_19.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.468552+00:00",
+      "timeout_s": 239.15600000000268,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 38720,
+      "seconds": 0.01600000000325963,
+      "end_utc": "2026-10-17T00:50:41.486553+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_19.stdout.bin",
+        "bytes": 342,
+        "sha256": "aa4dd2d6967a0f5c030240abdfd076936c696bebc5930199d2359ddfefacdcb2"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_19.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_20",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=20",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_20.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.488552+00:00",
+      "timeout_s": 239.13999999999942,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 21156,
+      "seconds": 0.014999999999417923,
+      "end_utc": "2026-10-17T00:50:41.506901+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_20.stdout.bin",
+        "bytes": 346,
+        "sha256": "c694a4c882bcb2c1283498ca6715fe7ae7a193ee6aa84c513a67d537bb884a68"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_20.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_21",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=21",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_21.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.508903+00:00",
+      "timeout_s": 239.125,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 36564,
+      "seconds": 0.0319999999992433,
+      "end_utc": "2026-10-17T00:50:41.544407+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_21.stdout.bin",
+        "bytes": 351,
+        "sha256": "9e5ffc75a71efe607d474c4b768e495f6ec9b518d87453e04a26288ffe412220"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_21.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "case_22",
+      "argv": [
+        "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage\\monitor.vvp",
+        "+FAULT=22",
+        "+TRACE=E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_22.csv"
+      ],
+      "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\stage",
+      "start_utc": "2026-10-17T00:50:41.549409+00:00",
+      "timeout_s": 239.07800000000134,
+      "expected_exit": 1,
+      "exit_code": 1,
+      "timeout": false,
+      "pid": 49264,
+      "seconds": 0.0319999999992433,
+      "end_utc": "2026-10-17T00:50:41.582407+00:00",
+      "stdout": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_22.stdout.bin",
+        "bytes": 351,
+        "sha256": "fb26288651bef98fc74d209cd238a3e72cf6d23cc3fae564e3dfde34c2bda179"
+      },
+      "stderr": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_22.stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "positive": {
+    "raw_rows": 5062,
+    "accepted": 8,
+    "committed": 6,
+    "canceled": 2,
+    "epochs": 2,
+    "capture": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_00.csv",
+      "bytes": 641221,
+      "sha256": "74dc2000c7cb61814d59b4c97bda18ec9070c5a96211a0c00333c4f8b134ccd4"
+    },
+    "scope": "SYNTHETIC_MONITOR_SELFTEST_NOT_PRO_DUT"
+  },
+  "negative_targets": {
+    "1": "REQUEST_NOT_HELD",
+    "2": "REQUEST_NOT_HELD",
+    "3": "RESULT_ID",
+    "4": "RESULT_NOT_HELD",
+    "5": "DUPLICATE_LANE",
+    "6": "RESULT_BEFORE_FOUR_LANES",
+    "7": "RESULT_WITHOUT_REQUEST",
+    "8": "RESULT_WITHOUT_REQUEST",
+    "9": "REQUEST_DEADLINE",
+    "10": "FRAME_INTERVAL",
+    "11": "FRAME_AVERAGE_DRIFT",
+    "12": "PA_BEFORE_SAFE",
+    "13": "PA_BEFORE_SAFE",
+    "14": "PA_DURING_RESET",
+    "15": "END_UNCLOSED",
+    "16": "COMMIT_ID_PCM_CLIP",
+    "17": "DUPLICATE_RESULT_TRANSFER",
+    "18": "DUPLICATE_REQUEST_ID",
+    "19": "LANE_OWNER",
+    "20": "RESULT_UNKNOWN",
+    "21": "REQUEST_DEADLINE",
+    "22": "REQUEST_DEADLINE"
+  },
+  "source_before": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\pro_frame_monitor.sv",
+      "bytes": 8357,
+      "sha256": "faf7cda22f928e7f0c40bd7ed164213e2282078e213ee1f472b331cfe098295a"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\tb_pro_frame_monitor.sv",
+      "bytes": 5674,
+      "sha256": "14f6111965248d5744dfb9f80f34eed8a2f834789f8dafa85b151e90afbaff79"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\run.py",
+      "bytes": 9448,
+      "sha256": "a77d2c509e2651e39f8e3c997c1f518b75a11ec670023ff4d7b627bd0d3fdb90"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py",
+      "bytes": 3481,
+      "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\WORK_PLAN.md",
+      "bytes": 1890,
+      "sha256": "c6b59706eaff8a86dc479f2f68e908dba900b1f501f0e7842401f1e50dfe79d0"
+    }
+  ],
+  "source_after": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\pro_frame_monitor.sv",
+      "bytes": 8357,
+      "sha256": "faf7cda22f928e7f0c40bd7ed164213e2282078e213ee1f472b331cfe098295a"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\tb_pro_frame_monitor.sv",
+      "bytes": 5674,
+      "sha256": "14f6111965248d5744dfb9f80f34eed8a2f834789f8dafa85b151e90afbaff79"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\run.py",
+      "bytes": 9448,
+      "sha256": "a77d2c509e2651e39f8e3c997c1f518b75a11ec670023ff4d7b627bd0d3fdb90"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py",
+      "bytes": 3481,
+      "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\WORK_PLAN.md",
+      "bytes": 1890,
+      "sha256": "c6b59706eaff8a86dc479f2f68e908dba900b1f501f0e7842401f1e50dfe79d0"
+    }
+  ],
+  "tool_file_count": 287,
+  "tools_after_same": true,
+  "actual_level": "L2_MONITOR_SELFTEST_ONLY",
+  "pro_dut_pass": false,
+  "board_release_allowed": false,
+  "ModelSim_Gowin_device_calls": 0
+}

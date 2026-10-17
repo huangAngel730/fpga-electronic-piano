@@ -1,0 +1,20 @@
+{
+  "config": {
+    "mode": "simulation",
+    "assembly": "bound_list_plus_wrapper",
+    "archive": {
+      "path": "SYNTHETIC.zip",
+      "sha256": "26e9cc4faace65df42a0e4b61a985b882fe4675a5ca0eb7c426e0bf0a5556480",
+      "manifest_sha256": "401ebacfc2e5433c236c48e57e2c704d2b7c182f2863d4a9aa5ad9ea8e2a0a7e"
+    },
+    "candidates": [
+      {
+        "path": "newleaf.sv",
+        "stage_as": "new/newleaf.sv",
+        "sha256": "31100eeeb7354eecd92d3f969447517b6c2842b3d225278a8eb0619415116d0f",
+        "replaces": "source_closure/inputs/leaf.sv"
+      }
+    ]
+  },
+  "expected": "STATIC_CLOSURE_READY"
+}

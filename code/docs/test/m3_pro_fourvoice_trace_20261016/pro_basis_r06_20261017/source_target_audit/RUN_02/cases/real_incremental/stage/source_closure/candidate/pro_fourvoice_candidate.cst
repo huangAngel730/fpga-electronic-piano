@@ -1,0 +1,44 @@
+// Tang Mega 138K Pro / Dock 4071f isolated candidate only.
+// Board revision, full device identity and Bank straps remain to be verified.
+
+// 4072 U8 fixed oscillator, 50 MHz.
+IO_LOC "sys_clk_50m" P16;
+IO_PORT "sys_clk_50m" PULL_MODE=UP DRIVE=OFF BANK_VCCIO=3.3;
+
+// Dock S0/S1/S2 are active low. K16/F15/G15 are corroborated by the
+// supplied reference CST and the 4071f/4072 schematic review.
+IO_LOC "sys_rst_n" K16;
+IO_LOC "key_n[0]" F15;
+IO_LOC "key_n[1]" G15;
+IO_PORT "sys_rst_n" PULL_MODE=UP DRIVE=OFF BANK_VCCIO=3.3;
+IO_PORT "key_n[0]" PULL_MODE=UP DRIVE=OFF BANK_VCCIO=3.3;
+IO_PORT "key_n[1]" PULL_MODE=UP DRIVE=OFF BANK_VCCIO=3.3;
+
+// PMOD0_IO3 / J22 pin 5 candidate. Configuration reuse and external MIDI
+// isolation remain mandatory hardware checks.
+IO_LOC "midi_rx" R17;
+IO_PORT "midi_rx" PULL_MODE=UP DRIVE=OFF BANK_VCCIO=3.3;
+
+// Dock PT8211 U6: BCLK/WS/DIN.
+IO_LOC "i2s_bclk" E22;
+IO_LOC "i2s_lrck" F24;
+IO_LOC "i2s_din" G24;
+IO_PORT "i2s_bclk" PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;
+IO_PORT "i2s_lrck" PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;
+IO_PORT "i2s_din" PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;
+
+// H17 (XPT4809 EN/SD) and P15 (BL616 UART RX) are schematic-derived balls
+// missing from the supplied reference CST. Their IO standard/Bank strap must
+// be confirmed before physical admission.
+IO_LOC "pa_en" H17;
+IO_LOC "uart_tx" P15;
+
+// HDMI-A group 0 from the supplied Pro reference CST.
+IO_LOC "tmds_data_p[0]" AB24,AC24;
+IO_LOC "tmds_data_p[1]" V24,W24;
+IO_LOC "tmds_data_p[2]" AA22,AA23;
+IO_LOC "tmds_clk_p" Y22,Y23;
+IO_PORT "tmds_data_p[0]" IO_TYPE=LVDS25 PULL_MODE=NONE DRIVE=6 BANK_VCCIO=3.3;
+IO_PORT "tmds_data_p[1]" IO_TYPE=LVDS25 PULL_MODE=NONE DRIVE=6 BANK_VCCIO=3.3;
+IO_PORT "tmds_data_p[2]" IO_TYPE=LVDS25 PULL_MODE=NONE DRIVE=6 BANK_VCCIO=3.3;
+IO_PORT "tmds_clk_p" IO_TYPE=LVDS25 PULL_MODE=NONE DRIVE=6 BANK_VCCIO=3.3;

@@ -1,0 +1,19 @@
+T057 offline trace result: PASS
+exit_code: 0
+input_mode: interleaved_jsonl
+frames: 106 (tx=53, rx=53)
+transactions: 53; commits: 1; retransmissions: 3; duplicate_responses: 0
+
+Evidence limits:
+- independent_expected: VERIFIED - expected data came from an external JSON/records input
+- global_order: VERIFIED - direction records preserve one global order
+- timing: VERIFIED - exact timestamp present for every captured byte
+- hardware_uart: NOT_VERIFIABLE - offline logs do not prove electrical or live FPGA UART behavior
+- playback_audio: NOT_VERIFIABLE - ACK/COMMIT/READ do not prove scheduling, playback, or audible output
+
+Findings:
+- none
+
+Claim boundary:
+- This result is offline software evidence only.
+- It does not prove FPGA UART hardware, playback, audible output, BLE, or real-time timing.

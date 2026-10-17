@@ -1,0 +1,454 @@
+{
+  "task": "E2_FIXED_LEFT_WAVEFORM",
+  "overall_status": "PARTIAL",
+  "isolated_status": "PASS",
+  "actual_level": "L2_ISOLATED_REPLAY",
+  "head_at_run": "ad2de2169230dc8fd9f4b6f8157d384306c2479a",
+  "origin_at_run": "ad2de2169230dc8fd9f4b6f8157d384306c2479a",
+  "rounds_consumed": 3,
+  "round_limit": 6,
+  "success_stop": true,
+  "source_and_tool_identity_stable": true,
+  "round_results": [
+    {
+      "round": 1,
+      "passed": false,
+      "error": "RuntimeError('CALL_FAILED:compile')",
+      "elapsed_seconds": 0.5159999999996217,
+      "receipt_sha256": "33688315ee71f1c2a008bd63e13506799543c63852c9024592af616e8143e70f",
+      "calls": [
+        {
+          "label": "compile",
+          "argv": [
+            "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+            "-g2012",
+            "-Wall",
+            "-s",
+            "tb_pro_fixed_left_waveform",
+            "-o",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_01\\stage\\waveform.vvp",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_01\\stage\\s00.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_01\\stage\\s01.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_01\\stage\\s02.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_01\\stage\\s03.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_01\\stage\\s04.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_01\\stage\\s05.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_01\\stage\\s06.sv"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_01\\stage",
+          "timeout_seconds": 599.8590000000004,
+          "expected_exit": 0,
+          "exit_code": 2,
+          "process_created": true,
+          "timeout": false,
+          "start_utc": "2026-10-16T18:05:04.335962+00:00",
+          "pid": 37604,
+          "elapsed_seconds": 0.07800000000133878,
+          "end_utc": "2026-10-16T18:05:04.409082+00:00",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "7fe4a14ff8e948426ded36084f59a6070b8022a10f21c220029d5d60fb2cfe6e",
+          "first_reject_lines": [],
+          "stdout": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_01\\compile.stdout",
+          "stderr": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_01\\compile.stderr"
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "passed": false,
+      "error": "RuntimeError('CALL_FAILED:positive')",
+      "elapsed_seconds": 0.5469999999986612,
+      "receipt_sha256": "ab7235dbf9ddf921fc4ea4c6bda214f00c7969a2acf14126ec57ad498d06e7d2",
+      "calls": [
+        {
+          "label": "compile",
+          "argv": [
+            "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+            "-g2012",
+            "-Wall",
+            "-s",
+            "tb_pro_fixed_left_waveform",
+            "-o",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_02\\stage\\waveform.vvp",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_02\\stage\\s00.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_02\\stage\\s01.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_02\\stage\\s02.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_02\\stage\\s03.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_02\\stage\\s04.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_02\\stage\\s05.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_02\\stage\\s06.sv"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_02\\stage",
+          "timeout_seconds": 599.8590000000004,
+          "expected_exit": 0,
+          "exit_code": 0,
+          "process_created": true,
+          "timeout": false,
+          "start_utc": "2026-10-16T18:05:56.338891+00:00",
+          "pid": 39584,
+          "elapsed_seconds": 0.07800000000133878,
+          "end_utc": "2026-10-16T18:05:56.414122+00:00",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "first_reject_lines": [],
+          "stdout": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_02\\compile.stdout",
+          "stderr": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_02\\compile.stderr"
+        },
+        {
+          "label": "positive",
+          "argv": [
+            "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_02\\stage\\waveform.vvp",
+            "+FAULT=0"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_02\\stage",
+          "timeout_seconds": 599.780999999999,
+          "expected_exit": 0,
+          "exit_code": 1,
+          "process_created": true,
+          "timeout": false,
+          "start_utc": "2026-10-16T18:05:56.415122+00:00",
+          "pid": 29020,
+          "elapsed_seconds": 0.030999999999039574,
+          "end_utc": "2026-10-16T18:05:56.447219+00:00",
+          "stdout_sha256": "b4773adbb9384f0ea49579d8f34c821b1e3e22e031d104e4bb3b2cf9c4ff1832",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "first_reject_lines": [
+            "FIRST_REJECT DELIVERY_SEQUENCE_OR_EPOCH t=12507000 phase=1 requested=1 observed=1 delivered=0 gaps=0 drops=0 windows=0"
+          ],
+          "stdout": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_02\\positive.stdout",
+          "stderr": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_02\\positive.stderr"
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "passed": true,
+      "error": null,
+      "elapsed_seconds": 174.53099999999904,
+      "receipt_sha256": "06944e3fa8b39ced8b894171fb780922468a56bc0eee041941171ddba9ff2bfc",
+      "calls": [
+        {
+          "label": "compile",
+          "argv": [
+            "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+            "-g2012",
+            "-Wall",
+            "-s",
+            "tb_pro_fixed_left_waveform",
+            "-o",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage\\waveform.vvp",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage\\s00.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage\\s01.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage\\s02.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage\\s03.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage\\s04.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage\\s05.sv",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage\\s06.sv"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage",
+          "timeout_seconds": 599.844000000001,
+          "expected_exit": 0,
+          "exit_code": 0,
+          "process_created": true,
+          "timeout": false,
+          "start_utc": "2026-10-16T18:07:05.075127+00:00",
+          "pid": 32008,
+          "elapsed_seconds": 0.09400000000096043,
+          "end_utc": "2026-10-16T18:07:05.162476+00:00",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "first_reject_lines": [],
+          "stdout": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\compile.stdout",
+          "stderr": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\compile.stderr"
+        },
+        {
+          "label": "positive",
+          "argv": [
+            "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage\\waveform.vvp",
+            "+FAULT=0"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage",
+          "timeout_seconds": 599.75,
+          "expected_exit": 0,
+          "exit_code": 0,
+          "process_created": true,
+          "timeout": false,
+          "start_utc": "2026-10-16T18:07:05.164477+00:00",
+          "pid": 45580,
+          "elapsed_seconds": 46.76499999999942,
+          "end_utc": "2026-10-16T18:07:51.926675+00:00",
+          "stdout_sha256": "ce8f6ef31f4a014b367623863a001af01d876403a8c1e972545a9285b110642e",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "first_reject_lines": [],
+          "stdout": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\positive.stdout",
+          "stderr": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\positive.stderr"
+        },
+        {
+          "label": "check_capture",
+          "argv": [
+            "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "-B",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\check_capture.py",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\positive.stdout",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\catalogue.mem"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage",
+          "timeout_seconds": 90,
+          "expected_exit": 0,
+          "exit_code": 0,
+          "process_created": true,
+          "timeout": false,
+          "start_utc": "2026-10-16T18:07:51.955881+00:00",
+          "pid": 23692,
+          "elapsed_seconds": 0.20300000000133878,
+          "end_utc": "2026-10-16T18:07:52.164245+00:00",
+          "stdout_sha256": "2f3a47be1d936a22c6777e07ba909d0e7f5c51052463df83e09b900ed6502af5",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "first_reject_lines": [],
+          "stdout": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\check_capture.stdout",
+          "stderr": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\check_capture.stderr"
+        },
+        {
+          "label": "negative_1",
+          "argv": [
+            "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage\\waveform.vvp",
+            "+FAULT=1"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage",
+          "timeout_seconds": 552.75,
+          "expected_exit": 1,
+          "exit_code": 1,
+          "process_created": true,
+          "timeout": false,
+          "start_utc": "2026-10-16T18:07:52.165261+00:00",
+          "pid": 31848,
+          "elapsed_seconds": 33.375,
+          "end_utc": "2026-10-16T18:08:25.536589+00:00",
+          "stdout_sha256": "5251d05e57ee3256d00c1b783c9508319edea4a5dff0cadc17fac7358ffad88b",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "first_reject_lines": [
+            "FIRST_REJECT PIXEL_REFERENCE t=128763588000 phase=3 requested=7897 observed=7897 delivered=7897 gaps=0 drops=0 windows=0"
+          ],
+          "stdout": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\negative_1.stdout",
+          "stderr": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\negative_1.stderr"
+        },
+        {
+          "label": "negative_2",
+          "argv": [
+            "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage\\waveform.vvp",
+            "+FAULT=2"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage",
+          "timeout_seconds": 519.3600000000006,
+          "expected_exit": 1,
+          "exit_code": 1,
+          "process_created": true,
+          "timeout": false,
+          "start_utc": "2026-10-16T18:08:25.545967+00:00",
+          "pid": 13484,
+          "elapsed_seconds": 21.437999999998283,
+          "end_utc": "2026-10-16T18:08:46.987438+00:00",
+          "stdout_sha256": "386af7c33e361ea36895c10858b9fd0bba32ffa808a6f5978a1544cb64990bd7",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "first_reject_lines": [
+            "FIRST_REJECT WINDOW_FRAME_TEAR t=86599428000 phase=1 requested=4157 observed=4157 delivered=4157 gaps=0 drops=0 windows=0"
+          ],
+          "stdout": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\negative_2.stdout",
+          "stderr": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\negative_2.stderr"
+        },
+        {
+          "label": "negative_3",
+          "argv": [
+            "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage\\waveform.vvp",
+            "+FAULT=3"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage",
+          "timeout_seconds": 497.9220000000023,
+          "expected_exit": 1,
+          "exit_code": 1,
+          "process_created": true,
+          "timeout": false,
+          "start_utc": "2026-10-16T18:08:46.994198+00:00",
+          "pid": 17488,
+          "elapsed_seconds": 5.047000000002299,
+          "end_utc": "2026-10-16T18:08:52.038467+00:00",
+          "stdout_sha256": "7700de7267fc062685e427ab719ed45de87d3fafb490dd99f3492464615bfc26",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "first_reject_lines": [
+            "FIRST_REJECT SAMPLE_SEQ_GAP t=20866628000 phase=1 requested=1002 observed=1002 delivered=1002 gaps=1 drops=0 windows=0"
+          ],
+          "stdout": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\negative_3.stdout",
+          "stderr": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\negative_3.stderr"
+        },
+        {
+          "label": "negative_4",
+          "argv": [
+            "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage\\waveform.vvp",
+            "+FAULT=4"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage",
+          "timeout_seconds": 492.875,
+          "expected_exit": 1,
+          "exit_code": 1,
+          "process_created": true,
+          "timeout": false,
+          "start_utc": "2026-10-16T18:08:52.041486+00:00",
+          "pid": 41300,
+          "elapsed_seconds": 30.93699999999808,
+          "end_utc": "2026-10-16T18:09:22.967483+00:00",
+          "stdout_sha256": "10ca4ebb1374371ab3653e890c34540f5920220ed00c6bc1fe5bdd03688e33f6",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "first_reject_lines": [
+            "FIRST_REJECT RESET_TRACE_STALE t=127101168000 phase=2 requested=5849 observed=5849 delivered=5849 gaps=0 drops=0 windows=0"
+          ],
+          "stdout": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\negative_4.stdout",
+          "stderr": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\negative_4.stderr"
+        },
+        {
+          "label": "negative_5",
+          "argv": [
+            "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\vvp.exe",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage\\waveform.vvp",
+            "+FAULT=5"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\stage",
+          "timeout_seconds": 461.9380000000019,
+          "expected_exit": 1,
+          "exit_code": 1,
+          "process_created": true,
+          "timeout": false,
+          "start_utc": "2026-10-16T18:09:22.974984+00:00",
+          "pid": 30288,
+          "elapsed_seconds": 36.09400000000096,
+          "end_utc": "2026-10-16T18:09:59.062112+00:00",
+          "stdout_sha256": "455c24bf8b732a84e7738870ba05fe24bbdd10f2975e6876ce68db9ba5a56605",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "first_reject_lines": [
+            "FIRST_REJECT AUDIO_DISPLAY_BACKPRESSURE t=148468563000 phase=5 requested=12027 observed=12026 delivered=11993 gaps=0 drops=0 windows=1"
+          ],
+          "stdout": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\negative_5.stdout",
+          "stderr": "code\\docs\\test\\m3_pro_waveform_successor_20261017\\ROUND_03\\negative_5.stderr"
+        }
+      ]
+    }
+  ],
+  "positive": {
+    "passed": true,
+    "real_cadence_pairs_checked": 5848,
+    "source_frames": 14241,
+    "observer_frames": 14241,
+    "delivered_core_frames": 14074,
+    "drop_range_inclusive": [
+      12026,
+      12192
+    ],
+    "normal_ordinal_after_display_reset": 5849,
+    "scans": 8,
+    "published_snapshots": 5,
+    "level": "L2_ISOLATED_HISTORICAL_RTL_REPLAY_AND_SYNTHETIC_STRESS",
+    "board_release_allowed": false
+  },
+  "rtl_negatives": [
+    {
+      "fault": 1,
+      "actual_first_difference": "PIXEL_REFERENCE",
+      "expected_rejection": true
+    },
+    {
+      "fault": 2,
+      "actual_first_difference": "WINDOW_FRAME_TEAR",
+      "expected_rejection": true
+    },
+    {
+      "fault": 3,
+      "actual_first_difference": "SAMPLE_SEQ_GAP",
+      "expected_rejection": true
+    },
+    {
+      "fault": 4,
+      "actual_first_difference": "RESET_TRACE_STALE",
+      "expected_rejection": true
+    },
+    {
+      "fault": 5,
+      "actual_first_difference": "AUDIO_DISPLAY_BACKPRESSURE",
+      "expected_rejection": true
+    }
+  ],
+  "pixel_clocks_checked": 3998520,
+  "input_identity": {
+    "historical_source": {
+      "raw_sha256": "23e823c46638f87574616c9ab1de70c594acbd595188783d2e3b54ade0bdcfe4",
+      "raw_bytes": 1379816,
+      "adoptions": 5849
+    },
+    "reference_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\pcm_waveform_candidate\\reference.py",
+    "reference_sha256": "110c9c787895a5939c371ee62901e3ac6778b57a89839df433009e9b1152ad9b",
+    "normal_b64_sha256": "ccafff08e39fb16cc99d1a1aab8fffe3de8d736d0d3814b11e5bbb1fd3d2de26",
+    "manifest_sha256": "f68be42bace2d9d841fec123623e5c53f8d681156c63e9773b89b8925bb5f324",
+    "source_kind": "HISTORICAL_RTL_A_CAPTURE_NOT_PRO_NOT_BOARD",
+    "source_seq": "adoption_ordinal_minus_one_not_request_id",
+    "time_origin_ns": "21087.500",
+    "time_last_ns": "121854412.500",
+    "relative_timing": "exact Decimal delta / 25ns; first load uses fixture origin",
+    "delta_counts": {
+      "833": 3899,
+      "834": 1949
+    },
+    "real_left_right_different": 0,
+    "catalogue_ranges_exclusive": {
+      "historical_real": [
+        0,
+        5849
+      ],
+      "synthetic_A": [
+        5849,
+        7897
+      ],
+      "synthetic_B": [
+        7897,
+        9945
+      ],
+      "synthetic_C": [
+        9945,
+        11993
+      ],
+      "synthetic_pixel_pause": [
+        11993,
+        12193
+      ],
+      "synthetic_recovery": [
+        12193,
+        14241
+      ]
+    },
+    "golden": "signed24 min/max over four, then arithmetic shift16; five snapshots",
+    "catalogue_sha256": "9369fb0988882899af08ce6f3b5c1645333ea08968966b2c103d4569e534fdf8",
+    "golden_sha256": "1a03a70d66d9f5b6799ccb4ad8374d414d14e01d05cd8f593827a204bc8767aa",
+    "board_release_allowed": false
+  },
+  "main_source_sha256": {
+    "code\\rtl\\input\\pcm_waveform_candidate\\m3_pro_waveform_successor_20261017\\m3_pro_fixed_left_waveform.sv": "6034d06fa255f1f4f84c13e632fe0d070a9850aa5e49a8cd9c48aa611c6069ca",
+    "code\\tb\\input\\pcm_waveform_candidate\\m3_pro_waveform_successor_20261017\\tb_pro_fixed_left_waveform.sv": "1a6ffc446a2f85b834b7558c69ac3a22fd16f354f374da49aed21c1c5076c33c"
+  },
+  "remaining": [
+    "new exact Pro source/ROM/top/trace",
+    "M2 controlled integration and complete CDC/STA",
+    "approved same-version bitstream/restoration identity and electrical originals",
+    "same-version actual screen/audio coexistence capture"
+  ],
+  "Gowin_ModelSim_hardware_invocations": 0,
+  "board_release_allowed": false,
+  "git_writes": 0,
+  "submitted": false,
+  "pushed": false,
+  "publication_owner": "night_task_1",
+  "M2_delivery": "\u5f85\u7528\u6237\u8f6c\u53d1\uff0c\u5c1a\u672a\u9001\u8fbe",
+  "time_utc": "2026-10-16T18:14:13.506238+00:00"
+}

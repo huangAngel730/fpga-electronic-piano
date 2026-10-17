@@ -1,0 +1,22 @@
+{
+  "schema": "M3_C_FOUR_LANE_CALENDAR_V1",
+  "scope": "SYNTHETIC_FIXTURE_NOT_PRO_DUT",
+  "timebase": {"unit": "fixture_sys_cycle", "clock_hz_assumption": 40000000, "frame_starts": "20+floor(frame*2500/3), frame 0..18", "sampling_phase": "ABSTRACT_CYCLE_TRANSACTION_ORDER_NO_DUT_SAMPLING"},
+  "identity": ["epoch", "frame", "slot", "lane", "req_id"],
+  "fixture_assumptions": ["Four independently identified lanes; lane equals slot", "Allocate lowest free slot, immediate NoteOff release; no ADSR or steal mathematics", "Input acceptance input_cycle+1 with serialized order for simultaneous messages", "Apply accepted events in input order on next frame boundary", "Each frame accepts and ticks every lane once including inactive or subsequently cancelled work", "Per-lane request offer at frame+4+8*lane; frame13 lane1 stalled for three cycles", "Return at accept+5, publish at accept+7, consume two cycles before next frame", "Explicit cancellation after acceptance suppresses later return/publication/consumption", "Reset explicitly cancels unconsumed old transactions; epoch increments and request IDs restart"],
+  "records": {
+    "HEADER": ["kind", "schema", "scope", "clock_hz_fixture", "sample_phase"],
+    "EVENT": ["kind", "cycle", "epoch", "input_cycle", "accepted_cycle", "event_id", "action", "slot", "note", "data_hex"],
+    "FRAME": ["kind", "cycle", "epoch", "frame"],
+    "OFFER": ["kind", "cycle", "epoch", "frame", "slot", "lane", "req_id", "data", "valid", "ready"],
+    "ACCEPT_LANE_TICK_RETURN_PUBLISH_CONSUME": ["kind", "cycle", "epoch", "frame", "slot", "lane", "req_id", "data"],
+    "CANCEL": ["kind", "cycle", "epoch", "frame", "slot", "lane", "req_id", "data", "reason"],
+    "RESET_END": ["kind", "cycle", "epoch"]
+  },
+  "data": {"active": "bool", "note": "MIDI integer0..127 or null when inactive", "velocity": "10-bit unsigned,0 when inactive"},
+  "types": {"cycle_epoch_frame_slot_lane_req_id_event_id_input_cycle_accepted_cycle": "nonnegative integer, booleans forbidden", "valid_ready": "integer0or1, booleans forbidden", "data_hex": "16-digit hex public performance event with source0/channel0/reserved0"},
+  "same_cycle_order": ["old-epoch reset cancellation", "RESET", "EVENT ordered by event_id", "FRAME", "OFFER ordered by lane", "ACCEPT", "LANE_TICK", "RETURN", "PUBLISH", "nonreset CANCEL", "CONSUME", "END"],
+  "not_covered": ["Pro actual allocator, source/ROM/top identity", "Real event accepted/applied or all DSP lanes and effect config wiring", "DUT observed PCM/clip or M1 mathematics", "Actual Pro sample_tick/service deadline, analog latency, physical or board results"],
+  "pro_mapping_status": "PENDING_PRO_SOURCE_OR_TRACE",
+  "board_release_allowed": false
+}

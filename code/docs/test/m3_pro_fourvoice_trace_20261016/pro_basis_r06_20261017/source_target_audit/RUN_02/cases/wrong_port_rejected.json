@@ -1,0 +1,170 @@
+{
+  "status": "REJECTED",
+  "level": "L0_STATIC_ASSEMBLY",
+  "mode": "simulation",
+  "physical_status": "PENDING_PHYSICAL_ID",
+  "board_release_allowed": false,
+  "pro_dut_pass": false,
+  "hdl_calls": 0,
+  "top": "wrapper",
+  "cwd": "source_closure/inputs",
+  "source_list": [
+    "source_closure/inputs/leaf.sv",
+    "source_closure/candidate/wrapper.sv",
+    "new/wrong_port_rejected.sv"
+  ],
+  "modules": [
+    {
+      "name": "leaf",
+      "path": "source_closure/inputs/leaf.sv",
+      "ports": [
+        {
+          "name": "a",
+          "direction": "input",
+          "width_expression": "scalar",
+          "width_evaluated": false
+        },
+        {
+          "name": "b",
+          "direction": "output",
+          "width_expression": "scalar",
+          "width_evaluated": false
+        }
+      ],
+      "port_inventory_complete": true
+    },
+    {
+      "name": "wrapper",
+      "path": "source_closure/candidate/wrapper.sv",
+      "ports": [
+        {
+          "name": "a",
+          "direction": "input",
+          "width_expression": "scalar",
+          "width_evaluated": false
+        },
+        {
+          "name": "b",
+          "direction": "output",
+          "width_expression": "scalar",
+          "width_evaluated": false
+        }
+      ],
+      "port_inventory_complete": true
+    },
+    {
+      "name": "probe",
+      "path": "new/wrong_port_rejected.sv",
+      "ports": [],
+      "port_inventory_complete": true
+    }
+  ],
+  "instances": [
+    {
+      "type": "leaf",
+      "instance": "u",
+      "path": "source_closure/candidate/wrapper.sv",
+      "named_ports": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "type": "leaf",
+      "instance": "u",
+      "path": "new/wrong_port_rejected.sv",
+      "named_ports": [
+        "BAD"
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "category": "ROM",
+      "path": "source_closure/inputs/rom/0.mem",
+      "bytes": 5,
+      "sha256": "8982b0e36eb1bacbb400dea0997b13cce756d7a48dbe0b05c560a13c1973afd0"
+    },
+    {
+      "category": "ROM",
+      "path": "source_closure/inputs/rom/1.mem",
+      "bytes": 5,
+      "sha256": "8982b0e36eb1bacbb400dea0997b13cce756d7a48dbe0b05c560a13c1973afd0"
+    },
+    {
+      "category": "ROM",
+      "path": "source_closure/inputs/rom/2.mem",
+      "bytes": 5,
+      "sha256": "8982b0e36eb1bacbb400dea0997b13cce756d7a48dbe0b05c560a13c1973afd0"
+    },
+    {
+      "category": "ROM",
+      "path": "source_closure/inputs/rom/3.mem",
+      "bytes": 5,
+      "sha256": "8982b0e36eb1bacbb400dea0997b13cce756d7a48dbe0b05c560a13c1973afd0"
+    },
+    {
+      "category": "ROM",
+      "path": "source_closure/inputs/rom/4.mem",
+      "bytes": 5,
+      "sha256": "8982b0e36eb1bacbb400dea0997b13cce756d7a48dbe0b05c560a13c1973afd0"
+    },
+    {
+      "category": "ROM",
+      "path": "source_closure/inputs/rom/5.mem",
+      "bytes": 5,
+      "sha256": "8982b0e36eb1bacbb400dea0997b13cce756d7a48dbe0b05c560a13c1973afd0"
+    },
+    {
+      "category": "ROM",
+      "path": "source_closure/inputs/rom/6.mem",
+      "bytes": 5,
+      "sha256": "8982b0e36eb1bacbb400dea0997b13cce756d7a48dbe0b05c560a13c1973afd0"
+    },
+    {
+      "category": "ROM",
+      "path": "source_closure/inputs/rom/7.mem",
+      "bytes": 5,
+      "sha256": "8982b0e36eb1bacbb400dea0997b13cce756d7a48dbe0b05c560a13c1973afd0"
+    },
+    {
+      "category": "ROM",
+      "path": "source_closure/inputs/rom/8.mem",
+      "bytes": 5,
+      "sha256": "8982b0e36eb1bacbb400dea0997b13cce756d7a48dbe0b05c560a13c1973afd0"
+    },
+    {
+      "category": "CONSTRAINT",
+      "path": "source_closure/candidate/test.cst",
+      "bytes": 28,
+      "sha256": "b161450f035d57ada3601cee0f6c6c533c8d1b8c421bb0ba5c4eddf33bb3d4fc"
+    },
+    {
+      "category": "CONSTRAINT",
+      "path": "source_closure/candidate/test.sdc",
+      "bytes": 32,
+      "sha256": "319e434d072f47db723b29316fb4da682b3c90553770fe7abe6f688e4bca2f2b"
+    },
+    {
+      "category": "IP",
+      "path": "source_closure/inputs/pll.v",
+      "sha256": "6ea7b176619f99a9232fc75ca27d389e72490ad2cedcc009f3f9cd243b5010ac",
+      "bytes": 52,
+      "listed": false
+    }
+  ],
+  "rom_references": [],
+  "candidate_inputs": [
+    {
+      "path": "wrong_port_rejected.sv",
+      "stage_as": "new/wrong_port_rejected.sv",
+      "sha256": "69c0ab12c55fda0e86498f06ed17182153c1afb87362ea5bbaf75074f850b541"
+    }
+  ],
+  "target": {},
+  "errors": [
+    "UNKNOWN_NAMED_PORT:leaf.BAD"
+  ],
+  "pending": [],
+  "limits": "Lexical inventory only; no macro/generate elaboration, width evaluation, mathematical or physical proof."
+}

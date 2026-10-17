@@ -1,0 +1,755 @@
+[
+  {
+    "source": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\board\\electronic_piano_top.sv",
+      "present": true,
+      "bytes": 35358,
+      "sha256": "fb3aba0246ee3bd71a123cc954cb05df8c3236605310ae17310ac1420cae908a",
+      "classification": "EXISTING_SHARED_TOP_NOT_NEW_PRO_BINDING",
+      "accepted_as_new_pro": false
+    },
+    "pattern": "u_i2s_tx|buffered_left|buffered_right|frame_tick|pa_en",
+    "matches": [
+      {
+        "line": 30,
+        "text": "// 【上电爆音防护】pa_en 低有效是本设计最关键的板级要求"
+      },
+      {
+        "line": 35,
+        "text": "//   本实现把 pa_en 直接由复位信号驱动，**不经过任何时钟域**："
+      },
+      {
+        "line": 36,
+        "text": "//     assign pa_en = ~rst_sync_n;   // 复位期间 rst_sync_n=0 -> pa_en=1 -> 功放关"
+      },
+      {
+        "line": 39,
+        "text": "//     如果写成 always_ff 里 `if (!rst_n) pa_en <= 1'b1;`，那么在 FPGA 完成"
+      },
+      {
+        "line": 40,
+        "text": "//     配置、时钟尚未稳定、复位尚未释放的这段时间里，pa_en 的实际电平取决于"
+      },
+      {
+        "line": 44,
+        "text": "//   代价：pa_en 与 rst_sync_n 之间是组合路径，会进入时序分析。"
+      },
+      {
+        "line": 46,
+        "text": "//   由于 rst_sync_n 是寄存器输出、pa_en 是直接输出到 IO，路径极短，"
+      },
+      {
+        "line": 74,
+        "text": "//   pa_en    AB16 LVCMOS33 3.3 V  Bank 7  功放使能，低有效"
+      },
+      {
+        "line": 92,
+        "text": "//     复位期间 pa_en 必须为 1、复位释放后 I2S 输出、正弦音频率与幅度、"
+      },
+      {
+        "line": 149,
+        "text": "    //   若把它也当音符键，按下时等于按住复位；而 pa_en = ~rst_sync_n，"
+      },
+      {
+        "line": 159,
+        "text": "    output logic pa_en,       // AB16, 低有效：0=开，1=关"
+      },
+      {
+        "line": 354,
+        "text": "    assign pa_en = ~rst_sync_n;"
+      },
+      {
+        "line": 359,
+        "text": "    logic sample_tick, frame_sample_req, i2s_frame_tick;"
+      },
+      {
+        "line": 364,
+        "text": "    logic signed [PCM_WIDTH-1:0] buffered_left, buffered_right;"
+      },
+      {
+        "line": 551,
+        "text": "        end else if (i2s_frame_tick || (pcm_valid_q && pcm_ready)) begin"
+      },
+      {
+        "line": 559,
+        "text": "        .frame_tick(i2s_frame_tick),"
+      },
+      {
+        "line": 560,
+        "text": "        .calc_ready(!pcm_valid_q || i2s_frame_tick),"
+      },
+      {
+        "line": 565,
+        "text": "        .play_left(buffered_left), .play_right(buffered_right),"
+      },
+      {
+        "line": 579,
+        "text": "          .event_ready(shared_event_ready),.event_data(shared_event_data),.frame_tick(i2s_frame_tick),"
+      },
+      {
+        "line": 580,
+        "text": "          .play_left(buffered_left),.play_right(buffered_right),.pending_valid(pending_valid),"
+      },
+      {
+        "line": 611,
+        "text": "    ) u_i2s_tx ("
+      },
+      {
+        "line": 615,
+        "text": "        .pcm_left  (buffered_left),"
+      },
+      {
+        "line": 616,
+        "text": "        .pcm_right (buffered_right),"
+      },
+      {
+        "line": 621,
+        "text": "        .frame_tick(i2s_frame_tick)"
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\audio_out\\i2s_tx.sv",
+      "present": true,
+      "bytes": 17021,
+      "sha256": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+      "classification": "EXISTING_SENDER_NOT_PRO_BINDING",
+      "accepted_as_new_pro": false
+    },
+    "pattern": "frame_start|frame_tick|next_left|next_right|left_latch|right_latch",
+    "matches": [
+      {
+        "line": 99,
+        "text": "    output logic                        frame_tick  // one pulse per full stereo frame"
+      },
+      {
+        "line": 194,
+        "text": "    wire frame_start = slot_tick && (slot_cnt == BCLK_PER_FRAME-1);"
+      },
+      {
+        "line": 195,
+        "text": "    assign frame_tick = frame_start;"
+      },
+      {
+        "line": 244,
+        "text": "    logic signed [DAC_WIDTH-1:0] next_left;"
+      },
+      {
+        "line": 245,
+        "text": "    logic signed [DAC_WIDTH-1:0] next_right;"
+      },
+      {
+        "line": 248,
+        "text": "        next_left  = round_saturate(pcm_left);"
+      },
+      {
+        "line": 249,
+        "text": "        next_right = round_saturate(pcm_right);"
+      },
+      {
+        "line": 297,
+        "text": "                // 【曾经的事故】原实现写 `if (frame_start) lrck <= ~lrck;`，"
+      },
+      {
+        "line": 321,
+        "text": "    // port is not PCM ready. frame_tick marks a complete 64-BCLK frame."
+      },
+      {
+        "line": 327,
+        "text": "        end else if (frame_start && valid) begin"
+      },
+      {
+        "line": 328,
+        "text": "            sample_left  <= next_left;"
+      },
+      {
+        "line": 329,
+        "text": "            sample_right <= next_right;"
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\pcm_waveform_observer_candidate\\pcm_frame_observer.sv",
+      "present": true,
+      "bytes": 1118,
+      "sha256": "f0f755558fbd40a103c1d7d6c73c102eb4f83bf54cc41b09a78fd65609fe13a8",
+      "classification": "READ_ONLY_OBSERVER_CANDIDATE",
+      "accepted_as_new_pro": false
+    },
+    "pattern": "pre-NBA|frame_load|observed_left|observed_right",
+    "matches": [
+      {
+        "line": 1,
+        "text": "// M2 candidate only. Sample exactly the sender's pre-NBA frame-load inputs."
+      },
+      {
+        "line": 8,
+        "text": "    input wire frame_load,"
+      },
+      {
+        "line": 12,
+        "text": "    output reg signed [23:0] observed_left, observed_right"
+      },
+      {
+        "line": 19,
+        "text": "            observed_left <= 24'sd0;"
+      },
+      {
+        "line": 20,
+        "text": "            observed_right <= 24'sd0;"
+      },
+      {
+        "line": 23,
+        "text": "            observed_valid <= frame_load;"
+      },
+      {
+        "line": 24,
+        "text": "            if (frame_load) begin"
+      },
+      {
+        "line": 27,
+        "text": "                observed_left <= play_left;"
+      },
+      {
+        "line": 28,
+        "text": "                observed_right <= play_right;"
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\input\\pcm_waveform_candidate\\m3_pro_waveform_successor_20261017\\m3_pro_fixed_left_waveform.sv",
+      "present": true,
+      "bytes": 3270,
+      "sha256": "6034d06fa255f1f4f84c13e632fe0d070a9850aa5e49a8cd9c48aa611c6069ca",
+      "classification": "ISOLATED_E2_WRAPPER",
+      "accepted_as_new_pro": false
+    },
+    "pattern": "frame_load|pcm_frame_observer|play_left|play_right|audio_clk|pixel_clk",
+    "matches": [
+      {
+        "line": 6,
+        "text": "    input wire audio_clk, pixel_clk, audio_rst_n, display_rst_n,"
+      },
+      {
+        "line": 7,
+        "text": "    input wire audio_frame_load,"
+      },
+      {
+        "line": 8,
+        "text": "    input wire signed [23:0] audio_play_left, audio_play_right,"
+      },
+      {
+        "line": 27,
+        "text": "        .audio_clk(audio_clk), .pixel_clk(pixel_clk),"
+      },
+      {
+        "line": 29,
+        "text": "        .audio_frame_load(audio_frame_load),"
+      },
+      {
+        "line": 30,
+        "text": "        .audio_play_left(audio_play_left), .audio_play_right(audio_play_right),"
+      },
+      {
+        "line": 51,
+        "text": "        .pixel_clk(pixel_clk), .pixel_rst_n(render_rst_n),"
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\pcm_waveform_candidate\\m3_pro_waveform_successor_20261017\\tb_pro_fixed_left_waveform.sv",
+      "present": true,
+      "bytes": 11515,
+      "sha256": "1a6ffc446a2f85b834b7558c69ac3a22fd16f354f374da49aed21c1c5076c33c",
+      "classification": "ISOLATED_E2_TB",
+      "accepted_as_new_pro": false
+    },
+    "pattern": "frame_load|catalogue|HISTOR|audio_clk|pixel_clk",
+    "matches": [
+      {
+        "line": 5,
+        "text": "    reg audio_clk=0, pixel_clk=0, pixel_run=1;"
+      },
+      {
+        "line": 6,
+        "text": "    always #12.5 audio_clk=~audio_clk;"
+      },
+      {
+        "line": 7,
+        "text": "    initial begin #7; forever begin #20; if (pixel_run) pixel_clk=~pixel_clk; end end"
+      },
+      {
+        "line": 11,
+        "text": "    integer catalogue_id=-1, fault=0;"
+      },
+      {
+        "line": 25,
+        "text": "        .audio_clk(audio_clk), .pixel_clk(pixel_clk), .audio_rst_n(audio_rst_n),"
+      },
+      {
+        "line": 26,
+        "text": "        .display_rst_n(display_rst_n), .audio_frame_load(actual_load),"
+      },
+      {
+        "line": 39,
+        "text": "    reg [63:0] catalogue[0:14240];"
+      },
+      {
+        "line": 77,
+        "text": "    always @(posedge audio_clk) begin"
+      },
+      {
+        "line": 81,
+        "text": "                $display(\"A %0t %0d %0d %0d %0d\",$time,catalogue_id,play_left,play_right,actual_load);"
+      },
+      {
+        "line": 87,
+        "text": "                if ({observed_left,observed_right}!==catalogue[observed_seq][63:16]) die(\"OBSERVER_ATOMIC_PCM\");"
+      },
+      {
+        "line": 96,
+        "text": "    always @(posedge pixel_clk) begin"
+      },
+      {
+        "line": 105,
+        "text": "                if ({left,right}!==catalogue[seq][63:16]) die(\"DELIVERY_ATOMIC_PCM\");"
+      },
+      {
+        "line": 128,
+        "text": "                delay_cycles=catalogue[k][15:0];"
+      },
+      {
+        "line": 129,
+        "text": "                if (k==first) @(negedge audio_clk);"
+      },
+      {
+        "line": 130,
+        "text": "                else repeat(delay_cycles-1) @(negedge audio_clk);"
+      },
+      {
+        "line": 131,
+        "text": "                catalogue_id=k;"
+      },
+      {
+        "line": 132,
+        "text": "                {play_left,play_right}=catalogue[k][63:16];"
+      },
+      {
+        "line": 134,
+        "text": "                @(negedge audio_clk); requested_load=0;"
+      },
+      {
+        "line": 139,
+        "text": "        begin repeat(300) @(negedge pixel_clk); end"
+      },
+      {
+        "line": 144,
+        "text": "            @(negedge pixel_clk);front=snapshot;frame_start=1;"
+      },
+      {
+        "line": 145,
+        "text": "            @(negedge pixel_clk);frame_start=0;"
+      },
+      {
+        "line": 146,
+        "text": "            repeat(3) @(negedge pixel_clk);"
+      },
+      {
+        "line": 156,
+        "text": "                    @(negedge pixel_clk);x=sx;y=sy;"
+      },
+      {
+        "line": 158,
+        "text": "            @(negedge pixel_clk);x=63;y=64;"
+      },
+      {
+        "line": 159,
+        "text": "            @(negedge pixel_clk);x=576;y=64;"
+      },
+      {
+        "line": 160,
+        "text": "            @(negedge pixel_clk);x=64;y=63;"
+      },
+      {
+        "line": 161,
+        "text": "            @(negedge pixel_clk);x=64;y=320;"
+      },
+      {
+        "line": 162,
+        "text": "            @(negedge pixel_clk);x=575;y=319;"
+      },
+      {
+        "line": 163,
+        "text": "            @(negedge pixel_clk);x=64;y=191;de=0;"
+      },
+      {
+        "line": 164,
+        "text": "            @(negedge pixel_clk);de=1;enabled=0;"
+      },
+      {
+        "line": 165,
+        "text": "            @(negedge pixel_clk);de=0;enabled=0;"
+      },
+      {
+        "line": 166,
+        "text": "            @(negedge pixel_clk);x=0;y=0;de=1;enabled=1;"
+      },
+      {
+        "line": 167,
+        "text": "            repeat(3) @(negedge pixel_clk);"
+      },
+      {
+        "line": 174,
+        "text": "        $readmemh(\"catalogue.mem\",catalogue);"
+      },
+      {
+        "line": 180,
+        "text": "        repeat(10) @(negedge audio_clk);"
+      },
+      {
+        "line": 189,
+        "text": "                @(negedge pixel_clk);frame_start=1;"
+      },
+      {
+        "line": 190,
+        "text": "                @(negedge pixel_clk);frame_start=0;"
+      },
+      {
+        "line": 204,
+        "text": "        @(negedge pixel_clk);x=0;y=0;"
+      },
+      {
+        "line": 208,
+        "text": "        repeat(20) @(negedge audio_clk);"
+      },
+      {
+        "line": 222,
+        "text": "        @(negedge pixel_clk);pixel_run=0;"
+      },
+      {
+        "line": 225,
+        "text": "        repeat(10) @(negedge audio_clk);"
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\input\\score_transfer_candidate\\m3_pro_min_transfer_successor_20261017\\score_transfer_e3_successor.sv",
+      "present": true,
+      "bytes": 16402,
+      "sha256": "ff2a24f7494075ec02fafc6a631e5f3c130716d9009f9863d43614be479351d5",
+      "classification": "ISOLATED_E3_BEHAVIORAL_RAM",
+      "accepted_as_new_pro": false
+    },
+    "pattern": "SESSION_TIMEOUT|CLK_HZ|BAUD|FRAME_TIMEOUT|module |uart_rx_i|uart_tx_o",
+    "matches": [
+      {
+        "line": 6,
+        "text": "module score_transfer_e3_successor #("
+      },
+      {
+        "line": 7,
+        "text": "    parameter integer CLK_HZ = 40000000,"
+      },
+      {
+        "line": 8,
+        "text": "    parameter integer BAUD = 115200,"
+      },
+      {
+        "line": 9,
+        "text": "    parameter integer FRAME_TIMEOUT = 800000,"
+      },
+      {
+        "line": 10,
+        "text": "    parameter integer SESSION_TIMEOUT = 200000000"
+      },
+      {
+        "line": 12,
+        "text": "    input logic clk, rst_n, uart_rx_i,"
+      },
+      {
+        "line": 13,
+        "text": "    output logic uart_tx_o,"
+      },
+      {
+        "line": 37,
+        "text": "    uart_rx #(.CLK_HZ(CLK_HZ), .BAUD(BAUD)) receiver("
+      },
+      {
+        "line": 38,
+        "text": "        .clk(clk), .rst_n(rst_n), .rx(uart_rx_i), .rx_data(rx_data),"
+      },
+      {
+        "line": 40,
+        "text": "    uart_tx #(.CLK_HZ(CLK_HZ), .BAUD(BAUD)) transmitter("
+      },
+      {
+        "line": 42,
+        "text": "        .tx_ready(tx_ready), .tx(uart_tx_o));"
+      },
+      {
+        "line": 170,
+        "text": "            end else if (active && session_timer>=SESSION_TIMEOUT-1) begin"
+      },
+      {
+        "line": 173,
+        "text": "                         && frame_timer>=FRAME_TIMEOUT-1) begin"
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\score_transfer_candidate\\m3_pro_min_transfer_successor_20261017\\tb_e3_file_uart.sv",
+      "present": true,
+      "bytes": 6349,
+      "sha256": "51e093a6e79798d1cce1c92efcd400a0669738c652e0df58bce8f4bec5b67f2d",
+      "classification": "ISOLATED_E3_50MS_TB",
+      "accepted_as_new_pro": false
+    },
+    "pattern": "SESSION_TIMEOUT|CLK_HZ|BAUD|FRAME_TIMEOUT",
+    "matches": [
+      {
+        "line": 3,
+        "text": "// SESSION_TIMEOUT=50ms is explicitly an isolated parameter coverage test."
+      },
+      {
+        "line": 14,
+        "text": "    score_transfer_e3_successor #(.SESSION_TIMEOUT(2000000)) dut("
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\pro_frame_monitor.sv",
+      "present": true,
+      "bytes": 8357,
+      "sha256": "faf7cda22f928e7f0c40bd7ed164213e2282078e213ee1f472b331cfe098295a",
+      "classification": "PASSIVE_MONITOR_NOT_PRO_DUT",
+      "accepted_as_new_pro": false
+    },
+    "pattern": "module |frame_tick|commit|bclk|ws|din|req_payload",
+    "matches": [
+      {
+        "line": 5,
+        "text": "module pro_frame_monitor #(parameter MAX_IDS=4096) ("
+      },
+      {
+        "line": 7,
+        "text": "    input wire frame_tick, cancel,"
+      },
+      {
+        "line": 10,
+        "text": "    input wire [63:0] req_payload,"
+      },
+      {
+        "line": 18,
+        "text": "    input wire commit,"
+      },
+      {
+        "line": 19,
+        "text": "    input wire [31:0] commit_id,"
+      },
+      {
+        "line": 20,
+        "text": "    input wire signed [23:0] commit_left, commit_right,"
+      },
+      {
+        "line": 21,
+        "text": "    input wire commit_clipped,"
+      },
+      {
+        "line": 22,
+        "text": "    input wire bclk, ws, din, finish,"
+      },
+      {
+        "line": 23,
+        "text": "    output reg [31:0] accepted_count=0, committed_count=0,"
+      },
+      {
+        "line": 24,
+        "text": "    output reg [31:0] canceled_count=0, max_commit_cycles=0"
+      },
+      {
+        "line": 29,
+        "text": "    reg in_reset=0, pending=0, transferred=0, seen_first=0;"
+      },
+      {
+        "line": 32,
+        "text": "    reg [31:0] pending_id=0, held_req_id=0;"
+      },
+      {
+        "line": 33,
+        "text": "    reg [63:0] held_req_payload=0;"
+      },
+      {
+        "line": 37,
+        "text": "    wire [80:0] commit_tuple={commit_id,commit_left,commit_right,commit_clipped};"
+      },
+      {
+        "line": 43,
+        "text": "                cycle,epoch,rst_n,pll_locked,audio_stable,pa_en,frame_tick,cancel,req_valid,req_ready,req_id,req_payload,"
+      },
+      {
+        "line": 44,
+        "text": "                lane_tick,lane,lane_req_id,result_valid,result_ready,result_id,left,right,clipped,commit,commit_id,"
+      },
+      {
+        "line": 45,
+        "text": "                commit_left,commit_right,commit_clipped,bclk,ws,din);"
+      },
+      {
+        "line": 52,
+        "text": "            $display(\"FIRST_REJECT %0s cycle=%0d epoch=%0d request=%08x\",code,cycle,epoch,pending_id);"
+      },
+      {
+        "line": 53,
+        "text": "            // Preserve the rejected edge too, including its actual public ports."
+      },
+      {
+        "line": 63,
+        "text": "        $fwrite(fd,\"cycle,epoch,rst_n,pll_locked,audio_stable,pa_en,frame_tick,cancel,req_valid,req_ready,req_id,req_payload,lane_tick,lane,lane_req_id,result_valid,result_ready,result_id,left,right,clipped,commit,commit_id,commit_left,commit_right,commit_clipped,bclk,ws,din\\n\");"
+      },
+      {
+        "line": 71,
+        "text": "        if(pending && cycle-accepted_cycle>=833) fail(\"REQUEST_DEADLINE\");"
+      },
+      {
+        "line": 76,
+        "text": "                if(pending) canceled_count=canceled_count+1;"
+      },
+      {
+        "line": 79,
+        "text": "            pending=0;transferred=0;seen_first=0;lanes=0;"
+      },
+      {
+        "line": 85,
+        "text": "            if((^{pll_locked,audio_stable,pa_en,frame_tick,cancel,req_valid,req_ready,"
+      },
+      {
+        "line": 86,
+        "text": "                 lane_tick,result_valid,result_ready,commit,finish})===1'bx)"
+      },
+      {
+        "line": 89,
+        "text": "            if(frame_tick) begin"
+      },
+      {
+        "line": 90,
+        "text": "                if(pending) fail(\"NEXT_FRAME_WITH_PENDING\");"
+      },
+      {
+        "line": 103,
+        "text": "                if(commit) fail(\"COMMIT_ON_CANCEL\");"
+      },
+      {
+        "line": 104,
+        "text": "                if(pending) canceled_count=canceled_count+1;"
+      },
+      {
+        "line": 105,
+        "text": "                pending=0;transferred=0;seen_first=0;lanes=0;"
+      },
+      {
+        "line": 108,
+        "text": "                if(req_hold && (!req_valid || req_id!==held_req_id || req_payload!==held_req_payload))"
+      },
+      {
+        "line": 110,
+        "text": "                if(req_valid && ((^{req_id,req_payload})===1'bx)) fail(\"REQUEST_UNKNOWN\");"
+      },
+      {
+        "line": 112,
+        "text": "                held_req_id=req_id;held_req_payload=req_payload;"
+      },
+      {
+        "line": 114,
+        "text": "                    if(pending) fail(\"OVERLAPPING_REQUEST\");"
+      },
+      {
+        "line": 119,
+        "text": "                    pending=1;pending_id=req_id;accepted_cycle=cycle;"
+      },
+      {
+        "line": 123,
+        "text": "                if(pending && cycle-accepted_cycle>=833) fail(\"REQUEST_DEADLINE\");"
+      },
+      {
+        "line": 126,
+        "text": "                    if(!pending || transferred || lane_req_id!==pending_id) fail(\"LANE_OWNER\");"
+      },
+      {
+        "line": 133,
+        "text": "                    // Check at valid, including a wrong ID that prevents ready."
+      },
+      {
+        "line": 134,
+        "text": "                    if(!pending) fail(\"RESULT_WITHOUT_REQUEST\");"
+      },
+      {
+        "line": 135,
+        "text": "                    if(result_id!==pending_id) fail(\"RESULT_ID\");"
+      },
+      {
+        "line": 145,
+        "text": "                if(commit) begin"
+      },
+      {
+        "line": 146,
+        "text": "                    if(!pending || !transferred) fail(\"COMMIT_WITHOUT_RETURN\");"
+      },
+      {
+        "line": 147,
+        "text": "                    if(commit_tuple!==returned_result) fail(\"COMMIT_ID_PCM_CLIP\");"
+      },
+      {
+        "line": 150,
+        "text": "                    if(latency>max_commit_cycles) max_commit_cycles=latency;"
+      },
+      {
+        "line": 151,
+        "text": "                    committed_count=committed_count+1;"
+      },
+      {
+        "line": 152,
+        "text": "                    pending=0;transferred=0;seen_first=0;lanes=0;"
+      },
+      {
+        "line": 156,
+        "text": "                if(pending || req_hold || result_hold) fail(\"END_UNCLOSED\");"
+      },
+      {
+        "line": 157,
+        "text": "                if(accepted_count!=committed_count+canceled_count) fail(\"DISPOSITION_COUNTS\");"
+      },
+      {
+        "line": 159,
+        "text": "                $display(\"MONITOR_END accepts=%0d commits=%0d cancels=%0d max=%0d epochs=%0d\",accepted_count,committed_count,canceled_count,max_commit_cycles,epoch+1);"
+      }
+    ]
+  },
+  {
+    "source": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\REFERENCE_CONTRACT.json",
+      "present": true,
+      "bytes": 1245,
+      "sha256": "f7373c1be0d70b9bb45800738b8a992efadd854c1cb1aecf82910f3644cf091e",
+      "classification": "OLD_M1_REFERENCE_NOT_PRO_GOLDEN",
+      "accepted_as_new_pro": false
+    },
+    "pattern": "lane|snapshot|NBA|source|ROM|rom",
+    "matches": [
+      {
+        "line": 16,
+        "text": "  \"snapshot\": \"bank pre-NBA at lane_tick+5; Piano post-tick phase/table, Triangle pre-tick phase\","
+      },
+      {
+        "line": 19,
+        "text": "    \"every lane_tick including unpublished work\","
+      }
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "destination_thread": "01a14050-cd98-7c41-8004-5d3e25765167",
+  "authorization": "Human second-task direct 1↔2/3/4 dispatch/receipt authorization, previously verified in controller message 01a145c8-5120-7840-aaad-88154b268e21",
+  "message": "夜间任务4：第二任务 E2 最终集中回执（整体 PARTIAL；限定隔离闭环 PASS，非完整拓展达成）。\n依用户针对第二任务的1↔2/3/4直接派单回执授权发送。本窗已成功即停，不再消费剩余3轮。未提交/未推送、Git写入0、门禁/编号/共享状态写入0；请总控按统一串行发布规则处理，本回执不代M2签收。\n\n文件入口：\nE:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/docs/test/m3_pro_waveform_successor_20261017/\nREADME.md、RESULT.json、INPUT_IDENTITY.json、PRO_INTEGRATION_DELTA.md、SELF_REVIEW.md、FAILURE_HISTORY.md；ROUND_01/02/03含冻结源码、argv/cwd、机器/环境、起止/上限、消费、原stdout/stderr、退出及前后SHA；SOURCE_COPY_MAP.json提供23个输入原件到冻结本体的映射。\n封包：M3_FIXED_LEFT_WAVEFORM_ISOLATED_20261017.zip，5,060,629字节，SHA256 b4daec9cf9836b8bf2a36c7db63d66a7a7246a8f27ea999ca7f04d1913cb8352，228成员全部字节/SHA/CRC核验，MANIFEST SHA256 34b768d0723e587feb381caaba3b99f18ee56d280593a712480f6075ef784f5c；外部PACKAGE_STATUS.json和SEAL_EXECUTION.*是封包回执，不在zip内。\n\n写集仅E2三个新增目录：\ncode/rtl/input/pcm_waveform_candidate/m3_pro_waveform_successor_20261017/\ncode/tb/input/pcm_waveform_candidate/m3_pro_waveform_successor_20261017/\ncode/docs/test/m3_pro_waveform_successor_20261017/\nRTL新增m3_pro_fixed_left_waveform.sv SHA6034d06fa255f1f4f84c13e632fe0d070a9850aa5e49a8cd9c48aa611c6069ca，只联接原observer_bridge(32)与固定左core；TB SHA1a6ffc446a2f85b834b7558c69ac3a22fd16f354f374da49aed21c1c5076c33c。旧core/bridge/reference/TB、E1、正式top/pkg/PLL/CST-SDC/M1黄金及旧seal均只读。\n运行/封存HEAD=origin develop可见值 ad2de2169230dc8fd9f4b6f8157d384306c2479a；无Pro新source/ROM/top/trace，ROM项对本波形观察候选不适用，不能替代Pro精确身份。\n\n原真实输入：normal_capture.b64解码原件1379816字节/SHA23e823c46638f87574616c9ab1de70c594acbd595188783d2e3b54ade0bdcfe4，5849个历史真实RTL A采纳点；序号=adoption ordinal−1，非request_id。按原时间差恢复40MHz的833/834拍（3899/1949对），独立checker逐对核5848个间隔。normal左右完全相同，左右错接区分来自明确标记synthetic A，不冒称Pro/板上输入。原捕获文本和b64本体均已封包。\n\n实际L2结果：40→25MHz桥/core组合；14241源采纳/观察、14074目的与core交付，逐包PCM原子/恰一次/因果、预NBA一音频拍核对；5独立黄金快照、8次512×256区域加边界扫描、3998520像素沿比较；2047无发布/2048发布、两拍RGB、无frame不换front、pending覆盖1、display reset保留audio ordinal(下一5849)、停pixel源200采纳继续/观察drop167、恢复gap1且丢partial保front并凑新2048窗均通过。不是完整HDMI raster/实际Pro/音画板测。\n五个真实RTL坏例（TB force/接线，未改旧模块）均唯一首拒收，退出1：\n1左右错接→PIXEL_REFERENCE；2seq4096非法发布→WINDOW_FRAME_TEAR；3丢seq1000→SAMPLE_SEQ_GAP；4core漏显示复位→RESET_TRACE_STALE；5满队列禁止audio_frame_load→AUDIO_DISPLAY_BACKPRESSURE。没有用超时/崩溃作坏例PASS。\n\n次数与命令：3/6轮。R1 compile退出2（TB queue_level声明在使用后），前移声明；R2 compile0/positive1（unsigned seq0与signed -1哨兵误拒），仅加delivered!=0首次保护；两轮原件及最小repair.diff永久保留。R3 compile0/positive0/Python checker0/五negative各1，无超时，before==after，174.531s<600s；Python checker0.203s<90s。成功即停，不重跑旧专项/E1，不恢复旧额度。实际外层命令为既有Python -B code/docs/test/m3_pro_waveform_successor_20261017/run.py --output .../ROUND_03，精确内部8条argv/cwd/环境见各launch/receipt。\n工具既有Python3.12.4 EXE SHA4e5a83fcdcd12bcb9ae4dc98c5405effe35dc5ac10d89982c6a6a3646493f88a，Icarus14.0devel iverilog SHA5c1f4e38c6dc0807aeab8814d63af97313bef5813e815e17021ae8e36e0a0bab，vvp SHAd38cc76e6946136aaf46db8a3bf34bec2a54bad564dfe146686579ca2d39c9ed；292工具/依赖文件闭包SHA在before/after，前后稳定。Job Object拥有启动子树；Gowin/ModelSim/设备调用0。自有只读子智能体静态自审未发现具体阻断，未运行任何工具、未启用审核员/预审员。\n\n未验/接手：本次不冒称新测u32wrap、重复seq、同沿完成+发布、在途邮箱复位取消；相应旧源码合同保留。完整E2仍需新Pro精确source-ROM-top-trace、M2受控接入/完整CDC与STA/正式视频两拍对齐、批准同版.fs及恢复SHA/电气原件，再由M3采同版实屏与音画共存原件。board_release_allowed=false。请总控只按限定结果收包、串行发布与准备M2精确准入事项；真人M2交接仍“待用户转发，尚未送达”。",
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"threadId\":\"01a14050-cd98-7c41-8004-5d3e25765167\"}"
+      }
+    ],
+    "isError": false
+  },
+  "send_succeeded": true,
+  "processed_by_controller": "UNKNOWN_NOT_CLAIMED",
+  "real_M2_delivery": "待用户转发，尚未送达",
+  "package_member": false,
+  "package_sha256": "b4daec9cf9836b8bf2a36c7db63d66a7a7246a8f27ea999ca7f04d1913cb8352",
+  "time_utc": "2026-10-16 18:16:04 UTC"
+}

@@ -1,0 +1,33 @@
+{
+  "label": "02_compile",
+  "argv": [
+    "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\icarus_oss_copy\\bin\\iverilog.exe",
+    "-g2012",
+    "-s",
+    "tb_e3_file_uart",
+    "-o",
+    "candidate.vvp",
+    "compile_sources/00_uart_rx.sv",
+    "compile_sources/01_uart_tx.sv",
+    "compile_sources/02_score_transfer_candidate.sv",
+    "compile_sources/03_tb_e3_file_uart.sv"
+  ],
+  "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_min_transfer_successor_20261017\\ROUND_02",
+  "expected_exit": 0,
+  "limit_s": 600,
+  "started_utc": "2026-10-16T17:56:20.575256+00:00",
+  "timeout": false,
+  "exit_code": 3221225477,
+  "seconds": 6.703000000001339,
+  "ended_utc": "2026-10-16T17:56:27.264634+00:00",
+  "stdout": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_min_transfer_successor_20261017\\ROUND_02\\02_compile.stdout.bin",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_min_transfer_successor_20261017\\ROUND_02\\02_compile.stderr.bin",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

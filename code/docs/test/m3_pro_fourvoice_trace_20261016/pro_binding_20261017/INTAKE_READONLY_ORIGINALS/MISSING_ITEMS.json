@@ -1,0 +1,42 @@
+{
+  "scope": "Local task-day originals and named repository locations only; not a claim about other members' machines.",
+  "items": [
+    {
+      "id": "PRO_ENGINE_IDENTITY",
+      "owner": "M2",
+      "state": "PENDING_PRO_SOURCE_OR_TRACE",
+      "needed": "Exact Pro target/top/source list/ROM bytes and SHA; five named new candidate locations absent locally"
+    },
+    {
+      "id": "PUBLIC_EVENT_LANE_MAPPING",
+      "owner": "M2 + M3 B1",
+      "state": "UNKNOWN",
+      "needed": "MIDI/source/channel/note/generation, actual slot Release, lane_tick/frame_tick, ready/accept/cancel/backpressure, epoch and effect acceptance mapping"
+    },
+    {
+      "id": "SAME_EXECUTION_PUBLIC_TRACE",
+      "owner": "M2 provider, M3 B1/B2 consumer",
+      "state": "NOT_RECEIVED",
+      "needed": "Source/ROM/top-bound actual public cycle/epoch/ID/left/right/clip plus BCLK/WS/DIN; existing monitor CSV is synthetic selftest"
+    },
+    {
+      "id": "PRO_PCM_GOLDEN",
+      "owner": "M1",
+      "state": "NOT_RECEIVED_AT_EXPECTED_LOCATION",
+      "needed": "Same-source Pro golden adapter; old R05/R06 reference and ROM are present and remain read-only"
+    },
+    {
+      "id": "E2_FORMAL_ADOPTION_DISPLAY",
+      "owner": "M2 integration, M3 same-version screen evidence",
+      "state": "PENDING",
+      "needed": "Real Pro sender frame-load mapping, 40-to-25MHz CDC and unique video/TMDS integration, full STA, approved bitstream; earlier base/timbre/E1 gates first"
+    },
+    {
+      "id": "E3_FORMAL_UART_DEFAULT5S",
+      "owner": "M2 integration, M3 physical file upload",
+      "state": "PENDING",
+      "needed": "Pro UART ball/Bank/electrical/reset identity, behavioral-vs-BRAM selection and approved exact bitstream, actual default-5s and physical ACK/44 READ evidence; no reuse of 6/6 quota"
+    }
+  ],
+  "board_release_allowed": false
+}

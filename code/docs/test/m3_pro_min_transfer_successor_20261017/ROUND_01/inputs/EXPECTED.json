@@ -1,0 +1,2086 @@
+{
+  "schema": "E3_REAL_FILE_UART_EXPECTED_V1",
+  "midi": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\score_midi_real_input_acceptance_20261015\\inputs\\MIDI_sample_2018-03-21.mid",
+    "bytes": 300,
+    "sha256": "c0a8cb9f1ba3496a00367786a2b4ee5e0580be7b4bfbf0891b75e3b7475f634c"
+  },
+  "score_id": 20180321,
+  "record_bytes": 352,
+  "events": 44,
+  "clean_last_case": 55,
+  "frame_timeout_cycles": 800000,
+  "session_timeout_cycles": 2000000,
+  "session_timeout_scope": "50ms parameterized isolated test, not new verification of default5s",
+  "mutant_expected_exit": 1,
+  "mutant_expected_first_difference": "RESPONSE_ERROR",
+  "cases": [
+    {
+      "id": 1,
+      "label": "power_reset",
+      "op": "R",
+      "raw": null,
+      "wait": 0,
+      "error": 0,
+      "response_header": null,
+      "state": {
+        "valid": 0,
+        "count": 0,
+        "score_id": 0,
+        "pulses": 0,
+        "active": 0,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 2,
+      "label": "real_begin",
+      "op": "S",
+      "raw": "a55a0101e605000000000e0061ed33012c00600125b780bb0000a660",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        1,
+        1510,
+        0,
+        0
+      ],
+      "state": {
+        "valid": 0,
+        "count": 0,
+        "score_id": 0,
+        "pulses": 0,
+        "active": 1,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 3,
+      "label": "exact_ack_replay_0",
+      "op": "S",
+      "raw": "a55a0101e605000000000e0061ed33012c00600125b780bb0000a660",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        1,
+        1510,
+        0,
+        0
+      ],
+      "state": {
+        "valid": 0,
+        "count": 0,
+        "score_id": 0,
+        "pulses": 0,
+        "active": 1,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 4,
+      "label": "real_data1",
+      "op": "S",
+      "raw": "a55a0102e6050100000080000000000000044160c05d000001044160c05d000000044a6080bb000001044a6080bb0000000441604019010001044160401901000004486000770100010448600077010000044660c0d4010001044660c0d4010000044660a003020001044660a0030200000445608032020001044560803202000004466060610200010446603bf9",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        2,
+        1510,
+        1,
+        0
+      ],
+      "state": {
+        "valid": 0,
+        "count": 0,
+        "score_id": 0,
+        "pulses": 0,
+        "active": 1,
+        "received": 128,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 5,
+      "label": "exact_ack_replay_1",
+      "op": "S",
+      "raw": "a55a0102e6050100000080000000000000044160c05d000001044160c05d000000044a6080bb000001044a6080bb0000000441604019010001044160401901000004486000770100010448600077010000044660c0d4010001044660c0d4010000044660a003020001044660a0030200000445608032020001044560803202000004466060610200010446603bf9",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        2,
+        1510,
+        1,
+        0
+      ],
+      "state": {
+        "valid": 0,
+        "count": 0,
+        "score_id": 0,
+        "pulses": 0,
+        "active": 1,
+        "received": 128,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 6,
+      "label": "real_data2",
+      "op": "S",
+      "raw": "a55a0102e60502008000800060610200000448604090020001044860409002000004466020bf02000104466020bf02000004446000ee02000104446000ee020000043c60c04b030001043c60c04b03000004456080a903000104456080a9030000043c604007040001043c60400704000004436000650400010443600065040000044160c0c20400010441603ab1",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        2,
+        1510,
+        2,
+        128
+      ],
+      "state": {
+        "valid": 0,
+        "count": 0,
+        "score_id": 0,
+        "pulses": 0,
+        "active": 1,
+        "received": 256,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 7,
+      "label": "real_data3",
+      "op": "S",
+      "raw": "a55a0102e605030000016000c0c2040000044160a0f1040001044160a0f104000004406080200500010440608020050000044160604f050001044160604f050000044360407e050001044360407e05000004416020ad05000104416020ad050000043f6000dc050001043f606fc1",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        2,
+        1510,
+        3,
+        256
+      ],
+      "state": {
+        "valid": 0,
+        "count": 0,
+        "score_id": 0,
+        "pulses": 0,
+        "active": 1,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 8,
+      "label": "real_commit",
+      "op": "S",
+      "raw": "a55a0103e605040000000000cc2c",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        3,
+        1510,
+        4,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 9,
+      "label": "exact_ack_replay_4",
+      "op": "S",
+      "raw": "a55a0103e605040000000000cc2c",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        3,
+        1510,
+        4,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 10,
+      "label": "real_public_read_all",
+      "op": "Q",
+      "raw": null,
+      "wait": 0,
+      "error": 0,
+      "response_header": null,
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 11,
+      "label": "real_status",
+      "op": "S",
+      "raw": "a55a0105e605000000000000e570",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        5,
+        1510,
+        0,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 12,
+      "label": "real_full_read_0",
+      "op": "S",
+      "raw": "a55a0106e605000000000000a15d",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        0,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 13,
+      "label": "real_full_read_1",
+      "op": "S",
+      "raw": "a55a0106e605010001000000b56e",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        1,
+        1
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 14,
+      "label": "real_full_read_2",
+      "op": "S",
+      "raw": "a55a0106e605020002000000893b",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        2,
+        2
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 15,
+      "label": "real_full_read_3",
+      "op": "S",
+      "raw": "a55a0106e6050300030000009d08",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        3,
+        3
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 16,
+      "label": "real_full_read_4",
+      "op": "S",
+      "raw": "a55a0106e605040004000000f191",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        4,
+        4
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 17,
+      "label": "real_full_read_5",
+      "op": "S",
+      "raw": "a55a0106e605050005000000e5a2",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        5,
+        5
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 18,
+      "label": "real_full_read_6",
+      "op": "S",
+      "raw": "a55a0106e605060006000000d9f7",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        6,
+        6
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 19,
+      "label": "real_full_read_7",
+      "op": "S",
+      "raw": "a55a0106e605070007000000cdc4",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        7,
+        7
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 20,
+      "label": "real_full_read_8",
+      "op": "S",
+      "raw": "a55a0106e60508000800000020d5",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        8,
+        8
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 21,
+      "label": "real_full_read_9",
+      "op": "S",
+      "raw": "a55a0106e60509000900000034e6",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        9,
+        9
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 22,
+      "label": "real_full_read_10",
+      "op": "S",
+      "raw": "a55a0106e6050a000a00000008b3",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        10,
+        10
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 23,
+      "label": "real_full_read_11",
+      "op": "S",
+      "raw": "a55a0106e6050b000b0000001c80",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        11,
+        11
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 24,
+      "label": "real_full_read_12",
+      "op": "S",
+      "raw": "a55a0106e6050c000c0000007019",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        12,
+        12
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 25,
+      "label": "real_full_read_13",
+      "op": "S",
+      "raw": "a55a0106e6050d000d000000642a",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        13,
+        13
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 26,
+      "label": "real_full_read_14",
+      "op": "S",
+      "raw": "a55a0106e6050e000e000000587f",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        14,
+        14
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 27,
+      "label": "real_full_read_15",
+      "op": "S",
+      "raw": "a55a0106e6050f000f0000004c4c",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        15,
+        15
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 28,
+      "label": "real_full_read_16",
+      "op": "S",
+      "raw": "a55a0106e605100010000000825c",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        16,
+        16
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 29,
+      "label": "real_full_read_17",
+      "op": "S",
+      "raw": "a55a0106e605110011000000966f",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        17,
+        17
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 30,
+      "label": "real_full_read_18",
+      "op": "S",
+      "raw": "a55a0106e605120012000000aa3a",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        18,
+        18
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 31,
+      "label": "real_full_read_19",
+      "op": "S",
+      "raw": "a55a0106e605130013000000be09",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        19,
+        19
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 32,
+      "label": "real_full_read_20",
+      "op": "S",
+      "raw": "a55a0106e605140014000000d290",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        20,
+        20
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 33,
+      "label": "real_full_read_21",
+      "op": "S",
+      "raw": "a55a0106e605150015000000c6a3",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        21,
+        21
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 34,
+      "label": "real_full_read_22",
+      "op": "S",
+      "raw": "a55a0106e605160016000000faf6",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        22,
+        22
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 35,
+      "label": "real_full_read_23",
+      "op": "S",
+      "raw": "a55a0106e605170017000000eec5",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        23,
+        23
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 36,
+      "label": "real_full_read_24",
+      "op": "S",
+      "raw": "a55a0106e60518001800000003d4",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        24,
+        24
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 37,
+      "label": "real_full_read_25",
+      "op": "S",
+      "raw": "a55a0106e60519001900000017e7",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        25,
+        25
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 38,
+      "label": "real_full_read_26",
+      "op": "S",
+      "raw": "a55a0106e6051a001a0000002bb2",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        26,
+        26
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 39,
+      "label": "real_full_read_27",
+      "op": "S",
+      "raw": "a55a0106e6051b001b0000003f81",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        27,
+        27
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 40,
+      "label": "real_full_read_28",
+      "op": "S",
+      "raw": "a55a0106e6051c001c0000005318",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        28,
+        28
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 41,
+      "label": "real_full_read_29",
+      "op": "S",
+      "raw": "a55a0106e6051d001d000000472b",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        29,
+        29
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 42,
+      "label": "real_full_read_30",
+      "op": "S",
+      "raw": "a55a0106e6051e001e0000007b7e",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        30,
+        30
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 43,
+      "label": "real_full_read_31",
+      "op": "S",
+      "raw": "a55a0106e6051f001f0000006f4d",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        31,
+        31
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 44,
+      "label": "real_full_read_32",
+      "op": "S",
+      "raw": "a55a0106e605200020000000e75f",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        32,
+        32
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 45,
+      "label": "real_full_read_33",
+      "op": "S",
+      "raw": "a55a0106e605210021000000f36c",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        33,
+        33
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 46,
+      "label": "real_full_read_34",
+      "op": "S",
+      "raw": "a55a0106e605220022000000cf39",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        34,
+        34
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 47,
+      "label": "real_full_read_35",
+      "op": "S",
+      "raw": "a55a0106e605230023000000db0a",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        35,
+        35
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 48,
+      "label": "real_full_read_36",
+      "op": "S",
+      "raw": "a55a0106e605240024000000b793",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        36,
+        36
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 49,
+      "label": "real_full_read_37",
+      "op": "S",
+      "raw": "a55a0106e605250025000000a3a0",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        37,
+        37
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 50,
+      "label": "real_full_read_38",
+      "op": "S",
+      "raw": "a55a0106e6052600260000009ff5",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        38,
+        38
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 51,
+      "label": "real_full_read_39",
+      "op": "S",
+      "raw": "a55a0106e6052700270000008bc6",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        39,
+        39
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 52,
+      "label": "real_full_read_40",
+      "op": "S",
+      "raw": "a55a0106e60528002800000066d7",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        40,
+        40
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 53,
+      "label": "real_full_read_41",
+      "op": "S",
+      "raw": "a55a0106e60529002900000072e4",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        41,
+        41
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 54,
+      "label": "real_full_read_42",
+      "op": "S",
+      "raw": "a55a0106e6052a002a0000004eb1",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        42,
+        42
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 55,
+      "label": "real_full_read_43",
+      "op": "S",
+      "raw": "a55a0106e6052b002b0000005a82",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1510,
+        43,
+        43
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 56,
+      "label": "session_1511_begin",
+      "op": "S",
+      "raw": "a55a0101e705000000000e0061ed33012c00600125b780bb00007e0d",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        1,
+        1511,
+        0,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 1,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 57,
+      "label": "drop_frame_data1",
+      "op": "S",
+      "raw": "a55a0102e7050100000080000000000000044160c05d000001044160c05d000000044a6080bb000001044a6080bb0000000441604019010001044160401901000004486000770100010448600077010000044660c0d4010001044660c0d4010000044660a003020001044660a0030200000445608032020001044560803202000004466060610200010446608d53",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        2,
+        1511,
+        1,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 1,
+        "received": 128,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 58,
+      "label": "drop_frame_no_wire_packet",
+      "op": "W",
+      "raw": null,
+      "wait": 40000,
+      "error": 0,
+      "response_header": null,
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 1,
+        "received": 128,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 59,
+      "label": "drop_frame_next_seq_rejected",
+      "op": "S",
+      "raw": "a55a0102e705030000016000c0c2040000044160a0f1040001044160a0f104000004406080200500010440608020050000044160604f050001044160604f050000044360407e050001044360407e05000004416020ad05000104416020ad050000043f6000dc050001043f60ebc6",
+      "wait": 0,
+      "error": 6,
+      "response_header": [
+        2,
+        1511,
+        3,
+        256
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 1,
+        "received": 128,
+        "last_error": 6
+      }
+    },
+    {
+      "id": 60,
+      "label": "drop_frame_abort",
+      "op": "S",
+      "raw": "a55a0104e70500000000000015dc",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        4,
+        1511,
+        0,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 61,
+      "label": "drop_frame_public_old_score",
+      "op": "Q",
+      "raw": null,
+      "wait": 0,
+      "error": 0,
+      "response_header": null,
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 62,
+      "label": "drop_frame_uart_old_read_0",
+      "op": "S",
+      "raw": "a55a0106e705000000000000721a",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1511,
+        0,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 63,
+      "label": "drop_frame_uart_old_read_43",
+      "op": "S",
+      "raw": "a55a0106e7052b002b00000089c5",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1511,
+        43,
+        43
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 64,
+      "label": "session_1512_begin",
+      "op": "S",
+      "raw": "a55a0101e805000000000e0061ed33012c00600125b780bb0000f442",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        1,
+        1512,
+        0,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 1,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 65,
+      "label": "frame_crc_rejected",
+      "op": "S",
+      "raw": "a55a0102e8050100000080000000000000044160c05d000001044160c05d000000044a6080bb000001044a6080bb0000000441604019010001044160401901000004486000770100010448600077010000044660c0d4010001044660c0d4010000044660a003020001044660a003020000044560803202000104456080320200000446606061020001044660f932",
+      "wait": 0,
+      "error": 1,
+      "response_header": [
+        2,
+        1512,
+        1,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 1,
+        "received": 0,
+        "last_error": 1
+      }
+    },
+    {
+      "id": 66,
+      "label": "frame_crc_abort",
+      "op": "S",
+      "raw": "a55a0104e805000000000000d705",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        4,
+        1512,
+        0,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 67,
+      "label": "frame_crc_public_old_score",
+      "op": "Q",
+      "raw": null,
+      "wait": 0,
+      "error": 0,
+      "response_header": null,
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 68,
+      "label": "frame_crc_uart_old_read_0",
+      "op": "S",
+      "raw": "a55a0106e805000000000000b0c3",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1512,
+        0,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 69,
+      "label": "frame_crc_uart_old_read_43",
+      "op": "S",
+      "raw": "a55a0106e8052b002b0000004b1c",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1512,
+        43,
+        43
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 70,
+      "label": "session_1513_begin",
+      "op": "S",
+      "raw": "a55a0101e905000000000e0061ed33012c00600125b780bb00002c2f",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        1,
+        1513,
+        0,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 1,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 71,
+      "label": "truncated_frame_timeout",
+      "op": "T",
+      "raw": "a55a0102e9050100000080000000000000044160",
+      "wait": 0,
+      "error": 12,
+      "response_header": [
+        2,
+        1513,
+        1,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 1,
+        "received": 0,
+        "last_error": 12
+      }
+    },
+    {
+      "id": 72,
+      "label": "truncated_frame_abort",
+      "op": "S",
+      "raw": "a55a0104e9050000000000000442",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        4,
+        1513,
+        0,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 73,
+      "label": "truncated_frame_public_old_score",
+      "op": "Q",
+      "raw": null,
+      "wait": 0,
+      "error": 0,
+      "response_header": null,
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 74,
+      "label": "truncated_frame_uart_old_read_0",
+      "op": "S",
+      "raw": "a55a0106e9050000000000006384",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1513,
+        0,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 75,
+      "label": "truncated_frame_uart_old_read_43",
+      "op": "S",
+      "raw": "a55a0106e9052b002b000000985b",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1513,
+        43,
+        43
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 76,
+      "label": "session_1514_begin",
+      "op": "S",
+      "raw": "a55a0101ea05000000000e0061ed33012c00600125b780bb00004499",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        1,
+        1514,
+        0,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 1,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 77,
+      "label": "session_timeout_data1",
+      "op": "S",
+      "raw": "a55a0102ea050100000080000000000000044160c05d000001044160c05d000000044a6080bb000001044a6080bb0000000441604019010001044160401901000004486000770100010448600077010000044660c0d4010001044660c0d4010000044660a003020001044660a003020000044560803202000104456080320200000446606061020001044660b476",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        2,
+        1514,
+        1,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 1,
+        "received": 128,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 78,
+      "label": "session_timeout_parameter_50ms",
+      "op": "I",
+      "raw": null,
+      "wait": 2000100,
+      "error": 12,
+      "response_header": [
+        2,
+        1514,
+        1,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 128,
+        "last_error": 12
+      }
+    },
+    {
+      "id": 79,
+      "label": "session_timeout_public_old_score",
+      "op": "Q",
+      "raw": null,
+      "wait": 0,
+      "error": 0,
+      "response_header": null,
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 128,
+        "last_error": 12
+      }
+    },
+    {
+      "id": 80,
+      "label": "session_timeout_uart_old_read_0",
+      "op": "S",
+      "raw": "a55a0106ea05000000000000164c",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1514,
+        0,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 128,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 81,
+      "label": "session_timeout_uart_old_read_43",
+      "op": "S",
+      "raw": "a55a0106ea052b002b000000ed93",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1514,
+        43,
+        43
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 128,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 82,
+      "label": "session_1515_begin",
+      "op": "S",
+      "raw": "a55a0101eb05000000000e0061ed33012c00600124b780bb00003cb1",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        1,
+        1515,
+        0,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 1,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 83,
+      "label": "score_crc_data1",
+      "op": "S",
+      "raw": "a55a0102eb050100000080000000000000044160c05d000001044160c05d000000044a6080bb000001044a6080bb0000000441604019010001044160401901000004486000770100010448600077010000044660c0d4010001044660c0d4010000044660a003020001044660a00302000004456080320200010445608032020000044660606102000104466002dc",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        2,
+        1515,
+        1,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 1,
+        "received": 128,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 84,
+      "label": "score_crc_data2",
+      "op": "S",
+      "raw": "a55a0102eb0502008000800060610200000448604090020001044860409002000004466020bf02000104466020bf02000004446000ee02000104446000ee020000043c60c04b030001043c60c04b03000004456080a903000104456080a9030000043c604007040001043c60400704000004436000650400010443600065040000044160c0c20400010441600394",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        2,
+        1515,
+        2,
+        128
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 1,
+        "received": 256,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 85,
+      "label": "score_crc_data3",
+      "op": "S",
+      "raw": "a55a0102eb05030000016000c0c2040000044160a0f1040001044160a0f104000004406080200500010440608020050000044160604f050001044160604f050000044360407e050001044360407e05000004416020ad05000104416020ad050000043f6000dc050001043f60dbe4",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        2,
+        1515,
+        3,
+        256
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 1,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 86,
+      "label": "score_crc_rejected",
+      "op": "S",
+      "raw": "a55a0103eb05040000000000a87a",
+      "wait": 0,
+      "error": 9,
+      "response_header": [
+        3,
+        1515,
+        4,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 9
+      }
+    },
+    {
+      "id": 87,
+      "label": "score_crc_public_old_score",
+      "op": "Q",
+      "raw": null,
+      "wait": 0,
+      "error": 0,
+      "response_header": null,
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 9
+      }
+    },
+    {
+      "id": 88,
+      "label": "score_crc_uart_old_read_0",
+      "op": "S",
+      "raw": "a55a0106eb05000000000000c50b",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1515,
+        0,
+        0
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 89,
+      "label": "score_crc_uart_old_read_43",
+      "op": "S",
+      "raw": "a55a0106eb052b002b0000003ed4",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        6,
+        1515,
+        43,
+        43
+      ],
+      "state": {
+        "valid": 1,
+        "count": 44,
+        "score_id": 20180321,
+        "pulses": 1,
+        "active": 0,
+        "received": 352,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 90,
+      "label": "post_transfer_reset",
+      "op": "R",
+      "raw": null,
+      "wait": 0,
+      "error": 0,
+      "response_header": null,
+      "state": {
+        "valid": 0,
+        "count": 0,
+        "score_id": 0,
+        "pulses": 0,
+        "active": 0,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 91,
+      "label": "post_reset_status",
+      "op": "S",
+      "raw": "a55a0105ec0500000000000099e1",
+      "wait": 0,
+      "error": 0,
+      "response_header": [
+        5,
+        1516,
+        0,
+        0
+      ],
+      "state": {
+        "valid": 0,
+        "count": 0,
+        "score_id": 0,
+        "pulses": 0,
+        "active": 0,
+        "received": 0,
+        "last_error": 0
+      }
+    },
+    {
+      "id": 92,
+      "label": "post_reset_public_empty",
+      "op": "Q",
+      "raw": null,
+      "wait": 0,
+      "error": 0,
+      "response_header": null,
+      "state": {
+        "valid": 0,
+        "count": 0,
+        "score_id": 0,
+        "pulses": 0,
+        "active": 0,
+        "received": 0,
+        "last_error": 0
+      }
+    }
+  ],
+  "board_release_allowed": false
+}

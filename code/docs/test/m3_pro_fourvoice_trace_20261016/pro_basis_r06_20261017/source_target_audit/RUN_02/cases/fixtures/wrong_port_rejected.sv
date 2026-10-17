@@ -1,0 +1,1 @@
+module probe; leaf u(.BAD()); endmodule

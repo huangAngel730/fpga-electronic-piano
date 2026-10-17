@@ -1,0 +1,11 @@
+--- round01
++++ round02
+@@ -21,6 +21,8 @@
+     state, stalled = {}, {}
+     epoch, last_cycle = 0, -1
+     for index, row in enumerate(actual[1:], 1):
++        if type(row) is not dict:
++            raise Rejected("RECORD_STRUCTURE", index, "object", row)
+         kind = row.get("kind")
+         if kind not in {"RESET","EVENT","FRAME","OFFER","ACCEPT","LANE_TICK","RETURN","PUBLISH","CANCEL","CONSUME","END"}:
+             raise Rejected("RECORD_KIND", index, None, row)

@@ -1,0 +1,513 @@
+{
+  "schema": "M3_B1_OBSERVATION_BINDING_V1",
+  "scope": "SYNTHETIC_METADATA_SELFTEST_NOT_PRO",
+  "pro_dut_pass": false,
+  "board_release_allowed": false,
+  "sample_edge": "POSEDGE_PRE_NBA",
+  "clock_hz": 40000000,
+  "nominal_sample_rate_hz": 48000,
+  "frame_id_domain": "FRAME_REQUEST",
+  "lane_identity_mode": "COMMON_TICK_MASK",
+  "anchors": {
+    "source_manifest": {
+      "path": "METADATA_ONLY_NOT_PRO_ARTIFACTS/source_manifest.txt",
+      "bytes": 74,
+      "sha256": "fa62b0cf367612fc19fb13a0a163e0fc6ed956abeb8fbc4b3e7f5169e432a453"
+    },
+    "rom_manifest": {
+      "path": "METADATA_ONLY_NOT_PRO_ARTIFACTS/source_manifest.txt",
+      "bytes": 74,
+      "sha256": "fa62b0cf367612fc19fb13a0a163e0fc6ed956abeb8fbc4b3e7f5169e432a453"
+    },
+    "input_plan": {
+      "path": "METADATA_ONLY_NOT_PRO_ARTIFACTS/input_plan.txt",
+      "bytes": 69,
+      "sha256": "79113a88814f68e72154eee32a94d73e80adb0bdcb2652a5d0857dff63d83c66"
+    },
+    "public_trace": {
+      "path": "METADATA_ONLY_NOT_PRO_ARTIFACTS/public_trace.txt",
+      "bytes": 71,
+      "sha256": "fe80da176538b2a47668d27c388209ca1491a94635f514f5045c0e018764f94d"
+    },
+    "tx_sample_sidecar": {
+      "path": "METADATA_ONLY_NOT_PRO_ARTIFACTS/tx_sample_sidecar.txt",
+      "bytes": 76,
+      "sha256": "edd0adbef21d13ca7747f9f2cdf6055d6dcd3633cf1ceb5b469f5c2f9d563bf1"
+    },
+    "capture_receipt": {
+      "path": "METADATA_ONLY_NOT_PRO_ARTIFACTS/capture_receipt.txt",
+      "bytes": 74,
+      "sha256": "26cdad462856174261ed3f73ef753a0b60b6dd758ebdda029d19e18246bcd7e2"
+    },
+    "raw_stdout": {
+      "path": "METADATA_ONLY_NOT_PRO_ARTIFACTS/raw_stdout.txt",
+      "bytes": 69,
+      "sha256": "ea6f50d022a7362d1b0090801606756cbb5fb5102cdebb7f2314b89adfae5fca"
+    },
+    "raw_stderr": {
+      "path": "METADATA_ONLY_NOT_PRO_ARTIFACTS/raw_stderr.txt",
+      "bytes": 69,
+      "sha256": "48f2a29e407d01e8c751c2572d533b1d6e57638648281158e14654742bc17605"
+    },
+    "intake_report": {
+      "path": "METADATA_ONLY_NOT_PRO_ARTIFACTS/intake_report.txt",
+      "bytes": 72,
+      "sha256": "6eebc11e3a814361630a5b60d559d89fd4bf29efe1db50b56ff1a8681286bd28"
+    },
+    "m2_binding_review": {
+      "path": "METADATA_ONLY_NOT_PRO_ARTIFACTS/m2_binding_review.txt",
+      "bytes": 76,
+      "sha256": "9c8f92871d9ae00bf494e8d29e0a5e9b972cdfdbd5b7b724811dc22486e74e3a"
+    }
+  },
+  "fields": [
+    {
+      "name": "cycle",
+      "width": 64,
+      "signed": false,
+      "visibility": "TB_DERIVED_IDENTITY",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:cycle"
+    },
+    {
+      "name": "epoch",
+      "width": 32,
+      "signed": false,
+      "visibility": "TB_DERIVED_IDENTITY",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:epoch"
+    },
+    {
+      "name": "rst_n",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:rst_n"
+    },
+    {
+      "name": "frame_tick",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:frame_tick"
+    },
+    {
+      "name": "event_valid",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:event_valid"
+    },
+    {
+      "name": "event_ready",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:event_ready"
+    },
+    {
+      "name": "event_data",
+      "width": 64,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:event_data"
+    },
+    {
+      "name": "apply_valid",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:apply_valid"
+    },
+    {
+      "name": "apply_event_seq",
+      "width": 32,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:apply_event_seq"
+    },
+    {
+      "name": "apply_data",
+      "width": 64,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:apply_data"
+    },
+    {
+      "name": "occupied_mask",
+      "width": 4,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:occupied_mask"
+    },
+    {
+      "name": "releasing_mask",
+      "width": 4,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:releasing_mask"
+    },
+    {
+      "name": "note_on_mask",
+      "width": 4,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:note_on_mask"
+    },
+    {
+      "name": "note_off_mask",
+      "width": 4,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:note_off_mask"
+    },
+    {
+      "name": "retire_mask",
+      "width": 4,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:retire_mask"
+    },
+    {
+      "name": "slot_sources",
+      "width": 16,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:slot_sources"
+    },
+    {
+      "name": "slot_channels",
+      "width": 16,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:slot_channels"
+    },
+    {
+      "name": "slot_notes",
+      "width": 32,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:slot_notes"
+    },
+    {
+      "name": "slot_generations",
+      "width": 128,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:slot_generations"
+    },
+    {
+      "name": "req_valid",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:req_valid"
+    },
+    {
+      "name": "req_ready",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:req_ready"
+    },
+    {
+      "name": "req_id",
+      "width": 32,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:req_id"
+    },
+    {
+      "name": "advance_mask",
+      "width": 4,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:advance_mask"
+    },
+    {
+      "name": "advance_frame_req_id",
+      "width": 32,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:advance_frame_req_id"
+    },
+    {
+      "name": "result_valid",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:result_valid"
+    },
+    {
+      "name": "result_ready",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:result_ready"
+    },
+    {
+      "name": "result_id",
+      "width": 32,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:result_id"
+    },
+    {
+      "name": "result_left",
+      "width": 24,
+      "signed": true,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:result_left"
+    },
+    {
+      "name": "result_right",
+      "width": 24,
+      "signed": true,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:result_right"
+    },
+    {
+      "name": "result_clip_mask",
+      "width": 2,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:result_clip_mask"
+    },
+    {
+      "name": "commit",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:commit"
+    },
+    {
+      "name": "commit_id",
+      "width": 32,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:commit_id"
+    },
+    {
+      "name": "commit_left",
+      "width": 24,
+      "signed": true,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:commit_left"
+    },
+    {
+      "name": "commit_right",
+      "width": 24,
+      "signed": true,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:commit_right"
+    },
+    {
+      "name": "commit_clip",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:commit_clip"
+    },
+    {
+      "name": "cancel",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:cancel"
+    },
+    {
+      "name": "cancel_reason",
+      "width": 8,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:cancel_reason"
+    },
+    {
+      "name": "config_valid",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:config_valid"
+    },
+    {
+      "name": "config_ready",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:config_ready"
+    },
+    {
+      "name": "config_payload",
+      "width": 8,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:config_payload"
+    },
+    {
+      "name": "effect_input_valid",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:effect_input_valid"
+    },
+    {
+      "name": "effect_input_ready",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:effect_input_ready"
+    },
+    {
+      "name": "effect_input_id",
+      "width": 32,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:effect_input_id"
+    },
+    {
+      "name": "effect_input_left",
+      "width": 24,
+      "signed": true,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:effect_input_left"
+    },
+    {
+      "name": "effect_input_right",
+      "width": 24,
+      "signed": true,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:effect_input_right"
+    },
+    {
+      "name": "effect_input_clip_mask",
+      "width": 2,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:effect_input_clip_mask"
+    },
+    {
+      "name": "tx_sample_valid",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:tx_sample_valid"
+    },
+    {
+      "name": "tx_frame_id",
+      "width": 32,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:tx_frame_id"
+    },
+    {
+      "name": "tx_req_id",
+      "width": 32,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:tx_req_id"
+    },
+    {
+      "name": "tx_left",
+      "width": 24,
+      "signed": true,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:tx_left"
+    },
+    {
+      "name": "tx_right",
+      "width": 24,
+      "signed": true,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:tx_right"
+    },
+    {
+      "name": "tx_clip",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:tx_clip"
+    },
+    {
+      "name": "tx_hold",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:tx_hold"
+    },
+    {
+      "name": "tx_startup_zero",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:tx_startup_zero"
+    },
+    {
+      "name": "bclk",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:bclk"
+    },
+    {
+      "name": "ws",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:ws"
+    },
+    {
+      "name": "din",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:din"
+    },
+    {
+      "name": "pll_locked",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:pll_locked"
+    },
+    {
+      "name": "audio_stable",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:audio_stable"
+    },
+    {
+      "name": "pa_en",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:pa_en"
+    },
+    {
+      "name": "finish",
+      "width": 1,
+      "signed": false,
+      "visibility": "PUBLIC_OBSERVATION",
+      "locator": "METADATA_SELFTEST_NOT_A_PRO_PORT:finish"
+    }
+  ],
+  "semantics": {
+    "event_accept_apply": "METADATA_SELFTEST_DECLARATION_NOT_REAL_SEMANTICS",
+    "allocator_release_retire": "METADATA_SELFTEST_DECLARATION_NOT_REAL_SEMANTICS",
+    "frame_lane_identity": "METADATA_SELFTEST_DECLARATION_NOT_REAL_SEMANTICS",
+    "advance_mask": "METADATA_SELFTEST_DECLARATION_NOT_REAL_SEMANTICS",
+    "cancel_reset_priority": "METADATA_SELFTEST_DECLARATION_NOT_REAL_SEMANTICS",
+    "backpressure": "METADATA_SELFTEST_DECLARATION_NOT_REAL_SEMANTICS",
+    "effect_acceptance": "METADATA_SELFTEST_DECLARATION_NOT_REAL_SEMANTICS",
+    "tx_adoption_hold_startup": "METADATA_SELFTEST_DECLARATION_NOT_REAL_SEMANTICS",
+    "clock_reset_epoch": "METADATA_SELFTEST_DECLARATION_NOT_REAL_SEMANTICS",
+    "finish_end": "METADATA_SELFTEST_DECLARATION_NOT_REAL_SEMANTICS"
+  },
+  "completion": {
+    "process_exit_code": 0,
+    "timeout": false,
+    "finish_observed": true,
+    "end_observed": true,
+    "monitor_end_unique": true,
+    "tx_sidecar_is_independent": true,
+    "serial_pins_are_raw": true
+  }
+}

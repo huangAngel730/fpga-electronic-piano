@@ -1,0 +1,55 @@
+{
+  "schema": "M3_R6_TOOL_PLAN_SPEC_V1",
+  "mode": "SOFTWARE_FIXTURE",
+  "approved": false,
+  "tool_kind": "PYTHON_SOFTWARE_FIXTURE",
+  "fixture_authority": "R06_M3_SOFTWARE_FIXTURE_ONLY",
+  "sources": [
+    {
+      "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/fixture_source.sv",
+      "sha256": "82092d74ceef38fd8499fb48b7eb9138a7d3e38ab3c5a44ca2328d7510663e8d"
+    }
+  ],
+  "roms": [
+    {
+      "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/fixture_rom.hex",
+      "sha256": "08e22886721d444f353e26d6297a36c5898562a07a88699b3bbcfd072b2dbe0a"
+    }
+  ],
+  "testbenches": [
+    {
+      "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/fixture_tb.sv",
+      "sha256": "6b1ee3ee2eb0f10a2ca165b7aaa3ca3e93e506ee15c8514e0ad2e78ec5c4cf4a"
+    }
+  ],
+  "executable": {
+    "path": "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8"
+  },
+  "dependencies": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/fixture_worker.py",
+      "sha256": "3ae493270c3c35d174865124e16d10440f4101e5e25a06840baa493b41fda735"
+    },
+    {
+      "path": "code/software/t052_runner_acceptance_candidate_20261012/windows_job.py",
+      "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/plan_adapter.py",
+      "sha256": "bb29b19984c75a49a102b3481dff6d53403af14bb5671fffb9db587dd6cbbbcc"
+    }
+  ],
+  "argv": [
+    "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py",
+    "stream"
+  ],
+  "cwd": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter",
+  "output_dir": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/concurrent/process",
+  "consumption_marker": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/concurrent.consumed.json",
+  "timeout_seconds": 5
+}

@@ -1,0 +1,1094 @@
+{
+  "schema": "M3_R06_MIDI_STIMULUS_PLAN_V1",
+  "parameters": {
+    "schema": "M3_R06_MIDI_STIMULUS_PARAMETERS_V1",
+    "clock_hz": 40000000,
+    "baud": 31250,
+    "uart": {
+      "data_bits": 8,
+      "parity": "NONE",
+      "stop_bits": 1,
+      "idle_level": 1,
+      "bit_order": "LSB_FIRST"
+    },
+    "midi": {
+      "channel": 0,
+      "source_id": 0,
+      "note_on_status_base": 144,
+      "note_off_status_base": 128,
+      "realtime_clock_byte": 248,
+      "running_status_supported": true,
+      "realtime_preserves_running_status": true
+    },
+    "public_event_encoding": {
+      "width": 64,
+      "event_note_on": 0,
+      "event_note_off": 1,
+      "velocity_rule": "{velocity7,velocity7[6:4]}",
+      "note_on_velocity_zero_becomes_note_off": true
+    },
+    "timing": {
+      "initial_idle_bits": 4,
+      "inter_message_idle_bits": 2,
+      "event_window_min_cycles_after_final_stop": 0,
+      "event_window_max_cycles_after_final_stop": 2560
+    },
+    "semantic_boundary": {
+      "slot_allocation": "PENDING_M1_SOURCE_SEMANTICS",
+      "note_off_release": "PENDING_M1_SOURCE_SEMANTICS",
+      "retrigger_generation": "PENDING_M1_SOURCE_SEMANTICS",
+      "fifth_note_policy": "PENDING_M1_SOURCE_SEMANTICS"
+    }
+  },
+  "bit_cycles": 1280,
+  "byte_cycles": 12800,
+  "total_cycles": 1122320,
+  "bytes": [
+    {
+      "byte_seq": 1,
+      "event_seq": 1,
+      "scenario": "solo_c4",
+      "role": "status",
+      "value": 144,
+      "start_cycle": 5920,
+      "stop_cycle_exclusive": 18720
+    },
+    {
+      "byte_seq": 2,
+      "event_seq": 1,
+      "scenario": "solo_c4",
+      "role": "note",
+      "value": 60,
+      "start_cycle": 18720,
+      "stop_cycle_exclusive": 31520
+    },
+    {
+      "byte_seq": 3,
+      "event_seq": 1,
+      "scenario": "solo_c4",
+      "role": "velocity",
+      "value": 72,
+      "start_cycle": 31520,
+      "stop_cycle_exclusive": 44320
+    },
+    {
+      "byte_seq": 4,
+      "event_seq": 2,
+      "scenario": "solo_c4",
+      "role": "status",
+      "value": 128,
+      "start_cycle": 58880,
+      "stop_cycle_exclusive": 71680
+    },
+    {
+      "byte_seq": 5,
+      "event_seq": 2,
+      "scenario": "solo_c4",
+      "role": "note",
+      "value": 60,
+      "start_cycle": 71680,
+      "stop_cycle_exclusive": 84480
+    },
+    {
+      "byte_seq": 6,
+      "event_seq": 2,
+      "scenario": "solo_c4",
+      "role": "velocity",
+      "value": 32,
+      "start_cycle": 84480,
+      "stop_cycle_exclusive": 97280
+    },
+    {
+      "byte_seq": 7,
+      "event_seq": 3,
+      "scenario": "solo_e4",
+      "role": "status",
+      "value": 144,
+      "start_cycle": 105840,
+      "stop_cycle_exclusive": 118640
+    },
+    {
+      "byte_seq": 8,
+      "event_seq": 3,
+      "scenario": "solo_e4",
+      "role": "note",
+      "value": 64,
+      "start_cycle": 118640,
+      "stop_cycle_exclusive": 131440
+    },
+    {
+      "byte_seq": 9,
+      "event_seq": 3,
+      "scenario": "solo_e4",
+      "role": "velocity",
+      "value": 48,
+      "start_cycle": 131440,
+      "stop_cycle_exclusive": 144240
+    },
+    {
+      "byte_seq": 10,
+      "event_seq": 4,
+      "scenario": "solo_e4",
+      "role": "status",
+      "value": 128,
+      "start_cycle": 158800,
+      "stop_cycle_exclusive": 171600
+    },
+    {
+      "byte_seq": 11,
+      "event_seq": 4,
+      "scenario": "solo_e4",
+      "role": "note",
+      "value": 64,
+      "start_cycle": 171600,
+      "stop_cycle_exclusive": 184400
+    },
+    {
+      "byte_seq": 12,
+      "event_seq": 4,
+      "scenario": "solo_e4",
+      "role": "velocity",
+      "value": 20,
+      "start_cycle": 184400,
+      "stop_cycle_exclusive": 197200
+    },
+    {
+      "byte_seq": 13,
+      "event_seq": 5,
+      "scenario": "solo_g4",
+      "role": "status",
+      "value": 144,
+      "start_cycle": 205760,
+      "stop_cycle_exclusive": 218560
+    },
+    {
+      "byte_seq": 14,
+      "event_seq": 5,
+      "scenario": "solo_g4",
+      "role": "note",
+      "value": 67,
+      "start_cycle": 218560,
+      "stop_cycle_exclusive": 231360
+    },
+    {
+      "byte_seq": 15,
+      "event_seq": null,
+      "scenario": "solo_g4",
+      "role": "realtime",
+      "value": 248,
+      "start_cycle": 231360,
+      "stop_cycle_exclusive": 244160
+    },
+    {
+      "byte_seq": 16,
+      "event_seq": 5,
+      "scenario": "solo_g4",
+      "role": "velocity",
+      "value": 96,
+      "start_cycle": 244160,
+      "stop_cycle_exclusive": 256960
+    },
+    {
+      "byte_seq": 17,
+      "event_seq": 6,
+      "scenario": "solo_g4",
+      "role": "status",
+      "value": 128,
+      "start_cycle": 271520,
+      "stop_cycle_exclusive": 284320
+    },
+    {
+      "byte_seq": 18,
+      "event_seq": 6,
+      "scenario": "solo_g4",
+      "role": "note",
+      "value": 67,
+      "start_cycle": 284320,
+      "stop_cycle_exclusive": 297120
+    },
+    {
+      "byte_seq": 19,
+      "event_seq": 6,
+      "scenario": "solo_g4",
+      "role": "velocity",
+      "value": 24,
+      "start_cycle": 297120,
+      "stop_cycle_exclusive": 309920
+    },
+    {
+      "byte_seq": 20,
+      "event_seq": 7,
+      "scenario": "solo_c5",
+      "role": "status",
+      "value": 144,
+      "start_cycle": 318480,
+      "stop_cycle_exclusive": 331280
+    },
+    {
+      "byte_seq": 21,
+      "event_seq": 7,
+      "scenario": "solo_c5",
+      "role": "note",
+      "value": 72,
+      "start_cycle": 331280,
+      "stop_cycle_exclusive": 344080
+    },
+    {
+      "byte_seq": 22,
+      "event_seq": 7,
+      "scenario": "solo_c5",
+      "role": "velocity",
+      "value": 120,
+      "start_cycle": 344080,
+      "stop_cycle_exclusive": 356880
+    },
+    {
+      "byte_seq": 23,
+      "event_seq": 8,
+      "scenario": "solo_c5",
+      "role": "status",
+      "value": 128,
+      "start_cycle": 371440,
+      "stop_cycle_exclusive": 384240
+    },
+    {
+      "byte_seq": 24,
+      "event_seq": 8,
+      "scenario": "solo_c5",
+      "role": "note",
+      "value": 72,
+      "start_cycle": 384240,
+      "stop_cycle_exclusive": 397040
+    },
+    {
+      "byte_seq": 25,
+      "event_seq": 8,
+      "scenario": "solo_c5",
+      "role": "velocity",
+      "value": 28,
+      "start_cycle": 397040,
+      "stop_cycle_exclusive": 409840
+    },
+    {
+      "byte_seq": 26,
+      "event_seq": 9,
+      "scenario": "four_hold",
+      "role": "status",
+      "value": 144,
+      "start_cycle": 424400,
+      "stop_cycle_exclusive": 437200
+    },
+    {
+      "byte_seq": 27,
+      "event_seq": 9,
+      "scenario": "four_hold",
+      "role": "note",
+      "value": 60,
+      "start_cycle": 437200,
+      "stop_cycle_exclusive": 450000
+    },
+    {
+      "byte_seq": 28,
+      "event_seq": 9,
+      "scenario": "four_hold",
+      "role": "velocity",
+      "value": 24,
+      "start_cycle": 450000,
+      "stop_cycle_exclusive": 462800
+    },
+    {
+      "byte_seq": 29,
+      "event_seq": 10,
+      "scenario": "four_hold",
+      "role": "note",
+      "value": 64,
+      "start_cycle": 465360,
+      "stop_cycle_exclusive": 478160
+    },
+    {
+      "byte_seq": 30,
+      "event_seq": 10,
+      "scenario": "four_hold",
+      "role": "velocity",
+      "value": 52,
+      "start_cycle": 478160,
+      "stop_cycle_exclusive": 490960
+    },
+    {
+      "byte_seq": 31,
+      "event_seq": 11,
+      "scenario": "four_hold",
+      "role": "note",
+      "value": 67,
+      "start_cycle": 493520,
+      "stop_cycle_exclusive": 506320
+    },
+    {
+      "byte_seq": 32,
+      "event_seq": null,
+      "scenario": "four_hold",
+      "role": "realtime",
+      "value": 248,
+      "start_cycle": 506320,
+      "stop_cycle_exclusive": 519120
+    },
+    {
+      "byte_seq": 33,
+      "event_seq": 11,
+      "scenario": "four_hold",
+      "role": "velocity",
+      "value": 88,
+      "start_cycle": 519120,
+      "stop_cycle_exclusive": 531920
+    },
+    {
+      "byte_seq": 34,
+      "event_seq": 12,
+      "scenario": "four_hold",
+      "role": "note",
+      "value": 72,
+      "start_cycle": 534480,
+      "stop_cycle_exclusive": 547280
+    },
+    {
+      "byte_seq": 35,
+      "event_seq": 12,
+      "scenario": "four_hold",
+      "role": "velocity",
+      "value": 120,
+      "start_cycle": 547280,
+      "stop_cycle_exclusive": 560080
+    },
+    {
+      "byte_seq": 36,
+      "event_seq": 13,
+      "scenario": "retrigger_boundary",
+      "role": "note",
+      "value": 60,
+      "start_cycle": 602640,
+      "stop_cycle_exclusive": 615440
+    },
+    {
+      "byte_seq": 37,
+      "event_seq": 13,
+      "scenario": "retrigger_boundary",
+      "role": "velocity",
+      "value": 104,
+      "start_cycle": 615440,
+      "stop_cycle_exclusive": 628240
+    },
+    {
+      "byte_seq": 38,
+      "event_seq": 14,
+      "scenario": "fifth_note_boundary",
+      "role": "note",
+      "value": 76,
+      "start_cycle": 630800,
+      "stop_cycle_exclusive": 643600
+    },
+    {
+      "byte_seq": 39,
+      "event_seq": 14,
+      "scenario": "fifth_note_boundary",
+      "role": "velocity",
+      "value": 64,
+      "start_cycle": 643600,
+      "stop_cycle_exclusive": 656400
+    },
+    {
+      "byte_seq": 40,
+      "event_seq": 15,
+      "scenario": "release_one_by_one",
+      "role": "status",
+      "value": 128,
+      "start_cycle": 678960,
+      "stop_cycle_exclusive": 691760
+    },
+    {
+      "byte_seq": 41,
+      "event_seq": 15,
+      "scenario": "release_one_by_one",
+      "role": "note",
+      "value": 60,
+      "start_cycle": 691760,
+      "stop_cycle_exclusive": 704560
+    },
+    {
+      "byte_seq": 42,
+      "event_seq": 15,
+      "scenario": "release_one_by_one",
+      "role": "velocity",
+      "value": 16,
+      "start_cycle": 704560,
+      "stop_cycle_exclusive": 717360
+    },
+    {
+      "byte_seq": 43,
+      "event_seq": 16,
+      "scenario": "release_one_by_one",
+      "role": "note",
+      "value": 64,
+      "start_cycle": 729920,
+      "stop_cycle_exclusive": 742720
+    },
+    {
+      "byte_seq": 44,
+      "event_seq": 16,
+      "scenario": "release_one_by_one",
+      "role": "velocity",
+      "value": 16,
+      "start_cycle": 742720,
+      "stop_cycle_exclusive": 755520
+    },
+    {
+      "byte_seq": 45,
+      "event_seq": 17,
+      "scenario": "release_one_by_one",
+      "role": "note",
+      "value": 67,
+      "start_cycle": 768080,
+      "stop_cycle_exclusive": 780880
+    },
+    {
+      "byte_seq": 46,
+      "event_seq": 17,
+      "scenario": "release_one_by_one",
+      "role": "velocity",
+      "value": 16,
+      "start_cycle": 780880,
+      "stop_cycle_exclusive": 793680
+    },
+    {
+      "byte_seq": 47,
+      "event_seq": 18,
+      "scenario": "release_one_by_one",
+      "role": "note",
+      "value": 72,
+      "start_cycle": 806240,
+      "stop_cycle_exclusive": 819040
+    },
+    {
+      "byte_seq": 48,
+      "event_seq": 18,
+      "scenario": "release_one_by_one",
+      "role": "velocity",
+      "value": 16,
+      "start_cycle": 819040,
+      "stop_cycle_exclusive": 831840
+    },
+    {
+      "byte_seq": 49,
+      "event_seq": 19,
+      "scenario": "release_fifth",
+      "role": "note",
+      "value": 76,
+      "start_cycle": 834400,
+      "stop_cycle_exclusive": 847200
+    },
+    {
+      "byte_seq": 50,
+      "event_seq": 19,
+      "scenario": "release_fifth",
+      "role": "velocity",
+      "value": 16,
+      "start_cycle": 847200,
+      "stop_cycle_exclusive": 860000
+    },
+    {
+      "byte_seq": 51,
+      "event_seq": 20,
+      "scenario": "velocity_zero",
+      "role": "status",
+      "value": 144,
+      "start_cycle": 874560,
+      "stop_cycle_exclusive": 887360
+    },
+    {
+      "byte_seq": 52,
+      "event_seq": 20,
+      "scenario": "velocity_zero",
+      "role": "note",
+      "value": 74,
+      "start_cycle": 887360,
+      "stop_cycle_exclusive": 900160
+    },
+    {
+      "byte_seq": 53,
+      "event_seq": 20,
+      "scenario": "velocity_zero",
+      "role": "velocity",
+      "value": 0,
+      "start_cycle": 900160,
+      "stop_cycle_exclusive": 912960
+    },
+    {
+      "byte_seq": 54,
+      "event_seq": 21,
+      "scenario": "backpressure",
+      "role": "status",
+      "value": 144,
+      "start_cycle": 927520,
+      "stop_cycle_exclusive": 940320
+    },
+    {
+      "byte_seq": 55,
+      "event_seq": 21,
+      "scenario": "backpressure",
+      "role": "note",
+      "value": 55,
+      "start_cycle": 940320,
+      "stop_cycle_exclusive": 953120
+    },
+    {
+      "byte_seq": 56,
+      "event_seq": 21,
+      "scenario": "backpressure",
+      "role": "velocity",
+      "value": 80,
+      "start_cycle": 953120,
+      "stop_cycle_exclusive": 965920
+    },
+    {
+      "byte_seq": 57,
+      "event_seq": 22,
+      "scenario": "post_reset_recovery",
+      "role": "status",
+      "value": 144,
+      "start_cycle": 1007600,
+      "stop_cycle_exclusive": 1020400
+    },
+    {
+      "byte_seq": 58,
+      "event_seq": 22,
+      "scenario": "post_reset_recovery",
+      "role": "note",
+      "value": 69,
+      "start_cycle": 1020400,
+      "stop_cycle_exclusive": 1033200
+    },
+    {
+      "byte_seq": 59,
+      "event_seq": null,
+      "scenario": "post_reset_recovery",
+      "role": "realtime",
+      "value": 248,
+      "start_cycle": 1033200,
+      "stop_cycle_exclusive": 1046000
+    },
+    {
+      "byte_seq": 60,
+      "event_seq": 22,
+      "scenario": "post_reset_recovery",
+      "role": "velocity",
+      "value": 100,
+      "start_cycle": 1046000,
+      "stop_cycle_exclusive": 1058800
+    },
+    {
+      "byte_seq": 61,
+      "event_seq": 23,
+      "scenario": "post_reset_recovery",
+      "role": "status",
+      "value": 128,
+      "start_cycle": 1073360,
+      "stop_cycle_exclusive": 1086160
+    },
+    {
+      "byte_seq": 62,
+      "event_seq": 23,
+      "scenario": "post_reset_recovery",
+      "role": "note",
+      "value": 69,
+      "start_cycle": 1086160,
+      "stop_cycle_exclusive": 1098960
+    },
+    {
+      "byte_seq": 63,
+      "event_seq": 23,
+      "scenario": "post_reset_recovery",
+      "role": "velocity",
+      "value": 40,
+      "start_cycle": 1098960,
+      "stop_cycle_exclusive": 1111760
+    }
+  ],
+  "events": [
+    {
+      "event_seq": 1,
+      "scenario": "solo_c4",
+      "midi_kind": "note_on",
+      "normalized_kind": "note_on",
+      "channel": 0,
+      "note": 60,
+      "velocity7": 72,
+      "velocity10": 580,
+      "source_byte_seq_first": 1,
+      "source_byte_seq_final": 3,
+      "final_stop_cycle_exclusive": 44320,
+      "arrival_window": {
+        "min_cycle": 44320,
+        "max_cycle": 46880
+      },
+      "expected_event_hex": "000f244000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 2,
+      "scenario": "solo_c4",
+      "midi_kind": "note_off",
+      "normalized_kind": "note_off",
+      "channel": 0,
+      "note": 60,
+      "velocity7": 32,
+      "velocity10": 0,
+      "source_byte_seq_first": 4,
+      "source_byte_seq_final": 6,
+      "final_stop_cycle_exclusive": 97280,
+      "arrival_window": {
+        "min_cycle": 97280,
+        "max_cycle": 99840
+      },
+      "expected_event_hex": "200f000000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 3,
+      "scenario": "solo_e4",
+      "midi_kind": "note_on",
+      "normalized_kind": "note_on",
+      "channel": 0,
+      "note": 64,
+      "velocity7": 48,
+      "velocity10": 387,
+      "source_byte_seq_first": 7,
+      "source_byte_seq_final": 9,
+      "final_stop_cycle_exclusive": 144240,
+      "arrival_window": {
+        "min_cycle": 144240,
+        "max_cycle": 146800
+      },
+      "expected_event_hex": "0010183000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 4,
+      "scenario": "solo_e4",
+      "midi_kind": "note_off",
+      "normalized_kind": "note_off",
+      "channel": 0,
+      "note": 64,
+      "velocity7": 20,
+      "velocity10": 0,
+      "source_byte_seq_first": 10,
+      "source_byte_seq_final": 12,
+      "final_stop_cycle_exclusive": 197200,
+      "arrival_window": {
+        "min_cycle": 197200,
+        "max_cycle": 199760
+      },
+      "expected_event_hex": "2010000000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 5,
+      "scenario": "solo_g4",
+      "midi_kind": "note_on",
+      "normalized_kind": "note_on",
+      "channel": 0,
+      "note": 67,
+      "velocity7": 96,
+      "velocity10": 774,
+      "source_byte_seq_first": 13,
+      "source_byte_seq_final": 16,
+      "final_stop_cycle_exclusive": 256960,
+      "arrival_window": {
+        "min_cycle": 256960,
+        "max_cycle": 259520
+      },
+      "expected_event_hex": "0010f06000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 6,
+      "scenario": "solo_g4",
+      "midi_kind": "note_off",
+      "normalized_kind": "note_off",
+      "channel": 0,
+      "note": 67,
+      "velocity7": 24,
+      "velocity10": 0,
+      "source_byte_seq_first": 17,
+      "source_byte_seq_final": 19,
+      "final_stop_cycle_exclusive": 309920,
+      "arrival_window": {
+        "min_cycle": 309920,
+        "max_cycle": 312480
+      },
+      "expected_event_hex": "2010c00000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 7,
+      "scenario": "solo_c5",
+      "midi_kind": "note_on",
+      "normalized_kind": "note_on",
+      "channel": 0,
+      "note": 72,
+      "velocity7": 120,
+      "velocity10": 967,
+      "source_byte_seq_first": 20,
+      "source_byte_seq_final": 22,
+      "final_stop_cycle_exclusive": 356880,
+      "arrival_window": {
+        "min_cycle": 356880,
+        "max_cycle": 359440
+      },
+      "expected_event_hex": "00123c7000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 8,
+      "scenario": "solo_c5",
+      "midi_kind": "note_off",
+      "normalized_kind": "note_off",
+      "channel": 0,
+      "note": 72,
+      "velocity7": 28,
+      "velocity10": 0,
+      "source_byte_seq_first": 23,
+      "source_byte_seq_final": 25,
+      "final_stop_cycle_exclusive": 409840,
+      "arrival_window": {
+        "min_cycle": 409840,
+        "max_cycle": 412400
+      },
+      "expected_event_hex": "2012000000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 9,
+      "scenario": "four_hold",
+      "midi_kind": "note_on",
+      "normalized_kind": "note_on",
+      "channel": 0,
+      "note": 60,
+      "velocity7": 24,
+      "velocity10": 193,
+      "source_byte_seq_first": 26,
+      "source_byte_seq_final": 28,
+      "final_stop_cycle_exclusive": 462800,
+      "arrival_window": {
+        "min_cycle": 462800,
+        "max_cycle": 465360
+      },
+      "expected_event_hex": "000f0c1000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 10,
+      "scenario": "four_hold",
+      "midi_kind": "note_on",
+      "normalized_kind": "note_on",
+      "channel": 0,
+      "note": 64,
+      "velocity7": 52,
+      "velocity10": 419,
+      "source_byte_seq_first": 29,
+      "source_byte_seq_final": 30,
+      "final_stop_cycle_exclusive": 490960,
+      "arrival_window": {
+        "min_cycle": 490960,
+        "max_cycle": 493520
+      },
+      "expected_event_hex": "00101a3000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 11,
+      "scenario": "four_hold",
+      "midi_kind": "note_on",
+      "normalized_kind": "note_on",
+      "channel": 0,
+      "note": 67,
+      "velocity7": 88,
+      "velocity10": 709,
+      "source_byte_seq_first": 31,
+      "source_byte_seq_final": 33,
+      "final_stop_cycle_exclusive": 531920,
+      "arrival_window": {
+        "min_cycle": 531920,
+        "max_cycle": 534480
+      },
+      "expected_event_hex": "0010ec5000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 12,
+      "scenario": "four_hold",
+      "midi_kind": "note_on",
+      "normalized_kind": "note_on",
+      "channel": 0,
+      "note": 72,
+      "velocity7": 120,
+      "velocity10": 967,
+      "source_byte_seq_first": 34,
+      "source_byte_seq_final": 35,
+      "final_stop_cycle_exclusive": 560080,
+      "arrival_window": {
+        "min_cycle": 560080,
+        "max_cycle": 562640
+      },
+      "expected_event_hex": "00123c7000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 13,
+      "scenario": "retrigger_boundary",
+      "midi_kind": "note_on",
+      "normalized_kind": "note_on",
+      "channel": 0,
+      "note": 60,
+      "velocity7": 104,
+      "velocity10": 838,
+      "source_byte_seq_first": 36,
+      "source_byte_seq_final": 37,
+      "final_stop_cycle_exclusive": 628240,
+      "arrival_window": {
+        "min_cycle": 628240,
+        "max_cycle": 630800
+      },
+      "expected_event_hex": "000f346000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 14,
+      "scenario": "fifth_note_boundary",
+      "midi_kind": "note_on",
+      "normalized_kind": "note_on",
+      "channel": 0,
+      "note": 76,
+      "velocity7": 64,
+      "velocity10": 516,
+      "source_byte_seq_first": 38,
+      "source_byte_seq_final": 39,
+      "final_stop_cycle_exclusive": 656400,
+      "arrival_window": {
+        "min_cycle": 656400,
+        "max_cycle": 658960
+      },
+      "expected_event_hex": "0013204000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 15,
+      "scenario": "release_one_by_one",
+      "midi_kind": "note_off",
+      "normalized_kind": "note_off",
+      "channel": 0,
+      "note": 60,
+      "velocity7": 16,
+      "velocity10": 0,
+      "source_byte_seq_first": 40,
+      "source_byte_seq_final": 42,
+      "final_stop_cycle_exclusive": 717360,
+      "arrival_window": {
+        "min_cycle": 717360,
+        "max_cycle": 719920
+      },
+      "expected_event_hex": "200f000000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 16,
+      "scenario": "release_one_by_one",
+      "midi_kind": "note_off",
+      "normalized_kind": "note_off",
+      "channel": 0,
+      "note": 64,
+      "velocity7": 16,
+      "velocity10": 0,
+      "source_byte_seq_first": 43,
+      "source_byte_seq_final": 44,
+      "final_stop_cycle_exclusive": 755520,
+      "arrival_window": {
+        "min_cycle": 755520,
+        "max_cycle": 758080
+      },
+      "expected_event_hex": "2010000000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 17,
+      "scenario": "release_one_by_one",
+      "midi_kind": "note_off",
+      "normalized_kind": "note_off",
+      "channel": 0,
+      "note": 67,
+      "velocity7": 16,
+      "velocity10": 0,
+      "source_byte_seq_first": 45,
+      "source_byte_seq_final": 46,
+      "final_stop_cycle_exclusive": 793680,
+      "arrival_window": {
+        "min_cycle": 793680,
+        "max_cycle": 796240
+      },
+      "expected_event_hex": "2010c00000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 18,
+      "scenario": "release_one_by_one",
+      "midi_kind": "note_off",
+      "normalized_kind": "note_off",
+      "channel": 0,
+      "note": 72,
+      "velocity7": 16,
+      "velocity10": 0,
+      "source_byte_seq_first": 47,
+      "source_byte_seq_final": 48,
+      "final_stop_cycle_exclusive": 831840,
+      "arrival_window": {
+        "min_cycle": 831840,
+        "max_cycle": 834400
+      },
+      "expected_event_hex": "2012000000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 19,
+      "scenario": "release_fifth",
+      "midi_kind": "note_off",
+      "normalized_kind": "note_off",
+      "channel": 0,
+      "note": 76,
+      "velocity7": 16,
+      "velocity10": 0,
+      "source_byte_seq_first": 49,
+      "source_byte_seq_final": 50,
+      "final_stop_cycle_exclusive": 860000,
+      "arrival_window": {
+        "min_cycle": 860000,
+        "max_cycle": 862560
+      },
+      "expected_event_hex": "2013000000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 20,
+      "scenario": "velocity_zero",
+      "midi_kind": "note_on",
+      "normalized_kind": "note_off",
+      "channel": 0,
+      "note": 74,
+      "velocity7": 0,
+      "velocity10": 0,
+      "source_byte_seq_first": 51,
+      "source_byte_seq_final": 53,
+      "final_stop_cycle_exclusive": 912960,
+      "arrival_window": {
+        "min_cycle": 912960,
+        "max_cycle": 915520
+      },
+      "expected_event_hex": "2012800000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 21,
+      "scenario": "backpressure",
+      "midi_kind": "note_on",
+      "normalized_kind": "note_on",
+      "channel": 0,
+      "note": 55,
+      "velocity7": 80,
+      "velocity10": 645,
+      "source_byte_seq_first": 54,
+      "source_byte_seq_final": 56,
+      "final_stop_cycle_exclusive": 965920,
+      "arrival_window": {
+        "min_cycle": 965920,
+        "max_cycle": 968480
+      },
+      "expected_event_hex": "000de85000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 22,
+      "scenario": "post_reset_recovery",
+      "midi_kind": "note_on",
+      "normalized_kind": "note_on",
+      "channel": 0,
+      "note": 69,
+      "velocity7": 100,
+      "velocity10": 806,
+      "source_byte_seq_first": 57,
+      "source_byte_seq_final": 60,
+      "final_stop_cycle_exclusive": 1058800,
+      "arrival_window": {
+        "min_cycle": 1058800,
+        "max_cycle": 1061360
+      },
+      "expected_event_hex": "0011726000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    },
+    {
+      "event_seq": 23,
+      "scenario": "post_reset_recovery",
+      "midi_kind": "note_off",
+      "normalized_kind": "note_off",
+      "channel": 0,
+      "note": 69,
+      "velocity7": 40,
+      "velocity10": 0,
+      "source_byte_seq_first": 61,
+      "source_byte_seq_final": 63,
+      "final_stop_cycle_exclusive": 1111760,
+      "arrival_window": {
+        "min_cycle": 1111760,
+        "max_cycle": 1114320
+      },
+      "expected_event_hex": "2011400000000000",
+      "allocation_release_generation": "PENDING_M1_SOURCE_SEMANTICS"
+    }
+  ],
+  "reset_plan": [
+    {
+      "cycle": 0,
+      "level": 0,
+      "label": "initial_reset_assert"
+    },
+    {
+      "cycle": 800,
+      "level": 1,
+      "label": "initial_reset_release"
+    },
+    {
+      "cycle": 1000480,
+      "level": 0,
+      "label": "mid_plan_reset_assert"
+    },
+    {
+      "cycle": 1002480,
+      "level": 1,
+      "label": "mid_plan_reset_release"
+    }
+  ],
+  "ready_plan": [
+    {
+      "cycle": 0,
+      "level": 1,
+      "label": "downstream_ready"
+    },
+    {
+      "cycle": 927520,
+      "level": 0,
+      "label": "public_event_backpressure_assert"
+    },
+    {
+      "cycle": 988480,
+      "level": 1,
+      "label": "public_event_backpressure_release"
+    }
+  ],
+  "semantic_status": "INPUT_COMPLETE_SLOT_RELEASE_PREEMPT_PENDING_M1"
+}

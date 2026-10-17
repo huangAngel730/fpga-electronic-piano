@@ -1,0 +1,483 @@
+[
+  {
+    "id": "old_audio_accept_copy",
+    "source": "old_top",
+    "first": 679,
+    "last": 686,
+    "contains": [
+      "shared_event_valid && shared_event_ready",
+      ".accepted_data(shared_event_data)"
+    ],
+    "source_sha256": "f2a8f30fef8ad2da26d1d3b80793b727f45806b6d5c78f2a071fb383322639be",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\REWORK_WATCHDOG_RUN_02\\stage\\inputs\\sources\\m2_fourvoice_timbre_delay_board_top.sv",
+    "excerpt": "    audio_visual_display_probe #(.SYS_CLK_HZ(CLK_HZ)) u_visual (\n        .sys_clk(core_clk),.sys_rst_n(sys_rst_n),.ref_clk(sys_clk),.core_clk(core_clk),\n        .accepted_valid(shared_event_valid && shared_event_ready),\n        .accepted_data(shared_event_data),\n        .tmds_clk_p(tmds_clk_p),.tmds_clk_n(tmds_clk_n),\n        .tmds_data_p(tmds_data_p),.tmds_data_n(tmds_data_n),\n        .visual_pll_locked(visual_pll_locked)\n    );",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "candidate_defaults",
+    "source": "candidate",
+    "first": 4,
+    "last": 7,
+    "contains": [
+      "SLOTS=8",
+      "SCREEN_WIDTH=640",
+      "SCREEN_HEIGHT=480",
+      "PREVIEW_FRAMES=120",
+      "EVENT_FIFO_DEPTH=32"
+    ],
+    "source_sha256": "c0bbcc715edb573a160ce54c4d01982f15881dd311bdd38131d379059a48fc70",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\input\\m3_dual_slider_138k_candidate_20261015\\pro_parallel_20261016\\dual_slider_pro_parallel.sv",
+    "excerpt": "module dual_slider_pro_parallel #(\n    parameter integer SLOTS=8, Y_WIDTH=10, SCREEN_WIDTH=640,\n    parameter integer SCREEN_HEIGHT=480, PREVIEW_FRAMES=120,\n    parameter integer BASE_NOTE=36, NOTE_COUNT=49, EVENT_FIFO_DEPTH=32",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "candidate_event_instance",
+    "source": "candidate",
+    "first": 57,
+    "last": 68,
+    "contains": [
+      "event_src_done && control_src_done",
+      "event_dst_done && control_dst_done",
+      "u_events(",
+      ".accepted_valid(accepted_valid)"
+    ],
+    "source_sha256": "c0bbcc715edb573a160ce54c4d01982f15881dd311bdd38131d379059a48fc70",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\input\\m3_dual_slider_138k_candidate_20261015\\pro_parallel_20261016\\dual_slider_pro_parallel.sv",
+    "excerpt": "    assign sys_reset_done=event_src_done && control_src_done;\n    assign video_reset_done=event_dst_done && control_dst_done;\n    // Display-only event copy cannot backpressure the audio event consumer.\n    visual_event_bridge #(.DEPTH(EVENT_FIFO_DEPTH)) u_events(\n        .sys_clk(sys_clk),.video_clk(pixel_clk),.rst_n(rst_n),\n        .accepted_valid(accepted_valid),.accepted_data(accepted_data),\n        .visual_queue_level(queue_level),.visual_queue_high_watermark(queue_high),\n        .visual_drop_count(visual_drop_count),.visual_drop_pulse(drop_pulse),\n        .sys_reset_done(event_src_done),.video_reset_done(event_dst_done),\n        .video_valid(video_event_valid),.video_desync(video_desync),\n        .video_ready(video_event_ready),.video_data(video_event));\n    visual_control_bridge u_control(",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "candidate_mode_frame",
+    "source": "candidate",
+    "first": 81,
+    "last": 90,
+    "contains": [
+      "if(mode_pulse) mode_request<=~mode_request;",
+      "if(frame_start) display_mode<=mode_request;",
+      "video_reset_done && display_event_enable"
+    ],
+    "source_sha256": "c0bbcc715edb573a160ce54c4d01982f15881dd311bdd38131d379059a48fc70",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\input\\m3_dual_slider_138k_candidate_20261015\\pro_parallel_20261016\\dual_slider_pro_parallel.sv",
+    "excerpt": "    // Mode is requested through a reliable mailbox, then committed at a frame.\n    assign mode_delivered=mode_pulse;\n    always_ff @(posedge pixel_clk or negedge video_reset_done) begin\n        if(!video_reset_done) begin mode_request<=0;display_mode<=0;end\n        else begin\n            if(mode_pulse) mode_request<=~mode_request;\n            if(frame_start) display_mode<=mode_request;\n        end\n    end\n    assign video_event_ready=video_reset_done && display_event_enable;",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "candidate_flash_disabled",
+    "source": "candidate",
+    "first": 120,
+    "last": 139,
+    "contains": [
+      ".flash_active(128'd0),.flash_level(256'd0)"
+    ],
+    "source_sha256": "c0bbcc715edb573a160ce54c4d01982f15881dd311bdd38131d379059a48fc70",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\input\\m3_dual_slider_138k_candidate_20261015\\pro_parallel_20261016\\dual_slider_pro_parallel.sv",
+    "excerpt": "        .slot_velocity(falling_velocity),.slot_hit(falling_hit),.slot_miss(falling_miss),\n        .hit_pulse(hit_pulse),.hit_note_number(hit_note));\n    // The original hit-flash FAIL is deferred, not repaired or claimed PASS.\n    // This minimal candidate intentionally disables flash rendering.\n    visual_scene_renderer #(.LIVE_SLOT_COUNT(SLOTS),.SCORE_SLOT_COUNT(SLOTS),\n        .Y_WIDTH(Y_WIDTH),.SCREEN_WIDTH(SCREEN_WIDTH),.SCREEN_HEIGHT(SCREEN_HEIGHT),\n        // Legacy renderer parameters are range-checked although drawing uses\n        // SCREEN_HEIGHT-1 directly. Keep both placeholders strictly in range.\n        .JUDGE_Y(SCREEN_HEIGHT-2),.KEYBOARD_TOP(SCREEN_HEIGHT-1),\n        .BASE_NOTE(BASE_NOTE),.NOTE_COUNT(NOTE_COUNT)) u_renderer(\n        .data_enable(video_reset_done && data_enable),.pixel_x(pixel_x),.pixel_y(pixel_y),\n        .display_mode(display_mode),.desync_latched(desync_latched),.key_down(key_down),\n        .flash_active(128'd0),.flash_level(256'd0),\n        .live_valid(live_valid),.live_note_number(live_note),.live_y(live_top),\n        .live_end_y(live_end),.live_velocity(live_velocity),\n        .score_valid(falling_valid),.score_note_number(falling_note),.score_y(falling_distance),\n        .score_top_y(falling_top),.score_end_y(falling_end),.score_velocity(falling_velocity),\n        .score_hit(falling_hit),.score_miss(falling_miss),\n        .rgb_r(rgb_r),.rgb_g(rgb_g),.rgb_b(rgb_b));\nendmodule",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "tb_test_only_time",
+    "source": "testbench",
+    "first": 220,
+    "last": 227,
+    "contains": [
+      "hit=current_frame+120;"
+    ],
+    "source_sha256": "02337b8db37f849fdbe1b4c8a3f1200a117ea0a0e60ce7c15a1f923325823d9c",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\input\\visualizer\\m3_dual_slider_138k_candidate_20261015\\pro_parallel_20261016\\tb_pro_parallel.sv",
+    "excerpt": "        display_event_enable=1;drain();frame();\n        check(desync_latched && live_valid==0 && falling_valid==0,\"OVERFLOW_DESYNC_FAIL_CLOSED\");\n        reset_all();check(visual_drop_count==0 && queue_high==0,\"RESET_CLEARS_OVERFLOW\");\n        mode_command();frame();check(display_mode==1,\"SCORE_MODE_ACTIVE\");\n        hit=current_frame+120;\n        for(i=100;i<108;i=i+1)score_send(i,hit);\n        check(seen_scores==8 && !score_sink_ready,\"EIGHT_SCORE_SLOTS_FULL\");\n        score_send(108,hit+200);check(!score_ready && seen_scores==8,\"NINTH_SCORE_PENDING_MAILBOX\");",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "old_clock_ports",
+    "source": "old_shell",
+    "first": 6,
+    "last": 18,
+    "contains": [
+      "SYS_CLK_HZ = 40_000_000",
+      "input wire ref_clk",
+      "output wire core_clk"
+    ],
+    "source_sha256": "df1f05b4a6a06deddd9d3a2244106ec29bb0d15e5dd808fc9bef9436d710a5cf",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\REWORK_WATCHDOG_RUN_02\\stage\\inputs\\sources\\audio_visual_display_probe.sv",
+    "excerpt": "    parameter integer SYS_CLK_HZ = 40_000_000,\n    parameter integer MODE_PERIOD_CYCLES = SYS_CLK_HZ * 5,\n    parameter integer VIDEO_FRAME_SYS_CYCLES = (SYS_CLK_HZ / 25_000) * 420,\n    parameter integer DIAG_SCORE_SPACING_FRAMES = 30\n) (\n    input logic sys_clk,sys_rst_n,\n    input wire ref_clk,\n    output wire core_clk,\n    input logic accepted_valid,\n    input audio_defs_pkg::performance_event_t accepted_data,\n    output wire tmds_clk_p,tmds_clk_n,\n    output wire [2:0] tmds_data_p,tmds_data_n,\n    output wire visual_pll_locked",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "old_pll_outputs",
+    "source": "old_shell",
+    "first": 70,
+    "last": 72,
+    "contains": [
+      ".clkin(ref_clk)",
+      ".clkout1(pixel_clk),.clkout2(core_clk)",
+      "u_serial_reset"
+    ],
+    "source_sha256": "df1f05b4a6a06deddd9d3a2244106ec29bb0d15e5dd808fc9bef9436d710a5cf",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\REWORK_WATCHDOG_RUN_02\\stage\\inputs\\sources\\audio_visual_display_probe.sv",
+    "excerpt": "    TMDS_PLL u_video_pll(.clkin(ref_clk),.lock(pll_lock),.clkout0(serial_clk),\n        .clkout1(pixel_clk),.clkout2(core_clk));\n    reset_sync u_serial_reset(.clk(serial_clk),.rst_n(visual_rst_n),.rst_sync_n(serial_rst_n));",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "old_diagnostic_time",
+    "source": "old_shell",
+    "first": 45,
+    "last": 67,
+    "contains": [
+      "mode_pending <= 1",
+      "diag_hit_frame<=diag_frame+32'd120",
+      "Frame-reset release differs"
+    ],
+    "source_sha256": "df1f05b4a6a06deddd9d3a2244106ec29bb0d15e5dd808fc9bef9436d710a5cf",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\REWORK_WATCHDOG_RUN_02\\stage\\inputs\\sources\\audio_visual_display_probe.sv",
+    "excerpt": "    always_ff @(posedge sys_clk or negedge visual_rst_n) begin\n        if (!visual_rst_n) begin\n            sys_count <= 0; score_seq <= 0; mode_pending <= 0;\n            score_pending<=0;diag_frame<=0;diag_frame_cycles<=0;score_due_frame<=0;diag_hit_frame<=120;\n        end else begin\n            if (sys_count == MODE_PERIOD_CYCLES-1) begin\n                sys_count <= 0;\n                mode_pending <= 1;\n            end else sys_count <= sys_count + 1'b1;\n            // 800*525 pixels at25MHz =16.8ms, i.e.672000 cycles at40MHz.\n            // Preserve wall-clock frame time; no pixel bus CDC read.\n            // Frame-reset release differs by a few cycles (<one frame).\n            if(diag_frame_cycles==VIDEO_FRAME_SYS_CYCLES-1)begin\n                diag_frame_cycles<=0;diag_frame<=diag_frame+1'b1;\n            end else diag_frame_cycles<=diag_frame_cycles+1'b1;\n            if(!score_pending && control_sys_done && diag_frame>=score_due_frame)begin\n                score_pending<=1;diag_hit_frame<=diag_frame+32'd120;\n            end\n            if(score_pending && src_score_ready && control_sys_done)begin\n                score_pending<=0;score_seq<=score_seq+1'b1;\n                score_due_frame<=diag_frame+DIAG_SCORE_SPACING_FRAMES;\n            end\n            if (mode_pending && src_mode_ready) mode_pending <= 0;",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "old_diagnostic_score",
+    "source": "old_shell",
+    "first": 81,
+    "last": 90,
+    "contains": [
+      ".src_mode_valid(mode_pending)",
+      ".src_score_note_number(7'd60+",
+      ".src_score_velocity(10'd600)"
+    ],
+    "source_sha256": "df1f05b4a6a06deddd9d3a2244106ec29bb0d15e5dd808fc9bef9436d710a5cf",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\REWORK_WATCHDOG_RUN_02\\stage\\inputs\\sources\\audio_visual_display_probe.sv",
+    "excerpt": "    visual_control_bridge u_control (\n        .sys_clk(sys_clk), .pixel_clk(pixel_clk), .rst_n(visual_rst_n),\n        .src_mode_valid(mode_pending), .src_mode_ready(src_mode_ready),\n        .video_mode_toggle_pulse(video_mode_pulse),\n        .src_score_valid(score_pending && control_sys_done), .src_score_ready(src_score_ready),\n        .src_score_note_id(score_seq),\n        .src_score_note_number(7'd60+{4'd0,score_seq[2:0]}),\n        .src_score_hit_frame(diag_hit_frame),\n        .src_score_duration_valid(score_seq[0]),\n        .src_score_duration_frames(32'd30), .src_score_velocity(10'd600),",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "old_unique_scanner",
+    "source": "old_shell",
+    "first": 100,
+    "last": 102,
+    "contains": [
+      "video_scan_timing u_scan",
+      ".frame_start(frame_start)"
+    ],
+    "source_sha256": "df1f05b4a6a06deddd9d3a2244106ec29bb0d15e5dd808fc9bef9436d710a5cf",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\REWORK_WATCHDOG_RUN_02\\stage\\inputs\\sources\\audio_visual_display_probe.sv",
+    "excerpt": "    video_scan_timing u_scan(.pixel_clk(pixel_clk),.rst_n(video_reset_done && control_video_done),\n        .pixel_x(pixel_x),.pixel_y(pixel_y),.data_enable(de),\n        .hsync(hs),.vsync(vs),.frame_start(frame_start),.line_start(line_start));",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "old_unique_register_and_tmds",
+    "source": "old_shell",
+    "first": 121,
+    "last": 134,
+    "contains": [
+      "always_ff @(posedge pixel_clk",
+      "dvi_hs<=hs; dvi_vs<=vs; dvi_de<=de;",
+      "DVI_TX_Top u_video_tx"
+    ],
+    "source_sha256": "df1f05b4a6a06deddd9d3a2244106ec29bb0d15e5dd808fc9bef9436d710a5cf",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\REWORK_WATCHDOG_RUN_02\\stage\\inputs\\sources\\audio_visual_display_probe.sv",
+    "excerpt": "    always_ff @(posedge pixel_clk or negedge video_reset_done) begin\n        if(!video_reset_done) begin\n            dvi_hs<=1'b1; dvi_vs<=1'b1; dvi_de<=1'b0;\n            dvi_r<='0; dvi_g<='0; dvi_b<='0;\n        end else begin\n            dvi_hs<=hs; dvi_vs<=vs; dvi_de<=de;\n            dvi_r<=rgb_r; dvi_g<=rgb_g; dvi_b<=rgb_b;\n        end\n    end\n    DVI_TX_Top u_video_tx(.I_rst_n(serial_rst_n),.I_serial_clk(serial_clk),\n        .I_rgb_clk(pixel_clk),.I_rgb_vs(dvi_vs),.I_rgb_hs(dvi_hs),.I_rgb_de(dvi_de),\n        .I_rgb_r(dvi_r),.I_rgb_g(dvi_g),.I_rgb_b(dvi_b),\n        .O_tmds_clk_p(tmds_clk_p),.O_tmds_clk_n(tmds_clk_n),\n        .O_tmds_data_p(tmds_data_p),.O_tmds_data_n(tmds_data_n));",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "current_50m_shell",
+    "source": "current_board_shell",
+    "first": 5,
+    "last": 13,
+    "contains": [
+      "MODE_PERIOD_CYCLES = 250_000_000",
+      "VIDEO_FRAME_SYS_CYCLES = 840_000"
+    ],
+    "source_sha256": "6eca6bb7a4adae483ec4c802530392d3545174b2946d64724081320b317d2390",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\board\\audio_visual_display_probe.sv",
+    "excerpt": "module audio_visual_display_probe #(\n    parameter integer MODE_PERIOD_CYCLES = 250_000_000,\n    parameter integer VIDEO_FRAME_SYS_CYCLES = 840_000,\n    parameter integer DIAG_SCORE_SPACING_FRAMES = 30\n) (\n    input logic sys_clk,sys_rst_n,\n    input logic accepted_valid,\n    input audio_defs_pkg::performance_event_t accepted_data,\n    output wire tmds_clk_p,tmds_clk_n,",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "current_two_output_pll",
+    "source": "current_board_shell",
+    "first": 51,
+    "last": 67,
+    "contains": [
+      "same 50MHz reference",
+      ".clkout0(serial_clk),.clkout1(pixel_clk));"
+    ],
+    "source_sha256": "6eca6bb7a4adae483ec4c802530392d3545174b2946d64724081320b317d2390",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\board\\audio_visual_display_probe.sv",
+    "excerpt": "            // Diagnostic-only local time: same 50MHz reference as raster PLL,\n            // 800*525 pixels at25MHz =840000 sys cycles. No pixel bus CDC read.\n            // Frame-reset release differs by a few cycles (<one frame).\n            if(diag_frame_cycles==VIDEO_FRAME_SYS_CYCLES-1)begin\n                diag_frame_cycles<=0;diag_frame<=diag_frame+1'b1;\n            end else diag_frame_cycles<=diag_frame_cycles+1'b1;\n            if(!score_pending && control_sys_done && diag_frame>=score_due_frame)begin\n                score_pending<=1;diag_hit_frame<=diag_frame+32'd120;\n            end\n            if(score_pending && src_score_ready && control_sys_done)begin\n                score_pending<=0;score_seq<=score_seq+1'b1;\n                score_due_frame<=diag_frame+DIAG_SCORE_SPACING_FRAMES;\n            end\n            if (mode_pending && src_mode_ready) mode_pending <= 0;\n        end\n    end\n    TMDS_PLL u_video_pll(.clkin(sys_clk),.lock(pll_lock),.clkout0(serial_clk),.clkout1(pixel_clk));",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "old_pll_nominal_parameters",
+    "source": "old_pll",
+    "first": 64,
+    "last": 69,
+    "contains": [
+      "FCLKIN = \"50\"",
+      "ODIV0_SEL = 8",
+      "ODIV1_SEL = 40",
+      "ODIV2_SEL = 25"
+    ],
+    "source_sha256": "7d6006749d113207bcc2246d0415c874570db0c92e8563bbd55eea6ed17fce20",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\REWORK_WATCHDOG_RUN_02\\stage\\inputs\\sources\\TMDS_PLL_800_600_60.v",
+    "excerpt": "defparam PLLA_inst.FCLKIN = \"50\";\ndefparam PLLA_inst.IDIV_SEL = 1;\ndefparam PLLA_inst.FBDIV_SEL = 1;\ndefparam PLLA_inst.ODIV0_SEL = 8;\ndefparam PLLA_inst.ODIV1_SEL = 40;\ndefparam PLLA_inst.ODIV2_SEL = 25;",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "event_64_struct",
+    "source": "event_package",
+    "first": 121,
+    "last": 133,
+    "contains": [
+      "3+4+4+7+10+10+8+12+6 = 64",
+      "logic [5:0]  reserved",
+      "performance_event_t"
+    ],
+    "source_sha256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\audio_defs_pkg.sv",
+    "excerpt": "    // 合计 3+4+4+7+10+10+8+12+6 = 64 位\n    // -------------------------------------------------------------------------\n    typedef struct packed {\n        logic [2:0]  event_type;\n        logic [3:0]  source_id;\n        logic [3:0]  channel;\n        logic [6:0]  note_number;\n        logic [9:0]  velocity;\n        logic [9:0]  expression;\n        logic [7:0]  control_id;\n        logic [11:0] control_value;\n        logic [5:0]  reserved;\n    } performance_event_t;",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "score_98_struct",
+    "source": "control_bridge",
+    "first": 32,
+    "last": 46,
+    "contains": [
+      "SCORE_WIDTH = 34 + 2*FRAME_WIDTH",
+      "src_score_duration_frames, src_score_velocity",
+      "u_score_mailbox"
+    ],
+    "source_sha256": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\visual_control_bridge.sv",
+    "excerpt": "    localparam integer SCORE_WIDTH = 34 + 2*FRAME_WIDTH;\n    wire [SCORE_WIDTH-1:0] src_payload, video_payload;\n    wire mode_valid, mode_data;\n    wire score_src_done, score_dst_done, mode_src_done, mode_dst_done;\n    assign src_payload = {src_score_note_id, src_score_note_number,\n        src_score_hit_frame, src_score_duration_valid,\n        src_score_duration_frames, src_score_velocity};\n    assign {video_score_note_id, video_score_note_number,\n        video_score_hit_frame, video_score_duration_valid,\n        video_score_duration_frames, video_score_velocity} = video_payload;\n    visual_mailbox_cdc #(.WIDTH(SCORE_WIDTH)) u_score_mailbox (\n        .src_clk(sys_clk), .dst_clk(pixel_clk), .rst_n(rst_n),\n        .src_valid(src_score_valid), .src_ready(src_score_ready),\n        .src_data(src_payload), .dst_valid(video_score_valid),\n        .dst_ready(video_score_ready), .dst_data(video_payload),",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "constant_mode_payload",
+    "source": "control_bridge",
+    "first": 49,
+    "last": 56,
+    "contains": [
+      ".WIDTH(1)",
+      ".src_data(1'b1)",
+      ".dst_data(mode_data)"
+    ],
+    "source_sha256": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\visual_control_bridge.sv",
+    "excerpt": "    visual_mailbox_cdc #(.WIDTH(1)) u_mode_mailbox (\n        .src_clk(sys_clk), .dst_clk(pixel_clk), .rst_n(rst_n),\n        .src_valid(src_mode_valid), .src_ready(src_mode_ready),\n        .src_data(1'b1), .dst_valid(mode_valid),\n        .dst_ready(1'b1), .dst_data(mode_data),\n        .src_reset_done(mode_src_done), .dst_reset_done(mode_dst_done)\n    );\n    // Valid is a single destination cycle, since the consumer is always ready.",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "event_ack_sync",
+    "source": "event_bridge",
+    "first": 54,
+    "last": 61,
+    "contains": [
+      "ack_meta <= acknowledge_toggle",
+      "ack_sync <= ack_meta"
+    ],
+    "source_sha256": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\visual_event_bridge.sv",
+    "excerpt": "    always_ff @(posedge sys_clk or negedge sys_reset_done) begin\n        if (!sys_reset_done) begin\n            ack_meta <= 1'b0;\n            ack_sync <= 1'b0;\n        end else begin\n            ack_meta <= acknowledge_toggle;\n            ack_sync <= ack_meta;\n        end",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "event_req_desync_sync",
+    "source": "event_bridge",
+    "first": 94,
+    "last": 105,
+    "contains": [
+      "req_meta <= request_toggle",
+      "req_sync <= req_meta",
+      "desync_meta <= source_desync",
+      "video_desync <= desync_meta"
+    ],
+    "source_sha256": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\visual_event_bridge.sv",
+    "excerpt": "\n    always_ff @(posedge video_clk or negedge video_reset_done) begin\n        if (!video_reset_done) begin\n            req_meta <= 1'b0;\n            req_sync <= 1'b0;\n            desync_meta <= 1'b0;\n            video_desync <= 1'b0;\n        end else begin\n            req_meta <= request_toggle;\n            req_sync <= req_meta;\n            desync_meta <= source_desync;\n            video_desync <= desync_meta;",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "mailbox_ack_sync",
+    "source": "mailbox",
+    "first": 27,
+    "last": 34,
+    "contains": [
+      "ack_meta <= acknowledge_toggle",
+      "ack_sync <= ack_meta"
+    ],
+    "source_sha256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\visual_mailbox_cdc.sv",
+    "excerpt": "    always_ff @(posedge src_clk or negedge src_reset_done) begin\n        if (!src_reset_done) begin\n            ack_meta <= 1'b0;\n            ack_sync <= 1'b0;\n        end else begin\n            ack_meta <= acknowledge_toggle;\n            ack_sync <= ack_meta;\n        end",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "mailbox_req_sync",
+    "source": "mailbox",
+    "first": 45,
+    "last": 52,
+    "contains": [
+      "req_meta <= request_toggle",
+      "req_sync <= req_meta"
+    ],
+    "source_sha256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\visual_mailbox_cdc.sv",
+    "excerpt": "    always_ff @(posedge dst_clk or negedge dst_reset_done) begin\n        if (!dst_reset_done) begin\n            req_meta <= 1'b0;\n            req_sync <= 1'b0;\n        end else begin\n            req_meta <= request_toggle;\n            req_sync <= req_meta;\n        end",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "event_data_capture",
+    "source": "event_bridge",
+    "first": 118,
+    "last": 124,
+    "contains": [
+      "video_data <= payload_hold"
+    ],
+    "source_sha256": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\visual_event_bridge.sv",
+    "excerpt": "            end\n        end else if (req_sync != acknowledge_toggle) begin\n            // Bundled-data CDC: capture only after the two-flop request has\n            // arrived. payload_hold stays constant until the returned ack.\n            video_data <= payload_hold;\n            video_valid <= 1'b1;\n        end",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "score_data_capture",
+    "source": "mailbox",
+    "first": 62,
+    "last": 68,
+    "contains": [
+      "dst_data <= payload_hold"
+    ],
+    "source_sha256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\visual_mailbox_cdc.sv",
+    "excerpt": "                acknowledge_toggle <= req_sync;\n            end\n        end else if (req_sync != acknowledge_toggle) begin\n            // Data is held at the source until acceptance and returned ACK.\n            dst_data <= payload_hold;\n            dst_valid <= 1'b1;\n        end",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "old_clock_constraint_core",
+    "source": "old_sdc",
+    "first": 46,
+    "last": 47,
+    "contains": [
+      "ref_clk -period 20.000",
+      "-multiply_by 4 -divide_by 5",
+      "CLKOUT2"
+    ],
+    "source_sha256": "a8791f826c0bd8630483ce28c44636c24e4e28c041a9622d17d0b1764a8f888f",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\REWORK_WATCHDOG_RUN_02\\stage\\inputs\\constraints\\audio_visual_hold055.sdc",
+    "excerpt": "create_clock -name ref_clk -period 20.000 [get_ports {sys_clk}]\ncreate_generated_clock -name sys_clk -source [get_ports {sys_clk}] -master_clock ref_clk -multiply_by 4 -divide_by 5 [get_pins {u_visual/u_video_pll/PLLA_inst/CLKOUT2}]",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "old_clock_constraint_video",
+    "source": "old_sdc",
+    "first": 294,
+    "last": 295,
+    "contains": [
+      "-multiply_by 5 -divide_by 2",
+      "-multiply_by 1 -divide_by 2",
+      "CLKOUT0",
+      "CLKOUT1"
+    ],
+    "source_sha256": "a8791f826c0bd8630483ce28c44636c24e4e28c041a9622d17d0b1764a8f888f",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\REWORK_WATCHDOG_RUN_02\\stage\\inputs\\constraints\\audio_visual_hold055.sdc",
+    "excerpt": "create_generated_clock -name video_serial -source [get_ports {sys_clk}] -master_clock ref_clk -multiply_by 5 -divide_by 2 [get_pins {u_visual/u_video_pll/PLLA_inst/CLKOUT0}]\ncreate_generated_clock -name video_pixel -source [get_ports {sys_clk}] -master_clock ref_clk -multiply_by 1 -divide_by 2 [get_pins {u_visual/u_video_pll/PLLA_inst/CLKOUT1}]",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "old_seven_first_stages",
+    "source": "old_sdc",
+    "first": 300,
+    "last": 306,
+    "contains": [
+      "u_event_bridge/ack_meta_s0/D",
+      "u_event_bridge/req_meta_s0/D",
+      "u_event_bridge/desync_meta_s0/D",
+      "u_score_mailbox/ack_meta_s0/D",
+      "u_score_mailbox/req_meta_s0/D",
+      "u_mode_mailbox/ack_meta_s0/D",
+      "u_mode_mailbox/req_meta_s0/D"
+    ],
+    "source_sha256": "a8791f826c0bd8630483ce28c44636c24e4e28c041a9622d17d0b1764a8f888f",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\REWORK_WATCHDOG_RUN_02\\stage\\inputs\\constraints\\audio_visual_hold055.sdc",
+    "excerpt": "set_false_path -to [get_pins {u_visual/u_event_bridge/ack_meta_s0/D}]\nset_false_path -to [get_pins {u_visual/u_event_bridge/req_meta_s0/D}]\nset_false_path -to [get_pins {u_visual/u_event_bridge/desync_meta_s0/D}]\nset_false_path -to [get_pins {u_visual/u_control/u_score_mailbox/ack_meta_s0/D}]\nset_false_path -to [get_pins {u_visual/u_control/u_score_mailbox/req_meta_s0/D}]\nset_false_path -to [get_pins {u_visual/u_control/u_mode_mailbox/ack_meta_s0/D}]\nset_false_path -to [get_pins {u_visual/u_control/u_mode_mailbox/req_meta_s0/D}]",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "old_bundled_setup_only",
+    "source": "old_sdc",
+    "first": 308,
+    "last": 313,
+    "contains": [
+      "set_max_delay",
+      "payload_hold*",
+      "video_data*",
+      "dst_data*",
+      "10.000",
+      "report_timing -setup"
+    ],
+    "source_sha256": "a8791f826c0bd8630483ce28c44636c24e4e28c041a9622d17d0b1764a8f888f",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\REWORK_WATCHDOG_RUN_02\\stage\\inputs\\constraints\\audio_visual_hold055.sdc",
+    "excerpt": "set_max_delay -from [get_regs {u_visual/u_event_bridge/payload_hold*}] -to [get_regs {u_visual/u_event_bridge/video_data*}] 10.000\nset_max_delay -from [get_regs {u_visual/u_control/u_score_mailbox/payload_hold*}] -to [get_regs {u_visual/u_control/u_score_mailbox/dst_data*}] 10.000\n# Explicit path reports for the surviving data bits; an Active constraint\n# alone does not establish that synthesis retained all 64 or 98 payload bits.\nreport_timing -setup -from [get_regs {u_visual/u_event_bridge/payload_hold*}] -to [get_regs {u_visual/u_event_bridge/video_data*}] -max_paths 128 -max_common_paths 1\nreport_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/payload_hold*}] -to [get_regs {u_visual/u_control/u_score_mailbox/dst_data*}] -max_paths 128 -max_common_paths 1",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "old_synchronizer_hold",
+    "source": "old_sdc",
+    "first": 314,
+    "last": 327,
+    "contains": [
+      "report_timing -hold",
+      "ack_meta_s0",
+      "ack_sync_s0",
+      "req_meta_s0",
+      "req_sync_s0",
+      "desync_meta_s0",
+      "video_desync_s0"
+    ],
+    "source_sha256": "a8791f826c0bd8630483ce28c44636c24e4e28c041a9622d17d0b1764a8f888f",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_r05_functional_integration_20261015\\REWORK_WATCHDOG_RUN_02\\stage\\inputs\\constraints\\audio_visual_hold055.sdc",
+    "excerpt": "report_timing -setup -from [get_regs {u_visual/u_event_bridge/ack_meta_s0}] -to [get_regs {u_visual/u_event_bridge/ack_sync_s0}] -max_paths 1\nreport_timing -hold -from [get_regs {u_visual/u_event_bridge/ack_meta_s0}] -to [get_regs {u_visual/u_event_bridge/ack_sync_s0}] -max_paths 1\nreport_timing -setup -from [get_regs {u_visual/u_event_bridge/req_meta_s0}] -to [get_regs {u_visual/u_event_bridge/req_sync_s0}] -max_paths 1\nreport_timing -hold -from [get_regs {u_visual/u_event_bridge/req_meta_s0}] -to [get_regs {u_visual/u_event_bridge/req_sync_s0}] -max_paths 1\nreport_timing -setup -from [get_regs {u_visual/u_event_bridge/desync_meta_s0}] -to [get_regs {u_visual/u_event_bridge/video_desync_s0}] -max_paths 1\nreport_timing -hold -from [get_regs {u_visual/u_event_bridge/desync_meta_s0}] -to [get_regs {u_visual/u_event_bridge/video_desync_s0}] -max_paths 1\nreport_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/ack_sync_s0}] -max_paths 1\nreport_timing -hold -from [get_regs {u_visual/u_control/u_score_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/ack_sync_s0}] -max_paths 1\nreport_timing -setup -from [get_regs {u_visual/u_control/u_score_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/req_sync_s0}] -max_paths 1\nreport_timing -hold -from [get_regs {u_visual/u_control/u_score_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_score_mailbox/req_sync_s0}] -max_paths 1\nreport_timing -setup -from [get_regs {u_visual/u_control/u_mode_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/ack_sync_s0}] -max_paths 1\nreport_timing -hold -from [get_regs {u_visual/u_control/u_mode_mailbox/ack_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/ack_sync_s0}] -max_paths 1\nreport_timing -setup -from [get_regs {u_visual/u_control/u_mode_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/req_sync_s0}] -max_paths 1\nreport_timing -hold -from [get_regs {u_visual/u_control/u_mode_mailbox/req_meta_s0}] -to [get_regs {u_visual/u_control/u_mode_mailbox/req_sync_s0}] -max_paths 1",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "scanner_origin",
+    "source": "scanner",
+    "first": 16,
+    "last": 35,
+    "contains": [
+      "pixel_x <= '0",
+      "pixel_y <= '0",
+      "line_start = rst_n && pixel_x == 0",
+      "frame_start = line_start && pixel_y == 0"
+    ],
+    "source_sha256": "0b7b3def84043ddd40ed2c1e237bb2d528a117e4fc15195d40b33b0fe78b2069",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\common\\video_scan_timing.sv",
+    "excerpt": "    always_ff @(posedge pixel_clk or negedge rst_n) begin\n        if (!rst_n) begin\n            pixel_x <= '0;\n            pixel_y <= '0;\n        end else if (pixel_x == H_TOTAL-1) begin\n            pixel_x <= '0;\n            if (pixel_y == V_TOTAL-1) pixel_y <= '0;\n            else pixel_y <= pixel_y + 1'b1;\n        end else pixel_x <= pixel_x + 1'b1;\n    end\n    always_comb begin\n        data_enable = rst_n && pixel_x < H_ACTIVE && pixel_y < V_ACTIVE;\n        hsync = !H_POLARITY;\n        vsync = !V_POLARITY;\n        if (rst_n && pixel_x >= H_ACTIVE + H_FRONT &&\n            pixel_x < H_ACTIVE + H_FRONT + H_SYNC) hsync = H_POLARITY;\n        if (rst_n && pixel_y >= V_ACTIVE + V_FRONT &&\n            pixel_y < V_ACTIVE + V_FRONT + V_SYNC) vsync = V_POLARITY;\n        line_start = rst_n && pixel_x == 0;\n        frame_start = line_start && pixel_y == 0;",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "frame_counter_reset",
+    "source": "score_tracker",
+    "first": 347,
+    "last": 350,
+    "contains": [
+      "if (!rst_n)",
+      "current_frame <= {FRAME_WIDTH{1'b0}}"
+    ],
+    "source_sha256": "7e5c630fddf3da60f5fe6bd67721736ee7624817355822dadc4a09dc4cffe0dc",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\input\\visualizer\\visual_score_tracker.sv",
+    "excerpt": "    always_ff @(posedge clk or negedge rst_n) begin\n        if (!rst_n) begin\n            current_frame <= {FRAME_WIDTH{1'b0}};\n            hit_pulse<=0;hit_note_number<=0;",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  },
+  {
+    "id": "current_project_not_pro",
+    "source": "current_project",
+    "first": 34,
+    "last": 37,
+    "contains": [
+      "GW5AT-60B",
+      "GW5AT-LV60PG484AC1/I0"
+    ],
+    "source_sha256": "0cca0b9494486f4ef70b09cd59f1dc9fabca10ab3fa8a26914fa0d24fb055b57",
+    "source_path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\build\\electronic_piano.gprj",
+    "excerpt": "    <Template>FPGA</Template>\n    <Version>5</Version>\n    <Device name=\"GW5AT-60B\" pn=\"GW5AT-LV60PG484AC1/I0\">gw5at60b-002</Device>\n    <FileList>",
+    "status": "OBSERVED_SOURCE_TEXT_ONLY"
+  }
+]

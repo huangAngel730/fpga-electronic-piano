@@ -1,0 +1,99 @@
+{
+  "packages": [
+    {
+      "package": "patch_proposal",
+      "receipt_status": "DONE_STATIC_PROPOSAL_NO_ACTIONABLE_EXECUTION_PENDING_M2",
+      "declared_output_hashes_checked": 5,
+      "mismatches": []
+    },
+    {
+      "package": "successor_mapping",
+      "receipt_status": "DONE_STATIC_MAPPING_ONLY__D3_REWORK_PENDING_M2",
+      "declared_output_hashes_checked": 4,
+      "mismatches": []
+    },
+    {
+      "package": "boundary_cases",
+      "receipt_status": "STATIC_DESIGN_READY_NOT_TESTED",
+      "declared_output_hashes_checked": 7,
+      "mismatches": []
+    },
+    {
+      "package": "intake_delta",
+      "receipt_status": "DONE_STATIC_INTAKE_DELTA__NO_ACTIONABLE_EXECUTION_PENDING_M2",
+      "declared_output_hashes_checked": 0,
+      "mismatches": []
+    }
+  ],
+  "cases_sha256": "8bf7e0918fa5ceccab1d187c625a1cd3a4f97d282207c8e48ab56235eabb3bcb",
+  "case_count": 16,
+  "all_not_run": true,
+  "last_case": {
+    "id": "BC16",
+    "name": "合法同cycle FRAME→REQUEST新→CONSUME旧→RESET；截止已履行",
+    "calendar_profile": "D833_NEXT834",
+    "horizon_cycle": 2511,
+    "independent_reset": {
+      "cycle": 2510,
+      "old_epoch": 0,
+      "new_epoch": 1,
+      "new_epoch_first_frame": {
+        "frame_id": 0,
+        "cycle": 2610
+      }
+    },
+    "prefix_fragments": [
+      "req7_consumed",
+      "req8_accepted",
+      "req8_returned"
+    ],
+    "suffix_rows": [
+      {
+        "kind": "FRAME",
+        "cycle": 2510,
+        "epoch": 0,
+        "frame_id": 3
+      },
+      {
+        "kind": "REQUEST",
+        "cycle": 2510,
+        "epoch": 0,
+        "req_id": 9,
+        "lane_mask": 15
+      },
+      {
+        "kind": "CONSUME",
+        "cycle": 2510,
+        "epoch": 0,
+        "req_id": 8,
+        "frame_id": 3
+      },
+      {
+        "kind": "RESET",
+        "cycle": 2510,
+        "epoch": 1
+      },
+      {
+        "kind": "PA",
+        "cycle": 2510,
+        "epoch": 1,
+        "rst_n": 0,
+        "stable": 0,
+        "pa_en": 0
+      },
+      {
+        "kind": "END",
+        "cycle": 2511,
+        "epoch": 1
+      }
+    ],
+    "expected_static": {
+      "outcome": "ACCEPT_UNDER_PROPOSAL",
+      "first_semantic_reject": null,
+      "at": "2510先履行旧epoch截止，再计划内RESET",
+      "path": "FRAME先于两个不同ID的REQUEST/CONSUME；req8已消费，不能一律拒绝RESET@旧deadline；req9年龄0<3344截止，被计划RESET取消，未来旧FRAME3344截断，新epoch首帧2610晚于horizon"
+    },
+    "old_source_static_path": "REQUEST142 continue不清旧due；随后CONSUME157–163合法；RESET100–104跳过已消费req8，仅取消未到期req9。若M2要更严同cycle相位，须显式冻结而不能排序反推。未执行。",
+    "observed_result": "NOT_RUN"
+  }
+}

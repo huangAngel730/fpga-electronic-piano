@@ -1,0 +1,227 @@
+[
+  {
+    "path": "code/rtl/common/pcm_waveform_observer_candidate/pcm_waveform_observer_bridge.sv",
+    "bytes": 4966,
+    "sha256": "0b937e2d23dc090b5094d789edba5216c34a96eb84eb96d002cdab8aa0c45cfb",
+    "copy": "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_binding_20261017\\intake_20261017\\INPUT_ORIGINALS\\supplement_00_pcm_waveform_observer_bridge.sv",
+    "classification": "EXISTING_CONTRACT_NOT_NEW_PRO_BINDING",
+    "matches": [
+      {
+        "line": 10,
+        "text": "    input wire audio_frame_load,"
+      },
+      {
+        "line": 11,
+        "text": "    input wire signed [23:0] audio_play_left, audio_play_right,"
+      },
+      {
+        "line": 43,
+        "text": "    pcm_frame_observer #(.FIRST_SEQ(FIRST_SEQ)) u_observer ("
+      },
+      {
+        "line": 45,
+        "text": "        .frame_load(audio_frame_load), .play_left(audio_play_left),"
+      },
+      {
+        "line": 46,
+        "text": "        .play_right(audio_play_right), .observed_valid(observed_valid),"
+      }
+    ]
+  },
+  {
+    "path": "code/docs/hardware/score_transfer_v1/PROTOCOL.md",
+    "bytes": 3294,
+    "sha256": "431b5cd7ae678c97bcb0be720a775b51a031f096161a0dbef36bdeea5f41f15b",
+    "copy": "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_binding_20261017\\intake_20261017\\INPUT_ORIGINALS\\supplement_01_PROTOCOL.md",
+    "classification": "EXISTING_CONTRACT_NOT_NEW_PRO_BINDING",
+    "matches": [
+      {
+        "line": 30,
+        "text": "帧字节间超时20ms（800000系统拍），上传空闲超时5s（200000000拍）。"
+      },
+      {
+        "line": 38,
+        "text": "PC ACK默认0.5s、最多重发2次、整次事务总截止30s；NACK立即非零退出，不盲目重发坏包。"
+      }
+    ]
+  },
+  {
+    "path": "code/tb/audio_out/m3_clock40_pcm_serial_acceptance/tb_normal.sv",
+    "bytes": 4496,
+    "sha256": "f4b156443a44448a5133b17284b68611eb7dfdc5486417db127095fe870bb5ef",
+    "copy": "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_binding_20261017\\intake_20261017\\INPUT_ORIGINALS\\supplement_02_tb_normal.sv",
+    "classification": "EXISTING_CONTRACT_NOT_NEW_PRO_BINDING",
+    "matches": [
+      {
+        "line": 7,
+        "text": "    wire midi_valid, midi_ready, event_valid, event_ready, button_ready;"
+      },
+      {
+        "line": 13,
+        "text": "    wire pending, bclk, ws, din, ready, frame_tick, midi_busy;"
+      },
+      {
+        "line": 17,
+        "text": "        .event_valid(midi_valid), .event_data(midi_data),"
+      },
+      {
+        "line": 22,
+        "text": "        .clk, .rst_n, .button_valid(1'b0), .button_ready,"
+      },
+      {
+        "line": 23,
+        "text": "        .button_data(64'd0), .midi_valid, .midi_ready, .midi_data,"
+      },
+      {
+        "line": 24,
+        "text": "        .event_valid, .event_ready, .event_data, .event_fifo_level(fifo_level),"
+      },
+      {
+        "line": 27,
+        "text": "        .clk, .rst_n, .event_valid, .event_ready, .event_data, .frame_tick,"
+      },
+      {
+        "line": 28,
+        "text": "        .play_left, .play_right, .pending_valid(pending),"
+      },
+      {
+        "line": 33,
+        "text": "        .clk, .rst_n, .valid(1'b1), .pcm_left(play_left), .pcm_right(play_right),"
+      },
+      {
+        "line": 34,
+        "text": "        .bclk, .lrck(ws), .din, .ready, .frame_tick);"
+      },
+      {
+        "line": 35,
+        "text": "    serial_capture monitor ("
+      },
+      {
+        "line": 36,
+        "text": "        .clk, .rst_n, .frame_tick,"
+      },
+      {
+        "line": 37,
+        "text": "        .pcm_valid(u_core.u_commit.pcm_valid), .pcm_ready(u_core.u_commit.pcm_ready),"
+      },
+      {
+        "line": 39,
+        "text": "        .pcm_left(u_core.u_commit.pcm_left), .pcm_right(u_core.u_commit.pcm_right),"
+      },
+      {
+        "line": 52,
+        "text": "    always @(posedge clk) if (rst_n && event_valid && event_ready) begin"
+      },
+      {
+        "line": 62,
+        "text": "        repeat(300) @(posedge frame_tick);"
+      },
+      {
+        "line": 70,
+        "text": "            repeat(64) @(posedge frame_tick);"
+      },
+      {
+        "line": 73,
+        "text": "        repeat(4900) @(posedge frame_tick);"
+      }
+    ]
+  },
+  {
+    "path": "code/tb/audio_out/m3_clock40_pcm_serial_acceptance/serial_capture.sv",
+    "bytes": 2677,
+    "sha256": "b6cfb059fd54d7ecc4cc3c1dcd035e9d97dad334b3c8e9fee8e28d33467f23be",
+    "copy": "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_binding_20261017\\intake_20261017\\INPUT_ORIGINALS\\supplement_03_serial_capture.sv",
+    "classification": "EXISTING_CONTRACT_NOT_NEW_PRO_BINDING",
+    "matches": [
+      {
+        "line": 4,
+        "text": "    input wire clk, rst_n, frame_tick,"
+      },
+      {
+        "line": 5,
+        "text": "    input wire pcm_valid, pcm_ready,"
+      },
+      {
+        "line": 6,
+        "text": "    input wire [31:0] pcm_id, request_id,"
+      },
+      {
+        "line": 7,
+        "text": "    input wire signed [23:0] pcm_left, pcm_right, play_left, play_right,"
+      },
+      {
+        "line": 19,
+        "text": "    // Pre-NBA values are exactly those seen by the buffer and sender."
+      },
+      {
+        "line": 21,
+        "text": "        if (pcm_valid && pcm_ready) begin"
+      },
+      {
+        "line": 22,
+        "text": "            if ($isunknown({pcm_id, request_id, pcm_left, pcm_right}))"
+      },
+      {
+        "line": 25,
+        "text": "                      pcm_id, request_id, $signed(pcm_left), $signed(pcm_right));"
+      },
+      {
+        "line": 27,
+        "text": "        if (frame_tick) begin"
+      },
+      {
+        "line": 29,
+        "text": "            if ($isunknown({request_id, play_left, play_right}))"
+      },
+      {
+        "line": 31,
+        "text": "            $fdisplay(fd, \"A %.3f %0d %0d %0d %0d\", $realtime,"
+      },
+      {
+        "line": 32,
+        "text": "                      adoption, request_id, $signed(play_left), $signed(play_right));"
+      }
+    ]
+  },
+  {
+    "path": "code/docs/test/m3_pro_waveform_successor_20261017/prepare.py",
+    "bytes": 4056,
+    "sha256": "a592232bb4156107ef1aa5d3ae95bd28ec855381d04ae10be3f9a3292bda87ee",
+    "copy": "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_binding_20261017\\intake_20261017\\INPUT_ORIGINALS\\supplement_04_prepare.py",
+    "classification": "EXISTING_CONTRACT_NOT_NEW_PRO_BINDING",
+    "matches": [
+      {
+        "line": 12,
+        "text": "ROOT = HERE.parents[3]"
+      },
+      {
+        "line": 25,
+        "text": "    raw_dir = ROOT / \"code/tb/audio_out/m3_clock40_pcm_serial_acceptance/evidence\""
+      },
+      {
+        "line": 26,
+        "text": "    reference = ROOT / \"code/tb/input/pcm_waveform_candidate/reference.py\""
+      },
+      {
+        "line": 30,
+        "text": "    real, source = ref.sealed_samples(\"normal\")"
+      },
+      {
+        "line": 31,
+        "text": "    raw = base64.b64decode((raw_dir / \"normal_capture.b64\").read_bytes())"
+      },
+      {
+        "line": 32,
+        "text": "    write(HERE / \"normal_capture.original.txt\", raw.decode(\"utf-8\"))"
+      },
+      {
+        "line": 67,
+        "text": "        \"reference_sha256\": sha(reference), \"normal_b64_sha256\": sha(raw_dir / \"normal_capture.b64\"),"
+      },
+      {
+        "line": 68,
+        "text": "        \"manifest_sha256\": sha(raw_dir / \"raw_manifest.json\"),"
+      }
+    ]
+  }
+]

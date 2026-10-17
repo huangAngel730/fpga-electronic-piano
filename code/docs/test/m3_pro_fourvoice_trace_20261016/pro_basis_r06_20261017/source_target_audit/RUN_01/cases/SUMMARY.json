@@ -1,0 +1,380 @@
+{
+  "software_cases_passed": true,
+  "cases": [
+    {
+      "case": "synthetic_static_positive",
+      "expected": "STATIC_CLOSURE_READY",
+      "actual": [
+        "STATIC_CLOSURE_READY"
+      ],
+      "passed": true
+    },
+    {
+      "case": "physical_identity_missing",
+      "expected": "PENDING_PHYSICAL_ID",
+      "actual": [
+        "PENDING_PHYSICAL_ID"
+      ],
+      "passed": true
+    },
+    {
+      "case": "wrapper_omitted",
+      "expected": "WRAPPER_NOT_IN_SOURCE_LIST",
+      "actual": [
+        "REJECTED",
+        "MISSING_TOP:wrapper",
+        "WRAPPER_NOT_IN_SOURCE_LIST"
+      ],
+      "passed": true
+    },
+    {
+      "case": "missing_leaf",
+      "expected": "MISSING_MODULE:leaf",
+      "actual": [
+        "REJECTED",
+        "MISSING_MODULE:leaf"
+      ],
+      "passed": true
+    },
+    {
+      "case": "duplicate_module",
+      "expected": "DUPLICATE_MODULE:leaf",
+      "actual": [
+        "REJECTED",
+        "DUPLICATE_MODULE:leaf",
+        "UNKNOWN_NAMED_PORT:leaf.a",
+        "UNKNOWN_NAMED_PORT:leaf.b"
+      ],
+      "passed": true
+    },
+    {
+      "case": "stage_path_escape",
+      "expected": "PATH_ESCAPE:",
+      "actual": [
+        "PATH_ESCAPE:../escape.sv"
+      ],
+      "passed": true
+    },
+    {
+      "case": "input_path_escape",
+      "expected": "PATH_ESCAPE:",
+      "actual": [
+        "PATH_ESCAPE:../escape.sv"
+      ],
+      "passed": true
+    },
+    {
+      "case": "candidate_sha_drift",
+      "expected": "SHA_MISMATCH:",
+      "actual": [
+        "SHA_MISMATCH:duplicate.sv"
+      ],
+      "passed": true
+    },
+    {
+      "case": "candidate_overwrite",
+      "expected": "CANDIDATE_OVERWRITE:",
+      "actual": [
+        "CANDIDATE_OVERWRITE:source_closure/inputs/leaf.sv"
+      ],
+      "passed": true
+    },
+    {
+      "case": "explicit_new_candidate",
+      "expected": "STATIC_CLOSURE_READY",
+      "actual": [
+        "STATIC_CLOSURE_READY"
+      ],
+      "passed": true
+    },
+    {
+      "case": "wrong_named_port",
+      "expected": "UNKNOWN_NAMED_PORT:leaf.NO_PORT",
+      "actual": [
+        "REJECTED",
+        "UNKNOWN_NAMED_PORT:leaf.NO_PORT"
+      ],
+      "passed": true
+    },
+    {
+      "case": "missing_include",
+      "expected": "MISSING_INCLUDE:",
+      "actual": [
+        "REJECTED",
+        "MISSING_INCLUDE:new/absent.svh"
+      ],
+      "passed": true
+    },
+    {
+      "case": "missing_rom_literal",
+      "expected": "MISSING_ROM_REFERENCE:",
+      "actual": [
+        "REJECTED",
+        "MISSING_ROM_REFERENCE:new/rom.sv:rom/missing.mem"
+      ],
+      "passed": true
+    },
+    {
+      "case": "unelaborated_macro_pending",
+      "expected": "PENDING_STATIC_ELABORATION",
+      "actual": [
+        "PENDING_STATIC_ELABORATION"
+      ],
+      "passed": true
+    },
+    {
+      "case": "comment_not_duplicate",
+      "expected": "STATIC_CLOSURE_READY",
+      "actual": [
+        "STATIC_CLOSURE_READY"
+      ],
+      "passed": true
+    }
+  ],
+  "real_static_intake": [
+    {
+      "assembly": "bound_list_only",
+      "mode": "simulation",
+      "status": "REJECTED",
+      "errors": [
+        "MISSING_MODULE:dds_oscillator",
+        "MISSING_MODULE:performance_event_t",
+        "MISSING_ROM_REFERENCE:source_closure/inputs/sources/m1td_timbre_oscillator.sv:sine_wavetable.hex",
+        "MISSING_ROM_REFERENCE:source_closure/inputs/sources/m1td_timbre_oscillator.sv:triangle_wavetable.hex",
+        "MISSING_TOP:m2_138k_pro_fourvoice_candidate_top",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_fcw_pipeline.base_fcw",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_fcw_pipeline.bend",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_fcw_pipeline.fcw_out",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_fcw_pipeline.modulation",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_fcw_pipeline.pitch_range",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.request_generations",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.request_id",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.request_occupied",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.request_pitch_bend",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.request_pitch_range",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.request_sources",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.result_generations",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.result_id",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.result_occupied",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.result_sources",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.clk",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_channel",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_control_value",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_generation",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_note_number",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_ready",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_slot",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_source_id",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_type",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_valid",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.deferred_mask",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.key_down_mask",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.occupied_mask",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.release_generations",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.release_mask",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.release_ready",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.release_valid",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.releasing_mask",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.rst_n",
+        "UNKNOWN_NAMED_PORT:pitch_mod_fcw_pipeline.base_fcw",
+        "UNKNOWN_NAMED_PORT:pitch_mod_fcw_pipeline.bend",
+        "UNKNOWN_NAMED_PORT:pitch_mod_fcw_pipeline.fcw_out",
+        "UNKNOWN_NAMED_PORT:pitch_mod_fcw_pipeline.modulation",
+        "UNKNOWN_NAMED_PORT:pitch_mod_fcw_pipeline.pitch_range",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.request_generations",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.request_id",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.request_occupied",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.request_pitch_bend",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.request_pitch_range",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.request_sources",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.result_generations",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.result_id",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.result_occupied",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.result_sources",
+        "UNKNOWN_NAMED_PORT:sustain_controller.clk",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_channel",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_control_value",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_generation",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_note_number",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_ready",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_slot",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_source_id",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_type",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_valid",
+        "UNKNOWN_NAMED_PORT:sustain_controller.deferred_mask",
+        "UNKNOWN_NAMED_PORT:sustain_controller.key_down_mask",
+        "UNKNOWN_NAMED_PORT:sustain_controller.occupied_mask",
+        "UNKNOWN_NAMED_PORT:sustain_controller.release_generations",
+        "UNKNOWN_NAMED_PORT:sustain_controller.release_mask",
+        "UNKNOWN_NAMED_PORT:sustain_controller.release_ready",
+        "UNKNOWN_NAMED_PORT:sustain_controller.release_valid",
+        "UNKNOWN_NAMED_PORT:sustain_controller.releasing_mask",
+        "UNKNOWN_NAMED_PORT:sustain_controller.rst_n",
+        "WRAPPER_NOT_IN_SOURCE_LIST"
+      ],
+      "physical_status": "PENDING_PHYSICAL_ID"
+    },
+    {
+      "assembly": "bound_list_plus_wrapper",
+      "mode": "simulation",
+      "status": "REJECTED",
+      "errors": [
+        "MISSING_MODULE:dds_oscillator",
+        "MISSING_MODULE:performance_event_t",
+        "MISSING_ROM_REFERENCE:source_closure/inputs/sources/m1td_timbre_oscillator.sv:sine_wavetable.hex",
+        "MISSING_ROM_REFERENCE:source_closure/inputs/sources/m1td_timbre_oscillator.sv:triangle_wavetable.hex",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_fcw_pipeline.base_fcw",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_fcw_pipeline.bend",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_fcw_pipeline.fcw_out",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_fcw_pipeline.modulation",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_fcw_pipeline.pitch_range",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.request_generations",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.request_id",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.request_occupied",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.request_pitch_bend",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.request_pitch_range",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.request_sources",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.result_generations",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.result_id",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.result_occupied",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.result_sources",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.clk",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_channel",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_control_value",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_generation",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_note_number",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_ready",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_slot",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_source_id",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_type",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_valid",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.deferred_mask",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.key_down_mask",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.occupied_mask",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.release_generations",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.release_mask",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.release_ready",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.release_valid",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.releasing_mask",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.rst_n",
+        "UNKNOWN_NAMED_PORT:pitch_mod_fcw_pipeline.base_fcw",
+        "UNKNOWN_NAMED_PORT:pitch_mod_fcw_pipeline.bend",
+        "UNKNOWN_NAMED_PORT:pitch_mod_fcw_pipeline.fcw_out",
+        "UNKNOWN_NAMED_PORT:pitch_mod_fcw_pipeline.modulation",
+        "UNKNOWN_NAMED_PORT:pitch_mod_fcw_pipeline.pitch_range",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.request_generations",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.request_id",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.request_occupied",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.request_pitch_bend",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.request_pitch_range",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.request_sources",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.result_generations",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.result_id",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.result_occupied",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.result_sources",
+        "UNKNOWN_NAMED_PORT:sustain_controller.clk",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_channel",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_control_value",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_generation",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_note_number",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_ready",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_slot",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_source_id",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_type",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_valid",
+        "UNKNOWN_NAMED_PORT:sustain_controller.deferred_mask",
+        "UNKNOWN_NAMED_PORT:sustain_controller.key_down_mask",
+        "UNKNOWN_NAMED_PORT:sustain_controller.occupied_mask",
+        "UNKNOWN_NAMED_PORT:sustain_controller.release_generations",
+        "UNKNOWN_NAMED_PORT:sustain_controller.release_mask",
+        "UNKNOWN_NAMED_PORT:sustain_controller.release_ready",
+        "UNKNOWN_NAMED_PORT:sustain_controller.release_valid",
+        "UNKNOWN_NAMED_PORT:sustain_controller.releasing_mask",
+        "UNKNOWN_NAMED_PORT:sustain_controller.rst_n"
+      ],
+      "physical_status": "PENDING_PHYSICAL_ID"
+    },
+    {
+      "assembly": "bound_list_plus_wrapper",
+      "mode": "physical",
+      "status": "REJECTED",
+      "errors": [
+        "MISSING_MODULE:dds_oscillator",
+        "MISSING_MODULE:performance_event_t",
+        "MISSING_ROM_REFERENCE:source_closure/inputs/sources/m1td_timbre_oscillator.sv:sine_wavetable.hex",
+        "MISSING_ROM_REFERENCE:source_closure/inputs/sources/m1td_timbre_oscillator.sv:triangle_wavetable.hex",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_fcw_pipeline.base_fcw",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_fcw_pipeline.bend",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_fcw_pipeline.fcw_out",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_fcw_pipeline.modulation",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_fcw_pipeline.pitch_range",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.request_generations",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.request_id",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.request_occupied",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.request_pitch_bend",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.request_pitch_range",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.request_sources",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.result_generations",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.result_id",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.result_occupied",
+        "UNKNOWN_NAMED_PORT:m1td_pitch_mod_snapshot_pipeline.result_sources",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.clk",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_channel",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_control_value",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_generation",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_note_number",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_ready",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_slot",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_source_id",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_type",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.cmd_valid",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.deferred_mask",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.key_down_mask",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.occupied_mask",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.release_generations",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.release_mask",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.release_ready",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.release_valid",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.releasing_mask",
+        "UNKNOWN_NAMED_PORT:m1td_sustain_controller.rst_n",
+        "UNKNOWN_NAMED_PORT:pitch_mod_fcw_pipeline.base_fcw",
+        "UNKNOWN_NAMED_PORT:pitch_mod_fcw_pipeline.bend",
+        "UNKNOWN_NAMED_PORT:pitch_mod_fcw_pipeline.fcw_out",
+        "UNKNOWN_NAMED_PORT:pitch_mod_fcw_pipeline.modulation",
+        "UNKNOWN_NAMED_PORT:pitch_mod_fcw_pipeline.pitch_range",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.request_generations",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.request_id",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.request_occupied",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.request_pitch_bend",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.request_pitch_range",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.request_sources",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.result_generations",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.result_id",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.result_occupied",
+        "UNKNOWN_NAMED_PORT:pitch_mod_snapshot_pipeline.result_sources",
+        "UNKNOWN_NAMED_PORT:sustain_controller.clk",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_channel",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_control_value",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_generation",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_note_number",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_ready",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_slot",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_source_id",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_type",
+        "UNKNOWN_NAMED_PORT:sustain_controller.cmd_valid",
+        "UNKNOWN_NAMED_PORT:sustain_controller.deferred_mask",
+        "UNKNOWN_NAMED_PORT:sustain_controller.key_down_mask",
+        "UNKNOWN_NAMED_PORT:sustain_controller.occupied_mask",
+        "UNKNOWN_NAMED_PORT:sustain_controller.release_generations",
+        "UNKNOWN_NAMED_PORT:sustain_controller.release_mask",
+        "UNKNOWN_NAMED_PORT:sustain_controller.release_ready",
+        "UNKNOWN_NAMED_PORT:sustain_controller.release_valid",
+        "UNKNOWN_NAMED_PORT:sustain_controller.releasing_mask",
+        "UNKNOWN_NAMED_PORT:sustain_controller.rst_n"
+      ],
+      "physical_status": "PENDING_PHYSICAL_ID"
+    }
+  ],
+  "hdl_calls": 0,
+  "board_release_allowed": false
+}

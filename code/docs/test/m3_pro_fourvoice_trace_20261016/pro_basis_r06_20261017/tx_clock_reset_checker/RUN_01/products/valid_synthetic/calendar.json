@@ -1,0 +1,114 @@
+{
+  "schema": "M3_R06_TX_TRANSACTION_CALENDAR_V1",
+  "authority": "SYNTHETIC_INDEPENDENT_CALENDAR",
+  "independent_of_trace": true,
+  "tx_selection_plan_authoritative": true,
+  "transactions": [
+    {
+      "epoch": 0,
+      "req_id": 0,
+      "request_cycle": 841,
+      "result_cycle": 871,
+      "commit_cycle": 872,
+      "cancel_cycle": null
+    },
+    {
+      "epoch": 0,
+      "req_id": 1,
+      "request_cycle": 1674,
+      "result_cycle": 1704,
+      "commit_cycle": 1705,
+      "cancel_cycle": null
+    },
+    {
+      "epoch": 0,
+      "req_id": 2,
+      "request_cycle": 2507,
+      "result_cycle": null,
+      "commit_cycle": null,
+      "cancel_cycle": 2527
+    },
+    {
+      "epoch": 0,
+      "req_id": 3,
+      "request_cycle": 3341,
+      "result_cycle": null,
+      "commit_cycle": null,
+      "cancel_cycle": 3800
+    },
+    {
+      "epoch": 1,
+      "req_id": 0,
+      "request_cycle": 4640,
+      "result_cycle": 4670,
+      "commit_cycle": 4671,
+      "cancel_cycle": null
+    },
+    {
+      "epoch": 1,
+      "req_id": 1,
+      "request_cycle": 5473,
+      "result_cycle": 5503,
+      "commit_cycle": 5504,
+      "cancel_cycle": null
+    },
+    {
+      "epoch": 1,
+      "req_id": 2,
+      "request_cycle": 6306,
+      "result_cycle": 6336,
+      "commit_cycle": 6337,
+      "cancel_cycle": null
+    }
+  ],
+  "tx_expectations": [
+    {
+      "epoch": 0,
+      "cycle": 840,
+      "kind": "STARTUP",
+      "req_id": null
+    },
+    {
+      "epoch": 0,
+      "cycle": 1673,
+      "kind": "NEW",
+      "req_id": 0
+    },
+    {
+      "epoch": 0,
+      "cycle": 2506,
+      "kind": "NEW",
+      "req_id": 1
+    },
+    {
+      "epoch": 0,
+      "cycle": 3340,
+      "kind": "HOLD",
+      "req_id": 1
+    },
+    {
+      "epoch": 1,
+      "cycle": 4639,
+      "kind": "STARTUP",
+      "req_id": null
+    },
+    {
+      "epoch": 1,
+      "cycle": 5472,
+      "kind": "NEW",
+      "req_id": 0
+    },
+    {
+      "epoch": 1,
+      "cycle": 6305,
+      "kind": "NEW",
+      "req_id": 1
+    },
+    {
+      "epoch": 1,
+      "cycle": 7139,
+      "kind": "NEW",
+      "req_id": 2
+    }
+  ]
+}

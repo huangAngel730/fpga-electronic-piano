@@ -1,0 +1,1 @@
+module probe; missing_leaf u(.a()); endmodule

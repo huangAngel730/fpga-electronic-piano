@@ -1,0 +1,23 @@
+{
+  "functional_failures": [],
+  "static_auxiliary_failures": [
+    {
+      "command": "git rev-parse HEAD^{tree}",
+      "exit_code": 1,
+      "stdout": "08cc66e151074c29a08c037d411065d150adea67\n-encodedCommand\ndAByAGUAZQA=\n",
+      "stderr": "fatal: ambiguous argument dAByAGUAZQA=: unknown revision or path not in the working tree.",
+      "cause": "PowerShell interpreted unquoted braces as a script block",
+      "repair": "git rev-parse 'HEAD^{tree}'",
+      "source_or_index_mutated": false
+    },
+    {
+      "operation": "receipt hash collection, first attempt",
+      "exit_code": 1,
+      "first_failure": "AttributeError: 'str' object has no attribute 'get'",
+      "cause": "intake_delta outputs are filenames rather than identity objects",
+      "repair": "Only compare declared dict SHA entries; capture all package bytes in final seal manifest",
+      "functional_execution": false
+    }
+  ],
+  "note": "This was a read-only Git identity command, not a functional test or execution allowance."
+}

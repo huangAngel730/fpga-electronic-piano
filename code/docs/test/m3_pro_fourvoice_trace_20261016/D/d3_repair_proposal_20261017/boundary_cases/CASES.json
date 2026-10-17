@@ -1,0 +1,272 @@
+{
+  "schema": "D3_BOUNDARY_CASE_SPEC_V2_PROPOSAL",
+  "status": "STATIC_INPUT_DESIGN_NOT_EXECUTED",
+  "original_D3_V1_CLI_compatible": false,
+  "provenance": "SYNTHETIC_STATIC_FIXTURE_DESIGN",
+  "functional_runs": 0,
+  "board_release_allowed": false,
+  "case_count": 16,
+  "source": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/D/ingest/ingest.py",
+    "sha256": "3217f97e57daec534306a213c64566fa111e3116f15a15967ca881847c218e07",
+    "counterexample": "code/docs/test/m2_pro_offline_review_20261017/D3_COUNTEREXAMPLE.json",
+    "counterexample_sha256": "4a32745969b0a4fe6b5aa7a4e880e96659ad677c9b22d790ff6ee4ce4eda0ee4"
+  },
+  "expansion_contract": {
+    "steps": [
+      "Resolve the named calendar profile independently; do not derive frames/deadlines from observed trace rows.",
+      "Concatenate prefix_fragments in listed order, then suffix_rows without sorting equal-cycle rows.",
+      "Bind the case horizon_cycle and any independent_reset to the frozen driver calendar before emitting a trace.",
+      "For reset cases the old epoch calendar is required through reset_cycle inclusively; later old frames are suppressed only because that reset was independently planned.",
+      "The new epoch first_frame_cycle is explicitly supplied and lies after the case horizon; it is not inferred from the first observed FRAME.",
+      "The old V1 manifest/calendar/CLI cannot ingest this wrapper. M2 must approve an adapter/schema, exact source/artifact identities and execution budget first."
+    ],
+    "fixture_clock_hz": 40000000,
+    "not_a_claim": "No real Pro frame phase, PCM golden, actual 48kHz or observed CLI acceptance is claimed.",
+    "same_cycle_policy_proposal": {
+      "frame_before_consume_for_due_request": true,
+      "frame_before_request_at_that_frame": true,
+      "consume_old_vs_request_new": "Either listed order is retained for distinct IDs; both are permitted by the old D3 state transitions. M2 may change this only with an explicit sampling contract.",
+      "missing_FRAME_check": "Before advancing past a scheduled cycle, or closing that cycle via END/RESET; do not reject an ordinary same-cycle row merely because a later FRAME/CONSUME row in that group has not yet been read.",
+      "CANCEL_check": "Immediately require CANCEL.cycle < independently bound request.deadline_cycle, even before a same-cycle FRAME row.",
+      "RESET_check": "Validate old-epoch due FRAME and transactions before epoch mutation; only a planned reset strictly before an open request deadline may cancel it.",
+      "END_check": "Close independent calendar obligations through the bound horizon before terminal-ledger acceptance; canceled transactions do not erase frame obligations."
+    },
+    "diagnostics_are_proposals_not_actual_CLI_strings": true,
+    "first_reject_priority_for_these_cases": [
+      "Existing manifest/field/order/identity prerequisites are assumed valid, not executed here.",
+      "P_MISSING_SCHEDULED_FRAME before processing a later-cycle row, or before END/RESET closes an unmet scheduled cycle.",
+      "P_CANCEL_NOT_STRICTLY_BEFORE_DEADLINE at a CANCEL on the deadline cycle, irrespective of FRAME ordering.",
+      "Existing per-transaction state and same-cycle consumption rules remain in force; acceptance occurs only after all groups close."
+    ]
+  },
+  "calendar_profiles": {
+    "D833": {
+      "epoch": 0,
+      "reset_cycle": 0,
+      "planned_frames": [
+        {"frame_id": 0, "cycle": 10},
+        {"frame_id": 1, "cycle": 843},
+        {"frame_id": 2, "cycle": 1677},
+        {"frame_id": 3, "cycle": 2510}
+      ],
+      "requests": [
+        {"epoch": 0, "req_id": 7, "cycle": 10, "lane_mask": 15, "deadline_frame_id": 1, "deadline_cycle": 843},
+        {"epoch": 0, "req_id": 8, "cycle": 1677, "lane_mask": 15, "deadline_frame_id": 3, "deadline_cycle": 2510}
+      ]
+    },
+    "D834": {
+      "epoch": 0,
+      "reset_cycle": 0,
+      "planned_frames": [
+        {"frame_id": 0, "cycle": 10},
+        {"frame_id": 1, "cycle": 843},
+        {"frame_id": 2, "cycle": 1677},
+        {"frame_id": 3, "cycle": 2511}
+      ],
+      "requests": [
+        {"epoch": 0, "req_id": 7, "cycle": 10, "lane_mask": 15, "deadline_frame_id": 1, "deadline_cycle": 843},
+        {"epoch": 0, "req_id": 8, "cycle": 1677, "lane_mask": 15, "deadline_frame_id": 3, "deadline_cycle": 2511}
+      ]
+    },
+    "D833_NEXT834": {
+      "epoch": 0,
+      "reset_cycle": 0,
+      "planned_frames": [
+        {"frame_id": 0, "cycle": 10},
+        {"frame_id": 1, "cycle": 843},
+        {"frame_id": 2, "cycle": 1677},
+        {"frame_id": 3, "cycle": 2510},
+        {"frame_id": 4, "cycle": 3344}
+      ],
+      "requests": [
+        {"epoch": 0, "req_id": 7, "cycle": 10, "lane_mask": 15, "deadline_frame_id": 1, "deadline_cycle": 843},
+        {"epoch": 0, "req_id": 8, "cycle": 1677, "lane_mask": 15, "deadline_frame_id": 3, "deadline_cycle": 2510},
+        {"epoch": 0, "req_id": 9, "cycle": 2510, "lane_mask": 15, "deadline_frame_id": 4, "deadline_cycle": 3344}
+      ]
+    }
+  },
+  "prefix_fragments": {
+    "req7_consumed": [
+      {"kind": "RESET", "cycle": 0, "epoch": 0},
+      {"kind": "PA", "cycle": 0, "epoch": 0, "rst_n": 0, "stable": 0, "pa_en": 0},
+      {"kind": "PA", "cycle": 1, "epoch": 0, "rst_n": 1, "stable": 0, "pa_en": 0},
+      {"kind": "PA", "cycle": 5, "epoch": 0, "rst_n": 1, "stable": 1, "pa_en": 1},
+      {"kind": "FRAME", "cycle": 10, "epoch": 0, "frame_id": 0},
+      {"kind": "REQUEST", "cycle": 10, "epoch": 0, "req_id": 7, "lane_mask": 15},
+      {"kind": "ACCEPT", "cycle": 11, "epoch": 0, "req_id": 7},
+      {"kind": "LANE_TICK", "cycle": 12, "epoch": 0, "req_id": 7, "lane": 0},
+      {"kind": "LANE_TICK", "cycle": 13, "epoch": 0, "req_id": 7, "lane": 1},
+      {"kind": "LANE_TICK", "cycle": 14, "epoch": 0, "req_id": 7, "lane": 2},
+      {"kind": "LANE_TICK", "cycle": 15, "epoch": 0, "req_id": 7, "lane": 3},
+      {"kind": "RETURN", "cycle": 45, "epoch": 0, "req_id": 7, "left": 8388607, "right": -8388608},
+      {"kind": "FRAME", "cycle": 843, "epoch": 0, "frame_id": 1},
+      {"kind": "CONSUME", "cycle": 843, "epoch": 0, "req_id": 7, "frame_id": 1}
+    ],
+    "req8_accepted": [
+      {"kind": "FRAME", "cycle": 1677, "epoch": 0, "frame_id": 2},
+      {"kind": "REQUEST", "cycle": 1677, "epoch": 0, "req_id": 8, "lane_mask": 15},
+      {"kind": "ACCEPT", "cycle": 1678, "epoch": 0, "req_id": 8},
+      {"kind": "LANE_TICK", "cycle": 1679, "epoch": 0, "req_id": 8, "lane": 0},
+      {"kind": "LANE_TICK", "cycle": 1680, "epoch": 0, "req_id": 8, "lane": 1},
+      {"kind": "LANE_TICK", "cycle": 1681, "epoch": 0, "req_id": 8, "lane": 2},
+      {"kind": "LANE_TICK", "cycle": 1682, "epoch": 0, "req_id": 8, "lane": 3}
+    ],
+    "req8_returned": [
+      {"kind": "RETURN", "cycle": 1712, "epoch": 0, "req_id": 8, "left": 0, "right": 0}
+    ]
+  },
+  "cases": [
+    {
+      "id": "BC01", "name": "M2原反例：漏2510帧，2512超期取消，2513结束",
+      "calendar_profile": "D833", "horizon_cycle": 2513, "independent_reset": null,
+      "prefix_fragments": ["req7_consumed", "req8_accepted", "req8_returned"],
+      "suffix_rows": [{"kind": "CANCEL", "cycle": 2512, "epoch": 0, "req_id": 8}, {"kind": "END", "cycle": 2513, "epoch": 0}],
+      "expected_static": {"outcome": "REJECT", "first_semantic_reject": "P_MISSING_SCHEDULED_FRAME", "at": "CANCEL2512前；日历FRAME3@2510已被跨过，年龄835", "path": "先全局日历门禁，后CANCEL状态变更；不得依赖due_cycle是否由FRAME写入"},
+      "old_source_static_path": "109–124未触发，due_cycle为空；164–168取消，130–132终态，169有req7消费/初始RESET，条件满足时可达成功返回。未执行。",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "id": "BC02", "name": "2509合法早取消，2510帧仍完整记录",
+      "calendar_profile": "D833", "horizon_cycle": 2511, "independent_reset": null,
+      "prefix_fragments": ["req7_consumed", "req8_accepted", "req8_returned"],
+      "suffix_rows": [{"kind": "CANCEL", "cycle": 2509, "epoch": 0, "req_id": 8}, {"kind": "FRAME", "cycle": 2510, "epoch": 0, "frame_id": 3}, {"kind": "END", "cycle": 2511, "epoch": 0}],
+      "expected_static": {"outcome": "ACCEPT_UNDER_PROPOSAL", "first_semantic_reject": null, "at": "END2511关闭完整日历", "path": "2509<2510；取消不要求消费req8，但FRAME3仍必须存在"},
+      "old_source_static_path": "164–168取消；117–118验证cancel_cycle严格早于FRAME；130–132/169终态完整。未执行。",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "id": "BC03", "name": "截止同cycle CANCEL在FRAME前",
+      "calendar_profile": "D833", "horizon_cycle": 2511, "independent_reset": null,
+      "prefix_fragments": ["req7_consumed", "req8_accepted", "req8_returned"],
+      "suffix_rows": [{"kind": "CANCEL", "cycle": 2510, "epoch": 0, "req_id": 8}, {"kind": "FRAME", "cycle": 2510, "epoch": 0, "frame_id": 3}, {"kind": "END", "cycle": 2511, "epoch": 0}],
+      "expected_static": {"outcome": "REJECT", "first_semantic_reject": "P_CANCEL_NOT_STRICTLY_BEFORE_DEADLINE", "at": "CANCEL2510该行", "path": "等于独立截止，不能等待后续FRAME才认定超期；不重排同cycle行"},
+      "old_source_static_path": "旧CANCEL先变CANCELED，随后FRAME117–118以CANCEL_NOT_STRICTLY_BEFORE_FRAME拒收；新提案应在CANCEL即拒。未执行。",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "id": "BC04", "name": "截止同cycle FRAME在CANCEL前",
+      "calendar_profile": "D833", "horizon_cycle": 2511, "independent_reset": null,
+      "prefix_fragments": ["req7_consumed", "req8_accepted", "req8_returned"],
+      "suffix_rows": [{"kind": "FRAME", "cycle": 2510, "epoch": 0, "frame_id": 3}, {"kind": "CANCEL", "cycle": 2510, "epoch": 0, "req_id": 8}, {"kind": "END", "cycle": 2511, "epoch": 0}],
+      "expected_static": {"outcome": "REJECT", "first_semantic_reject": "P_CANCEL_NOT_STRICTLY_BEFORE_DEADLINE", "at": "CANCEL2510该行", "path": "日历FRAME已核同，但取消不严格早于deadline；不得以同cycle容许补消费的窗口容许取消"},
+      "old_source_static_path": "FRAME121–124登记due；CANCEL166以CANCEL_AFTER_DUE_FRAME拒收。精确新CLI诊断名待M2，语义不得退化。未执行。",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "id": "BC05", "name": "END越过漏帧且req8尚未终结",
+      "calendar_profile": "D833", "horizon_cycle": 2511, "independent_reset": null,
+      "prefix_fragments": ["req7_consumed", "req8_accepted", "req8_returned"],
+      "suffix_rows": [{"kind": "END", "cycle": 2511, "epoch": 0}],
+      "expected_static": {"outcome": "REJECT", "first_semantic_reject": "P_MISSING_SCHEDULED_FRAME", "at": "END2511终态检查前", "path": "先核独立FRAME3@2510缺失，再查UNFINISHED；END不能跳过时基关闭"},
+      "old_source_static_path": "旧END131会以UNFINISHED_TRANSACTION拒收；本例验证新增日历门禁优先路径，不声称旧CLI误收此例。未执行。",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "id": "BC06", "name": "833类RESET在deadline-1：2509",
+      "calendar_profile": "D833", "horizon_cycle": 2510,
+      "independent_reset": {"cycle": 2509, "old_epoch": 0, "new_epoch": 1, "new_epoch_first_frame": {"frame_id": 0, "cycle": 2609}},
+      "prefix_fragments": ["req7_consumed", "req8_accepted", "req8_returned"],
+      "suffix_rows": [{"kind": "RESET", "cycle": 2509, "epoch": 1}, {"kind": "PA", "cycle": 2509, "epoch": 1, "rst_n": 0, "stable": 0, "pa_en": 0}, {"kind": "END", "cycle": 2510, "epoch": 1}],
+      "expected_static": {"outcome": "ACCEPT_UNDER_PROPOSAL", "first_semantic_reject": null, "at": "计划内RESET2509", "path": "832<833，允许取消req8；旧FRAME2510在独立reset之后被计划截断，新epoch首帧2609在horizon之后"},
+      "old_source_static_path": "RESET102 due空，103年龄832<834，取消并换epoch；旧END终态可闭合。未执行。",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "id": "BC07", "name": "833类RESET恰在deadline：2510，漏同cycle帧",
+      "calendar_profile": "D833", "horizon_cycle": 2511,
+      "independent_reset": {"cycle": 2510, "old_epoch": 0, "new_epoch": 1, "new_epoch_first_frame": {"frame_id": 0, "cycle": 2610}},
+      "prefix_fragments": ["req7_consumed", "req8_accepted", "req8_returned"],
+      "suffix_rows": [{"kind": "RESET", "cycle": 2510, "epoch": 1}, {"kind": "PA", "cycle": 2510, "epoch": 1, "rst_n": 0, "stable": 0, "pa_en": 0}, {"kind": "END", "cycle": 2511, "epoch": 1}],
+      "expected_static": {"outcome": "REJECT", "first_semantic_reject": "P_MISSING_SCHEDULED_FRAME", "at": "RESET2510修改epoch前关闭旧cycle", "path": "旧日历包含reset同沿截止FRAME3；RESET不能抹去应先记录/消费的旧epoch义务"},
+      "old_source_static_path": "RESET103仅检查833<834，due空可取消，旧路径条件满足可达成功返回；这不是实跑结果。",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "id": "BC08", "name": "833类RESET在deadline+1：2511",
+      "calendar_profile": "D833", "horizon_cycle": 2512,
+      "independent_reset": {"cycle": 2511, "old_epoch": 0, "new_epoch": 1, "new_epoch_first_frame": {"frame_id": 0, "cycle": 2611}},
+      "prefix_fragments": ["req7_consumed", "req8_accepted", "req8_returned"],
+      "suffix_rows": [{"kind": "RESET", "cycle": 2511, "epoch": 1}, {"kind": "PA", "cycle": 2511, "epoch": 1, "rst_n": 0, "stable": 0, "pa_en": 0}, {"kind": "END", "cycle": 2512, "epoch": 1}],
+      "expected_static": {"outcome": "REJECT", "first_semantic_reject": "P_MISSING_SCHEDULED_FRAME", "at": "RESET2511前跨过2510", "path": "旧epoch缺FRAME先拒，不能先清ledger/epoch"},
+      "old_source_static_path": "旧RESET103会以RESET_AFTER_UNOBSERVED_DEADLINE拒收（年龄834）；本例核新精确日历路径而非声称旧误收。未执行。",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "id": "BC09", "name": "834类RESET在deadline-1：2510，年龄833仍合法",
+      "calendar_profile": "D834", "horizon_cycle": 2511,
+      "independent_reset": {"cycle": 2510, "old_epoch": 0, "new_epoch": 1, "new_epoch_first_frame": {"frame_id": 0, "cycle": 2610}},
+      "prefix_fragments": ["req7_consumed", "req8_accepted", "req8_returned"],
+      "suffix_rows": [{"kind": "RESET", "cycle": 2510, "epoch": 1}, {"kind": "PA", "cycle": 2510, "epoch": 1, "rst_n": 0, "stable": 0, "pa_en": 0}, {"kind": "END", "cycle": 2511, "epoch": 1}],
+      "expected_static": {"outcome": "ACCEPT_UNDER_PROPOSAL", "first_semantic_reject": null, "at": "计划内RESET2510", "path": "833<834；不能统一用年龄>=833误拒。旧FRAME2511在提前计划reset后截断，新epoch首帧2610在horizon之后"},
+      "old_source_static_path": "RESET103的833<834在此例恰合法；修法必须用独立D834，不把BC07修成所有年龄833一刀切。未执行。",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "id": "BC10", "name": "834类RESET恰在deadline：2511，漏同cycle帧",
+      "calendar_profile": "D834", "horizon_cycle": 2512,
+      "independent_reset": {"cycle": 2511, "old_epoch": 0, "new_epoch": 1, "new_epoch_first_frame": {"frame_id": 0, "cycle": 2611}},
+      "prefix_fragments": ["req7_consumed", "req8_accepted", "req8_returned"],
+      "suffix_rows": [{"kind": "RESET", "cycle": 2511, "epoch": 1}, {"kind": "PA", "cycle": 2511, "epoch": 1, "rst_n": 0, "stable": 0, "pa_en": 0}, {"kind": "END", "cycle": 2512, "epoch": 1}],
+      "expected_static": {"outcome": "REJECT", "first_semantic_reject": "P_MISSING_SCHEDULED_FRAME", "at": "RESET2511修改epoch前", "path": "截止同沿的旧FRAME义务未满足；不能以reset作为缺帧豁免"},
+      "old_source_static_path": "旧RESET103会以年龄834拒收；新提案仍拒但应给独立漏帧首因，不声称新增真实执行。",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "id": "BC11", "name": "834类RESET在deadline+1：2512",
+      "calendar_profile": "D834", "horizon_cycle": 2513,
+      "independent_reset": {"cycle": 2512, "old_epoch": 0, "new_epoch": 1, "new_epoch_first_frame": {"frame_id": 0, "cycle": 2612}},
+      "prefix_fragments": ["req7_consumed", "req8_accepted", "req8_returned"],
+      "suffix_rows": [{"kind": "RESET", "cycle": 2512, "epoch": 1}, {"kind": "PA", "cycle": 2512, "epoch": 1, "rst_n": 0, "stable": 0, "pa_en": 0}, {"kind": "END", "cycle": 2513, "epoch": 1}],
+      "expected_static": {"outcome": "REJECT", "first_semantic_reject": "P_MISSING_SCHEDULED_FRAME", "at": "RESET2512前跨过2511", "path": "先拒缺FRAME3，再谈重置；不允许先清旧epoch"},
+      "old_source_static_path": "旧RESET103会以年龄835拒收；用于834精确边界对照。未执行。",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "id": "BC12", "name": "普通PA先越过漏帧，随后取消结束",
+      "calendar_profile": "D833", "horizon_cycle": 2513, "independent_reset": null,
+      "prefix_fragments": ["req7_consumed", "req8_accepted", "req8_returned"],
+      "suffix_rows": [{"kind": "PA", "cycle": 2511, "epoch": 0, "rst_n": 1, "stable": 1, "pa_en": 1}, {"kind": "CANCEL", "cycle": 2512, "epoch": 0, "req_id": 8}, {"kind": "END", "cycle": 2513, "epoch": 0}],
+      "expected_static": {"outcome": "REJECT", "first_semantic_reject": "P_MISSING_SCHEDULED_FRAME", "at": "PA2511的PA极性检查前", "path": "所有普通记录都要过全局时基门禁，不能只补CANCEL/END特殊分支"},
+      "old_source_static_path": "127–129只核合法PA，后164–168取消/130–132结束可掩盖缺帧；未执行。",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "id": "BC13", "name": "普通RETURN先越过漏帧，状态本身仍合法",
+      "calendar_profile": "D833", "horizon_cycle": 2513, "independent_reset": null,
+      "prefix_fragments": ["req7_consumed", "req8_accepted"],
+      "suffix_rows": [{"kind": "RETURN", "cycle": 2511, "epoch": 0, "req_id": 8, "left": 0, "right": 0}, {"kind": "CANCEL", "cycle": 2512, "epoch": 0, "req_id": 8}, {"kind": "END", "cycle": 2513, "epoch": 0}],
+      "expected_static": {"outcome": "REJECT", "first_semantic_reject": "P_MISSING_SCHEDULED_FRAME", "at": "RETURN2511写RETURNED前", "path": "没有1712 RETURN，故不是重复返回；lane齐全但已越独立截止，先全局拒收"},
+      "old_source_static_path": "151–156无独立年龄检查，漏FRAME时可迟RETURN再取消/结束；未执行。",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "id": "BC14", "name": "早取消已终态，但END越过的帧仍不能漏",
+      "calendar_profile": "D833", "horizon_cycle": 2511, "independent_reset": null,
+      "prefix_fragments": ["req7_consumed", "req8_accepted", "req8_returned"],
+      "suffix_rows": [{"kind": "CANCEL", "cycle": 2509, "epoch": 0, "req_id": 8}, {"kind": "END", "cycle": 2511, "epoch": 0}],
+      "expected_static": {"outcome": "REJECT", "first_semantic_reject": "P_MISSING_SCHEDULED_FRAME", "at": "END2511关闭已跨过2510的日历", "path": "取消合法不等于删除全局FRAME义务；仅遍历open ledger的修法会漏此例"},
+      "old_source_static_path": "req8已CANCELED，END131终态与169均可满足；无后续FRAME触发117–118。未执行。",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "id": "BC15", "name": "合法同cycle FRAME→CONSUME旧请求→REQUEST新请求",
+      "calendar_profile": "D833_NEXT834", "horizon_cycle": 2512, "independent_reset": null,
+      "prefix_fragments": ["req7_consumed", "req8_accepted", "req8_returned"],
+      "suffix_rows": [{"kind": "FRAME", "cycle": 2510, "epoch": 0, "frame_id": 3}, {"kind": "CONSUME", "cycle": 2510, "epoch": 0, "req_id": 8, "frame_id": 3}, {"kind": "REQUEST", "cycle": 2510, "epoch": 0, "req_id": 9, "lane_mask": 15}, {"kind": "CANCEL", "cycle": 2511, "epoch": 0, "req_id": 9}, {"kind": "END", "cycle": 2512, "epoch": 0}],
+      "expected_static": {"outcome": "ACCEPT_UNDER_PROPOSAL", "first_semantic_reject": null, "at": "2510整组关闭后推进2511", "path": "FRAME登记due后同沿补CONSUME；新req9源于此FRAME且2511<3344早取消；horizon2512未跨下一帧3344"},
+      "old_source_static_path": "FRAME121–126→CONSUME157–163→REQUEST135–142，源顺序合法；全局门禁不能在FRAME行立即要求CONSUME已经出现。未执行。",
+      "observed_result": "NOT_RUN"
+    },
+    {
+      "id": "BC16", "name": "合法同cycle FRAME→REQUEST新→CONSUME旧→RESET；截止已履行",
+      "calendar_profile": "D833_NEXT834", "horizon_cycle": 2511,
+      "independent_reset": {"cycle": 2510, "old_epoch": 0, "new_epoch": 1, "new_epoch_first_frame": {"frame_id": 0, "cycle": 2610}},
+      "prefix_fragments": ["req7_consumed", "req8_accepted", "req8_returned"],
+      "suffix_rows": [{"kind": "FRAME", "cycle": 2510, "epoch": 0, "frame_id": 3}, {"kind": "REQUEST", "cycle": 2510, "epoch": 0, "req_id": 9, "lane_mask": 15}, {"kind": "CONSUME", "cycle": 2510, "epoch": 0, "req_id": 8, "frame_id": 3}, {"kind": "RESET", "cycle": 2510, "epoch": 1}, {"kind": "PA", "cycle": 2510, "epoch": 1, "rst_n": 0, "stable": 0, "pa_en": 0}, {"kind": "END", "cycle": 2511, "epoch": 1}],
+      "expected_static": {"outcome": "ACCEPT_UNDER_PROPOSAL", "first_semantic_reject": null, "at": "2510先履行旧epoch截止，再计划内RESET", "path": "FRAME先于两个不同ID的REQUEST/CONSUME；req8已消费，不能一律拒绝RESET@旧deadline；req9年龄0<3344截止，被计划RESET取消，未来旧FRAME3344截断，新epoch首帧2610晚于horizon"},
+      "old_source_static_path": "REQUEST142 continue不清旧due；随后CONSUME157–163合法；RESET100–104跳过已消费req8，仅取消未到期req9。若M2要更严同cycle相位，须显式冻结而不能排序反推。未执行。",
+      "observed_result": "NOT_RUN"
+    }
+  ]
+}

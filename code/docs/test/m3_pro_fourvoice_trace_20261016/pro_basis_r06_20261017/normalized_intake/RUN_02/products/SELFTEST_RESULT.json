@@ -1,0 +1,144 @@
+{
+  "schema": "M3_R06_NORMALIZED_INTAKE_SELFTEST_V1",
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "synthetic_projection",
+      "exit_code": 0,
+      "status": "SYNTHETIC_SELFTEST_ONLY",
+      "pending": [],
+      "first_failure": null,
+      "stdout_sha256": "4278229f7fa4100e7e065f92477d108b6e86355a159435ebe03d72f0994edfd2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "pending_contracts",
+      "exit_code": 0,
+      "status": "PENDING",
+      "pending": [
+        "PENDING_FINISH_CONTRACT",
+        "PENDING_FRAME_PLAN",
+        "PENDING_PRO_SOURCE_OR_TRACE",
+        "PENDING_SAME_EDGE_ORDER"
+      ],
+      "first_failure": null,
+      "stdout_sha256": "d704b38f7c3fe72dc99d05b0e33e6db5bd441eb72d1cab05b7b1309e9719d689",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "idle_x_preserved",
+      "exit_code": 0,
+      "status": "PENDING",
+      "pending": [
+        "PENDING_B2_COMPATIBILITY"
+      ],
+      "first_failure": null,
+      "stdout_sha256": "37bd21b00b1e7cda858d04f51948a5c8a74675c24802ef27241b5815c37f8df0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "controlled_x_reject",
+      "exit_code": 1,
+      "status": "REJECT",
+      "pending": [],
+      "first_failure": "CONTROL_UNKNOWN_req_valid_LINE_11",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e394cd2044b5ba702372199f2c6453e22663a6c32d9cb5896e688af84b90fe4b"
+    },
+    {
+      "name": "wrong_id_reject",
+      "exit_code": 1,
+      "status": "REJECT",
+      "pending": [],
+      "first_failure": "RESULT_ID_LINE_4",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "7f7534d8301cb48deaec153d191e199f3481d4cc5e0de8dad8ee22bac85d0ebd"
+    },
+    {
+      "name": "wrong_epoch_reject",
+      "exit_code": 1,
+      "status": "REJECT",
+      "pending": [],
+      "first_failure": "WRONG_EPOCH_LINE_11",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "33049f34617df7e518fe2d6ac873fbe3af1bd07ed3077492c023866a699c0d97"
+    },
+    {
+      "name": "dropped_line_reject",
+      "exit_code": 1,
+      "status": "REJECT",
+      "pending": [],
+      "first_failure": "DROPPED_CYCLE_ROW_LINE_11",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a3d561d27a5633ec4f930b49046af4c4421ef583a72eb9e7e90de0227ab2c13b"
+    },
+    {
+      "name": "same_edge_order_reject",
+      "exit_code": 1,
+      "status": "REJECT",
+      "pending": [],
+      "first_failure": "SAME_EDGE_ORDER_LINE_2",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f57f407cc077d1355ec1687e0032819c39d73dfd04f164478f3a7984b1637fcb"
+    },
+    {
+      "name": "bad_provenance_reject",
+      "exit_code": 1,
+      "status": "REJECT",
+      "pending": [],
+      "first_failure": "TRACE_SHA",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "54845763cc666fd18799850d63334c4ad82a6d59aa29686a32d4a48a492efdee"
+    },
+    {
+      "name": "finish_eof_reject",
+      "exit_code": 1,
+      "status": "REJECT",
+      "pending": [],
+      "first_failure": "FINISH_REQUIRED",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "7ca47ae795b943488b07d93818535d13f5722c91d22809c104738f6d2abb94a2"
+    },
+    {
+      "name": "frame_plan_pending",
+      "exit_code": 0,
+      "status": "PENDING",
+      "pending": [
+        "PENDING_FRAME_PLAN",
+        "PENDING_PRO_SOURCE_OR_TRACE"
+      ],
+      "first_failure": null,
+      "stdout_sha256": "b8782b0d297e13e0a446bac29da65133e0a2d26080f31dba05bb0514dd609112",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "missing_frame_reject",
+      "exit_code": 1,
+      "status": "REJECT",
+      "pending": [],
+      "first_failure": "FRAME_PLAN_MISMATCH",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "62b92d1cf61182a115ab3e89c89f5f9f16c132b43bfcf57c9395ca5634939492"
+    },
+    {
+      "name": "finish_contract_pending",
+      "exit_code": 0,
+      "status": "PENDING",
+      "pending": [
+        "PENDING_FINISH_CONTRACT",
+        "PENDING_PRO_SOURCE_OR_TRACE"
+      ],
+      "first_failure": null,
+      "stdout_sha256": "d60c87127a82096d4da2a72a757915572387512776e2a106bffc026f261dacdd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "case_count": 13,
+  "accepted": 5,
+  "rejected": 8,
+  "functional_scope": "new Python normalization only",
+  "old_checkers_or_mappers_run": 0,
+  "hdl_eda_hardware_runs": 0,
+  "pro_dut_pass": false,
+  "board_release_allowed": false
+}

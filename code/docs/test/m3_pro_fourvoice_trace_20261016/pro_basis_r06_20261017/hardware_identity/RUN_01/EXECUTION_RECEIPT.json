@@ -1,0 +1,33 @@
+{
+  "schema_version": "hardware-identity-execution-receipt-v1",
+  "task": "M3-R6-7 hardware_identity",
+  "group": "RUN_01",
+  "group_limit": 1,
+  "attempts": [
+    {
+      "attempt": 1,
+      "source_changed_after": true,
+      "command": "C:/Users/songdongkuan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/run_selftest.py --repo-root . --scope code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/TEST_SCOPE.json --output code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/RUN_01",
+      "exit_code": 1,
+      "wall_time_seconds": 0.573568,
+      "cases_started": 0,
+      "result": "FAILED_BEFORE_CASE_EXECUTION",
+      "stderr": "ATTEMPT_01.stderr.txt"
+    },
+    {
+      "attempt": 2,
+      "source_changed_after": false,
+      "command": "C:/Users/songdongkuan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/run_selftest.py --repo-root . --scope code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/TEST_SCOPE.json --output code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/RUN_01 --repair-after code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/RUN_01/ATTEMPT_01_FAILURE.json",
+      "exit_code": 0,
+      "wall_time_seconds": 0.928005,
+      "internal_elapsed_seconds": 0.421,
+      "cases": 17,
+      "passed": 17,
+      "result": "PASS",
+      "raw_result": "ATTEMPT_02_REPAIRED/SELFTEST_RESULT.json"
+    }
+  ],
+  "fpga_or_commercial_tool_invocations": 0,
+  "board_operations": 0,
+  "network_operations": 0
+}

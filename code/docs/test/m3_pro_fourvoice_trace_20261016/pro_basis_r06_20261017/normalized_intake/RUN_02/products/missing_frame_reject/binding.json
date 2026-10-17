@@ -1,0 +1,94 @@
+{
+  "schema": "M3_R06_NORMALIZED_INTAKE_BINDING_V1",
+  "trace": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\normalized_intake\\RUN_02\\products\\missing_frame_reject\\trace.jsonl",
+    "sha256": "94ddbdff0f29784347deab7a4243b367963416f29c30dd290a3ae7901b3e9f89"
+  },
+  "references": [
+    {
+      "role": "observation_contract",
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/docs/test/m3_pro_fourvoice_trace_20261016/pro_binding_20261017/OBSERVATION_CONTRACT.json",
+      "sha256": "d89076836f8c60dd6544bbf2d9a5e8fa2f645ef49c8860458210562adf12d716"
+    },
+    {
+      "role": "d3_ingest",
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/software/m3_pro_fourvoice_trace_20261016/D/ingest/ingest.py",
+      "sha256": "eb74ca9ef3cc363163d51e0c8af1a3f9bd8d15905ba3307a5ea1ab8d1c6ed764"
+    },
+    {
+      "role": "b2_adapter",
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/software/m3_pro_fourvoice_trace_20261016/pro_serial_successor_20261017/adapt_serial.py",
+      "sha256": "c393a0d223781260101be1e553f3b7a1be2840547970d57902de97d69007b954"
+    },
+    {
+      "role": "b2_contract",
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/docs/test/m3_pro_fourvoice_trace_20261016/pro_serial_successor_20261017/BRIDGE_CONTRACT.md",
+      "sha256": "2354294f0c3eadb9526ebf638a98ed7739f5fd67180e8d8edfd6c54f84359c56"
+    },
+    {
+      "role": "monitor_source",
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/tb/board/m3_pro_fourvoice_trace_20261016/D/pro_monitor_20261017/pro_frame_monitor.sv",
+      "sha256": "faf7cda22f928e7f0c40bd7ed164213e2282078e213ee1f472b331cfe098295a"
+    },
+    {
+      "role": "monitor_contract",
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/docs/test/m3_pro_fourvoice_trace_20261016/D/pro_monitor_20261017/CONTRACT.md",
+      "sha256": "de3f5d7d80e70e8f3f44e7a978bba975b475eec1259ea44b399ba2359613a4e6"
+    },
+    {
+      "role": "m1_field_map",
+      "path": "E:/FPGA/GAOYUNFPGA/night_task/10.17/FROM_M1/M1_第18批独立日历字段适配_20261017/mapped/FIELD_MAP.json",
+      "sha256": "83cb365313788cec24594fcc2d8446d58a313c486fd1c43565ca959714332c6e"
+    },
+    {
+      "role": "m1_receipt",
+      "path": "E:/FPGA/GAOYUNFPGA/night_task/10.17/FROM_M1/M1_第18批独立日历字段适配_20261017/mapped/RECEIPT.json",
+      "sha256": "9d45b49f32fe608f569542de8e09af86fa1901afbe9c4974716ab95a8ccc61d4"
+    }
+  ],
+  "provenance": {
+    "kind": "SYNTHETIC_FIXTURE",
+    "authority_verified": true,
+    "source_manifest_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "source_rom_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "input_plan_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+    "reason": "bounded synthetic selftest; not a Pro capture"
+  },
+  "contracts": {
+    "same_edge_order_frozen": true,
+    "same_edge_priority": [
+      "RESET",
+      "FRAME",
+      "CANCEL",
+      "REQUEST",
+      "RETURN",
+      "COMMIT",
+      "TX",
+      "FINISH"
+    ],
+    "frame_plan_frozen": true,
+    "frame_plan": [
+      {
+        "cycle": 1,
+        "epoch": 0,
+        "frame_id": 0
+      },
+      {
+        "cycle": 834,
+        "epoch": 0,
+        "frame_id": 1
+      }
+    ],
+    "finish_contract_frozen": true
+  },
+  "projection": {
+    "clip_reduce": "OR",
+    "d3_mapping_frozen": true,
+    "expected_lane_mask": 15
+  },
+  "upstream_dependencies": {
+    "source_target_audit": "READY",
+    "midi_stimulus": "READY",
+    "m2_public_capture_contract": "READY"
+  }
+}

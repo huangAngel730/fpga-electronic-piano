@@ -1,0 +1,37 @@
+B1 / M1第18批静态差额交付，2026-10-17
+结论：本派单的静态矩阵完成，等级仅L0。
+真实Pro仍PENDING_PRO_SOURCE_OR_TRACE；pro_dut_pass=false；board_release_allowed=false。
+唯一新增：本目录RESULT.txt、FIELD_DELTA.json、INPUT_SHA.json。未提交/未推送，等待总控统一处理。
+
+输入：M1第18批原件16项manifest大小/SHA逐项核同，exit0；61字段合同为Git已跟踪原件。
+FIELD_MAP/RECEIPT中的496记录、17事件、76lane/19组、75发布/71消费/5取消是引用M1原交付，不是本轮新运行mapper或新功能复算。
+静态抽读原合同、映射的events/transactions/frames/reset与全部missing/notes；未声称独立重算全部496记录。
+保真仅指toy原记录/索引/五元组可保留，不能获得真实Pro黄金身份。
+
+交接核心：
+1. 同沿四NoteOn与四lane分拍不能强行喂旧B0；不得移拍或用固定偏移凑8拍静稳。
+2. NoteOff立即释放不能替代真实Release/退休；generation缺失保持null。
+3. lane邮箱PUBLISH不是stereo提交/效果接受/TX采纳，发布与取消重叠4笔必须保留。
+4. M2先冻结同版源/ROM/top、公开61字段及ID/推进/复位优先级；M1确认该日历的生命周期与效果数学。
+5. 真实config/effect输入、L/R PCM24/clip、TX sidecar/pins及完整收尾仍缺。M3以后仅按有效许可采集。
+逐组字段及最小责任见FIELD_DELTA.json；无更改M1算法/toy或受控接口。
+
+版本边界：
+派单HEAD c7e0144ac33acfde9b449183933ef7a21aa9325c；续接只读观察HEAD 0cbb4a70dcf6e9c706780e705419fd93274e82e8。
+本次所读M2复核报告R03已限定接受414e1a9/5aa4959，不再沿用R02待复核表述。
+总控随后通知D3已在9fe5779d/600d5ca8关闭旧L1合成软件缺陷、夜间R05已对齐；该状态仅引用总控，不在本包重审/改D3，也不据此签真实Pro。
+M1 INTAKE_STATUS原有缺总ZIP/发布回执状态保留；本包不替M1补认其未取得的发布证明。
+
+本轮实际只读命令类别与退出码：
+- git rev-parse HEAD：0（上述两个时点）；git ls-files -- code/docs/test/m3_pro_fourvoice_trace_20261016/pro_binding_20261017/OBSERVATION_CONTRACT.json：0。
+- Get-Content / ConvertFrom-Json / Select-Object、rg --files、Get-ChildItem / Test-Path：0；新目录开工不存在。
+- manifest完整核验与Get-FileHash：0，实际核验主体如下（PowerShell，repo cwd）：
+$p='E:/FPGA/GAOYUNFPGA/night_task/10.17/FROM_M1/M1_第18批独立日历字段适配_20261017'
+$manifest=Get-Content "$p/MANIFEST.json" -Raw | ConvertFrom-Json
+foreach($f in $manifest.files){$q=Join-Path $p $f.path; $h=(Get-FileHash -LiteralPath $q -Algorithm SHA256).Hash.ToLower(); if($h -ne $f.sha256 -or (Get-Item -LiteralPath $q).Length -ne $f.bytes){throw "identity mismatch $($f.path)"}}
+'MANIFEST_ENTRIES_MATCH='+$manifest.files.Count
+输出MANIFEST_ENTRIES_MATCH=16；这只是字节身份核验。
+交付JSON的语法/字段名与原合同对应、最终SHA由另一次纯文件核验报告，不是功能checker PASS。
+
+本轮功能checker/mapper/旧自检/编译/仿真/Gowin/设备/Git写均0次。
+没有恢复旧预算，不向审核窗口送审，不修改共享表；不触碰夜间任务写集。

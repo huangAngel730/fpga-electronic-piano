@@ -1,0 +1,43 @@
+{
+  "status": "PROPOSED_INPUT_NOT_AUTHORIZED_NOT_EXECUTED",
+  "manifest_schema": "M3_PRO_INTAKE_V2",
+  "contract_schema": "M3_PRO_OBSERVER_REQUIREMENTS_V2",
+  "calendar_schema": "M3_PRO_INTAKE_CALENDAR_V2",
+  "calendar_exact_keys": ["schema", "provenance", "timebase", "epochs", "requests"],
+  "timebase": {
+    "clock_hz": 40000000,
+    "nominal_sample_rate_hz": 48000,
+    "sampling_phase": "SYS_EDGE_ORDERED_EVENTS_V1",
+    "frame_plan_origin": "FROZEN_INDEPENDENT_INPUT_PLAN"
+  },
+  "epoch_entry_exact_keys": ["epoch", "reset_cycle", "stop_kind", "stop_cycle", "frames", "next_frame"],
+  "frame_entry_exact_keys": ["frame_id", "cycle"],
+  "request_entry_exact_keys": ["epoch", "req_id", "cycle", "lane_mask"],
+  "epoch_rules": [
+    "Epoch IDs contiguous from0; reset cycles strictly increase; nonfinal stop_kind RESET and stop_cycle equals next epoch reset_cycle; final stop_kind END with stop_cycle the maximum observation horizon",
+    "frames is a complete explicit list, sorted by cycle and contiguous frame_id, each at reset_cycle..stop_cycle inclusive",
+    "A frame due at RESET stop_cycle remains an old-epoch obligation and is included; default order FRAME then due CONSUME then RESET; no runtime reset exemption",
+    "next_frame is the first independently scheduled frame after the listed frames, may be outside capture; its cycle is strictly greater than stop_cycle",
+    "Every adjacent planned frame including sentinel has gap833 or834; this is sanity checking only, not a physical frequency proof",
+    "Every request cycle equals an explicitly listed frame; deadline f is its next planned frame; RETURN/CANCEL/unconsumed RESET are strictly before f, CONSUME at f; no uniform q+833 rule",
+    "Actual END may be earlier than final maximum stop_cycle only when every planned request has been observed and every transaction is terminal, and original consumed>0/resets>0 coverage gates remain satisfied; all planned frames <=actual END must already be observed",
+    "No derivation of epoch/frame schedule or maximum observation horizon from actual trace; M2 must bind independent plan bytes and provenance before runtime"
+  ],
+  "example_only": {
+    "epoch": 0,
+    "reset_cycle": 0,
+    "stop_kind": "END",
+    "stop_cycle": 2513,
+    "frames": [
+      {"frame_id": 0, "cycle": 10},
+      {"frame_id": 1, "cycle": 843},
+      {"frame_id": 2, "cycle": 1677},
+      {"frame_id": 3, "cycle": 2510}
+    ],
+    "next_frame": {"frame_id": 4, "cycle": 3343}
+  },
+  "source": "code/software/m3_pro_fourvoice_trace_20261016/D/ingest/ingest.py",
+  "source_sha256": "3217f97e57daec534306a213c64566fa111e3116f15a15967ca881847c218e07",
+  "functional_runs": 0,
+  "board_release_allowed": false
+}

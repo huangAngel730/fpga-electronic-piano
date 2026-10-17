@@ -1,0 +1,11 @@
+# D/D2 首失败与必要修正
+
+round_1：Python进程已创建，消费第1轮，整体exit1/1.75秒。新正例和left_right_swap反例实际通过。shift_one_bit变体实际CLI exit1，首差异SERIAL_SAMPLE，right预期-32768而实际0；fixture在32位移位寄存器内左移使最高位丢失，未把它移到填充槽，故最初测试预期LSBJ_PADDING_NONZERO写错。保留完整源、输入、变体、双流和第一份失败，不改checker求绿。
+
+round_2启动前修正shift_one_bit的预期为SERIAL_SAMPLE；另静态确认WS提前一槽翻转会先触发完整frame/WS关系，预期改WS_FRAME_BOUNDARY。check_fixture.py和fixture.py没有修改。新增start-case定向续测开关：只从shift_one_bit继续，不重复round_1已通过的positive与left_right_swap。后续实际结果以各轮原回执为准。
+
+round_2：整体exit0，尚未完成的11个反例均按指定首差异拒收。round_1的shift_one_bit首失败不删除、不改写。
+
+自审发现两处报告/来源缺口：复位清pending前未记录已提交但未采样及串行截断；运行器只存源码前后SHA而未拒签漂移。实际round_1/2来源前后均相同，未发现真实轮内漂移。最小修复新增复位disposition和源码一致门禁，漂移时有效exit65并保留child_exit_code。
+
+round_3：只验证新增helper、来源门禁及C身份crosswalk，exit0。复用旧正例原件生成派生审计，不重跑旧串行组、不改旧RESULT。真实旧正例44笔提交中40笔串行完整，epoch0 ID21已采样/ID22未采样均被19001拍复位取消；epoch1 ID21串行尾/ID22下帧采样因END仍UNKNOWN。新C映射5个坏例均拒收。最终checker新增记录分支已做helper定向验证，没有声称以新checker重跑全部原13组。

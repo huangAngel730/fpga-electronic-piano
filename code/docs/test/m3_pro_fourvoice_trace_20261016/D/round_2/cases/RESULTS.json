@@ -1,0 +1,545 @@
+[
+  {
+    "name": "shift_one_bit",
+    "argv": [
+      "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+      "-X",
+      "utf8",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\check_fixture.py",
+      "--capture",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\shift_one_bit\\FIXTURE_CAPTURE.jsonl",
+      "--plan",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "--output",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\shift_one_bit\\RESULT.json"
+    ],
+    "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+    "seconds": 0.125,
+    "exit_code": 1,
+    "expected_exit": 1,
+    "expected_code": "SERIAL_SAMPLE",
+    "actual_code": "SERIAL_SAMPLE",
+    "first_difference": {
+      "code": "SERIAL_SAMPLE",
+      "cycle": 2944,
+      "expected": {
+        "channel": "right",
+        "pcm16": -32768
+      },
+      "actual": {
+        "channel": "right",
+        "pcm16": 0
+      }
+    },
+    "passed": true,
+    "input_plan": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "bytes": 9393,
+      "sha256": "b2a05d35b1e78557242ba0d1b971aaf299b364f8bd5fde67f7f74e0de780c123"
+    },
+    "capture": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\shift_one_bit\\FIXTURE_CAPTURE.jsonl",
+      "bytes": 10728153,
+      "sha256": "d598e5c06999b3855eb6962f10a6ec03f027c6f6430b1a9f82d2d1f279b62ece"
+    },
+    "stdout": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\shift_one_bit\\stdout.txt",
+      "bytes": 176,
+      "sha256": "81ca173c7b13068c157918cc6e56ad5f5e4c89d481151f3877b12ad73570cc30"
+    },
+    "stderr": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\shift_one_bit\\stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "name": "ws_boundary",
+    "argv": [
+      "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+      "-X",
+      "utf8",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\check_fixture.py",
+      "--capture",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\ws_boundary\\FIXTURE_CAPTURE.jsonl",
+      "--plan",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "--output",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\ws_boundary\\RESULT.json"
+    ],
+    "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+    "seconds": 0.0930000000007567,
+    "exit_code": 1,
+    "expected_exit": 1,
+    "expected_code": "WS_FRAME_BOUNDARY",
+    "actual_code": "WS_FRAME_BOUNDARY",
+    "first_difference": {
+      "code": "WS_FRAME_BOUNDARY",
+      "cycle": 841,
+      "expected": null,
+      "actual": null
+    },
+    "passed": true,
+    "input_plan": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "bytes": 9393,
+      "sha256": "b2a05d35b1e78557242ba0d1b971aaf299b364f8bd5fde67f7f74e0de780c123"
+    },
+    "capture": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\ws_boundary\\FIXTURE_CAPTURE.jsonl",
+      "bytes": 10728153,
+      "sha256": "67f62235ae27400b0ff5e52624e856e5f36b7afeaa89c2eb5dc3a73d2a8fc32c"
+    },
+    "stdout": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\ws_boundary\\stdout.txt",
+      "bytes": 118,
+      "sha256": "56c481cec645970c9d37b874ec0a1963b2c270912fed57f8c10e5ecb8ad68fda"
+    },
+    "stderr": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\ws_boundary\\stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "name": "sign_extension",
+    "argv": [
+      "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+      "-X",
+      "utf8",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\check_fixture.py",
+      "--capture",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\sign_extension\\FIXTURE_CAPTURE.jsonl",
+      "--plan",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "--output",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\sign_extension\\RESULT.json"
+    ],
+    "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+    "seconds": 0.10900000000037835,
+    "exit_code": 1,
+    "expected_exit": 1,
+    "expected_code": "SERIAL_SAMPLE",
+    "actual_code": "SERIAL_SAMPLE",
+    "first_difference": {
+      "code": "SERIAL_SAMPLE",
+      "cycle": 2110,
+      "expected": {
+        "channel": "right",
+        "pcm16": 0
+      },
+      "actual": {
+        "channel": "right",
+        "pcm16": 32767
+      }
+    },
+    "passed": true,
+    "input_plan": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "bytes": 9393,
+      "sha256": "b2a05d35b1e78557242ba0d1b971aaf299b364f8bd5fde67f7f74e0de780c123"
+    },
+    "capture": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\sign_extension\\FIXTURE_CAPTURE.jsonl",
+      "bytes": 10728153,
+      "sha256": "2af60b742eb3c5479bacaa55544191cd02fc0418c5d2cc4b566c3c01c9f1e878"
+    },
+    "stdout": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\sign_extension\\stdout.txt",
+      "bytes": 175,
+      "sha256": "5adb332f43d3830d38467b3060c23294ad7828e9d1179aa7d75afba55558f0db"
+    },
+    "stderr": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\sign_extension\\stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "name": "missing_frame",
+    "argv": [
+      "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+      "-X",
+      "utf8",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\check_fixture.py",
+      "--capture",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\missing_frame\\FIXTURE_CAPTURE.jsonl",
+      "--plan",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "--output",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\missing_frame\\RESULT.json"
+    ],
+    "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+    "seconds": 0.11000000000058208,
+    "exit_code": 1,
+    "expected_exit": 1,
+    "expected_code": "FRAME_CALENDAR",
+    "actual_code": "FRAME_CALENDAR",
+    "first_difference": {
+      "code": "FRAME_CALENDAR",
+      "cycle": 1673,
+      "expected": 1,
+      "actual": 0
+    },
+    "passed": true,
+    "input_plan": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "bytes": 9393,
+      "sha256": "b2a05d35b1e78557242ba0d1b971aaf299b364f8bd5fde67f7f74e0de780c123"
+    },
+    "capture": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\missing_frame\\FIXTURE_CAPTURE.jsonl",
+      "bytes": 10728153,
+      "sha256": "1e6ac5379c1678c88c4c74aea5cd8ed26055ee29ec4813270c3ba857a1dfe75f"
+    },
+    "stdout": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\missing_frame\\stdout.txt",
+      "bytes": 110,
+      "sha256": "217c7a0238912f8b1d94b39b8616c5f974cfce5db0f66a1402cd7fb3d9b354a7"
+    },
+    "stderr": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\missing_frame\\stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "name": "miss_deadline",
+    "argv": [
+      "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+      "-X",
+      "utf8",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\check_fixture.py",
+      "--capture",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\miss_deadline\\FIXTURE_CAPTURE.jsonl",
+      "--plan",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "--output",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\miss_deadline\\RESULT.json"
+    ],
+    "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+    "seconds": 0.10899999999855936,
+    "exit_code": 1,
+    "expected_exit": 1,
+    "expected_code": "REQUEST_DEADLINE_MISSED",
+    "actual_code": "REQUEST_DEADLINE_MISSED",
+    "first_difference": {
+      "code": "REQUEST_DEADLINE_MISSED",
+      "cycle": 1673,
+      "expected": "COMMIT_BEFORE_FRAME",
+      "actual": [
+        0,
+        1
+      ]
+    },
+    "passed": true,
+    "input_plan": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "bytes": 9393,
+      "sha256": "b2a05d35b1e78557242ba0d1b971aaf299b364f8bd5fde67f7f74e0de780c123"
+    },
+    "capture": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\miss_deadline\\FIXTURE_CAPTURE.jsonl",
+      "bytes": 10727320,
+      "sha256": "10caabd448e644273d0689379b4eb46c43f77385e557902f5eb55ef76a443c00"
+    },
+    "stdout": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\miss_deadline\\stdout.txt",
+      "bytes": 144,
+      "sha256": "c5b3eb1d642d06bc30dcb4a3f67b8e34d80d72158fe9fa149c0e7d69c39cf02d"
+    },
+    "stderr": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\miss_deadline\\stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "name": "old_epoch",
+    "argv": [
+      "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+      "-X",
+      "utf8",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\check_fixture.py",
+      "--capture",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\old_epoch\\FIXTURE_CAPTURE.jsonl",
+      "--plan",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "--output",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\old_epoch\\RESULT.json"
+    ],
+    "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+    "seconds": 0.39099999999962165,
+    "exit_code": 1,
+    "expected_exit": 1,
+    "expected_code": "OLD_EPOCH_PCM",
+    "actual_code": "OLD_EPOCH_PCM",
+    "first_difference": {
+      "code": "OLD_EPOCH_PCM",
+      "cycle": 19870,
+      "expected": 1,
+      "actual": 0
+    },
+    "passed": true,
+    "input_plan": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "bytes": 9393,
+      "sha256": "b2a05d35b1e78557242ba0d1b971aaf299b364f8bd5fde67f7f74e0de780c123"
+    },
+    "capture": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\old_epoch\\FIXTURE_CAPTURE.jsonl",
+      "bytes": 10728153,
+      "sha256": "cc275d32e94716d1246e201d2513bc4c0bcb3f88f0be75d44a4f9ca46ab2c20d"
+    },
+    "stdout": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\old_epoch\\stdout.txt",
+      "bytes": 110,
+      "sha256": "89e2cbfff0b5bc9fd6c0c98ae270cdfeee0eaf5a6587c8e08af0a757d3022c69"
+    },
+    "stderr": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\old_epoch\\stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "name": "pa_wrong_active_polarity",
+    "argv": [
+      "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+      "-X",
+      "utf8",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\check_fixture.py",
+      "--capture",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\pa_wrong_active_polarity\\FIXTURE_CAPTURE.jsonl",
+      "--plan",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "--output",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\pa_wrong_active_polarity\\RESULT.json"
+    ],
+    "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+    "seconds": 0.07799999999951979,
+    "exit_code": 1,
+    "expected_exit": 1,
+    "expected_code": "PA_EN_ACTIVE_HIGH",
+    "actual_code": "PA_EN_ACTIVE_HIGH",
+    "first_difference": {
+      "code": "PA_EN_ACTIVE_HIGH",
+      "cycle": 30,
+      "expected": 1,
+      "actual": 0
+    },
+    "passed": true,
+    "input_plan": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "bytes": 9393,
+      "sha256": "b2a05d35b1e78557242ba0d1b971aaf299b364f8bd5fde67f7f74e0de780c123"
+    },
+    "capture": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\pa_wrong_active_polarity\\FIXTURE_CAPTURE.jsonl",
+      "bytes": 10728153,
+      "sha256": "e7dba54fae09c923f09fcdb41398bbb5e9be04fe77b9185f3d5c1814de5dd720"
+    },
+    "stdout": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\pa_wrong_active_polarity\\stdout.txt",
+      "bytes": 111,
+      "sha256": "3bb3d3cf3adcb661b04011cedede8a360954d5c9a4ed89af8a1d1be891917dc6"
+    },
+    "stderr": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\pa_wrong_active_polarity\\stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "name": "pa_early",
+    "argv": [
+      "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+      "-X",
+      "utf8",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\check_fixture.py",
+      "--capture",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\pa_early\\FIXTURE_CAPTURE.jsonl",
+      "--plan",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "--output",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\pa_early\\RESULT.json"
+    ],
+    "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+    "seconds": 0.0930000000007567,
+    "exit_code": 1,
+    "expected_exit": 1,
+    "expected_code": "PA_EN_BEFORE_STABLE",
+    "actual_code": "PA_EN_BEFORE_STABLE",
+    "first_difference": {
+      "code": "PA_EN_BEFORE_STABLE",
+      "cycle": 7,
+      "expected": 0,
+      "actual": 1
+    },
+    "passed": true,
+    "input_plan": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "bytes": 9393,
+      "sha256": "b2a05d35b1e78557242ba0d1b971aaf299b364f8bd5fde67f7f74e0de780c123"
+    },
+    "capture": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\pa_early\\FIXTURE_CAPTURE.jsonl",
+      "bytes": 10728153,
+      "sha256": "b578f7eda21e0f5a14ab39c31d24cf78de7af180145c3779b792ddefbeb62f8d"
+    },
+    "stdout": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\pa_early\\stdout.txt",
+      "bytes": 112,
+      "sha256": "a782925e2f057cf8b20abce2e6e133f1d7f75aae99556fb33e64fc41b1f28b03"
+    },
+    "stderr": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\pa_early\\stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "name": "pa_reset",
+    "argv": [
+      "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+      "-X",
+      "utf8",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\check_fixture.py",
+      "--capture",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\pa_reset\\FIXTURE_CAPTURE.jsonl",
+      "--plan",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "--output",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\pa_reset\\RESULT.json"
+    ],
+    "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+    "seconds": 0.09400000000096043,
+    "exit_code": 1,
+    "expected_exit": 1,
+    "expected_code": "PA_EN_DURING_RESET",
+    "actual_code": "PA_EN_DURING_RESET",
+    "first_difference": {
+      "code": "PA_EN_DURING_RESET",
+      "cycle": 1,
+      "expected": 0,
+      "actual": 1
+    },
+    "passed": true,
+    "input_plan": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "bytes": 9393,
+      "sha256": "b2a05d35b1e78557242ba0d1b971aaf299b364f8bd5fde67f7f74e0de780c123"
+    },
+    "capture": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\pa_reset\\FIXTURE_CAPTURE.jsonl",
+      "bytes": 10728153,
+      "sha256": "88556f64526b8f87e3ec3ead880ae2d4815cc7139a05df2e5880183d1731992c"
+    },
+    "stdout": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\pa_reset\\stdout.txt",
+      "bytes": 111,
+      "sha256": "a418f760b5e770b45b413f4b12484380f19560f14833dad7a1776f389f84ed34"
+    },
+    "stderr": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\pa_reset\\stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "name": "reset_not_silent",
+    "argv": [
+      "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+      "-X",
+      "utf8",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\check_fixture.py",
+      "--capture",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\reset_not_silent\\FIXTURE_CAPTURE.jsonl",
+      "--plan",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "--output",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\reset_not_silent\\RESULT.json"
+    ],
+    "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+    "seconds": 0.375,
+    "exit_code": 1,
+    "expected_exit": 1,
+    "expected_code": "RESET_NOT_SILENT",
+    "actual_code": "RESET_NOT_SILENT",
+    "first_difference": {
+      "code": "RESET_NOT_SILENT",
+      "cycle": 19002,
+      "expected": null,
+      "actual": null
+    },
+    "passed": true,
+    "input_plan": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "bytes": 9393,
+      "sha256": "b2a05d35b1e78557242ba0d1b971aaf299b364f8bd5fde67f7f74e0de780c123"
+    },
+    "capture": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\reset_not_silent\\FIXTURE_CAPTURE.jsonl",
+      "bytes": 10728153,
+      "sha256": "89bc24958b2f945b89f7baac0711f334f97c7c5d778e4992fc597ac1ac409493"
+    },
+    "stdout": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\reset_not_silent\\stdout.txt",
+      "bytes": 119,
+      "sha256": "1ceb158dd497798250e81c06585396aa339bdbb262974477e6b340b348806d13"
+    },
+    "stderr": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\reset_not_silent\\stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "name": "x_pin",
+    "argv": [
+      "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+      "-X",
+      "utf8",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\check_fixture.py",
+      "--capture",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\x_pin\\FIXTURE_CAPTURE.jsonl",
+      "--plan",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "--output",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\x_pin\\RESULT.json"
+    ],
+    "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+    "seconds": 0.23399999999855936,
+    "exit_code": 1,
+    "expected_exit": 1,
+    "expected_code": "UNKNOWN_OR_NONINTEGER",
+    "actual_code": "UNKNOWN_OR_NONINTEGER",
+    "first_difference": {
+      "code": "UNKNOWN_OR_NONINTEGER",
+      "cycle": 10000,
+      "expected": null,
+      "actual": null
+    },
+    "passed": true,
+    "input_plan": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+      "bytes": 9393,
+      "sha256": "b2a05d35b1e78557242ba0d1b971aaf299b364f8bd5fde67f7f74e0de780c123"
+    },
+    "capture": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\x_pin\\FIXTURE_CAPTURE.jsonl",
+      "bytes": 10728155,
+      "sha256": "62376c5aa49db3dcfaafe83145d0a103426656977e3ef1133443995e08555b4e"
+    },
+    "stdout": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\x_pin\\stdout.txt",
+      "bytes": 124,
+      "sha256": "28d34f23f8c4de1da1779a7802baf2f083b21509dac6045a458faf30e59a9c4f"
+    },
+    "stderr": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\x_pin\\stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+]

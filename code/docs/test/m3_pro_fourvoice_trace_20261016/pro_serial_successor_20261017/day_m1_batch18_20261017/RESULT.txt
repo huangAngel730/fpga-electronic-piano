@@ -1,0 +1,58 @@
+B2 串行对接／M1第18批字段静态增量，2026-10-17
+
+状态：DONE_LIMITED_STATIC_DELTA__PENDING_PRO_SOURCE_OR_TRACE
+实际等级：L0。当前限定静态任务已经完成；完整B2、真实Pro和板级验收均未完成。
+开工HEAD：c7e0144ac33acfde9b449183933ef7a21aa9325c。
+
+结论
+1. M1第18批成功保真映射496条toy日历记录，但没有产生Pro PCM/clip黄金。
+   76笔事务全是lane级身份；所有b0_request_id均为null，不能当76个stereo采样ID。
+2. 实际账本为76 ACCEPT、75 PUBLISH、71 CONSUME、5 CANCEL。5次取消中，
+   epoch0/frame15/req_id61..64四笔已经PUBLISH，随后被cycle12560 RESET取消；
+   所以75次PUBLISH与5次CANCEL有4笔交集，不能算80笔独立终态，也不能把75次
+   PUBLISH或71次CONSUME直接称buffer commit、TX take或完整串行帧。
+3. C的四lane夹具在19帧中全部分拍；例如frame0在cycle24/32/40/48推进。
+   B2按frame_transaction身份工作。只有真实B1/M2公开映射能把四lane工作归并到某一
+   frame request；不得用lane、slot或lane req_id顶替stereo request_id。
+4. 已发布B2软件已正确把公共commit与实际TX采纳分开：commit只证明buffer得到结果；
+   每个真实frame_tick还必须有独立tx_sample_valid/frame_id/req_id/L/R/clip/hold/
+   startup_zero记录。不能从最后commit、result、play寄存器或黄金反填TX take。
+5. M1输入事件及lane事务和旧D串行诊断没有共同真实执行时轴。旧D只将76身份映射到
+   18个诊断串行组；这不能证明真实音符→PCM、真实833/834拍、真实TX采纳或Pro引脚。
+
+最小真实证据链
+B1真实事件/复位/四lane公开日历（同一cycle/epoch，源/ROM/top/input SHA）
+ -> M1基于相同事件、config/effect接受和真实帧请求ID给出的PCM24 L/R/clip黄金
+ -> 公开buffer commit握手（frame request ID、cycle、PCM24 L/R/clip）
+ -> 独立TX take sidecar（frame ID、request ID、实际采纳PCM、hold/startup语义）
+ -> 同一逐沿BCLK/WS/DIN原值
+ -> 解码右/左32bit半槽中的LSBJ16并按ID、epoch、帧顺序核同。
+
+可以只读复用
+- B1 61字段OBSERVATION_CONTRACT的cycle/epoch/reset、FRAME_REQUEST域、commit、TX
+  sidecar、pins和finish/MONITOR_END候选结构。
+- B2现有严格输入SHA/basis、ID0合法、取消/复位清理、<833及下一真实frame截止、
+  逐沿PinDecoder、尾部UNKNOWN和fail-closed解析逻辑。
+- 现有PinDecoder的候选运输规则：每半槽32bit、末16bit LSBJ，WS低为右、WS高为左；
+  PCM24候选量化为sat16((x+128)//256)。该规则可用于M2/M1确认后的运输检查，不能由
+  M3自行升级成Pro数学定义；16/24位舍入、饱和和2bit clip→1bit clip仍由M1确认。
+
+仍缺的公开输入
+- M2：精确Pro source/ROM/top SHA、40MHz/reset/epoch与61字段公开映射、真实四lane到
+  frame_transaction的归并规则、buffer commit点、TX实际采纳点、finish/END/MONITOR_END。
+- M1：与同一真实事件、config/effect、帧请求ID和source/ROM/input basis绑定的PCM24
+  左右/clip黄金；确认PCM24→LSBJ16舍入饱和及clip归并规则。
+- M3/B1：真实Release/retire/generation、事件apply、所有lane推进、背压、取消/reset，
+  包括未发布及发布后取消事务；同次真实pins和成功完整捕获原双流。
+
+本轮只读命令均exit0：读取任务单/合同/源码；PowerShell Get-FileHash盘点18项；
+解析FIELD_MAP统计496记录、76事务和各kind计数；rg静态定位B2/PinDecoder规则；
+git rev-parse HEAD。未运行mapper、helper、19+3自检、串行检查、旧303、编译、
+ModelSim、Gowin或硬件。功能调用0，旧轮次消费0，Git写0；无失败或重试。
+详细字段状态见SERIAL_FIELD_DELTA.json，完整输入身份见INPUT_SHA.json。
+
+边界
+PENDING_PRO_SOURCE_OR_TRACE；PCM_algorithm_pass=false；physical_48k_PT8211_pass=false；
+board_release_allowed=false。未改helper、旧B1/B2、C/D夹具、正式接口或共享文档。
+审核制度关闭，仅本窗口自审。文件待总控只读领取并统一发布；真人M1/M2待用户转发，
+尚未送达。

@@ -1,0 +1,155 @@
+{
+  "schema": "M3_D3_SUCCESSOR_MAPPING_STATIC_RECEIPT_V1",
+  "status": "DONE_STATIC_MAPPING_ONLY__D3_REWORK_PENDING_M2",
+  "level": "L0_STATIC_READING_AND_DOCUMENT_PROPOSAL_ONLY",
+  "head": "c7e0144ac33acfde9b449183933ef7a21aa9325c",
+  "owner": "night_task3",
+  "publication_owner": "night_task1",
+  "write_scope": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/successor_mapping",
+  "source_identity_manifest": "INPUT_IDENTITIES.json",
+  "identity_check": {
+    "stable": true,
+    "input_count": 34,
+    "output_files": [
+      {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\d3_repair_proposal_20261017\\successor_mapping\\INPUT_IDENTITIES.json",
+        "bytes": 9983,
+        "sha256": "12a5f1081b2d05f50b09ab5a412744887cb3e99d56872293ea5ad2ead4449d7f"
+      },
+      {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\d3_repair_proposal_20261017\\successor_mapping\\MAPPING.md",
+        "bytes": 8909,
+        "sha256": "29fae8152237fff298934aa8557e3ebbf59707f99953515c1c726e791e0da08b"
+      },
+      {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\d3_repair_proposal_20261017\\successor_mapping\\RESULT.md",
+        "bytes": 1439,
+        "sha256": "0961598b8936bd7d914ba2e16cad6b7163ecc658a06fb0e850c460cfb1f7cad6"
+      },
+      {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\d3_repair_proposal_20261017\\successor_mapping\\START.md",
+        "bytes": 1005,
+        "sha256": "099506f15cdeb7d1614cdc720f7a9f07799b8b801bd602ff40fa5ac9d70f4372"
+      }
+    ],
+    "checked_utc": "2026-10-17T05:21:09.0368812Z"
+  },
+  "ended_utc": "2026-10-17 05:22:22 UTC",
+  "deadline_local": "2026-10-17 14:34:00 Asia/Shanghai",
+  "functional_budget": 0,
+  "functional_runs": 0,
+  "software_CLI_runs": 0,
+  "imports": 0,
+  "tests_compilation_EDA_hardware_runs": 0,
+  "git_index_commit_push_operations": 0,
+  "committed": false,
+  "pushed": false,
+  "old_source_or_ZIP_copied": false,
+  "methods": [
+    "Read source with line numbers and read existing receipts/stdout/stderr/JSON",
+    "Get-FileHash SHA256 and file sizes; 34 input identities stable",
+    "git rev-parse and git hash-object read-only: current source blobs equal monitor@414e1a9 and B1/B2@5aa4959"
+  ],
+  "file_identity_command_exit_code": 0,
+  "read_lookup_errors_preserved_as_tool_history": [
+    {
+      "operation": "optional read of nonexistent B1_ROUND_01/RESULT.json",
+      "result": "Path not found; listed directory then read existing RUN_RECEIPT.json; no execution"
+    },
+    {
+      "operation": "rg PowerShell literal glob suffix /*",
+      "result": "os error 123; actual file paths read explicitly; no execution"
+    }
+  ],
+  "sources": [
+    {
+      "id": "D3",
+      "sha256": "3217f97e57daec534306a213c64566fa111e3116f15a15967ca881847c218e07",
+      "key_lines": "96-124,130-132,164-169",
+      "scope": "ORIGINAL_INTAKE_STILL_UNREPAIRED"
+    },
+    {
+      "id": "MONITOR",
+      "sha256": "faf7cda22f928e7f0c40bd7ed164213e2282078e213ee1f472b331cfe098295a",
+      "key_lines": "66-105,119-128,145-163",
+      "coverage": "ACCEPT_CLEANUP_BUDGET_PRESENT_PARTIAL_FRAME_CALENDAR"
+    },
+    {
+      "id": "B1",
+      "sha256": "32af2a7d32c1e0e9a4b9451da3310c27eda20eaf96bfccb87f229b858a81951e",
+      "key_lines": "72-88,109-110,147-162",
+      "coverage": "METADATA_ONLY_NOT_TRACE_BEHAVIOR"
+    },
+    {
+      "id": "B2",
+      "sha256": "c393a0d223781260101be1e553f3b7a1be2840547970d57902de97d69007b954",
+      "key_lines": "104-126,137-176,210-239",
+      "coverage": "CLEANUP_LEDGER_PRESENT_NOT_D3_INTAKE_REPAIR"
+    }
+  ],
+  "core_findings": [
+    "No existing successor completes the original D3 intake repair",
+    "Monitor checks >=833 before reset/cancel, but finish bypasses FRAME_STALLED and reset clears frame history",
+    "B2 prechecks cleanup calendar <833 and matches actual cancel/reset; observed frames are not an independent complete frame calendar",
+    "D3 request-to-CONSUME is not monitor/B2 accept-to-commit/cleanup",
+    "B1 hashes referenced bytes and declarations; it does not parse trace/calendar/log content",
+    "B2 loads D3.decoder, never D3.intake; scalar lane cannot directly represent same-edge mask1111"
+  ],
+  "self_review": {
+    "agent": "/root/c_consumer_self_review",
+    "mode": "READ_ONLY_OWN_AGENT_FORMAL_AUDITOR_DISABLED",
+    "result": "NO_CONCRETE_MAPPING_ERROR_OR_OVERCLAIM_FOUND",
+    "scope": "MAPPING.md, required source key ranges and M2 static counterexample",
+    "functional_runs": 0,
+    "files_modified": 0,
+    "text": "本次静态映射未发现具体错误或过度签收。文档准确区分了 monitor 接受预算与 finish／reset 边界、B2 清理账本与 D3 CONSUME 语义、B1 元数据核对、decoder 与 intake，以及 scalar lane 与共同 tick mask。仅阅读 MAPPING.md 和支撑结论的源码关键段、M2 静态反例；未运行 CLI、import、测试或工具，未修改文件。"
+  },
+  "historical_results_only": [
+    "Monitor original case21/22 exit1 and REQUEST_DEADLINE; case23/24 original exit0 for +832 cleanup",
+    "B1 original case00 metadata-ready keeps authority_verified=false and real_trace_calendar_checked=false",
+    "B2 original R1 19 and R2 only 3 targeted checks; not final 22 full rerun",
+    "D3 old late_cancel includes FRAME2510; missing-FRAME M2 counterexample is STATIC_NOT_RUN"
+  ],
+  "current_static_expectations_are_actual_pass": false,
+  "D3_rework_status": "PARTIAL_REWORK_REQUIRED",
+  "M2_required": [
+    "exact new software successor path/write scope",
+    "independent frame calendar/phase and same-cycle ordering",
+    "precise targeted input identities and new software budget"
+  ],
+  "unverified": [
+    "D3 repaired implementation and targeted CLI execution",
+    "true Pro same-source trace and public mapping",
+    "PCM algorithm, physical clock/PT8211, STA, board"
+  ],
+  "pro_dut_pass": false,
+  "board_release_allowed": false,
+  "final_return": "LOCAL_RESULT_RECEIPT_FOR_COORDINATOR_READONLY_PICKUP_NO_SEND_TOOL",
+  "human_M2_delivered": false,
+  "outputs": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\d3_repair_proposal_20261017\\successor_mapping\\INPUT_IDENTITIES.json",
+      "bytes": 9983,
+      "sha256": "12a5f1081b2d05f50b09ab5a412744887cb3e99d56872293ea5ad2ead4449d7f"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\d3_repair_proposal_20261017\\successor_mapping\\MAPPING.md",
+      "bytes": 8909,
+      "sha256": "29fae8152237fff298934aa8557e3ebbf59707f99953515c1c726e791e0da08b"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\d3_repair_proposal_20261017\\successor_mapping\\RESULT.md",
+      "bytes": 1439,
+      "sha256": "0961598b8936bd7d914ba2e16cad6b7163ecc658a06fb0e850c460cfb1f7cad6"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\d3_repair_proposal_20261017\\successor_mapping\\START.md",
+      "bytes": 1005,
+      "sha256": "099506f15cdeb7d1614cdc720f7a9f07799b8b801bd602ff40fa5ac9d70f4372"
+    },
+    {
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/successor_mapping/RECEIPT.json",
+      "sha256": "SELF_EXCLUDED"
+    }
+  ]
+}

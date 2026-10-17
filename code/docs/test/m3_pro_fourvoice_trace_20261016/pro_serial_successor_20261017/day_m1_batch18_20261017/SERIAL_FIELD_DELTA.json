@@ -1,0 +1,105 @@
+{
+  "schema": "M3_B2_M1_BATCH18_SERIAL_FIELD_DELTA_V1",
+  "date": "2026-10-17",
+  "head": "c7e0144ac33acfde9b449183933ef7a21aa9325c",
+  "status": "DONE_LIMITED_STATIC_DELTA__PENDING_PRO_SOURCE_OR_TRACE",
+  "level": "L0",
+  "source_facts": {
+    "records": 496,
+    "frames": 19,
+    "lane_transactions": 76,
+    "accepted": 76,
+    "published": 75,
+    "consumed": 71,
+    "cancelled": 5,
+    "published_then_cancelled": 4,
+    "published_then_cancelled_keys": [
+      {"epoch": 0, "frame": 15, "slot": 0, "lane": 0, "req_id": 61},
+      {"epoch": 0, "frame": 15, "slot": 1, "lane": 1, "req_id": 62},
+      {"epoch": 0, "frame": 15, "slot": 2, "lane": 2, "req_id": 63},
+      {"epoch": 0, "frame": 15, "slot": 3, "lane": 3, "req_id": 64}
+    ],
+    "mapped_b0_request_ids": 0,
+    "golden_pcm_generated": false,
+    "calendar_scope": "SYNTHETIC_FIXTURE_NOT_PRO_DUT"
+  },
+  "identity_domains": [
+    {
+      "source": "M1 batch18 lane transaction",
+      "key": ["epoch", "frame", "slot", "lane", "req_id"],
+      "target": "B1 voice/lane lifecycle only",
+      "status": "PRESERVE_NOT_STEREO_ID",
+      "rule": "lane/slot/lane req_id must never be used as B2 frame request or TX sample ID"
+    },
+    {
+      "source": "B1 real frame request",
+      "key": ["epoch", "req_id"],
+      "target": "M1 golden, buffer commit and TX take",
+      "status": "M2_PUBLIC_MAP_REQUIRED",
+      "rule": "four real lanes may be represented by one frame transaction only when exact source exposes that mapping"
+    },
+    {
+      "source": "TX adoption",
+      "key": ["epoch", "tx_frame_id", "tx_req_id"],
+      "target": "decoded stereo pins",
+      "status": "INDEPENDENT_OBSERVATION_REQUIRED",
+      "rule": "commit/result cannot be projected into TX adoption"
+    }
+  ],
+  "field_delta": [
+    {
+      "stage": "B1_EVENT_AND_LANES",
+      "available_batch18": ["event input/accepted/application cycle", "64bit event", "epoch", "frame", "slot", "lane", "lane req_id", "offer/accept/lane_tick/return/publish/consume/cancel"],
+      "preserve": "all original cycles and same-cycle order; frame0 lane ticks are 24/32/40/48, not one common tick",
+      "missing_real": ["exact Pro source/ROM/top", "initial and asynchronous reset contract", "Release/retire/generation", "real event application priority", "real four-lane/frame-request mapping"],
+      "compatibility": "TOY_ONLY_NOT_DIRECT_B2_INPUT"
+    },
+    {
+      "stage": "M1_GOLDEN",
+      "available_batch18": [],
+      "required": ["same-basis epoch", "frame request ID", "PCM24 left", "PCM24 right", "2bit or frozen clip semantics", "accepted config/effect inputs"],
+      "forbidden_sources": ["DUT private wave/env/phase", "DUT result/commit", "C lane payload alone"],
+      "owner": "M1",
+      "status": "PENDING"
+    },
+    {
+      "stage": "BUFFER_COMMIT",
+      "candidate_b1_fields": ["result_valid", "result_ready", "result_id", "result_left", "result_right", "result_clip_mask", "commit", "commit_id", "commit_left", "commit_right", "commit_clip"],
+      "required_semantics": "actual public buffer acceptance, same epoch/frame-request domain",
+      "not_equivalent_to": ["lane PUBLISH", "lane CONSUME", "TX take"],
+      "status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "stage": "TX_TAKE",
+      "candidate_b1_fields": ["tx_sample_valid", "tx_frame_id", "tx_req_id", "tx_left", "tx_right", "tx_clip", "tx_hold", "tx_startup_zero"],
+      "required_semantics": "independently observed value actually loaded by transmitter at the real frame boundary",
+      "not_equivalent_to": ["last commit", "last result", "play register inferred after the fact", "oracle value"],
+      "status": "M2_PUBLIC_MAP_REQUIRED"
+    },
+    {
+      "stage": "PT8211_PINS",
+      "candidate_fields": ["bclk", "ws", "din", "pll_locked", "audio_stable", "pa_en", "finish"],
+      "reusable_candidate_decoder": {"half_slot_bits": 32, "payload": "last16 LSBJ", "ws_low": "right", "ws_high": "left", "pcm24_to_pcm16": "sat16((x+128)//256)"},
+      "required_confirmation": ["M1 fixed-point rounding/saturation", "M1 clip reduction", "M2 exact Pro serial phase and public pin mapping"],
+      "closure": "unique MONITOR_END plus real finish/END and successful raw stdout/stderr receipt",
+      "status": "PENDING_REAL_PINS"
+    }
+  ],
+  "timebase": {
+    "batch18": "fixture_sys_cycle with all 19 frames staggered by lane",
+    "old_D": "diagnostic epoch/consumer-frame mapping; only 18 diagnostic serial groups",
+    "common_real_timebase": false,
+    "rule": "do not align by ordinal or fixed offset; require one actual cycle/epoch capture"
+  },
+  "reusable_logic": [
+    "strict input SHA and source/ROM/input basis equality",
+    "fail-closed CSV parsing and ID0 validity",
+    "cancel/reset cleanup and no commit-on-cancel",
+    "strict service deadline and next true frame deadline",
+    "independent TX sample sidecar",
+    "PinDecoder stereo reconstruction",
+    "tail UNKNOWN rather than truncated success"
+  ],
+  "not_run": ["M1 mapper", "B2 19+3 selftests", "serial checker", "old 303", "compile", "ModelSim", "Gowin", "hardware"],
+  "claims": {"pro_dut_pass": false, "PCM_algorithm_pass": false, "physical_48k_PT8211_pass": false, "board_release_allowed": false}
+}

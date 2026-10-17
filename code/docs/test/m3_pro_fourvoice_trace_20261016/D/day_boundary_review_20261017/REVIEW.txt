@@ -1,0 +1,97 @@
+D3 day boundary static review (2026-10-17)
+
+Status: L0_STATIC_REVIEW_COMPLETE_WITH_ONE_MINIMAL_CASE_GAP
+Baseline HEAD: c7e0144ac33acfde9b449183933ef7a21aa9325c
+Functional checker / mapper / HDL / simulator / EDA / hardware calls: 0
+Patch applied: no
+Original D3 source changed: no
+Board release allowed: false
+
+Scope
+-----
+This review is limited to the existing, read-only D3 R02 proposal under
+`D/d3_repair_proposal_20261017/{patch_proposal,boundary_cases,successor_mapping}`.
+It does not execute the proposed patch, generate V2 fixtures, import the old D3
+checker, or repeat any sealed C/D/E1-E4 test.  The proposal and the cases are
+bound by the SHA-256 values in INPUT_SHA.json.
+
+Static conclusion
+-----------------
+The active R02 patch proposal addresses the original bypass in the intended
+direction:
+
+1. The next deadline comes from an independently frozen explicit frame plan,
+   rather than from the next FRAME row observed in the trace.
+2. The global frame cursor remains live after a transaction becomes CANCELED,
+   so a missing FRAME cannot be erased by CANCEL, END, or RESET.
+3. Every row passes the clock/deadline guard before its state mutation.  END
+   and RESET additionally close all frame obligations through their cycle.
+4. The proposed relation is exact: RETURN/CANCEL/unconsumed RESET must be
+   strictly before the request's next frozen frame; CONSUME occurs at that
+   frame.  It does not reintroduce the superseded uniform q+833 limit.
+5. Equal-cycle input order is preserved.  The proposed guard permits ordinary
+   rows before a same-cycle FRAME, but END/RESET cannot close that cycle before
+   the scheduled FRAME.  FRAME can be followed by the old request's CONSUME,
+   a new request, and then a planned RESET without reordering the trace.
+
+Coverage found in the existing 16 static cases
+----------------------------------------------
+- Missing FRAME2510 followed by CANCEL2512/END2513: BC01.
+- A canceled transaction still cannot erase the global frame obligation: BC14.
+- Ordinary PA and RETURN records cannot cross a missing frame: BC12 and BC13.
+- END and unfinished/terminal-ledger ordering: BC05 and BC14.
+- RESET before, at, and after the frozen deadline for 833/834 gaps: BC06-BC11.
+- CANCEL at the 833-gap deadline in both equal-cycle orders: BC03 and BC04.
+- Legal equal-cycle FRAME/CONSUME/REQUEST and FRAME/REQUEST/CONSUME/RESET:
+  BC15 and BC16.
+- A legal early CANCEL with the required frame still present: BC02.
+
+One minimal case gap
+--------------------
+The requested direct contrast is not complete.  BC03/BC04 cover a D833 request
+whose CANCEL at age 833 equals the deadline and must be rejected.  BC09 covers
+the D834 age-833 condition only with RESET, not CANCEL.  RESET and CANCEL take
+different branches and perform different epoch/frame cleanup, so BC09 cannot
+serve as direct evidence that a D834 request may be canceled at q+833 while
+still strictly before f=q+834.
+
+Minimal addition for the future authorized successor run: add one case using
+calendar profile D834, req8 at cycle1677, legal RETURN already present, CANCEL
+at cycle2510, FRAME3 at cycle2511, then END after the frame.  Expected result is
+ACCEPT under the proposal because 2510 < 2511.  Keep the existing D833
+CANCEL2510 rejection as the paired control.  No new checker, schema, or broad
+regression is required for this gap.
+
+Implementation caution for M2 binding
+-------------------------------------
+The existing CASES.json is a static wrapper, not an input accepted by the old
+V1 CLI.  Before execution, M2 still needs to bind the exact successor path,
+V2 manifest/calendar producer and bytes, same-cycle phase contract, diagnostic
+priority, and one targeted software-run budget.  The active patch is text only;
+its syntax, applicability, actual first diagnostics, and pass/fail results are
+unverified.  D3 therefore remains PARTIAL / REWORK_REQUIRED.
+
+M1 field-map boundary
+---------------------
+M1's batch-18 result is usable only as a field-preserving toy-calendar map:
+496 records, 76 lane transactions, 19 frames, with no generated PCM golden.
+Its own status is FIELD_MAPPING_COMPLETE_PRO_MATH_PENDING.  It does not supply
+the independent Pro source/ROM/lifecycle contract or trusted V2 frame plan and
+must not be used to upgrade this proposal to a Pro golden or board result.
+
+Actual read-only commands and outcomes
+--------------------------------------
+- Get-Content / Get-FileHash / git rev-parse / git status inventory: exit 0.
+- PowerShell ConvertFrom-Json static CASES inventory: exit 0; 16 cases found.
+- Existing 16 functional cases executed in this review: 0.
+- Existing checker/mapper/self-test reruns in this review: 0.
+- Git add/commit/push/fetch/merge calls in this review: 0.
+
+Remaining dependencies
+----------------------
+- Add the one D834 q+833 legal-CANCEL case to the future authorized successor.
+- M2 binds exact V2 artifacts, successor files, same-cycle contract, and run
+  budget before any functional execution.
+- Actual Pro source/ROM/top/trace and M1 PCM/clip golden remain pending.
+- No conclusion here changes board_release_allowed=false.
+

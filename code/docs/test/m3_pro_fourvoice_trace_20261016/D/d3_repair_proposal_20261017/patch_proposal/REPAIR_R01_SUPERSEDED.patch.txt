@@ -1,0 +1,200 @@
+--- a/code/software/m3_pro_fourvoice_trace_20261016/D/ingest/ingest.py
++++ b/code/software/m3_pro_fourvoice_trace_20261016/D/d3_deadline_successor_20261017/ingest.py
+@@ -33,6 +33,52 @@
+     require(type(value) is int and value >= minimum, 'INTEGER_' + name)
+ 
+ 
++def frozen_timing(calendar):
++    require(calendar['timebase'] == {
++        'clock_hz': 40000000, 'nominal_sample_rate_hz': 48000,
++        'sampling_phase': 'SYS_EDGE_ORDERED_EVENTS_V1',
++        'service_budget_cycles': 833,
++        'frame_plan_origin': 'FROZEN_INDEPENDENT_INPUT_PLAN'}, 'TIMEBASE_CONTRACT')
++    entries = calendar['epochs']
++    require(type(entries) is list and len(entries) > 0, 'EPOCH_PLAN_TYPE')
++    plans, successors = {}, {}
++    for index, entry in enumerate(entries):
++        require(type(entry) is dict and set(entry) == {
++            'epoch', 'reset_cycle', 'stop_kind', 'stop_cycle', 'frames',
++            'next_frame'}, 'EPOCH_PLAN_FIELDS')
++        for name in ('epoch', 'reset_cycle', 'stop_cycle'):
++            integer(entry[name], 'PLAN_' + name)
++        require(entry['epoch'] == index and entry['stop_cycle'] >= entry['reset_cycle'],
++                'EPOCH_PLAN_ORDER')
++        require(entry['stop_kind'] == ('END' if index == len(entries) - 1 else 'RESET'),
++                'EPOCH_STOP_KIND')
++        if index:
++            require(entry['reset_cycle'] > entries[index - 1]['reset_cycle'] and
++                    entries[index - 1]['stop_cycle'] == entry['reset_cycle'],
++                    'EPOCH_RESET_BOUNDARY')
++        require(type(entry['frames']) is list, 'FROZEN_FRAME_LIST')
++        all_frames = entry['frames'] + [entry['next_frame']]
++        previous = None
++        for frame in all_frames:
++            require(type(frame) is dict and set(frame) == {'frame_id', 'cycle'},
++                    'FROZEN_FRAME_FIELDS')
++            integer(frame['frame_id'], 'PLAN_FRAME_ID')
++            integer(frame['cycle'], 'PLAN_FRAME_CYCLE')
++            require(frame['cycle'] >= entry['reset_cycle'], 'FRAME_BEFORE_RESET')
++            if previous is not None:
++                require(frame['frame_id'] == previous['frame_id'] + 1 and
++                        frame['cycle'] - previous['cycle'] in (833, 834),
++                        'FROZEN_FRAME_PLAN_GAP_OR_ID')
++            previous = frame
++        require(all(f['cycle'] <= entry['stop_cycle'] for f in entry['frames']) and
++                entry['next_frame']['cycle'] > entry['stop_cycle'],
++                'FROZEN_FRAME_COVERAGE_HORIZON')
++        for current, following in zip(all_frames, all_frames[1:]):
++            successors[(index, current['cycle'])] = following
++        plans[index] = dict(entry, frame_cursor=0)
++    return plans, successors
++
++
+ def intake(manifest_path, expected_sha):
+     manifest_path = Path(manifest_path).resolve()
+     require(sha(manifest_path) == expected_sha, 'MANIFEST_SHA')
+@@ -40,7 +86,7 @@
+     parse = legacy.parse_json
+     manifest = parse(manifest_path.read_text(encoding='utf-8'))
+     require(set(manifest) == {'schema', 'provenance', 'clock_hz', 'sampling_phase', 'package', 'artifacts'}, 'MANIFEST_FIELDS')
+-    require(manifest['schema'] == 'M3_PRO_INTAKE_V1', 'MANIFEST_SCHEMA')
++    require(manifest['schema'] == 'M3_PRO_INTAKE_V2', 'MANIFEST_SCHEMA')
+     require(manifest['provenance'] in ('SYNTHETIC_FIXTURE', 'DECLARED_REAL_PENDING_M2'), 'PROVENANCE')
+     require(manifest['package'] == 'FPG676' and manifest['clock_hz'] == 40000000, 'CLOCK_OR_PACKAGE_CONTRACT')
+     require(manifest['sampling_phase'] == 'SYS_EDGE_ORDERED_EVENTS_V1', 'SAMPLING_PHASE_CONTRACT')
+@@ -61,12 +107,13 @@
+         identities.append(entry)
+     require(set(artifacts) == {'source', 'rom', 'contract', 'calendar', 'trace'}, 'ARTIFACT_ROLES_MISSING')
+     contract = parse(artifacts['contract'].read_text(encoding='utf-8'))
+-    require(contract == {'schema': 'M3_PRO_OBSERVER_REQUIREMENTS_V1', 'package': 'FPG676',
++    require(contract == {'schema': 'M3_PRO_OBSERVER_REQUIREMENTS_V2', 'package': 'FPG676',
+                          'clock_hz': 40000000, 'sampling_phase': 'SYS_EDGE_ORDERED_EVENTS_V1',
+                          'pa_active': 1, 'identity_only': True}, 'CONTRACT_CONTENT')
+     calendar = parse(artifacts['calendar'].read_text(encoding='utf-8'))
+-    require(set(calendar) == {'schema', 'provenance', 'requests'} and calendar['schema'] == 'M3_PRO_INTAKE_CALENDAR_V1', 'CALENDAR_FIELDS')
++    require(set(calendar) == {'schema', 'provenance', 'timebase', 'epochs', 'requests'} and calendar['schema'] == 'M3_PRO_INTAKE_CALENDAR_V2', 'CALENDAR_FIELDS')
+     require(calendar['provenance'] == manifest['provenance'] and type(calendar['requests']) is list, 'CALENDAR_PROVENANCE')
++    epoch_plan, frame_successors = frozen_timing(calendar)
+     expected = {}
+     for entry in calendar['requests']:
+         require(type(entry) is dict and set(entry) == {'epoch', 'req_id', 'cycle', 'lane_mask'}, 'CALENDAR_REQUEST_FIELDS')
+@@ -74,7 +121,12 @@
+             integer(entry[name], name)
+         key = (entry['epoch'], entry['req_id'])
+         require(key not in expected and entry['lane_mask'] == 15, 'CALENDAR_REQUEST_IDENTITY')
+-        expected[key] = entry
++        require((entry['epoch'], entry['cycle']) in frame_successors,
++                'REQUEST_NOT_ON_FROZEN_FRAME')
++        following = frame_successors[(entry['epoch'], entry['cycle'])]
++        expected[key] = dict(entry, presentation_due=following['cycle'],
++                            presentation_frame=following['frame_id'],
++                            service_due=min(entry['cycle'] + 833, following['cycle']))
+     fields = {
+         'RESET': 'kind cycle epoch', 'FRAME': 'kind cycle epoch frame_id',
+         'REQUEST': 'kind cycle epoch req_id lane_mask', 'ACCEPT': 'kind cycle epoch req_id',
+@@ -85,6 +137,28 @@
+     ledger, observed, frame_ids, gaps = {}, set(), set(), []
+     cycle, epoch, last_frame, frame_id, ended, resets = -1, -1, None, None, False, 0
+     consumed = 0
++
++    def guard_clock_and_service(now):
++        if epoch < 0:
++            return
++        plan = epoch_plan[epoch]
++        require(now <= plan['stop_cycle'], 'FROZEN_EPOCH_HORIZON_PASSED')
++        cursor = plan['frame_cursor']
++        require(cursor == len(plan['frames']) or
++                plan['frames'][cursor]['cycle'] >= now, 'MISSING_FROZEN_FRAME')
++        for item in ledger.values():
++            if item['epoch'] != epoch:
++                continue
++            if item['state'] in ('REQUESTED', 'ACCEPTED'):
++                require(now < item['service_due'], 'TRANSACTION_SERVICE_DEADLINE')
++            elif item['state'] == 'RETURNED':
++                require(now <= item['presentation_due'], 'MISSING_CONSUME_AT_DUE_FRAME')
++
++    def require_frames_through(now, code):
++        plan = epoch_plan[epoch]
++        cursor = plan['frame_cursor']
++        require(cursor == len(plan['frames']) or
++                plan['frames'][cursor]['cycle'] > now, code)
+     with artifacts['trace'].open(encoding='utf-8') as stream:
+         for line_number, line in enumerate(stream, 1):
+             row = parse(line)
+@@ -95,18 +169,35 @@
+                     integer(value, name)
+             require(row['cycle'] >= cycle, f'CYCLE_ORDER_{line_number}')
+             cycle = row['cycle']
++            # Every row checks the independent clock before its state change.
++            # Same-cycle rows stay in their original order; no sorting/fill-in.
++            guard_clock_and_service(cycle)
+             if kind == 'RESET':
+-                require(row['epoch'] == epoch + 1, 'RESET_EPOCH')
++                require(row['epoch'] == epoch + 1 and row['epoch'] in epoch_plan,
++                        'RESET_EPOCH')
++                if epoch >= 0:
++                    plan = epoch_plan[epoch]
++                    require(plan['stop_kind'] == 'RESET' and cycle == plan['stop_cycle'],
++                            'RESET_NOT_ON_FROZEN_BOUNDARY')
++                    require_frames_through(cycle, 'MISSING_FROZEN_FRAME_AT_RESET')
++                require(cycle == epoch_plan[row['epoch']]['reset_cycle'],
++                        'RESET_NOT_ON_FROZEN_BOUNDARY')
+                 for item in ledger.values():
+                     if item['state'] not in ('CONSUMED', 'CANCELED'):
++                        require(cycle < item['service_due'], 'RESET_AT_OR_AFTER_SERVICE_DEADLINE')
+                         require(item.get('due_cycle') is None, 'RESET_UNCONSUMED_DUE_FRAME')
+-                        require(cycle - item['request_cycle'] < 834, 'RESET_AFTER_UNOBSERVED_DEADLINE')
+                         item['state'] = 'CANCELED'
+                 epoch, last_frame, frame_id = row['epoch'], None, None
+                 resets += 1
+                 continue
+             require(row['epoch'] == epoch and epoch >= 0, 'OLD_OR_MISSING_EPOCH')
+             if kind == 'FRAME':
++                plan = epoch_plan[epoch]
++                cursor = plan['frame_cursor']
++                require(cursor < len(plan['frames']) and plan['frames'][cursor] ==
++                        {'frame_id': row['frame_id'], 'cycle': cycle},
++                        'EXTRA_OR_WRONG_FROZEN_FRAME')
++                plan['frame_cursor'] += 1
+                 key = (epoch, row['frame_id'])
+                 require(key not in frame_ids, 'DUPLICATE_FRAME')
+                 require(frame_id is None or row['frame_id'] == frame_id + 1, 'MISSING_FRAME')
+@@ -128,6 +219,11 @@
+                 require(all(row[n] in (0, 1) for n in ('rst_n', 'stable', 'pa_en')), 'PA_BINARY')
+                 require(row['pa_en'] == int(bool(row['rst_n'] and row['stable'])), 'PA_POLARITY_OR_UNSTABLE')
+             elif kind == 'END':
++                require(epoch == len(epoch_plan) - 1 and
++                        epoch_plan[epoch]['stop_kind'] == 'END', 'END_OUTSIDE_FINAL_EPOCH')
++                # Early END is legal only before any unobserved due frame.
++                # Future planned frames beyond END are not capture obligations.
++                require_frames_through(cycle, 'MISSING_FROZEN_FRAME_AT_END')
+                 require(all(v['state'] in ('CONSUMED', 'CANCELED') for v in ledger.values()), 'UNFINISHED_TRANSACTION')
+                 ended = True
+             else:
+@@ -138,7 +234,10 @@
+                     require(row['lane_mask'] == e['lane_mask'] and cycle == e['cycle'], 'INDEPENDENT_CALENDAR_MISMATCH')
+                     require(last_frame is not None and cycle == last_frame, 'REQUEST_FRAME_ORIGIN')
+                     observed.add(key)
+-                    ledger[key] = {'epoch': epoch, 'state': 'REQUESTED', 'lanes': set(), 'request_cycle': cycle}
++                    ledger[key] = {'epoch': epoch, 'state': 'REQUESTED', 'lanes': set(),
++                                   'request_cycle': cycle, 'service_due': e['service_due'],
++                                   'presentation_due': e['presentation_due'],
++                                   'presentation_frame': e['presentation_frame']}
+                     continue
+                 require(key in ledger, 'UNKNOWN_REQUEST')
+                 item = ledger[key]
+@@ -158,11 +257,14 @@
+                     require(item['state'] == 'RETURNED', 'CONSUME_CANCELED_OR_UNRETURNED')
+                     require(row['frame_id'] == frame_id and cycle == last_frame, 'CONSUME_FRAME_ID')
+                     require(item.get('due_cycle') == cycle, 'CONSUME_NOT_AT_DUE_FRAME')
++                    require(cycle == item['presentation_due'] and
++                            row['frame_id'] == item['presentation_frame'], 'CONSUME_FROZEN_DEADLINE')
+                     require(cycle - item['request_cycle'] in (833, 834), 'CONSUME_DEADLINE')
+                     item['state'] = 'CONSUMED'
+                     consumed += 1
+                 elif kind == 'CANCEL':
+                     require(item['state'] in ('REQUESTED', 'ACCEPTED', 'RETURNED'), 'CANCEL_STATE')
++                    require(cycle < item['service_due'], 'CANCEL_AT_OR_AFTER_SERVICE_DEADLINE')
+                     require(item.get('due_cycle') is None, 'CANCEL_AFTER_DUE_FRAME')
+                     item['state'] = 'CANCELED'
+                     item['cancel_cycle'] = cycle

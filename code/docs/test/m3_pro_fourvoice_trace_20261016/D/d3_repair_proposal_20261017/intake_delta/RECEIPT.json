@@ -1,0 +1,62 @@
+{
+  "task": "NIGHT_TASK5_D3_R02_INTAKE_DELTA",
+  "status": "DONE_STATIC_INTAKE_DELTA__NO_ACTIONABLE_EXECUTION_PENDING_M2",
+  "actual_level": "L0_STATIC_ONLY",
+  "base_commit": "5aa4959341c9fcc070e9213b66c6ea82ac8d2225",
+  "target_commit": "c7e0144ac33acfde9b449183933ef7a21aa9325c",
+  "delta_files": 14,
+  "delta_scope": "code/docs only; document/review evidence, no new source/ROM/build/constraints/TB",
+  "M2_reviewed_commits": [
+    "ad2de2169230dc8fd9f4b6f8157d384306c2479a",
+    "8b9d11e5368b6db45a1d3090d45f9e4f754132f2"
+  ],
+  "M2_not_yet_reviewed_successor_commits": [
+    "414e1a9d3ee0617c5e8ba72dd4b22c36122c9926",
+    "5aa4959341c9fcc070e9213b66c6ea82ac8d2225"
+  ],
+  "source": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/D/ingest/ingest.py",
+    "sha256": "3217f97e57daec534306a213c64566fa111e3116f15a15967ca881847c218e07",
+    "key_lines": {"reset": "96-105", "frame_due_assignment": "109-124", "end_terminal_only": "130-132", "cancel_due_only": "164-168"}
+  },
+  "counterexample": {
+    "path": "code/docs/test/m2_pro_offline_review_20261017/D3_COUNTEREXAMPLE.json",
+    "sha256": "4a32745969b0a4fe6b5aa7a4e880e96659ad677c9b22d790ff6ee4ce4eda0ee4",
+    "state": "STATIC_EXPECTATION_ONLY_NOT_RUN"
+  },
+  "M2_report": {
+    "path": "code/docs/M2_M3_Pro离线两批交付限定复核_2026-10-17.md",
+    "sha256": "802de67c01cc1b752a68fd926d97b27b0223d11a9e74989f29ae9d66ddab64eb",
+    "key_lines": [5, 15, 16, 28, 38, 40, 42]
+  },
+  "new_pro_input_status": "NO_NEW_PRO_BYTES_IN_DELTA; 7 named local input locations absent",
+  "B0_physical_status": "UNKNOWN_UNCHANGED",
+  "D3_execution_blocker": "M2 binding of software successor path, exact directed inputs and current Python CLI budget",
+  "pro_inputs_are_required_for_D3_synthetic_software_repair": false,
+  "functional_runs": 0,
+  "new_budget_consumed": 0,
+  "CLI_import_tests_compiler_EDA_hardware_runs": 0,
+  "old_zip_copies": 0,
+  "runtime_rescans": 0,
+  "git_writes": 0,
+  "submitted": false,
+  "pushed": false,
+  "self_review": "Primary window static cross-check of 14 delta paths, R02 scope and D3 source control flow; no execution",
+  "read_only_checks": [
+    "git rev-parse HEAD",
+    "git -c core.quotepath=false diff --name-status/--numstat/--name-only 5aa4959 c7e0144",
+    "git diff --name-only 5aa4959 c7e0144 -- code/software code/model code/rtl code/build code/constraints code/tb (empty)",
+    "Get-FileHash SHA256 of 14 changed files and explicitly referenced sources",
+    "Test-Path of 7 exact known input directories; no recursion"
+  ],
+  "not_run_or_not_signed": [
+    "D3 actual repair and directed CLI reproduction",
+    "new successor M2 acceptance",
+    "real Pro source/ROM/trace and M1 same-source golden",
+    "commercial license, full timing, bitstream and board electrical originals"
+  ],
+  "outputs": ["START.md", "DELTA_IDENTITIES.json", "DELTA_NAME_STATUS.txt", "MISSING_FOR_EXECUTION.md", "RESULT.md", "RECEIPT.json"],
+  "delivery": "Coordinator read-only pickup; no direct-send attempt",
+  "M2_execution_permission": "PENDING_NOT_GRANTED",
+  "board_release_allowed": false
+}

@@ -1,0 +1,376 @@
+{
+  "synthetic": true,
+  "cases": [
+    [
+      "synthetic_static_positive",
+      {
+        "mode": "simulation",
+        "assembly": "bound_list_plus_wrapper",
+        "archive": {
+          "path": "SYNTHETIC.zip",
+          "sha256": "26e9cc4faace65df42a0e4b61a985b882fe4675a5ca0eb7c426e0bf0a5556480",
+          "manifest_sha256": "401ebacfc2e5433c236c48e57e2c704d2b7c182f2863d4a9aa5ad9ea8e2a0a7e"
+        }
+      },
+      "STATIC_CLOSURE_READY"
+    ],
+    [
+      "physical_identity_missing",
+      {
+        "mode": "physical",
+        "assembly": "bound_list_plus_wrapper",
+        "archive": {
+          "path": "SYNTHETIC.zip",
+          "sha256": "26e9cc4faace65df42a0e4b61a985b882fe4675a5ca0eb7c426e0bf0a5556480",
+          "manifest_sha256": "401ebacfc2e5433c236c48e57e2c704d2b7c182f2863d4a9aa5ad9ea8e2a0a7e"
+        }
+      },
+      "PENDING_PHYSICAL_ID"
+    ],
+    [
+      "wrapper_omitted",
+      {
+        "mode": "simulation",
+        "assembly": "bound_list_only",
+        "archive": {
+          "path": "SYNTHETIC.zip",
+          "sha256": "26e9cc4faace65df42a0e4b61a985b882fe4675a5ca0eb7c426e0bf0a5556480",
+          "manifest_sha256": "401ebacfc2e5433c236c48e57e2c704d2b7c182f2863d4a9aa5ad9ea8e2a0a7e"
+        }
+      },
+      "WRAPPER_NOT_IN_SOURCE_LIST"
+    ],
+    [
+      "missing_leaf",
+      {
+        "mode": "simulation",
+        "assembly": "bound_list_plus_wrapper",
+        "archive": {
+          "path": "SYNTHETIC.zip",
+          "sha256": "26e9cc4faace65df42a0e4b61a985b882fe4675a5ca0eb7c426e0bf0a5556480",
+          "manifest_sha256": "401ebacfc2e5433c236c48e57e2c704d2b7c182f2863d4a9aa5ad9ea8e2a0a7e"
+        },
+        "remove_sources": [
+          "source_closure/inputs/leaf.sv"
+        ]
+      },
+      "MISSING_MODULE:leaf"
+    ],
+    [
+      "duplicate_module",
+      {
+        "mode": "simulation",
+        "assembly": "bound_list_plus_wrapper",
+        "archive": {
+          "path": "SYNTHETIC.zip",
+          "sha256": "26e9cc4faace65df42a0e4b61a985b882fe4675a5ca0eb7c426e0bf0a5556480",
+          "manifest_sha256": "401ebacfc2e5433c236c48e57e2c704d2b7c182f2863d4a9aa5ad9ea8e2a0a7e"
+        },
+        "candidates": [
+          {
+            "path": "duplicate.sv",
+            "stage_as": "new/duplicate.sv",
+            "sha256": "22c1e087104d471c4cf5b5ca0fd18d36d0f57280ff1abb72da5ecd84010fc961"
+          }
+        ]
+      },
+      "DUPLICATE_MODULE:leaf"
+    ],
+    [
+      "stage_path_escape",
+      {
+        "mode": "simulation",
+        "assembly": "bound_list_plus_wrapper",
+        "archive": {
+          "path": "SYNTHETIC.zip",
+          "sha256": "26e9cc4faace65df42a0e4b61a985b882fe4675a5ca0eb7c426e0bf0a5556480",
+          "manifest_sha256": "401ebacfc2e5433c236c48e57e2c704d2b7c182f2863d4a9aa5ad9ea8e2a0a7e"
+        },
+        "candidates": [
+          {
+            "path": "duplicate.sv",
+            "stage_as": "../escape.sv",
+            "sha256": "22c1e087104d471c4cf5b5ca0fd18d36d0f57280ff1abb72da5ecd84010fc961"
+          }
+        ]
+      },
+      "PATH_ESCAPE:"
+    ],
+    [
+      "input_path_escape",
+      {
+        "mode": "simulation",
+        "assembly": "bound_list_plus_wrapper",
+        "archive": {
+          "path": "SYNTHETIC.zip",
+          "sha256": "26e9cc4faace65df42a0e4b61a985b882fe4675a5ca0eb7c426e0bf0a5556480",
+          "manifest_sha256": "401ebacfc2e5433c236c48e57e2c704d2b7c182f2863d4a9aa5ad9ea8e2a0a7e"
+        },
+        "candidates": [
+          {
+            "path": "../escape.sv",
+            "stage_as": "new/duplicate.sv",
+            "sha256": "22c1e087104d471c4cf5b5ca0fd18d36d0f57280ff1abb72da5ecd84010fc961"
+          }
+        ]
+      },
+      "PATH_ESCAPE:"
+    ],
+    [
+      "candidate_sha_drift",
+      {
+        "mode": "simulation",
+        "assembly": "bound_list_plus_wrapper",
+        "archive": {
+          "path": "SYNTHETIC.zip",
+          "sha256": "26e9cc4faace65df42a0e4b61a985b882fe4675a5ca0eb7c426e0bf0a5556480",
+          "manifest_sha256": "401ebacfc2e5433c236c48e57e2c704d2b7c182f2863d4a9aa5ad9ea8e2a0a7e"
+        },
+        "candidates": [
+          {
+            "path": "duplicate.sv",
+            "stage_as": "new/duplicate.sv",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "SHA_MISMATCH:"
+    ],
+    [
+      "candidate_overwrite",
+      {
+        "mode": "simulation",
+        "assembly": "bound_list_plus_wrapper",
+        "archive": {
+          "path": "SYNTHETIC.zip",
+          "sha256": "26e9cc4faace65df42a0e4b61a985b882fe4675a5ca0eb7c426e0bf0a5556480",
+          "manifest_sha256": "401ebacfc2e5433c236c48e57e2c704d2b7c182f2863d4a9aa5ad9ea8e2a0a7e"
+        },
+        "candidates": [
+          {
+            "path": "duplicate.sv",
+            "stage_as": "source_closure/inputs/leaf.sv",
+            "sha256": "22c1e087104d471c4cf5b5ca0fd18d36d0f57280ff1abb72da5ecd84010fc961"
+          }
+        ]
+      },
+      "CANDIDATE_OVERWRITE:"
+    ],
+    [
+      "explicit_new_candidate",
+      {
+        "mode": "simulation",
+        "assembly": "bound_list_plus_wrapper",
+        "archive": {
+          "path": "SYNTHETIC.zip",
+          "sha256": "26e9cc4faace65df42a0e4b61a985b882fe4675a5ca0eb7c426e0bf0a5556480",
+          "manifest_sha256": "401ebacfc2e5433c236c48e57e2c704d2b7c182f2863d4a9aa5ad9ea8e2a0a7e"
+        },
+        "candidates": [
+          {
+            "path": "newleaf.sv",
+            "stage_as": "new/newleaf.sv",
+            "sha256": "31100eeeb7354eecd92d3f969447517b6c2842b3d225278a8eb0619415116d0f",
+            "replaces": "source_closure/inputs/leaf.sv"
+          }
+        ]
+      },
+      "STATIC_CLOSURE_READY"
+    ],
+    [
+      "wrong_named_port",
+      {
+        "mode": "simulation",
+        "assembly": "bound_list_plus_wrapper",
+        "archive": {
+          "path": "SYNTHETIC.zip",
+          "sha256": "26e9cc4faace65df42a0e4b61a985b882fe4675a5ca0eb7c426e0bf0a5556480",
+          "manifest_sha256": "401ebacfc2e5433c236c48e57e2c704d2b7c182f2863d4a9aa5ad9ea8e2a0a7e"
+        },
+        "candidates": [
+          {
+            "path": "wrong.sv",
+            "stage_as": "new/wrong.sv",
+            "sha256": "1b43273dbdca3ba722b41263ca74ab8ec286e9b3f2fae4c6964b4942e5682bca",
+            "replaces": "source_closure/candidate/wrapper.sv"
+          }
+        ]
+      },
+      "UNKNOWN_NAMED_PORT:leaf.NO_PORT"
+    ],
+    [
+      "missing_include",
+      {
+        "mode": "simulation",
+        "assembly": "bound_list_plus_wrapper",
+        "archive": {
+          "path": "SYNTHETIC.zip",
+          "sha256": "26e9cc4faace65df42a0e4b61a985b882fe4675a5ca0eb7c426e0bf0a5556480",
+          "manifest_sha256": "401ebacfc2e5433c236c48e57e2c704d2b7c182f2863d4a9aa5ad9ea8e2a0a7e"
+        },
+        "candidates": [
+          {
+            "path": "include.sv",
+            "stage_as": "new/include.sv",
+            "sha256": "bc2a0c7fe4f6352df415f7874ab19eb1d498580b6cc337a36207743b0abe7831"
+          }
+        ]
+      },
+      "MISSING_INCLUDE:"
+    ],
+    [
+      "missing_rom_literal",
+      {
+        "mode": "simulation",
+        "assembly": "bound_list_plus_wrapper",
+        "archive": {
+          "path": "SYNTHETIC.zip",
+          "sha256": "26e9cc4faace65df42a0e4b61a985b882fe4675a5ca0eb7c426e0bf0a5556480",
+          "manifest_sha256": "401ebacfc2e5433c236c48e57e2c704d2b7c182f2863d4a9aa5ad9ea8e2a0a7e"
+        },
+        "candidates": [
+          {
+            "path": "rom.sv",
+            "stage_as": "new/rom.sv",
+            "sha256": "1dae35b5262cc422565a48957e329fb1b003f4b0729cad78ba57290d984e5e42"
+          }
+        ]
+      },
+      "MISSING_ROM_REFERENCE:"
+    ],
+    [
+      "unelaborated_macro_pending",
+      {
+        "mode": "simulation",
+        "assembly": "bound_list_plus_wrapper",
+        "archive": {
+          "path": "SYNTHETIC.zip",
+          "sha256": "26e9cc4faace65df42a0e4b61a985b882fe4675a5ca0eb7c426e0bf0a5556480",
+          "manifest_sha256": "401ebacfc2e5433c236c48e57e2c704d2b7c182f2863d4a9aa5ad9ea8e2a0a7e"
+        },
+        "candidates": [
+          {
+            "path": "macro.sv",
+            "stage_as": "new/macro.sv",
+            "sha256": "89e74c16ef1bb8da8c7fbbf0836bec2f382d2c49cb817fafd6f831854de6170c"
+          }
+        ]
+      },
+      "PENDING_STATIC_ELABORATION"
+    ],
+    [
+      "comment_not_duplicate",
+      {
+        "mode": "simulation",
+        "assembly": "bound_list_plus_wrapper",
+        "archive": {
+          "path": "SYNTHETIC.zip",
+          "sha256": "26e9cc4faace65df42a0e4b61a985b882fe4675a5ca0eb7c426e0bf0a5556480",
+          "manifest_sha256": "401ebacfc2e5433c236c48e57e2c704d2b7c182f2863d4a9aa5ad9ea8e2a0a7e"
+        },
+        "candidates": [
+          {
+            "path": "comment.sv",
+            "stage_as": "new/comment.sv",
+            "sha256": "0e239e2589c707c1203c867d98fcbab60368f72df7f0043f8c1eeadb423183b8"
+          }
+        ]
+      },
+      "STATIC_CLOSURE_READY"
+    ]
+  ],
+  "fixtures": [
+    {
+      "path": "candidate_overwrite.json",
+      "sha256": "7d3f091b9d3e195c9438585f30a3424ebcd6af2694ce699676a67a4db3e79727"
+    },
+    {
+      "path": "candidate_sha_drift.json",
+      "sha256": "ccb7891a74eee7c5d68a9c2cc79173f1bc46a2addf06a920837efe0578d5a463"
+    },
+    {
+      "path": "comment.sv",
+      "sha256": "0e239e2589c707c1203c867d98fcbab60368f72df7f0043f8c1eeadb423183b8"
+    },
+    {
+      "path": "comment_not_duplicate.json",
+      "sha256": "45ff8f7c871c1a1e922775db9ec670b35e6a8ed9a5d0149d7c306c06e3c0a048"
+    },
+    {
+      "path": "duplicate.sv",
+      "sha256": "22c1e087104d471c4cf5b5ca0fd18d36d0f57280ff1abb72da5ecd84010fc961"
+    },
+    {
+      "path": "duplicate_module.json",
+      "sha256": "60ce5db3fcfd2e5fe16c256879898ce7a3bb8fb302e59158de6111876d633636"
+    },
+    {
+      "path": "explicit_new_candidate.json",
+      "sha256": "4144f0cdb4467f410657d6989e6cb590915d7932c1adaba7ff8ce75c92ad9565"
+    },
+    {
+      "path": "include.sv",
+      "sha256": "bc2a0c7fe4f6352df415f7874ab19eb1d498580b6cc337a36207743b0abe7831"
+    },
+    {
+      "path": "input_path_escape.json",
+      "sha256": "80a5775cbe2dc07449798dbb6247268c2a9faba8a624a32d8cb349463efbd959"
+    },
+    {
+      "path": "macro.sv",
+      "sha256": "89e74c16ef1bb8da8c7fbbf0836bec2f382d2c49cb817fafd6f831854de6170c"
+    },
+    {
+      "path": "missing_include.json",
+      "sha256": "60913d300a9ae3a99b804ae46df28065d194be27d3814a60c8aae3ba40bf758b"
+    },
+    {
+      "path": "missing_leaf.json",
+      "sha256": "295d631590b2bdcdb8dd90ca367501bababb5c0f66d6f8b7a8b3b8a54ca4a018"
+    },
+    {
+      "path": "missing_rom_literal.json",
+      "sha256": "3701e014f7703e14b9a16ba4a35f028fc180e36c33316ed035ddf55b6bc361e3"
+    },
+    {
+      "path": "newleaf.sv",
+      "sha256": "31100eeeb7354eecd92d3f969447517b6c2842b3d225278a8eb0619415116d0f"
+    },
+    {
+      "path": "physical_identity_missing.json",
+      "sha256": "9c57a4ed525aad77535d6d501817747cdedf25a7fd22aefbea5cdedb1bea4727"
+    },
+    {
+      "path": "rom.sv",
+      "sha256": "1dae35b5262cc422565a48957e329fb1b003f4b0729cad78ba57290d984e5e42"
+    },
+    {
+      "path": "stage_path_escape.json",
+      "sha256": "ac65cafcd27469018367a13e50975b96366f7649e1fc315ef5cbe3673eaa4ada"
+    },
+    {
+      "path": "SYNTHETIC.zip",
+      "sha256": "26e9cc4faace65df42a0e4b61a985b882fe4675a5ca0eb7c426e0bf0a5556480"
+    },
+    {
+      "path": "synthetic_static_positive.json",
+      "sha256": "2c7c25cf4cc96955070a8b4b798764e48525ce8c748ff8a481eccee5b8f53e92"
+    },
+    {
+      "path": "unelaborated_macro_pending.json",
+      "sha256": "18856396e463dad9cccc8acd990c3b8ea5b9301bcd869644199572b75333dc28"
+    },
+    {
+      "path": "wrapper_omitted.json",
+      "sha256": "3cc6af493819ede18a072c18ea0b776bc469c7ed851230257982834e2ad99053"
+    },
+    {
+      "path": "wrong.sv",
+      "sha256": "1b43273dbdca3ba722b41263ca74ab8ec286e9b3f2fae4c6964b4942e5682bca"
+    },
+    {
+      "path": "wrong_named_port.json",
+      "sha256": "6e0fe6ae859e6c1c31fe622edb38ad73a184faede9532d387c65d20374916c03"
+    }
+  ]
+}

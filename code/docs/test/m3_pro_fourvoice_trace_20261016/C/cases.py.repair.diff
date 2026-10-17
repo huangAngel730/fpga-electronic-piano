@@ -1,0 +1,72 @@
+--- round01
++++ round02
+@@ -35,7 +35,8 @@
+     attack("backpressure_valid_drop", "BACKPRESSURE_VALID", lambda r:r[pos(r,"OFFER")+1].update(valid=0))
+ 
+     def change_data(rows):
+-        rows[pos(rows,"OFFER")+1]["data"]["note"] = 71
++        index = pos(rows,"OFFER") + 1
++        rows[index]["data"] = dict(rows[index]["data"], note=71)
+     attack("backpressure_data_change", "BACKPRESSURE_DATA", change_data)
+     attack("backpressure_missing_cycle", "BACKPRESSURE_DROP", lambda r:r.pop(pos(r,"OFFER")+1))
+     attack("duplicate_publication", "DUPLICATE_PUBLICATION", lambda r:duplicate(r,"PUBLISH"))
+@@ -58,12 +59,16 @@
+     attack("boolean_cycle", "TIME_ORDER", lambda r:r[pos(r,"OFFER",0,0)].update(cycle=True))
+     attack("cancel_missing", "RESET_WITHOUT_CANCEL", lambda r:r.pop(pos(r,"CANCEL",15,0)))
+     attack("synthetic_claimed_observed", "HEADER_OR_SCOPE", lambda r:r[0].update(scope="OBSERVED_PRO_DUT"))
++    attack("null_transaction", "RECORD_STRUCTURE", lambda r:r.__setitem__(pos(r,"RETURN"),None))
+     return result
+ 
+ 
+ def hand_anchors(rows):
+     """Independent small tables/counters, rather than DUT-derived expectations."""
+     ticks = {(r["frame"],r["lane"]):r for r in rows if r["kind"] == "LANE_TICK"}
++    for frame in range(19):
++        for kind in ("ACCEPT", "LANE_TICK"):
++            assert sorted(r["lane"] for r in rows if r["kind"] == kind and r.get("frame") == frame) == [0,1,2,3]
+     for frame,note in ((0,60),(2,64),(4,67),(6,72)):
+         assert ticks[(frame,0)]["data"] == {"active":True,"note":note,"velocity":800}
+         assert sum(ticks[(frame,l)]["data"]["active"] for l in range(4)) == 1
+@@ -81,3 +86,42 @@
+     return {"status":"HAND_TABLE_ANCHORS_PASS", "counts":counts,
+             "solo_notes":[60,64,67,72],"chord_lane_notes":[60,64,67,72],
+             "stall_accept_cycle":10868,"reset_restarted_ids":[1,2,3,4]}
++
++
++def expected_failure_index(name, rows):
++    def find(kind, frame=13, slot=1):
++        return next(i for i,x in enumerate(rows) if isinstance(x,dict) and x["kind"] == kind and x.get("frame") == frame and x.get("slot") == slot)
++    if name == "positive":
++        return None
++    if name == "synthetic_claimed_observed":
++        return 0
++    if name == "missing_terminal_end":
++        return len(rows)
++    if name == "unpublished_at_end":
++        return len(rows)-1
++    if name == "cancel_missing":
++        return next(i for i,x in enumerate(rows) if x["kind"] == "RESET")
++    if name == "null_transaction":
++        return rows.index(None)
++    if name == "missing_fourth_lane":
++        good = build(default_plan())
++        return next(i for i,(a,b) in enumerate(zip(good,rows)) if a != b)
++    if name == "old_published_epoch_after_reset":
++        return next(i for i,x in enumerate(rows) if x.get("frame") == 15 and x["kind"] == "RETURN" and x["cycle"] > 13000)
++    if name == "duplicate_lane_tick":
++        return find("LANE_TICK")+1
++    if name == "duplicate_publication":
++        return find("PUBLISH")+1
++    if name == "wrong_lane":
++        return find("RETURN")
++    if name == "stale_epoch_return":
++        return find("RETURN",16,0)
++    if name == "consume_after_accepted_cancel":
++        return find("CANCEL",14,2)+1
++    if name == "dropped_request":
++        return find("ACCEPT",0,0)
++    if name == "boolean_cycle":
++        return find("OFFER",0,0)
++    if name in ("retry_wrong_id","backpressure_valid_drop","backpressure_data_change","backpressure_missing_cycle"):
++        return find("OFFER")+1
++    raise ValueError("UNFROZEN_DIAGNOSTIC_LOCATION:"+name)

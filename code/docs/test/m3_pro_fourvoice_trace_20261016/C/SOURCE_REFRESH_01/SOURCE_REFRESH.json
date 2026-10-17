@@ -1,0 +1,40 @@
+{
+  "status": "STATIC_SOURCE_REFRESH_NO_RERUN",
+  "old_test_baseline": "ca4859abc28e3a5f7fdd0250e9f2cd43de39a8c0",
+  "current_head_observed": "b6f289110a0b7341f1f9234c945bcb8d31d95aff",
+  "old_evidence_unchanged": true,
+  "new_test_calls": 0,
+  "M1_old_R05_five_directories": "NOW_PUBLISHED_PRESENT_AFTER_COORDINATOR_FAST_FORWARD",
+  "M1_Pro_successor_present": false,
+  "M2_Pro_source_present": false,
+  "read_only_inputs": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\M3_完赛任务单_2026-10-15.md",
+      "bytes": 62365,
+      "sha256": "990bf32624c927342fb4101d885224e023d9ab49a76519a325eccf5fb6cffecb"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\138K四声部后续集成任务总览_2026-10-15.md",
+      "bytes": 40134,
+      "sha256": "fb95297e29d65d3b1bb83f3e61b3e2dfcebfea6c8b6361de9e89f586eb57c864"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\REFERENCE_CONTRACT.json",
+      "bytes": 1245,
+      "sha256": "f7373c1be0d70b9bb45800738b8a992efadd854c1cb1aecf82910f3644cf091e"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\model\\m1_r05_pcm_oracle_20261016\\DEPENDENCIES.json",
+      "bytes": 2584,
+      "sha256": "fb9c0ffaec3b9e001cb2255256565dae49d573155da62473bea2e592716a28de"
+    }
+  ],
+  "required_mapping_gaps": [
+    "actual Pro allocation/Release lifetime and lane_tick sampling phase",
+    "all effect postprocessor acceptance/cancellation and config acceptance; fixture only has abstract per-lane publication/consumption",
+    "M1 old reference model has lane_tick+5/pre-NBA snapshot assumptions requiring real Pro adapter",
+    "exact new Pro source/ROM/top/clock/trace manifest"
+  ],
+  "conclusion": "M1 old R05 model and contract are available; not missing publication. Pro same-version trace/source/golden adapter still pending. Fixture calendar remains independent; no PCM recomputation or old303 rerun.",
+  "board_release_allowed": false
+}

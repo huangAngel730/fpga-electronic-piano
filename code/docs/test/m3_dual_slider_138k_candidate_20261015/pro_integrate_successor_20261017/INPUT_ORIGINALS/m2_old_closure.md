@@ -1,0 +1,28 @@
+# M2：R06 同版闭包与双滑块受控接入清单（2026-10-16）
+
+## 本轮结论及证据等级
+
+这是等待 M3 138K 四声部现场原件时的 **L0 静态核对**，不是新的 ModelSim/Gowin/板测结果。主线仍为基础四声部同版验收，再进入上飘+下落双模式、固定左声道波形、一份真实文件传谱，N32继续暂停。现有一次诊断 `.fs` SHA `5f4960d91ffb7ccd22ac5f79526cf45b55bbc20836285a5f9b328cc3cfc27c10` 只获精确 SRAM 诊断许可，`board_release_allowed=false`。
+
+### A. 四声部同版身份：本次重新逐字节核算
+
+- 来源 `_06`：`code/output/m2_m1td_whole_prepare_20261015_06/PREPARATION_RECEIPT.json` 的84个物理输入，原CST 8,922字节 SHA `1f22af2d963315cfe625af5f22b25c9ce68152ee0ec2bed859d36b3a196e723d`；原SDC 24,106字节 SHA `a8791f826c0bd8630483ce28c44636c24e4e28c041a9622d17d0b1764a8f888f`。
+- M2 R06 输入封包 `code/docs/evidence/m2_m1td_physical_20261015/M2_138K_M1TD_R06_XSAFE_7ms_ModelSim输入_20261016.zip`，SHA `4be2b4c185691a3e493827a3a95303fa90f49ba6336eb4a8e0183942c8f05483`。将其89个 `inputs/` 成员与 M3 真正通过的 `M3_A_R05_WATCHDOG_REPAIR_20261016.zip` 中 `REWORK_WATCHDOG_RUN_02/stage/inputs/` 逐字节比较：**89/89 相同**，差异0；ZIP CRC 正常。
+- R06 与物理 `_06` 的84个源/ROM/约束逐项比：**69原字节不变、15个源码做40次可逆绝对ROM路径替换**。按封包 `PREPARATION_RECEIPT.json` 逐条逆替换后84/84长度与 SHA 与 `_06` 冻结收据一致、错误0。首版审计脚本把同一文件中重复ROM路径误要求每条替换前唯一，报6项计数误差；没有SHA不符或修改，修正为清单逐条替换后以上复算 exit0。两轮审计均未调用 ModelSim/Gowin。
+- M3 B定向候选来源也为 `_06`，15源码40路径可逆；另1个 SDC 保留原24106字节，仅追加五对 Setup/Hold 报告命令。原始HTML五对指定路径最小 Setup +1.736ns、Hold显示0.000ns，仅隔离候选指定端点L5。**A/B/C是不同证据范围，不得把物理同源自动等于逐请求功能已验。** 历史6ms R05首轮失败照留，7ms只签四槽、303提交/258非零、串行活动的限定L2；现有PCM/PT8211 R04夹具是另一输入源，不能拼作真实R05串行同链。
+
+**真实关闭仍缺**：现有R05 TB只输出汇总，DUT自报`max_cycles=35`与I2S高电平计数`serial=3905`不是独立账本；M3已有公开observer/接线候选/checker源码尚未同真实R05编译采集。需要同一运行的连续`cycle/reset_epoch/rst_n/frame_tick`、`request_accept/req_id`、对应`commit/committed_id`或取消、左右signed PCM24/clip/pending/欠载及BCLK/WS/DIN原始沿；下一真实frame_tick没有观测到的尾段应标UNKNOWN，缺first_valid也不能伪填0。M1对同版四个独立频率、左右PCM24/包络/舍入的可审黄金字段；M3对上述接受/取消/提交/下一帧的独立公开轨迹和实际左右PCM到PT8211 LSBJ 16bit串行逐样本对应；M3诊断`.fs`的现场四个独奏/四音同开、逐放/复位原件和输入边沿/模拟声音（若要申报≤10ms则须同一时基测量）。任一缺失标`PENDING/UNKNOWN`，不以 `max_cycles=35` 推算所有请求<833拍。M2收到其一即可按同一来源SHA做增量核对，勿重跑60K已签专项。
+
+### B. 双滑块接入的可逆差异清单（仅准备，不改正式树）
+
+- 当前 `_06` 顶层 `m2_fourvoice_timbre_delay_board_top.sv` 37,390字节/SHA `f2a8f30fef8ad2da26d1d3b80793b727f45806b6d5c78f2a071fb383322639be`，50MHz输入通过PLL派生40MHz `core_clk`，音频事件只在 `shared_event_valid && shared_event_ready` 后旁路给 `u_visual`（源码约679–687行）；其PCM/ready路径不得被视觉模块反压。
+- 当前视觉封装 `audio_visual_display_probe.sv` 7,018字节/SHA `df1f05b4a6a06deddd9d3a2244106ec29bb0d15e5dd808fc9bef9436d710a5cf`：使用50MHz `ref_clk` 的 `TMDS_PLL` 生成40MHz核时钟、25MHz像素时钟、125MHz串行时钟，已有 `visual_event_bridge` 和 `visual_control_bridge`、`video_scan_timing`、`m3_visualizer`、单一 `DVI_TX_Top`。其每5秒诊断性自动模式切换/固定曲谱只算演示，不是正式用户控制或真实下载曲谱。
+- M3 D隔离候选 `dual_slider_candidate.sv` 7,491字节/SHA `a8116d04f7fa70ba4500c4819e3ffb939fcc7096acef9bb7f87004e1e648868f`，自带事件与控制CDC/帧锁定模式/上下运动及RGB，默认640×480/八槽；旧实跑仅128×64/四槽加速L2。其 `flash_active/flash_level` 固定0，旧下落命中闪光 FAIL 首轮暂缓，不能写命中反馈通过。
+- **集成原则**：在新的复制工程中，用 D 候选替换视觉场景和所依赖的CDC/控制段；保留PLL、扫描、RGB寄存、DVI编码与TMDS输出单一路径。不并联两套CDC到同一已接受事件，不并联两套RGB/编码器；模式脉冲须握手送达25MHz域并仅在frame_start锁存，score_note/hit_frame/duration等多位载荷不得跨域直连。现有5秒自动切换与诊断score并非可由演奏者控制的正式入口；复制前后做端口、时钟、复位、CST/SDC和依赖文件身份diff。M3按其隔离 D/E 写集交最小入口/几何清单，M1给同事件前后音频commit/PCM/欠载比较，M2基于正式版本差异决定CDC检查和完整音画STA。
+- **逐端口/约束核对项**：现有桥送往像素域的谱面载荷 `note_id[15:0] + note_number[6:0] + hit_frame[31:0] + duration_valid + duration_frames[31:0] + velocity[9:0]` 共98 bit。`_06` SDC约300–327行只覆盖当时网表的七个同步器首级和现有事件/谱面 `payload_hold→dst_data`、第二级setup/hold；D候选替换旧桥时实例层级变化，旧约束可能匹配零对象，须在新网表逐对象核数量与起止端、定向Setup/Hold及完整音画时序，不能仅文本复用 SDC。当前 `SOURCE_MODE` 是音频固定音诊断选择，**不是显示模式开关**；正式模式请求要在40MHz域保持直到 `mode_ready`，跨域后在 `frame_start` 提交。视觉复位使用PLL失锁异步断言、各域同步释放的既有边界。
+- **固定波形后序复用**：可复用同一像素扫描和DVI出口，不能用事件/谱面邮箱传PCM。既有`pcm_waveform_observer_bridge.sv`取左右24bit和32bit序号、80bit邮箱另过CDC；只用冻结左声道/区域/窗口，未来还须核80bit路径、两拍RGB与同步信号对齐及观察支路不反压音频。本轮不接新波形、不加新显示模式。
+- **未核准边界**：基础四音同版功能和板测未闭，不能将视觉候选写入生产 `electronic_piano_top.sv` 或 `_06` 源/约束，也不能沿用此前无双滑块的Setup +1.736ns/Hold0签新组合。任何新`.fs`要先完成精确源/ROM/时钟/引脚/完整STA、音频不退化，再另核精确SHA和实际下载许可；本轮不运行新Gowin、不生成码流或更新`board_release_allowed`。
+
+### 下一责任与止损
+
+M2：等 M1/M3新增同链原件作逐件复核，并在隔离复制树准备详细端口/约束差异；若现场首份四声录音失败，先定位输入、独奏、PCM/I2S或电气根因，视觉准备不越级集成。M1：自有四频PCM黄金与视觉音频不退化软件判据。M3：自有逐请求账本、真实左右PCM/串行绑定与双滑块默认几何/CDC准备；其一次现场SRAM诊断由原精确码流单独管理。三项无可执行输入就交 `NO_ACTIONABLE_WORK`，不为工时重做 T052/N32/旧60K。跨岗位通知：**待用户转发，尚未送达**。

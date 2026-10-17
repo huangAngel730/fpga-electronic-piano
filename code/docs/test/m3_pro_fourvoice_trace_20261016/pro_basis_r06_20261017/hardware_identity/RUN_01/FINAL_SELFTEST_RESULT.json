@@ -1,0 +1,169 @@
+{
+  "case_count": 17,
+  "cases": [
+    {
+      "actual": "ACCEPTED",
+      "case": "pending_production_record",
+      "detail": "VALID_PENDING",
+      "elapsed_seconds": 0.031,
+      "exit_code": 0,
+      "expected": "ACCEPTED",
+      "passed": true
+    },
+    {
+      "actual": "ACCEPTED",
+      "case": "complete_synthetic_fixture",
+      "detail": "VALID_COMPLETE",
+      "elapsed_seconds": 0.047,
+      "exit_code": 0,
+      "expected": "ACCEPTED",
+      "passed": true
+    },
+    {
+      "actual": "REJECTED",
+      "case": "missing_required_field",
+      "detail": "identity missing required field(s): dock_revision",
+      "elapsed_seconds": 0.031,
+      "exit_code": 2,
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "actual": "REJECTED",
+      "case": "wrong_board_type",
+      "detail": "wrong board_family; expected TANG_MEGA_138K_PRO",
+      "elapsed_seconds": 0.0,
+      "exit_code": 2,
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "actual": "REJECTED",
+      "case": "voltage_conflict",
+      "detail": "Bank 4 voltage conflict",
+      "elapsed_seconds": 0.031,
+      "exit_code": 2,
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "actual": "REJECTED",
+      "case": "fake_measurement_from_schematic",
+      "detail": "banks[3].measurement falsely observed from reference evidence only",
+      "elapsed_seconds": 0.047,
+      "exit_code": 2,
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "actual": "REJECTED",
+      "case": "incomplete_measurement",
+      "detail": "banks[3].measurement.value missing required field(s): instrument",
+      "elapsed_seconds": 0.031,
+      "exit_code": 2,
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "actual": "REJECTED",
+      "case": "sensitive_field",
+      "detail": "sensitive field prohibited: record.commercial_tools[0].license_server",
+      "elapsed_seconds": 0.0,
+      "exit_code": 2,
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "actual": "REJECTED",
+      "case": "stale_source_sha",
+      "detail": "source pro_core_schematic_4072 sha256 mismatch",
+      "elapsed_seconds": 0.0,
+      "exit_code": 2,
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "actual": "REJECTED",
+      "case": "release_authority_escalation",
+      "detail": "this validator cannot grant board release",
+      "elapsed_seconds": 0.0,
+      "exit_code": 2,
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "actual": "REJECTED",
+      "case": "mandatory_not_applicable",
+      "detail": "identity.chip_stepping is mandatory and cannot be NOT_APPLICABLE",
+      "elapsed_seconds": 0.047,
+      "exit_code": 2,
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "actual": "REJECTED",
+      "case": "duplicate_bank",
+      "detail": "banks must contain exactly one each of Bank 3, 4 and 5",
+      "elapsed_seconds": 0.031,
+      "exit_code": 2,
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "actual": "REJECTED",
+      "case": "fixture_mixed_into_production",
+      "detail": "fixture evidence prohibited for this record: fixture_photo",
+      "elapsed_seconds": 0.016,
+      "exit_code": 2,
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "actual": "REJECTED",
+      "case": "different_physical_session",
+      "detail": "identity.chip_marking mixes a different physical unit/session",
+      "elapsed_seconds": 0.047,
+      "exit_code": 2,
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "actual": "REJECTED",
+      "case": "malformed_midi_value",
+      "detail": "midi_input.fpga_side_voltage.value missing required field(s): connector_pin",
+      "elapsed_seconds": 0.031,
+      "exit_code": 2,
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "actual": "REJECTED",
+      "case": "sensitive_index_field",
+      "detail": "sensitive field prohibited: evidence_index.sources[0].access_token",
+      "elapsed_seconds": 0.0,
+      "exit_code": 2,
+      "expected": "REJECTED",
+      "passed": true
+    },
+    {
+      "actual": "REJECTED",
+      "case": "nonfinite_voltage",
+      "detail": "banks[3].measurement requires a numeric voltage in V",
+      "elapsed_seconds": 0.031,
+      "exit_code": 2,
+      "expected": "REJECTED",
+      "passed": true
+    }
+  ],
+  "elapsed_seconds": 0.421,
+  "failures": [],
+  "finished_at_utc": "2026-10-17T08:53:50.720625+00:00",
+  "group": "RUN_01",
+  "group_exit_code": 0,
+  "python": "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "python_version": "3.12.14",
+  "result": "PASS",
+  "schema_version": "hardware-identity-selftest-result-v1",
+  "started_at_utc": "2026-10-17T08:53:50.295825+00:00",
+  "timeout_seconds": 90
+}

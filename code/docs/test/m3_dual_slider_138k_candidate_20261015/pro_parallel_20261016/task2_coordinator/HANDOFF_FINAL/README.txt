@@ -1,0 +1,3 @@
+第二任务四拓展仍PARTIAL。请转发本ZIP及给M2文字；需要纯音算法确认时转给M1。
+ORIGINALS为四包原件总ZIP，PUBLICATION为本次门禁/Git证据。所有设备操作0。
+原件总ZIP SHA256 da9d149b21d17dc2e5c260818d93ec6da3741200103e705ff4e27af1f1a3356b。

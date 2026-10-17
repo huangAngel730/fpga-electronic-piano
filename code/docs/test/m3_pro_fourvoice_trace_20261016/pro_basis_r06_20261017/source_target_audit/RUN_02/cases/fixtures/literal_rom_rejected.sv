@@ -1,0 +1,1 @@
+module probe; initial $readmemh("rom/not_here.mem", mem); endmodule

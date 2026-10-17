@@ -1,0 +1,100 @@
+{
+  "schema": "M3_D3_DAY_BOUNDARY_STATIC_REVIEW_INPUTS_V1",
+  "status": "L0_STATIC_REVIEW_COMPLETE_WITH_ONE_MINIMAL_CASE_GAP",
+  "baseline_head": "c7e0144ac33acfde9b449183933ef7a21aa9325c",
+  "review_observed_at": "2026-10-17T14:35:31+08:00",
+  "functional_runs": 0,
+  "checker_mapper_selftest_runs": 0,
+  "hdl_sim_eda_hardware_calls": 0,
+  "git_write_calls": 0,
+  "patch_applied": false,
+  "board_release_allowed": false,
+  "inputs": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/D/ingest/ingest.py",
+      "bytes": 11285,
+      "sha256": "3217f97e57daec534306a213c64566fa111e3116f15a15967ca881847c218e07"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/patch_proposal/REPAIR.patch.txt",
+      "bytes": 11971,
+      "sha256": "e89443c8a852288c27f04a5cdecb2bfa4e8722123845a4bc3c974b1dd887815a"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/patch_proposal/SCHEMA_PROPOSAL.json",
+      "bytes": 2702,
+      "sha256": "9e7b9bf118721f3050b5f0a306d466a49727e00f50479e68d447bd0391709ee1"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/patch_proposal/REVIEW.md",
+      "bytes": 6440,
+      "sha256": "65388b67410ea1e2bc6b20f0290042779c29f3794a3540f1381c1f4b3cbaed36"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/patch_proposal/REVISION_HISTORY.md",
+      "bytes": 1060,
+      "sha256": "d1491711cbb071a77a79c7ed9d3b537c4ac6797a0a7c7f5e2337d85da15fb6e1"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/boundary_cases/CASES.json",
+      "bytes": 21843,
+      "sha256": "8bf7e0918fa5ceccab1d187c625a1cd3a4f97d282207c8e48ab56235eabb3bcb"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/boundary_cases/BOUNDARIES.md",
+      "bytes": 5618,
+      "sha256": "7e53ca4749c2a1d9acbdb7e234c29f05acb4e10d09d6205c008f4244be071ee7"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/successor_mapping/MAPPING.md",
+      "bytes": 8909,
+      "sha256": "29fae8152237fff298934aa8557e3ebbf59707f99953515c1c726e791e0da08b"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/successor_mapping/INPUT_IDENTITIES.json",
+      "bytes": 9983,
+      "sha256": "12a5f1081b2d05f50b09ab5a412744887cb3e99d56872293ea5ad2ead4449d7f"
+    }
+  ],
+  "m1_read_only_context": [
+    {
+      "path": "E:/FPGA/GAOYUNFPGA/night_task/10.17/FROM_M1/M1_第18批独立日历字段适配_20261017/INTAKE_STATUS.json",
+      "bytes": 3116,
+      "sha256": "bf13df22ab8dc7f2727464bdcd89bb309f7f5e46cc69b47e7693cb1e72b0f805"
+    },
+    {
+      "path": "E:/FPGA/GAOYUNFPGA/night_task/10.17/FROM_M1/M1_第18批独立日历字段适配_20261017/mapped/FIELD_MAP.json",
+      "bytes": 410082,
+      "sha256": "83cb365313788cec24594fcc2d8446d58a313c486fd1c43565ca959714332c6e"
+    },
+    {
+      "path": "E:/FPGA/GAOYUNFPGA/night_task/10.17/FROM_M1/M1_第18批独立日历字段适配_20261017/mapped/RECEIPT.json",
+      "bytes": 435,
+      "sha256": "9d45b49f32fe608f569542de8e09af86fa1901afbe9c4974716ab95a8ccc61d4"
+    }
+  ],
+  "case_inventory": {
+    "declared": 16,
+    "observed": 16,
+    "accept_under_proposal": 5,
+    "reject": 11,
+    "observed_result_values": ["NOT_RUN"],
+    "minimal_gap": "No direct D834 CANCEL at q+833 legal contrast; BC09 proves only RESET at the same age."
+  },
+  "actual_read_only_commands": [
+    {
+      "class": "file reads, SHA inventory, Git HEAD/status inventory",
+      "exit_code": 0
+    },
+    {
+      "class": "PowerShell ConvertFrom-Json static CASES inventory",
+      "exit_code": 0
+    }
+  ],
+  "limitations": [
+    "The patch is text and was not applied, parsed as patched source, imported, or executed.",
+    "The 16 cases are static wrappers and were not expanded or run.",
+    "M1 mapping is toy field preservation, not Pro PCM/clip golden or trusted V2 timing source.",
+    "D3 remains PARTIAL_REWORK_REQUIRED and board_release_allowed remains false."
+  ]
+}

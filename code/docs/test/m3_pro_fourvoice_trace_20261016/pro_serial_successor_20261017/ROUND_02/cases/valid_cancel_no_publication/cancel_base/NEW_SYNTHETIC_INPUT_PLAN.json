@@ -1,0 +1,120 @@
+{
+  "cycles": 12000,
+  "fixture_stable_wait_cycles": 8,
+  "fixture_commit_delay_cycles": 32,
+  "vectors": [
+    {
+      "left": 256,
+      "right": -512,
+      "dac_left": 1,
+      "dac_right": -2
+    },
+    {
+      "left": -1234567,
+      "right": 654321,
+      "dac_left": -4823,
+      "dac_right": 2556
+    },
+    {
+      "left": 128,
+      "right": -129,
+      "dac_left": 1,
+      "dac_right": -1
+    },
+    {
+      "left": 8388607,
+      "right": -8388608,
+      "dac_left": 32767,
+      "dac_right": -32768
+    },
+    {
+      "left": 256,
+      "right": -512,
+      "dac_left": 1,
+      "dac_right": -2
+    },
+    {
+      "left": -1234567,
+      "right": 654321,
+      "dac_left": -4823,
+      "dac_right": 2556
+    },
+    {
+      "left": 128,
+      "right": -129,
+      "dac_left": 1,
+      "dac_right": -1
+    },
+    {
+      "left": 8388607,
+      "right": -8388608,
+      "dac_left": 32767,
+      "dac_right": -32768
+    },
+    {
+      "left": 256,
+      "right": -512,
+      "dac_left": 1,
+      "dac_right": -2
+    },
+    {
+      "left": -1234567,
+      "right": 654321,
+      "dac_left": -4823,
+      "dac_right": 2556
+    },
+    {
+      "left": 128,
+      "right": -129,
+      "dac_left": 1,
+      "dac_right": -1
+    },
+    {
+      "left": 8388607,
+      "right": -8388608,
+      "dac_left": 32767,
+      "dac_right": -32768
+    },
+    {
+      "left": 256,
+      "right": -512,
+      "dac_left": 1,
+      "dac_right": -2
+    },
+    {
+      "left": -1234567,
+      "right": 654321,
+      "dac_left": -4823,
+      "dac_right": 2556
+    },
+    {
+      "left": 128,
+      "right": -129,
+      "dac_left": 1,
+      "dac_right": -1
+    },
+    {
+      "left": 8388607,
+      "right": -8388608,
+      "dac_left": 32767,
+      "dac_right": -32768
+    }
+  ],
+  "epochs": [
+    {
+      "epoch": 0,
+      "reset_start": 1,
+      "active_start": 5,
+      "stable_start": 5,
+      "end": 6000
+    },
+    {
+      "epoch": 1,
+      "reset_start": 6001,
+      "active_start": 6005,
+      "stable_start": 6005,
+      "end": 12000
+    }
+  ],
+  "new_adapter_cancel_fixture": "epoch0 request1 cancelled, original producer miss_deadline suppresses its commit"
+}

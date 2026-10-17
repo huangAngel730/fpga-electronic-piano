@@ -1,0 +1,488 @@
+{
+  "schema": "M3_R06_TX_CLOCK_RESET_REPORT_V1",
+  "status": "PASS_SYNTHETIC_FIXTURE_ONLY",
+  "real_pro_tx_pass": false,
+  "clock_hz": 40000000,
+  "timestamp_sample_rate_hz": 48000.0,
+  "bclk_per_lrclk_rising_edges": 64,
+  "serial_format": "PT8211_32BIT_SLOT_LSBJ16_WS_LOW_RIGHT_HIGH_LEFT",
+  "quantization": "SATURATE((PCM24+128)//256)",
+  "transactions": [
+    {
+      "epoch": 0,
+      "req_id": 0,
+      "request_cycle": 841,
+      "state": "TX_ADOPTED",
+      "result_cycle": 871,
+      "completion_age": 30,
+      "commit_cycle": 872,
+      "tx_cycle": 1673,
+      "request_to_tx_cycles": 832,
+      "serial_disposition": "COMPLETE"
+    },
+    {
+      "epoch": 0,
+      "req_id": 1,
+      "request_cycle": 1674,
+      "state": "TX_ADOPTED",
+      "result_cycle": 1704,
+      "completion_age": 30,
+      "commit_cycle": 1705,
+      "tx_cycle": 2506,
+      "request_to_tx_cycles": 832,
+      "serial_disposition": "COMPLETE"
+    },
+    {
+      "epoch": 0,
+      "req_id": 2,
+      "request_cycle": 2507,
+      "state": "CANCELED",
+      "cancel_cycle": 2527,
+      "completion_age": 20
+    },
+    {
+      "epoch": 0,
+      "req_id": 3,
+      "request_cycle": 3341,
+      "state": "RESET_CANCELED"
+    },
+    {
+      "epoch": 1,
+      "req_id": 0,
+      "request_cycle": 4640,
+      "state": "TX_ADOPTED",
+      "result_cycle": 4670,
+      "completion_age": 30,
+      "commit_cycle": 4671,
+      "tx_cycle": 5472,
+      "request_to_tx_cycles": 832,
+      "serial_disposition": "COMPLETE"
+    },
+    {
+      "epoch": 1,
+      "req_id": 1,
+      "request_cycle": 5473,
+      "state": "TX_ADOPTED",
+      "result_cycle": 5503,
+      "completion_age": 30,
+      "commit_cycle": 5504,
+      "tx_cycle": 6305,
+      "request_to_tx_cycles": 832,
+      "serial_disposition": "COMPLETE"
+    },
+    {
+      "epoch": 1,
+      "req_id": 2,
+      "request_cycle": 6306,
+      "state": "TX_ADOPTED",
+      "result_cycle": 6336,
+      "completion_age": 30,
+      "commit_cycle": 6337,
+      "tx_cycle": 7139,
+      "request_to_tx_cycles": 833,
+      "serial_disposition": "RESET_TRUNCATED_UNKNOWN"
+    }
+  ],
+  "tx_adoptions": [
+    {
+      "epoch": 0,
+      "cycle": 840,
+      "frame_id": 1,
+      "request_id": null,
+      "left": 0,
+      "right": 0,
+      "clip": 0,
+      "kind": "STARTUP"
+    },
+    {
+      "epoch": 0,
+      "cycle": 1673,
+      "frame_id": 2,
+      "request_id": 0,
+      "left": 127,
+      "right": 128,
+      "clip": 0,
+      "kind": "NEW"
+    },
+    {
+      "epoch": 0,
+      "cycle": 2506,
+      "frame_id": 3,
+      "request_id": 1,
+      "left": -129,
+      "right": 8388607,
+      "clip": 1,
+      "kind": "NEW"
+    },
+    {
+      "epoch": 0,
+      "cycle": 3340,
+      "frame_id": 4,
+      "request_id": 1,
+      "left": -129,
+      "right": 8388607,
+      "clip": 1,
+      "kind": "HOLD"
+    },
+    {
+      "epoch": 1,
+      "cycle": 4639,
+      "frame_id": 1,
+      "request_id": null,
+      "left": 0,
+      "right": 0,
+      "clip": 0,
+      "kind": "STARTUP"
+    },
+    {
+      "epoch": 1,
+      "cycle": 5472,
+      "frame_id": 2,
+      "request_id": 0,
+      "left": 1234567,
+      "right": -2345678,
+      "clip": 0,
+      "kind": "NEW"
+    },
+    {
+      "epoch": 1,
+      "cycle": 6305,
+      "frame_id": 3,
+      "request_id": 1,
+      "left": 1234567,
+      "right": -2345678,
+      "clip": 0,
+      "kind": "NEW"
+    },
+    {
+      "epoch": 1,
+      "cycle": 7139,
+      "frame_id": 4,
+      "request_id": 2,
+      "left": -8388608,
+      "right": 8388607,
+      "clip": 1,
+      "kind": "NEW"
+    }
+  ],
+  "serial_frames": [
+    {
+      "epoch": 0,
+      "frame": 1,
+      "sample_cycle": 840,
+      "request_id": null,
+      "left": 0,
+      "right": 0,
+      "start_cycle": 860,
+      "last_data_cycle": 1681,
+      "boundary_cycle": 1694
+    },
+    {
+      "epoch": 0,
+      "frame": 2,
+      "sample_cycle": 1673,
+      "request_id": 0,
+      "left": 0,
+      "right": 1,
+      "start_cycle": 1694,
+      "last_data_cycle": 2514,
+      "boundary_cycle": 2527
+    },
+    {
+      "epoch": 0,
+      "frame": 3,
+      "sample_cycle": 2506,
+      "request_id": 1,
+      "left": -1,
+      "right": 32767,
+      "start_cycle": 2527,
+      "last_data_cycle": 3347,
+      "boundary_cycle": 3360
+    },
+    {
+      "epoch": 1,
+      "frame": 1,
+      "sample_cycle": 4639,
+      "request_id": null,
+      "left": 0,
+      "right": 0,
+      "start_cycle": 4659,
+      "last_data_cycle": 5480,
+      "boundary_cycle": 5493
+    },
+    {
+      "epoch": 1,
+      "frame": 2,
+      "sample_cycle": 5472,
+      "request_id": 0,
+      "left": 4823,
+      "right": -9163,
+      "start_cycle": 5493,
+      "last_data_cycle": 6313,
+      "boundary_cycle": 6326
+    },
+    {
+      "epoch": 1,
+      "frame": 3,
+      "sample_cycle": 6305,
+      "request_id": 1,
+      "left": 4823,
+      "right": -9163,
+      "start_cycle": 6326,
+      "last_data_cycle": 7146,
+      "boundary_cycle": 7159
+    }
+  ],
+  "serial_half_frames": [
+    {
+      "epoch": 0,
+      "channel": "left",
+      "first_rise_cycle": 444,
+      "last_rise_cycle": 847,
+      "completed_at_boundary_cycle": 860,
+      "sample_frame": 0,
+      "sample_cycle": 0,
+      "request_id": null,
+      "pcm24": 0,
+      "pcm16": 0
+    },
+    {
+      "epoch": 0,
+      "channel": "right",
+      "first_rise_cycle": 860,
+      "last_rise_cycle": 1264,
+      "completed_at_boundary_cycle": 1277,
+      "sample_frame": 1,
+      "sample_cycle": 840,
+      "request_id": null,
+      "pcm24": 0,
+      "pcm16": 0
+    },
+    {
+      "epoch": 0,
+      "channel": "left",
+      "first_rise_cycle": 1277,
+      "last_rise_cycle": 1681,
+      "completed_at_boundary_cycle": 1694,
+      "sample_frame": 1,
+      "sample_cycle": 840,
+      "request_id": null,
+      "pcm24": 0,
+      "pcm16": 0
+    },
+    {
+      "epoch": 0,
+      "channel": "right",
+      "first_rise_cycle": 1694,
+      "last_rise_cycle": 2097,
+      "completed_at_boundary_cycle": 2110,
+      "sample_frame": 2,
+      "sample_cycle": 1673,
+      "request_id": 0,
+      "pcm24": 128,
+      "pcm16": 1
+    },
+    {
+      "epoch": 0,
+      "channel": "left",
+      "first_rise_cycle": 2110,
+      "last_rise_cycle": 2514,
+      "completed_at_boundary_cycle": 2527,
+      "sample_frame": 2,
+      "sample_cycle": 1673,
+      "request_id": 0,
+      "pcm24": 127,
+      "pcm16": 0
+    },
+    {
+      "epoch": 0,
+      "channel": "right",
+      "first_rise_cycle": 2527,
+      "last_rise_cycle": 2931,
+      "completed_at_boundary_cycle": 2944,
+      "sample_frame": 3,
+      "sample_cycle": 2506,
+      "request_id": 1,
+      "pcm24": 8388607,
+      "pcm16": 32767
+    },
+    {
+      "epoch": 0,
+      "channel": "left",
+      "first_rise_cycle": 2944,
+      "last_rise_cycle": 3347,
+      "completed_at_boundary_cycle": 3360,
+      "sample_frame": 3,
+      "sample_cycle": 2506,
+      "request_id": 1,
+      "pcm24": -129,
+      "pcm16": -1
+    },
+    {
+      "epoch": 0,
+      "channel": "right",
+      "first_rise_cycle": 3360,
+      "last_rise_cycle": 3764,
+      "completed_at_boundary_cycle": 3777,
+      "sample_frame": 4,
+      "sample_cycle": 3340,
+      "request_id": 1,
+      "pcm24": 8388607,
+      "pcm16": 32767
+    },
+    {
+      "epoch": 1,
+      "channel": "left",
+      "first_rise_cycle": 4243,
+      "last_rise_cycle": 4646,
+      "completed_at_boundary_cycle": 4659,
+      "sample_frame": 0,
+      "sample_cycle": 0,
+      "request_id": null,
+      "pcm24": 0,
+      "pcm16": 0
+    },
+    {
+      "epoch": 1,
+      "channel": "right",
+      "first_rise_cycle": 4659,
+      "last_rise_cycle": 5063,
+      "completed_at_boundary_cycle": 5076,
+      "sample_frame": 1,
+      "sample_cycle": 4639,
+      "request_id": null,
+      "pcm24": 0,
+      "pcm16": 0
+    },
+    {
+      "epoch": 1,
+      "channel": "left",
+      "first_rise_cycle": 5076,
+      "last_rise_cycle": 5480,
+      "completed_at_boundary_cycle": 5493,
+      "sample_frame": 1,
+      "sample_cycle": 4639,
+      "request_id": null,
+      "pcm24": 0,
+      "pcm16": 0
+    },
+    {
+      "epoch": 1,
+      "channel": "right",
+      "first_rise_cycle": 5493,
+      "last_rise_cycle": 5896,
+      "completed_at_boundary_cycle": 5909,
+      "sample_frame": 2,
+      "sample_cycle": 5472,
+      "request_id": 0,
+      "pcm24": -2345678,
+      "pcm16": -9163
+    },
+    {
+      "epoch": 1,
+      "channel": "left",
+      "first_rise_cycle": 5909,
+      "last_rise_cycle": 6313,
+      "completed_at_boundary_cycle": 6326,
+      "sample_frame": 2,
+      "sample_cycle": 5472,
+      "request_id": 0,
+      "pcm24": 1234567,
+      "pcm16": 4823
+    },
+    {
+      "epoch": 1,
+      "channel": "right",
+      "first_rise_cycle": 6326,
+      "last_rise_cycle": 6730,
+      "completed_at_boundary_cycle": 6743,
+      "sample_frame": 3,
+      "sample_cycle": 6305,
+      "request_id": 1,
+      "pcm24": -2345678,
+      "pcm16": -9163
+    },
+    {
+      "epoch": 1,
+      "channel": "left",
+      "first_rise_cycle": 6743,
+      "last_rise_cycle": 7146,
+      "completed_at_boundary_cycle": 7159,
+      "sample_frame": 3,
+      "sample_cycle": 6305,
+      "request_id": 1,
+      "pcm24": 1234567,
+      "pcm16": 4823
+    },
+    {
+      "epoch": 1,
+      "channel": "right",
+      "first_rise_cycle": 7159,
+      "last_rise_cycle": 7563,
+      "completed_at_boundary_cycle": 7576,
+      "sample_frame": 4,
+      "sample_cycle": 7139,
+      "request_id": 2,
+      "pcm24": 8388607,
+      "pcm16": 32767
+    }
+  ],
+  "reset_truncated_unknown": [
+    {
+      "epoch": 1,
+      "cycle": 3800,
+      "status": "RESET_TRUNCATED_UNKNOWN"
+    },
+    {
+      "epoch": 2,
+      "cycle": 7590,
+      "status": "RESET_TRUNCATED_UNKNOWN"
+    }
+  ],
+  "finish": {
+    "epoch": 2,
+    "cycle": 7600
+  },
+  "counts": {
+    "rows": 7600,
+    "frames": 8,
+    "complete_serial_frames": 6,
+    "transactions": 7,
+    "startup_frames": 2,
+    "hold_frames": 1
+  },
+  "claims": {
+    "commit_is_tx_adoption": false,
+    "pcm_equality_used_for_identity": false,
+    "eof_is_finish": false,
+    "wav_rate_used_as_fpga_lrclk": false,
+    "analog_audio_verified": false,
+    "board_release_allowed": false
+  },
+  "inputs": {
+    "binding": {
+      "path": "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tx_clock_reset_checker\\RUN_01\\products\\valid_synthetic\\binding.json",
+      "sha256": "9afa2167b1b88a80e264d91f83c76b1c3463b6e9be06a733d7eacae9e51c1bb7"
+    },
+    "calendar": {
+      "path": "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tx_clock_reset_checker\\RUN_01\\products\\valid_synthetic\\calendar.json",
+      "sha256": "6335e5edb22f6b15d34c2f559a29c2a7cc09c2b86f25a4a0ff60827506953bf9"
+    },
+    "frame_plan": {
+      "path": "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tx_clock_reset_checker\\RUN_01\\products\\valid_synthetic\\frame_plan.json",
+      "sha256": "a0e82924f7f9f6336970b50cf5bc27e796e24a42165a9737243bb92b51194192"
+    },
+    "oracle": {
+      "path": "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tx_clock_reset_checker\\RUN_01\\products\\valid_synthetic\\oracle.json",
+      "sha256": "aadd5746c604edac6ec05977bd92c3ede587c671f89003188cbd658daf008062"
+    },
+    "trace": {
+      "path": "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tx_clock_reset_checker\\RUN_01\\products\\valid_synthetic\\trace.jsonl",
+      "sha256": "e69245f6fbf24fae1e27b12547f4da94f15eedba56727d507096ace542a813fa"
+    }
+  },
+  "pin_decoder": {
+    "path": "code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\consume_capture.py",
+    "sha256": "da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "miss_deadline",
+  "argv": [
+    "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+    "-X",
+    "utf8",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\check_fixture.py",
+    "--capture",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\miss_deadline\\FIXTURE_CAPTURE.jsonl",
+    "--plan",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+    "--output",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\miss_deadline\\RESULT.json"
+  ],
+  "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+  "seconds": 0.10899999999855936,
+  "exit_code": 1,
+  "expected_exit": 1,
+  "expected_code": "REQUEST_DEADLINE_MISSED",
+  "actual_code": "REQUEST_DEADLINE_MISSED",
+  "first_difference": {
+    "code": "REQUEST_DEADLINE_MISSED",
+    "cycle": 1673,
+    "expected": "COMMIT_BEFORE_FRAME",
+    "actual": [
+      0,
+      1
+    ]
+  },
+  "passed": true,
+  "input_plan": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\INPUT_PLAN.json",
+    "bytes": 9393,
+    "sha256": "b2a05d35b1e78557242ba0d1b971aaf299b364f8bd5fde67f7f74e0de780c123"
+  },
+  "capture": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\miss_deadline\\FIXTURE_CAPTURE.jsonl",
+    "bytes": 10727320,
+    "sha256": "10caabd448e644273d0689379b4eb46c43f77385e557902f5eb55ef76a443c00"
+  },
+  "stdout": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\miss_deadline\\stdout.txt",
+    "bytes": 144,
+    "sha256": "c5b3eb1d642d06bc30dcb4a3f67b8e34d80d72158fe9fa149c0e7d69c39cf02d"
+  },
+  "stderr": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\round_2\\cases\\miss_deadline\\stderr.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

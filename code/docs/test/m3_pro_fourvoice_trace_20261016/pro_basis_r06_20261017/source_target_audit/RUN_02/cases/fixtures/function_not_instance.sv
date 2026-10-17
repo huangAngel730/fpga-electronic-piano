@@ -1,0 +1,1 @@
+module probe; function automatic performance_event_t encode(input int x); encode=x; endfunction endmodule

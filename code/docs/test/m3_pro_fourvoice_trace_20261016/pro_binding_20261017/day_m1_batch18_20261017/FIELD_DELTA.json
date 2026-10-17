@@ -1,0 +1,204 @@
+{
+  "schema": "M3_B1_M1_BATCH18_STATIC_DELTA_V1",
+  "level": "L0",
+  "status": "PENDING_PRO_SOURCE_OR_TRACE",
+  "static_delivery_complete": true,
+  "pro_dut_pass": false,
+  "board_release_allowed": false,
+  "basis": "M1 FIELD_MAP is toy metadata, not a Pro golden or actual public trace. No mapper/checker/HDL execution.",
+  "rows": [
+    {
+      "id": "events",
+      "b1_fields": [
+        "event_valid",
+        "event_ready",
+        "event_data",
+        "apply_valid",
+        "apply_event_seq",
+        "apply_data"
+      ],
+      "source": "events[].original: input_cycle, accepted_cycle, cycle, event_id, data_hex; same_cycle_event_batches",
+      "preservable": "原字节、原cycle、event_id及同沿顺序，仅toy身份可保真",
+      "gap": "cycle6686四NoteOn同时应用；B0窄合同要求递增应用cycle。真实输入握手/应用出口未绑定，不可改成四个连续cycle。",
+      "classification": [
+        "TOY_METADATA_ONLY",
+        "B0_INCOMPATIBLE",
+        "REAL_PRO_MISSING"
+      ],
+      "owner": "M2冻结公开接受/应用与同沿优先级；M1确认相同日历的数学支持"
+    },
+    {
+      "id": "lane_advance",
+      "b1_fields": [
+        "req_valid",
+        "req_ready",
+        "req_id",
+        "advance_mask",
+        "advance_frame_req_id"
+      ],
+      "source": "frames[].lane_tick_cycles; transactions[].actions.OFFER/ACCEPT/LANE_TICK",
+      "preservable": "19组原分拍及frame13 lane1三拍背压",
+      "gap": "常规相对frame偏移4/12/20/28；B0要求同沿四lane。B1允许经M2绑定的COMMON_TICK_MASK或SCALAR_TICK_ONEHOT_PUBLIC_MAP，不代表本toy已绑定；禁止拉齐、复制或固定偏移。应用到lane0 tick仅4拍也不满足旧8拍静稳合同。",
+      "classification": [
+        "TOY_METADATA_ONLY",
+        "B0_INCOMPATIBLE",
+        "REAL_PRO_MISSING"
+      ],
+      "owner": "M2冻结实际推进粒度/帧ID及出口；M1确认分拍日历数学"
+    },
+    {
+      "id": "retirement",
+      "b1_fields": [
+        "occupied_mask",
+        "releasing_mask",
+        "note_on_mask",
+        "note_off_mask",
+        "retire_mask",
+        "slot_sources",
+        "slot_channels",
+        "slot_notes"
+      ],
+      "source": "events[].original.action/slot/note; transactions[].actions.*.original.data",
+      "preservable": "toy NoteOff853及slot0重分配1686的原记录",
+      "gap": "toy立即释放不等于真实Release完成；缺真实退休及同身份重分配依据。不能把active=false改称retire。",
+      "classification": [
+        "TOY_METADATA_ONLY",
+        "LIFECYCLE_INCOMPATIBLE",
+        "REAL_PRO_MISSING"
+      ],
+      "owner": "M1保留ADSR定义；M2冻结分配/退休语义及公开身份"
+    },
+    {
+      "id": "generation",
+      "b1_fields": [
+        "slot_generations"
+      ],
+      "source": "events[].b0_generation=null",
+      "preservable": "缺失继续null",
+      "gap": "epoch/frame/req_id不是slot generation，不能自增补造。需位宽、复位初值、分配/抢占更新和回绕合同。",
+      "classification": [
+        "REAL_PRO_MISSING"
+      ],
+      "owner": "M2冻结generation出口/规则，M1确认数学身份消费"
+    },
+    {
+      "id": "identity_domains",
+      "b1_fields": [
+        "req_id",
+        "advance_frame_req_id",
+        "result_id",
+        "commit_id",
+        "effect_input_id",
+        "tx_req_id",
+        "tx_frame_id"
+      ],
+      "source": "transactions[].key={epoch,frame,slot,lane,req_id}; b0_request_id=null",
+      "preservable": "76个lane五元组及原记录索引",
+      "gap": "lane req_id不等于stereo/frame req_id。19组/76lane不能映成76立体声发布；缺真实多对一归属及丢弃规则。",
+      "classification": [
+        "TOY_METADATA_ONLY",
+        "DOMAIN_INCOMPATIBLE",
+        "REAL_PRO_MISSING"
+      ],
+      "owner": "M2绑定域间对应和复位epoch；M1按同版帧级身份交黄金"
+    },
+    {
+      "id": "config_effect",
+      "b1_fields": [
+        "config_valid",
+        "config_ready",
+        "config_payload",
+        "effect_input_valid",
+        "effect_input_ready",
+        "effect_input_id",
+        "effect_input_left",
+        "effect_input_right",
+        "effect_input_clip_mask"
+      ],
+      "source": "FIELD_MAP.missing",
+      "preservable": "无实际字段，不填默认0或猜测配置",
+      "gap": "缺所有配置接受及效果输入握手，含取消/未发布交易；config接受不能冒充effect音频接受。",
+      "classification": [
+        "REAL_PRO_MISSING"
+      ],
+      "owner": "M2冻结payload宽度/顺序和公开映射；M1定义enable/length/dry/wet/feedback及清历史语义"
+    },
+    {
+      "id": "reset",
+      "b1_fields": [
+        "cycle",
+        "epoch",
+        "rst_n",
+        "frame_tick",
+        "cancel",
+        "cancel_reason"
+      ],
+      "source": "reset_and_end: RESET cycle12560 epoch1; CALENDAR_CONTRACT.same_cycle_order",
+      "preservable": "toy reset及其前旧epoch取消的原顺序",
+      "gap": "抽象cycle不是posedge pre-NBA实测；缺初始复位、异步assert/deassert完整边沿及同沿优先级，不能补初始cycle0 RESET。",
+      "classification": [
+        "TOY_METADATA_ONLY",
+        "B0_INCOMPATIBLE",
+        "REAL_PRO_MISSING"
+      ],
+      "owner": "M2冻结复位/取消出口、原因码宽度及顺序；M3未来按许可记录独立RESET_EDGES"
+    },
+    {
+      "id": "publication",
+      "b1_fields": [
+        "result_valid",
+        "result_ready",
+        "result_id",
+        "result_left",
+        "result_right",
+        "result_clip_mask",
+        "commit",
+        "commit_id",
+        "commit_left",
+        "commit_right",
+        "commit_clip"
+      ],
+      "source": "transactions[].actions.RETURN/PUBLISH/CONSUME/CANCEL; published_then_reset_cancelled",
+      "preservable": "M1记录75发布、71消费、5取消，其中4先发布后复位取消；76=71+5终态，不是75+5交易",
+      "gap": "lane邮箱发布不是stereo commit。frame15 req61..64发布后取消未消费，frame14 lane2 req59取消无发布。缺首次valid/完整HOLD及signed24 L/R clip；不得用toy data/发布数造PCM。",
+      "classification": [
+        "TOY_METADATA_ONLY",
+        "DOMAIN_INCOMPATIBLE",
+        "REAL_PRO_MISSING"
+      ],
+      "owner": "M2提供真实返回/提交与clip归并源；M1按独立输入求PCM"
+    },
+    {
+      "id": "tx_closure",
+      "b1_fields": [
+        "tx_sample_valid",
+        "tx_frame_id",
+        "tx_req_id",
+        "tx_left",
+        "tx_right",
+        "tx_clip",
+        "tx_hold",
+        "tx_startup_zero",
+        "bclk",
+        "ws",
+        "din",
+        "pll_locked",
+        "audio_stable",
+        "pa_en",
+        "finish"
+      ],
+      "source": "reset_and_end END15854; C/D diagnostic crosswalk only",
+      "preservable": "只保留toy END，不升级成捕获成功",
+      "gap": "缺TX实际采纳sidecar/逐沿pins/finish/唯一MONITOR_END/真实双流退出码，不能以CONSUME或commit反填播放；ID0合法，HOLD/启动零不算新发布。",
+      "classification": [
+        "REAL_PRO_MISSING"
+      ],
+      "owner": "M2冻结公开TX出口及全链来源；M3按有效许可采集"
+    }
+  ],
+  "minimum_decisions": [
+    "M2给同版Pro source/ROM/top/目标、公开出口清单、位宽/packed顺序、40MHz/pre-NBA及reset/取消优先级，绑定61字段而非仅字段同名。",
+    "M2明确frame/lane/slot/generation身份与实际推进方式；M1明确与该源同版的Release、同沿事件、分拍和效果数学合同。",
+    "M3未来依已核合同和有效许可交独立前门输入/所有config及effect接受、真实stereo提交与TX/pins/收尾原件；本包不申请或消费执行轮次。"
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "schema": "M3_R06_TX_CLOCK_RESET_SELFTEST_V1",
+  "status": "PASS",
+  "cases": 20,
+  "matched": 20,
+  "synthetic_passes": 1,
+  "pending_cases": 7,
+  "rejected_cases": 12,
+  "real_trace_cases": 0,
+  "hdl_sim_eda_hardware_calls": 0,
+  "results": [
+    {
+      "name": "valid_synthetic",
+      "exit_code": 0,
+      "status": "PASS_SYNTHETIC_FIXTURE_ONLY",
+      "error": null,
+      "matched": true
+    },
+    {
+      "name": "pending_tx_sidecar",
+      "exit_code": 3,
+      "status": "PENDING_TX_SIDECAR",
+      "error": null,
+      "matched": true
+    },
+    {
+      "name": "pending_public_pins",
+      "exit_code": 3,
+      "status": "PENDING_PUBLIC_PINS",
+      "error": null,
+      "matched": true
+    },
+    {
+      "name": "pending_timebase",
+      "exit_code": 3,
+      "status": "PENDING_TIMEBASE",
+      "error": null,
+      "matched": true
+    },
+    {
+      "name": "pending_event_calendar",
+      "exit_code": 3,
+      "status": "PENDING_EVENT_CALENDAR",
+      "error": null,
+      "matched": true
+    },
+    {
+      "name": "pending_pcm_oracle",
+      "exit_code": 3,
+      "status": "PENDING_PCM_ORACLE",
+      "error": null,
+      "matched": true
+    },
+    {
+      "name": "pending_frame_plan",
+      "exit_code": 3,
+      "status": "PENDING_FRAME_PLAN",
+      "error": null,
+      "matched": true
+    },
+    {
+      "name": "pending_finish_eof",
+      "exit_code": 3,
+      "status": "PENDING_FINISH_CONTRACT",
+      "error": null,
+      "matched": true
+    },
+    {
+      "name": "startup_has_request_id",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "STARTUP_ZERO_ID_OR_FLAGS",
+      "matched": true
+    },
+    {
+      "name": "hold_clip_changed",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "TX_PCM_OR_CLIP_MISMATCH",
+      "matched": true
+    },
+    {
+      "name": "commit_marked_as_tx",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "TX_VALID_OFF_FRAME",
+      "matched": true
+    },
+    {
+      "name": "same_pcm_wrong_id",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "TX_ID_NOT_IN_SELECTION_PLAN",
+      "matched": true
+    },
+    {
+      "name": "internal_age_833",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "INTERNAL_COMPLETION_AGE_NOT_LT_833",
+      "matched": true
+    },
+    {
+      "name": "missing_frame_after_cancel",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "MISSING_FRAME_AFTER_IDLE_OR_CANCEL",
+      "matched": true
+    },
+    {
+      "name": "duplicate_frame_plan",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "DUPLICATE_OR_EXTRA_FRAME",
+      "matched": true
+    },
+    {
+      "name": "reset_pin_not_silent",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "RESET_NOT_SERIAL_SILENT",
+      "matched": true
+    },
+    {
+      "name": "pa_enabled_before_lock",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "PA_ENABLED_WHILE_UNSAFE",
+      "matched": true
+    },
+    {
+      "name": "serial_bit_corruption",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "PIN_LSBJ_PADDING_OR_PHASE",
+      "matched": true
+    },
+    {
+      "name": "finish_with_unconsumed_commit",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "FINISH_WITH_UNFINISHED_TRANSACTION",
+      "matched": true
+    },
+    {
+      "name": "duplicate_finish",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "MISSING_OR_DUPLICATE_FINISH",
+      "matched": true
+    }
+  ]
+}

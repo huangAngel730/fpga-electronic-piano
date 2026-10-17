@@ -1,0 +1,57 @@
+--- round01
++++ round02
+@@ -12,7 +12,7 @@
+ import time
+ 
+ from calendar import default_plan, build, encode
+-from cases import cases, hand_anchors
++from cases import cases, hand_anchors, expected_failure_index
+ 
+ HERE = Path(__file__).resolve().parent
+ ROOT = HERE.parents[3]
+@@ -59,6 +59,9 @@
+     args = p.parse_args()
+     if not 1 <= args.round <= 6 or len(list(DOC.glob("ROUND_*_CONSUMED.json"))) >= 6:
+         raise ValueError("ROUND_BUDGET_EXHAUSTED")
++    for old in DOC.glob("ROUND_*/RUN_RECEIPT.json"):
++        if json.loads(old.read_text(encoding="utf-8")).get("status") == "FIXTURE_SOFTWARE_PASS":
++            raise ValueError("SUCCESS_ALREADY_RECORDED_STOP")
+     target = DOC / f"ROUND_{args.round:02d}"
+     target.mkdir(exist_ok=False,parents=True)
+     start = time.monotonic()
+@@ -74,7 +77,8 @@
+     logs = target/"logs"
+     input_dir.mkdir()
+     logs.mkdir()
+-    receipt = {"status":"RUNNING","round":args.round,"machine":socket.gethostname(),"platform":platform.platform(),"python_version":sys.version,"python_executable":identity(sys.executable),"source_before":source,"calls":[],"results":[],"board_release_allowed":False}
++    receipt = {"status":"RUNNING","round":args.round,"machine":socket.gethostname(),"platform":platform.platform(),"python_version":sys.version,"python_executable":identity(sys.executable),"source_before":source,"calls":[],"results":[],"board_release_allowed":False,
++               "contract_before":identity(DOC/"CALENDAR_CONTRACT.json")}
+     dependencies = {str(Path(x.__file__).resolve()):identity(x.__file__) for x in list(sys.modules.values()) if getattr(x,"__file__",None) and Path(x.__file__).is_file() and Path(x.__file__).suffix in (".py",".pyd")}
+     for file in Path(sys.executable).parent.glob("*.dll"):
+         if file.name.lower().startswith(("python","vcruntime","ucrtbase")):
+@@ -95,11 +99,12 @@
+         for name,rows,code,exitcode in cases():
+             actual = input_dir/(name+".jsonl")
+             actual.write_bytes(encode(rows))
++            expected_index = expected_failure_index(name, rows)
+             call = invoke([sys.executable,"-X","utf8",str(HERE/"check_calendar.py"),"--plan",str(plan),"--actual",str(actual)],ROOT,logs,name,deadline)
+             receipt["calls"].append(call)
+             result = json.loads(Path(call["stdout"]["path"]).read_text(encoding="utf-8"))
+-            matched = not call["timeout"] and call["exit_code"] == exitcode and (result.get("code") or result.get("status")) == code
+-            receipt["results"].append({"name":name,"input":identity(actual),"expected_code":code,"expected_exit":exitcode,"matched":matched,"actual":result,"call_index":len(receipt["calls"])-1})
++            matched = not call["timeout"] and call["exit_code"] == exitcode and (result.get("code") or result.get("status")) == code and (expected_index is None or result.get("record_index") == expected_index)
++            receipt["results"].append({"name":name,"input":identity(actual),"expected_code":code,"expected_exit":exitcode,"expected_first_index":expected_index,"matched":matched,"actual":result,"call_index":len(receipt["calls"])-1})
+             if not matched:
+                 success = False
+                 receipt["first_unexpected_failure"] = receipt["results"][-1]
+@@ -109,7 +114,9 @@
+         success = False
+         receipt.update(status="FAILED_STOP_ORIGINALS_PRESERVED",error=repr(exc))
+     receipt["source_after"] = {k:identity(v["path"]) for k,v in source.items()}
+-    if receipt["source_before"] != receipt["source_after"]:
++    receipt["contract_after"] = identity(DOC/"CALENDAR_CONTRACT.json")
++    receipt["runtime_dependencies_after"] = {k:identity(v["path"]) for k,v in dependencies.items()}
++    if receipt["source_before"] != receipt["source_after"] or receipt["contract_before"] != receipt["contract_after"] or receipt["runtime_dependencies"] != receipt["runtime_dependencies_after"]:
+         success = False
+         receipt.update(status="IDENTITY_CHANGED")
+     receipt["elapsed_s"] = time.monotonic()-start

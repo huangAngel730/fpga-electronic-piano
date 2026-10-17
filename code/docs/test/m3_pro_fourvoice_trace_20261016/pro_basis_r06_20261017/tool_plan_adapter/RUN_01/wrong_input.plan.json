@@ -1,0 +1,72 @@
+{
+  "schema": "M3_R6_BOUND_TOOL_PLAN_V1",
+  "status": "BOUND_NOT_APPROVED",
+  "mode": "SOFTWARE_FIXTURE",
+  "approved": false,
+  "tool_kind": "PYTHON_SOFTWARE_FIXTURE",
+  "fixture_authority": "R06_M3_SOFTWARE_FIXTURE_ONLY",
+  "spec": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\wrong_input.spec.json",
+    "bytes": 2515,
+    "sha256": "6bcaaff8e922484423aa68a440d5a0b313e00552f261c62c09783d10678b7867"
+  },
+  "inputs": [
+    {
+      "role": "sources",
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\mutable_source.sv",
+      "bytes": 30,
+      "sha256": "ec5bf7cd76bb47cac8950cdfd9ee6e74c57ceb00330df3f81e10f55e2eb4b5ef"
+    },
+    {
+      "role": "roms",
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_rom.hex",
+      "bytes": 18,
+      "sha256": "08e22886721d444f353e26d6297a36c5898562a07a88699b3bbcfd072b2dbe0a"
+    },
+    {
+      "role": "testbenches",
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_tb.sv",
+      "bytes": 81,
+      "sha256": "6b1ee3ee2eb0f10a2ca165b7aaa3ca3e93e506ee15c8514e0ad2e78ec5c4cf4a"
+    },
+    {
+      "role": "dependencies",
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py",
+      "bytes": 561,
+      "sha256": "3ae493270c3c35d174865124e16d10440f4101e5e25a06840baa493b41fda735"
+    },
+    {
+      "role": "dependencies",
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py",
+      "bytes": 3481,
+      "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+    },
+    {
+      "role": "dependencies",
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+      "bytes": 18185,
+      "sha256": "bb29b19984c75a49a102b3481dff6d53403af14bb5671fffb9db587dd6cbbbcc"
+    },
+    {
+      "role": "executable",
+      "path": "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "bytes": 107312,
+      "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8"
+    }
+  ],
+  "argv": [
+    "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py",
+    "stream"
+  ],
+  "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter",
+  "output_dir": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\wrong_input\\process",
+  "consumption_marker": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\wrong_input.consumed.json",
+  "timeout_seconds": 5,
+  "real_execution_admission": "M2_R6_3_REQUIRED_SEPARATE_ARTIFACT",
+  "real_tool_launch_route_present": false,
+  "board_release_allowed": false
+}

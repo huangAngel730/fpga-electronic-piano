@@ -1,0 +1,203 @@
+{
+  "schema": "M3_DAY_PROVENANCE_INTAKE_AUDIT_V1",
+  "generated_at": "2026-10-17T14:39:50+08:00",
+  "verification_level": "L0_STATIC_IDENTITY_ONLY",
+  "result": "PASS_WITH_PENDING_PRO_DEPENDENCIES_AND_CONCURRENT_REVIEW_UPDATE",
+  "scope": {
+    "authorized_write_root": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_binding_20261017/day_provenance_20261017/",
+    "input_root": "E:/FPGA/GAOYUNFPGA/night_task/10.17/FROM_M1/M1_第18批独立日历字段适配_20261017",
+    "authorized_start_head": "c7e0144ac33acfde9b449183933ef7a21aa9325c",
+    "observed_head_before_write": "600d5ca8d7f0089b7d46cb5ad071f862a2d6706f",
+    "concurrent_repository_update_detected": true,
+    "functional_checker_or_mapper_run": false,
+    "compile_or_rtl_simulation_run": false,
+    "modelsim_or_gowin_run": false,
+    "hardware_run": false,
+    "git_write_run": false
+  },
+  "m1_manifest": {
+    "path": "E:/FPGA/GAOYUNFPGA/night_task/10.17/FROM_M1/M1_第18批独立日历字段适配_20261017/MANIFEST.json",
+    "size": 2795,
+    "sha256": "07469e30eddb8e31f17ca21a1afe6471fef48515fab4b4c7f3eee27f7f071c34",
+    "declared_schema": "M1_M3_C_CALENDAR_FIELD_HANDOFF_20261017",
+    "declared_status": "FIELD_MAPPING_COMPLETE_PRO_MATH_PENDING",
+    "listed_file_count": 16,
+    "actual_file_count_including_manifest": 17,
+    "all_listed_files_present": true,
+    "all_listed_sizes_match": true,
+    "all_listed_sha256_match": true,
+    "unlisted_files_other_than_manifest": [],
+    "manifest_self_excluded": true
+  },
+  "manifest_files": [
+    {"path": "intake/C/CALENDAR.json", "size": 120381, "sha256": "c53a75a8b103998ce81c38224fef265d8499103378c59dd8fd60bf32abef82e8"},
+    {"path": "intake/C/CALENDAR.jsonl", "size": 65496, "sha256": "7e0de3ef9ae263fa230c88b3bd6610a508f4e9553de96d4995dcffce9288c747"},
+    {"path": "intake/C/CALENDAR_CONTRACT.json", "size": 2712, "sha256": "9b600ef9638bb107bd8e662e856251073ba23b2db57eb9ca34285bd656d4d78f"},
+    {"path": "intake/C/LATEST_RECEIPT.json", "size": 2438, "sha256": "c965d3308ad74501f1943d1f244e0181461d16eb3552ce41e76a4fd63d059a94"},
+    {"path": "intake/C/RESULT.md", "size": 3772, "sha256": "f0a2213f1f54aa7de5678bc06c7ac4914ebbf2f57671f19f6aab8379a8f361bb"},
+    {"path": "intake/C/STIMULUS.json", "size": 2691, "sha256": "3c6f0651c8ed444f928f4bec753fdb6c7ad097cc856f620a084bf33e8aade54f"},
+    {"path": "intake/D/coordinator/DELIVERY/DELIVERY.json", "size": 1450, "sha256": "259ea4617452f506bb6992a434ec0d4060781df604eb912a9ff4cfc6f963234a"},
+    {"path": "INTAKE_STATUS.json", "size": 3116, "sha256": "bf13df22ab8dc7f2727464bdcd89bb309f7f5e46cc69b47e7693cb1e72b0f805"},
+    {"path": "M3来件原文.md", "size": 2595, "sha256": "be22b40c047e509d3d23e42f9567e64d1405661722f77c3656bdb0130652fcb6"},
+    {"path": "map_calendar_fields.py", "size": 7946, "sha256": "1a5e24bff9d6c97f061a2ea71ffe18611e8b27121386ce45e88d77ea44a147f9"},
+    {"path": "mapped/FIELD_MAP.json", "size": 410082, "sha256": "83cb365313788cec24594fcc2d8446d58a313c486fd1c43565ca959714332c6e"},
+    {"path": "mapped/RECEIPT.json", "size": 435, "sha256": "9d45b49f32fe608f569542de8e09af86fa1901afbe9c4974716ab95a8ccc61d4"},
+    {"path": "references/B0_SOURCE_BINDING.json", "size": 776, "sha256": "26b7ecb178c36ec9b3425b81aee5f7c7952c6e873633eb1933fe04271ce48843"},
+    {"path": "references/capture_compare.py", "size": 29854, "sha256": "7213e9fdce5fcab4dd5828b282613def88e8f5d7566986e3af6b89ae9c899267"},
+    {"path": "references/字段合同_B0.md", "size": 8219, "sha256": "fe5af562efc1b9d42e7fe8b0164b3a963e4bbb07e48c99f72369084014b232b3"},
+    {"path": "给M3和M2_第18批日历适配回复.md", "size": 5090, "sha256": "d9410044ff897efb3bba9b8e361f0e0290d87d7e3a277a032ae885acfc7daa68"}
+  ],
+  "strict_parse": {
+    "json_files_parsed": 10,
+    "duplicate_json_keys_rejected_by_verifier": true,
+    "non_finite_json_numbers_rejected_by_verifier": true,
+    "jsonl_blank_lines": 0,
+    "calendar_json_record_count": 496,
+    "calendar_jsonl_record_count": 496,
+    "calendar_json_and_jsonl_objects_equal_in_order": true,
+    "mapper_was_not_executed": true
+  },
+  "calendar_record_counts_reported_by_m1": {
+    "HEADER": 1,
+    "EVENT": 17,
+    "FRAME": 19,
+    "OFFER": 79,
+    "ACCEPT": 76,
+    "LANE_TICK": 76,
+    "RETURN": 75,
+    "PUBLISH": 75,
+    "CONSUME": 71,
+    "CANCEL": 5,
+    "RESET": 1,
+    "END": 1,
+    "TOTAL": 496
+  },
+  "m1_semantic_boundary": {
+    "field_mapping_complete": true,
+    "pro_golden": false,
+    "status": "PENDING_PRO_SOURCE_OR_TRACE",
+    "board_release_allowed": false,
+    "real_pcm": false,
+    "toy_fixture_only": true,
+    "missing_dependencies": [
+      "正式Pro source/ROM/top身份与公开采纳点",
+      "M1同源Pro数学黄金与真实输入/逐沿trace",
+      "完整生命周期与effect配置/接受定义",
+      "真实stereo PCM与clip证据"
+    ],
+    "math_reply_manifest_gap": false,
+    "math_reply_note": "给M3和M2_第18批日历适配回复.md 已列入MANIFEST且大小/SHA匹配；本批不存在数学文本漏列问题。"
+  },
+  "originals_located_read_only": [
+    {
+      "requested_identity": "D/coordinator/DELIVERY/M3_NIGHT_20261017_OFFLINE_ORIGINALS.zip",
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/docs/test/m3_pro_fourvoice_trace_20261016/D/coordinator/DELIVERY/M3_NIGHT_20261017_OFFLINE_ORIGINALS.zip",
+      "size": 5284872,
+      "sha256": "1849b9ce4ba89ec0f29756071615e6678a9a191b7083486ec1380157a98a6481",
+      "expected_identity_matches": true
+    },
+    {
+      "requested_identity": "D/coordinator/PUBLICATION_STATUS.json",
+      "path": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano/code/docs/test/m3_pro_fourvoice_trace_20261016/D/coordinator/PUBLICATION_STATUS.json",
+      "size": 3657,
+      "sha256": "1b91499cfd1dfaab8d4ec3cbd1d4b923c7e12be825da4bb488f1b6f078cffd98",
+      "declared_head_and_origin": "ad2de2169230dc8fd9f4b6f8157d384306c2479a",
+      "declared_board_release_allowed": false
+    }
+  ],
+  "publication_and_review_state": {
+    "delegated_snapshot_statement": "在授权开工快照c7e0144中，旧M2限定复核报告只覆盖ad2de21/8b9d11e，414e1a9/5aa4959仍待复核。",
+    "current_repository_statement": "并发提交170213a17ab3d613be7c857f0ebed8eb8fc536d5已新增M2对414e1a9和5aa4959的顺序限定复核，因此写出时不能继续表述为未被M2覆盖。",
+    "m2_followup_review_commit": "170213a17ab3d613be7c857f0ebed8eb8fc536d5",
+    "m2_followup_review_parent": "c7e0144ac33acfde9b449183933ef7a21aa9325c",
+    "m2_followup_review_document": {
+      "path": "code/docs/M2_M3_Pro新增两次推送限定复核_2026-10-17.md",
+      "size": 8047,
+      "sha256": "9d71a203af77effe57f6a4f7c628a4b0dccf3de921d027c4e7a449ccaf79ddf1"
+    },
+    "monitor_publication": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/D/pro_monitor_20261017/PUBLICATION_STATUS.json",
+      "size": 1078,
+      "sha256": "66d14bc877a3ba3feb48c7db0c318b23b87449bfeba9ff38d8703f3a682cf475",
+      "published_commit": "414e1a9d3ee0617c5e8ba72dd4b22c36122c9926",
+      "current_m2_scope": "L2_MONITOR_SELFTEST_ONLY"
+    },
+    "day_binding_publication": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_binding_20261017/coordinator_20261017/PUBLICATION_STATUS.json",
+      "size": 1606,
+      "sha256": "2223da8aa95047bda40e7136cc8141da7d06c02ffff0d9a9a190cf28221bc7c3",
+      "published_commit": "5aa4959341c9fcc070e9213b66c6ea82ac8d2225",
+      "current_m2_scope": "B1 L0 metadata preparation; B2 L1 adapter preparation; E1/B0 L0 static/identity preparation"
+    },
+    "pro_or_board_acceptance": false
+  },
+  "consumption_identity_unchanged": {
+    "budget_revision": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/D/coordinator/BUDGET_REVISION_20261017.json",
+      "size": 622,
+      "sha256": "19ba31d0a49e38d4ba58dc37e73bacf32cdf53ac42a57ca7729489472fa4b2e9",
+      "C_round_limit": 6,
+      "D_D2_round_limit": 4,
+      "D3_round_limit": 2,
+      "D_shared_round_limit": 6,
+      "slider_round_limit": 6,
+      "D3_actual_rounds": 2,
+      "modelsim": 0,
+      "gowin": 0,
+      "device": 0
+    },
+    "day_summary": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_binding_20261017/coordinator_20261017/CONSUMPTION_SUMMARY.json",
+      "size": 725,
+      "sha256": "c3ef7f3a6e88490fc067aa411fb932d627f9dea2c7abaecfe45a1779d47fcaaa",
+      "B1_shared_used": 2,
+      "B1_shared_limit": 6,
+      "B2_used": 2,
+      "B2_limit": 6,
+      "E1_static_used": 2,
+      "E1_static_allocated": 2,
+      "B0_static_used": 1,
+      "B0_functional_rounds": 0,
+      "ModelSim_Gowin_devices_new": 0,
+      "new_E4_runs": 0,
+      "old_quotas_restored": false
+    },
+    "consumed_markers": [
+      {"path": "D/pro_monitor_20261017/ROUND_01/CONSUMED.json", "size": 68, "sha256": "ecaab70b5b3555fdd89d27cb7f031110993914202b017e4c7a2e9ffb8f34d85c"},
+      {"path": "D/pro_monitor_20261017/ROUND_02/CONSUMED.json", "size": 68, "sha256": "06a70051c4c22b5d51fa5e79436ceba35d2ebb26160127343ea957fd7832abaf"},
+      {"path": "pro_binding_20261017/B1_ROUND_01_CONSUMED.json", "size": 184, "sha256": "c06201602823095ed702e987545fc728f474266f86f76ba3b7d3b212bf5970f9"},
+      {"path": "pro_binding_20261017/intake_20261017/ROUND_01/CONSUMED.json", "size": 216, "sha256": "9c41509c376f8561da18da95b29c2d99173410d37df9db5ae893e9956d5b60c2"},
+      {"path": "pro_serial_successor_20261017/ROUND_01/CONSUMED.json", "size": 447, "sha256": "50e8d84f806a4bf16dd82454bb30257ef3854858b3716d2e11138dbf36500ead"},
+      {"path": "pro_serial_successor_20261017/ROUND_02/CONSUMED.json", "size": 447, "sha256": "39ebc064d66b93bd25501e9b11755799a6a0f7eb30ab3880818973adb81a38da"}
+    ],
+    "new_consumption_created_by_this_audit": false
+  },
+  "command_evidence": [
+    {
+      "purpose": "MANIFEST逐件大小/SHA、严格JSON/JSONL解析及双格式对象一致性",
+      "command_class": "python -B -X utf8 read-only verifier; mapper not imported or executed",
+      "exit_code": 0,
+      "elapsed_seconds": 0.494
+    },
+    {
+      "purpose": "原件、发布回执、预算与消费摘要大小/SHA",
+      "command_class": "PowerShell Get-Item/Get-FileHash",
+      "first_attempt_exit_code": 1,
+      "first_attempt_note": "PowerShell foreach结果直接接管道导致ParserError；无文件写入。",
+      "corrected_attempt_exit_code": 0
+    },
+    {
+      "purpose": "并发版本与M2新增限定复核事实核验",
+      "command_class": "git log/show/rev-parse and rg read-only",
+      "exit_code": 0
+    }
+  ],
+  "final_boundary": {
+    "status": "PENDING_PRO_SOURCE_OR_TRACE",
+    "board_release_allowed": false,
+    "level": "L0",
+    "no_originals_copied": true,
+    "no_publication_receipt_fabricated": true,
+    "next_action": "将ORIGINALS_TO_FORWARD.txt列出的两个本机原件直接转发给需要方；等待M2正式Pro source/ROM/top与M1同源黄金/真实trace后再建立真实Pro绑定。"
+  }
+}

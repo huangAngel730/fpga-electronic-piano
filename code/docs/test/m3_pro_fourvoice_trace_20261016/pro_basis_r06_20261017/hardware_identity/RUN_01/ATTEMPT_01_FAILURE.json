@@ -1,0 +1,22 @@
+{
+  "schema_version": "hardware-identity-selftest-failure-v1",
+  "group": "RUN_01",
+  "attempt": 1,
+  "result": "FAILED_BEFORE_CASE_EXECUTION",
+  "exit_code": 1,
+  "elapsed_seconds": 0.573568,
+  "command": "C:/Users/songdongkuan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/run_selftest.py --repo-root . --scope code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/TEST_SCOPE.json --output code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/RUN_01",
+  "exception": "ValueError: relative output path is not in the subpath of the absolute repository root",
+  "location": "run_selftest.py make_complete_fixture: path.relative_to(repo_root)",
+  "cause": "args.output was passed as a relative Path while repo_root had already been resolved",
+  "repair": "Resolve the frozen output directory once, preserve this receipt, and place the changed-source rerun under ATTEMPT_02_REPAIRED without overwriting attempt 1 artifacts.",
+  "attempt_01_frozen_sha256": {
+    "hardware_identity.py": "6d2019d5fb0177a3886967fe6f4318fdb35a37ad52aeaeab2a5e2a819ae106d5",
+    "run_selftest.py": "4b7edf7ab9b517f3af08e8521a1a24e0b280be8667cb7d2d36ea5b756b6ae7d5",
+    "schema.json": "76496238139ce56e3b4689e2a5260af2d190dba6182d6acb43e87c2d6baee168",
+    "HARDWARE_IDENTITY_PENDING.json": "07c40d111d29baa9eca8d3fd52458ee9ab756e22d9d1bc036b0f36d1b5e1747b",
+    "REFERENCE_INDEX.json": "e3eb418d6827e505aadfc6212bcd005a1615fa3c32779e5983654af18fb223dc"
+  },
+  "external_tools_started": [],
+  "cases_started": 0
+}

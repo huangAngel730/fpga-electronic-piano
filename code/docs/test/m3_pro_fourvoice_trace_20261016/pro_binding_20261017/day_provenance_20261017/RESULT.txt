@@ -1,0 +1,24 @@
+M3 日间 provenance 静态核验结果（2026-10-17）
+
+结论：本任务按L0完成。M1第18批MANIFEST列16件，实际目录17件（另1件为MANIFEST自身）；16件均存在，大小与SHA256逐件一致。10份JSON严格解析通过，CALENDAR.jsonl共496条、无空行，且与CALENDAR.json中的496条records按顺序逐对象相等。未运行map_calendar_fields.py或任何checker/mapper。
+
+M1数学回复“给M3和M2_第18批日历适配回复.md”已列入MANIFEST，大小5090字节，SHA256=d9410044ff897efb3bba9b8e361f0e0290d87d7e3a277a032ae885acfc7daa68；不存在“数学文本未列manifest”的缺口。
+
+M1字段映射成功不等于Pro黄金。当前结论仍为PENDING_PRO_SOURCE_OR_TRACE、real_pcm=false、board_release_allowed=false。剩余依赖包括正式Pro source/ROM/top与公开采纳点、M1同源Pro数学黄金和真实输入/逐沿trace、完整生命周期与effect配置/接受定义、真实stereo PCM与clip证据。
+
+M1所缺两个原件已在本机找到并只读核验：
+- M3_NIGHT_20261017_OFFLINE_ORIGINALS.zip：5284872字节，SHA256=1849b9ce4ba89ec0f29756071615e6678a9a191b7083486ec1380157a98a6481。
+- D/coordinator/PUBLICATION_STATUS.json：3657字节，SHA256=1b91499cfd1dfaab8d4ec3cbd1d4b923c7e12be825da4bb488f1b6f078cffd98。
+精确路径见ORIGINALS_TO_FORWARD.txt。本任务未复制原件，也未伪造发布收据。
+
+版本状态发生并发更新：授权开工基线为c7e0144ac33acfde9b449183933ef7a21aa9325c；写文件前HEAD已由其他窗口推进至600d5ca8d7f0089b7d46cb5ad071f862a2d6706f。原派单关于“414e1a9/5aa4959未被M2 ad2/8b9复核覆盖”的描述在c7快照成立，但当前仓库提交170213a17ab3d613be7c857f0ebed8eb8fc536d5已新增两次推送的顺序限定复核。当前范围仅接受monitor的L2_MONITOR_SELFTEST_ONLY，以及5aa中B1/B2/E1/B0各自L0/L1准备级范围；未签真实Pro或板级，board_release_allowed仍为false。
+
+消费表只读核验，未恢复旧额度、未新增消费：D共享预算仍6轮，D3实际2轮；B1共享2/6，B2 2/6，E1静态2/2，B0静态1次且功能轮0；新增ModelSim/Gowin/设备0、E4运行0，old_quotas_restored=false。各消费标记和摘要的完整SHA见INTAKE_AUDIT.json。
+
+实际命令与结果：
+1. Python只读核验MANIFEST/JSON/JSONL：exit 0，0.494秒；未导入或执行mapper。
+2. PowerShell Get-Item/Get-FileHash首条组合命令：exit 1，原因是foreach结果直接接管道的ParserError；无文件写入。
+3. 修正后的Get-Item/Get-FileHash：exit 0。
+4. rg、git log/show/rev-parse等版本只读核验：exit 0。
+
+未执行：功能checker、mapper、旧自检、编译、RTL仿真、ModelSim、Gowin、硬件、Git写入。本结果只是静态身份与原始一致性L0，不升级为L1。

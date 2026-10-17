@@ -1,0 +1,15 @@
+{"case": "synthetic_static_positive", "expected": "STATIC_CLOSURE_READY", "actual": ["STATIC_CLOSURE_READY"], "passed": true}
+{"case": "physical_identity_missing", "expected": "PENDING_PHYSICAL_ID", "actual": ["PENDING_PHYSICAL_ID"], "passed": true}
+{"case": "wrapper_omitted", "expected": "WRAPPER_NOT_IN_SOURCE_LIST", "actual": ["REJECTED", "MISSING_TOP:wrapper", "WRAPPER_NOT_IN_SOURCE_LIST"], "passed": true}
+{"case": "missing_leaf", "expected": "MISSING_MODULE:leaf", "actual": ["REJECTED", "MISSING_MODULE:leaf"], "passed": true}
+{"case": "duplicate_module", "expected": "DUPLICATE_MODULE:leaf", "actual": ["REJECTED", "DUPLICATE_MODULE:leaf", "UNKNOWN_NAMED_PORT:leaf.a", "UNKNOWN_NAMED_PORT:leaf.b"], "passed": true}
+{"case": "stage_path_escape", "expected": "PATH_ESCAPE:", "actual": ["PATH_ESCAPE:../escape.sv"], "passed": true}
+{"case": "input_path_escape", "expected": "PATH_ESCAPE:", "actual": ["PATH_ESCAPE:../escape.sv"], "passed": true}
+{"case": "candidate_sha_drift", "expected": "SHA_MISMATCH:", "actual": ["SHA_MISMATCH:duplicate.sv"], "passed": true}
+{"case": "candidate_overwrite", "expected": "CANDIDATE_OVERWRITE:", "actual": ["CANDIDATE_OVERWRITE:source_closure/inputs/leaf.sv"], "passed": true}
+{"case": "explicit_new_candidate", "expected": "STATIC_CLOSURE_READY", "actual": ["STATIC_CLOSURE_READY"], "passed": true}
+{"case": "wrong_named_port", "expected": "UNKNOWN_NAMED_PORT:leaf.NO_PORT", "actual": ["REJECTED", "UNKNOWN_NAMED_PORT:leaf.NO_PORT"], "passed": true}
+{"case": "missing_include", "expected": "MISSING_INCLUDE:", "actual": ["REJECTED", "MISSING_INCLUDE:new/absent.svh"], "passed": true}
+{"case": "missing_rom_literal", "expected": "MISSING_ROM_REFERENCE:", "actual": ["REJECTED", "MISSING_ROM_REFERENCE:new/rom.sv:rom/missing.mem"], "passed": true}
+{"case": "unelaborated_macro_pending", "expected": "PENDING_STATIC_ELABORATION", "actual": ["PENDING_STATIC_ELABORATION"], "passed": true}
+{"case": "comment_not_duplicate", "expected": "STATIC_CLOSURE_READY", "actual": ["STATIC_CLOSURE_READY"], "passed": true}

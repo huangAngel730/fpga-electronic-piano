@@ -1,0 +1,96 @@
+{
+  "schema": "M3_R06_EVENT_CALENDAR_SELFTEST_SUMMARY_V1",
+  "status": "PASS",
+  "cases": 14,
+  "synthetic_passes": 1,
+  "pending_cases": 3,
+  "rejected_cases": 10,
+  "real_trace_cases": 0,
+  "hdl_sim_eda_hardware_calls": 0,
+  "results": [
+    {
+      "name": "valid_synthetic",
+      "exit_code": 0,
+      "status": "PASS_SYNTHETIC_FIXTURE_ONLY",
+      "error": null
+    },
+    {
+      "name": "untrusted_source",
+      "exit_code": 3,
+      "status": "PENDING_SOURCE_AUTHORITY",
+      "error": null
+    },
+    {
+      "name": "missing_m1_semantics",
+      "exit_code": 3,
+      "status": "PENDING_M1_SEMANTICS",
+      "error": null
+    },
+    {
+      "name": "missing_frame_plan",
+      "exit_code": 3,
+      "status": "PENDING_FRAME_PLAN",
+      "error": null
+    },
+    {
+      "name": "missing_canonical_field",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "MISSING_CANONICAL_FIELD"
+    },
+    {
+      "name": "missing_actual_apply",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "LIFECYCLE_WITHOUT_APPLY"
+    },
+    {
+      "name": "duplicate_actual_apply",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "DUPLICATE_APPLY_EVENT_SEQ"
+    },
+    {
+      "name": "wrong_apply_data",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "APPLY_DATA_MISMATCH"
+    },
+    {
+      "name": "missing_post_cancel_frame",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "MISSING_FRAME_CYCLE"
+    },
+    {
+      "name": "extra_idle_advance",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "EXTRA_FRAME_CYCLE"
+    },
+    {
+      "name": "wrong_common_mask",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "ADVANCE_MASK_NOT_1111"
+    },
+    {
+      "name": "commit_after_cancel",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "COMMIT_AFTER_CANCEL"
+    },
+    {
+      "name": "cross_epoch_commit",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "CROSS_EPOCH_COMMIT"
+    },
+    {
+      "name": "missing_finish",
+      "exit_code": 2,
+      "status": "REJECT",
+      "error": "MISSING_OR_DUPLICATE_FINISH"
+    }
+  ]
+}

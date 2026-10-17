@@ -1,0 +1,1033 @@
+{
+  "schema": "M3_R6_TOOL_PLAN_ADAPTER_GROUP_V1",
+  "result": "PASS_SOFTWARE_FIXTURE_ONLY",
+  "level": "L1_SOFTWARE_FIXTURE_ONLY",
+  "created_utc": "2026-10-17T08:02:48.586120+00:00",
+  "maximum_seconds": 90,
+  "group_number": 1,
+  "scope": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\TEST_SCOPE.json",
+    "bytes": 3400,
+    "sha256": "d6753e26203fed8814ede8a0f54c7dbbd97d2cd42848925b2bf3a7ec53f5f5b4"
+  },
+  "source_identities": {
+    "adapter": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+      "bytes": 18185,
+      "sha256": "bb29b19984c75a49a102b3481dff6d53403af14bb5671fffb9db587dd6cbbbcc"
+    },
+    "worker": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py",
+      "bytes": 561,
+      "sha256": "3ae493270c3c35d174865124e16d10440f4101e5e25a06840baa493b41fda735"
+    },
+    "selftest": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\run_selftest.py",
+      "bytes": 13448,
+      "sha256": "a8acef277d36ed3cdf5bc1dfa7496ba9972bd9a089e26aefb35666691f481e11"
+    },
+    "fixture_source": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_source.sv",
+      "bytes": 47,
+      "sha256": "82092d74ceef38fd8499fb48b7eb9138a7d3e38ab3c5a44ca2328d7510663e8d"
+    },
+    "fixture_tb": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_tb.sv",
+      "bytes": 81,
+      "sha256": "6b1ee3ee2eb0f10a2ca165b7aaa3ca3e93e506ee15c8514e0ad2e78ec5c4cf4a"
+    },
+    "fixture_rom": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_rom.hex",
+      "bytes": 18,
+      "sha256": "08e22886721d444f353e26d6297a36c5898562a07a88699b3bbcfd072b2dbe0a"
+    },
+    "job_helper": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py",
+      "bytes": 3481,
+      "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+    }
+  },
+  "cases": [
+    {
+      "case": "valid_stream",
+      "assemble": {
+        "label": "valid_stream_assemble",
+        "argv": [
+          "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+          "assemble",
+          "--spec",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/valid_stream.spec.json",
+          "--output",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/valid_stream.plan.json"
+        ],
+        "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+        "exit_code": 0,
+        "elapsed_seconds": 0.141,
+        "stdout": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\valid_stream_assemble.stdout.raw",
+          "bytes": 349,
+          "sha256": "9bfb2f8e3c105f5cdde8fa35b979955867c9c033b2590cfd1c8b7c34e79efe11"
+        },
+        "stderr": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\valid_stream_assemble.stderr.raw",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "observed": {
+          "result": "BOUND_NOT_APPROVED",
+          "plan": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\valid_stream.plan.json",
+            "bytes": 3773,
+            "sha256": "95e62e13ce3c71675ae282aceb79bbef085b8df9eab1c3a80a6d9b952e9c4ea8"
+          },
+          "real_tool_launches": 0
+        }
+      },
+      "audit": {
+        "label": "valid_stream_audit",
+        "argv": [
+          "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+          "audit",
+          "--plan",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/valid_stream.plan.json",
+          "--sha256",
+          "95e62e13ce3c71675ae282aceb79bbef085b8df9eab1c3a80a6d9b952e9c4ea8"
+        ],
+        "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+        "exit_code": 0,
+        "elapsed_seconds": 0.078,
+        "stdout": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\valid_stream_audit.stdout.raw",
+          "bytes": 365,
+          "sha256": "a5d1f8ae1ecf28eea09cbbe987fdfe8516764945ed430ff7f7c547c01aaa43de"
+        },
+        "stderr": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\valid_stream_audit.stderr.raw",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "observed": {
+          "result": "AUDIT_OK_NOT_APPROVAL",
+          "plan": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\valid_stream.plan.json",
+            "bytes": 3773,
+            "sha256": "95e62e13ce3c71675ae282aceb79bbef085b8df9eab1c3a80a6d9b952e9c4ea8"
+          },
+          "inputs": 7,
+          "real_tool_launches": 0
+        }
+      },
+      "run": {
+        "label": "valid_stream_run",
+        "argv": [
+          "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+          "run-fixture",
+          "--plan",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/valid_stream.plan.json",
+          "--sha256",
+          "95e62e13ce3c71675ae282aceb79bbef085b8df9eab1c3a80a6d9b952e9c4ea8"
+        ],
+        "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+        "exit_code": 0,
+        "elapsed_seconds": 0.36,
+        "stdout": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\valid_stream_run.stdout.raw",
+          "bytes": 8424,
+          "sha256": "10354020717178b08c58df048f9dedc46043a6ba27ea545c263a6c7bc3c0b00f"
+        },
+        "stderr": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\valid_stream_run.stderr.raw",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "observed": {
+          "schema": "M3_R6_TOOL_PLAN_EXECUTION_RECEIPT_V1",
+          "result": "PASS_SOFTWARE_FIXTURE_ONLY",
+          "plan_sha256": "95e62e13ce3c71675ae282aceb79bbef085b8df9eab1c3a80a6d9b952e9c4ea8",
+          "audit": {
+            "result": "AUDIT_OK_NOT_APPROVAL",
+            "plan": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\valid_stream.plan.json",
+              "bytes": 3773,
+              "sha256": "95e62e13ce3c71675ae282aceb79bbef085b8df9eab1c3a80a6d9b952e9c4ea8"
+            },
+            "inputs": 7,
+            "real_tool_launches": 0
+          },
+          "argv": [
+            "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+            "-I",
+            "-S",
+            "-B",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py",
+            "stream"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter",
+          "output_dir": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\valid_stream\\process",
+          "consumption_marker": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\valid_stream.consumed.json",
+          "timeout_seconds": 5,
+          "job_attached": true,
+          "streaming_capture": "PIPE_THREADS_TO_RAW_AND_TIMESTAMPED_EVENTS",
+          "root_exit_code": 0,
+          "timed_out": false,
+          "cleanup": {
+            "mechanism": "KILL_ON_JOB_CLOSE",
+            "owned_job": true
+          },
+          "first_failure": null,
+          "error": null,
+          "real_tool_launches": 0,
+          "fixture_process_launches": 1,
+          "board_release_allowed": false,
+          "inputs_before": {
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_source.sv": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_source.sv",
+              "bytes": 47,
+              "sha256": "82092d74ceef38fd8499fb48b7eb9138a7d3e38ab3c5a44ca2328d7510663e8d"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_rom.hex": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_rom.hex",
+              "bytes": 18,
+              "sha256": "08e22886721d444f353e26d6297a36c5898562a07a88699b3bbcfd072b2dbe0a"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_tb.sv": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_tb.sv",
+              "bytes": 81,
+              "sha256": "6b1ee3ee2eb0f10a2ca165b7aaa3ca3e93e506ee15c8514e0ad2e78ec5c4cf4a"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py",
+              "bytes": 561,
+              "sha256": "3ae493270c3c35d174865124e16d10440f4101e5e25a06840baa493b41fda735"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py",
+              "bytes": 3481,
+              "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+              "bytes": 18185,
+              "sha256": "bb29b19984c75a49a102b3481dff6d53403af14bb5671fffb9db587dd6cbbbcc"
+            },
+            "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe": {
+              "path": "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+              "bytes": 107312,
+              "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8"
+            }
+          },
+          "elapsed_seconds": 0.265,
+          "inputs_after": {
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_source.sv": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_source.sv",
+              "bytes": 47,
+              "sha256": "82092d74ceef38fd8499fb48b7eb9138a7d3e38ab3c5a44ca2328d7510663e8d"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_rom.hex": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_rom.hex",
+              "bytes": 18,
+              "sha256": "08e22886721d444f353e26d6297a36c5898562a07a88699b3bbcfd072b2dbe0a"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_tb.sv": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_tb.sv",
+              "bytes": 81,
+              "sha256": "6b1ee3ee2eb0f10a2ca165b7aaa3ca3e93e506ee15c8514e0ad2e78ec5c4cf4a"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py",
+              "bytes": 561,
+              "sha256": "3ae493270c3c35d174865124e16d10440f4101e5e25a06840baa493b41fda735"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py",
+              "bytes": 3481,
+              "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+              "bytes": 18185,
+              "sha256": "bb29b19984c75a49a102b3481dff6d53403af14bb5671fffb9db587dd6cbbbcc"
+            },
+            "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe": {
+              "path": "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+              "bytes": 107312,
+              "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8"
+            }
+          },
+          "inputs_unchanged": true,
+          "logs": {
+            "stdout.raw": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\valid_stream\\process\\stdout.raw",
+              "bytes": 54,
+              "sha256": "2954def037bc02d3e0ccc38aa43dfc3804f6df6ee222d756bd094b7950ff46b8"
+            },
+            "stderr.raw": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\valid_stream\\process\\stderr.raw",
+              "bytes": 54,
+              "sha256": "d1e03b0c7be2c89e75a1a0d9473b53eaa47e8b7dce4dfa721c5e51c7355abe1d"
+            },
+            "stream_events.jsonl": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\valid_stream\\process\\stream_events.jsonl",
+              "bytes": 1164,
+              "sha256": "a46bf0b8c9bfd27af29aa756e173c5225cee8184de5d4d022870d7c76d2b51c3"
+            }
+          }
+        }
+      },
+      "result": "PASS"
+    },
+    {
+      "case": "expected_error_first_failure",
+      "assemble": {
+        "label": "expected_error_assemble",
+        "argv": [
+          "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+          "assemble",
+          "--spec",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/expected_error.spec.json",
+          "--output",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/expected_error.plan.json"
+        ],
+        "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+        "exit_code": 0,
+        "elapsed_seconds": 0.094,
+        "stdout": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\expected_error_assemble.stdout.raw",
+          "bytes": 351,
+          "sha256": "a81ce5d81193d6fc224b0fb16ed30297ac54e91015917e91aa85004fb7c1d1e0"
+        },
+        "stderr": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\expected_error_assemble.stderr.raw",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "observed": {
+          "result": "BOUND_NOT_APPROVED",
+          "plan": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\expected_error.plan.json",
+            "bytes": 3778,
+            "sha256": "6be294fe174cdc274151a1b1c168017ff40b5c52a55638e8a7e1ac1600d08485"
+          },
+          "real_tool_launches": 0
+        }
+      },
+      "run": {
+        "label": "expected_error_run",
+        "argv": [
+          "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+          "run-fixture",
+          "--plan",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/expected_error.plan.json",
+          "--sha256",
+          "6be294fe174cdc274151a1b1c168017ff40b5c52a55638e8a7e1ac1600d08485"
+        ],
+        "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+        "exit_code": 1,
+        "elapsed_seconds": 0.344,
+        "stdout": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\expected_error_run.stdout.raw",
+          "bytes": 8481,
+          "sha256": "dddd36687fcccf67e91e89526d6cde664a233c944b19b91e7ee79672f425529d"
+        },
+        "stderr": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\expected_error_run.stderr.raw",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "observed": {
+          "schema": "M3_R6_TOOL_PLAN_EXECUTION_RECEIPT_V1",
+          "result": "FAIL_PARTIAL",
+          "plan_sha256": "6be294fe174cdc274151a1b1c168017ff40b5c52a55638e8a7e1ac1600d08485",
+          "audit": {
+            "result": "AUDIT_OK_NOT_APPROVAL",
+            "plan": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\expected_error.plan.json",
+              "bytes": 3778,
+              "sha256": "6be294fe174cdc274151a1b1c168017ff40b5c52a55638e8a7e1ac1600d08485"
+            },
+            "inputs": 7,
+            "real_tool_launches": 0
+          },
+          "argv": [
+            "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+            "-I",
+            "-S",
+            "-B",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py",
+            "error"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter",
+          "output_dir": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\expected_error\\process",
+          "consumption_marker": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\expected_error.consumed.json",
+          "timeout_seconds": 5,
+          "job_attached": true,
+          "streaming_capture": "PIPE_THREADS_TO_RAW_AND_TIMESTAMPED_EVENTS",
+          "root_exit_code": 7,
+          "timed_out": false,
+          "cleanup": {
+            "mechanism": "KILL_ON_JOB_CLOSE",
+            "owned_job": true
+          },
+          "first_failure": {
+            "stage": "fixture_process",
+            "exit_code": 7,
+            "timed_out": false
+          },
+          "error": null,
+          "real_tool_launches": 0,
+          "fixture_process_launches": 1,
+          "board_release_allowed": false,
+          "inputs_before": {
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_source.sv": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_source.sv",
+              "bytes": 47,
+              "sha256": "82092d74ceef38fd8499fb48b7eb9138a7d3e38ab3c5a44ca2328d7510663e8d"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_rom.hex": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_rom.hex",
+              "bytes": 18,
+              "sha256": "08e22886721d444f353e26d6297a36c5898562a07a88699b3bbcfd072b2dbe0a"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_tb.sv": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_tb.sv",
+              "bytes": 81,
+              "sha256": "6b1ee3ee2eb0f10a2ca165b7aaa3ca3e93e506ee15c8514e0ad2e78ec5c4cf4a"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py",
+              "bytes": 561,
+              "sha256": "3ae493270c3c35d174865124e16d10440f4101e5e25a06840baa493b41fda735"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py",
+              "bytes": 3481,
+              "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+              "bytes": 18185,
+              "sha256": "bb29b19984c75a49a102b3481dff6d53403af14bb5671fffb9db587dd6cbbbcc"
+            },
+            "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe": {
+              "path": "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+              "bytes": 107312,
+              "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8"
+            }
+          },
+          "elapsed_seconds": 0.266,
+          "inputs_after": {
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_source.sv": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_source.sv",
+              "bytes": 47,
+              "sha256": "82092d74ceef38fd8499fb48b7eb9138a7d3e38ab3c5a44ca2328d7510663e8d"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_rom.hex": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_rom.hex",
+              "bytes": 18,
+              "sha256": "08e22886721d444f353e26d6297a36c5898562a07a88699b3bbcfd072b2dbe0a"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_tb.sv": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_tb.sv",
+              "bytes": 81,
+              "sha256": "6b1ee3ee2eb0f10a2ca165b7aaa3ca3e93e506ee15c8514e0ad2e78ec5c4cf4a"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py",
+              "bytes": 561,
+              "sha256": "3ae493270c3c35d174865124e16d10440f4101e5e25a06840baa493b41fda735"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py",
+              "bytes": 3481,
+              "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+            },
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+              "bytes": 18185,
+              "sha256": "bb29b19984c75a49a102b3481dff6d53403af14bb5671fffb9db587dd6cbbbcc"
+            },
+            "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe": {
+              "path": "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+              "bytes": 107312,
+              "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8"
+            }
+          },
+          "inputs_unchanged": true,
+          "logs": {
+            "stdout.raw": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\expected_error\\process\\stdout.raw",
+              "bytes": 54,
+              "sha256": "2954def037bc02d3e0ccc38aa43dfc3804f6df6ee222d756bd094b7950ff46b8"
+            },
+            "stderr.raw": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\expected_error\\process\\stderr.raw",
+              "bytes": 54,
+              "sha256": "d1e03b0c7be2c89e75a1a0d9473b53eaa47e8b7dce4dfa721c5e51c7355abe1d"
+            },
+            "stream_events.jsonl": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\expected_error\\process\\stream_events.jsonl",
+              "bytes": 1164,
+              "sha256": "973dbcdbd7d1e7660c7f9bc354e84b0d42f71e0bd2fab3c559b1e6de52900903"
+            }
+          }
+        }
+      },
+      "result": "PASS_EXPECTED_REFUSAL"
+    },
+    {
+      "case": "changed_input",
+      "assemble": {
+        "label": "wrong_input_assemble",
+        "argv": [
+          "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+          "assemble",
+          "--spec",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/wrong_input.spec.json",
+          "--output",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/wrong_input.plan.json"
+        ],
+        "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+        "exit_code": 0,
+        "elapsed_seconds": 0.093,
+        "stdout": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\wrong_input_assemble.stdout.raw",
+          "bytes": 348,
+          "sha256": "d1cead20bb705158450114d015f6764e3fff30b59dd210e6e84e5a085dd66787"
+        },
+        "stderr": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\wrong_input_assemble.stderr.raw",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "observed": {
+          "result": "BOUND_NOT_APPROVED",
+          "plan": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\wrong_input.plan.json",
+            "bytes": 3779,
+            "sha256": "f739befb2ae878f534ac4365bca8a1c7747ed3177db755d6824cf61b185654cc"
+          },
+          "real_tool_launches": 0
+        }
+      },
+      "audit": {
+        "label": "wrong_input_audit",
+        "argv": [
+          "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+          "audit",
+          "--plan",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/wrong_input.plan.json",
+          "--sha256",
+          "f739befb2ae878f534ac4365bca8a1c7747ed3177db755d6824cf61b185654cc"
+        ],
+        "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+        "exit_code": 2,
+        "elapsed_seconds": 0.078,
+        "stdout": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\wrong_input_audit.stdout.raw",
+          "bytes": 289,
+          "sha256": "3f8359ed8b556aaa399ec546c1ee4bf56f7a555b63c2a20b012f518ef9f8bb6b"
+        },
+        "stderr": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\wrong_input_audit.stderr.raw",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "observed": {
+          "result": "REFUSED",
+          "reason": "INPUT_CHANGED",
+          "detail": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\mutable_source.sv",
+          "process_launches": 0,
+          "board_release_allowed": false
+        }
+      },
+      "result": "PASS_EXPECTED_REFUSAL",
+      "process_launches": 0
+    },
+    {
+      "case": "caller_approved_true",
+      "call": {
+        "label": "caller_approved_true_assemble",
+        "argv": [
+          "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+          "assemble",
+          "--spec",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/caller_approved_true.spec.json",
+          "--output",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/caller_approved_true.plan.json"
+        ],
+        "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+        "exit_code": 2,
+        "elapsed_seconds": 0.063,
+        "stdout": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\caller_approved_true_assemble.stdout.raw",
+          "bytes": 136,
+          "sha256": "7eb1996ca69cd2041f41935e0fa877c1d252a881a40763f630db736633cb3ac3"
+        },
+        "stderr": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\caller_approved_true_assemble.stderr.raw",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "observed": {
+          "result": "REFUSED",
+          "reason": "CALLER_MUST_NOT_SET_APPROVED",
+          "detail": null,
+          "process_launches": 0,
+          "board_release_allowed": false
+        }
+      },
+      "result": "PASS_EXPECTED_REFUSAL",
+      "process_launches": 0
+    },
+    {
+      "case": "real_tool_without_M2_admission",
+      "assemble": {
+        "label": "real_unapproved_assemble",
+        "argv": [
+          "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+          "assemble",
+          "--spec",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/real_unapproved.spec.json",
+          "--output",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/real_unapproved.plan.json"
+        ],
+        "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+        "exit_code": 0,
+        "elapsed_seconds": 0.094,
+        "stdout": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\real_unapproved_assemble.stdout.raw",
+          "bytes": 352,
+          "sha256": "b73ab90fa1609a7b5019e28157188fbee5cfc06808e900e8de0412dfba8accf4"
+        },
+        "stderr": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\real_unapproved_assemble.stderr.raw",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "observed": {
+          "result": "BOUND_NOT_APPROVED",
+          "plan": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\real_unapproved.plan.json",
+            "bytes": 3616,
+            "sha256": "85fdba2ed5a6025a8acc993d7ca56ba3d389c26e5cd97d6146244ee036fb2136"
+          },
+          "real_tool_launches": 0
+        }
+      },
+      "run": {
+        "label": "real_unapproved_run",
+        "argv": [
+          "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+          "run-fixture",
+          "--plan",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/real_unapproved.plan.json",
+          "--sha256",
+          "85fdba2ed5a6025a8acc993d7ca56ba3d389c26e5cd97d6146244ee036fb2136"
+        ],
+        "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+        "exit_code": 4,
+        "elapsed_seconds": 0.078,
+        "stdout": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\real_unapproved_run.stdout.raw",
+          "bytes": 146,
+          "sha256": "30b7e598c074dd142cec7dac83a413cbb07ffd2b3acd4f3e1f2f9685d8aa7d40"
+        },
+        "stderr": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\real_unapproved_run.stderr.raw",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "observed": {
+          "result": "REFUSED",
+          "reason": "M2_EXECUTION_ADMISSION_REQUIRED_REAL_TOOL_NOT_LAUNCHED",
+          "process_launches": 0,
+          "board_release_allowed": false
+        }
+      },
+      "result": "PASS_EXPECTED_REFUSAL",
+      "process_launches": 0
+    },
+    {
+      "case": "exclusive_output_conflict",
+      "assemble": {
+        "label": "output_conflict_assemble",
+        "argv": [
+          "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+          "assemble",
+          "--spec",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/output_conflict.spec.json",
+          "--output",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/output_conflict.plan.json"
+        ],
+        "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+        "exit_code": 0,
+        "elapsed_seconds": 0.093,
+        "stdout": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\output_conflict_assemble.stdout.raw",
+          "bytes": 352,
+          "sha256": "aaff6355290cc990ffacf888266cee6efc824ecf14b95ef8086466ae88e0fe2a"
+        },
+        "stderr": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\output_conflict_assemble.stderr.raw",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "observed": {
+          "result": "BOUND_NOT_APPROVED",
+          "plan": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\output_conflict.plan.json",
+            "bytes": 3782,
+            "sha256": "b32ba689e739d91b1f6e385bbf96d065866dfbacbb76a31827c81a114fe8aff7"
+          },
+          "real_tool_launches": 0
+        }
+      },
+      "run": {
+        "label": "output_conflict_run",
+        "argv": [
+          "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+          "run-fixture",
+          "--plan",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/output_conflict.plan.json",
+          "--sha256",
+          "b32ba689e739d91b1f6e385bbf96d065866dfbacbb76a31827c81a114fe8aff7"
+        ],
+        "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+        "exit_code": 5,
+        "elapsed_seconds": 0.079,
+        "stdout": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\output_conflict_run.stdout.raw",
+          "bytes": 123,
+          "sha256": "bba32d4af7389d51bc27bfce645835b0ee4e5b63ec42d1ef9fe68be1189d9996"
+        },
+        "stderr": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\output_conflict_run.stderr.raw",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "observed": {
+          "result": "REFUSED",
+          "reason": "EXCLUSIVE_OUTPUT_ALREADY_EXISTS",
+          "process_launches": 0,
+          "board_release_allowed": false
+        }
+      },
+      "result": "PASS_EXPECTED_REFUSAL",
+      "process_launches": 0
+    },
+    {
+      "case": "concurrent_consumption",
+      "assemble": {
+        "label": "concurrent_assemble",
+        "argv": [
+          "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+          "-I",
+          "-S",
+          "-B",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+          "assemble",
+          "--spec",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/concurrent.spec.json",
+          "--output",
+          "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/concurrent.plan.json"
+        ],
+        "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+        "exit_code": 0,
+        "elapsed_seconds": 0.094,
+        "stdout": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\concurrent_assemble.stdout.raw",
+          "bytes": 347,
+          "sha256": "e285d520a656e13321820b35d1f75ee763a194a1b1f0959b5dc91deae069c491"
+        },
+        "stderr": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\concurrent_assemble.stderr.raw",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "observed": {
+          "result": "BOUND_NOT_APPROVED",
+          "plan": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\concurrent.plan.json",
+            "bytes": 3767,
+            "sha256": "52ae5ed4ae67dcc1bf8071ab3536688da49b66c47420b322a26c04557245c371"
+          },
+          "real_tool_launches": 0
+        }
+      },
+      "racers": [
+        {
+          "exit_code": 0,
+          "stdout": {
+            "schema": "M3_R6_TOOL_PLAN_EXECUTION_RECEIPT_V1",
+            "result": "PASS_SOFTWARE_FIXTURE_ONLY",
+            "plan_sha256": "52ae5ed4ae67dcc1bf8071ab3536688da49b66c47420b322a26c04557245c371",
+            "audit": {
+              "result": "AUDIT_OK_NOT_APPROVAL",
+              "plan": {
+                "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\concurrent.plan.json",
+                "bytes": 3767,
+                "sha256": "52ae5ed4ae67dcc1bf8071ab3536688da49b66c47420b322a26c04557245c371"
+              },
+              "inputs": 7,
+              "real_tool_launches": 0
+            },
+            "argv": [
+              "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+              "-I",
+              "-S",
+              "-B",
+              "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py",
+              "stream"
+            ],
+            "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter",
+            "output_dir": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\concurrent\\process",
+            "consumption_marker": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\concurrent.consumed.json",
+            "timeout_seconds": 5,
+            "job_attached": true,
+            "streaming_capture": "PIPE_THREADS_TO_RAW_AND_TIMESTAMPED_EVENTS",
+            "root_exit_code": 0,
+            "timed_out": false,
+            "cleanup": {
+              "mechanism": "KILL_ON_JOB_CLOSE",
+              "owned_job": true
+            },
+            "first_failure": null,
+            "error": null,
+            "real_tool_launches": 0,
+            "fixture_process_launches": 1,
+            "board_release_allowed": false,
+            "inputs_before": {
+              "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_source.sv": {
+                "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_source.sv",
+                "bytes": 47,
+                "sha256": "82092d74ceef38fd8499fb48b7eb9138a7d3e38ab3c5a44ca2328d7510663e8d"
+              },
+              "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_rom.hex": {
+                "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_rom.hex",
+                "bytes": 18,
+                "sha256": "08e22886721d444f353e26d6297a36c5898562a07a88699b3bbcfd072b2dbe0a"
+              },
+              "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_tb.sv": {
+                "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_tb.sv",
+                "bytes": 81,
+                "sha256": "6b1ee3ee2eb0f10a2ca165b7aaa3ca3e93e506ee15c8514e0ad2e78ec5c4cf4a"
+              },
+              "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py": {
+                "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py",
+                "bytes": 561,
+                "sha256": "3ae493270c3c35d174865124e16d10440f4101e5e25a06840baa493b41fda735"
+              },
+              "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py": {
+                "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py",
+                "bytes": 3481,
+                "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+              },
+              "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py": {
+                "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+                "bytes": 18185,
+                "sha256": "bb29b19984c75a49a102b3481dff6d53403af14bb5671fffb9db587dd6cbbbcc"
+              },
+              "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe": {
+                "path": "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+                "bytes": 107312,
+                "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8"
+              }
+            },
+            "elapsed_seconds": 0.265,
+            "inputs_after": {
+              "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_source.sv": {
+                "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_source.sv",
+                "bytes": 47,
+                "sha256": "82092d74ceef38fd8499fb48b7eb9138a7d3e38ab3c5a44ca2328d7510663e8d"
+              },
+              "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_rom.hex": {
+                "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_rom.hex",
+                "bytes": 18,
+                "sha256": "08e22886721d444f353e26d6297a36c5898562a07a88699b3bbcfd072b2dbe0a"
+              },
+              "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_tb.sv": {
+                "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_tb.sv",
+                "bytes": 81,
+                "sha256": "6b1ee3ee2eb0f10a2ca165b7aaa3ca3e93e506ee15c8514e0ad2e78ec5c4cf4a"
+              },
+              "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py": {
+                "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py",
+                "bytes": 561,
+                "sha256": "3ae493270c3c35d174865124e16d10440f4101e5e25a06840baa493b41fda735"
+              },
+              "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py": {
+                "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py",
+                "bytes": 3481,
+                "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+              },
+              "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py": {
+                "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+                "bytes": 18185,
+                "sha256": "bb29b19984c75a49a102b3481dff6d53403af14bb5671fffb9db587dd6cbbbcc"
+              },
+              "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe": {
+                "path": "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+                "bytes": 107312,
+                "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8"
+              }
+            },
+            "inputs_unchanged": true,
+            "logs": {
+              "stdout.raw": {
+                "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\concurrent\\process\\stdout.raw",
+                "bytes": 54,
+                "sha256": "2954def037bc02d3e0ccc38aa43dfc3804f6df6ee222d756bd094b7950ff46b8"
+              },
+              "stderr.raw": {
+                "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\concurrent\\process\\stderr.raw",
+                "bytes": 54,
+                "sha256": "d1e03b0c7be2c89e75a1a0d9473b53eaa47e8b7dce4dfa721c5e51c7355abe1d"
+              },
+              "stream_events.jsonl": {
+                "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\concurrent\\process\\stream_events.jsonl",
+                "bytes": 1164,
+                "sha256": "3f03e589441a55f1c71dbc605c1234019ce4a758b28fe4753ff4f87bdc982fa8"
+              }
+            }
+          },
+          "stdout_identity": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\concurrent_0.stdout.raw",
+            "bytes": 8412,
+            "sha256": "21363832980aa43e245cc266d70b110588c6cac5ea2a56e60229d358a341e9ad"
+          },
+          "stderr_identity": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\concurrent_0.stderr.raw",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "exit_code": 3,
+          "stdout": {
+            "result": "REFUSED",
+            "reason": "PLAN_ALREADY_CONSUMED_OR_IN_PROGRESS",
+            "detail": null,
+            "process_launches": 0,
+            "board_release_allowed": false
+          },
+          "stdout_identity": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\concurrent_1.stdout.raw",
+            "bytes": 144,
+            "sha256": "b34f6702106a88054760eed7d1d7faed2613c5d0939845f53ce1a178443d5fa7"
+          },
+          "stderr_identity": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\RUN_01\\control\\concurrent_1.stderr.raw",
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        }
+      ],
+      "result": "PASS"
+    }
+  ],
+  "first_failure": {
+    "case": "expected_error_first_failure",
+    "stage": "fixture_process",
+    "exit_code": 7,
+    "timed_out": false
+  },
+  "fixture_process_launches": 3,
+  "real_tool_launches": 0,
+  "not_run": [
+    "Icarus",
+    "ModelSim",
+    "Gowin",
+    "RTL simulation",
+    "physical tools",
+    "hardware"
+  ],
+  "board_release_allowed": false,
+  "error": null,
+  "elapsed_seconds": 2.203,
+  "exit_code": 0,
+  "sources_after": {
+    "adapter": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+      "bytes": 18185,
+      "sha256": "bb29b19984c75a49a102b3481dff6d53403af14bb5671fffb9db587dd6cbbbcc"
+    },
+    "worker": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py",
+      "bytes": 561,
+      "sha256": "3ae493270c3c35d174865124e16d10440f4101e5e25a06840baa493b41fda735"
+    },
+    "selftest": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\run_selftest.py",
+      "bytes": 13448,
+      "sha256": "a8acef277d36ed3cdf5bc1dfa7496ba9972bd9a089e26aefb35666691f481e11"
+    },
+    "fixture_source": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_source.sv",
+      "bytes": 47,
+      "sha256": "82092d74ceef38fd8499fb48b7eb9138a7d3e38ab3c5a44ca2328d7510663e8d"
+    },
+    "fixture_tb": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_tb.sv",
+      "bytes": 81,
+      "sha256": "6b1ee3ee2eb0f10a2ca165b7aaa3ca3e93e506ee15c8514e0ad2e78ec5c4cf4a"
+    },
+    "fixture_rom": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_rom.hex",
+      "bytes": 18,
+      "sha256": "08e22886721d444f353e26d6297a36c5898562a07a88699b3bbcfd072b2dbe0a"
+    },
+    "job_helper": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py",
+      "bytes": 3481,
+      "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+    }
+  }
+}

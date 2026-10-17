@@ -1,0 +1,19 @@
+{
+  "schema": "M3_R06_TX_CLOCK_RESET_BINDING_V1",
+  "mode": "SYNTHETIC_SELFTEST_ONLY",
+  "clock_hz": 40000000,
+  "sample_phase": "SYS_POSEDGE_PRE_NBA",
+  "serial_format": "PT8211_32BIT_SLOT_LSBJ16_WS_LOW_RIGHT_HIGH_LEFT",
+  "pcm24_to_pcm16": "SATURATE((PCM24+128)//256)",
+  "trace_authority": "SYNTHETIC_FIXTURE",
+  "tx_sidecar_authority": "SYNTHETIC_EXPLICIT_SIDECAR",
+  "pins_authority": "SYNTHETIC_PIN_STREAM",
+  "timebase_authority": "SYNTHETIC_40MHZ_TIMEBASE",
+  "finish_authority": "SYNTHETIC_EXPLICIT_FINISH",
+  "inputs_sha256": {
+    "calendar": "6335e5edb22f6b15d34c2f559a29c2a7cc09c2b86f25a4a0ff60827506953bf9",
+    "frame_plan": "a0e82924f7f9f6336970b50cf5bc27e796e24a42165a9737243bb92b51194192",
+    "oracle": "aadd5746c604edac6ec05977bd92c3ede587c671f89003188cbd658daf008062",
+    "trace": "e69245f6fbf24fae1e27b12547f4da94f15eedba56727d507096ace542a813fa"
+  }
+}
