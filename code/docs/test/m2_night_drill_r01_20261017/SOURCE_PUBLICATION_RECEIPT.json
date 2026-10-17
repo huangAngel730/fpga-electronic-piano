@@ -1,0 +1,138 @@
+{
+  "schema": "M2_NIGHT_RULES_PUBLICATION_RECEIPT_V1",
+  "handoff_id": "NIGHT-RULES-GOAL-20261017-01",
+  "producer": "M2",
+  "consumer": [
+    "M1",
+    "M3"
+  ],
+  "status": "REMOTE_VERIFIED",
+  "self_review": true,
+  "base_commit": "164ed3452eaa23e56a544cf13e7e0acf040e7908",
+  "result_commit": "30a8cd5474e6ff485ce0bf8fd5f3c1d51643123a",
+  "tree": "7352880e5091a7396d7a9727d98e6f7d0446aa0c",
+  "remote": "origin",
+  "branch": "develop",
+  "remote_tip_observed": "30a8cd5474e6ff485ce0bf8fd5f3c1d51643123a",
+  "verified_utc": "2026-10-17 14:46:06 UTC",
+  "remote_contains_result": true,
+  "ancestor_exit_code": 0,
+  "exact_tree_matches_gate": true,
+  "only_eight_paths": true,
+  "manifest": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 27168,
+      "sha256": "76fd9c1d9d5585f35fb62e49bb845c22c90a91402fbf4c002852de1342554276"
+    },
+    {
+      "path": "code/AGENTS.md",
+      "bytes": 8438,
+      "sha256": "38d45d5ad9f7ae5b650ecf129345b2be79ada2951ec4207fcb7e7afecaa008ec"
+    },
+    {
+      "path": "code/docs/夜间任务通用执行规范.md",
+      "bytes": 19933,
+      "sha256": "076ffd0036ac711869b5aa947fc6771dd0d9941c2b635134ace5dfce0056f633"
+    },
+    {
+      "path": "code/docs/Git协作规范.md",
+      "bytes": 24540,
+      "sha256": "42a31eefd059054bd2661d22866ba354bd4ffbf712fa14292ecf204c321dd5fc"
+    },
+    {
+      "path": "code/docs/协作入口.md",
+      "bytes": 8320,
+      "sha256": "22682f8222cbae3ac1f1f8a7afb2f0ca0a58ff838136284429fc98e140d3e1da"
+    },
+    {
+      "path": "code/docs/AI开工提示词.md",
+      "bytes": 9665,
+      "sha256": "c69799655783218a7a2f28a9113d000a4565e45c0daf0454d1db279dd21e4cb4"
+    },
+    {
+      "path": "code/docs/三人协作执行手册.md",
+      "bytes": 13186,
+      "sha256": "cce04d1783b92b6e417b42e0ea1bf4f8d6a189941cc9e154c64305b12e0db960"
+    },
+    {
+      "path": "code/docs/README.md",
+      "bytes": 3628,
+      "sha256": "114cadc97b55e931a3199754e82298b9cf62cef28b0861e3734050adcd8a9c23"
+    }
+  ],
+  "validation": {
+    "gate": "GATE_01/RECEIPT.json",
+    "exit_code": 0,
+    "pass_count": 9,
+    "passes": [
+      "Required paths present (22)",
+      "Git whitespace clean",
+      "Forbidden tracked files",
+      "Python syntax (288 files)",
+      "Pin map matches official reference (8 pins)",
+      "DOCX structure (8 files)",
+      "T007 top-level simulation",
+      "T019 common-package simulation",
+      "Reference digests annotated"
+    ],
+    "stdout_sha256": "93d972d5a78ccd3c5376f6c5018ec5f0bd6acc0b3e6796c83271a43a61ff8426",
+    "stderr_sha256": "50797675a2e04fcfe8206bf7b10b47475ca4612cc14907880288dcbafa6dc07e",
+    "scope": "Repository publication gate only; no new C9/Pro HDL execution or real-board verification"
+  },
+  "push": {
+    "attempts": 1,
+    "exit_code": 0,
+    "retry_used": false,
+    "raw_receipt": "PUSH_COMMAND_RECEIPT.json"
+  },
+  "main_preservation": {
+    "head": "ad2de2169230dc8fd9f4b6f8157d384306c2479a",
+    "staging_content_unchanged": true,
+    "all_original_modified_file_bytes_unchanged": 21,
+    "other_uncommitted_files_preserved": 13
+  },
+  "validation_row_exception": "User specifically limited this publication to eight files. No ninth V row staged or committed.",
+  "runtime_preparation": {
+    "state": "PREPARED_NOT_DEPLOYED",
+    "published": false,
+    "files": [
+      "COMMON_RUNTIME_CONTRACT.json",
+      "M1_GOAL_CONTRACT.json",
+      "M2_GOAL_CONTRACT.json",
+      "M3_GOAL_CONTRACT.json",
+      "README.md",
+      "TWO_MACHINE_DRILL_CHECKLIST.json"
+    ],
+    "goal_started": false,
+    "polling": "POLLING_NOT_VERIFIED",
+    "drill_machines": [
+      "M2 local",
+      "M3 computer"
+    ],
+    "two_machine_scenarios": "4 NOT_RUN",
+    "missing": [
+      "Actual M3 execution connection",
+      "Original actual START per role",
+      "Actual sessions/Goal identities",
+      "Verified runtime entrypoints and triggering"
+    ]
+  },
+  "consumer_status": {
+    "M1": "NOT_OBSERVED",
+    "M3": "NOT_OBSERVED"
+  },
+  "human_notified": "NOT_CONFIRMED",
+  "automatic_new_thread": {
+    "created": false,
+    "status": "REJECTED_APPROVAL_POLICY_NEVER",
+    "bypass_attempted": false
+  },
+  "verification_recovery": {
+    "combined_command": "REJECTED_NOT_EXECUTED",
+    "specific_reason": "blocked by policy; no narrower reason supplied",
+    "recovery": "Reduced to standalone read-only Git checks in the same checkout; all passed. Local receipt written separately with file tool."
+  },
+  "next_action": "User can manually create a project session and read NEW_SESSION_HANDOFF.md; bind actual M3 connection and original START before real two-machine pilot.",
+  "url": "https://github.com/huangAngel730/fpga-electronic-piano/commit/30a8cd5474e6ff485ce0bf8fd5f3c1d51643123a"
+}
