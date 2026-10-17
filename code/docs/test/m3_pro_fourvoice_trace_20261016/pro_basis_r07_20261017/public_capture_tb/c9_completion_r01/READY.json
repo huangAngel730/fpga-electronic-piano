@@ -1,0 +1,408 @@
+{
+  "schema": "M3_D4_C9_B_COMPLETION_READY_V1",
+  "status": "SOURCE_AND_CASES_READY_L0_NOT_RUN",
+  "baseline": "164ed3452eaa23e56a544cf13e7e0acf040e7908",
+  "date_local": "2026-10-17",
+  "timezone": "Asia/Shanghai",
+  "role": "B / 夜间4",
+  "api_document": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/API.json",
+  "implementations": [
+    {
+      "package": "R7-A",
+      "source": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/c9_stream.py",
+      "api": "convert_files(raw,resets,end,stdout,output_dir,origin='SYNTHETIC_SCHEMA_FIXTURE')->dict",
+      "result": "artifacts.public_rows/derived_raw_43/line_index",
+      "scope": "Path streaming; frozen legacy pure time/reset/finish validator; all 74 fields and 72 raw ports retained"
+    },
+    {
+      "package": "R8-07",
+      "source": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/capture_csv_codec/c9_completion_r01/c9_codec.py",
+      "api": [
+        "encode_file(public_rows_path,csv_path)->dict",
+        "decode_file(csv_path,public_rows_path)->dict"
+      ],
+      "result": "artifact descriptor and rows",
+      "scope": "74 individual JSON cells and whole original envelope; bounded strict physical CSV lines"
+    },
+    {
+      "package": "R6-3",
+      "source": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/normalized_intake/c9_completion_r01/intake_adapter.py",
+      "api": "project_intake_files(public_rows_path,output_dir)->dict",
+      "result": "artifacts.ledger/legacy_rows/c9_sidecar/preserved_rows",
+      "scope": "explicit 61+TX projection; canonical and 13-field sidecar retained; old business analyzer reused with one disk-sink AST initialization; old ledger schema"
+    },
+    {
+      "package": "R7-C",
+      "source": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/math_bundle.py",
+      "api": "build_bundle(request,output_dir)->dict",
+      "request_schema": "M3_D4_C9_MATH_BUNDLE_REQUEST_V1",
+      "result": "artifacts.math_input_bundle/row_index/fx_history/advance_history/input_apply_history",
+      "scope": "M1 NEXT_INPUT mechanical package; every row preserved including unpublished/cancelled advance; no actual PCM/FX becomes expected"
+    }
+  ],
+  "case_execution": {
+    "status": "NOT_RUN_BY_MEMBER",
+    "new_case_count": 10,
+    "new_entry": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/selftest.py",
+    "new_entry_sha256": "c4fcf5514fa339423356fad9da2e2bcefe47e5f47496c8090784080c7baabcc4",
+    "signature": "run_case(case_id,output_dir)->dict; output_dir must not exist",
+    "new_cases": [
+      {
+        "id": "STREAM_GT64M_CSV_ROUNDTRIP",
+        "expected": "PASS",
+        "description": "Actual >65MiB raw file streams through frozen old validation, full C9 and CSV roundtrip; all rows/74 fields/full envelope compared.",
+        "manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/CASES.json"
+      },
+      {
+        "id": "STREAM_RAW_ENVELOPE_REJECT",
+        "expected": "PASS",
+        "description": "Reject old raw schema without rewriting original fields to fit.",
+        "manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/CASES.json"
+      },
+      {
+        "id": "STREAM_RESET_FINISH_REJECT",
+        "expected": "PASS",
+        "description": "Reject END/MONITOR disagreement, retaining partial output and failure receipt.",
+        "manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/CASES.json"
+      },
+      {
+        "id": "C9_CSV_ENVELOPE_REJECT",
+        "expected": "PASS",
+        "description": "Reject wrong public envelope/schema.",
+        "manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/capture_csv_codec/c9_completion_r01/CASES.json"
+      },
+      {
+        "id": "C9_CSV_MISSING_FIELD_REJECT",
+        "expected": "PASS",
+        "description": "Reject loss of any one of 74 fields.",
+        "manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/capture_csv_codec/c9_completion_r01/CASES.json"
+      },
+      {
+        "id": "C9_CSV_X_NULL_LONG_CELL_ROUNDTRIP",
+        "expected": "PASS",
+        "description": "Keep X/null/full provenance and 140000-byte metadata cell; reject a cross-line unterminated CSV record.",
+        "manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/capture_csv_codec/c9_completion_r01/CASES.json"
+      },
+      {
+        "id": "C9_INTAKE_UNIQUE_CALENDAR_SEAM",
+        "expected": "PASS",
+        "description": "C9 capture -> explicit 61+TX projection -> original analyzer ledger -> unchanged unique FRAME_PLAN generator -> original calendar; F833 and A834 remain distinct.",
+        "manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/normalized_intake/c9_completion_r01/CASES.json"
+      },
+      {
+        "id": "C9_INTAKE_UNPROVEN_SEQ_REJECT",
+        "expected": "PASS",
+        "description": "Non-null independent apply_event_seq without genuine plan mapping rejects before old projection.",
+        "manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/normalized_intake/c9_completion_r01/CASES.json"
+      },
+      {
+        "id": "C9_MATH_HISTORY_COMPLETE",
+        "expected": "PASS",
+        "description": "Keep every canonical row, real-observation FX/config/clip and advance even when commit=0/cancel=1; no actual PCM becomes expected.",
+        "manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/CASES.json"
+      },
+      {
+        "id": "C9_MATH_INPUT_TAMPER_REJECT",
+        "expected": "PASS",
+        "description": "Reject descriptor tamper, unrelated but self-consistently hashed raw, and unrelated reset source.",
+        "manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/CASES.json"
+      }
+    ],
+    "old_six": {
+      "entry": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/pending_only.py",
+      "route": "CALLABLE_ROUTE",
+      "signature": "run_case(original_case_id,output_dir)->dict",
+      "case_ids": [
+        "hold_startup_lossless",
+        "unknown_handshake_and_advance_preserved",
+        "tampered_trace_identity",
+        "missing_hold_field",
+        "cycle_regression",
+        "dropped_non_frame_breaks_internal_binding"
+      ],
+      "expected_original_production_exits": [
+        0,
+        0,
+        2,
+        2,
+        2,
+        2
+      ],
+      "definition": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/cases.json",
+      "definition_sha256": "b92b3440736454df73244fb8fa2b4d1c11c475ba8f6d062fe8fbb76129188a64",
+      "source_spec": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/RUN_SPEC_R02.json",
+      "source_spec_sha256": "e23c3b193f6cf971a551dfc563223b83370620c77a3de6f58570403f93cb6cb5",
+      "spec_frozen_dependency_checks": 18,
+      "original_positive_rerun": false,
+      "serial_only": true,
+      "child_process_started": false,
+      "old_budgets_modified": false
+    },
+    "old_C9_C17": {
+      "status": "UNCHANGED_NOT_RUN_BY_MEMBER",
+      "count": 17,
+      "entry": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/selftest.py",
+      "sha256": "e15c5e601ce016fa26259cb28108384752ede1b3efab4777ae1d9b4066e98724",
+      "note": "Coordinator selects this frozen entry directly; no old source/expectation changes."
+    }
+  },
+  "limits": {
+    "raw_capture_bytes": 68719476736,
+    "max_json_line_bytes": 1048576,
+    "max_metadata_bytes_each": 16777216,
+    "max_output_bytes_each": 549755813888,
+    "max_canonical_rows": 100000000,
+    "max_legacy_ledger_event_observations": 1000000,
+    "csv_field_and_physical_line_bytes": 2097152,
+    "intake_constant_memory_claim": false,
+    "intake_linear_time_claim": false
+  },
+  "source_reuse": {
+    "assemble": "Unchanged legacy_pure selects stream_rows(Path); 43-port raw is marked derived.",
+    "intake": "One AST initialization replacement for preserved_rows; business validation/ledger rules unchanged.",
+    "frame_plan": "Original sole generator is reused; no second FRAME producer.",
+    "math": "No DSP or independent golden is computed.",
+    "common": {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/common.py",
+      "bytes": 6144,
+      "sha256": "55cb7481fe9c0870247a7d8b2453dea859f0f2e81879795cc0e34ffe8c996dca"
+    }
+  },
+  "files": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/c9_stream.py",
+      "bytes": 16848,
+      "sha256": "5584ab7201544a8d30bfdd7603a51483d1c5340ccc219e853df0d146d042ebef"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/selftest.py",
+      "bytes": 17282,
+      "sha256": "c4fcf5514fa339423356fad9da2e2bcefe47e5f47496c8090784080c7baabcc4"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/capture_csv_codec/c9_completion_r01/c9_codec.py",
+      "bytes": 6260,
+      "sha256": "9cc466db9324bb8d770af02e0b11a40ab3bc67f5febc46d044449d7a656832af"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/capture_csv_codec/c9_completion_r01/selftest.py",
+      "bytes": 1650,
+      "sha256": "6408617aa22c6ac6f68db5587264e69c8dc891b1e85d5189fa08f98690089583"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/normalized_intake/c9_completion_r01/intake_adapter.py",
+      "bytes": 8784,
+      "sha256": "7cfaba5c19cefa408f30911f5a69b440302e7bca24d6a2352fce1e48ba2456c0"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/normalized_intake/c9_completion_r01/selftest.py",
+      "bytes": 1624,
+      "sha256": "3ea38b39e0bc16951411416f075e54c7a3d0dfeae9cdaaf7422efe1cd1b26355"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/math_bundle.py",
+      "bytes": 9608,
+      "sha256": "83659169c25e5d77621e1649eeda25697b7f0eb4767d8321599144a19ceb3854"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/pending_only.py",
+      "bytes": 8892,
+      "sha256": "c55df97506cf2d75ff927770c526a50cab7987319c8c2226ca2f217717535da1"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/selftest.py",
+      "bytes": 1616,
+      "sha256": "6deb829240bcb87a9fb6c367b9d874a94a05a4f8b5dc00264dd9d4babc622d8e"
+    },
+    {
+      "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/CASES.json",
+      "bytes": 946,
+      "sha256": "2b2997b15b0b9fcce696bfed278820fdbff4ae61d71ae7e6c70e502047ad26ee"
+    },
+    {
+      "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/capture_csv_codec/c9_completion_r01/CASES.json",
+      "bytes": 853,
+      "sha256": "99e508c84509fae05c42d151a2b8f76e2d1e762eb8c108745874af28e7d00b54"
+    },
+    {
+      "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/normalized_intake/c9_completion_r01/CASES.json",
+      "bytes": 833,
+      "sha256": "42f9a28a4e3efec0e7d0cc2ab5b0d510e6c321dac2d0f7684d09edb210b914a6"
+    },
+    {
+      "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/CASES.json",
+      "bytes": 1536,
+      "sha256": "ca15bf8f1775c08706caea403aee0dcef30ddc20c9c2143a7d8582d0ee542abc"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/API.json",
+      "bytes": 2886,
+      "sha256": "2525b9a5602f23166d92f0e822f84e7509e94d17084ffe4590f6ac37881bb00b"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/README.md",
+      "bytes": 1205,
+      "sha256": "27cccbb75811e9ae144f9a8c4484408de59813dd4750b36cb513ceef1ec0d7bf"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/SELF_REVIEW.md",
+      "bytes": 2350,
+      "sha256": "d698da38b9fb60fa6f0e0fc009df25909ee18d5e54e48c7c79a554780654ba00"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/START.md",
+      "bytes": 882,
+      "sha256": "f95732c03398f59301b269dbbb99859adf7cf93e04355a262095e638557761ed"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/capture_csv_codec/c9_completion_r01/README.md",
+      "bytes": 857,
+      "sha256": "ef5784b16fa36ccab67ed67f494197d1ca7900b2e871ee79fd131bee5a3e35c0"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/normalized_intake/c9_completion_r01/README.md",
+      "bytes": 1190,
+      "sha256": "ef7168f272a96cca8c9112ea82d96568b0f3048dbfab5ae1c504fe68e8060d2f"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/README.md",
+      "bytes": 1399,
+      "sha256": "da7db86240e7d63e802e1809ac0913a8f90fa3efdefaa18b23cf7333241a75a1"
+    }
+  ],
+  "legacy_guard": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/c9_oracle_bridge.py",
+      "bytes": 24641,
+      "sha256": "5460dcf7e8539072200d55d123bc3855be2a759fea6eb84698c1e991fc22b4d8"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/selftest.py",
+      "bytes": 12620,
+      "sha256": "e15c5e601ce016fa26259cb28108384752ede1b3efab4777ae1d9b4066e98724"
+    },
+    {
+      "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/CASES.json",
+      "bytes": 3360,
+      "sha256": "324d0d3854e149f70bef4e2005c5bd57492c3d6d991e65aef14a47ceaf3e4015"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/FORMAT.json",
+      "bytes": 4163,
+      "sha256": "38e6da76ac2e61e3c506122e722e7370a5d52189b46c20d6e2b928508e450d49"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/README.md",
+      "bytes": 3308,
+      "sha256": "c6878bc8815a6d807e7a4cfdda487416837181c510571bca8dcd88a6a71674d1"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/START.md",
+      "bytes": 1536,
+      "sha256": "e541e57775934ae5c3d98d98631a63040f3ca43344ececc41c8f9a3b623dfb2f"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/oracle_bundle_bridge.py",
+      "bytes": 23344,
+      "sha256": "0bc7b4a3a038f5a483e7307927c8bd1934b48ab3a3b3f53639a948ca3cf9aac0"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/selftest.py",
+      "bytes": 13239,
+      "sha256": "a4a5172417991ba0197bd287ceea757a007d9c33fa1fa33e24c519ec0bc9689c"
+    },
+    {
+      "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/cases.json",
+      "bytes": 1548,
+      "sha256": "b92b3440736454df73244fb8fa2b4d1c11c475ba8f6d062fe8fbb76129188a64"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/FAILURE_HISTORY.md",
+      "bytes": 830,
+      "sha256": "66a51b087445c3f26138e4fa3013bb63d3069852e78e8ef865282972502b9563"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/RUN_01/receipt.json",
+      "bytes": 4220,
+      "sha256": "377ec52e3d25bc2a26da92cb06b3f4ee0d500bae70af3e19ccd70bf26545fbe2"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/RUN_01/stderr.bin",
+      "bytes": 735,
+      "sha256": "e4704b2897dfa7b500427147460b5ca88b64e0545fe330486b2c89b2ab1ba147"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/assemble.py",
+      "bytes": 12284,
+      "sha256": "c2339e73c61ba4b04231e9c08a34fd364c365e6cd67ce70007956faf5eb6c003"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_binding/c9_capture.py",
+      "bytes": 9606,
+      "sha256": "0d3fcea8d75cdadcea6f6a663e6840735ccd050bbf072e01c3de61fa2477e931"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/normalized_intake/r07_fix/intake_r07_fix_candidate.py",
+      "bytes": 23304,
+      "sha256": "d8bae7b015e1fd19a9e7af917c3b238f828833abaf0b227db25407faa534831d"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/frame_plan_generator_candidate.py",
+      "bytes": 10359,
+      "sha256": "38592faebeeeb0a2022668785453760a5b58babd24af6ff18a96f15790597191"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/r07_fix/calendar_r07_fix_candidate.py",
+      "bytes": 14768,
+      "sha256": "9af7022b0a228e0f8e180fd6a3c58646757cb407dfb132726c8ae0ace28413a5"
+    }
+  ],
+  "self_review": {
+    "report": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/SELF_REVIEW.md",
+    "read_only_agents_used": 2,
+    "agent_writes": 0,
+    "agent_candidate_import_compile_or_runs": 0,
+    "scope": "Specific new seams and fixture APIs only; no separate reviewer/previewer institution.",
+    "resolved_findings": [
+      "CSV field limit and strict physical records",
+      "Incremental SHA on first raw projection pass",
+      "Actual raw/reset identity associations and negative subcases",
+      "Three-valued handshake",
+      "Explicit stateful ledger capacity and preserved-row sidecar"
+    ]
+  },
+  "verification": {
+    "json_identity_text_static_only": true,
+    "python_imported": false,
+    "python_compiled": false,
+    "new_cases_run": 0,
+    "old_cases_run": 0,
+    "HDL_EDA_device_runs": 0,
+    "candidate_subprocesses": 0,
+    "git_writes": 0,
+    "old_source_or_consumption_modified": false
+  },
+  "pending": [
+    "Coordinator exact-source bounded new software acceptance",
+    "Actual C9 capture/authenticated execution receipt",
+    "Independent plan body and actual acceptance/stage mapping",
+    "audio_stable real policy/implementation",
+    "M1 supported independent model and real PCM24/ID/clip comparison",
+    "M2 exact execution admission/physical/new fs/recovery/device permission"
+  ],
+  "authority": {
+    "overall_task": "PARTIAL_UNTIL_CONTROLLER_VALIDATION_AND_REAL_INPUT",
+    "math_verified": false,
+    "real_verified": false,
+    "digital_verified": false,
+    "board_release_allowed": false
+  },
+  "handoff": {
+    "status": "LOCAL_READY_FOR_COORDINATOR_INTAKE",
+    "next_owner": "night_task_1_coordinator",
+    "action": "Freeze exact sources and run only newly authorized unfinished/new cases using TASK_DAY4_REMAINDER_SW; do not amend old ledgers or rerun old passes.",
+    "frozen_until_concrete_failure": true,
+    "submitted": false,
+    "pushed": false
+  }
+}

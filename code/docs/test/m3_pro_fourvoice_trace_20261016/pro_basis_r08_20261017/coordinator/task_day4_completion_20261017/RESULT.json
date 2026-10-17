@@ -1,0 +1,261 @@
+{
+  "schema": "M3_TASK_DAY4_C9_COMPLETION_RESULT_V1",
+  "created_utc": "2026-10-17T15:24:03.148920+00:00",
+  "baseline": "164ed3452eaa23e56a544cf13e7e0acf040e7908",
+  "status": "PASS_LIMITED_SOFTWARE",
+  "scope": "OFFLINE_SOFTWARE_COMPLETION_ONLY",
+  "matched_old_previously_unrun": 75,
+  "old_original_case_count": 75,
+  "matched_new_seams": 39,
+  "matched_total": 114,
+  "by_component": {
+    "OLD_R08_tx_hold_sequences": 6,
+    "OLD_R08_midi_ingress_arrival": 9,
+    "OLD_R08_midi_recovery_schedule": 6,
+    "OLD_R08_public_diff_diagnostics": 6,
+    "OLD_R7C_CALLABLE": 6,
+    "OLD_C9_public_capture_tb": 8,
+    "OLD_C9_public_port_map": 4,
+    "OLD_C9_public_equivalence_tb": 13,
+    "OLD_C9_oracle_bundle_bridge": 17,
+    "NEW_A": 13,
+    "NEW_B_public_capture_tb": 3,
+    "NEW_B_capture_csv_codec": 3,
+    "NEW_B_normalized_intake": 2,
+    "NEW_B_oracle_bundle_bridge": 2,
+    "NEW_C": 6,
+    "NEW_C_COMPANION": 3,
+    "NEW_ROOT": 7
+  },
+  "remaining_case_keys": [],
+  "failure_history": [
+    {
+      "key": "OLD_R7C_CALLABLE:hold_startup_lossless",
+      "error": "StopIteration:",
+      "run": "code/output/m3_c9_complete_d4_20261017/R01"
+    },
+    {
+      "key": "OLD_C9_public_port_map:C9_ACTUAL_DIRECT_BINDING",
+      "error": "PermissionError:R08_UNFROZEN_REPOSITORY_INPUT:code/rtl/board/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/c9_m1_semantics_20261017/m2_138k_pro_fourvoice_observer_top_r06c9.sv",
+      "run": "code/output/m3_c9_complete_d4_20261017/R01"
+    },
+    {
+      "key": "NEW_A:D4_A_ACTUAL_C9",
+      "error": "ContractReject:CASE_REJECTION_MISMATCH:DECISION_MEMBER_PREFIX",
+      "run": "code/output/m3_c9_complete_d4_20261017/R02"
+    },
+    {
+      "key": "NEW_A:D4_A_WINDOW_TAMPER",
+      "error": "ContractReject:CASE_REJECTION_MISMATCH:DECISION_MEMBER_PREFIX",
+      "run": "code/output/m3_c9_complete_d4_20261017/R02"
+    },
+    {
+      "key": "NEW_A:D4_A_UNKNOWN_OUTPUT",
+      "error": "ContractReject:CASE_REJECTION_MISMATCH:DECISION_MEMBER_PREFIX",
+      "run": "code/output/m3_c9_complete_d4_20261017/R02"
+    },
+    {
+      "key": "NEW_A:D4_A_ARGV_DUPLICATE",
+      "error": "ContractReject:CASE_REJECTION_MISMATCH:DECISION_MEMBER_PREFIX",
+      "run": "code/output/m3_c9_complete_d4_20261017/R02"
+    },
+    {
+      "key": "NEW_A:D4_A_INCDIR_TAMPER",
+      "error": "ContractReject:CASE_REJECTION_MISMATCH:DECISION_MEMBER_PREFIX",
+      "run": "code/output/m3_c9_complete_d4_20261017/R02"
+    },
+    {
+      "key": "NEW_A:D4_A_EXTERNAL_TAMPER",
+      "error": "ContractReject:CASE_REJECTION_MISMATCH:DECISION_MEMBER_PREFIX",
+      "run": "code/output/m3_c9_complete_d4_20261017/R02"
+    },
+    {
+      "key": "NEW_B_normalized_intake:C9_INTAKE_UNIQUE_CALENDAR_SEAM",
+      "error": "CalendarReject:FRAME_PLAN_SOURCE_IDENTITY_0",
+      "run": "code/output/m3_c9_complete_d4_20261017/R02"
+    },
+    {
+      "key": "NEW_ROOT:D4_PREPARE_NO_PRIOR_CAPTURE",
+      "error": "ContractReject:DECISION_MEMBER_PREFIX",
+      "run": "code/output/m3_c9_complete_d4_20261017/R02"
+    },
+    {
+      "key": "NEW_ROOT:D4_IDLE_CHAIN_PENDING",
+      "error": "ContractReject:DECISION_MEMBER_PREFIX",
+      "run": "code/output/m3_c9_complete_d4_20261017/R02"
+    }
+  ],
+  "runs": [
+    {
+      "output": "code/output/m3_c9_complete_d4_20261017/R01",
+      "receipt": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R01/RECEIPT.json",
+        "bytes": 122949,
+        "sha256": "6324a0c68672c3c018648faa8eb2c477894c6bb69356d4690fcf5ac435bca73b"
+      },
+      "exit_code": 1,
+      "actual_process_exit": 1,
+      "timeout_markers": [],
+      "spec": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R01/SPEC.json",
+        "bytes": 67061,
+        "sha256": "6cf7490e630ef758a3d7b1d105ffe31b84207b8e5b611af155881dd3796c71ab"
+      },
+      "elapsed_s": 3.389999999999418,
+      "matched": 40,
+      "remaining": 73,
+      "raw_stdout": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R01/stdout.raw",
+        "bytes": 7820,
+        "sha256": "517d7d997cd7bc901f84470ed0ffca3f3da0017803d17bdd59549d200647aaee"
+      },
+      "raw_stderr": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R01/stderr.raw",
+        "bytes": 3364,
+        "sha256": "e48890590b100b7156feb33d1f3e83128825ae2c819292294017cb2d01be6702"
+      }
+    },
+    {
+      "output": "code/output/m3_c9_complete_d4_20261017/R02",
+      "receipt": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R02/RECEIPT.json",
+        "bytes": 78619,
+        "sha256": "dbd7518cea954324d78cd7f463886d56682e767a45bf12bac0d25542a9c8611f"
+      },
+      "exit_code": 1,
+      "actual_process_exit": 1,
+      "timeout_markers": [],
+      "spec": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R02/SPEC.json",
+        "bytes": 48075,
+        "sha256": "da912c5131c4555057adf31344c9ff43540abfcd680937a8f3f98f0a9a6965f4"
+      },
+      "elapsed_s": 27.796999999991385,
+      "matched": 62,
+      "remaining": 11,
+      "raw_stdout": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R02/stdout.raw",
+        "bytes": 13169,
+        "sha256": "d050af6e3cd541013dae884d31580501c9bc0ddbeb1d8f1b2f6086df06bdcf21"
+      },
+      "raw_stderr": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R02/stderr.raw",
+        "bytes": 16278,
+        "sha256": "4b31687f7a8d4e6bf8b09b42768775adb30b375384c16bbeb26698ea4850e078"
+      }
+    },
+    {
+      "output": "code/output/m3_c9_complete_d4_20261017/R03",
+      "receipt": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R03/RECEIPT.json",
+        "bytes": 25633,
+        "sha256": "6bb8fcae7a0a5b47617d893191baeff05b616a0190d3e1b859d562feba45b58f"
+      },
+      "exit_code": 0,
+      "actual_process_exit": 0,
+      "timeout_markers": [],
+      "spec": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R03/SPEC.json",
+        "bytes": 8990,
+        "sha256": "451651c9c6df84c9048c20ef7544086e2f6cc25af6a7df4861aa80c5da0b7474"
+      },
+      "elapsed_s": 40.46899999999732,
+      "matched": 11,
+      "remaining": 1,
+      "raw_stdout": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R03/stdout.raw",
+        "bytes": 1895,
+        "sha256": "dabc1361e255b1e551aa26c17f6e04989feb5707b46e103b0aa6276742804068"
+      },
+      "raw_stderr": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R03/stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "output": "code/output/m3_c9_complete_d4_20261017/R04",
+      "receipt": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R04/RECEIPT.json",
+        "bytes": 6834,
+        "sha256": "58cf9949f84884a91faa9771ffafb04b38e2a4b54e49c203672f2e5366f8fe3f"
+      },
+      "exit_code": 0,
+      "actual_process_exit": 0,
+      "timeout_markers": [],
+      "spec": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R04/SPEC.json",
+        "bytes": 2391,
+        "sha256": "0cbd71a9f998b8c0f459fada9bc504655895b724e592d1596ec26771ecd71d70"
+      },
+      "elapsed_s": 47.687000000005355,
+      "matched": 1,
+      "remaining": 0,
+      "raw_stdout": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R04/stdout.raw",
+        "bytes": 195,
+        "sha256": "b5cb259d60c5020dabcde826f69680d4d03ae37f0425426ce90e3ca53f5acc83"
+      },
+      "raw_stderr": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R04/stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "initial_consumed": 1,
+  "repair_consumed": 3,
+  "repair_maximum": 3,
+  "total_actual_group_seconds": 119.34299999999348,
+  "token_consumption": "Per-task/member token totals are not exposed by this environment; no account-wide percentage is attributed to this task.",
+  "per_case_versions": "Each matched assertion is bound to its own frozen run version. Unaffected passed cases are not replayed after targeted repairs; no claim of one complete final-version rerun.",
+  "old_204_replayed": false,
+  "old_consumption_verified_unchanged": [
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/D/d3_repair_proposal_20261017/coordinator/CONSUMPTION.json",
+      "bytes": 420,
+      "sha256": "d618c8702e5e8c8272f5a26bd6b5279f74b6fd5bb8faee717035a1a6c7b9db8c"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/CONSUMPTION.json",
+      "bytes": 8361,
+      "sha256": "8a274eea54e05eebdef467d6aeaf6d45630277f396fc324fab3a9b66ddeb5141"
+    }
+  ],
+  "source_loading": "FROZEN_PY_BYTES_NO_PYC",
+  "candidate_subprocesses": 0,
+  "Pro_HDL_EDA_device_runs": 0,
+  "N32_new_work": false,
+  "R10_resumed": false,
+  "software_changes": [
+    "C9 72+3=75 same-version application with exact tool/window/argv/output identities",
+    "streaming complete74 envelope CSV and explicit61+TX ledger projection",
+    "same single R6-5 FRAME_PLAN generator; calendar and C9 TX/serial consumers",
+    "streaming >64MiB original A and B companion files",
+    "mechanical M1 math input/history bundle; no observed PCM used as golden",
+    "capture/source/reset/window/finish provenance and runnable PREPARE/PROCESS_CAPTURE chain"
+  ],
+  "integration_boundary": "New end-to-end positive is an explicitly synthetic idle7-row file path; separate serial cases exercise complete stereo words and HOLD/ID0. Neither is a real C9 simulation.",
+  "pending_external": {
+    "M1": [
+      "independent accepted/apply plan association",
+      "supported arithmetic profile and independent PCM24/ID/clip golden results"
+    ],
+    "M2": [
+      "exact C9 first HDL execution admission and trusted executor/dynamic dependency identity",
+      "audio_stable implementation/policy",
+      "actual Pro part/PLL/CST/SDC, PnR/STA/recovery/removal/CDC and matching new .fs/recovery"
+    ],
+    "physical_owner": [
+      "same-board Core/Dock/chip/version and Bank/MIDI/ground/audio electrical originals",
+      "instruments/common timebase and same-session raw digital/analog captures",
+      "precise one-SRAM permission plus safe real hardware conditions"
+    ]
+  },
+  "NoteOn_erratum": "Already M1 confirmed and M2 accepted L0; E allocation, H first later CTRL_ON&&cmd_ready, C=H+1 absent reset, earliest E+2. No new behavior claim.",
+  "overall_Pro_task": "PARTIAL_PENDING_REAL_EXECUTION_MATH_AND_PHYSICAL_EVIDENCE",
+  "M2_delivery": "待用户转发，尚未送达",
+  "real_verified": false,
+  "math_verified": false,
+  "board_release_allowed": false
+}

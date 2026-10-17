@@ -1,0 +1,69 @@
+{
+  "schema": "M3_D4_B_FILE_API_V1",
+  "status": "SOURCE_AND_CASES_READY_NOT_RUN",
+  "common_sha256": "55cb7481fe9c0870247a7d8b2453dea859f0f2e81879795cc0e34ffe8c996dca",
+  "apis": {
+    "convert_files": {
+      "file": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/c9_stream.py",
+      "signature": "convert_files(raw,resets,end,stdout,output_dir,origin='SYNTHETIC_SCHEMA_FIXTURE')->dict",
+      "returns": "artifacts.public_rows, derived_raw_43, line_index (path/bytes/sha256)"
+    },
+    "codec": {
+      "file": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/capture_csv_codec/c9_completion_r01/c9_codec.py",
+      "signatures": [
+        "encode_file(public_rows_path,csv_path)->dict",
+        "decode_file(csv_path,public_rows_path)->dict"
+      ],
+      "returns": "artifact (path/bytes/sha256), rows"
+    },
+    "intake": {
+      "file": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/normalized_intake/c9_completion_r01/intake_adapter.py",
+      "signature": "project_intake_files(public_rows_path,output_dir)->dict",
+      "returns": "artifacts.ledger, legacy_rows, c9_sidecar, preserved_rows; ledger is original R6-5 consumer schema, row storage external"
+    },
+    "math_bundle": {
+      "file": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/math_bundle.py",
+      "signature": "build_bundle(request,output_dir)->dict",
+      "request": {
+        "schema": "M3_D4_C9_MATH_BUNDLE_REQUEST_V1",
+        "inputs": "role->path/bytes/sha256; public_rows required; optional capture_id must match",
+        "roles": [
+          "raw_capture",
+          "public_rows",
+          "reset_edges",
+          "end",
+          "stdout",
+          "frame_plan",
+          "ledger",
+          "tx_report",
+          "source_closure",
+          "rom_manifest",
+          "observer",
+          "driver",
+          "tb",
+          "tool_identity",
+          "capture_contract",
+          "midi_plan",
+          "execution_receipt"
+        ]
+      },
+      "returns": "artifacts.math_input_bundle,row_index,fx_history,advance_history,input_apply_history"
+    },
+    "old6": {
+      "file": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/pending_only.py",
+      "signature": "run_case(original_case_id,output_dir)->dict",
+      "route": "CALLABLE_ROUTE; serial production.main; no subprocess; six original NOT_RUN only"
+    }
+  },
+  "new_cases": {
+    "entry": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/selftest.py",
+    "signature": "run_case(id,output_dir)->dict",
+    "count": 10
+  },
+  "authority": {
+    "candidate_executed": false,
+    "math": false,
+    "real": false,
+    "board": false
+  }
+}

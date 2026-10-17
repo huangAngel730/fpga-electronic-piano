@@ -1,0 +1,26 @@
+{
+  "schema": "M3_C9_REQUESTED_WINDOW_EXAMPLE_V1",
+  "status": "PROPOSED_EXAMPLE_NOT_M2_FROZEN",
+  "window_parameters": {
+    "CAPTURE_ID": "C9_D4_EXAMPLE",
+    "PLAN_STOP_ID": "R62_63BYTE_PLUS_10FRAMES",
+    "STOP_DRIVER_CYCLE": 1130660,
+    "EXPECTED_FINISH_CORE_CYCLE": 1130661,
+    "MAX_CORE_SAMPLES": 1130676,
+    "MAX_SIM_TIME_PS": 28291500000
+  },
+  "independent_input_plan": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\midi_stimulus\\RUN_02\\products\\plan.json",
+    "bytes": 28378,
+    "sha256": "d07c428162dbccefa8215ac629840058c3a8edd809e3f077dd695813133ad918"
+  },
+  "input_total_cycles": 1122320,
+  "clock_hz": 40000000,
+  "bit_cycles": 1280,
+  "tail_policy": "Requested ten maximum-length834-cycle frames after independent input plan total",
+  "expected_finish_policy": "Proposed next-core-sample index after driver stop; exact coincident-clock negedge ordering and simulator phase must be frozen by M2 before any run",
+  "max_sim_time_policy": "Requested driver-stop plus1000 cycles at25,000ps per nominal40MHz cycle",
+  "not_derived_from_observed_trace": true,
+  "real_window_phase_verified": false,
+  "execution_allowed": false
+}

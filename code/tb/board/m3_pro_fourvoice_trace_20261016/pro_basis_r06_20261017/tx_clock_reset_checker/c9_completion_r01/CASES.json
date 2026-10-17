@@ -1,0 +1,45 @@
+{
+  "schema": "M3_TASK_DAY4_C9_CASES_V1",
+  "group": "TASK_DAY4_REMAINDER_SW",
+  "status": "NOT_RUN",
+  "execution_owner": "夜间任务1总控",
+  "candidate_executions_by_member": 0,
+  "cases": [
+    {
+      "id": "C9S_FULL74_HOLD_ID0_TAIL",
+      "expected": "UNKNOWN_SERIAL_PARTIAL",
+      "description": "完整canonical74→固定PinDecoder；startup空ID、合法ID0、新采纳/HOLD、双clip及完整串行帧；尾段保持UNKNOWN",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "C9S_HOLD_DUAL_CLIP_REJECT",
+      "expected": "HOLD_ID_PCM_CLIP_CHANGED_OR_RESET",
+      "description": "HOLD相同PCM/OR而双clip变化必须拒收",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "C9S_SERIAL_PHASE_VALID_WORD_REJECT",
+      "expected": "PIN_SERIAL_PCM_OR_CHANNEL_MISMATCH",
+      "description": "保持合法BCLK/WS相位，只改完整PCM字的有效位，必须定位串行不一致",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "C9S_F_A_NEXT_FRAME_REJECT",
+      "expected": "REQUEST_OPEN_AT_NEXT_FRAME",
+      "description": "前一请求到下一独立FRAME仍未完成；不能借TX833/834放宽F-A严格预算",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "C9S_RESET_PARTIAL_FINISH",
+      "expected": "UNKNOWN_SERIAL_PARTIAL",
+      "description": "reset截断串行半帧与真实finish，已完成帧可核、残段不补0",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "C9S_UNKNOWN_FRAME_EXPECTATION_COVERAGE",
+      "expected": "UNKNOWN_SERIAL_PARTIAL",
+      "description": "第二FRAME公开资格X：后续按cycle核独立FRAME，未核TX期望保留UNKNOWN，不误拒",
+      "status": "NOT_RUN"
+    }
+  ]
+}

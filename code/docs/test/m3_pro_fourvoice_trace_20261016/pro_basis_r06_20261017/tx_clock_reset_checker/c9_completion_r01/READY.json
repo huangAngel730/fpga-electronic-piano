@@ -1,0 +1,101 @@
+{
+  "schema": "M3_C9_C_ROLE_READY_V1",
+  "role": "夜间任务3 / C",
+  "package": "serial",
+  "status": "READY_L0_NOT_RUN",
+  "prepared_at_utc": "2026-10-17T15:07:55.649Z",
+  "scope": "task_day4_completion_20261017 START.md; only new c9_completion_r01",
+  "task_dispatch": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/START.md",
+    "bytes": 6828,
+    "sha256": "904b28ae1e8b3eaed6edc7f1cc00ca403e65ffb7f61abb6d5f8a7592819fb20f"
+  },
+  "entry": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/c9_completion_r01/README.md",
+    "bytes": 3059,
+    "sha256": "b01ceed04f15eae42641181f6a1aa58952d7c57bc831cb6bd80032cbb9da249e"
+  },
+  "interface": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/c9_completion_r01/INTERFACE.json",
+    "bytes": 3488,
+    "sha256": "b1b4b503d922ccdc7c1810640b930a59cfa7ca2c5d5f113b9ddeb6c4940f778f"
+  },
+  "code": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/c9_completion_r01/serial.py",
+    "bytes": 31061,
+    "sha256": "c576a5c79169eb5e91d796775aec820260a5df0e47b5c4472acf8630f5dcc5b7"
+  },
+  "selftest": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/c9_completion_r01/selftest.py",
+    "bytes": 12839,
+    "sha256": "f5a28a4b6e5533f597eba41c9a32286e49a2b243f0f5d5daadfb12ad8df53681"
+  },
+  "case_manifest": {
+    "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/c9_completion_r01/CASES.json",
+    "bytes": 1664,
+    "sha256": "e0518d0dfdd5f999f356ef84d3d72c97c3fe8a8661207e9a23cd2ead0029a8ea"
+  },
+  "new_cases": 6,
+  "new_cases_executed": 0,
+  "group": "TASK_DAY4_REMAINDER_SW",
+  "file_manifest": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/c9_completion_r01/FILE_SHA.json",
+    "bytes": 2099,
+    "sha256": "36407f00ebe0ffc4301e6fec01f49b26d27f495d9eece5c566b1b9e9f9c08da0"
+  },
+  "dependencies": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/c9_completion_r01/DEPENDENCIES.json",
+    "bytes": 2837,
+    "sha256": "c4c0820786e8a7834256ab7247df583ecdc5de9fc5273c7a74c83296a9e0bf3b"
+  },
+  "API": "analyze_files(public_rows_path, frame_plan_path, output_dir, expected_scenario_ref=None)->dict",
+  "source_pin": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/common.py",
+    "bytes": 6144,
+    "sha256": "55cb7481fe9c0870247a7d8b2453dea859f0f2e81879795cc0e34ffe8c996dca"
+  },
+  "new_case_count_note": "Role C has9 newcases:6 serial+3 companions; added one combined UNKNOWN coverage seam for concrete defect.",
+  "observations": {
+    "level": "L0_STATIC_SOURCE_TEXT_JSON_SHA_ONLY",
+    "source_pins_equal": true,
+    "dependency_identities_equal": 9,
+    "new_case_manifest_json_valid": true,
+    "all_new_files_LF": true,
+    "readonly_self_review": "Final incremental static review: no concrete blocker found. Does not certify execution.",
+    "failure_history": "No candidate execution attempted; static defects fixed before freeze; no failed runtime originals exist for this member."
+  },
+  "execution": {
+    "candidate_imports": 0,
+    "Python_compiles": 0,
+    "functional_tests": 0,
+    "HDL": 0,
+    "EDA": 0,
+    "devices": 0,
+    "Git": 0,
+    "exit_code_stdout_stderr": "NOT_RUN",
+    "new_consumption_by_member": 0,
+    "old_ledgers_modified": false
+  },
+  "pending": [
+    "Coordinator frozen-source bounded software execution and actual >64MiB fixture generation",
+    "Real same-version raw capture/reset/finish and trusted execution identity",
+    "M1 independent mapping/audio_stable/PCM golden and TX selection policy as applicable",
+    "HDL elaboration/simulation, synthesis, timing and hardware validation"
+  ],
+  "note_on_wording": "dfee2c14 L0 closed; no new erratum request",
+  "Git_status": "Not staged/committed/pushed; coordinator owns one final serial publication and gates",
+  "handoff": {
+    "recipient": "夜间任务1总控，随后按范围交M2/M1",
+    "transport": "Local READY collection per START; no blocked communication retry",
+    "state": "LOCAL_READY_AWAITING_COLLECTION; not claimed M2 notified or signed",
+    "responsibility": "Coordinator freezes exact source/inputs/cases/dependencies, executes only fresh authorized group; M2 final admission/review remains"
+  },
+  "real_pass": false,
+  "board_release_allowed": false,
+  "old_case_selectors": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/c9_completion_r01/OLD_CASE_SELECTIONS.json",
+    "bytes": 38138,
+    "sha256": "5c2ed3ec47d49938211ba65f276c62c3f714ca12570e4ea7a3345396cc0220f3"
+  },
+  "companion_READY_path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_completion_r01/READY.json"
+}

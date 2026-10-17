@@ -1,0 +1,11 @@
+# R03 定向修复：决策载荷封套
+
+R02总控实测71例完成、62匹配、退出1、27.797秒。A的六个未匹配均先触发错误的DECISION_MEMBER_PREFIX；本包不宣称R02整体通过。R02原件不改。初始READY.json及总控FREEZE_R01保留，修改前本包源码/用例/绑定/清单/静态记录另存在BEFORE；旧READY与旧SOURCE_INPUT_INVENTORY仍代表初版历史，当前精确身份以本次SOURCE_INVENTORY与REPAIR_R03_READY为准。
+
+根因：实际SOURCE_DECISION_R06C9.json的86载荷是84个inputs文件+2个provenance原件，不是86个inputs。两份ZIP各另含MANIFEST.json。此前read_archive只留下inputs，随后错误地要求每个decision键以inputs/开头。
+
+修复：read_archive保留inputs视图和全部members，两个调用均解包三元组。词法编译依赖继续用inputs视图；全部decision86逐项在base/app两包核bytes/SHA；base成员必须精确等于decision86+MANIFEST；app的MANIFEST与base字节核同；app完整成员集合必须为原封套3项+精确94个inputs。原C9基包/decision固定SHA、各源/输入本体、75单元顺序、incdirs、ROM别名、工具及窗口限制不变。
+
+本窗口仅做JSON/文本阅读及ZipArchive成员流SHA：两包各86/86原件匹配，84/94 inputs与87/97总成员、相同MANIFEST均核实，命令退出0。未导入/编译/AST解析/运行候选。实际exports是67键对象；normalized required74、plan.total_cycles1122320、外部清单files13；后续old.digest(bytes)、reservation.claim/output和tool.report字段逐项静态对照。只读辅助自审未发现具体后续阻断，不代签运行结果。
+
+R03由总控仅选A六个失败例（ACTUAL_C9、WINDOW_TAMPER、UNKNOWN_OUTPUT、ARGV_DUPLICATE、INCDIR_TAMPER、EXTERNAL_TAMPER）及必要的新PROVENANCE_TAMPER；六个已匹配A负例不重跑。新例仅修改非编译provenance原件，要求C9_DECISION_PAYLOAD_CHANGED:provenance/ORIGINAL_dds_oscillator.sv，防止把本修复误写成略过封装文件。总控PREPARE/IDLE为原失败接缝，是否纳入同批由总控按剩余额度统一决定。本窗口不消费执行额度、不写Git或共享表。

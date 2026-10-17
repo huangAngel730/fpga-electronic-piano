@@ -1,0 +1,27 @@
+{
+  "schema": "M3_TASK_DAY4_C9_CASES_V1",
+  "group": "TASK_DAY4_REMAINDER_SW",
+  "status": "NOT_RUN",
+  "execution_owner": "夜间任务1总控",
+  "candidate_executions_by_member": 0,
+  "cases": [
+    {
+      "id": "C9C_ACTUAL_LARGE_FILE_XZ_STAGE_TAIL",
+      "expected": "STREAM_CONVERTED_INDEPENDENT_MAPPING_PENDING",
+      "description": "实际生成>64MiB文件并逐行读写；同seq多阶段、config_take、三clip、末行X/raw行号保留",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "C9C_TRUNCATED_FINAL_RECORD",
+      "expected": "COMPANION_TRUNCATED_LINE",
+      "description": "末行缺LF拒收并保留前两行输出及失败原件",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "C9C_OUTPUT_BOUND_RETAINS_PARTIAL",
+      "expected": "COMPANION_OUTPUT_BOUND",
+      "description": "达到输出预算拒收，保留已写部分和FAILURE",
+      "status": "NOT_RUN"
+    }
+  ]
+}
