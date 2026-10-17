@@ -1,0 +1,97 @@
+{
+  "status": "DONE_ISOLATED_MONITOR_INCREMENT",
+  "actual_level": "L2_MONITOR_SELFTEST_ONLY",
+  "pro_dut_pass": false,
+  "board_release_allowed": false,
+  "originals": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/D/pro_monitor_20261017/DELIVERY/M3_PRO_PASSIVE_MONITOR_ORIGINALS_20261017.zip",
+    "bytes": 363654,
+    "sha256": "e6cb81b69f770f01cc9147db956176ac00d7820cdc297da0300fb931cc6cbd27"
+  },
+  "payload_files": 319,
+  "zip_members": 320,
+  "crc_size_sha_verified": true,
+  "new_rounds": 2,
+  "round_limit": 3,
+  "seconds": 2.7189999999973224,
+  "old_quota_reset": false,
+  "ModelSim_Gowin_device_calls": 0,
+  "final_round": "ROUND_02",
+  "positive_cases": [
+    0,
+    23,
+    24
+  ],
+  "negative_cases": {
+    "1": "REQUEST_NOT_HELD",
+    "2": "REQUEST_NOT_HELD",
+    "3": "RESULT_ID",
+    "4": "RESULT_NOT_HELD",
+    "5": "DUPLICATE_LANE",
+    "6": "RESULT_BEFORE_FOUR_LANES",
+    "7": "RESULT_WITHOUT_REQUEST",
+    "8": "RESULT_WITHOUT_REQUEST",
+    "9": "REQUEST_DEADLINE",
+    "10": "FRAME_INTERVAL",
+    "11": "FRAME_AVERAGE_DRIFT",
+    "12": "PA_BEFORE_SAFE",
+    "13": "PA_BEFORE_SAFE",
+    "14": "PA_DURING_RESET",
+    "15": "END_UNCLOSED",
+    "16": "COMMIT_ID_PCM_CLIP",
+    "17": "DUPLICATE_RESULT_TRANSFER",
+    "18": "DUPLICATE_REQUEST_ID",
+    "19": "LANE_OWNER",
+    "20": "RESULT_UNKNOWN",
+    "21": "REQUEST_DEADLINE",
+    "22": "REQUEST_DEADLINE"
+  },
+  "final_sources": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\pro_frame_monitor.sv",
+      "bytes": 8357,
+      "sha256": "faf7cda22f928e7f0c40bd7ed164213e2282078e213ee1f472b331cfe098295a"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\tb_pro_frame_monitor.sv",
+      "bytes": 5674,
+      "sha256": "14f6111965248d5744dfb9f80f34eed8a2f834789f8dafa85b151e90afbaff79"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\run.py",
+      "bytes": 9448,
+      "sha256": "a77d2c509e2651e39f8e3c997c1f518b75a11ec670023ff4d7b627bd0d3fdb90"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py",
+      "bytes": 3481,
+      "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\WORK_PLAN.md",
+      "bytes": 1890,
+      "sha256": "c6b59706eaff8a86dc479f2f68e908dba900b1f501f0e7842401f1e50dfe79d0"
+    }
+  ],
+  "tool_file_count": 287,
+  "positive": {
+    "raw_rows": 5062,
+    "accepted": 8,
+    "committed": 6,
+    "canceled": 2,
+    "epochs": 2,
+    "capture": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\ROUND_02\\case_00.csv",
+      "bytes": 641221,
+      "sha256": "74dc2000c7cb61814d59b4c97bda18ec9070c5a96211a0c00333c4f8b134ccd4"
+    },
+    "scope": "SYNTHETIC_MONITOR_SELFTEST_NOT_PRO_DUT"
+  },
+  "outer_process_exits": {
+    "preflight_wrong_root": 1,
+    "round1": 0,
+    "prelaunch_round2_success_guard": 1,
+    "round2": 0
+  },
+  "publication_at_seal": "Not committed or pushed; gate and remote receipt follow separately"
+}

@@ -1,0 +1,12 @@
+Prelaunch failure, before any compiler/tool subprocess or round directory was created.
+Command:
+& 'C:/Users/songdongkuan/miniconda3/python.exe' -B -X utf8 'code/software/m3_pro_fourvoice_trace_20261016/D/pro_monitor_20261017/run.py' --round 1
+Exit code: 1
+
+FileNotFoundError: [WinError 3] The system cannot find the path specified:
+E:\FPGA\GAOYUNFPGA\team\code\docs\test\m3_pro_fourvoice_trace_20261016\D\pro_monitor_20261017\ROUND_01
+
+Cause: SOFT.parents[5] selected the parent of the repository. Corrected to SOFT.parents[4].
+The original tool error was a Python traceback at out.mkdir(exist_ok=False).
+No CONSUMED marker or ROUND_01 was created. No compile/simulation round was consumed.
+This text transcribes the error and command from the tool result; it is not a raw redirected stderr file.
