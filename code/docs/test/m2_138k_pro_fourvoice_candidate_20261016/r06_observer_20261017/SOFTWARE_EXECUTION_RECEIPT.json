@@ -1,0 +1,39 @@
+{
+  "schema": "M2_R06C1_SOFTWARE_ORIGINALS_RECEIPT_V1",
+  "level": "L1_SOFTWARE_CONTRACT_ONLY",
+  "status": "CANDIDATE_SOFTWARE_PREPARATION_WITH_DIRECTED_REPAIR",
+  "initial": {
+    "positive": 1,
+    "negative": 7,
+    "seconds": 3.397714399994584,
+    "scope": "Original validator/schema, source hashes in originals"
+  },
+  "repair": {
+    "positive": 1,
+    "expected_rejections": 7,
+    "seconds": 3.46128679998219,
+    "scope": "Known-width strings, strict bool typing, fixed single-consumption ledger; directed only"
+  },
+  "final_original8_rerun": false,
+  "old_project_tests_rerun": 0,
+  "Pro_HDL_EDA_hardware_runs": 0,
+  "archive": "M2_R06C1_CONTRACT_SOFTWARE_ORIGINALS_20261017.zip",
+  "archive_bytes": 914539,
+  "archive_sha256": "3a52a616c9452eb46781fd4af14ec1571dc8fdaf6e8bcf5f1c0f0ecb1a1c3a20",
+  "final_source_sha256": {
+    "validate_capture_contract.py": "98b2a5b22a6e4a966378a8a38ef53056e8c3e442b3477444d4d52dcd630887e9",
+    "selftest_capture_contract.py": "8703cb6d55a75d96727d76c2bc716f95d3046fb21c40aadf91484df1769c7e1a"
+  },
+  "consumption": {
+    "initial_marker_sha256": "4319c59dba81cffad390eb5629a64fad589de8b86e88fbe06dfa9a944eae3167",
+    "repair_marker_sha256": "7e723627afc4ffdaaf632f751da0d47d7492a69cdd1ae500c47026e2a3fad4f7",
+    "fixed_task_ledger": "D:\\17\\project_17\\fpga_gowin\\code\\output\\m2_public_contract_r06_20261017\\CONSUMPTION_M2_R6_1.json",
+    "initial_consumed": true,
+    "repair_consumed": true
+  },
+  "M2_R6_1": "PARTIAL_PENDING_M1_AND_PUBLIC_EXPORT",
+  "external_review_delivered": false,
+  "external_review_completed": false,
+  "pro_dut_pass": false,
+  "board_release_allowed": false
+}

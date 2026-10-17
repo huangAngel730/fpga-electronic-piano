@@ -1,0 +1,36 @@
+{
+  "schema": "M2_R06_INDEPENDENT_FRAME_RULES_V1",
+  "status": "SOURCE_DERIVATION_ONLY_NOT_EXECUTED_RTL",
+  "acc_bits": 32,
+  "phase_step": 659706977,
+  "core_hz_candidate": 40000000,
+  "bclk_hz_nominal": 3072000,
+  "half_bclk_toggles_per_frame": 128,
+  "initial_state": {
+    "accumulator": 0,
+    "bclk": 0,
+    "slot_count": 0
+  },
+  "edge_index": "n=1 is first functional core edge seeing PRE_NBA rst_sync_n==1",
+  "formula": "n_k=ceil(128*k*2**32/659706977); cycle_k=release_cycle+n_k-1; k>=1",
+  "first_edge_indices": [
+    834,
+    1667,
+    2500,
+    3334,
+    4167,
+    5000
+  ],
+  "expected_input": [
+    "frozen source/parameters SHA",
+    "independent reset/lock event plan",
+    "known local reset phase",
+    "planned active windows and real finish bound"
+  ],
+  "forbidden_inputs": [
+    "observed FRAME rows as schedule authority",
+    "transaction existence or cancellation as stop condition"
+  ],
+  "unknown_action": "PENDING_RESET_PHASE or PENDING_FRAME_PLAN, no real verdict",
+  "release_cycle": "Global cycle of first functional core edge with PRE_NBA rst_sync_n==1; not the preceding edge whose NBA releases reset"
+}
