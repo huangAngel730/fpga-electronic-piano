@@ -1,0 +1,501 @@
+{
+  "schema": "M2_M3_PRO_TASK_ALLOCATION_R08_V1",
+  "version": "R08",
+  "baseline": "40d78131e8ed50643dd169816f7bfc7149a8ced9",
+  "user_request": "为M3更新任务单，为他派发原任务三倍的量，尤其要加速pro板基础任务完成",
+  "baseline_plan": "Pro基础持续推进与M3扩充分工任务单_R07_2026-10-17.md",
+  "baseline_M3_items": 12,
+  "new_items": 24,
+  "total_M3_items": 36,
+  "total_multiplier": 3,
+  "original_ids_preserved": [
+    "M3-R6-1",
+    "M3-R6-2",
+    "M3-R6-3",
+    "M3-R6-4",
+    "M3-R6-5",
+    "M3-R6-6",
+    "M3-R6-7",
+    "M3-R6-8",
+    "M3-R7-A",
+    "M3-R7-B",
+    "M3-R7-C",
+    "M3-R7-D"
+  ],
+  "existing_results_and_failures_preserved": true,
+  "consumed_budgets_restored": false,
+  "new_tasks": [
+    {
+      "id": "M3-R8-01",
+      "directory": "recursive_include_audit",
+      "title": "递归依赖与include闭包审计器",
+      "group": "S",
+      "writer_role": "A",
+      "depends": "C6本体；R6-1",
+      "deliverable": "只读解析selected list、include搜索路径、递归头文件、readmem相对资源与模块唯一性，输出dependency_graph.json及逐项来源；不复制M2封包器、不改M1/M2源。",
+      "acceptance": "C6的71单元/9ROM/2头及3条include边可定位；缺头、错incdir、重复ROM模块、路径逃逸均拒收；宏计算路径无法静态解析时UNKNOWN，不能称编译通过。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/recursive_include_audit/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/recursive_include_audit/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/recursive_include_audit/"
+      ]
+    },
+    {
+      "id": "M3-R8-02",
+      "directory": "public_port_map",
+      "title": "公开端口与driver方向核对器",
+      "group": "S",
+      "writer_role": "A",
+      "depends": "C6；R6-2/R7-A源码",
+      "deliverable": "生成module_ports.json和connections.json，逐项核公开时钟/复位/ready方向、位宽/参数和driver绑定；表达式未解析保留UNRESOLVED。",
+      "acceptance": "正确公开连接接受；颠倒ready、位宽不符、漏wrapper与私有层级路径拒收。R6-2驱动器ready问题必须有真实声明依据，不能凭命名推断。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_port_map/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_port_map/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_port_map/"
+      ]
+    },
+    {
+      "id": "M3-R8-03",
+      "directory": "plan_consumption_guard",
+      "title": "消费端计划重建与篡改拒收模块",
+      "group": "S",
+      "writer_role": "A",
+      "depends": "R6-4现版及M2阻断报告",
+      "deliverable": "实现无进程启动的纯校验函数：在消费端由原spec重建规范plan，对argv/cwd/output/marker/timeout/固定worker/输入与EXE依赖逐字段绑定；给R6-4最小接入diff。",
+      "acceptance": "原规范计划接受；保留spec与Python而改argv后自算SHA、替换输出/超时/worker等均拒收；JSON同SHA或自填approved不能产生执行许可。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/plan_consumption_guard/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/plan_consumption_guard/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/plan_consumption_guard/"
+      ]
+    },
+    {
+      "id": "M3-R8-04",
+      "directory": "output_reservation",
+      "title": "独占输出与一次性消费账本",
+      "group": "S",
+      "writer_role": "A",
+      "depends": "R6-4；03接口",
+      "deliverable": "实现仅在本包独占output目录使用的原子占用/消费状态机，绑定capture_id/plan SHA/nonce/输出根，保留失败与已消费记录；不启动子进程。",
+      "acceptance": "首次合法占用/收尾有收据；重复消费、目录已有产物、并发竞争、路径逃逸、失败后冒充未消费均拒收；不删除历史记录。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/output_reservation/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/output_reservation/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/output_reservation/"
+      ]
+    },
+    {
+      "id": "M3-R8-05",
+      "directory": "tool_dependency_identity",
+      "title": "工具本体与依赖身份采集器",
+      "group": "S",
+      "writer_role": "A",
+      "depends": "实际可读EXE/DLL/脚本文件",
+      "deliverable": "仅对文件读取大小/SHA及静态引用，输出EXE/解释器/脚本/DLL依赖证据；禁止启动EXE、导入未知DLL或调用工具取版本。",
+      "acceptance": "冻结文件身份核同；换EXE/漏依赖/只填版本字符串拒收；动态未解析依赖明确UNKNOWN，不把文件哈希当进程清理安全证明。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tool_dependency_identity/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tool_dependency_identity/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tool_dependency_identity/"
+      ]
+    },
+    {
+      "id": "M3-R8-06",
+      "directory": "build_admission_bundle",
+      "title": "首次数字执行的机器可读申请装配器",
+      "group": "S",
+      "writer_role": "A",
+      "depends": "01–05；R7-A/B本体",
+      "deliverable": "装配source/ROM/include/TB/observer/driver/工具依赖/argv/cwd/输出/预算/预期断言的只读申请，列每个未闭项并固定申请SHA；只产生申请。",
+      "acceptance": "完整合成申请结构可读；漏头/漏TB/未知工具依赖/擅填approved/旧P7环境变量均拒收或PENDING。最终准入仅M2，不能自签真实执行。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/"
+      ]
+    },
+    {
+      "id": "M3-R8-07",
+      "directory": "capture_csv_codec",
+      "title": "公开trace无损字段编解码器",
+      "group": "C",
+      "writer_role": "B",
+      "depends": "M2 C3版本合同；R6-3/R7-A",
+      "deliverable": "给R7-A与R6-3提供共享流式codec，完整保留61原字段及TX版本扩展、原行/epoch/cycle、X/null及原因，不另造第二observer。",
+      "acceptance": "全字段往返同值；startup null、合法ID0、双clip、IDvalid/metadata_valid和error/overflow不丢；未知扩展版本与29列反填拒收。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/capture_csv_codec/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/capture_csv_codec/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/capture_csv_codec/"
+      ]
+    },
+    {
+      "id": "M3-R8-08",
+      "directory": "async_reset_events",
+      "title": "异步复位原始边沿记录组件",
+      "group": "C",
+      "writer_role": "B",
+      "depends": "R7-A公开core/reset接口",
+      "deliverable": "给唯一R7-A采集TB增加只读reset边沿记录组件和RESET_EDGES schema，记录断言/同步释放/锁定来源及PRE_NBA功能首拍；不force私有状态。",
+      "acceptance": "软件夹具覆盖非时钟边沿断言、两次reset与相位边界；乱序/缺释放来源保持UNKNOWN或拒收，不能伪造常数epoch。HDL源码NOT_RUN。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/async_reset_events/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/async_reset_events/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/async_reset_events/"
+      ]
+    },
+    {
+      "id": "M3-R8-09",
+      "directory": "frame_coverage_diff",
+      "title": "全窗口FRAME差额定位器",
+      "group": "C",
+      "writer_role": "B",
+      "depends": "R6-5唯一FRAME_PLAN；08",
+      "deliverable": "只读R6-5计划，复算其冻结时钟/reset公式并与原始FRAME逐项对齐，输出首缺/多/重复帧、窗口及原行索引；不生成第二份权威计划。",
+      "acceptance": "四声、idle、合法cancel、reset重启均覆盖至真实finish；漏最后帧、错首相位、从trace反推计划与错schema拒收。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/frame_coverage_diff/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/frame_coverage_diff/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/frame_coverage_diff/"
+      ]
+    },
+    {
+      "id": "M3-R8-10",
+      "directory": "frame_accept_provenance",
+      "title": "F/A双时间轴及期限诊断器",
+      "group": "C",
+      "writer_role": "B",
+      "depends": "R6-3/5；09",
+      "deliverable": "生成F/A/result/commit/cleanup的独立关联表及age_from_F/age_from_A，给R6-5/6消费，不把A重写为F，不重新实现旧D3。",
+      "acceptance": "F834/A835合法接受；t1667时A龄832而F龄833必须拒绝内部完成/清理；另核t早于下一独立FRAME，实际TX消费833/834分开。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/frame_accept_provenance/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/frame_accept_provenance/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/frame_accept_provenance/"
+      ]
+    },
+    {
+      "id": "M3-R8-11",
+      "directory": "finish_protocol_recorder",
+      "title": "正常结束与串行尾段收据核验",
+      "group": "C",
+      "writer_role": "B",
+      "depends": "R7-A；08/09；实际运行收据待到件",
+      "deliverable": "解析唯一END/MONITOR_END、停止输入、最后计划帧、未完事务/TX尾段及真实成功退出收据，输出缺件和首违约原行。",
+      "acceptance": "完整合成结束链接受为合成；EOF、超时清理、双END、尾帧未全、退出码缺失不能冒充正常finish；真实收据不到保持PENDING。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/finish_protocol_recorder/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/finish_protocol_recorder/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/finish_protocol_recorder/"
+      ]
+    },
+    {
+      "id": "M3-R8-12",
+      "directory": "real_authority_graph",
+      "title": "REAL来源依赖图与模式防升级检查",
+      "group": "C",
+      "writer_role": "B",
+      "depends": "R7-D原件；M2准入格式",
+      "deliverable": "交叉核source/capture/clock/reset/calendar/frame/oracle/receipt的精确同源依赖图，区分合成、真实候选执行与物理实测；只做机械校验。",
+      "acceptance": "合成全链只签synthetic；仅改mode和authority字符串、REAL混synthetic日历/计划/oracle、同capture异source均拒收。可信签收缺失不能自行认证REAL。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/real_authority_graph/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/real_authority_graph/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/real_authority_graph/"
+      ]
+    },
+    {
+      "id": "M3-R8-13",
+      "directory": "i2s_serial_compare",
+      "title": "串行引脚与实际TX的对齐适配层",
+      "group": "T",
+      "writer_role": "C",
+      "depends": "固定PinDecoder；R6-6；M1格式",
+      "deliverable": "复用冻结PinDecoder读取实际pins，将BCLK/LRCLK/DIN的左右槽位与TX采纳身份逐帧对齐，交首位/首帧差异索引；不另写黄金DSP。",
+      "acceptance": "按冻结协议/模式核数据相位（I2S模式才核一位延迟）、左右顺序/符号与已确认量化；PT8211路径按已冻LSBJ16配置，缺首相位、半帧reset、尾部不完整输出UNKNOWN，不能把WAV采样率当LRCLK。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/i2s_serial_compare/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/i2s_serial_compare/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/i2s_serial_compare/"
+      ]
+    },
+    {
+      "id": "M3-R8-14",
+      "directory": "tx_hold_sequences",
+      "title": "startup与HOLD独立场景生成器",
+      "group": "T",
+      "writer_role": "C",
+      "depends": "M2 C3旁带合同；R6-3/6",
+      "deliverable": "从独立事务计划生成startup无ID、合法ID0、事务关闭后的重复HOLD、同PCM异ID、reset失效等新输入场景，供现归一器/核验器消费。",
+      "acceptance": "startup null须合法、HOLD不新建请求、不清错误身份；同PCM异ID或HOLD换clip必须能检出。不得通过补0/丢startup来套旧窄profile。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/"
+      ]
+    },
+    {
+      "id": "M3-R8-15",
+      "directory": "clip_lineage",
+      "title": "双clip与元数据有效性谱系核对器",
+      "group": "T",
+      "writer_role": "C",
+      "depends": "真实result/pending/held字段合同；07",
+      "deliverable": "只读核result握手→pending→held→实际TX的ID/PCM/双clip/valid/error/overflow谱系，输出每次状态转换的来源原行；不反写DUT标签。",
+      "acceptance": "保留原单bit tx_clip并分开双clip；commit早于采纳、相同PCM不同clip、metadata无效/溢出/reset均有新正负例；缺字段不能填0通过。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/clip_lineage/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/clip_lineage/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/clip_lineage/"
+      ]
+    },
+    {
+      "id": "M3-R8-16",
+      "directory": "midi_ingress_arrival",
+      "title": "外部MIDI实际到达时间对照器",
+      "group": "T",
+      "writer_role": "C",
+      "depends": "R6-2字节计划与原始输入pins",
+      "deliverable": "按冻结时钟/baud对计划字节与外部串行输入边沿独立解码、对齐byte/event seq与到达窗口，输出M1可引用的输入本体索引。",
+      "acceptance": "31250baud与冻结40MHz场景明确每bit1280cycle；四条串行NoteOn不伪装同拍，首字节/起止位/截断reset差额给首原行。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/"
+      ]
+    },
+    {
+      "id": "M3-R8-17",
+      "directory": "midi_recovery_schedule",
+      "title": "MIDI异常及复位恢复输入计划",
+      "group": "T",
+      "writer_role": "C",
+      "depends": "已支持解析器规范；R6-2",
+      "deliverable": "新增可复现外部字节/时间计划：Running Status与实时字节、NoteOn0、半消息reset、非法状态后重新同步；输出行为仅引用当前实际规范。",
+      "acceptance": "新计划不重复R6-2旧23event；未确认解析器策略列UNRESOLVED，不凭toy规则判slot/退休或驱动内部ready；预期到达与应用分离。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/"
+      ]
+    },
+    {
+      "id": "M3-R8-18",
+      "directory": "public_diff_diagnostics",
+      "title": "公开行为差异的首现场解释器",
+      "group": "T",
+      "writer_role": "C",
+      "depends": "R7-B同输入两路原输出",
+      "deliverable": "读取R7-B外部比较记录，按公开UART/音频pins/reset窗口定位首不同并输出允许差异依据、原行与源身份；复用R7-B比较，不创建第三top。",
+      "acceptance": "允许差异须逐条有M2依据；真实PCM/时序差异不可被诊断字段白名单吞掉；原候选无公开字段标NOT_PUBLIC，不能层级读补齐。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/"
+      ]
+    },
+    {
+      "id": "M3-R8-19",
+      "directory": "physical_photo_index",
+      "title": "实物身份与原始照片交叉索引工具",
+      "group": "H",
+      "writer_role": "A",
+      "depends": "R6-7；真实照片/丝印到件",
+      "deliverable": "校验芯片完整料号/version、核心板/Dock修订与原图/页号/测量ID关联，保留原图和来源；无实物可先实现schema和错配夹具。",
+      "acceptance": "真实原图与同板身份链到件才签对应项；参考原理图、文件名/日期、合成图片不能代替实物，缺Bank/version保持PENDING。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/physical_photo_index/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/physical_photo_index/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/physical_photo_index/"
+      ]
+    },
+    {
+      "id": "M3-R8-20",
+      "directory": "io_voltage_budget",
+      "title": "Bank与外围电平兼容核算工具",
+      "group": "H",
+      "writer_role": "A",
+      "depends": "官方本地原件；R6-7实测待到件",
+      "deliverable": "依据带页号/原句数值的供电、VIH/VIL/VOH/VOL及方向记录核MIDI/PT8211/PA相关接口，输出最小裕量与UNKNOWN；不猜引脚或改接线。",
+      "acceptance": "同Bank/电平范围有依据才计算；5V直入、Bank未知、错方向/缺共地证据明确拒收或UNKNOWN。只准备离线判据，测量操作另按有效安全条件。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/io_voltage_budget/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/io_voltage_budget/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/io_voltage_budget/"
+      ]
+    },
+    {
+      "id": "M3-R8-21",
+      "directory": "measurement_profile",
+      "title": "仪器时间基准与采集能力检查器",
+      "group": "H",
+      "writer_role": "B",
+      "depends": "实际仪器规格/校准/配置原件",
+      "deliverable": "读取仪器原始设置/时间戳格式，核采样间隔、量程、边沿分辨率、触发及误差，生成固定测量profile供R6-8；不调用设备。",
+      "acceptance": "未知校准/时间轴不得出精确延迟；丢样/饱和/采样率不足明确拒收；声卡与逻辑分析仪时基分开，未到件只签软件夹具。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/measurement_profile/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/measurement_profile/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/measurement_profile/"
+      ]
+    },
+    {
+      "id": "M3-R8-22",
+      "directory": "latency_alignment",
+      "title": "输入至模拟输出延迟关联分析器",
+      "group": "H",
+      "writer_role": "B",
+      "depends": "16；21；同会话MIDI/数字/模拟捕获",
+      "deliverable": "按独立触发/阈值/时基关联输入边沿、数字TX和模拟响应，输出区间、误差及首匹配依据；阈值引用冻结测量规则。",
+      "acceptance": "合成已知延迟与误差可核；不同会话拼接、无公共时间轴、阈值未定/音频削波保持UNKNOWN；不能仅听感签≤10ms。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/latency_alignment/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/latency_alignment/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/latency_alignment/"
+      ]
+    },
+    {
+      "id": "M3-R8-23",
+      "directory": "board_session_capture",
+      "title": "同版板测原件离线导入器",
+      "group": "H",
+      "writer_role": "C",
+      "depends": "R6-8；19/21；真实原件待到件",
+      "deliverable": "离线导入MIDI/UART/LA/WAV与会话设置，锁定.fs/source/板身份/时间轴，原文件只读保全，生成可给M1/M2分析的索引；不打开串口/仪器。",
+      "acceptance": "错会话/错.fs/换日志/缺原始输入拒收；原音频保留本体，不能以截图/频谱替代；无实采时工具可就绪，基础实测仍PENDING。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/board_session_capture/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/board_session_capture/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/board_session_capture/"
+      ]
+    },
+    {
+      "id": "M3-R8-24",
+      "directory": "recovery_manifest",
+      "title": "新码流与恢复材料准入预检器",
+      "group": "H",
+      "writer_role": "C",
+      "depends": "M2新物理报告/.fs/恢复身份待到件",
+      "deliverable": "只读关联正确Part/version、完整STA/CDC、源闭包、.fs与恢复SHA以及精确SRAM许可；给M2缺件报告，不生成/修改许可。",
+      "acceptance": "旧PG484、未知Part、缺Recovery/Removal或无新.fs不能通过；允许的一次SRAM身份不能迁移到另一版本，Flash/重复下载均拒收。无设备操作。",
+      "status": "ASSIGNED_NOT_STARTED",
+      "write_roots": [
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/recovery_manifest/",
+        "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/recovery_manifest/",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/recovery_manifest/"
+      ]
+    }
+  ],
+  "new_software_grants": {
+    "R08-SW-S": {
+      "task_ids": [
+        "M3-R8-01",
+        "M3-R8-02",
+        "M3-R8-03",
+        "M3-R8-04",
+        "M3-R8-05",
+        "M3-R8-06"
+      ],
+      "initial_groups": 1,
+      "max_seconds": 90,
+      "targeted_repair_groups": 1,
+      "repair_max_seconds": 60,
+      "activities": "new pure software/file/schema fixtures only; no child process/tool/device"
+    },
+    "R08-SW-C": {
+      "task_ids": [
+        "M3-R8-07",
+        "M3-R8-08",
+        "M3-R8-09",
+        "M3-R8-10",
+        "M3-R8-11",
+        "M3-R8-12"
+      ],
+      "initial_groups": 1,
+      "max_seconds": 90,
+      "targeted_repair_groups": 1,
+      "repair_max_seconds": 60,
+      "activities": "new pure software/file/schema fixtures only; no child process/tool/device"
+    },
+    "R08-SW-T": {
+      "task_ids": [
+        "M3-R8-13",
+        "M3-R8-14",
+        "M3-R8-15",
+        "M3-R8-16",
+        "M3-R8-17",
+        "M3-R8-18"
+      ],
+      "initial_groups": 1,
+      "max_seconds": 90,
+      "targeted_repair_groups": 1,
+      "repair_max_seconds": 60,
+      "activities": "new pure software/file/schema fixtures only; no child process/tool/device"
+    },
+    "R08-SW-H": {
+      "task_ids": [
+        "M3-R8-19",
+        "M3-R8-20",
+        "M3-R8-21",
+        "M3-R8-22",
+        "M3-R8-23",
+        "M3-R8-24"
+      ],
+      "initial_groups": 1,
+      "max_seconds": 90,
+      "targeted_repair_groups": 1,
+      "repair_max_seconds": 60,
+      "activities": "new pure software/file/schema fixtures only; no child process/tool/device"
+    }
+  },
+  "known_R06_rework": {
+    "scope": [
+      "normalized_intake",
+      "tool_plan_adapter",
+      "event_calendar",
+      "tx_clock_reset_checker"
+    ],
+    "implementation_in_original_owned_paths_allowed": true,
+    "new_validation_grant": "R08-SW-R",
+    "initial_groups": 1,
+    "max_seconds": 90,
+    "targeted_repair_groups": 1,
+    "repair_max_seconds": 60,
+    "cases": "only new M2 report counterexamples: startup/HOLD/raw cancel/F-A/deadline/REAL/FRAME_PLAN and pure plan tamper refusal",
+    "old_cases_rerun": false,
+    "child_processes_allowed": false
+  },
+  "execution_grants_are_shared_not_per_writer": true,
+  "Pro_HDL_EDA_device_runs_authorized": 0,
+  "P7_reopened": false,
+  "M2_owned_executor_expanded": false,
+  "board_release_allowed": false,
+  "notifications_delivered": false,
+  "threads_started": false,
+  "basis_status": "PARTIAL",
+  "verification_of_this_task": "task allocation L0; not execution of the assigned tasks"
+}
