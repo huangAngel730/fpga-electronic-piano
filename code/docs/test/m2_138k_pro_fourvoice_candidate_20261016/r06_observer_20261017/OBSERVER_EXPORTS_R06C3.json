@@ -1,0 +1,189 @@
+{
+  "schema": "M2_R06_OBSERVER_EXPORTS_V1",
+  "status": "IMPLEMENTED_STATIC_NOT_SIMULATED",
+  "baseline_commit": "8b92d9cfa07e69d5bb2ce1eefef9d3355ceac1f0",
+  "sampling_phase": "POSEDGE_PRE_NBA",
+  "top": "m2_138k_pro_fourvoice_observer_top_r06",
+  "source_archive": "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/same_version_binding_20261017/M2_PRO_SAME_VERSION_STATIC_BINDING_20261017.zip",
+  "source_archive_sha256": "931b7d2bbfd7ac056707542931101ff844b125936762748e344536d9be6c1ba2",
+  "source_sha256": {
+    "m2_fourvoice_timbre_delay_frame_core_r06.sv": "83cedc321555733c669246b65fd8760156da73e336e6bc66a2c447797419e919",
+    "m2_fourvoice_timbre_delay_board_top_r06.sv": "25de50b627776adbb52f8edad0090bb07c8bb005a9cb279b4345330275683373",
+    "m2_138k_pro_fourvoice_observer_top_r06.sv": "92baee3987ccf447c0880bb657862c16d1ea52e2868afff99a83e3b4da004ff8",
+    "m2_r06_tx_identity_sidecar.sv": "67e5aba7d697687ac31acb1347483314c67adeb4b37046b9626a5551fdb7c69c"
+  },
+  "expected_observation_ports": {
+    "obs_core_clk": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_polyphonic_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_rst_n": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_frame_tick": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_event_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_event_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_event_data": {
+      "width": 64,
+      "signed": false
+    },
+    "obs_req_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_req_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_result_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_result_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_result_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_result_left": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_result_right": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_result_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_req_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_commit": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_commit_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_commit_left": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_commit_right": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_commit_clip": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_cancel": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_config_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_config_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_left": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_tx_right": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_pll_locked": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_sample_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_metadata_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_req_id_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_frame_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_tx_req_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_tx_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_tx_clip_any": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_hold": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_startup_zero": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_metadata_error": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_frame_id_overflow": {
+      "width": 1,
+      "signed": false
+    }
+  },
+  "old_tx_clip_mapping": "obs_tx_clip_any (one-bit OR preserved)",
+  "extensions": {
+    "tx_clip_mask": "bit0 left / bit1 right",
+    "tx_req_id_valid": "false means req_id null; numeric0 remains legal",
+    "tx_metadata_valid": "label usable; does not suppress actual TX sample",
+    "metadata_error": "sticky mismatch; no production feedback",
+    "frame_id_overflow": "sticky after max ordinal adoption; later labels unusable"
+  },
+  "epoch": "M3 independent RESET_EDGES binds current reset epoch; all RTL tuples reset-invalidated",
+  "remaining_missing": [
+    "M1 nineteen real semantics/exports",
+    "apply_event_seq",
+    "config_payload",
+    "cancel_reason",
+    "audio_stable policy",
+    "independent capture cycle/epoch/finish"
+  ],
+  "HDL_executed": false,
+  "real_Pro_capture": false,
+  "board_release_allowed": false
+}
