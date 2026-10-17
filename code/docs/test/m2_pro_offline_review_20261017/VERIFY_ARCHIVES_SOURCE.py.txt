@@ -1,0 +1,184 @@
+"""Read-only verification of immutable Git archive evidence; no DUT execution."""
+
+import hashlib
+import io
+import json
+from pathlib import Path
+import subprocess
+import zipfile
+
+
+ROOT = Path(__file__).resolve().parents[3]
+OUT = Path(__file__).resolve().parent
+PAIRS = [
+    (
+        "ad2de2169230dc8fd9f4b6f8157d384306c2479a",
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/D/coordinator/DELIVERY",
+    ),
+    (
+        "8b9d11e5368b6db45a1d3090d45f9e4f754132f2",
+        "code/docs/test/m3_dual_slider_138k_candidate_20261015/"
+        "pro_parallel_20261016/task2_coordinator/DELIVERY",
+    ),
+]
+
+
+def sha(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+
+def git_blob(ref, path):
+    return subprocess.check_output(["git", "show", f"{ref}:{path}"], cwd=ROOT)
+
+
+def batch_blobs(ref, paths):
+    requests = "".join(f"{ref}:{path}\n" for path in paths).encode("utf-8")
+    proc = subprocess.run(
+        ["git", "cat-file", "--batch"], input=requests,
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=ROOT, check=True,
+    )
+    stream = io.BytesIO(proc.stdout)
+    result = {}
+    for path in paths:
+        header = stream.readline().decode("utf-8").strip().split()
+        assert len(header) == 3 and header[1] == "blob", (path, header)
+        result[path] = stream.read(int(header[2]))
+        assert stream.read(1) == b"\n"
+    return result
+
+
+def manifest_entries(obj):
+    if isinstance(obj, list):
+        entries = obj
+    else:
+        entries = next(obj[key] for key in ("files", "members", "entries") if key in obj)
+    if isinstance(entries, dict):
+        return [(path, item) for path, item in entries.items()]
+    return [
+        (item.get("archive_member", item.get("archive_path", item.get("path"))), item)
+        for item in entries
+    ]
+
+
+def main():
+    initial = OUT / "ARCHIVE_VERIFICATION_INITIAL.json"
+    previous = OUT / "ARCHIVE_VERIFICATION.json"
+    if previous.exists() and not initial.exists():
+        initial.write_bytes(previous.read_bytes())
+    report = {"scope": "M2 immutable archive/hash review only", "packages": []}
+    verified_nested = {}
+    for ref, base in PAIRS:
+        changed = subprocess.check_output(
+            ["git", "diff-tree", "--no-commit-id", "--name-only", "-r", "-z", ref], cwd=ROOT,
+        ).decode("utf-8").rstrip("\0").split("\0")
+        published = batch_blobs(ref, changed)
+        variants = {path: [] for path in changed}
+        delivery = json.loads(git_blob(ref, base + "/DELIVERY.json"))
+        archive_name = delivery["archive"]["path"].replace("\\", "/").split("/")[-1]
+        archive = git_blob(ref, base + "/" + archive_name)
+        external_manifest = git_blob(ref, base + "/MANIFEST.json")
+        external_verification = git_blob(ref, base + "/VERIFICATION.json")
+        issues = []
+        metadata = []
+        for label, raw in (("archive", archive), ("manifest", external_manifest), ("verification", external_verification)):
+            expected = delivery[label]
+            exact = len(raw) == expected["bytes"] and sha(raw) == expected["sha256"]
+            crlf = raw.replace(b"\n", b"\r\n") if b"\r" not in raw else raw
+            lf_only = len(crlf) == expected["bytes"] and sha(crlf) == expected["sha256"]
+            metadata.append({
+                "label": label, "git_bytes": len(raw), "git_sha256": sha(raw),
+                "original_bytes": expected["bytes"], "original_sha256": expected["sha256"],
+                "status": "EXACT" if exact else "CRLF_TO_LF_ONLY" if lf_only else "DIFFERENT",
+            })
+            if not exact and not lf_only:
+                issues.append({"code": "DELIVERY_HASH", "label": label})
+        nested_results = []
+
+        def verify_zip(raw, label, external=None):
+            with zipfile.ZipFile(io.BytesIO(raw)) as zf:
+                names = zf.namelist()
+                assert len(names) == len(set(names)), (label, "duplicate names")
+                if external is not None:
+                    manifest_raw = external
+                else:
+                    choices = [
+                        name for name in names
+                        if name == "SEAL_MANIFEST.json" or name == "MANIFEST.json"
+                    ]
+                    if not choices:
+                        choices = [name for name in names if name.endswith("/MANIFEST.json")]
+                    assert len(choices) == 1, (label, "ambiguous manifest", choices)
+                    manifest_raw = zf.read(choices[0])
+                entries = manifest_entries(json.loads(manifest_raw))
+                expected_by_name = dict(entries)
+                missing = sorted(set(expected_by_name) - set(names))
+                local_issues = [{"code": "MISSING_MEMBER", "name": name} for name in missing]
+                checked = 0
+                for name in names:
+                    payload = zf.read(name)  # zipfile checks each member's actual CRC.
+                    item = expected_by_name.get(name)
+                    if item is not None:
+                        checked += 1
+                        if len(payload) != item["bytes"] or sha(payload) != item["sha256"]:
+                            local_issues.append({"code": "MEMBER_HASH", "name": name})
+                    if name in variants:
+                        variants[name].append((label, payload))
+                    if external is not None and name.endswith(".zip"):
+                        digest = sha(payload)
+                        if digest in verified_nested:
+                            # Still read the already verified package to collect published paths.
+                            previous = verified_nested[digest]
+                            with zipfile.ZipFile(io.BytesIO(payload)) as known:
+                                for candidate in set(variants).intersection(known.namelist()):
+                                    variants[candidate].append((name, known.read(candidate)))
+                            nested_results.append({"archive": name, "sha256": digest, "reused_verification": previous})
+                        else:
+                            child = verify_zip(payload, name)
+                            verified_nested[digest] = name
+                            nested_results.append(child)
+                result = {
+                    "archive": label, "sha256": sha(raw), "bytes": len(raw),
+                    "zip_members_crc_checked": len(names), "manifest_members_sha_checked": checked,
+                    "uncompressed_bytes": sum(info.file_size for info in zf.infolist()),
+                    "manifest_sha256": sha(manifest_raw), "issues": local_issues,
+                }
+                assert checked == len(entries) - len(missing)
+                return result
+
+        outer = verify_zip(archive, base + "/" + archive_name, external_manifest)
+        with zipfile.ZipFile(io.BytesIO(archive)) as zf:
+            internal_manifest = zf.read("MANIFEST.json")
+            original = delivery["manifest"]
+            assert len(internal_manifest) == original["bytes"] and sha(internal_manifest) == original["sha256"]
+            assert internal_manifest.replace(b"\r\n", b"\n") == external_manifest.replace(b"\r\n", b"\n")
+        comparisons = []
+        for path, raw in published.items():
+            candidates = variants[path]
+            exact = [label for label, payload in candidates if payload == raw]
+            lf = [label for label, payload in candidates if payload.replace(b"\r\n", b"\n") == raw]
+            status = "EXACT" if exact else "CRLF_TO_LF_ONLY" if lf else "DIFFERENT" if candidates else "NOT_IN_ARCHIVE"
+            comparisons.append({"path": path, "git_blob_sha256": sha(raw), "status": status, "archive_sources": exact or lf})
+            if status == "DIFFERENT":
+                issues.append({"code": "GIT_ARCHIVE_DIFFERENCE", "path": path})
+        package = {
+            "commit": ref, "outer": outer, "nested": nested_results,
+            "delivery_metadata": metadata, "delivery_metadata_issues": issues,
+            "publication_file_count": len(changed), "publication_comparisons": comparisons,
+        }
+        report["packages"].append(package)
+        print(json.dumps({
+            "commit": ref, "outer_crc_members": outer["zip_members_crc_checked"],
+            "outer_manifest_members": outer["manifest_members_sha_checked"],
+            "nested_archives": len(nested_results), "outer_issues": outer["issues"],
+            "metadata_or_git_issues": issues,
+            "publication_status_counts": {status: sum(c["status"] == status for c in comparisons) for status in ("EXACT", "CRLF_TO_LF_ONLY", "DIFFERENT", "NOT_IN_ARCHIVE")},
+            "not_in_archive": [c["path"] for c in comparisons if c["status"] == "NOT_IN_ARCHIVE"],
+        }, ensure_ascii=False), flush=True)
+    report["functional_tool_runs"] = 0
+    (OUT / "ARCHIVE_VERIFICATION.json").write_text(
+        json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n",
+    )
+
+
+if __name__ == "__main__":
+    main()
