@@ -1,0 +1,60 @@
+{
+  "schema": "M3_R06_TX_CLOCK_RESET_FILE_SHA_V1",
+  "baseline_commit": "42d28c4ad8250b9064099da4742fbde12a254444",
+  "source": {
+    "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/tx_clock_reset_checker.py": "19673112f977bd559fe86eddd4f4cac7070c9a6bd7d71df00f5bff0f8a23f115",
+    "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/fixtures.py": "afe21ab6b270b3db4430152d7b9f198ad591401b0e5202a5444be41b1755ff1c",
+    "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/selftest.py": "a813e51c782b8f9234a1ebdfbab18c0a63549288045cdc2b6f890dcf4bb1c907",
+    "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/run_once.py": "4cf768255b0701adeac92a2884bfbc3325fe7a8054d6643cc8a8282f30379104",
+    "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/cases.json": "92997227b45da508de0a5a3aadd805ce8d9efb457265411d4e8f31e9f8dc8959"
+  },
+  "dependency": {
+    "code/software/m3_40mhz_pcm_i2s_latency_20261015/night_20261016/RESUME_R02/consume_capture.py": "da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb"
+  },
+  "execution": {
+    "RUN_SPEC.json": "160c64667f9f6f9bfa583ff805828724fb3c71c36b7abaa0cbca28a0243a28f1",
+    "RUN_01/receipt.json": "14ebadc4d24e1bcd1f6cd855df0c9fb8ed20e048315930bff027b2c9d8228904",
+    "RUN_01/stdout.bin": "af80cb9f84ad28320f3281c47bc9d0d4bc452307f12e4a26d5b10bfa3c7fc2e3",
+    "RUN_01/stderr.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "RUN_01/products/summary.json": "23030a9f80afcbb5f88c4e9afdca5c4d4aaaa1c50a6f8cf84fbfe671ec2188d2"
+  },
+  "valid_inputs_and_report": {
+    "RUN_01/products/valid_synthetic/binding.json": "9afa2167b1b88a80e264d91f83c76b1c3463b6e9be06a733d7eacae9e51c1bb7",
+    "RUN_01/products/valid_synthetic/calendar.json": "6335e5edb22f6b15d34c2f559a29c2a7cc09c2b86f25a4a0ff60827506953bf9",
+    "RUN_01/products/valid_synthetic/frame_plan.json": "a0e82924f7f9f6336970b50cf5bc27e796e24a42165a9737243bb92b51194192",
+    "RUN_01/products/valid_synthetic/oracle.json": "aadd5746c604edac6ec05977bd92c3ede587c671f89003188cbd658daf008062",
+    "RUN_01/products/valid_synthetic/trace.jsonl": "e69245f6fbf24fae1e27b12547f4da94f15eedba56727d507096ace542a813fa",
+    "RUN_01/products/valid_synthetic/report.json": "87319a435cfb4d9148d1d7306156b1150228f621bb50631d516c9c5e516d0272"
+  },
+  "case_reports": {
+    "commit_marked_as_tx": "beae5f3fd459dbec013fecf99c2353b6802f7a919dc9643b3b515280b5c7c0e7",
+    "duplicate_finish": "b68471225d5b2ee7cd20f3bd661f85717607d537e1950cd9ceb18f4d6314fdb2",
+    "duplicate_frame_plan": "cafc98f1e5b6e201cafcd079a25ff532da9c1e2460b9aea9943309050c77996c",
+    "finish_with_unconsumed_commit": "0ce99a4f6c331169c6baccf0a689cf1713901017c2a472f1bbf6f7bc5f89c6f2",
+    "hold_clip_changed": "b1260338a84c72d5d24018546c89836eb9fd62459346be9a966779af7ba68778",
+    "internal_age_833": "be44b43c1ae2dc4568fc1bad561578e613b242d3669cd524a7b7fa926b9e6ec9",
+    "missing_frame_after_cancel": "0334ca3a640b9d50c5357060f37e1c7050d997618854862d5950f22b3db28ee8",
+    "pa_enabled_before_lock": "eb1619fba1c82ec82044911803e450d6d584920876bca856892a01daeba3c070",
+    "pending_event_calendar": "4f7e9b675fc4f6f1c7f13888fe0948d69d154502c8c50acb12ad7e675e066c77",
+    "pending_finish_eof": "715c01f7e9f460b94b326e9f4594b73e0f54b645fb09059683e2529b030de963",
+    "pending_frame_plan": "83dec3ac4992d921aa5ec10107565ddf146978b61097a61b26c89d3643f31747",
+    "pending_pcm_oracle": "2ef71592db548ddf4d116c186e41c955851a4c6be042efa6979f8babfc51f149",
+    "pending_public_pins": "590987d0d9ab1e2c8faacbfa053898ce17ff99f70b6898f8ebc69a4e5096bf9b",
+    "pending_timebase": "6d513f296efa9adb720d4ba9a57ce5b4cd906802c3020e84c1b0e922486cd8b9",
+    "pending_tx_sidecar": "ff36f76e57198f6940abcac03a9d914eb7d3890043ea24273312030f00fd99ec",
+    "reset_pin_not_silent": "9a06856dc5bec6960e7804691a075911330770d3f7c0ab2221130b5711e635b2",
+    "same_pcm_wrong_id": "faaff072049a60458a609132cb6dd0e1eeec8aa75aa52c60990b7413bda0b7c3",
+    "serial_bit_corruption": "4c2bbb6b156455b89160f2afc37f9930ab8f5faf9dea7594462b18a55221750c",
+    "startup_has_request_id": "b38d942692c178e0ace894c9289348fda76f8fac1df402925924aa2fdf1be865"
+  },
+  "pre_result_docs": {
+    "README.md": "28b4279b6d4af6ec7d5775f105d86b709b1f9b4f4c129e0a3551251007c93e4e",
+    "CHECKER_CONTRACT.json": "4d046038244daf14af97138b48a19480649f7ba79aca69d82d178d2df43c84f3",
+    "INPUT_IDENTITIES.json": "68a140812ffdfcebb941e3ae83aed7102499bd9a0b074a0fb03706ecfaef4784",
+    "START.md": "240d1fcc70ec604ae68a5b476e162848ab1b723c52c6f94b58ff48c8f02f48fb"
+  },
+  "final_docs": {
+    "RESULT.md": "faa18a2bbfea24a6d84248a06938e407a26c6ad44cd583197a4900165d144f70",
+    "SELF_REVIEW.md": "444cda982cc03ed23cabbf6f585d962426fb78cc9bb47ad1aa1f02dd3c990ce9"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "M3_R06_EVENT_CALENDAR_SELFTEST_CASES_V1",
+  "cases": [
+    {"name":"valid_synthetic","mutation":"none","expected_exit":0,"expected_status":"PASS_SYNTHETIC_FIXTURE_ONLY"},
+    {"name":"untrusted_source","mutation":"untrusted_source","expected_exit":3,"expected_status":"PENDING_SOURCE_AUTHORITY"},
+    {"name":"missing_m1_semantics","mutation":"missing_m1_semantics","expected_exit":3,"expected_status":"PENDING_M1_SEMANTICS"},
+    {"name":"missing_frame_plan","mutation":"missing_frame_plan","expected_exit":3,"expected_status":"PENDING_FRAME_PLAN"},
+    {"name":"missing_canonical_field","mutation":"missing_canonical_field","expected_exit":2,"expected_error":"MISSING_CANONICAL_FIELD"},
+    {"name":"missing_actual_apply","mutation":"missing_actual_apply","expected_exit":2,"expected_error":"LIFECYCLE_WITHOUT_APPLY"},
+    {"name":"duplicate_actual_apply","mutation":"duplicate_actual_apply","expected_exit":2,"expected_error":"DUPLICATE_APPLY_EVENT_SEQ"},
+    {"name":"wrong_apply_data","mutation":"wrong_apply_data","expected_exit":2,"expected_error":"APPLY_DATA_MISMATCH"},
+    {"name":"missing_post_cancel_frame","mutation":"missing_post_cancel_frame","expected_exit":2,"expected_error":"MISSING_FRAME_CYCLE"},
+    {"name":"extra_idle_advance","mutation":"extra_idle_advance","expected_exit":2,"expected_error":"EXTRA_FRAME_CYCLE"},
+    {"name":"wrong_common_mask","mutation":"wrong_common_mask","expected_exit":2,"expected_error":"ADVANCE_MASK_NOT_1111"},
+    {"name":"commit_after_cancel","mutation":"commit_after_cancel","expected_exit":2,"expected_error":"COMMIT_AFTER_CANCEL"},
+    {"name":"cross_epoch_commit","mutation":"cross_epoch_commit","expected_exit":2,"expected_error":"CROSS_EPOCH_COMMIT"},
+    {"name":"missing_finish","mutation":"missing_finish","expected_exit":2,"expected_error":"MISSING_OR_DUPLICATE_FINISH"}
+  ]
+}

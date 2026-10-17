@@ -1,0 +1,20 @@
+{
+  "schema": "M3_R06_NORMALIZED_INTAKE_CASES_V1",
+  "cases": [
+    {"name": "synthetic_projection", "mutation": "none", "expected_exit": 0, "expected_pending": [], "expect_b2_csv": true, "expect_d3": true},
+    {"name": "pending_contracts", "mutation": "pending_contracts", "expected_exit": 0, "expected_pending": ["PENDING_SAME_EDGE_ORDER", "PENDING_FRAME_PLAN", "PENDING_FINISH_CONTRACT", "PENDING_PRO_SOURCE_OR_TRACE"], "expect_b2_csv": true, "expect_d3": false},
+    {"name": "idle_x_preserved", "mutation": "idle_x", "expected_exit": 0, "expected_pending": ["PENDING_B2_COMPATIBILITY"], "expect_b2_csv": false, "expect_d3": true},
+    {"name": "controlled_x_reject", "mutation": "controlled_x", "expected_exit": 1, "failure_contains": "CONTROL_UNKNOWN_req_valid"},
+    {"name": "wrong_id_reject", "mutation": "wrong_id", "expected_exit": 1, "failure_contains": "RESULT_ID"},
+    {"name": "wrong_epoch_reject", "mutation": "wrong_epoch", "expected_exit": 1, "failure_contains": "WRONG_EPOCH"},
+    {"name": "dropped_line_reject", "mutation": "dropped_line", "expected_exit": 1, "failure_contains": "DROPPED_CYCLE_ROW"},
+    {"name": "same_edge_order_reject", "mutation": "same_edge_order", "expected_exit": 1, "failure_contains": "SAME_EDGE_ORDER"},
+    {"name": "bad_provenance_reject", "mutation": "bad_provenance", "expected_exit": 1, "failure_contains": "TRACE_SHA"},
+    {"name": "finish_eof_reject", "mutation": "finish_eof", "expected_exit": 1, "failure_contains": "FINISH_REQUIRED"},
+    {"name": "frame_plan_pending", "mutation": "frame_plan_pending", "expected_exit": 0, "expected_pending": ["PENDING_FRAME_PLAN", "PENDING_PRO_SOURCE_OR_TRACE"], "expect_b2_csv": true, "expect_d3": false},
+    {"name": "missing_frame_reject", "mutation": "frame_drop", "expected_exit": 1, "failure_contains": "FRAME_PLAN_MISMATCH"},
+    {"name": "finish_contract_pending", "mutation": "finish_pending", "expected_exit": 0, "expected_pending": ["PENDING_FINISH_CONTRACT", "PENDING_PRO_SOURCE_OR_TRACE"], "expect_b2_csv": true, "expect_d3": false},
+    {"name": "cancel_active_uses_transaction_id", "mutation": "cancel_active", "expected_exit": 0, "expected_pending": [], "expect_b2_csv": true, "expect_d3": true, "expect_cancel_req_id": 7},
+    {"name": "cancel_without_active_reject", "mutation": "cancel_without_active", "expected_exit": 1, "failure_contains": "CANCEL_STATE"}
+  ]
+}

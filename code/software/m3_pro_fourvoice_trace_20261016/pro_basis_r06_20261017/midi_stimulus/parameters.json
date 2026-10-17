@@ -1,0 +1,40 @@
+{
+  "schema": "M3_R06_MIDI_STIMULUS_PARAMETERS_V1",
+  "clock_hz": 40000000,
+  "baud": 31250,
+  "uart": {
+    "data_bits": 8,
+    "parity": "NONE",
+    "stop_bits": 1,
+    "idle_level": 1,
+    "bit_order": "LSB_FIRST"
+  },
+  "midi": {
+    "channel": 0,
+    "source_id": 0,
+    "note_on_status_base": 144,
+    "note_off_status_base": 128,
+    "realtime_clock_byte": 248,
+    "running_status_supported": true,
+    "realtime_preserves_running_status": true
+  },
+  "public_event_encoding": {
+    "width": 64,
+    "event_note_on": 0,
+    "event_note_off": 1,
+    "velocity_rule": "{velocity7,velocity7[6:4]}",
+    "note_on_velocity_zero_becomes_note_off": true
+  },
+  "timing": {
+    "initial_idle_bits": 4,
+    "inter_message_idle_bits": 2,
+    "event_window_min_cycles_after_final_stop": 0,
+    "event_window_max_cycles_after_final_stop": 2560
+  },
+  "semantic_boundary": {
+    "slot_allocation": "PENDING_M1_SOURCE_SEMANTICS",
+    "note_off_release": "PENDING_M1_SOURCE_SEMANTICS",
+    "retrigger_generation": "PENDING_M1_SOURCE_SEMANTICS",
+    "fifth_note_policy": "PENDING_M1_SOURCE_SEMANTICS"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": "hardware-identity-selftest-scope-v1",
+  "task": "M3-R6-7 hardware_identity",
+  "baseline_head": "42d28c4ad8250b9064099da4742fbde12a254444",
+  "group_count": 1,
+  "timeout_seconds": 90,
+  "output_directory": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/RUN_01",
+  "production_record": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/HARDWARE_IDENTITY_PENDING.json",
+  "evidence_index": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/REFERENCE_INDEX.json",
+  "inputs": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/hardware_identity.py",
+      "sha256": "2f82a1ff4dfe74740f7f0cc585b310453a0e63fc54fcae53e320a07e4e4d2c36"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/run_selftest.py",
+      "sha256": "44da49bcca30f0fe2fda61dae7df5211d2dd5deba3d7092ffbb2be285666dae3"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/schema.json",
+      "sha256": "1ea1b07ef36f1fe2abb7dc9e1883c48bd498e9f256fed800484c4034f678cccb"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/HARDWARE_IDENTITY_PENDING.json",
+      "sha256": "c09e9c097612e5bdefe7a497c67dc985d400e613f4ead76f3aeebb6d5fd7a735"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/REFERENCE_INDEX.json",
+      "sha256": "136dca9d851ec82fb447d9d52d92b3bfd98f78eebd40240b3d68fb52737e4001"
+    }
+  ],
+  "dependency": {
+    "path": "C:/Users/songdongkuan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+    "bytes": 107312,
+    "sha256": "b847bb9f4e48c19f585c8bf7d8b355f3f8c6d2125717ece9c9d7e16fb9f09de8",
+    "libraries": "Python standard library only"
+  },
+  "cases": [
+    "pending production record accepted only as VALID_PENDING",
+    "complete synthetic fixture accepted only with allow_fixture",
+    "missing required field rejected",
+    "wrong board type rejected",
+    "Bank voltage conflict rejected",
+    "reference-only fake measurement rejected",
+    "incomplete physical measurement rejected",
+    "sensitive license/server field rejected",
+    "stale evidence SHA rejected",
+    "board release authority escalation rejected",
+    "mandatory field NOT_APPLICABLE bypass rejected",
+    "duplicate Bank rejected",
+    "fixture evidence mixed into production rejected",
+    "different physical session evidence rejected",
+    "malformed MIDI value rejected",
+    "sensitive evidence-index field rejected",
+    "non-finite voltage rejected"
+  ],
+  "command": [
+    "C:/Users/songdongkuan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+    "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/run_selftest.py",
+    "--repo-root",
+    ".",
+    "--scope",
+    "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/TEST_SCOPE.json",
+    "--output",
+    "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/RUN_01"
+    ,
+    "--repair-after",
+    "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/RUN_01/ATTEMPT_01_FAILURE.json"
+  ],
+  "prohibited": [
+    "board operation",
+    "Gowin/Programmer/ModelSim/Icarus invocation",
+    "network access",
+    "production fixture acceptance",
+    "secret or license material capture"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema": "M3_R06_EVENT_CALENDAR_CONTRACT_V1",
+  "status": "PENDING_M1_M2_AUTHORITATIVE_EXPORT_AND_REAL_TRACE",
+  "canonical_input": {
+    "field_count": 61,
+    "source": "M2_PRO_SAME_VERSION_STATIC_BINDING_20261017.zip/PUBLIC_OBSERVATION_MAP.json",
+    "source_zip_sha256": "931b7d2bbfd7ac056707542931101ff844b125936762748e344536d9be6c1ba2",
+    "sample_edge": "PENDING_M2_R6_1",
+    "private_hierarchy_allowed": false
+  },
+  "independent_input": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/RUN_02/products/plan.json",
+    "sha256": "d07c428162dbccefa8215ac629840058c3a8edd809e3f077dd695813133ad918"
+  },
+  "required_authorities": [
+    "real public trace/source identity",
+    "M1 actual apply/slot/release/retire/generation/common-advance semantics",
+    "M2 sample edge/epoch/same-edge priority/finish contract",
+    "independent full frame plan through real finish"
+  ],
+  "correlation_keys": ["epoch", "event_seq", "req_id"],
+  "explicit_only": [
+    "apply_valid/apply_event_seq/apply_data",
+    "occupied/releasing/note_on/note_off/retire masks and slot identity",
+    "frame_tick with advance_mask=15 and advance_frame_req_id",
+    "request/result/commit/cancel public samples"
+  ],
+  "forbidden_inference": [
+    "accept cycle plus one as apply",
+    "four staggered toy lane transactions as common advance",
+    "final slot state as lifecycle history",
+    "DUT private wave/envelope/phase",
+    "commit as TX adoption",
+    "trace-observed frame rows as the expected frame plan"
+  ],
+  "statuses": {
+    "PASS_SYNTHETIC_FIXTURE_ONLY": "software self-test only; never real Pro",
+    "PASS_REAL_PUBLIC_TRACE": "available only after every authority dependency is bound",
+    "PENDING_*": "structurally readable but an authority/evidence dependency is absent",
+    "REJECT": "malformed or contradictory evidence"
+  },
+  "real_pro_calendar_pass_now": false,
+  "board_release_allowed": false
+}

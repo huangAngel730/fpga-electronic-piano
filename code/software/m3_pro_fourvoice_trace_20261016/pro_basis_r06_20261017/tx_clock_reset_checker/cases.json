@@ -1,0 +1,25 @@
+{
+  "schema": "M3_R06_TX_CLOCK_RESET_CASES_V1",
+  "cases": [
+    {"name": "valid_synthetic", "mutation": "none", "exit": 0, "status": "PASS_SYNTHETIC_FIXTURE_ONLY"},
+    {"name": "pending_tx_sidecar", "mutation": "pending_tx_sidecar", "exit": 3, "status": "PENDING_TX_SIDECAR"},
+    {"name": "pending_public_pins", "mutation": "pending_public_pins", "exit": 3, "status": "PENDING_PUBLIC_PINS"},
+    {"name": "pending_timebase", "mutation": "pending_timebase", "exit": 3, "status": "PENDING_TIMEBASE"},
+    {"name": "pending_event_calendar", "mutation": "pending_event_calendar", "exit": 3, "status": "PENDING_EVENT_CALENDAR"},
+    {"name": "pending_pcm_oracle", "mutation": "pending_pcm_oracle", "exit": 3, "status": "PENDING_PCM_ORACLE"},
+    {"name": "pending_frame_plan", "mutation": "pending_frame_plan", "exit": 3, "status": "PENDING_FRAME_PLAN"},
+    {"name": "pending_finish_eof", "mutation": "pending_finish_eof", "exit": 3, "status": "PENDING_FINISH_CONTRACT"},
+    {"name": "startup_has_request_id", "mutation": "startup_has_request_id", "exit": 2, "error": "STARTUP_ZERO_ID_OR_FLAGS"},
+    {"name": "hold_clip_changed", "mutation": "hold_clip_changed", "exit": 2, "error": "TX_PCM_OR_CLIP_MISMATCH"},
+    {"name": "commit_marked_as_tx", "mutation": "commit_marked_as_tx", "exit": 2, "error": "TX_VALID_OFF_FRAME"},
+    {"name": "same_pcm_wrong_id", "mutation": "same_pcm_wrong_id", "exit": 2, "error": "TX_ID_NOT_IN_SELECTION_PLAN"},
+    {"name": "internal_age_833", "mutation": "internal_age_833", "exit": 2, "error": "INTERNAL_COMPLETION_AGE_NOT_LT_833"},
+    {"name": "missing_frame_after_cancel", "mutation": "missing_frame_after_cancel", "exit": 2, "error": "MISSING_FRAME_AFTER_IDLE_OR_CANCEL"},
+    {"name": "duplicate_frame_plan", "mutation": "duplicate_frame_plan", "exit": 2, "error": "DUPLICATE_OR_EXTRA_FRAME"},
+    {"name": "reset_pin_not_silent", "mutation": "reset_pin_not_silent", "exit": 2, "error": "RESET_NOT_SERIAL_SILENT"},
+    {"name": "pa_enabled_before_lock", "mutation": "pa_enabled_before_lock", "exit": 2, "error": "PA_ENABLED_WHILE_UNSAFE"},
+    {"name": "serial_bit_corruption", "mutation": "serial_bit_corruption", "exit": 2, "error_prefix": "PIN_"},
+    {"name": "finish_with_unconsumed_commit", "mutation": "finish_with_unconsumed_commit", "exit": 2, "error": "FINISH_WITH_UNFINISHED_TRANSACTION"},
+    {"name": "duplicate_finish", "mutation": "duplicate_finish", "exit": 2, "error": "MISSING_OR_DUPLICATE_FINISH"}
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hardware-identity-v1",
+  "title": "Tang Mega 138K Pro physical identity evidence record",
+  "description": "Normative field inventory. hardware_identity.py supplies the cross-field and evidence-strength checks.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "record_id",
+    "board_family",
+    "unit_id",
+    "session_id",
+    "fixture_only",
+    "board_release_allowed",
+    "identity",
+    "banks",
+    "midi_input",
+    "audio_path",
+    "commercial_tools",
+    "raw_evidence_requirements"
+  ],
+  "properties": {
+    "schema_version": {"const": "hardware-identity-v1"},
+    "record_id": {"type": "string", "minLength": 1},
+    "board_family": {"const": "TANG_MEGA_138K_PRO"},
+    "unit_id": {"type": "string", "minLength": 1},
+    "session_id": {"type": "string", "minLength": 1},
+    "fixture_only": {"type": "boolean"},
+    "board_release_allowed": {"type": "boolean"},
+    "identity": {"type": "object"},
+    "banks": {"type": "array", "minItems": 3, "maxItems": 3},
+    "midi_input": {"type": "object"},
+    "audio_path": {"type": "object"},
+    "commercial_tools": {"type": "array", "minItems": 1},
+    "raw_evidence_requirements": {"type": "array", "minItems": 4, "maxItems": 4}
+  },
+  "additionalProperties": false
+}

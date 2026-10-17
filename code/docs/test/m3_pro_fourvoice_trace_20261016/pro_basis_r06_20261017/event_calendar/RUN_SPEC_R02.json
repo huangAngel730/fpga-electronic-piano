@@ -1,0 +1,33 @@
+{
+  "schema": "M3_R06_EVENT_CALENDAR_REPAIR_RUN_SPEC_V1",
+  "baseline_head": "42d28c4ad8250b9064099da4742fbde12a254444",
+  "timeout_seconds": 60,
+  "output": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/RUN_02",
+  "budget": "ONE_PERMITTED_MINIMAL_REPAIR_SOFTWARE_GROUP",
+  "repair": "Fixture serializer preserves deliberately absent canonical keys so the checker receives the malformed negative input.",
+  "midi_plan": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/RUN_02/products/plan.json",
+  "bound_inputs": [
+    {"path":"code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/event_calendar.py","bytes":20835,"sha256":"3df7c588faeb7e381a57138d9b8a93a37df4008fdc3865635a19d44fcb6d0e3c"},
+    {"path":"code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/fixtures.py","bytes":7558,"sha256":"d4a79ed55c772371bd42657892311d60b88ff2cc480feb6a6c1e3a65354999db"},
+    {"path":"code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/selftest.py","bytes":7804,"sha256":"a4031aeed0f32ca78d326e4009b257060db7fb4960eea5579933430a09eb8caa"},
+    {"path":"code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/run_once.py","bytes":2617,"sha256":"a57b84cd4e62a94e0b244be8c912661c6ffc3543f6f144176c29e4de780a3f9f"},
+    {"path":"code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/cases.json","bytes":1857,"sha256":"d23379630cf95b5b7f8932cb2d4ea68d83fb6306ef43bd5fb52e239d1f51c7f2"},
+    {"path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/README.md","bytes":1783,"sha256":"6bf782ab9b74d3eb512bbf05ea5d5ce008c4b86863cb4e978f85889d76b69450"},
+    {"path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/CALENDAR_CONTRACT.json","bytes":1961,"sha256":"585769a4458c588627da177da00a33da1ea7c487d762ff3885291948b820c91d"},
+    {"path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/INPUT_IDENTITIES.json","bytes":1712,"sha256":"e6f5761a39f0f94074f7034228a7c4cb01fa754999e60640ffb5f8a85d81ac82"},
+    {"path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/START.md","bytes":1159,"sha256":"50051e60c468e673adbb009b9c98972a25e437dfef64140b7426ad526cb433b7"},
+    {"path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/FAILURE_HISTORY.md","bytes":946,"sha256":"9d3a77b312b41475b7a636d616150654c736d0a63c3b2785e6f45808ce679b70"},
+    {"path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/RUN_01/receipt.json","bytes":1325,"sha256":"436fe8b65230292ec2566b31897e757c8ac774255ba3bc3d37d38734e51d0f6c"},
+    {"path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/RUN_01/stdout.bin","bytes":0,"sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    {"path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/RUN_01/stderr.bin","bytes":795,"sha256":"72a7dba8175363bf3419f13058dedaf4680430991079c1b3b30da3a4c8234121"},
+    {"path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/RUN_02/products/plan.json","bytes":28378,"sha256":"d07c428162dbccefa8215ac629840058c3a8edd809e3f077dd695813133ad918"}
+  ],
+  "expected": {
+    "cases": 14,
+    "synthetic_passes": 1,
+    "pending_cases": 3,
+    "rejected_cases": 10,
+    "real_trace_cases": 0,
+    "hdl_sim_eda_hardware_calls": 0
+  }
+}

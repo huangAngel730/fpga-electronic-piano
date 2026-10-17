@@ -1,0 +1,25 @@
+{
+  "schema": "M3_R06_MIDI_STIMULUS_REPAIR_RUN_SPEC_V1",
+  "baseline_head": "42d28c4a",
+  "timeout_seconds": 90,
+  "output": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/RUN_02",
+  "budget": "ONE_PERMITTED_MINIMAL_REPAIR_RUN",
+  "repair": "Reset is low from cycle0 and configured idle bits follow every reset release before MIDI resumes.",
+  "bound_inputs": [
+    {"path":"code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/parameters.json","bytes":1099,"sha256":"4c45b09bd8126c2b82d4f8b77eab39ded35fdc1ca8dd0515754b0240255383b4"},
+    {"path":"code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/cases.json","bytes":4186,"sha256":"c21c2a4bcaa2e1837ec55ac1b0a193ac841d9dc31db8fef6200b869e735053c7"},
+    {"path":"code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/generate.py","bytes":7928,"sha256":"8d1d32f322ef62b06c90b2fe0eb205dd65e37ebb3b812f0f48f4861be47febf8"},
+    {"path":"code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/selftest.py","bytes":2900,"sha256":"e491bc7141e0a9b0c4c895f60ddef0b9f71cf762d81182bc4877a2051db3e2ee"},
+    {"path":"code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/run_once.py","bytes":2337,"sha256":"45c08963cdc7c74e40653cb5bc34c0653ad415c11e4e3024e1e408b85b851dd6"},
+    {"path":"code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/midi_public_port_driver.sv","bytes":3417,"sha256":"99e40266a46f1606409fa6ef270dd0c6b056dcb511363ae90dfbaf67653df89a"},
+    {"path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/README.md","bytes":1206,"sha256":"ac217393b45def4cc040c61a6a62d7d503f55d6da9fb448513de2415ca8e2e8b"},
+    {"path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/FAILURE_HISTORY.md","bytes":667,"sha256":"bbcbd763310e891af519314bc9b43a51e222815efcbe40111a78768e7c780c85"}
+  ],
+  "expected": {
+    "events": 23,
+    "positive_checks": 13,
+    "negative_checks": 4,
+    "first_reset_cycle": 0,
+    "hdl_sim_eda_hardware_calls": 0
+  }
+}

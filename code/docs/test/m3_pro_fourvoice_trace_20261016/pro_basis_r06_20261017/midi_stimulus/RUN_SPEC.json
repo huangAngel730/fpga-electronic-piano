@@ -1,0 +1,36 @@
+{
+  "schema": "M3_R06_MIDI_STIMULUS_SINGLE_RUN_SPEC_V1",
+  "baseline_head": "42d28c4a",
+  "timeout_seconds": 90,
+  "output": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/RUN_01",
+  "budget": "ONE_SOFTWARE_OR_PURE_FILE_GROUP_ONLY",
+  "case_goals": [
+    "four solos",
+    "four different serial NoteOn messages then simultaneous hold",
+    "one-by-one release and different velocities",
+    "NoteOn velocity zero normalization",
+    "same-note retrigger and fifth-note semantic boundary",
+    "Running Status and interleaved realtime byte",
+    "reset/recovery and public event backpressure",
+    "reject noninteger clock/baud, invalid MIDI data, bad event_seq and inactive Running Status"
+  ],
+  "dependencies": [
+    "Python standard library only",
+    "frozen project 64-bit performance event layout v1.6",
+    "no HDL compiler or simulator"
+  ],
+  "bound_inputs": [
+    {"path":"code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/parameters.json","bytes":1099,"sha256":"4c45b09bd8126c2b82d4f8b77eab39ded35fdc1ca8dd0515754b0240255383b4"},
+    {"path":"code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/cases.json","bytes":4186,"sha256":"c21c2a4bcaa2e1837ec55ac1b0a193ac841d9dc31db8fef6200b869e735053c7"},
+    {"path":"code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/generate.py","bytes":7699,"sha256":"7910afe412fa43d5429a0611616a1d480454bb021eb2419d55fc17f980664194"},
+    {"path":"code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/selftest.py","bytes":2696,"sha256":"24e030cccb1d50c7e078bf0f6919f0664ca87185a05b84a89142df5d9ef470a2"},
+    {"path":"code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/run_once.py","bytes":2337,"sha256":"45c08963cdc7c74e40653cb5bc34c0653ad415c11e4e3024e1e408b85b851dd6"},
+    {"path":"code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/midi_public_port_driver.sv","bytes":3417,"sha256":"332c9f9795b06fba00941217156674a950ad9539736452a5f87f3a04c2b12430"},
+    {"path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/README.md","bytes":1206,"sha256":"ac217393b45def4cc040c61a6a62d7d503f55d6da9fb448513de2415ca8e2e8b"}
+  ],
+  "expected_limitations": [
+    "slot allocation, Release retirement, retrigger generation and fifth-note preemption remain pending M1 semantics",
+    "public-port driver is delivered but not compiled or simulated",
+    "no real Pro trace or board result"
+  ]
+}

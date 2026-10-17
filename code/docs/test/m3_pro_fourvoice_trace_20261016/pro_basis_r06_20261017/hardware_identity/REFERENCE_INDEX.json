@@ -1,0 +1,98 @@
+{
+  "schema_version": "hardware-evidence-index-v1",
+  "generated_for": "M3-R6-7 hardware_identity",
+  "sources": [
+    {
+      "id": "pro_core_schematic_4072",
+      "kind": "OFFICIAL_SCHEMATIC",
+      "path": "code/rtl/138K_Pro/TANG_MEGA-138K-Pro_4072_Schematics.pdf",
+      "sha256": "fd308dbb33a10a928f7759207f39717881733945981c2fc34e9bbcfb3e1008eb",
+      "bytes": 5707118,
+      "applicability": "REFERENCE_CANDIDATE_ONLY",
+      "authority": "local official design original; does not identify the attached physical core",
+      "pages": [7]
+    },
+    {
+      "id": "pro_dock_schematic_4071f3",
+      "kind": "OFFICIAL_SCHEMATIC",
+      "path": "code/rtl/138K_Pro/TANG_MEGA-138K_Dock-4071f3__Schematics.pdf",
+      "sha256": "153d1c170a7d54e11a5d5e9b128ee9139a07b27249377d909e204cbf56e25cec",
+      "bytes": 5728047,
+      "applicability": "REFERENCE_CANDIDATE_ONLY",
+      "authority": "local official design original; does not identify the attached physical Dock",
+      "pages": [16, 18]
+    },
+    {
+      "id": "pro_reference_cst",
+      "kind": "REFERENCE_CST",
+      "path": "code/rtl/138K_Pro/tang_mega_138k-pro_pins.cst",
+      "sha256": "f647104f7b74800890d0283a438b226301bff3a3429a04ec0f6df63c9026e8ba",
+      "bytes": 18688,
+      "applicability": "REFERENCE_CANDIDATE_ONLY",
+      "authority": "reference constraints; not a measurement or final project constraint"
+    },
+    {
+      "id": "pro_pin_relationships_r02",
+      "kind": "DERIVED_STATIC_AUDIT",
+      "path": "code/rtl/138K_Pro/Pro_引脚核对_CST_R02_20261016/pin_relationships.json",
+      "sha256": "a95534ebb97003b10643e80fba113be82d8eb2fafcd7f438683d9026b31a82b9",
+      "bytes": 83183,
+      "applicability": "DERIVED_REFERENCE_ONLY",
+      "authority": "static derivative of the Pro reference package"
+    },
+    {
+      "id": "pro_b0_input_receipt",
+      "kind": "DERIVED_STATIC_AUDIT",
+      "path": "code/docs/hardware/pro_fourvoice_board_intake_20261017/AUDIT_R01/B0_INPUT_RECEIPT.json",
+      "sha256": "069364c4eb908ac39c551048b0423cb532b3c204b2afb19ae2a6b08a45c1459e",
+      "bytes": 14275,
+      "applicability": "STATIC_RECEIPT_ONLY",
+      "authority": "prior read-only intake; explicitly not physical evidence"
+    },
+    {
+      "id": "pt8211_datasheet_v17",
+      "kind": "OFFICIAL_DATASHEET",
+      "path": "code/docs/PT8211_V1.7_E_数据手册.pdf",
+      "sha256": "3ceb112d58b95ce2af9478c531c9c54fe578e3b634ff18e11960ef8e5370d035",
+      "bytes": 518330,
+      "applicability": "COMPONENT_REFERENCE_ONLY",
+      "authority": "local PT8211 data-sheet original; not proof that the physical board is populated"
+    },
+    {
+      "id": "legacy_c_neo_pin_workbook",
+      "kind": "HISTORICAL_OTHER_BOARD",
+      "path": "code/rtl/138K_try/Tang_Mega_138K_30354_NEO_31005_引脚事实表.xlsx",
+      "sha256": "29d015d8f8ee2c4076a40d6d9c729f169d341652d354f468fb3c3d623b2a6873",
+      "bytes": 49280,
+      "applicability": "NEGATIVE_COMPARISON_ONLY",
+      "authority": "138K C 30354 plus NEO Dock 31005; prohibited as Pro physical evidence"
+    },
+    {
+      "id": "legacy_c_fixed_wiring",
+      "kind": "HISTORICAL_OTHER_BOARD",
+      "path": "code/docs/evidence/t056_138k_c_31005_fixed_wiring_20261007.json",
+      "sha256": "a93670a4d7eb3aa2267e2fd45a5a51783f5e908fe94b0a7b9dd91ccbbf1cef7f",
+      "bytes": 6565,
+      "applicability": "NEGATIVE_COMPARISON_ONLY",
+      "authority": "legacy board receipt; explicitly not the Pro board"
+    },
+    {
+      "id": "development_environment_doc",
+      "kind": "DERIVED_STATIC_AUDIT",
+      "path": "code/docs/开发环境.md",
+      "sha256": "52dbcfa82d66dc08bc71dc13943e26af29a1c27a2e0deb7eb4feb1f5d22e7f43",
+      "bytes": 2276,
+      "applicability": "DOCUMENTED_ENVIRONMENT_ONLY",
+      "authority": "repository environment note; not proof of current executable/license availability"
+    },
+    {
+      "id": "local_discovery_receipt",
+      "kind": "DERIVED_STATIC_AUDIT",
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/LOCAL_DISCOVERY_RECEIPT.json",
+      "sha256": "b18afa244e16e0193533c116d5f1370826a479c02778de46152258273a6afa53",
+      "bytes": 1784,
+      "applicability": "READ_ONLY_DISCOVERY_CONTEXT_ONLY",
+      "authority": "derived receipt with explicit unknowns; not physical identity or runtime proof"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "M3_R06_EVENT_CALENDAR_FILE_SHA_V1",
+  "baseline_commit": "42d28c4ad8250b9064099da4742fbde12a254444",
+  "source": {
+    "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/event_calendar.py": "3df7c588faeb7e381a57138d9b8a93a37df4008fdc3865635a19d44fcb6d0e3c",
+    "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/fixtures.py": "d4a79ed55c772371bd42657892311d60b88ff2cc480feb6a6c1e3a65354999db",
+    "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/selftest.py": "a4031aeed0f32ca78d326e4009b257060db7fb4960eea5579933430a09eb8caa",
+    "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/run_once.py": "a57b84cd4e62a94e0b244be8c912661c6ffc3543f6f144176c29e4de780a3f9f",
+    "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/cases.json": "d23379630cf95b5b7f8932cb2d4ea68d83fb6306ef43bd5fb52e239d1f51c7f2"
+  },
+  "frozen_inputs": {
+    "r6_2_plan": "d07c428162dbccefa8215ac629840058c3a8edd809e3f077dd695813133ad918",
+    "b1_observation_contract": "d89076836f8c60dd6544bbf2d9a5e8fa2f645ef49c8860458210562adf12d716",
+    "same_version_static_binding_zip": "931b7d2bbfd7ac056707542931101ff844b125936762748e344536d9be6c1ba2"
+  },
+  "run_01": {
+    "receipt.json": "436fe8b65230292ec2566b31897e757c8ac774255ba3bc3d37d38734e51d0f6c",
+    "stdout.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.bin": "72a7dba8175363bf3419f13058dedaf4680430991079c1b3b30da3a4c8234121"
+  },
+  "run_02": {
+    "receipt.json": "9456645c790d12672294ff0eccef16c37c21ceb65a04bdf12911f75b766112af",
+    "stdout.bin": "0303f57c49effb06ea351443080be2d60f1fc2f5c7d33f51e2c247723eb143f3",
+    "stderr.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "products/summary.json": "c46b114478e8ff97692c27860ff1c6324ac5a5e7dec4cd805790c66233abbb44",
+    "products/valid_synthetic/trace.jsonl": "03d43a0d91808e0c279293bb9480816c30098c41f9ecfd713402c5dbf95f4a8f",
+    "products/valid_synthetic/binding.json": "0a54708395319ffa49d9a459b9d69968ee89bd77050b096dc7de6a5df4fe2cce",
+    "products/valid_synthetic/frame_plan.json": "70e3523a14132915790b4d4d7a929109e3b7e3aea0fd9d0d4460ba4f609ef14c",
+    "products/valid_synthetic/report.json": "d34448ae7285348a27c07fd489860b68fa0f96b6940360c6fb38189158915f08",
+    "products/untrusted_source/report.json": "7fc864f52cdbe6d694cd3d1fe8bbdecc412e9c83cb0b9a79673f9da16fbfdc4d",
+    "products/missing_m1_semantics/report.json": "cf01f9d5900deb52d4a4310f08ddc05b343a619e1521eab14614abf5163ec3a7",
+    "products/missing_frame_plan/report.json": "0b11d87614f0628677abdef922d48302a0f7378e2b656aceefc6836526a22999",
+    "products/missing_canonical_field/report.json": "e613786170d2761eb4ad2b17daec0c7f337ac41b4d0649db0175aed739cfcdcb",
+    "products/missing_actual_apply/report.json": "20a4cd0c4557c21b10bbe68447c75b26402f2dcf9959c32de254546c86028e36",
+    "products/duplicate_actual_apply/report.json": "a2c2dfc245da8d9914bfe5d07cac52aca450fe65a7bcbe49a843250ce39a247c",
+    "products/wrong_apply_data/report.json": "5d0d12850afa8df836c07e1c3de3c029b36f8c09e92b9ca430449a6d8475bf89",
+    "products/missing_post_cancel_frame/report.json": "fd0eeab22e6e22032effd3de8d89031258f07c84ae95e2816fd33a78ebd5cd97",
+    "products/extra_idle_advance/report.json": "b0e6ebdf03d0ef1e882074ac87d8e300a5585c471bfc3843a64f23d5f02d96bf",
+    "products/wrong_common_mask/report.json": "91319490eff0b4e37093bbd2d82506779bb2540588cbd1b3a5b4b75b66447225",
+    "products/commit_after_cancel/report.json": "cb53a88339ae2c58d3bf411d935a9788dd031a873b1dacc14a51ec905863c26f",
+    "products/cross_epoch_commit/report.json": "b424692b26a28e86b7ad08cde4dd1a033783b1f2f788e56d44da35a3dbf4ac03",
+    "products/missing_finish/report.json": "3625674ed7add3147b36d543a05a4c050e31bc5cc517553144bf786869bc1146"
+  },
+  "handwritten_before_final_docs": {
+    "README.md": "6bf782ab9b74d3eb512bbf05ea5d5ce008c4b86863cb4e978f85889d76b69450",
+    "CALENDAR_CONTRACT.json": "585769a4458c588627da177da00a33da1ea7c487d762ff3885291948b820c91d",
+    "INPUT_IDENTITIES.json": "e6f5761a39f0f94074f7034228a7c4cb01fa754999e60640ffb5f8a85d81ac82",
+    "START.md": "50051e60c468e673adbb009b9c98972a25e437dfef64140b7426ad526cb433b7",
+    "FAILURE_HISTORY.md": "9d3a77b312b41475b7a636d616150654c736d0a63c3b2785e6f45808ce679b70",
+    "RUN_SPEC.json": "4e3c175b2c782f29bce44b405e9ac4d1dd11e4e680bd2c200bb9e48b9857406c",
+    "RUN_SPEC_R02.json": "200c328f0bd4179aa1cc879a21bddc0da7f1159ead0bade6c52925a12ff92786"
+  },
+  "final_docs": {
+    "RESULT.md": "948c0f372c2b40b92ac675f8a313fa89c7df8a52bae3f46db6c69be2125dc742",
+    "SELF_REVIEW.md": "fd3844caba9f440465e7e2c73a92ef46a9eac9b0a9de2c6de7ff44f460a4b1ef"
+  }
+}

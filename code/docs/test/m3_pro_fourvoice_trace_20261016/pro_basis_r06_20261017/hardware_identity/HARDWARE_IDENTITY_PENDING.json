@@ -1,0 +1,169 @@
+{
+  "schema_version": "hardware-identity-v1",
+  "record_id": "m3-r6-7-pro-hardware-pending-20261017",
+  "board_family": "TANG_MEGA_138K_PRO",
+  "unit_id": "UNASSIGNED_PHYSICAL_UNIT",
+  "session_id": "UNASSIGNED_MEASUREMENT_SESSION",
+  "fixture_only": false,
+  "board_release_allowed": false,
+  "identity": {
+    "chip_marking": {
+      "status": "PENDING",
+      "value": null,
+      "evidence": ["pro_core_schematic_4072", "pro_b0_input_receipt"],
+      "note": "Reference symbol suggests GW5AT-LV138FPG676A, but an in-focus physical chip-marking photo is absent. Complete part and package are not observed."
+    },
+    "chip_stepping": {
+      "status": "UNKNOWN",
+      "value": null,
+      "evidence": ["pro_core_schematic_4072"],
+      "note": "Stepping/version is not established by the reference schematic and no physical marking photo exists."
+    },
+    "core_revision": {
+      "status": "PENDING",
+      "value": null,
+      "evidence": ["pro_core_schematic_4072"],
+      "note": "4072 Rev1.10 is the reference-document candidate, not the observed silkscreen revision."
+    },
+    "dock_revision": {
+      "status": "PENDING",
+      "value": null,
+      "evidence": ["pro_dock_schematic_4071f3"],
+      "note": "4071f3 Rev1.5 is the reference-document candidate, not the observed Dock silkscreen revision."
+    }
+  },
+  "banks": [
+    {
+      "bank": 3,
+      "expected_logic": "3.3V reference candidate; confirm against actual board/test point",
+      "measurement": {
+        "status": "PENDING",
+        "value": null,
+        "evidence": ["pro_core_schematic_4072", "pro_pin_relationships_r02"],
+        "note": "No raw meter/scope reading tied to the physical Pro board, ground reference and instrument identity."
+      },
+      "assessment": "UNASSESSED"
+    },
+    {
+      "bank": 4,
+      "expected_logic": "3.3V/1.8V selectable reference candidate; actual strap and rail must be observed",
+      "measurement": {
+        "status": "PENDING",
+        "value": null,
+        "evidence": ["pro_dock_schematic_4071f3", "pro_pin_relationships_r02"],
+        "note": "No raw voltage reading; selection state cannot be inferred from the PDF."
+      },
+      "assessment": "UNASSESSED"
+    },
+    {
+      "bank": 5,
+      "expected_logic": "3.3V/1.8V selectable reference candidate; PT8211/PA candidates cross this bank",
+      "measurement": {
+        "status": "PENDING",
+        "value": null,
+        "evidence": ["pro_dock_schematic_4071f3", "pro_pin_relationships_r02"],
+        "note": "No raw voltage reading; do not energize or connect an unknown-level peripheral."
+      },
+      "assessment": "UNASSESSED"
+    }
+  ],
+  "midi_input": {
+    "direction": {
+      "status": "PENDING",
+      "value": null,
+      "evidence": ["pro_dock_schematic_4071f3", "pro_b0_input_receipt"],
+      "note": "Candidate is adapter output into FPGA input R17/PMOD0_IO3/J22-5; actual adapter pin direction is unobserved."
+    },
+    "fpga_side_voltage": {
+      "status": "PENDING",
+      "value": null,
+      "evidence": ["pro_dock_schematic_4071f3"],
+      "note": "No FPGA-side idle/high/low raw readings. Unknown levels must not be connected."
+    },
+    "common_ground": {
+      "status": "PENDING",
+      "value": null,
+      "evidence": ["pro_dock_schematic_4071f3"],
+      "note": "The connector has reference GND pins, but continuity/common ground on the actual setup is not measured."
+    }
+  },
+  "audio_path": {
+    "pt8211_identity": {
+      "status": "PENDING",
+      "value": null,
+      "evidence": ["pro_dock_schematic_4071f3", "pt8211_datasheet_v17"],
+      "note": "Reference Dock shows PT8211-S U6; actual component population/marking photo is absent."
+    },
+    "serial_wiring": {
+      "status": "PENDING",
+      "value": null,
+      "evidence": ["pro_dock_schematic_4071f3", "pro_reference_cst"],
+      "note": "Reference candidate is BCK E22, WS F24, DIN G24; no continuity or active waveform capture exists."
+    },
+    "pa_path": {
+      "status": "PENDING",
+      "value": null,
+      "evidence": ["pro_dock_schematic_4071f3", "legacy_c_fixed_wiring"],
+      "note": "Pro candidate uses XPT4809 with H17 PA_EN high-to-work; this differs from legacy NEO low-active AB16. Physical population and polarity remain unobserved."
+    },
+    "safe_load": {
+      "status": "PENDING",
+      "value": null,
+      "evidence": ["pro_dock_schematic_4071f3"],
+      "note": "No verified connection to the headphone/line path or approved speaker/load; no audio was played."
+    }
+  },
+  "commercial_tools": [
+    {
+      "name": "Gowin IDE/Synthesis",
+      "binary_identity": {
+        "status": "PENDING",
+        "value": null,
+        "evidence": ["development_environment_doc", "local_discovery_receipt"],
+        "note": "A local executable candidate was found outside the repository, but no immutable in-package identity receipt or permitted launch validates the complete installation."
+      },
+      "runtime_license": {
+        "status": "UNKNOWN",
+        "value": null,
+        "evidence": ["development_environment_doc", "local_discovery_receipt"],
+        "note": "No tool launch was permitted. An environment variable existed but its value is intentionally not captured; actual license validity is unknown."
+      }
+    },
+    {
+      "name": "Gowin Programmer",
+      "binary_identity": {
+        "status": "UNKNOWN",
+        "value": null,
+        "evidence": ["development_environment_doc", "local_discovery_receipt"],
+        "note": "Expected programmer CLI locations and PATH lookup did not establish an executable."
+      },
+      "runtime_license": {
+        "status": "UNKNOWN",
+        "value": null,
+        "evidence": ["local_discovery_receipt"],
+        "note": "Not launched; availability and licensing remain unknown."
+      }
+    },
+    {
+      "name": "ModelSim",
+      "binary_identity": {
+        "status": "UNKNOWN",
+        "value": null,
+        "evidence": ["development_environment_doc", "local_discovery_receipt"],
+        "note": "No vsim command was found in the current PATH; no broader claim is made."
+      },
+      "runtime_license": {
+        "status": "UNKNOWN",
+        "value": null,
+        "evidence": ["local_discovery_receipt"],
+        "note": "Not launched; actual license validity is unknown."
+      }
+    }
+  ],
+  "raw_evidence_requirements": [
+    "board_photos",
+    "raw_measurement_csv",
+    "official_source_pages",
+    "instrument_metadata"
+  ]
+}

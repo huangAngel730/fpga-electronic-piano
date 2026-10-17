@@ -1,0 +1,52 @@
+{
+  "schema": "M3_R06_TX_CLOCK_RESET_CHECKER_CONTRACT_V1",
+  "status": "SOFTWARE_BOUNDARY_PREPARATION",
+  "trace": "canonical 61 public fields plus integer time_ps on every 40 MHz observation row",
+  "required_real_authorities": {
+    "trace_authority": "REAL_PUBLIC_TRACE",
+    "tx_sidecar_authority": "M2_FROZEN_TX_SIDECAR",
+    "pins_authority": "REAL_PUBLIC_PINS",
+    "timebase_authority": "REAL_CAPTURE_TIMEBASE",
+    "finish_authority": "M2_FROZEN_FINISH",
+    "calendar_authority": "M3_R6_5_REAL_LEDGER",
+    "frame_plan_authority": "M2_FROZEN_FRAME_PLAN",
+    "oracle_authority": "M1_READONLY_GOLDEN"
+  },
+  "identity_rules": [
+    "TX identity comes only from explicit TX-adoption sidecar",
+    "commit is not TX adoption",
+    "PCM equality never implies identity",
+    "startup zero has no request ID",
+    "HOLD inherits the prior adopted ID, PCM24 and clip exactly"
+  ],
+  "clock_serial_rules": {
+    "system_clock_hz": 40000000,
+    "sample_phase": "SYS_POSEDGE_PRE_NBA",
+    "frame_spacing_cycles": [833, 834],
+    "three_interval_sum": 2500,
+    "bclk_rises_per_lrclk_frame": 64,
+    "slot_bits": 32,
+    "payload_bits": 16,
+    "format": "PT8211 LSBJ; WS low right, WS high left",
+    "pcm24_to_pcm16": "SATURATE((PCM24+128)//256)"
+  },
+  "deadline_rules": {
+    "internal_completion": "age < 833 cycles",
+    "tx_consumption": "only at independent FRAME; 833/834 cadence is separate"
+  },
+  "termination_rules": [
+    "EOF is not finish",
+    "reset-truncated serial is UNKNOWN",
+    "tail without authoritative finish is PENDING",
+    "finish with open, returned or committed-unadopted transaction is REJECT",
+    "finish with partial serial word is REJECT"
+  ],
+  "forbidden_inferences": [
+    "last commit as TX adoption",
+    "PCM equality as request identity",
+    "WAV sample rate as FPGA LRCLK",
+    "EOF as finish"
+  ],
+  "real_pro_tx_pass": false,
+  "board_release_allowed": false
+}

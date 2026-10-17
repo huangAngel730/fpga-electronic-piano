@@ -1,0 +1,47 @@
+{
+  "schema_version": "hardware-local-discovery-receipt-v1",
+  "machine": "LAPTOP-KSS1MRR7",
+  "recorded_at": "2026-10-17T16:50:35.0401256+08:00",
+  "classification": "DERIVED_READ_ONLY_DISCOVERY_NOT_PHYSICAL_EVIDENCE",
+  "restrictions": {
+    "fpga_tools_launched": false,
+    "board_operated": false,
+    "secrets_captured": false,
+    "license_value_captured": false
+  },
+  "probes": [
+    {
+      "operation": "Windows CIM PnP/serial read-only enumeration",
+      "result": "ERROR_BEFORE_ENUMERATION",
+      "diagnostic": "无法从客户端中访问 CIM 资源",
+      "exit_code": null,
+      "exit_code_note": "The original shell exit was not preserved; no hardware identity claim is made."
+    },
+    {
+      "operation": "Get-Command lookup for gw_sh, programmer, Gowin, vsim and iverilog in current PATH",
+      "result": "NO_COMMAND_FOUND",
+      "exit_code": 0,
+      "scope_note": "PATH-only result; it does not prove system-wide absence."
+    },
+    {
+      "operation": "Direct existence checks at documented Gowin IDE/Programmer locations",
+      "result": "PARTIAL_INSTALL_CANDIDATE",
+      "exit_code": 0,
+      "observations": {
+        "gw_sh": "ABSENT_AT_EXPECTED_PATH",
+        "programmer_cli": "ABSENT_AT_EXPECTED_PATH",
+        "gowin_synthesis": {
+          "status": "FILE_CANDIDATE_ONLY_NOT_LAUNCHED",
+          "bytes": 21800,
+          "sha256": "c116ecc6bc3d66a7e9d88082fb3e128117e2488786d31f4bd3ca11024fe8cd55"
+        }
+      }
+    },
+    {
+      "operation": "Environment name presence check",
+      "result": "GOWIN_HOME absent; GOWIN_PROGRAMMER_HOME absent; one license-related variable name present",
+      "exit_code": 0,
+      "redaction": "The license-related value was neither copied nor stored. Runtime validity remains UNKNOWN."
+    }
+  ]
+}
