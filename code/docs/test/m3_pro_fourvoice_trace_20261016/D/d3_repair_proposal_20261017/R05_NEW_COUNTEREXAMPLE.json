@@ -1,0 +1,198 @@
+{
+  "status": "NEW_FRAME_COVERAGE_BOUNDARY_STATIC_NOT_RUN",
+  "baseline": "600d5ca8d7f0089b7d46cb5ad071f862a2d6706f",
+  "source": "code/software/m3_pro_fourvoice_trace_20261016/D/ingest/ingest.py",
+  "source_sha256": "eb74ca9ef3cc363163d51e0c8af1a3f9bd8d15905ba3307a5ea1ab8d1c6ed764",
+  "calendar": {
+    "schema": "M3_PRO_INTAKE_CALENDAR_V1",
+    "provenance": "SYNTHETIC_FIXTURE",
+    "requests": [
+      {
+        "epoch": 0,
+        "req_id": 7,
+        "cycle": 10,
+        "lane_mask": 15
+      },
+      {
+        "epoch": 0,
+        "req_id": 8,
+        "cycle": 1677,
+        "lane_mask": 15
+      }
+    ]
+  },
+  "trace": [
+    {
+      "kind": "RESET",
+      "cycle": 0,
+      "epoch": 0
+    },
+    {
+      "kind": "PA",
+      "cycle": 0,
+      "epoch": 0,
+      "rst_n": 0,
+      "stable": 0,
+      "pa_en": 0
+    },
+    {
+      "kind": "PA",
+      "cycle": 1,
+      "epoch": 0,
+      "rst_n": 1,
+      "stable": 0,
+      "pa_en": 0
+    },
+    {
+      "kind": "PA",
+      "cycle": 5,
+      "epoch": 0,
+      "rst_n": 1,
+      "stable": 1,
+      "pa_en": 1
+    },
+    {
+      "kind": "FRAME",
+      "cycle": 10,
+      "epoch": 0,
+      "frame_id": 0
+    },
+    {
+      "kind": "REQUEST",
+      "cycle": 10,
+      "epoch": 0,
+      "req_id": 7,
+      "lane_mask": 15
+    },
+    {
+      "kind": "ACCEPT",
+      "cycle": 11,
+      "epoch": 0,
+      "req_id": 7
+    },
+    {
+      "kind": "LANE_TICK",
+      "cycle": 12,
+      "epoch": 0,
+      "req_id": 7,
+      "lane": 0
+    },
+    {
+      "kind": "LANE_TICK",
+      "cycle": 13,
+      "epoch": 0,
+      "req_id": 7,
+      "lane": 1
+    },
+    {
+      "kind": "LANE_TICK",
+      "cycle": 14,
+      "epoch": 0,
+      "req_id": 7,
+      "lane": 2
+    },
+    {
+      "kind": "LANE_TICK",
+      "cycle": 15,
+      "epoch": 0,
+      "req_id": 7,
+      "lane": 3
+    },
+    {
+      "kind": "RETURN",
+      "cycle": 45,
+      "epoch": 0,
+      "req_id": 7,
+      "left": 8388607,
+      "right": -8388608
+    },
+    {
+      "kind": "FRAME",
+      "cycle": 843,
+      "epoch": 0,
+      "frame_id": 1
+    },
+    {
+      "kind": "CONSUME",
+      "cycle": 843,
+      "epoch": 0,
+      "req_id": 7,
+      "frame_id": 1
+    },
+    {
+      "kind": "FRAME",
+      "cycle": 1677,
+      "epoch": 0,
+      "frame_id": 2
+    },
+    {
+      "kind": "REQUEST",
+      "cycle": 1677,
+      "epoch": 0,
+      "req_id": 8,
+      "lane_mask": 15
+    },
+    {
+      "kind": "ACCEPT",
+      "cycle": 1678,
+      "epoch": 0,
+      "req_id": 8
+    },
+    {
+      "kind": "LANE_TICK",
+      "cycle": 1679,
+      "epoch": 0,
+      "req_id": 8,
+      "lane": 0
+    },
+    {
+      "kind": "LANE_TICK",
+      "cycle": 1680,
+      "epoch": 0,
+      "req_id": 8,
+      "lane": 1
+    },
+    {
+      "kind": "LANE_TICK",
+      "cycle": 1681,
+      "epoch": 0,
+      "req_id": 8,
+      "lane": 2
+    },
+    {
+      "kind": "LANE_TICK",
+      "cycle": 1682,
+      "epoch": 0,
+      "req_id": 8,
+      "lane": 3
+    },
+    {
+      "kind": "RETURN",
+      "cycle": 1712,
+      "epoch": 0,
+      "req_id": 8,
+      "left": 0,
+      "right": 0
+    },
+    {
+      "kind": "CANCEL",
+      "cycle": 2509,
+      "epoch": 0,
+      "req_id": 8
+    },
+    {
+      "kind": "END",
+      "cycle": 2511,
+      "epoch": 0
+    }
+  ],
+  "transaction_contract": "RETURN/CANCEL/RESET age<833 per current R05; this case complies",
+  "static_path": "req8 return age35; cancel2509-1677=832; missingFRAME2510 leaves due_cycle None; END2511 sees consumed req7 and canceled req8; can return structure pass",
+  "scope_question": "Must a legitimately canceled transaction still preserve independently scheduled FRAME2510 before END2511? If yes, independent frame plan and a new permitted increment are needed. If no, declare full frame coverage unverified.",
+  "known_835_bug_reopened": false,
+  "old_R02_patch_applicable": false,
+  "functional_runs": 0,
+  "observed_result": "NOT_RUN",
+  "pro_dut_pass": false,
+  "board_release_allowed": false
+}
