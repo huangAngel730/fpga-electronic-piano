@@ -1,0 +1,37 @@
+{
+  "format": "NORMALIZED_TOOL_RESULT_TRANSCRIPT_NOT_RAW_STREAMS",
+  "fetch_metadata": {
+    "result": "PASS",
+    "from_commit": "ef4fbc74b9d24e08de1e09d0be0eb3163118f258",
+    "to_commit": "30d4591ce4e8c8551c4a14c7990e1de7aff2a2a1"
+  },
+  "failures": [
+    {
+      "action": "sandbox direct git fetch metadata",
+      "exit_code": 1,
+      "result": "schannel SEC_E_NO_CREDENTIALS"
+    },
+    {
+      "action": "elevated specified 11 blob fetch first attempt",
+      "exit_code": 1,
+      "result": "Could not resolve host: github.com"
+    },
+    {
+      "action": "Resolve-DnsName github.com",
+      "exit_code": 0,
+      "result": "20.205.243.166"
+    },
+    {
+      "action": "elevated same blob fetch after DNS recovery",
+      "exit_code": 1,
+      "result": "Operation too slow. Less than 1 bytes/sec transferred the last 20 seconds"
+    },
+    {
+      "action": "read-only raw GitHub fallback for 2 M2 docs",
+      "result": "404; no document content obtained"
+    }
+  ],
+  "local_reads": "Actual subprocess stdout/stderr and receipts are under runs/. Missing blobs were read with GIT_NO_LAZY_FETCH=1 and remain missing, not fabricated.",
+  "publication": "NOT_ATTEMPTED_REQUIRED_LATEST_BLOBS_UNAVAILABLE",
+  "global_git_config_changed": false
+}

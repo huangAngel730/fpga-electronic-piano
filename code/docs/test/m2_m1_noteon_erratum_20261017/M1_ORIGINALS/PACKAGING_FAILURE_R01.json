@@ -1,0 +1,9 @@
+{
+  "scope": "Document package assembly only; no RTL or old tests executed",
+  "format": "Normalized original tool-result transcript; not a saved native stderr stream",
+  "exit_code": 1,
+  "exception": "AssertionError at assert len(z.namelist()) == len(members)+1",
+  "cause": "A previous package member manifest was counted as a payload during re-sealing",
+  "repair": "Exclude the package member manifest from the payload manifest before writing its successor",
+  "frozen_source_changed": false
+}
