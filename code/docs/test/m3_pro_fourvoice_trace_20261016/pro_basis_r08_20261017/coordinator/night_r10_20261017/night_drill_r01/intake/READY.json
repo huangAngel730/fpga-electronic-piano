@@ -1,0 +1,142 @@
+{
+  "schema": "M3_DRILL_ROLE_INTAKE_READY_V1",
+  "status": "STATIC_READY_NOT_RUN",
+  "role": "night_task_2",
+  "ready_UTC": "2026-10-17T16:22:33Z",
+  "task_id": "M3-NIGHT-DRILL-R01-20261017",
+  "plan_version": "R01",
+  "original_START": "2026-10-17T21:52:00+08:00",
+  "deadline": "2026-10-18T02:52:00+08:00",
+  "start_deadline_and_goal_source": "Coordinator reported; this role neither creates Goal nor resets START",
+  "unique_executor_publisher": "night_task_1",
+  "engine": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/intake/engine.py",
+    "bytes": 16752,
+    "sha256": "f463927e4c719e2b40645896b644647bed93f70a7640dca342ce2dc3cba6233b"
+  },
+  "selftest": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/intake/selftest.py",
+    "bytes": 10908,
+    "sha256": "b559c0da2392cede9453f8d22b7bbf182b1fe86084f0b983b2585523a82e7d18"
+  },
+  "case_manifest": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/intake/CASES.json",
+    "bytes": 1933,
+    "sha256": "24670a1ad49e1d85dd25961e7645e0e0b5806058898b4776fa106d3e53da33c6"
+  },
+  "case_count": 10,
+  "cases": [
+    {
+      "id": "INTAKE_NORMAL",
+      "expected": "RECEIVED_THEN_ADVANCED",
+      "description": "Exact bytes verified; durable RECEIVED exists before separate atomic advance"
+    },
+    {
+      "id": "INTAKE_DUPLICATE_RELOAD",
+      "expected": "DUPLICATE_EXACTLY_ONCE",
+      "description": "Reload then rediscover identical full-key handoff: one receipt and one advancement"
+    },
+    {
+      "id": "INTAKE_MANIFEST_BOUNDARIES",
+      "expected": "MANIFEST_4_REJECTIONS",
+      "description": "Wrong bytes, wrong SHA, parent escape and Windows NUL each reject without receipt"
+    },
+    {
+      "id": "INTAKE_SCHEMA_VERSION_CONSUMER",
+      "expected": "CONTRACT_4_REJECTIONS",
+      "description": "Schema/version/consumer mismatch and abbreviated result_commit reject"
+    },
+    {
+      "id": "OUTBOX_RETRY_RELOAD",
+      "expected": "ONE_RETRY_MAXIMUM",
+      "description": "Exact target/commit/error persists; reload retains attempts; first send plus one retry only"
+    },
+    {
+      "id": "OUTBOX_UNKNOWN",
+      "expected": "UNKNOWN_NO_RESEND_OR_REMOTE_PASS",
+      "description": "Unknown result persists, refuses blind resend, never marks REMOTE_VERIFIED"
+    },
+    {
+      "id": "OUTBOX_DENIED",
+      "expected": "DENIED_NO_RETRY",
+      "description": "Permission denial persists exact error and stops even before temporary retry allowance"
+    },
+    {
+      "id": "OUTBOX_INTERRUPTED",
+      "expected": "INTERRUPTED_SEND_UNKNOWN",
+      "description": "File-only simulated checkpoint reload turns unfinished IN_FLIGHT into UNKNOWN; no process interruption claimed"
+    },
+    {
+      "id": "INTAKE_SINGLE_WRITER",
+      "expected": "EXCLUSIVE_WRITER",
+      "description": "Second store cannot acquire writer lock; first releases only its own token"
+    },
+    {
+      "id": "INTAKE_CHECKPOINT_GAP",
+      "expected": "RELOAD_CONTINUES_AFTER_RECEIVED",
+      "description": "Advance before receipt rejects; reload after received-before-advance gap continues once"
+    }
+  ],
+  "test_API": "selftest.run_case(case_id, out:Path)->dict",
+  "out_directory": "Must not exist; selftest creates it with exist_ok=False",
+  "production_API": "engine.Store with receive/advance/snapshot/enqueue/begin_attempt/finish_attempt/recover_in_flight",
+  "interface": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/intake/INTERFACE.json",
+    "bytes": 1902,
+    "sha256": "5519249def5d3f111370f1d8c23d50e56dc705288c69d5de9c8a45c951979068"
+  },
+  "binding": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/intake/BINDING.json",
+    "bytes": 993,
+    "sha256": "eff95afec3b838fbb824f51c68957f0e59bf7296ce4b3c5d68a0a21099d1335d"
+  },
+  "readme": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/intake/README.md",
+    "bytes": 6087,
+    "sha256": "815337b1b30063208a493cdddd8380b2971ebeb9643212a865faf016b4c6db09"
+  },
+  "static_review": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/intake/STATIC_REVIEW.json",
+    "bytes": 1373,
+    "sha256": "16e2dc5c0572849f38dd1339642deafdbbdf1f7b894b98895b4f8179a2790896"
+  },
+  "output_scope": "code/output/m3_m2_night_drill_20261017",
+  "persistent_file": "Store.root/STATE.json: one atomic snapshot with receipts, checkpoint advancement and outbox",
+  "network_and_tools": "None in engine/selftest; actual network bounds and log originals belong to coordinator adapter",
+  "dependencies": "Python standard library only; no common.py",
+  "candidate_imports": 0,
+  "candidate_compile_AST": 0,
+  "candidate_test_runs": 0,
+  "Git_writes": 0,
+  "network_calls": 0,
+  "HDL_EDA_device_runs": 0,
+  "actual_drill_claim": "LOCAL_SYNTHETIC definitions only; four real two-machine branches not signed",
+  "remote_verified": false,
+  "board_release_allowed": false,
+  "limitations": [
+    "Single <=120s frozen group not run by role; coordinator owns budget",
+    "Caller supplies exact committed snapshot and fetched ancestry; engine only verifies supplied file bodies",
+    "Unknown or success send has no automatic remote-verified promotion/unlock",
+    "Stale writer lock needs coordinator identity-checked owned-worker cleanup; no auto stealing",
+    "Process/App/machine restart/polling and real two-machine/M2 receipts pending"
+  ],
+  "upstream_read_inputs": [
+    {
+      "path": "code/docs/test/m2_night_drill_r01_20261017/ASSIGNMENT_RECEIPT.json",
+      "bytes": 3479,
+      "sha256": "d6c681f2ec9c38fc224f05e24582cc42cbdb568234abab59c38c98b0e827f42c"
+    },
+    {
+      "path": "code/docs/test/m2_night_drill_r01_20261017/HANDOFF.json",
+      "bytes": 2679,
+      "sha256": "0b3001bcf9ab2a1437f7538d0cb2aa9f44e21ccba195c584f5dd872257398707"
+    },
+    {
+      "path": "code/docs/test/m2_night_drill_r01_20261017/ASSIGNMENT.json",
+      "bytes": 1965,
+      "sha256": "d8f3e9f42f0b968b32b1317b38d725993f83050781b4ce10d21284abd69954a6"
+    }
+  ],
+  "Git": "NOT_COMMITTED_NOT_PUSHED_BY_THIS_ROLE",
+  "freeze": "No further writes absent specific coordinator defect or interface blocker"
+}

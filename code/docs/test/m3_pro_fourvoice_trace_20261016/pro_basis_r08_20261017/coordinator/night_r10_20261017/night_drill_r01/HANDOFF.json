@@ -1,0 +1,60 @@
+{
+  "schema": "NIGHT_HANDOFF_V1",
+  "handoff_id": "M3-NIGHT-DRILL-R01-RESULT-20261018-01",
+  "task_id": "M3-NIGHT-DRILL-R01-20261017",
+  "plan_version": "R01",
+  "producer": "M3",
+  "consumer": "M2",
+  "base_commit": "358c16c2a927e3684c075dfc5ede70a6a67e036a",
+  "result_commit": null,
+  "manifest": [
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/DELIVERY/M3_NIGHT_DRILL_RESULT_R01_20261018.zip",
+      "bytes": 368174,
+      "sha256": "0a1c470c21dd54efaffa4bddd9927435c2475001fa3df770dc58b9094ac891a3"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/DELIVERY/ARCHIVE_RECEIPT.json",
+      "bytes": 707,
+      "sha256": "69e151ac3ac8efe75bb74e2348522431de7806221c15c7fbd6429eb42bb1597f"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/DRILL_RESULT.json",
+      "bytes": 6684,
+      "sha256": "e041d468d97e3f21b2f0e331290157114bf9c035af0efdc768fe962e7c5d6d69"
+    }
+  ],
+  "validation": {
+    "status": "PARTIAL_WAITING_INPUT",
+    "level": "L0/L1 limited",
+    "self_review": true,
+    "local_group_exit": 0,
+    "worker_group_exit": 0,
+    "new_Pro_HDL_EDA_devices": 0,
+    "repo_gate": "REQUIRED_BEFORE_PUSH; publication receipt separately binds actual gate"
+  },
+  "ready_for": [
+    "M2 limited original review and sender identity/completion evidence"
+  ],
+  "next_action": "M2 read DRILL_RESULT missing/resume conditions; root continues independent R10 without reset",
+  "blockers": [
+    {
+      "item": "M2 explicit machine/session identities",
+      "owner": "M2"
+    },
+    {
+      "item": "real send-failure/unknown cross-machine recovery evidence",
+      "owner": "M2/M3, do not inject real push failure"
+    },
+    {
+      "item": "actual App/machine restart survival proof",
+      "owner": "future explicit scope"
+    },
+    {
+      "item": "M2 limited final review/ACCEPTED receipt",
+      "owner": "M2"
+    }
+  ],
+  "receipts": [],
+  "board_release_allowed": false
+}

@@ -1,0 +1,116 @@
+{
+  "schema": "M3_READY_RECEIPT_R01",
+  "task_id": "M3-NIGHT-DRILL-R01-20261017",
+  "handoff_id": "NIGHT-DRILL-M3-R01-20261017",
+  "producer": "M3",
+  "consumer": "M2",
+  "status": "READY_WITH_MISSING_REMOTE_SCENARIOS",
+  "utc": "2026-10-17T16:15:28.123453+00:00",
+  "result_commit": null,
+  "receipt_commit": null,
+  "assignment_result_commit": "edab067e0ceaad9d324d5048771ac3531c3663fe",
+  "sample_handoff_id": "NIGHT-RULES-GOAL-20261017-01",
+  "sample_result_commit": "30a8cd5474e6ff485ce0bf8fd5f3c1d51643123a",
+  "M3": {
+    "machine": "LAPTOP-KSS1MRR7",
+    "session_id": "01a14050-cd98-7c41-8004-5d3e25765167",
+    "repo": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+    "head": "358c16c2a927e3684c075dfc5ede70a6a67e036a"
+  },
+  "M2": {
+    "machine": null,
+    "session_id": null,
+    "owner": "M2; use sender originals only, do not infer"
+  },
+  "original_START": "2026-10-17T21:52:00+08:00",
+  "original_START_source": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/START.md",
+    "bytes": 4624,
+    "sha256": "64d0c8e4ff678eb290d0fb802d571cb38a430bf3d8befb2f2b87c3fb029d1ab5"
+  },
+  "deadline": "2026-10-18T02:52:00+08:00",
+  "remaining_seconds_at_receipt": 9391.876547,
+  "goal": {
+    "threadId": "01a14050-cd98-7c41-8004-5d3e25765167",
+    "createdAt": 1792253457,
+    "status": "active",
+    "opaque_goal_id": null,
+    "identity_note": "platform exposes threadId plus createdAt, no separate opaque ID"
+  },
+  "unique_publisher": "night1/M3/root/current thread",
+  "polling_status": "POLLING_NOT_VERIFIED",
+  "originals_verification": {
+    "manifest_payloads": 18,
+    "zip_members_CRC_ok": 7,
+    "source_gate_passes": 9,
+    "status": "PASS",
+    "evidence": "INPUT_VERIFICATION.json",
+    "source_tree": "7352880e5091a7396d7a9727d98e6f7d0446aa0c"
+  },
+  "network_query": {
+    "kind": "fetch",
+    "operation_id": "startup_fetch",
+    "attempt": 1,
+    "retry_basis": null,
+    "argv": [
+      "C:/Program Files/Git/cmd/git.exe",
+      "-c",
+      "http.proxy=http://127.0.0.1:7892",
+      "-c",
+      "http.version=HTTP/1.1",
+      "-c",
+      "credential.interactive=false",
+      "fetch",
+      "origin"
+    ],
+    "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+    "utc": "2026-10-17T16:12:10.813443+00:00",
+    "timeout_seconds": 30,
+    "process_wait_seconds": 28,
+    "status": "OK",
+    "pid": 37096,
+    "exit_code": 0,
+    "elapsed_seconds": 2.3910000000032596,
+    "process_exit_code": 0,
+    "within_30_seconds": true
+  },
+  "fetched_remote_tip": "358c16c2a927e3684c075dfc5ede70a6a67e036a",
+  "independent_assignment_ancestor_exit": 0,
+  "independent_sample_ancestor_exit": 0,
+  "tracked_clean_at_start": true,
+  "protected_untracked_status_in": "RUN_CONTRACT.json",
+  "member_assignments": {
+    "night2": "intake/ static only; no candidate tests/Git",
+    "night3": "recovery/ static plus R10 gap inventory; no candidate tests/Git",
+    "night1": "freeze, sole execute, integration, ledger, Git gates"
+  },
+  "missing": [
+    {
+      "item": "M2 explicit machine/session identities",
+      "owner": "M2"
+    },
+    {
+      "item": "real send-failure/unknown cross-machine recovery evidence",
+      "owner": "M2/M3, do not inject real push failure"
+    },
+    {
+      "item": "actual App/machine restart survival proof",
+      "owner": "future explicit scope"
+    },
+    {
+      "item": "M2 limited final review/ACCEPTED receipt",
+      "owner": "M2"
+    }
+  ],
+  "next_action": "Freeze one local pure-file group and one owned worker group; record real and LOCAL_SYNTHETIC separately, seal bounded PARTIAL then continue authorized R10",
+  "over_one_hour_test": {
+    "observation": "No separately authorized >1h actual tool test found in fetched R01/R10; R10 stage guidance contains <=90min/<=120min estimates but tool budgets are seconds",
+    "actual_R01_budgets_seconds": [
+      120,
+      60,
+      60
+    ],
+    "no_new_long_test_started": true
+  },
+  "board_release_allowed": false
+}
