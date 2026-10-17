@@ -1,0 +1,529 @@
+{
+  "schema": "M2_R06C9_OBSERVER_EXPORTS_V1",
+  "status": "IMPLEMENTED_STATIC_NOT_COMPILED",
+  "top": "m2_138k_pro_fourvoice_observer_top_r06c9",
+  "expected_observation_ports": {
+    "obs_core_clk": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_polyphonic_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_rst_n": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_frame_tick": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_event_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_event_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_event_data": {
+      "width": 64,
+      "signed": false
+    },
+    "obs_req_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_req_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_result_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_result_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_result_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_result_left": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_result_right": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_result_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_req_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_commit": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_commit_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_commit_left": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_commit_right": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_commit_clip": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_cancel": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_config_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_config_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_left": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_tx_right": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_pll_locked": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_sample_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_metadata_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_req_id_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_frame_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_tx_req_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_tx_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_tx_clip_any": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_hold": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_startup_zero": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_metadata_error": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_frame_id_overflow": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_raw_cancel_reason": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_apply_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_apply_data": {
+      "width": 64,
+      "signed": false
+    },
+    "obs_occupied_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_releasing_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_note_on_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_note_off_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_retire_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_slot_sources": {
+      "width": 16,
+      "signed": false
+    },
+    "obs_slot_channels": {
+      "width": 16,
+      "signed": false
+    },
+    "obs_slot_notes": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_slot_generations": {
+      "width": 128,
+      "signed": false
+    },
+    "obs_advance_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_advance_frame_req_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_effect_input_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_effect_input_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_effect_input_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_effect_input_left": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_effect_input_right": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_effect_input_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_apply_kind": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_apply_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_router_apply_seq": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_router_apply_seq_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_config_take": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_config_payload": {
+      "width": 62,
+      "signed": false
+    },
+    "obs_upstream_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_effect_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_feedback_clip_mask": {
+      "width": 2,
+      "signed": false
+    }
+  },
+  "new_routes": [
+    {
+      "field": "apply_valid",
+      "port": "obs_apply_valid",
+      "m1_port": "obs_apply_valid",
+      "width": 1,
+      "signed": false
+    },
+    {
+      "field": "apply_data",
+      "port": "obs_apply_data",
+      "m1_port": "obs_apply_data",
+      "width": 64,
+      "signed": false
+    },
+    {
+      "field": "occupied_mask",
+      "port": "obs_occupied_mask",
+      "m1_port": "obs_slot_occupied",
+      "width": 4,
+      "signed": false
+    },
+    {
+      "field": "releasing_mask",
+      "port": "obs_releasing_mask",
+      "m1_port": "obs_slot_releasing",
+      "width": 4,
+      "signed": false
+    },
+    {
+      "field": "note_on_mask",
+      "port": "obs_note_on_mask",
+      "m1_port": "obs_slot_note_on",
+      "width": 4,
+      "signed": false
+    },
+    {
+      "field": "note_off_mask",
+      "port": "obs_note_off_mask",
+      "m1_port": "obs_slot_note_off",
+      "width": 4,
+      "signed": false
+    },
+    {
+      "field": "retire_mask",
+      "port": "obs_retire_mask",
+      "m1_port": "obs_retire_mask",
+      "width": 4,
+      "signed": false
+    },
+    {
+      "field": "slot_sources",
+      "port": "obs_slot_sources",
+      "m1_port": "obs_slot_sources",
+      "width": 16,
+      "signed": false
+    },
+    {
+      "field": "slot_channels",
+      "port": "obs_slot_channels",
+      "m1_port": "obs_slot_channels",
+      "width": 16,
+      "signed": false
+    },
+    {
+      "field": "slot_notes",
+      "port": "obs_slot_notes",
+      "m1_port": "obs_slot_notes",
+      "width": 32,
+      "signed": false
+    },
+    {
+      "field": "slot_generations",
+      "port": "obs_slot_generations",
+      "m1_port": "obs_slot_generations",
+      "width": 128,
+      "signed": false
+    },
+    {
+      "field": "advance_mask",
+      "port": "obs_advance_mask",
+      "m1_port": "obs_advance_mask",
+      "width": 4,
+      "signed": false
+    },
+    {
+      "field": "advance_frame_req_id",
+      "port": "obs_advance_frame_req_id",
+      "m1_port": "obs_advance_frame_id",
+      "width": 32,
+      "signed": false
+    },
+    {
+      "field": "effect_input_valid",
+      "port": "obs_effect_input_valid",
+      "m1_port": "obs_effect_input_valid",
+      "width": 1,
+      "signed": false
+    },
+    {
+      "field": "effect_input_ready",
+      "port": "obs_effect_input_ready",
+      "m1_port": "obs_effect_input_ready",
+      "width": 1,
+      "signed": false
+    },
+    {
+      "field": "effect_input_id",
+      "port": "obs_effect_input_id",
+      "m1_port": "obs_effect_input_id",
+      "width": 32,
+      "signed": false
+    },
+    {
+      "field": "effect_input_left",
+      "port": "obs_effect_input_left",
+      "m1_port": "obs_effect_input_left",
+      "width": 24,
+      "signed": true
+    },
+    {
+      "field": "effect_input_right",
+      "port": "obs_effect_input_right",
+      "m1_port": "obs_effect_input_right",
+      "width": 24,
+      "signed": true
+    },
+    {
+      "field": "effect_input_clip_mask",
+      "port": "obs_effect_input_clip_mask",
+      "m1_port": "obs_effect_input_clip",
+      "width": 2,
+      "signed": false
+    },
+    {
+      "field": "apply_kind",
+      "port": "obs_apply_kind",
+      "m1_port": "obs_apply_kind",
+      "width": 4,
+      "signed": false
+    },
+    {
+      "field": "apply_mask",
+      "port": "obs_apply_mask",
+      "m1_port": "obs_apply_mask",
+      "width": 4,
+      "signed": false
+    },
+    {
+      "field": "router_apply_seq",
+      "port": "obs_router_apply_seq",
+      "m1_port": "obs_apply_seq",
+      "width": 32,
+      "signed": false
+    },
+    {
+      "field": "router_apply_seq_valid",
+      "port": "obs_router_apply_seq_valid",
+      "m1_port": "obs_apply_seq_valid",
+      "width": 1,
+      "signed": false
+    },
+    {
+      "field": "config_take",
+      "port": "obs_config_take",
+      "m1_port": "obs_config_take",
+      "width": 1,
+      "signed": false
+    },
+    {
+      "field": "config_payload",
+      "port": "obs_config_payload",
+      "m1_port": "obs_config_payload",
+      "width": 62,
+      "signed": false
+    },
+    {
+      "field": "upstream_clip_mask",
+      "port": "obs_upstream_clip_mask",
+      "m1_port": null,
+      "width": 2,
+      "signed": false,
+      "source": "existing chain upstream_clipped_left/right"
+    },
+    {
+      "field": "effect_clip_mask",
+      "port": "obs_effect_clip_mask",
+      "m1_port": null,
+      "width": 2,
+      "signed": false,
+      "source": "existing chain effect_clipped_left/right"
+    },
+    {
+      "field": "feedback_clip_mask",
+      "port": "obs_feedback_clip_mask",
+      "m1_port": null,
+      "width": 2,
+      "signed": false,
+      "source": "existing chain feedback_clipped_left/right"
+    }
+  ],
+  "reversible_originals": {
+    "m2_fourvoice_timbre_delay_frame_core": {
+      "old": {
+        "bytes": 7110,
+        "sha256": "c55ce0451c7dde1b6d028851a22e38dd44735b9c8b5969456abb38f95bd36086"
+      },
+      "new": {
+        "bytes": 9660,
+        "sha256": "73b90af7dfff87cb87e12da947bf70385fbbb7b2209ef4e7f81fe35b215aff41"
+      },
+      "recovered_exact_old_bytes": true
+    },
+    "m2_fourvoice_timbre_delay_board_top": {
+      "old": {
+        "bytes": 41907,
+        "sha256": "4c18c911be9b59a74a61c356d54332e9570df306fc627c9128da9b8d2441f7c5"
+      },
+      "new": {
+        "bytes": 45887,
+        "sha256": "b8b03da91c6e6f24f3dc76f83ccd67c3126e085bc1807287d82c74aeb5e704bc"
+      },
+      "recovered_exact_old_bytes": true
+    },
+    "m2_138k_pro_fourvoice_observer_top": {
+      "old": {
+        "bytes": 5144,
+        "sha256": "7c21758931b5e4f056dad2a3c9ad11f790c16cc3fd2d3658e23b4e55e94d5d3a"
+      },
+      "new": {
+        "bytes": 7726,
+        "sha256": "bf212311352573d929e7f7b5c29e3959c760d935270165463e94ce532cbb6727"
+      },
+      "recovered_exact_old_bytes": true
+    }
+  },
+  "source_identities": {
+    "code/rtl/board/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/c9_m1_semantics_20261017/m2_fourvoice_timbre_delay_frame_core_r06c9.sv": {
+      "bytes": 9660,
+      "sha256": "73b90af7dfff87cb87e12da947bf70385fbbb7b2209ef4e7f81fe35b215aff41"
+    },
+    "code/rtl/board/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/c9_m1_semantics_20261017/m2_fourvoice_timbre_delay_board_top_r06c9.sv": {
+      "bytes": 45887,
+      "sha256": "b8b03da91c6e6f24f3dc76f83ccd67c3126e085bc1807287d82c74aeb5e704bc"
+    },
+    "code/rtl/board/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/c9_m1_semantics_20261017/m2_138k_pro_fourvoice_observer_top_r06c9.sv": {
+      "bytes": 7726,
+      "sha256": "bf212311352573d929e7f7b5c29e3959c760d935270165463e94ce532cbb6727"
+    }
+  },
+  "sampling": "posedge obs_core_clk PRE_NBA, qualify rst_n/epoch and obs_polyphonic_valid",
+  "audio_stable": "PENDING_NOT_EXPORTED_NOT_INVENTED",
+  "apply_event_seq": "PENDING independent input-plan mapping; never assign M1 router_apply_seq to this field by equality",
+  "board_release_allowed": false
+}

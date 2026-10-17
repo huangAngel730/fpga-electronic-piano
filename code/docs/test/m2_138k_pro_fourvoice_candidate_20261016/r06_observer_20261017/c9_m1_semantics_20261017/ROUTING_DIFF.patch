@@ -1,0 +1,242 @@
+--- code/rtl/board/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/c7_continue_20261017/m2_fourvoice_timbre_delay_frame_core_r06c7.sv
++++ code/rtl/board/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/c9_m1_semantics_20261017/m2_fourvoice_timbre_delay_frame_core_r06c9.sv
+@@ -5 +5 @@
+-module m2_fourvoice_timbre_delay_frame_core_r06c7 (
++module m2_fourvoice_timbre_delay_frame_core_r06c9 (
+@@ -44,0 +45,30 @@
++    // BEGIN M2_C9_PORTS
++    ,output wire obs_apply_valid,
++    output wire [63:0] obs_apply_data,
++    output wire [3:0] obs_occupied_mask,
++    output wire [3:0] obs_releasing_mask,
++    output wire [3:0] obs_note_on_mask,
++    output wire [3:0] obs_note_off_mask,
++    output wire [3:0] obs_retire_mask,
++    output wire [15:0] obs_slot_sources,
++    output wire [15:0] obs_slot_channels,
++    output wire [31:0] obs_slot_notes,
++    output wire [127:0] obs_slot_generations,
++    output wire [3:0] obs_advance_mask,
++    output wire [31:0] obs_advance_frame_req_id,
++    output wire obs_effect_input_valid,
++    output wire obs_effect_input_ready,
++    output wire [31:0] obs_effect_input_id,
++    output wire signed [23:0] obs_effect_input_left,
++    output wire signed [23:0] obs_effect_input_right,
++    output wire [1:0] obs_effect_input_clip_mask,
++    output wire [3:0] obs_apply_kind,
++    output wire [3:0] obs_apply_mask,
++    output wire [31:0] obs_router_apply_seq,
++    output wire obs_router_apply_seq_valid,
++    output wire obs_config_take,
++    output wire [61:0] obs_config_payload,
++    output wire [1:0] obs_upstream_clip_mask,
++    output wire [1:0] obs_effect_clip_mask,
++    output wire [1:0] obs_feedback_clip_mask
++    // END M2_C9_PORTS
+@@ -74,0 +105,27 @@
++    // BEGIN M2_C9_CHAIN
++    .obs_apply_valid(obs_apply_valid),
++    .obs_apply_data(obs_apply_data),
++    .obs_slot_occupied(obs_occupied_mask),
++    .obs_slot_releasing(obs_releasing_mask),
++    .obs_slot_note_on(obs_note_on_mask),
++    .obs_slot_note_off(obs_note_off_mask),
++    .obs_retire_mask(obs_retire_mask),
++    .obs_slot_sources(obs_slot_sources),
++    .obs_slot_channels(obs_slot_channels),
++    .obs_slot_notes(obs_slot_notes),
++    .obs_slot_generations(obs_slot_generations),
++    .obs_advance_mask(obs_advance_mask),
++    .obs_advance_frame_id(obs_advance_frame_req_id),
++    .obs_effect_input_valid(obs_effect_input_valid),
++    .obs_effect_input_ready(obs_effect_input_ready),
++    .obs_effect_input_id(obs_effect_input_id),
++    .obs_effect_input_left(obs_effect_input_left),
++    .obs_effect_input_right(obs_effect_input_right),
++    .obs_effect_input_clip(obs_effect_input_clip_mask),
++    .obs_apply_kind(obs_apply_kind),
++    .obs_apply_mask(obs_apply_mask),
++    .obs_apply_seq(obs_router_apply_seq),
++    .obs_apply_seq_valid(obs_router_apply_seq_valid),
++    .obs_config_take(obs_config_take),
++    .obs_config_payload(obs_config_payload),
++    // END M2_C9_CHAIN
+@@ -86,4 +143,4 @@
+-        .clipped_right(clip_right), .upstream_clipped_left(),
+-        .upstream_clipped_right(), .effect_clipped_left(),
+-        .effect_clipped_right(), .feedback_clipped_left(),
+-        .feedback_clipped_right(), .active_voice_count(active_voice_count)
++        .clipped_right(clip_right), .upstream_clipped_left(obs_upstream_clip_mask[0]),
++        .upstream_clipped_right(obs_upstream_clip_mask[1]), .effect_clipped_left(obs_effect_clip_mask[0]),
++        .effect_clipped_right(obs_effect_clip_mask[1]), .feedback_clipped_left(obs_feedback_clip_mask[0]),
++        .feedback_clipped_right(obs_feedback_clip_mask[1]), .active_voice_count(active_voice_count)
+--- code/rtl/board/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/c7_continue_20261017/m2_fourvoice_timbre_delay_board_top_r06c7.sv
++++ code/rtl/board/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/c9_m1_semantics_20261017/m2_fourvoice_timbre_delay_board_top_r06c9.sv
+@@ -105 +105 @@
+-module m2_fourvoice_timbre_delay_board_top_r06c7 #(
++module m2_fourvoice_timbre_delay_board_top_r06c9 #(
+@@ -205,0 +206,30 @@
++    // BEGIN M2_C9_PORTS
++    ,output wire obs_apply_valid,
++    output wire [63:0] obs_apply_data,
++    output wire [3:0] obs_occupied_mask,
++    output wire [3:0] obs_releasing_mask,
++    output wire [3:0] obs_note_on_mask,
++    output wire [3:0] obs_note_off_mask,
++    output wire [3:0] obs_retire_mask,
++    output wire [15:0] obs_slot_sources,
++    output wire [15:0] obs_slot_channels,
++    output wire [31:0] obs_slot_notes,
++    output wire [127:0] obs_slot_generations,
++    output wire [3:0] obs_advance_mask,
++    output wire [31:0] obs_advance_frame_req_id,
++    output wire obs_effect_input_valid,
++    output wire obs_effect_input_ready,
++    output wire [31:0] obs_effect_input_id,
++    output wire signed [23:0] obs_effect_input_left,
++    output wire signed [23:0] obs_effect_input_right,
++    output wire [1:0] obs_effect_input_clip_mask,
++    output wire [3:0] obs_apply_kind,
++    output wire [3:0] obs_apply_mask,
++    output wire [31:0] obs_router_apply_seq,
++    output wire obs_router_apply_seq_valid,
++    output wire obs_config_take,
++    output wire [61:0] obs_config_payload,
++    output wire [1:0] obs_upstream_clip_mask,
++    output wire [1:0] obs_effect_clip_mask,
++    output wire [1:0] obs_feedback_clip_mask
++    // END M2_C9_PORTS
+@@ -572,0 +603,30 @@
++        // BEGIN M2_C9_FIXED_TONE_INVALID
++        assign obs_apply_valid = '0;
++        assign obs_apply_data = '0;
++        assign obs_occupied_mask = '0;
++        assign obs_releasing_mask = '0;
++        assign obs_note_on_mask = '0;
++        assign obs_note_off_mask = '0;
++        assign obs_retire_mask = '0;
++        assign obs_slot_sources = '0;
++        assign obs_slot_channels = '0;
++        assign obs_slot_notes = '0;
++        assign obs_slot_generations = '0;
++        assign obs_advance_mask = '0;
++        assign obs_advance_frame_req_id = '0;
++        assign obs_effect_input_valid = '0;
++        assign obs_effect_input_ready = '0;
++        assign obs_effect_input_id = '0;
++        assign obs_effect_input_left = '0;
++        assign obs_effect_input_right = '0;
++        assign obs_effect_input_clip_mask = '0;
++        assign obs_apply_kind = '0;
++        assign obs_apply_mask = '0;
++        assign obs_router_apply_seq = '0;
++        assign obs_router_apply_seq_valid = '0;
++        assign obs_config_take = '0;
++        assign obs_config_payload = '0;
++        assign obs_upstream_clip_mask = '0;
++        assign obs_effect_clip_mask = '0;
++        assign obs_feedback_clip_mask = '0;
++        // END M2_C9_FIXED_TONE_INVALID
+@@ -685 +745,31 @@
+-        m2_fourvoice_timbre_delay_frame_core_r06c7 u_audio_core (
++        m2_fourvoice_timbre_delay_frame_core_r06c9 u_audio_core (
++          // BEGIN M2_C9_CORE
++          .obs_apply_valid(obs_apply_valid),
++          .obs_apply_data(obs_apply_data),
++          .obs_occupied_mask(obs_occupied_mask),
++          .obs_releasing_mask(obs_releasing_mask),
++          .obs_note_on_mask(obs_note_on_mask),
++          .obs_note_off_mask(obs_note_off_mask),
++          .obs_retire_mask(obs_retire_mask),
++          .obs_slot_sources(obs_slot_sources),
++          .obs_slot_channels(obs_slot_channels),
++          .obs_slot_notes(obs_slot_notes),
++          .obs_slot_generations(obs_slot_generations),
++          .obs_advance_mask(obs_advance_mask),
++          .obs_advance_frame_req_id(obs_advance_frame_req_id),
++          .obs_effect_input_valid(obs_effect_input_valid),
++          .obs_effect_input_ready(obs_effect_input_ready),
++          .obs_effect_input_id(obs_effect_input_id),
++          .obs_effect_input_left(obs_effect_input_left),
++          .obs_effect_input_right(obs_effect_input_right),
++          .obs_effect_input_clip_mask(obs_effect_input_clip_mask),
++          .obs_apply_kind(obs_apply_kind),
++          .obs_apply_mask(obs_apply_mask),
++          .obs_router_apply_seq(obs_router_apply_seq),
++          .obs_router_apply_seq_valid(obs_router_apply_seq_valid),
++          .obs_config_take(obs_config_take),
++          .obs_config_payload(obs_config_payload),
++          .obs_upstream_clip_mask(obs_upstream_clip_mask),
++          .obs_effect_clip_mask(obs_effect_clip_mask),
++          .obs_feedback_clip_mask(obs_feedback_clip_mask),
++          // END M2_C9_CORE
+--- code/rtl/board/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/c7_continue_20261017/m2_138k_pro_fourvoice_observer_top_r06c7.sv
++++ code/rtl/board/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/c9_m1_semantics_20261017/m2_138k_pro_fourvoice_observer_top_r06c9.sv
+@@ -14 +14 @@
+-module m2_138k_pro_fourvoice_observer_top_r06c7 (
++module m2_138k_pro_fourvoice_observer_top_r06c9 (
+@@ -66,0 +67,30 @@
++    // BEGIN M2_C9_PORTS
++    ,output wire obs_apply_valid,
++    output wire [63:0] obs_apply_data,
++    output wire [3:0] obs_occupied_mask,
++    output wire [3:0] obs_releasing_mask,
++    output wire [3:0] obs_note_on_mask,
++    output wire [3:0] obs_note_off_mask,
++    output wire [3:0] obs_retire_mask,
++    output wire [15:0] obs_slot_sources,
++    output wire [15:0] obs_slot_channels,
++    output wire [31:0] obs_slot_notes,
++    output wire [127:0] obs_slot_generations,
++    output wire [3:0] obs_advance_mask,
++    output wire [31:0] obs_advance_frame_req_id,
++    output wire obs_effect_input_valid,
++    output wire obs_effect_input_ready,
++    output wire [31:0] obs_effect_input_id,
++    output wire signed [23:0] obs_effect_input_left,
++    output wire signed [23:0] obs_effect_input_right,
++    output wire [1:0] obs_effect_input_clip_mask,
++    output wire [3:0] obs_apply_kind,
++    output wire [3:0] obs_apply_mask,
++    output wire [31:0] obs_router_apply_seq,
++    output wire obs_router_apply_seq_valid,
++    output wire obs_config_take,
++    output wire [61:0] obs_config_payload,
++    output wire [1:0] obs_upstream_clip_mask,
++    output wire [1:0] obs_effect_clip_mask,
++    output wire [1:0] obs_feedback_clip_mask
++    // END M2_C9_PORTS
+@@ -71 +101,31 @@
+-    m2_fourvoice_timbre_delay_board_top_r06c7 #(.SOURCE_MODE(0)) u_legacy (
++    m2_fourvoice_timbre_delay_board_top_r06c9 #(.SOURCE_MODE(0)) u_legacy (
++    // BEGIN M2_C9_BOARD
++    .obs_apply_valid(obs_apply_valid),
++    .obs_apply_data(obs_apply_data),
++    .obs_occupied_mask(obs_occupied_mask),
++    .obs_releasing_mask(obs_releasing_mask),
++    .obs_note_on_mask(obs_note_on_mask),
++    .obs_note_off_mask(obs_note_off_mask),
++    .obs_retire_mask(obs_retire_mask),
++    .obs_slot_sources(obs_slot_sources),
++    .obs_slot_channels(obs_slot_channels),
++    .obs_slot_notes(obs_slot_notes),
++    .obs_slot_generations(obs_slot_generations),
++    .obs_advance_mask(obs_advance_mask),
++    .obs_advance_frame_req_id(obs_advance_frame_req_id),
++    .obs_effect_input_valid(obs_effect_input_valid),
++    .obs_effect_input_ready(obs_effect_input_ready),
++    .obs_effect_input_id(obs_effect_input_id),
++    .obs_effect_input_left(obs_effect_input_left),
++    .obs_effect_input_right(obs_effect_input_right),
++    .obs_effect_input_clip_mask(obs_effect_input_clip_mask),
++    .obs_apply_kind(obs_apply_kind),
++    .obs_apply_mask(obs_apply_mask),
++    .obs_router_apply_seq(obs_router_apply_seq),
++    .obs_router_apply_seq_valid(obs_router_apply_seq_valid),
++    .obs_config_take(obs_config_take),
++    .obs_config_payload(obs_config_payload),
++    .obs_upstream_clip_mask(obs_upstream_clip_mask),
++    .obs_effect_clip_mask(obs_effect_clip_mask),
++    .obs_feedback_clip_mask(obs_feedback_clip_mask),
++    // END M2_C9_BOARD

@@ -1,0 +1,9 @@
+{
+  "stage": "SOURCE_SNAPSHOT_PREPARATION",
+  "exit_code": 1,
+  "tests_started": false,
+  "failure": "Windows path length exceeded while nesting original source paths under snapshot",
+  "evidence": "Root exec b17dfb tool output (transcript, not raw stream file)",
+  "fix": "Use short indexed snapshot filenames and path/hash mapping; keep R01 directory and initial consumed marker",
+  "repair_limit_seconds": 60
+}

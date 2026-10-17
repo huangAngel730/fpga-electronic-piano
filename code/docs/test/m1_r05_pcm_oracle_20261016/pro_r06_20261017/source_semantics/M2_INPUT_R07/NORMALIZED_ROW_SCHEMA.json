@@ -1,0 +1,1164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "M2_R06_NORMALIZED_ROW_CANDIDATE_V1",
+  "title": "61-field PRE_NBA row; validates representation only, not provenance or G1",
+  "type": "object",
+  "required": [
+    "cycle",
+    "epoch",
+    "rst_n",
+    "frame_tick",
+    "event_valid",
+    "event_ready",
+    "event_data",
+    "apply_valid",
+    "apply_event_seq",
+    "apply_data",
+    "occupied_mask",
+    "releasing_mask",
+    "note_on_mask",
+    "note_off_mask",
+    "retire_mask",
+    "slot_sources",
+    "slot_channels",
+    "slot_notes",
+    "slot_generations",
+    "req_valid",
+    "req_ready",
+    "req_id",
+    "advance_mask",
+    "advance_frame_req_id",
+    "result_valid",
+    "result_ready",
+    "result_id",
+    "result_left",
+    "result_right",
+    "result_clip_mask",
+    "commit",
+    "commit_id",
+    "commit_left",
+    "commit_right",
+    "commit_clip",
+    "cancel",
+    "cancel_reason",
+    "config_valid",
+    "config_ready",
+    "config_payload",
+    "effect_input_valid",
+    "effect_input_ready",
+    "effect_input_id",
+    "effect_input_left",
+    "effect_input_right",
+    "effect_input_clip_mask",
+    "tx_sample_valid",
+    "tx_frame_id",
+    "tx_req_id",
+    "tx_left",
+    "tx_right",
+    "tx_clip",
+    "tx_hold",
+    "tx_startup_zero",
+    "bclk",
+    "ws",
+    "din",
+    "pll_locked",
+    "audio_stable",
+    "pa_en",
+    "finish"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "cycle": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 64
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "epoch": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 32
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "rst_n": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "frame_tick": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "event_valid": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "event_ready": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "event_data": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 64
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "apply_valid": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "apply_event_seq": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 32
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "apply_data": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 64
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "occupied_mask": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 15
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 4
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "releasing_mask": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 15
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 4
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "note_on_mask": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 15
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 4
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "note_off_mask": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 15
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 4
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "retire_mask": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 15
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 4
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "slot_sources": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 16
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "slot_channels": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 16
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "slot_notes": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 32
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "slot_generations": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 340282366920938463463374607431768211455
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 128
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "req_valid": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "req_ready": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "req_id": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 32
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "advance_mask": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 15
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 4
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "advance_frame_req_id": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 32
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "result_valid": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "result_ready": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "result_id": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 32
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "result_left": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": -8388608,
+          "maximum": 8388607
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 24
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "result_right": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": -8388608,
+          "maximum": 8388607
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 24
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "result_clip_mask": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 2
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "commit": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "commit_id": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 32
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "commit_left": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": -8388608,
+          "maximum": 8388607
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 24
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "commit_right": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": -8388608,
+          "maximum": 8388607
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 24
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "commit_clip": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "cancel": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "cancel_reason": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$"
+        }
+      ],
+      "description": "PENDING_WIDTH_AND_IMPLEMENTATION; preserve X/null; no fill0"
+    },
+    "config_valid": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "config_ready": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "config_payload": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$"
+        }
+      ],
+      "description": "PENDING_WIDTH_AND_IMPLEMENTATION; preserve X/null; no fill0"
+    },
+    "effect_input_valid": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "effect_input_ready": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "effect_input_id": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 32
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "effect_input_left": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": -8388608,
+          "maximum": 8388607
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 24
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "effect_input_right": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": -8388608,
+          "maximum": 8388607
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 24
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "effect_input_clip_mask": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 2
+        }
+      ],
+      "description": "PENDING_M1_SEMANTICS; preserve X/null; no fill0"
+    },
+    "tx_sample_valid": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "tx_frame_id": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 32
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "tx_req_id": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 32
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "tx_left": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": -8388608,
+          "maximum": 8388607
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 24
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "tx_right": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": -8388608,
+          "maximum": 8388607
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 24
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "tx_clip": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "tx_hold": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "tx_startup_zero": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "bclk": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "ws": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "din": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "pll_locked": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "audio_stable": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "PENDING_STABILITY_POLICY_AND_IMPLEMENTATION; preserve X/null; no fill0"
+    },
+    "pa_en": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    },
+    "finish": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[01xXzZ]+$",
+          "maxLength": 1
+        }
+      ],
+      "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+    }
+  }
+}

@@ -1,0 +1,282 @@
+--- code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/RUN_01/stage/inputs/sources/m1td_polyphonic_event_router.sv
++++ code/rtl/audio/m1_pro_observer_r06_20261017/m1td_polyphonic_event_router.sv
+@@ -18,6 +18,16 @@
+     output wire [31:0] active_voice_count,
+     output wire [15:0] slot_source_ids, slot_channel_ids,
+     output wire [127:0] slot_generations
++    // BEGIN M1_OBSERVER_R06_PORTS
++    // Diagnostic-only outputs; sampled at posedge before NBA updates.
++    , output wire obs_apply_valid
++    , output wire [63:0] obs_apply_data
++    , output wire [3:0] obs_apply_kind
++    , output wire [3:0] obs_apply_mask
++    , output wire [31:0] obs_apply_seq
++    , output wire obs_apply_seq_valid
++    , output wire [3:0] obs_retire_mask
++    // END M1_OBSERVER_R06_PORTS
+ );
+     import audio_defs_pkg::*;
+     import sustain_control_contract_pkg::*;
+@@ -176,4 +186,64 @@
+             endcase
+         end
+     end
++    // BEGIN M1_OBSERVER_R06_LOGIC
++    // Only these diagnostic registers are new. Nothing below feeds the router,
++    // allocator, sustain controller, voice, or sample-owner functional logic.
++    // An ingress tag identifies accepted event order, not apply count. Multiple
++    // operations may carry one tag. Its unsigned 32-bit counter wraps modulo
++    // 2**32; consumers must not claim unique correlation over a wrap in one epoch.
++    logic [31:0] obs_next_event_seq_r;
++    logic [31:0] obs_held_event_seq_r;
++    logic obs_held_event_seq_valid_r;
++    always_ff @(posedge clk or negedge rst_n) begin
++        if (!rst_n) begin
++            obs_next_event_seq_r <= 32'd0;
++            obs_held_event_seq_r <= 32'd0;
++            obs_held_event_seq_valid_r <= 1'b0;
++        end else if (event_valid && event_ready) begin
++            obs_held_event_seq_r <= obs_next_event_seq_r;
++            obs_next_event_seq_r <= obs_next_event_seq_r + 32'd1;
++            obs_held_event_seq_valid_r <= 1'b1;
++        end
++    end
++
++    // Kind values are a versioned diagnostic contract, not performance events.
++    // 0 NONE, 1 ALLOC_COMMIT, 2 NOTE_ON_CONSUME, 3 RELEASE_COMMIT,
++    // 4 NOTE_OFF_CONSUME, 5 PROGRAM_COMMIT, 6 CONTROL_ACCEPT,
++    // 7 IGNORE, 8 RETIRE. All predicates describe this pre-NBA edge.
++    wire obs_alloc_commit_w = rst_n && state == ALLOC_APPLY && slot_valid;
++    wire obs_note_on_consume_w = rst_n && (|slot_note_on);
++    wire obs_release_commit_w = rst_n && state == RELEASE_APPLY &&
++        release_target_valid && release_slot == release_lane && release_matches;
++    wire obs_note_off_consume_w = rst_n && (|slot_note_off);
++    wire obs_program_commit_w = rst_n && state == CTRL_TIMBRE;
++    wire obs_control_accept_w = rst_n && cmd_ready &&
++        (state == CTRL_OFF || state == CTRL_PEDAL || state == CTRL_PANIC);
++    wire obs_ignore_w = rst_n && state == IGNORE_EVENT;
++    wire obs_retire_w = rst_n && state == RETIRE && cmd_ready;
++
++    assign obs_apply_kind = obs_alloc_commit_w ? 4'd1 :
++        obs_note_on_consume_w ? 4'd2 : obs_release_commit_w ? 4'd3 :
++        obs_note_off_consume_w ? 4'd4 : obs_program_commit_w ? 4'd5 :
++        obs_control_accept_w ? 4'd6 : obs_ignore_w ? 4'd7 :
++        obs_retire_w ? 4'd8 : 4'd0;
++    assign obs_apply_valid = |obs_apply_kind;
++    assign obs_apply_mask = obs_alloc_commit_w ? (4'b0001 << allocated_slot) :
++        obs_note_on_consume_w ? slot_note_on :
++        obs_release_commit_w ? (4'b0001 << release_slot) :
++        obs_note_off_consume_w ? slot_note_off :
++        (obs_control_accept_w && state == CTRL_OFF) ? (4'b0001 << target_slot) :
++        obs_retire_w ? (4'b0001 << target_slot) : 4'd0;
++    assign obs_retire_mask = obs_retire_w ? (4'b0001 << target_slot) : 4'd0;
++
++    // Delayed sustain releases have no immutable original-event cause tag in
++    // the frozen source. Do not borrow the current held_event for them. Their
++    // mask/identity are real, but data/seq are invalid (zero sentinel only).
++    // Autonomous retirement likewise has no original performance-event token.
++    wire obs_original_event_w = obs_alloc_commit_w || obs_note_on_consume_w ||
++        obs_program_commit_w || obs_control_accept_w || obs_ignore_w;
++    assign obs_apply_data = obs_original_event_w ? held_event : 64'd0;
++    assign obs_apply_seq_valid = obs_original_event_w && obs_held_event_seq_valid_r;
++    assign obs_apply_seq = obs_apply_seq_valid ? obs_held_event_seq_r : 32'd0;
++    // END M1_OBSERVER_R06_LOGIC
+ endmodule
+--- code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/RUN_01/stage/inputs/sources/m1td_polyphonic_envelope_bank.sv
++++ code/rtl/audio/m1_pro_observer_r06_20261017/m1td_polyphonic_envelope_bank.sv
+@@ -3,6 +3,10 @@
+ // All logic uses clk. rst_n: async assert, synchronously released upstream.
+ // frame_tick cancels an old generation. One accepted sample_req causes at most
+ // one lane_tick. Cancelling a computed result does not roll back DSP state.
++// BEGIN M1_OBSERVER_R06
++// M1 R06 observation candidate: added outputs are combinational aliases only.
++// Sample these outputs on clk posedge pre-NBA; no observation register is added.
++// END M1_OBSERVER_R06
+ module m1td_polyphonic_envelope_bank #(
+     parameter integer PIANO_TIMBRE_ENABLE = 1,
+     parameter SINE_ROM_FILE="rom/sine_wavetable.hex",
+@@ -29,6 +33,21 @@
+     output logic [3:0] result_occupied,
+     output logic [11:0] result_states,
+     output wire [31:0] active_voice_count
++    // BEGIN M1_OBSERVER_R06
++    ,output wire [3:0] obs_slot_occupied, obs_slot_releasing,
++    output wire [3:0] obs_slot_note_on, obs_slot_note_off,
++    output wire [15:0] obs_slot_sources, obs_slot_channels,
++    output wire [31:0] obs_slot_notes,
++    output wire [127:0] obs_slot_generations,
++    output wire [3:0] obs_advance_mask,
++    output wire [31:0] obs_advance_frame_id,
++    output wire obs_apply_valid,
++    output wire [63:0] obs_apply_data,
++    output wire [3:0] obs_apply_kind, obs_apply_mask,
++    output wire [31:0] obs_apply_seq,
++    output wire obs_apply_seq_valid,
++    output wire [3:0] obs_retire_mask
++    // END M1_OBSERVER_R06
+ );
+     localparam logic [3:0] IDLE=0, WAIT_DISPATCH=1, SETTLE=2,
+         CAPTURE=3, WAIT_CONTROL=4, ADVANCE=5, SNAPSHOT=6, HOLD=7, DRAIN=8;
+@@ -44,6 +63,16 @@
+     wire [31:0] slot_notes;
+     wire [15:0] slot_sources,slot_channels;
+     wire [127:0] slot_generations;
++    // BEGIN M1_OBSERVER_R06
++    assign obs_slot_occupied=slot_occupied;
++    assign obs_slot_releasing=slot_releasing;
++    assign obs_slot_note_on=slot_note_on;
++    assign obs_slot_note_off=slot_note_off;
++    assign obs_slot_sources=slot_sources;
++    assign obs_slot_channels=slot_channels;
++    assign obs_slot_notes=slot_notes;
++    assign obs_slot_generations=slot_generations;
++    // END M1_OBSERVER_R06
+     wire [63:0] envelopes,waves;
+     wire [11:0] states;
+     wire [3:0] release_done;
+@@ -52,6 +81,12 @@
+     // side may accept alone.  All discrete semantics remain in the real router.
+     assign event_ready=router_ready && control_event_ready;
+     m1td_polyphonic_event_router u_events(
++        // BEGIN M1_OBSERVER_R06
++        .obs_apply_valid(obs_apply_valid),.obs_apply_data(obs_apply_data),
++        .obs_apply_kind(obs_apply_kind),.obs_apply_mask(obs_apply_mask),
++        .obs_apply_seq(obs_apply_seq),.obs_apply_seq_valid(obs_apply_seq_valid),
++        .obs_retire_mask(obs_retire_mask),
++        // END M1_OBSERVER_R06
+         .clk(clk),.rst_n(rst_n),.sample_owner_ready(owner_idle),
+         .event_valid(event_valid && control_event_ready),.event_ready(router_ready),
+         .event_data(event_data),.release_done(release_done),.dispatch_busy(dispatch_busy),
+@@ -119,6 +154,10 @@
+         fcw_occupied==frozen_occupied && fcw_sources==frozen_sources &&
+         fcw_channels==frozen_channels && fcw_generations==frozen_generations;
+     wire lane_tick=rst_n && !frame_tick && phase==ADVANCE && live_identity_matches;
++    // BEGIN M1_OBSERVER_R06
++    assign obs_advance_mask={4{lane_tick}};
++    assign obs_advance_frame_id=pending_req_id;
++    // END M1_OBSERVER_R06
+     // A retiring/replaced identity never receives another generation's FCW.
+     assign calc_ready=rst_n && (phase==IDLE || frame_tick);
+     wire [127:0] dds_fcw=phase==IDLE || phase==WAIT_DISPATCH || phase==SETTLE ||
+--- code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/RUN_01/stage/inputs/sources/m1td_audio_candidate.sv
++++ code/rtl/audio/m1_pro_observer_r06_20261017/m1td_audio_candidate.sv
+@@ -2,6 +2,9 @@
+ // Event/ROM/math definitions are copied frozen dependencies, never edited in place.
+ // Request IDs and frame cancellation are supplied by M2's eventual frame buffer.
+ // No I2S/board ports, no clip commit counter: clipped metadata belongs to this result.
++// BEGIN M1_OBSERVER_R06
++// M1 R06 observation candidate: added outputs only forward bank aliases.
++// END M1_OBSERVER_R06
+ module m1td_audio_candidate (
+     input logic clk, rst_n, event_valid, frame_tick, sample_req,
+     input logic [63:0] event_data,
+@@ -13,6 +16,21 @@
+     output logic signed [23:0] result_left, result_right,
+     output logic clipped_left, clipped_right,
+     output wire [31:0] active_voice_count
++    // BEGIN M1_OBSERVER_R06
++    ,output wire [3:0] obs_slot_occupied, obs_slot_releasing,
++    output wire [3:0] obs_slot_note_on, obs_slot_note_off,
++    output wire [15:0] obs_slot_sources, obs_slot_channels,
++    output wire [31:0] obs_slot_notes,
++    output wire [127:0] obs_slot_generations,
++    output wire [3:0] obs_advance_mask,
++    output wire [31:0] obs_advance_frame_id,
++    output wire obs_apply_valid,
++    output wire [63:0] obs_apply_data,
++    output wire [3:0] obs_apply_kind, obs_apply_mask,
++    output wire [31:0] obs_apply_seq,
++    output wire obs_apply_seq_valid,
++    output wire [3:0] obs_retire_mask
++    // END M1_OBSERVER_R06
+ );
+     wire bank_valid, bank_ready;
+     wire [31:0] bank_id;
+@@ -22,6 +40,17 @@
+     wire signed [23:0] mixed_left, mixed_right;
+     wire mix_clip_left, mix_clip_right;
+     m1td_polyphonic_envelope_bank #(.WAVE_ROM_FILE("rom/piano_band_4x256_8191.mem"))u_bank(
++        // BEGIN M1_OBSERVER_R06
++        .obs_slot_occupied(obs_slot_occupied),.obs_slot_releasing(obs_slot_releasing),
++        .obs_slot_note_on(obs_slot_note_on),.obs_slot_note_off(obs_slot_note_off),
++        .obs_slot_sources(obs_slot_sources),.obs_slot_channels(obs_slot_channels),
++        .obs_slot_notes(obs_slot_notes),.obs_slot_generations(obs_slot_generations),
++        .obs_advance_mask(obs_advance_mask),.obs_advance_frame_id(obs_advance_frame_id),
++        .obs_apply_valid(obs_apply_valid),.obs_apply_data(obs_apply_data),
++        .obs_apply_kind(obs_apply_kind),.obs_apply_mask(obs_apply_mask),
++        .obs_apply_seq(obs_apply_seq),.obs_apply_seq_valid(obs_apply_seq_valid),
++        .obs_retire_mask(obs_retire_mask),
++        // END M1_OBSERVER_R06
+         .clk(clk),.rst_n(rst_n),.event_valid(event_valid),.event_ready(event_ready),.event_data(event_data),
+         .frame_tick(frame_tick),.sample_req(sample_req),.sample_req_id(sample_req_id),.calc_ready(calc_ready),
+         .result_valid(bank_valid),.result_ready(bank_ready),.result_req_id(bank_id),
+--- code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/RUN_01/stage/inputs/sources/m1td_timbre_delay_chain.sv
++++ code/rtl/audio/m1_pro_observer_r06_20261017/m1td_timbre_delay_chain.sv
+@@ -1,5 +1,9 @@
+ // Single isolated event-to-stereo-result entry point, default bit-exact bypass.
+ // M2 connects its frame request/commit buffer and I2S; no new production controls.
++// BEGIN M1_OBSERVER_R06
++// M1 R06 observation candidate: all added aliases are pre-NBA observations.
++// obs_config_payload is a proposed diagnostic packing, not a new control input.
++// END M1_OBSERVER_R06
+ module m1td_timbre_delay_chain (
+     input logic clk,rst_n,event_valid,frame_tick,sample_req,
+     input logic [63:0] event_data,
+@@ -19,6 +23,27 @@
+     output wire effect_clipped_left,effect_clipped_right,
+     output wire feedback_clipped_left,feedback_clipped_right,
+     output wire [31:0] active_voice_count
++    // BEGIN M1_OBSERVER_R06
++    ,output wire [3:0] obs_slot_occupied, obs_slot_releasing,
++    output wire [3:0] obs_slot_note_on, obs_slot_note_off,
++    output wire [15:0] obs_slot_sources, obs_slot_channels,
++    output wire [31:0] obs_slot_notes,
++    output wire [127:0] obs_slot_generations,
++    output wire [3:0] obs_advance_mask,
++    output wire [31:0] obs_advance_frame_id,
++    output wire obs_apply_valid,
++    output wire [63:0] obs_apply_data,
++    output wire [3:0] obs_apply_kind, obs_apply_mask,
++    output wire [31:0] obs_apply_seq,
++    output wire obs_apply_seq_valid,
++    output wire [3:0] obs_retire_mask,
++    output wire obs_effect_input_valid, obs_effect_input_ready,
++    output wire [31:0] obs_effect_input_id,
++    output wire signed [23:0] obs_effect_input_left, obs_effect_input_right,
++    output wire [1:0] obs_effect_input_clip,
++    output wire obs_config_take,
++    output wire [61:0] obs_config_payload
++    // END M1_OBSERVER_R06
+ );
+     wire audio_valid,audio_ready,raw_config_ready,audio_calc_ready;
+     wire [31:0] audio_id;
+@@ -27,7 +52,29 @@
+     wire config_idle=audio_calc_ready && !audio_valid && !sample_req && !frame_tick;
+     assign config_ready=raw_config_ready && config_idle;
+     assign calc_ready=audio_calc_ready;
++    // BEGIN M1_OBSERVER_R06
++    assign obs_effect_input_valid=audio_valid;
++    assign obs_effect_input_ready=audio_ready;
++    assign obs_effect_input_id=audio_id;
++    assign obs_effect_input_left=audio_left;
++    assign obs_effect_input_right=audio_right;
++    assign obs_effect_input_clip={audio_clip_right,audio_clip_left};
++    assign obs_config_take=config_valid && config_ready;
++    assign obs_config_payload={config_enable,config_delay_samples,
++        config_dry_gain,config_wet_gain,config_feedback};
++    // END M1_OBSERVER_R06
+     m1td_audio_candidate u_audio(.clk(clk),.rst_n(rst_n),.event_valid(event_valid),.event_ready(event_ready),
++        // BEGIN M1_OBSERVER_R06
++        .obs_slot_occupied(obs_slot_occupied),.obs_slot_releasing(obs_slot_releasing),
++        .obs_slot_note_on(obs_slot_note_on),.obs_slot_note_off(obs_slot_note_off),
++        .obs_slot_sources(obs_slot_sources),.obs_slot_channels(obs_slot_channels),
++        .obs_slot_notes(obs_slot_notes),.obs_slot_generations(obs_slot_generations),
++        .obs_advance_mask(obs_advance_mask),.obs_advance_frame_id(obs_advance_frame_id),
++        .obs_apply_valid(obs_apply_valid),.obs_apply_data(obs_apply_data),
++        .obs_apply_kind(obs_apply_kind),.obs_apply_mask(obs_apply_mask),
++        .obs_apply_seq(obs_apply_seq),.obs_apply_seq_valid(obs_apply_seq_valid),
++        .obs_retire_mask(obs_retire_mask),
++        // END M1_OBSERVER_R06
+         .event_data(event_data),.frame_tick(frame_tick),.sample_req(sample_req),.sample_req_id(sample_req_id),
+         .calc_ready(audio_calc_ready),.result_valid(audio_valid),.result_ready(audio_ready),.result_id(audio_id),
+         .result_left(audio_left),.result_right(audio_right),.clipped_left(audio_clip_left),

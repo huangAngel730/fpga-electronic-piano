@@ -1,0 +1,87 @@
+{
+  "schema": "M1_R07_SOURCE_SEMANTICS_IMPLEMENTATION_RECEIPT_V1",
+  "status": "M1_SOURCE_SEMANTICS_CANDIDATE_READY_INTEGRATION_AND_REAL_INPUT_PENDING",
+  "task": "M1-R6-1 under R07",
+  "source_semantics_fields": 19,
+  "candidate_modules": 4,
+  "base_head_before_sync": "228879b6713188d71e1e97ae1170eaa53c523168",
+  "received_task_commit": "ef4fbc74b9d24e08de1e09d0be0eb3163118f258",
+  "new_test_methods_passed": 19,
+  "actual_candidate_contract_result": "STATIC_SOURCE_SEMANTICS_READY",
+  "software_run_seconds": 0.8440000000009604,
+  "software_source_unchanged": true,
+  "new_group_budget": {
+    "R01": "Consumed but source-snapshot preparation failed before tests (Windows long path)",
+    "R02": "One allowed repair group; 19 new methods plus actual candidate contract check; PASS within60s",
+    "R6_2": "Not consumed"
+  },
+  "candidate_stripped_to_exact_original": true,
+  "first_failure_record": "PREPARATION_FAILURE_R01.json; original tool transcript, no original raw stream file claimed",
+  "actual_level": "L0_CANDIDATE_SOURCE_CONTRACT_WITH_SOFTWARE_SELFTEST",
+  "hdl_compilation_or_simulation": false,
+  "EDA_or_device_execution": false,
+  "old_golden_or_M3_checker_rerun": false,
+  "m2_correspondence": "19 widths/signedness match received M2 fields; M2 outer routing still required",
+  "known_gaps": [
+    "M2 must bind frame_core/board/Pro public exports to these candidate outputs",
+    "apply kind/mask and seq validity extensions need M2 acceptance; autonomous/delayed releases cannot fabricate original cause",
+    "Pro full target/real reset/trace/tool admission not established",
+    "M3 oracle_bundle_bridge not published in inspected commit; actual PCM input remains pending",
+    "No same-version board capture for bench_math"
+  ],
+  "R6_2": "PENDING_REAL_INPUT; input contract prepared, no duplicate mechanical bridge",
+  "R6_3": "PENDING_REAL_INPUT; measurement criteria prepared",
+  "board_release_allowed": false,
+  "notification": "待用户转发，尚未送达",
+  "source_files": [
+    {
+      "id": "old_router",
+      "path": "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/RUN_01/stage/inputs/sources/m1td_polyphonic_event_router.sv",
+      "sha256": "f86dc783534c7e3897197d3a967c94d614642196c8d67bff9493d70d1a5fc808",
+      "role": "BASELINE"
+    },
+    {
+      "id": "old_bank",
+      "path": "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/RUN_01/stage/inputs/sources/m1td_polyphonic_envelope_bank.sv",
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7",
+      "role": "BASELINE"
+    },
+    {
+      "id": "old_audio",
+      "path": "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/RUN_01/stage/inputs/sources/m1td_audio_candidate.sv",
+      "sha256": "6bc32ea435ca4b6f0132cbdbccafd0c54664becd75a393d8dff90aafc746ff25",
+      "role": "BASELINE"
+    },
+    {
+      "id": "old_chain",
+      "path": "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/RUN_01/stage/inputs/sources/m1td_timbre_delay_chain.sv",
+      "sha256": "72c8e06b83fab7d5264a4ac79d27f33035da8ada509c4f59e4d8b658ee4641b5",
+      "role": "BASELINE"
+    },
+    {
+      "id": "router",
+      "path": "code/rtl/audio/m1_pro_observer_r06_20261017/m1td_polyphonic_event_router.sv",
+      "sha256": "ec69d5d63cf9bd79abe794f95a92338a32a702d56422bdcbb3079dd200eea4c4",
+      "role": "CANDIDATE"
+    },
+    {
+      "id": "bank",
+      "path": "code/rtl/audio/m1_pro_observer_r06_20261017/m1td_polyphonic_envelope_bank.sv",
+      "sha256": "31c25b7e6eb22714d01c7d0f0ceb7131b3fb301d1aab54bebd041dace2fb4502",
+      "role": "CANDIDATE"
+    },
+    {
+      "id": "audio",
+      "path": "code/rtl/audio/m1_pro_observer_r06_20261017/m1td_audio_candidate.sv",
+      "sha256": "193bc5cd9c7675b7f97564223ce39c7ba8d488f2028dfbadbbb033887ab82f63",
+      "role": "CANDIDATE"
+    },
+    {
+      "id": "chain",
+      "path": "code/rtl/audio/m1_pro_observer_r06_20261017/m1td_timbre_delay_chain.sv",
+      "sha256": "076da7f76d641d0e9a8c2a0d910a1ff929ed923639877d36e320887fe095c995",
+      "role": "CANDIDATE"
+    }
+  ],
+  "software_receipt_sha256": "040d3064195c61745d7262f4b6aac5d565bdc2ac1fc5827e3156f1978a9a3a45"
+}
