@@ -10,7 +10,7 @@
     "M2": "code/docs/M2_夜间Pro无实物收口任务单_R10_2026-10-17.md",
     "M3": "code/docs/M3_夜间Pro无实物收口任务单_R10_2026-10-17.md"
   },
-  "maximum_hours_per_owner": 6,
+  "maximum_hours_per_owner": 5,
   "hard_stop": "2026-10-18T06:30:00+08:00",
   "new_pure_software_groups": {
     "N10-M1-MATH": 180,
@@ -28,5 +28,32 @@
   "physical_operations_allowed": false,
   "reviewer_system_enabled": false,
   "communication": "待用户转发，尚未送达",
-  "board_release_allowed": false
+  "board_release_allowed": false,
+  "timebox_revision": {
+    "date": "2026-10-17",
+    "authority": "direct user correction",
+    "starts_at": "actual original START per owner; do not restart the clock",
+    "hard_stop_unchanged": true,
+    "stage_minutes": {
+      "M1": [
+        30,
+        150,
+        60,
+        60
+      ],
+      "M2": [
+        60,
+        120,
+        90,
+        30
+      ],
+      "M3": [
+        60,
+        90,
+        120,
+        30
+      ]
+    },
+    "tool_budgets_unchanged": true
+  }
 }
