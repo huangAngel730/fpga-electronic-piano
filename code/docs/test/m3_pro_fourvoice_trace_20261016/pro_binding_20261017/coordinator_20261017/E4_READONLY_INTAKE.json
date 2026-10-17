@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-17T02:40:25.367438+00:00",
+  "inputs": [
+    {
+      "path": "code/docs/test/m3_n32_pro_candidate_20261017/HANDOFF_CURRENT.md",
+      "bytes": 4617,
+      "sha256": "a79d7ab58b8a259a6962db406c228dde65649642c3e2ec487dd2ee3c94a76814",
+      "publication_commit": "8b9d11e5368b6db45a1d3090d45f9e4f754132f2",
+      "git_blob_exact": true
+    },
+    {
+      "path": "code/docs/test/m3_n32_pro_candidate_20261017/FINAL_RECEIPT.json",
+      "bytes": 126349,
+      "sha256": "268217519cf6204773ced007115a292888d4dfe21ed4bf855d23e48ebbc85568",
+      "publication_commit": "8b9d11e5368b6db45a1d3090d45f9e4f754132f2",
+      "git_blob_exact": true
+    }
+  ],
+  "existing_status": "PARTIAL_E4_T061_OFFLINE_SCOPED_PASS_PHYSICAL_AND_BOARD_PENDING",
+  "old_rounds": {
+    "consumed": 5,
+    "limit": 6,
+    "unused_not_renewed": 1
+  },
+  "limits_readonly": [
+    "Frozen piano multi-band ROM; no pure sine or 32 audible/spectral peak claim",
+    "Backend equal stereo L=R; unequal L/R swap behavior not covered",
+    "Normal clip=0 capture plus actual flipped metadata rejection; nonzero positive/negative saturation boundaries not added",
+    "Short math windows cover attack and initial release; complete 4800-step release tail is lifecycle only",
+    "V release payload is observed but not independently fully checked; release ACK/CC64 targeted RTL assertions and existing Oracle semantics only",
+    "UNKNOWN_NOT_INDIVIDUALLY_CAPTURED; group ISO8601 timestamps have explicit +08:00 despite original keys named _utc; calls contain elapsed_s and monotonic deadline. No fabricated timestamps.",
+    "UNKNOWN_NOT_MEASURED; EXE and enumerated ModelSim DLL files are hashed, not a claim of exhaustive process loaded-module tracing",
+    "Positive TB and negative monitor successor have distinct exact identities; no assertion that successor reran normal captures"
+  ],
+  "current_task_E4": "READONLY_INTAKE_DONE__NO_NEW_IMPLEMENTATION_OR_RUN",
+  "blocking_inputs": [
+    "M1 approved pure-sine phase-to-ROM/gain/mix/clip definition, or explicit approved reuse identity",
+    "M2 exact Pro source/target/ROM/constraints and effective tool/physical allowance",
+    "E3 and preceding formal integration gates before formal E4 entry"
+  ],
+  "new_E4_functional_runs": 0,
+  "new_ModelSim_Gowin_device_runs": 0,
+  "board_release_allowed": false,
+  "publication_note": "Original receipt publication field is historical; exact blob match above records actual publication."
+}

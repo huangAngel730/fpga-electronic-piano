@@ -1,0 +1,346 @@
+{
+  "schema": "M3_B2_TASK_DAY_RECEIPT_V1",
+  "status": "DONE_LIMITED_ADAPTER_PREPARATION__PENDING_PRO_SOURCE_OR_TRACE",
+  "level": "L1_NEW_ADAPTER_SELFTEST_ONLY",
+  "rounds_consumed": 2,
+  "rounds_maximum": 6,
+  "seconds": 11.186999999990803,
+  "round_receipts": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\RUN_RECEIPT.json",
+      "bytes": 180459,
+      "sha256": "50e30f3d7ead47eab26f8a2bbb2cf09b4e46158d6b0ae19f449f80c774daad27"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_02\\RUN_RECEIPT.json",
+      "bytes": 180610,
+      "sha256": "4dc1abcb37340fabc02f02e055e4904001bec8f89b16d1d93503cfcd54143f89"
+    }
+  ],
+  "cases": [
+    {
+      "round": 1,
+      "case": "csv_cycle_gap",
+      "exit_code": 1,
+      "diagnostic": "CSV_CYCLE_SEQUENCE",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\csv_cycle_gap\\CASE_RECEIPT.json",
+        "bytes": 4298,
+        "sha256": "2dfce779e6045eaf007783b68bb82e895f4e6c869dd5d116236183293219b386"
+      }
+    },
+    {
+      "round": 1,
+      "case": "lane_id_domain",
+      "exit_code": 1,
+      "diagnostic": "CLOCK_PHASE_OR_ID_DOMAIN",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\lane_id_domain\\CASE_RECEIPT.json",
+        "bytes": 4300,
+        "sha256": "e9eace8649e3564981725ae96866749409546441a36f10d7b36e8f71db595a7d"
+      }
+    },
+    {
+      "round": 1,
+      "case": "missing_bclk",
+      "exit_code": 1,
+      "diagnostic": "CSV_PUBLIC_FIELDS",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\missing_bclk\\CASE_RECEIPT.json",
+        "bytes": 4289,
+        "sha256": "34ee25a380c1ca8b34fd882fc48a587458b7e5ff21fee3b8d16e6c4d1d8d452c"
+      }
+    },
+    {
+      "round": 1,
+      "case": "missing_public_samples",
+      "exit_code": 1,
+      "diagnostic": "MISSING_PUBLIC_TX_SAMPLE",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\missing_public_samples\\CASE_RECEIPT.json",
+        "bytes": 4390,
+        "sha256": "cf3eb2903394ba69e9a6d58c8e0524649f09037280c7b617c36b25d346d5e35e"
+      }
+    },
+    {
+      "round": 1,
+      "case": "missing_sample_pcm",
+      "exit_code": 1,
+      "diagnostic": "PUBLIC_SAMPLE_FIELDS",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\missing_sample_pcm\\CASE_RECEIPT.json",
+        "bytes": 4347,
+        "sha256": "c9f1c8f86b5c0cdafcea8936c6e0aadf6cfe0881bac46be30a5a0caa84ce938b"
+      }
+    },
+    {
+      "round": 1,
+      "case": "missing_ws_edges",
+      "exit_code": 1,
+      "diagnostic": "PIN_FRAME_WS_BOUNDARY_PHASE",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\missing_ws_edges\\CASE_RECEIPT.json",
+        "bytes": 4344,
+        "sha256": "47700b2e6972c874cc3aeed290d1fbac508eac7565e32efbe93e91f57953a9da"
+      }
+    },
+    {
+      "round": 1,
+      "case": "old_monitor_zero_pins",
+      "exit_code": 1,
+      "diagnostic": "PIN_BCLK_STALLED_OR_MISSING_EDGE",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\old_monitor_zero_pins\\CASE_RECEIPT.json",
+        "bytes": 4426,
+        "sha256": "f61b0ed262b9b6285a0a8910069ebc22148efbb1298e3ad58a94a0532ffd7bf7"
+      }
+    },
+    {
+      "round": 1,
+      "case": "overdue_commit",
+      "exit_code": 1,
+      "diagnostic": "SERVICE_DEADLINE",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\overdue_commit\\CASE_RECEIPT.json",
+        "bytes": 4304,
+        "sha256": "03755beb02fb3bb8704e32d243cf94569d86c975261c76915c1e5bcc9c5be3bc"
+      }
+    },
+    {
+      "round": 1,
+      "case": "physical_channels_swapped",
+      "exit_code": 1,
+      "diagnostic": "PIN_SERIAL_PCM_OR_CHANNEL_MISMATCH",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\physical_channels_swapped\\CASE_RECEIPT.json",
+        "bytes": 4429,
+        "sha256": "4b2bb6872ea5aeae935bfc44ac86a6a2a584437d2cc8902207fdbeeb3fec8020"
+      }
+    },
+    {
+      "round": 1,
+      "case": "positive",
+      "exit_code": 0,
+      "diagnostic": null,
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\positive\\CASE_RECEIPT.json",
+        "bytes": 4214,
+        "sha256": "af561081de0119345da28edeaf6e7b0a3d909d1cc07266fd96b5a1cb26fa65db"
+      }
+    },
+    {
+      "round": 1,
+      "case": "reset_serial_nonzero",
+      "exit_code": 1,
+      "diagnostic": "RESET_SERIAL_NOT_SILENT",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\reset_serial_nonzero\\CASE_RECEIPT.json",
+        "bytes": 4372,
+        "sha256": "4ac2ffc78741eff412cfb0f60777e6fe922aea32f7f07734d1597a8eb830b87f"
+      }
+    },
+    {
+      "round": 1,
+      "case": "wrong_binding_sha",
+      "exit_code": 1,
+      "diagnostic": "BINDING_SHA",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\wrong_binding_sha\\CASE_RECEIPT.json",
+        "bytes": 4295,
+        "sha256": "40f920cab1e904e1e6d568254636e5894728409fd0e690ceb414ceeb6bae95dd"
+      }
+    },
+    {
+      "round": 1,
+      "case": "wrong_commit_pcm",
+      "exit_code": 1,
+      "diagnostic": "COMMIT_EXTERNAL_PCM_OR_CLIP",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\wrong_commit_pcm\\CASE_RECEIPT.json",
+        "bytes": 4344,
+        "sha256": "84129fa6db5fdbcd609f0cd3bc7f7dc93e25cc93d78d52f5d604f407a8eda0e2"
+      }
+    },
+    {
+      "round": 1,
+      "case": "wrong_csv_sha",
+      "exit_code": 1,
+      "diagnostic": "INPUT_SHA_csv",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\wrong_csv_sha\\CASE_RECEIPT.json",
+        "bytes": 4270,
+        "sha256": "a03931c57a578bb538bce64c7593cb72b3c0c9072d1d47a0e5105344df7d3568"
+      }
+    },
+    {
+      "round": 1,
+      "case": "wrong_sample_clip",
+      "exit_code": 1,
+      "diagnostic": "SAMPLE_EXTERNAL_PCM_OR_CLIP",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\wrong_sample_clip\\CASE_RECEIPT.json",
+        "bytes": 4352,
+        "sha256": "bc1f565b1576b56298078a6b54debcfe1c7c6ce0583cda79f8769c29ba8f24aa"
+      }
+    },
+    {
+      "round": 1,
+      "case": "wrong_sample_epoch",
+      "exit_code": 1,
+      "diagnostic": "PUBLIC_SAMPLE_EPOCH",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\wrong_sample_epoch\\CASE_RECEIPT.json",
+        "bytes": 4345,
+        "sha256": "2b17fc6add05229a71de90fdc1e53db9c5a62857233d72e55b178350fa2d1a62"
+      }
+    },
+    {
+      "round": 1,
+      "case": "wrong_sample_id",
+      "exit_code": 1,
+      "diagnostic": "PUBLIC_SAMPLE_ID_NOT_COMMITTED",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\wrong_sample_id\\CASE_RECEIPT.json",
+        "bytes": 4340,
+        "sha256": "6ce7f7ed9177b1746d68dd701ec9695933d9a7c93f70fa5e0aeb88ee416f6fc2"
+      }
+    },
+    {
+      "round": 1,
+      "case": "wrong_sample_pcm",
+      "exit_code": 1,
+      "diagnostic": "SAMPLE_EXTERNAL_PCM_OR_CLIP",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\wrong_sample_pcm\\CASE_RECEIPT.json",
+        "bytes": 4343,
+        "sha256": "99e83cb8ed21199ebf4504480ee4176589f93d2557272410103bcf72960eb49e"
+      }
+    },
+    {
+      "round": 1,
+      "case": "wrong_source_basis",
+      "exit_code": 1,
+      "diagnostic": "SOURCE_ROM_INPUT_BASIS_MISMATCH",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_01\\cases\\wrong_source_basis\\CASE_RECEIPT.json",
+        "bytes": 4370,
+        "sha256": "78e4182f121947cfc22508eb49b2041f0acbc280e286e1a48a253b2b60c46843"
+      }
+    },
+    {
+      "round": 2,
+      "case": "commit_on_cancel",
+      "exit_code": 1,
+      "diagnostic": "COMMIT_ON_CANCEL",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_02\\cases\\commit_on_cancel\\CASE_RECEIPT.json",
+        "bytes": 4015,
+        "sha256": "15aab1fc73c058fa2454b6b01bd5d0a514803bebd6be92f881cbc261646be61b"
+      }
+    },
+    {
+      "round": 2,
+      "case": "unexpected_cancel_before_commit",
+      "exit_code": 1,
+      "diagnostic": "UNEXPECTED_CANCEL",
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_02\\cases\\unexpected_cancel_before_commit\\CASE_RECEIPT.json",
+        "bytes": 4153,
+        "sha256": "b76c6f494883f5cca1a3a69a7c384d060431a7b28dc0b32705de7348bda2c844"
+      }
+    },
+    {
+      "round": 2,
+      "case": "valid_cancel_no_publication",
+      "exit_code": 0,
+      "diagnostic": null,
+      "receipt": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\ROUND_02\\cases\\valid_cancel_no_publication\\CASE_RECEIPT.json",
+        "bytes": 4634,
+        "sha256": "2c75c6df4e13022d26cca08d2b535716590ce7ea9313df7115db9577715d1e13"
+      }
+    }
+  ],
+  "final_source": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\adapt_serial.py",
+      "bytes": 15275,
+      "sha256": "c393a0d223781260101be1e553f3b7a1be2840547970d57902de97d69007b954"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\common.py",
+      "bytes": 1771,
+      "sha256": "086807e75aa18757ca68c8196b2c86f02d02788e9eda6bf2a09f5990f6b5def9"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\preflight.py",
+      "bytes": 2577,
+      "sha256": "11706cd42d3ca1965ab22bcf4c84a8898c1c5336792c7f088e7318392e1e92e1"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\run_round.py",
+      "bytes": 3717,
+      "sha256": "6ef53319cdd01f118334f2bd9343bc38d4a238f34a2f76a40a361756a06f0ee1"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\selftest.py",
+      "bytes": 15705,
+      "sha256": "f7d07f20a9e857394c2d7f51e18252f5c0eb486913eae1585a3f4bcd07ecafaa"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\ingest\\ingest.py",
+      "bytes": 11285,
+      "sha256": "3217f97e57daec534306a213c64566fa111e3116f15a15967ca881847c218e07"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\consume_capture.py",
+      "bytes": 19277,
+      "sha256": "da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\D\\fixture.py",
+      "bytes": 6494,
+      "sha256": "c0460e97534c401dc15e25bb3d548fd113ccf39a048a98ff2dd20bf0376ec458"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\pro_frame_monitor.sv",
+      "bytes": 8357,
+      "sha256": "faf7cda22f928e7f0c40bd7ed164213e2282078e213ee1f472b331cfe098295a"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\D\\pro_monitor_20261017\\CONTRACT.md",
+      "bytes": 4834,
+      "sha256": "de3f5d7d80e70e8f3f44e7a978bba975b475eec1259ea44b399ba2359613a4e6"
+    }
+  ],
+  "runtime_enumeration": {
+    "count": 873,
+    "preflight": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\PREFLIGHT\\PREFLIGHT.json",
+      "bytes": 176695,
+      "sha256": "62d57c283cd9b107235f87795df2897fefd731908090310459d93ae50e21a07a"
+    },
+    "dynamic_load_closure_independently_verified": false
+  },
+  "coverage_note": "R1_19_OLD_VERSION_PLUS_R2_3_TARGETED_ONLY_NOT_FINAL_22_FULL_RERUN",
+  "first_static_gap": "UNEXPECTED_CANCEL_DID_NOT_CLEAR_ACTIVE_KEY_FIXED_IN_R2",
+  "unexpected_functional_process_failures": 0,
+  "old_suites_eda_native_hardware_executed": 0,
+  "formal_auditor_system_enabled": false,
+  "self_review": "OWN_READONLY_AGENT_FINAL_INCREMENT_NO_CONCRETE_BLOCKER_NO_EXECUTION",
+  "pro_dut_pass": false,
+  "PCM_algorithm_pass": false,
+  "physical_48k_PT8211_pass": false,
+  "board_release_allowed": false,
+  "real_finish_END_MONITOR_END_validated": false,
+  "source_admission_owner": "B1",
+  "publication_owner": "night_task1",
+  "committed": false,
+  "pushed": false,
+  "final_return": "NO_SEND_TOOL_COORDINATOR_READONLY_PICKUP",
+  "result": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_serial_successor_20261017\\RESULT.md",
+    "bytes": 3523,
+    "sha256": "f590faf04580ab0416a23d4d1400cefe82138d794306048af8a1c1a78d1e6269"
+  }
+}

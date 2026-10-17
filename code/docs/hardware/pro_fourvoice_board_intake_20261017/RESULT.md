@@ -1,0 +1,9 @@
+# B0 本轮结果
+
+现有资料身份摄取完成，限定L0；B0实物入口整体仍PARTIAL_PENDING_PHYSICAL_INPUT。新脚本实际退出0、0.062秒，源码前后SHA不变，双流/命令/工具/UTC在CALL_R01收据。三份既有板级原件的当前大小/SHA与R02声明逐字节身份相同：4072 PDF fd308dbb33a10a928f7759207f39717881733945981c2fc34e9bbcfb3e1008eb；4071f3 PDF 153d1c170a7d54e11a5d5e9b128ee9139a07b27249377d909e204cbf56e25cec；用户提供参考CST f647104f7b74800890d0283a438b226301bff3a3429a04ec0f6df63c9026e8ba。
+
+实际解析参考CST得到P15/N16/H17三球位缺列，复位U4与S0/K16属于不同极性/电压域，音频BANK_VCCIO有声明但IO_TYPE未显式声明；其余物理意义只读引用旧R02候选表，没有重审PDF或重跑旧110行报告。当前正式electronic_piano.cst明确是60K+NEO，与历史audio_visual.cst及新Pro目标分开记录。
+
+只读子智能体自审核上述静态差异，无新增资料内部阻断；未运行测试/EDA/硬件或修改源。该静态摄取不计新功能试错轮，Python身份核验1次；ModelSim/Gowin/设备/下载0。
+
+实物修订/FPGA全料号步进/Bank实际供电/MIDI侧电平共地/真实PLL复位PA/音频引脚/新Pro.fs及SRAM许可均无原件，实际观测字段留null。下一步由M3实物负责人提供原始身份和电气记录，M2固定新同版工程、完整时序和精确许可；本次没有请求或执行下载，board_release_allowed=false。

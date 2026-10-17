@@ -1,0 +1,384 @@
+{
+  "utc": "2026-10-17T02:13:50.966423+00:00",
+  "actual_level": "L0_IDENTITY_ONLY",
+  "B0_status": "PARTIAL_PENDING_PHYSICAL_INPUT",
+  "sources": [
+    {
+      "observed": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_Pro\\TANG_MEGA-138K-Pro_4072_Schematics.pdf",
+        "bytes": 5707118,
+        "sha256": "fd308dbb33a10a928f7759207f39717881733945981c2fc34e9bbcfb3e1008eb"
+      },
+      "prior_declared": {
+        "name": "TANG_MEGA-138K-Pro_4072_Schematics.pdf",
+        "path": "E:\\FPGA\\GAOYUNFPGA\\Callback3\\chat10\\TANG_MEGA-138K-Pro_4072_Schematics.pdf",
+        "bytes": 5707118,
+        "sha256": "fd308dbb33a10a928f7759207f39717881733945981c2fc34e9bbcfb3e1008eb"
+      },
+      "exact_identity_match": true
+    },
+    {
+      "observed": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_Pro\\TANG_MEGA-138K_Dock-4071f3__Schematics.pdf",
+        "bytes": 5728047,
+        "sha256": "153d1c170a7d54e11a5d5e9b128ee9139a07b27249377d909e204cbf56e25cec"
+      },
+      "prior_declared": {
+        "name": "TANG_MEGA-138K_Dock-4071f3__Schematics.pdf",
+        "path": "E:\\FPGA\\GAOYUNFPGA\\Callback3\\chat10\\TANG_MEGA-138K_Dock-4071f3__Schematics.pdf",
+        "bytes": 5728047,
+        "sha256": "153d1c170a7d54e11a5d5e9b128ee9139a07b27249377d909e204cbf56e25cec"
+      },
+      "exact_identity_match": true
+    },
+    {
+      "observed": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_Pro\\tang_mega_138k-pro_pins.cst",
+        "bytes": 18688,
+        "sha256": "f647104f7b74800890d0283a438b226301bff3a3429a04ec0f6df63c9026e8ba"
+      },
+      "prior_declared": {
+        "name": "tang_mega_138k-pro_pins.cst",
+        "path": "E:\\FPGA\\GAOYUNFPGA\\Callback3\\chat10\\tang_mega_138k-pro_pins.cst",
+        "bytes": 18688,
+        "sha256": "f647104f7b74800890d0283a438b226301bff3a3429a04ec0f6df63c9026e8ba",
+        "provenance": "用户补充的Pro参考CST；文件未写明PCB修订、完整器件Part或B/C步进，未独立鉴定下载来源",
+        "io_loc_count": 202,
+        "io_port_count": 202,
+        "other_constraints": [
+          {
+            "line": 463,
+            "text": "INS_LOC \"ddr_top_inst/u_ddr3/gw3_top/u_ddr_phy_top/u_dll\" DDRDLLM_BL;"
+          },
+          {
+            "line": 464,
+            "text": "INS_LOC \"ddr_top_inst/u_ddr3/gw3_top/u_ddr_phy_top/fclkdiv\" LEFTSIDE[4];"
+          },
+          {
+            "line": 465,
+            "text": "INS_LOC \"ddr_top_inst/Gowin_ddr_PLL_inst/PLL_inst\" PLL_L[0];"
+          },
+          {
+            "line": 466,
+            "text": "SET_PARAM \"ddr_top_inst/u_ddr3/gw3_top/u_ddr_phy_top/u_dll\" CLKIN_SEL=CLKIN5;"
+          }
+        ]
+      },
+      "exact_identity_match": true
+    }
+  ],
+  "inputs": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_Pro\\Pro_引脚核对_CST_R02_20261016\\pin_relationships.json",
+      "bytes": 83183,
+      "sha256": "a95534ebb97003b10643e80fba113be82d8eb2fafcd7f438683d9026b31a82b9"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\138K_Pro\\tang_mega_138k-pro_pins.cst",
+      "bytes": 18688,
+      "sha256": "f647104f7b74800890d0283a438b226301bff3a3429a04ec0f6df63c9026e8ba"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\constraints\\electronic_piano.cst",
+      "bytes": 7992,
+      "sha256": "76037da27eabba7bf322d41ad8f90c16b1a72b549fc2ffb865b380bfbda35dcb"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_binding_20261017\\coordinator_20261017\\capture_b0.py",
+      "bytes": 4046,
+      "sha256": "0bf72c46e3db096401ec664c3c167fd83d6d7d09721d7452a88d00663fd78d9f"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\hardware\\pro_fourvoice_board_intake_20261017\\README.md",
+      "bytes": 3317,
+      "sha256": "b32ab289dd5a6615a57b23c0c259e133f23d99a6e3a3d75e2e66cbf13a30d3c1"
+    }
+  ],
+  "reference_cst_observations": [
+    {
+      "alias": "clk",
+      "ball": "P16",
+      "line": 3,
+      "text": "IO_LOC \"clk\" P16;",
+      "electrical": [
+        {
+          "line": 4,
+          "text": "IO_PORT \"clk\" PULL_MODE=UP DRIVE=OFF BANK_VCCIO=3.3;"
+        }
+      ]
+    },
+    {
+      "alias": "rst",
+      "ball": "U4",
+      "line": 7,
+      "text": "IO_LOC \"rst\" U4;",
+      "electrical": [
+        {
+          "line": 8,
+          "text": "IO_PORT \"rst\" IO_TYPE=LVCMOS15 PULL_MODE=NONE DRIVE=OFF BANK_VCCIO=1.5;"
+        }
+      ]
+    },
+    {
+      "alias": "key[2]",
+      "ball": "F15",
+      "line": 12,
+      "text": "IO_LOC \"key[2]\" F15;",
+      "electrical": [
+        {
+          "line": 16,
+          "text": "IO_PORT \"key[2]\" PULL_MODE=NONE DRIVE=OFF BANK_VCCIO=3.3;"
+        }
+      ]
+    },
+    {
+      "alias": "key[1]",
+      "ball": "G15",
+      "line": 13,
+      "text": "IO_LOC \"key[1]\" G15;",
+      "electrical": [
+        {
+          "line": 17,
+          "text": "IO_PORT \"key[1]\" PULL_MODE=NONE DRIVE=OFF BANK_VCCIO=3.3;"
+        }
+      ]
+    },
+    {
+      "alias": "key[0]",
+      "ball": "K16",
+      "line": 14,
+      "text": "IO_LOC \"key[0]\" K16;",
+      "electrical": [
+        {
+          "line": 18,
+          "text": "IO_PORT \"key[0]\" PULL_MODE=NONE DRIVE=OFF BANK_VCCIO=3.3;"
+        }
+      ]
+    },
+    {
+      "alias": "pmod_0[1]",
+      "ball": "R17",
+      "line": 50,
+      "text": "IO_LOC \"pmod_0[1]\" R17;",
+      "electrical": [
+        {
+          "line": 58,
+          "text": "IO_PORT \"pmod_0[1]\" PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;"
+        }
+      ]
+    },
+    {
+      "alias": "HP_DIN",
+      "ball": "G24",
+      "line": 229,
+      "text": "IO_LOC \"HP_DIN\" G24;",
+      "electrical": [
+        {
+          "line": 230,
+          "text": "IO_PORT \"HP_DIN\" PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;"
+        }
+      ]
+    },
+    {
+      "alias": "HP_WS",
+      "ball": "F24",
+      "line": 231,
+      "text": "IO_LOC \"HP_WS\" F24;",
+      "electrical": [
+        {
+          "line": 232,
+          "text": "IO_PORT \"HP_WS\" PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;"
+        }
+      ]
+    },
+    {
+      "alias": "HP_BCK",
+      "ball": "E22",
+      "line": 233,
+      "text": "IO_LOC \"HP_BCK\" E22;",
+      "electrical": [
+        {
+          "line": 234,
+          "text": "IO_PORT \"HP_BCK\" PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;"
+        }
+      ]
+    }
+  ],
+  "reference_cst_missing_balls": [
+    "H17",
+    "N16",
+    "P15"
+  ],
+  "prior_report_selected_rows_readonly": [
+    {
+      "group": "时钟",
+      "net": "P16_EMCCLK",
+      "ball": "P16",
+      "bank": "3",
+      "voltage": "3.3 V",
+      "endpoint": "核心板 U8 OUT(3) 经 R38 22Ω",
+      "source": "4072 p7",
+      "note": "50 MHz固定有源晶振；建议作为迁移的主输入候选，尚未验证PLL路由。不是底板U8。",
+      "cst_alias": "clk",
+      "cst_lines": "IO_LOC L3，IO_PORT L4",
+      "cst_coverage": "球位有对应CST项（不自动证明同一物理网络）"
+    },
+    {
+      "group": "底板按键",
+      "net": "USR_KEY.0",
+      "ball": "K16",
+      "bank": "4",
+      "voltage": "3.3 V（可选1.8 V）",
+      "endpoint": "底板 S0",
+      "source": "4071 p5、p15；4072 p6",
+      "note": "外部1.5kΩ上拉至3.3 V，按下接地、低有效；与LCD.INT复用。S0可作低有效复位候选，S1/S2可作音符键候选，均未实现。 CST下标不是S编号：S0→key[0]，S1→key[2]，S2→key[1]，S3→key[3]。",
+      "cst_alias": "key[0]",
+      "cst_lines": "IO_LOC L14，IO_PORT L18",
+      "cst_coverage": "球位有对应CST项（不自动证明同一物理网络）"
+    },
+    {
+      "group": "底板按键",
+      "net": "USR_KEY.1",
+      "ball": "F15",
+      "bank": "5",
+      "voltage": "3.3 V（可选1.8 V）",
+      "endpoint": "底板 S1",
+      "source": "4071 p5、p15；4072 p6",
+      "note": "外部1.5kΩ上拉至3.3 V，按下接地、低有效；与LCD.INT复用。S0可作低有效复位候选，S1/S2可作音符键候选，均未实现。 CST下标不是S编号：S0→key[0]，S1→key[2]，S2→key[1]，S3→key[3]。",
+      "cst_alias": "key[2]",
+      "cst_lines": "IO_LOC L12，IO_PORT L16",
+      "cst_coverage": "球位有对应CST项（不自动证明同一物理网络）"
+    },
+    {
+      "group": "底板按键",
+      "net": "USR_KEY.2",
+      "ball": "G15",
+      "bank": "5",
+      "voltage": "3.3 V（可选1.8 V）",
+      "endpoint": "底板 S2",
+      "source": "4071 p5、p15；4072 p6",
+      "note": "外部1.5kΩ上拉至3.3 V，按下接地、低有效；与LCD.INT复用。S0可作低有效复位候选，S1/S2可作音符键候选，均未实现。 CST下标不是S编号：S0→key[0]，S1→key[2]，S2→key[1]，S3→key[3]。",
+      "cst_alias": "key[1]",
+      "cst_lines": "IO_LOC L13，IO_PORT L17",
+      "cst_coverage": "球位有对应CST项（不自动证明同一物理网络）"
+    },
+    {
+      "group": "核心板按键",
+      "net": "CPU_RST / U4_USR_KEY",
+      "ball": "U4",
+      "bank": "7",
+      "voltage": "1.5 V",
+      "endpoint": "核心板 SW5",
+      "source": "4072 p7、p8；4071 p5",
+      "note": "与底板S0不同；1.5 V域，上电阻接1.5 V、下拉到GND，按下为高；不能沿用底板低有效复位假设。",
+      "cst_alias": "rst",
+      "cst_lines": "IO_LOC L7，IO_PORT L8",
+      "cst_coverage": "球位有对应CST项（不自动证明同一物理网络）"
+    },
+    {
+      "group": "UART",
+      "net": "DBG_UART.TX / FPGA_TXD",
+      "ball": "P15",
+      "bank": "3",
+      "voltage": "3.3 V",
+      "endpoint": "底板 R128 0Ω → BL616 U9 GPIO11(10)；核心板J5/7",
+      "source": "4071 p5、p6；4072 p5、p7",
+      "note": "FPGA→电脑；115200 8N1是当前RTL要求；Pro BL616 GPIO11接收，不能照搬NEO GPIO27。 本次CST没有该球位/端口约束；迁移工程需根据原理图补齐，禁止把未列当作无需约束。",
+      "cst_alias": "未列",
+      "cst_lines": "—",
+      "cst_coverage": "本CST未覆盖；保留原理图依据"
+    },
+    {
+      "group": "UART",
+      "net": "DBG_UART.RX / FPGA_RXD",
+      "ball": "N16",
+      "bank": "3",
+      "voltage": "3.3 V",
+      "endpoint": "BL616 U9 GPIO10(9) → 底板 R95 0Ω；核心板J5/6",
+      "source": "4071 p5、p6；4072 p5、p7",
+      "note": "电脑→FPGA；当前四复音顶层没有使用此方向。 本次CST没有该球位/端口约束；迁移工程需根据原理图补齐，禁止把未列当作无需约束。",
+      "cst_alias": "未列",
+      "cst_lines": "—",
+      "cst_coverage": "本CST未覆盖；保留原理图依据"
+    },
+    {
+      "group": "音频",
+      "net": "I2S_BCLK",
+      "ball": "E22",
+      "bank": "5",
+      "voltage": "3.3 V（可选1.8 V）",
+      "endpoint": "底板 U6 PT8211-S/1",
+      "source": "4071 p5、p18；4072 p6",
+      "note": "FPGA输出；PT8211使用16位LSBJ右对齐（非Philips I2S）；当前发送器可作为复用候选。",
+      "cst_alias": "HP_BCK",
+      "cst_lines": "IO_LOC L233，IO_PORT L234",
+      "cst_coverage": "球位有对应CST项（不自动证明同一物理网络）"
+    },
+    {
+      "group": "音频",
+      "net": "I2S_LRCK",
+      "ball": "F24",
+      "bank": "4",
+      "voltage": "3.3 V（可选1.8 V）",
+      "endpoint": "底板 U6 PT8211-S/2",
+      "source": "4071 p5、p18；4072 p6",
+      "note": "FPGA输出；PT8211使用16位LSBJ右对齐（非Philips I2S）；当前发送器可作为复用候选。",
+      "cst_alias": "HP_WS",
+      "cst_lines": "IO_LOC L231，IO_PORT L232",
+      "cst_coverage": "球位有对应CST项（不自动证明同一物理网络）"
+    },
+    {
+      "group": "音频",
+      "net": "I2S_DIN",
+      "ball": "G24",
+      "bank": "4",
+      "voltage": "3.3 V（可选1.8 V）",
+      "endpoint": "底板 U6 PT8211-S/3",
+      "source": "4071 p5、p18；4072 p6",
+      "note": "FPGA输出；PT8211使用16位LSBJ右对齐（非Philips I2S）；当前发送器可作为复用候选。",
+      "cst_alias": "HP_DIN",
+      "cst_lines": "IO_LOC L229，IO_PORT L230",
+      "cst_coverage": "球位有对应CST项（不自动证明同一物理网络）"
+    },
+    {
+      "group": "音频",
+      "net": "PA_EN",
+      "ball": "H17",
+      "bank": "5",
+      "voltage": "3.3 V（可选1.8 V）",
+      "endpoint": "底板 U32 XPT4809 EN/SD(5)，R248 100kΩ下拉",
+      "source": "4071 p5、p18；4072 p6；XPT4809数据手册p3",
+      "note": "高=正常工作，低=关闭，和当前NEO顶层低有效功放控制相反；需改顶层极性。 本次CST没有该球位/端口约束；迁移工程需根据原理图补齐，禁止把未列当作无需约束。",
+      "cst_alias": "未列",
+      "cst_lines": "—",
+      "cst_coverage": "本CST未覆盖；保留原理图依据"
+    },
+    {
+      "group": "PMOD0",
+      "net": "PMOD0_IO3",
+      "ball": "R17",
+      "bank": "3",
+      "voltage": "3.3 V",
+      "endpoint": "底板 J22/5",
+      "source": "4071 p5、p16；4072 p5/p6/p7/p9",
+      "note": "连接器1/2=3.3 V，3/4=GND；针号按原理图，不推断实物观察方向。与麦克风阵列J28复用。还与SSPI_WP_N配置功能复用；使用前核对配置模式。R17在Pro是PMOD0_IO3、J22/5，不是NEO的PMOD0_IO5/J9/8；当前midi_rx同名球位但不得据此判断旧.fs物理路由正确。 CST pmod_n[]编号按插座行交错排列，不能当作原理图IO编号。",
+      "cst_alias": "pmod_0[1]",
+      "cst_lines": "IO_LOC L50，IO_PORT L58",
+      "cst_coverage": "球位有对应CST项（不自动证明同一物理网络）"
+    }
+  ],
+  "interpretation": "Reuse prior static candidate annotations; not a new schematic or electrical signoff",
+  "physical_observations": {
+    "actual_core_revision": null,
+    "actual_dock_revision": null,
+    "full_fpga_part_step": null,
+    "measured_vccio": null,
+    "midi_fpga_voltage_ground": null,
+    "actual_reset_pll_pa": null,
+    "actual_audio_serial": null,
+    "Pro_fs_identity": null,
+    "single_SRAM_permission": null
+  },
+  "ModelSim_Gowin_device_calls": 0,
+  "board_release_allowed": false
+}

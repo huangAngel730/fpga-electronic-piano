@@ -1,0 +1,99 @@
+{
+  "status": "OFFLINE_PREPARATION_COLLECTED_REAL_PRO_PARTIAL",
+  "archive": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_binding_20261017/coordinator_20261017/DELIVERY/M3_TASK_DAY_FIVE_WINDOWS_OFFLINE_PREPARATION_20261017.zip",
+    "bytes": 1268310,
+    "sha256": "62051d1fe25b914aa59c17e06be0e4e13c74237b0b6b10edcc37314d7118f14f"
+  },
+  "payloads": 49,
+  "members": 50,
+  "crc_size_sha_verified": true,
+  "inner_packages": [
+    {
+      "label": "B1",
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_binding_20261017/M3_B1_OBSERVATION_BINDING_PREPARATION_20261017.zip",
+      "bytes": 460660,
+      "sha256": "31b5f83c30112c78480a66043d95d01d2c329cbe63db53b72b4b7c5b6e96e4bc",
+      "payloads": 319,
+      "members": 320,
+      "manifest": "DELIVERY_MANIFEST.json",
+      "crc_size_sha_verified": true
+    },
+    {
+      "label": "B2",
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_serial_successor_20261017/SEAL_01/M3_B2_PUBLIC_CSV_SERIAL_ADAPTER_PREPARATION_20261017.zip",
+      "bytes": 1010487,
+      "sha256": "28ede631ca5d35c11a6c38dba1d1d083d87fffe984e2d43bb75158aacf811d4a",
+      "payloads": 208,
+      "members": 209,
+      "manifest": "MANIFEST.json",
+      "crc_size_sha_verified": true
+    },
+    {
+      "label": "E1_STATIC",
+      "path": "code/docs/test/m3_dual_slider_138k_candidate_20261015/pro_integrate_successor_20261017/RUN_02/products/M3_E1_PRO_INTEGRATION_STATIC_DIFF_20261017.zip",
+      "bytes": 160415,
+      "sha256": "13f0839a5b58c622f551c08dd5bdafbbb12029fdcdb7efe1d3a3f753757042d3",
+      "payloads": 61,
+      "members": 62,
+      "manifest": "code/docs/test/m3_dual_slider_138k_candidate_20261015/pro_integrate_successor_20261017/RUN_02/products/MANIFEST.json",
+      "crc_size_sha_verified": true
+    },
+    {
+      "label": "INTAKE_LIGHTWEIGHT",
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_binding_20261017/intake_20261017/LIGHTWEIGHT/M3_TASK5_INTAKE_LIGHTWEIGHT_20261017.zip",
+      "bytes": 72039,
+      "sha256": "ef3a3e002260b1487473ecb0737d6ea9521d1e7ec75d9d6da767e313b7fe0d1d",
+      "payloads": 44,
+      "members": 45,
+      "manifest": "MANIFEST.json",
+      "crc_size_sha_verified": true
+    }
+  ],
+  "consumption": {
+    "B1_night2": {
+      "used": 1,
+      "allocated": 4,
+      "checks": 41,
+      "seconds": 3.6089999999967404
+    },
+    "B1_night5": {
+      "used": 1,
+      "allocated": 2,
+      "checks": 9,
+      "seconds": 0.7810000000026776
+    },
+    "B1_shared": {
+      "used": 2,
+      "limit": 6
+    },
+    "B2": {
+      "used": 2,
+      "limit": 6,
+      "checks_by_version": [
+        19,
+        3
+      ],
+      "seconds": 11.186999999990803
+    },
+    "E1_static": {
+      "used": 2,
+      "allocated": 2,
+      "first_exit": 1,
+      "final_exit": 0,
+      "seconds": 2.0320000000065193
+    },
+    "B0_static": {
+      "used": 1,
+      "functional_rounds": 0,
+      "seconds": 0.062000000005355105
+    },
+    "ModelSim_Gowin_devices_new": 0,
+    "new_E4_runs": 0,
+    "old_quotas_restored": false
+  },
+  "pro_dut_pass": false,
+  "board_release_allowed": false,
+  "Git_at_seal": "Not committed/pushed; gate and final remote receipt follow separately",
+  "M2_M1_received": false
+}
