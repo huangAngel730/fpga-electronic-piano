@@ -1,0 +1,63 @@
+{
+  "schema": "M2_PRO_STATIC_BINDING_IMPLEMENTATION_SELF_AUDIT_V1",
+  "created_utc": "2026-10-17T05:55:46.458802+00:00",
+  "scope": "M2_P1_STATIC_SOURCE_IDENTITY_ONLY",
+  "status": "PARTIAL_PENDING_PRO_MAPPING_TOOL_OR_PHYSICAL",
+  "commands": [
+    {
+      "argv": [
+        "python",
+        "-B",
+        "-X",
+        "utf8",
+        "code/build/138k_pro_fourvoice_candidate_20261016/same_version_binding_20261017/create_binding.py"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "python",
+        "-B",
+        "-X",
+        "utf8",
+        "code/build/138k_pro_fourvoice_candidate_20261016/same_version_binding_20261017/selftest_binding.py"
+      ],
+      "cwd": "D:\\17\\project_17\\fpga_gowin",
+      "exit_code": 0
+    }
+  ],
+  "selftest_receipt": {
+    "path": "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/same_version_binding_20261017/selftest/SELFTEST_RECEIPT.json",
+    "bytes": 6168,
+    "sha256": "dfce52516ef60679ad24f19e5e09d130553c6d8d80d41837dd2a1c9608badc29"
+  },
+  "archive": {
+    "path": "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/same_version_binding_20261017/M2_PRO_SAME_VERSION_STATIC_BINDING_20261017.zip",
+    "bytes": 585696,
+    "sha256": "931b7d2bbfd7ac056707542931101ff844b125936762748e344536d9be6c1ba2"
+  },
+  "manifest_sha256": "8591e40771946c901bab569312d8c98ca8c30a362f3a39c4f9d946f59d75c265",
+  "self_audit": [
+    "All 3 new Python sources AST-parse; no compile or DUT execution",
+    "Existing P10 payload93 + original manifest equals94 unchanged files; current wrapper/CST/SDC match P10",
+    "B1/B2 reference bytes compared directly with git show f32f1210d097fbe9292a3c34bbd9f50f57e1fb81",
+    "New source ZIP CRC and every member compared bytewise with artifact directory",
+    "One bounded checker-only selftest:1 positive exit0 and5 rejection cases exit2; all expected;8.650023 seconds",
+    "Semantic source review keeps P1/P7/physical/real trace blockers unchanged"
+  ],
+  "unexpected_failures": [],
+  "historical_read_only_issue": {
+    "action": "Initial rg source lookup used a guessed obsolete directory ending20261014",
+    "result": "Path not found; no files modified; located actual source via rg --files instead",
+    "retired_path": "code/rtl/board/m2_fourvoice_timbre_delay_candidate_20261014/"
+  },
+  "new_rtl_ports": false,
+  "private_hierarchical_reads": false,
+  "old_groups_rerun": false,
+  "git_write_performed": false,
+  "number_allocated": false,
+  "published": false,
+  "pro_dut_pass": false,
+  "board_release_allowed": false
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "m2_executor_guard_final_summary_r03_v1",
+  "result": "L1_SOFTWARE_PROCESS_CONTROL_PREPARATION_WITH_TARGETED_REPAIRS",
+  "role": "M2 self-review implementation; no separate reviewer制度 enabled",
+  "executor_sha256": "86227ae2637adf270df056b30ad67c751cb930daad50d1eb788f76228a090979",
+  "r03_script_sha256": "bccfb2978ac28368c164e76b6c887ea3121e8c0e40fb4cb56af5fa4ecbc0a98b",
+  "versions": [
+    {"version":"R01", "executor_sha256":"97a2cfaaf0250e81bca2474da57d7bd430375c429dec1507f1394ad6122e0534", "executed":"5 software behavior cases plus unapproved command denial", "exit_code":0, "seconds":3.579587, "limitation":"Selftest script itself was not independently frozen before/after; original snapshot covers executor/dummy/Python/helper only"},
+    {"version":"R02", "executor_sha256":"1cd67eaeed4195b12dbfe62898fbde28ec46908fdceea89e1574111c04f3b68d", "executed":"2 new ordinary-exception targeted cases", "exit_code":0, "seconds":0.118751, "limitation":"No R01 full rerun; BaseException gap subsequently found"},
+    {"version":"R03", "executor_sha256":"86227ae2637adf270df056b30ad67c751cb930daad50d1eb788f76228a090979", "executed":"1 new KeyboardInterrupt-before-attachment case", "exit_code":0, "seconds":0.098566, "limitation":"No R01/R02 rerun; SystemExit static common-finally path only"}
+  ],
+  "r03_expected_original_fault": "KeyboardInterrupt: INJECTED_KEYBOARD_INTERRUPT_BEFORE_JOB_ATTACHMENT",
+  "r03_baseexception_propagated": true,
+  "r03_root_handle_signaled": true,
+  "r03_fixture_descendant_or_escape_markers": 0,
+  "r03_pre_post_five_input_identities_equal": true,
+  "cleanup_uses_current_popen_or_owned_job_only": true,
+  "historical_pid_termination": false,
+  "log_limit_is_hard_byte_cap": false,
+  "cli_pro_or_hdl_launch_route": false,
+  "raw_logs_authority": "R03 ZIP original bytes; do not rely on Git-normalized raw files",
+  "p7_state": "BLOCKED_EXECUTOR_GUARD",
+  "board_release_allowed": false,
+  "not_run": ["P7", "Icarus", "RTL simulation", "EDA", "hardware", "final-source full behavior suite", "host-wide orphan cleanup"]
+}

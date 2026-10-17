@@ -1,0 +1,14 @@
+{
+  "time_utc": "2026-10-17T05:52:36.0274547Z",
+  "method": "PowerShell Get-Process -Id with ErrorAction Stop, then Get-Process -Name ivl; no CIM or termination",
+  "historical_processes": [
+    {"pid": 23208, "result": "NOT_FOUND_AT_QUERY", "error_id": "NoProcessFoundForGivenId,Microsoft.PowerShell.Commands.GetProcessCommand"},
+    {"pid": 28960, "result": "NOT_FOUND_AT_QUERY", "error_id": "NoProcessFoundForGivenId,Microsoft.PowerShell.Commands.GetProcessCommand"},
+    {"pid": 30064, "result": "NOT_FOUND_AT_QUERY", "error_id": "NoProcessFoundForGivenId,Microsoft.PowerShell.Commands.GetProcessCommand"}
+  ],
+  "ivl_name_query_objects_returned": 0,
+  "process_termination_performed": false,
+  "meaning": "Point-in-time absence of recorded PIDs and no ivl objects from name query; no claim of historical cleanup method or continuing absence",
+  "P7_execution_permission": false,
+  "board_release_allowed": false
+}
