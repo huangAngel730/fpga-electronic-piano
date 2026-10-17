@@ -1,0 +1,393 @@
+{
+  "schema": "M3_R7A_PUBLIC_PORT_MAP_V1",
+  "exports": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m2_138k_pro_fourvoice_candidate_20261016\\r06_observer_20261017\\OBSERVER_EXPORTS_R06C3.json",
+    "bytes": 4595,
+    "sha256": "be0a6d63717b89f2a6a28dd0841a95312422fbbf5321699265c6e199e9fb3445"
+  },
+  "normalized_schema": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m2_138k_pro_fourvoice_candidate_20261016\\r06_observer_20261017\\NORMALIZED_ROW_SCHEMA.json",
+    "bytes": 25207,
+    "sha256": "47b21a6c6b1e636ed4c6d8d8409e1f7547929a6d25bdad9592a4e4a2845e9193"
+  },
+  "raw_ports": {
+    "obs_core_clk": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_polyphonic_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_rst_n": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_frame_tick": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_event_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_event_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_event_data": {
+      "width": 64,
+      "signed": false
+    },
+    "obs_req_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_req_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_result_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_result_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_result_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_result_left": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_result_right": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_result_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_req_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_commit": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_commit_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_commit_left": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_commit_right": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_commit_clip": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_cancel": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_config_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_config_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_left": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_tx_right": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_pll_locked": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_sample_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_metadata_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_req_id_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_frame_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_tx_req_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_tx_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_tx_clip_any": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_hold": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_startup_zero": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_metadata_error": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_frame_id_overflow": {
+      "width": 1,
+      "signed": false
+    },
+    "i2s_bclk": {
+      "width": 1,
+      "signed": false
+    },
+    "i2s_lrck": {
+      "width": 1,
+      "signed": false
+    },
+    "i2s_din": {
+      "width": 1,
+      "signed": false
+    },
+    "pa_en": {
+      "width": 1,
+      "signed": false
+    },
+    "uart_tx": {
+      "width": 1,
+      "signed": false
+    }
+  },
+  "normalized_mapping": {
+    "rst_n": {
+      "port": "obs_rst_n",
+      "width": 1,
+      "signed": false
+    },
+    "frame_tick": {
+      "port": "obs_frame_tick",
+      "width": 1,
+      "signed": false
+    },
+    "event_valid": {
+      "port": "obs_event_valid",
+      "width": 1,
+      "signed": false
+    },
+    "event_ready": {
+      "port": "obs_event_ready",
+      "width": 1,
+      "signed": false
+    },
+    "event_data": {
+      "port": "obs_event_data",
+      "width": 64,
+      "signed": false
+    },
+    "req_valid": {
+      "port": "obs_req_valid",
+      "width": 1,
+      "signed": false
+    },
+    "req_ready": {
+      "port": "obs_req_ready",
+      "width": 1,
+      "signed": false
+    },
+    "result_valid": {
+      "port": "obs_result_valid",
+      "width": 1,
+      "signed": false
+    },
+    "result_ready": {
+      "port": "obs_result_ready",
+      "width": 1,
+      "signed": false
+    },
+    "result_id": {
+      "port": "obs_result_id",
+      "width": 32,
+      "signed": false
+    },
+    "result_left": {
+      "port": "obs_result_left",
+      "width": 24,
+      "signed": true
+    },
+    "result_right": {
+      "port": "obs_result_right",
+      "width": 24,
+      "signed": true
+    },
+    "result_clip_mask": {
+      "port": "obs_result_clip_mask",
+      "width": 2,
+      "signed": false
+    },
+    "req_id": {
+      "port": "obs_req_id",
+      "width": 32,
+      "signed": false
+    },
+    "commit": {
+      "port": "obs_commit",
+      "width": 1,
+      "signed": false
+    },
+    "commit_id": {
+      "port": "obs_commit_id",
+      "width": 32,
+      "signed": false
+    },
+    "commit_left": {
+      "port": "obs_commit_left",
+      "width": 24,
+      "signed": true
+    },
+    "commit_right": {
+      "port": "obs_commit_right",
+      "width": 24,
+      "signed": true
+    },
+    "commit_clip": {
+      "port": "obs_commit_clip",
+      "width": 1,
+      "signed": false
+    },
+    "cancel": {
+      "port": "obs_cancel",
+      "width": 1,
+      "signed": false
+    },
+    "config_valid": {
+      "port": "obs_config_valid",
+      "width": 1,
+      "signed": false
+    },
+    "config_ready": {
+      "port": "obs_config_ready",
+      "width": 1,
+      "signed": false
+    },
+    "tx_left": {
+      "port": "obs_tx_left",
+      "width": 24,
+      "signed": true
+    },
+    "tx_right": {
+      "port": "obs_tx_right",
+      "width": 24,
+      "signed": true
+    },
+    "pll_locked": {
+      "port": "obs_pll_locked",
+      "width": 1,
+      "signed": false
+    },
+    "tx_sample_valid": {
+      "port": "obs_tx_sample_valid",
+      "width": 1,
+      "signed": false
+    },
+    "tx_frame_id": {
+      "port": "obs_tx_frame_id",
+      "width": 32,
+      "signed": false
+    },
+    "tx_req_id": {
+      "port": "obs_tx_req_id",
+      "width": 32,
+      "signed": false
+    },
+    "tx_clip": {
+      "port": "obs_tx_clip_any",
+      "width": 1,
+      "signed": false
+    },
+    "tx_hold": {
+      "port": "obs_tx_hold",
+      "width": 1,
+      "signed": false
+    },
+    "tx_startup_zero": {
+      "port": "obs_tx_startup_zero",
+      "width": 1,
+      "signed": false
+    },
+    "bclk": {
+      "port": "i2s_bclk",
+      "width": 1,
+      "signed": false
+    },
+    "ws": {
+      "port": "i2s_lrck",
+      "width": 1,
+      "signed": false
+    },
+    "din": {
+      "port": "i2s_din",
+      "width": 1,
+      "signed": false
+    },
+    "pa_en": {
+      "port": "pa_en",
+      "width": 1,
+      "signed": false
+    }
+  },
+  "unimplemented": {
+    "apply_valid": "PENDING_M1_SEMANTICS",
+    "apply_event_seq": "PENDING_M1_SEMANTICS",
+    "apply_data": "PENDING_M1_SEMANTICS",
+    "occupied_mask": "PENDING_M1_SEMANTICS",
+    "releasing_mask": "PENDING_M1_SEMANTICS",
+    "note_on_mask": "PENDING_M1_SEMANTICS",
+    "note_off_mask": "PENDING_M1_SEMANTICS",
+    "retire_mask": "PENDING_M1_SEMANTICS",
+    "slot_sources": "PENDING_M1_SEMANTICS",
+    "slot_channels": "PENDING_M1_SEMANTICS",
+    "slot_notes": "PENDING_M1_SEMANTICS",
+    "slot_generations": "PENDING_M1_SEMANTICS",
+    "advance_mask": "PENDING_M1_SEMANTICS",
+    "advance_frame_req_id": "PENDING_M1_SEMANTICS",
+    "cancel_reason": "PENDING_WIDTH_AND_IMPLEMENTATION",
+    "config_payload": "PENDING_WIDTH_AND_IMPLEMENTATION",
+    "effect_input_valid": "PENDING_M1_SEMANTICS",
+    "effect_input_ready": "PENDING_M1_SEMANTICS",
+    "effect_input_id": "PENDING_M1_SEMANTICS",
+    "effect_input_left": "PENDING_M1_SEMANTICS",
+    "effect_input_right": "PENDING_M1_SEMANTICS",
+    "effect_input_clip_mask": "PENDING_M1_SEMANTICS",
+    "audio_stable": "PENDING_STABILITY_POLICY_AND_IMPLEMENTATION"
+  },
+  "epoch": "Bound after capture from independent asynchronous RESET_EDGES; ambiguous same-time transitions remain null",
+  "tx_req_id": "null unless obs_tx_req_id_valid known1; original bits remain in raw file and extensions",
+  "pro_dut_pass": false,
+  "board_release_allowed": false
+}

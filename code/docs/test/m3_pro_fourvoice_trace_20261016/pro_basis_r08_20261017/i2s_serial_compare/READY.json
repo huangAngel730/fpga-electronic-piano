@@ -1,0 +1,98 @@
+{
+  "schema": "M3_R08_COMPONENT_READY_V1",
+  "role": "C",
+  "task": "R8-13",
+  "component": "i2s_serial_compare",
+  "group": "T",
+  "status": "READY_FOR_COORDINATOR_FREEZE_NOT_RUN",
+  "production_entry": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/i2s_serial_compare/r08c13_serial.py",
+  "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/i2s_serial_compare/selftest.py",
+  "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/i2s_serial_compare/CASES.json",
+  "case_count": 9,
+  "cases": [
+    {
+      "id": "T13_WORD_ALIGNMENT",
+      "expected": "UNKNOWN_SERIAL_PARTIAL",
+      "description": "完整PT8211帧左右+1/-2及有效ID0对齐；保留新尾半帧UNKNOWN"
+    },
+    {
+      "id": "T13_CHANNEL_SWAP",
+      "expected": "PIN_SERIAL_PCM_OR_CHANNEL_MISMATCH",
+      "description": "左右线槽交换输出首帧/首位索引"
+    },
+    {
+      "id": "T13_PADDING_PHASE",
+      "expected": "PIN_LSBJ_PADDING_OR_PHASE",
+      "description": "右槽padding首位异常定位"
+    },
+    {
+      "id": "T13_RESET_HALF",
+      "expected": "UNKNOWN_SERIAL_PARTIAL",
+      "description": "半帧复位不能签完整串行"
+    },
+    {
+      "id": "T13_FIRST_PHASE",
+      "expected": "UNKNOWN_SERIAL_FIRST_PHASE",
+      "description": "缺首相位保留UNKNOWN"
+    },
+    {
+      "id": "T13_OTHER_PROTOCOL",
+      "expected": "PENDING_UNSUPPORTED_SERIAL_PROTOCOL",
+      "description": "I2S模式不能套PT8211协议"
+    },
+    {
+      "id": "T13_VALID_X",
+      "expected": "PENDING_TX_SAMPLE",
+      "description": "TX valid X不能复用PinDecoder旧sample"
+    },
+    {
+      "id": "T13_VALID_2",
+      "expected": "TX_SAMPLE_VALID_RANGE",
+      "description": "非法TX valid=2拒收"
+    },
+    {
+      "id": "T13_FRAME_SAMPLE0",
+      "expected": "PENDING_TX_SAMPLE",
+      "description": "active FRAME缺有效TX不能归旧ID"
+    }
+  ],
+  "source_and_evidence_files": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\i2s_serial_compare\\r08c13_serial.py",
+      "bytes": 5833,
+      "sha256": "cec48eec4684adb7b52227c313d23dce807dc0b6c5294af658273abb83b30c86"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\i2s_serial_compare\\r08c_common.py",
+      "bytes": 4039,
+      "sha256": "975f52584ff5ddd8d245ca690d99e890a51eb17cd325802c4b653abfdb6f10fa"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\i2s_serial_compare\\selftest.py",
+      "bytes": 4583,
+      "sha256": "b0370a6aab4e364e9ba7763957146b6bde6f913c2fbcfc61b7bde90dd395793c"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\i2s_serial_compare\\CASES.json",
+      "bytes": 1571,
+      "sha256": "f9cff1cdf8a9d05da7f87a4883195eac03dc90fcaccb6607f16cf76354eb93c7"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\i2s_serial_compare\\CONTRACT.json",
+      "bytes": 662,
+      "sha256": "7f6cb942c0aa799e56dffd16dc26efd215d692e2a49a8f1f2d2250000c340f42"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\i2s_serial_compare\\README.md",
+      "bytes": 1997,
+      "sha256": "812e897622ea5696de118e87b1eeaac1f9dd05e331bc2c344f709bf6b7bc34ce"
+    }
+  ],
+  "import_contract": "No application IO/test execution at import. run_case exclusively creates new output_dir, saves INPUT_BEFORE_CALL before production invocation and ACTUAL_BEFORE_ASSERT before assertions; unexpected failure raises.",
+  "local_functional_executions": 0,
+  "group_budget_consumption_by_this_window": 0,
+  "old_tests_invoked": 0,
+  "subprocess_EXE_HDL_EDA_hardware_calls": 0,
+  "real_pass": false,
+  "board_release_allowed": false
+}

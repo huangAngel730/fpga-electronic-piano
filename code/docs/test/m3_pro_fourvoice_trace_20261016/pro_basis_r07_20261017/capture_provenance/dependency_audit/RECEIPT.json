@@ -1,0 +1,38 @@
+{
+  "task": "R07_NIGHT5_READ_ONLY_DEPENDENCY_AND_CONSUMPTION_AUDIT",
+  "baseline_commit": "4fd3366e42fd2356e56eb96eee70b6771afd4bb1",
+  "status": "DONE_STATIC_REPORT_PENDING_FINAL_IMPLEMENTATION_REVIEW",
+  "actual_level": "L0_STATIC_ONLY",
+  "new_program_import_test_HDL_EDA_device_runs": 0,
+  "R06_rounds_reset": false,
+  "R07_new_groups_consumed_by_this_window": 0,
+  "implementation_writes": 0,
+  "git_writes": 0,
+  "old_archive_copies": 0,
+  "input_identity_files": "INPUT_IDENTITIES.json: 22 references",
+  "M2_four_new_source_hashes": "SOURCE_REPLACEMENT_IDENTITY.json: 4 declared/current byte identities match; no RTL verdict",
+  "concrete_gaps": [
+    "R6-5 has a frame-plan reader/checker and manually scheduled synthetic fixture; no published new formula/reset/stop generator entry found in reviewed R6 sources. Old D/fixture.py has formula but incompatible diagnostic schema/fixed epochs, not an R07 production generator.",
+    "R6-8 board_capture_acceptance directories absent under all 3 M3 roots; older capture steps/formats exist for conceptual reuse, but PG484 pins/bitstream permission and T052 scope cannot be carried over. Pro offline preparation remains to be delivered."
+  ],
+  "interface_attention": [
+    "61-field strict representation versus separately versioned TX extensions",
+    "canonical envelope .fields versus R6-5 flat61 reader; retain all original provenance metadata",
+    "actual PRE_NBA obs_core_clk sampling and independent RESET_EDGES/epoch/release edge",
+    "unique independent FRAME_PLAN generator in R6-5; F and A separate; all FRAME through real finish",
+    "TX pending/held identity, clip packing, startup-null ID and numeric0",
+    "B external equivalence only, NOT_PUBLIC instead of private hierarchy",
+    "M1 narrow B0 unsupported profiles must remain pending",
+    "finish/EOF, raw line mapping, source replacement and M2-owned admission"
+  ],
+  "unverified": [
+    "final R07 A/B/C/D implementation and actual new software group results",
+    "M1 nineteen real semantics and explicit exports",
+    "new formula generator and Pro R6-8 preparation delivery",
+    "HDL execution, Pro source/ROM/capture same-run truth, physical/board evidence"
+  ],
+  "board_release_allowed": false,
+  "files": ["START.md", "INPUT_IDENTITIES.json", "SOURCE_REPLACEMENT_IDENTITY.json", "RESULT.md", "RECEIPT.json"],
+  "communication": "Local report ready for coordinator pickup; no send attempted yet, no claim of M2 delivery",
+  "publication_owner": "night_task1_coordinator"
+}

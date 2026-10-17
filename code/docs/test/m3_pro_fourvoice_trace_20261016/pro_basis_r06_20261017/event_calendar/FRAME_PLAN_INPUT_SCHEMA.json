@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "M3_R06_FRAME_PLAN_GENERATOR_INPUT_V1",
+  "title": "Independent reset/release/stop input for the unique R6-5 frame plan",
+  "type": "object",
+  "required": [
+    "schema",
+    "status",
+    "independent_of_observed_trace",
+    "source_identities",
+    "epochs",
+    "finish"
+  ],
+  "properties": {
+    "schema": {"const": "M3_R06_FRAME_PLAN_GENERATOR_INPUT_V1"},
+    "status": {"const": "FROZEN_INDEPENDENT_INPUT"},
+    "independent_of_observed_trace": {"const": true},
+    "source_identities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "epochs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["epoch", "window_kind", "reset_assert_cycle", "release_cycle", "stop_cycle"],
+        "properties": {
+          "epoch": {"type": "integer", "minimum": 0},
+          "window_kind": {"enum": ["ACTIVE", "RESET_ONLY"]},
+          "reset_assert_cycle": {"type": "integer", "minimum": 0},
+          "release_cycle": {
+            "oneOf": [
+              {"type": "integer", "minimum": 0},
+              {"type": "null"}
+            ]
+          },
+          "stop_cycle": {"type": "integer", "minimum": 0}
+        },
+        "allOf": [
+          {
+            "if": {"properties": {"window_kind": {"const": "ACTIVE"}}},
+            "then": {"properties": {"release_cycle": {"type": "integer", "minimum": 0}}}
+          },
+          {
+            "if": {"properties": {"window_kind": {"const": "RESET_ONLY"}}},
+            "then": {"properties": {"release_cycle": {"type": "null"}}}
+          }
+        ],
+        "additionalProperties": false
+      }
+    },
+    "finish": {
+      "type": "object",
+      "required": ["epoch", "cycle"],
+      "properties": {
+        "epoch": {"type": "integer", "minimum": 0},
+        "cycle": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

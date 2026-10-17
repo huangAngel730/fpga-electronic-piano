@@ -1,0 +1,93 @@
+{
+  "schema": "M3_R08_COMPONENT_READY_V1",
+  "role": "C",
+  "task": "R8-24",
+  "component": "recovery_manifest",
+  "group": "H",
+  "status": "READY_FOR_COORDINATOR_FREEZE_NOT_RUN",
+  "production_entry": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/recovery_manifest/r08c24_recovery.py",
+  "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/recovery_manifest/selftest.py",
+  "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/recovery_manifest/CASES.json",
+  "case_count": 9,
+  "cases": [
+    {
+      "id": "H24_COMPLETE_STILL_PENDING",
+      "expected": "PENDING_TRUSTED_M2_ADMISSION",
+      "description": "完整同版材料仍不产生可信M2许可或设备操作"
+    },
+    {
+      "id": "H24_OLD_PG484",
+      "expected": "OLD_PG484_TARGET",
+      "description": "旧PG484直接拒收"
+    },
+    {
+      "id": "H24_UNKNOWN_VERSION",
+      "expected": "PENDING_PHYSICAL_IDENTITY",
+      "description": "version未知待定"
+    },
+    {
+      "id": "H24_MISSING_FS",
+      "expected": "PENDING_BUILD_RECOVERY_MATERIAL",
+      "description": "无新.fs待定"
+    },
+    {
+      "id": "H24_MISSING_RECOVERY_REMOVAL",
+      "expected": "PENDING_FULL_PHYSICAL_COVERAGE",
+      "description": "缺Recovery/Removal不通过"
+    },
+    {
+      "id": "H24_WRONG_FS_PERMISSION",
+      "expected": "PERMISSION_SCOPE_MISMATCH",
+      "description": "SRAM许可不得迁移另一.fs"
+    },
+    {
+      "id": "H24_FLASH_FORBIDDEN",
+      "expected": "FLASH_FORBIDDEN",
+      "description": "Flash拒收"
+    },
+    {
+      "id": "H24_CONSUMED_SRAM",
+      "expected": "SRAM_REUSE_OR_REPEAT",
+      "description": "已消费SRAM不可复用"
+    },
+    {
+      "id": "H24_PERMISSION_OTHER_VERSION",
+      "expected": "PERMISSION_SCOPE_MISMATCH",
+      "description": "同许可不能迁移另一version"
+    }
+  ],
+  "source_and_evidence_files": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\recovery_manifest\\r08c24_recovery.py",
+      "bytes": 4966,
+      "sha256": "242b56b373004a84d82bf008044d5bc1e28f02b702ddc8ce0252fce1f1fa409c"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\recovery_manifest\\selftest.py",
+      "bytes": 4815,
+      "sha256": "58a0113f68f0eef29b83f78fdd8cf5fc53975a118df15f78a2df8e786970d77b"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\recovery_manifest\\CASES.json",
+      "bytes": 1524,
+      "sha256": "5b1f1f11b5fca71ae0d5890daeae28f00c1af6cb95398b82896712e650ff4c1e"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\recovery_manifest\\CONTRACT.json",
+      "bytes": 745,
+      "sha256": "852bcfec0f49c950069843bffa8c6fd553f459589d0e0b29750a7127eddc772c"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\recovery_manifest\\README.md",
+      "bytes": 1926,
+      "sha256": "e939588a6286ce322ac58fb52712ee68a1d3e185ff89310c291aa5ce23620dfd"
+    }
+  ],
+  "import_contract": "No application IO/test execution at import. run_case exclusively creates new output_dir, saves INPUT_BEFORE_CALL before production invocation and ACTUAL_BEFORE_ASSERT before assertions; unexpected failure raises.",
+  "local_functional_executions": 0,
+  "group_budget_consumption_by_this_window": 0,
+  "old_tests_invoked": 0,
+  "subprocess_EXE_HDL_EDA_hardware_calls": 0,
+  "real_pass": false,
+  "board_release_allowed": false
+}

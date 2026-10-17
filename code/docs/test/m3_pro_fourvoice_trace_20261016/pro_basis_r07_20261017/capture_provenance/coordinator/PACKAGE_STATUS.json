@@ -1,0 +1,170 @@
+{
+  "schema": "M3_TASK_DAY2_R07_V0396_STATUS_V1",
+  "status": "PARTIAL_NEEDS_M2_ADMISSION",
+  "baseline": "40d78131e8ed50643dd169816f7bfc7149a8ced9",
+  "packages": {
+    "R7-A": {
+      "level": "L1_SOFTWARE_L0_HDL",
+      "status": "PENDING_REAL_INPUT",
+      "seconds": [
+        2.061999999990803
+      ],
+      "group_exit_codes": [
+        0
+      ],
+      "initial_groups_consumed": 1,
+      "repair_groups_consumed": 0,
+      "limits": "7 positive + 29 negative + 2 CLI; no HDL",
+      "receipt": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/RECEIPT.json",
+        "bytes": 5118,
+        "sha256": "ed90dc33a6e85a7a843fa2376695c722e322cd058b53d72e1732811ab961dbff"
+      }
+    },
+    "R7-B": {
+      "level": "L1_SOFTWARE_FINAL_TB_DELTA_L0",
+      "status": "PENDING_REAL_INPUT",
+      "seconds": [
+        0.531,
+        0.187
+      ],
+      "group_exit_codes": [
+        0,
+        0
+      ],
+      "initial_groups_consumed": 1,
+      "repair_groups_consumed": 1,
+      "limits": "15 initial and 4 targeted; final <=stop TB change NOT_RUN",
+      "receipt": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/RECEIPT.json",
+        "bytes": 49086,
+        "sha256": "d81f34732cdacdedb72a27183fee066cfb4adeb6823f3e79d9ddec67078ed951"
+      }
+    },
+    "R7-C": {
+      "level": "L1_TARGETED_SYNTHETIC_ONLY",
+      "status": "PARTIAL_SOFTWARE_VALIDATION",
+      "seconds": [
+        0.20785880088806152,
+        0.2173755168914795
+      ],
+      "group_exit_codes": [
+        1,
+        0
+      ],
+      "initial_groups_consumed": 1,
+      "repair_groups_consumed": 1,
+      "limits": "first failure preserved; 1 targeted positive passed; 6 cases NOT_RUN",
+      "receipt": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/RECEIPT.json",
+        "bytes": 2386,
+        "sha256": "e7dc6ba68183eeb266f114f0e1e6801d9710cd405d7a77640b35b2f14fa372a9"
+      }
+    },
+    "R7-D": {
+      "level": "L1_STRUCTURAL_IDENTITY_ONLY",
+      "status": "PENDING_REAL_INPUT",
+      "seconds": [
+        1.1410000000032596
+      ],
+      "group_exit_codes": [
+        0
+      ],
+      "initial_groups_consumed": 1,
+      "repair_groups_consumed": 0,
+      "limits": "22 checks; no producer authentication",
+      "receipt": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/capture_provenance/RECEIPT.json",
+        "bytes": 2722,
+        "sha256": "6cc4b09410e2b86d01f43e4977e9cccf85adf047a01f41bfab3f3916fda59636"
+      }
+    },
+    "R6-4-fix": {
+      "level": "L1_TARGETED_SOFTWARE",
+      "status": "PENDING_M2_ACCEPTANCE_AND_REAL_INPUT",
+      "seconds": [
+        9.062999999994645
+      ],
+      "group_exit_codes": [
+        0
+      ],
+      "original_initial_groups_already_consumed": 1,
+      "original_repair_groups_consumed_now": 1,
+      "repair_groups_remaining": 0,
+      "limits": "25 new cases (1 control/24 reject) + 2 CLI rejects; fixed worker only; true executor NOT_QUALIFIED",
+      "receipt": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/r07_fix/RECEIPT.json",
+        "bytes": 5702,
+        "sha256": "b9544558fd0d11897d806ddf7f1bcb9505c3dc40d8172bb5f117f231accd0e40"
+      }
+    },
+    "R6-6-fix": {
+      "level": "L1_TARGETED_SOFTWARE",
+      "status": "PENDING_M2_ACCEPTANCE_AND_REAL_INPUT",
+      "seconds": [
+        8.671999999991385
+      ],
+      "group_exit_codes": [
+        0
+      ],
+      "original_initial_groups_already_consumed": 1,
+      "original_repair_groups_consumed_now": 1,
+      "repair_groups_remaining": 0,
+      "limits": "28 expected outcomes; 6 local/mechanical checks + 10 PENDING + 12 rejects; no full positive serial regression",
+      "receipt": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/r07_fix/RECEIPT.json",
+        "bytes": 5834,
+        "sha256": "1b86c6346b6525b6959a1540839c90e3a8c6f26826c65de5e154ca3c86caa780"
+      }
+    },
+    "R6-3-fix": {
+      "level": "L0",
+      "status": "NEW_CANDIDATE_NOT_RUN",
+      "new_functional_groups": 0,
+      "remaining_software_permission": 0,
+      "receipt": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/normalized_intake/r07_fix/RECEIPT.json",
+        "bytes": 1081,
+        "sha256": "ec286888f58238642db25ffbb8b9c2cf95ffe7b5677064a7bb984d1e35062783"
+      }
+    },
+    "R6-5-fix": {
+      "level": "L0",
+      "status": "NEW_CANDIDATE_NOT_RUN",
+      "new_functional_groups": 0,
+      "remaining_software_permission": 0,
+      "receipt": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/r07_fix/RECEIPT.json",
+        "bytes": 1174,
+        "sha256": "d891dc38549e72b81d4d952b5311b8449de83efb3c026f322f66fa802f4ef6db"
+      }
+    },
+    "R6-5-frame-generator": {
+      "level": "L0",
+      "status": "NOT_RUN",
+      "new_functional_groups": 0,
+      "receipt": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/FRAME_PLAN_CANDIDATE_RECEIPT.json",
+        "bytes": 1217,
+        "sha256": "abccc88dab86768f14a7ca6181f375b0575280c2fc000dc348bf6d8d94798b9b"
+      }
+    },
+    "R6-8": {
+      "level": "L0_OFFLINE_PREPARATION",
+      "status": "DEVICE_NOT_RUN_BLOCKED_PREFLIGHT",
+      "device_calls": 0,
+      "receipt": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/board_capture_acceptance/RECEIPT.json",
+        "bytes": 1472,
+        "sha256": "5ba4d22d05a7145611529f9ac5b413977fc2494d68449775884ac2702d8b54ce"
+      }
+    }
+  },
+  "software_group_seconds_this_task": 22.081234317759634,
+  "model_tokens_and_cost": "UNKNOWN_NOT_PROVIDED",
+  "HDL_EDA_device_new_rounds": 0,
+  "mandatory_repository_gate": "SEPARATE_RECEIPT_NOT_PRO_FUNCTIONAL_EVIDENCE",
+  "whole_Pro_complete": false,
+  "board_release_allowed": false,
+  "M2_delivery": "WAITING_USER_FORWARD_NOT_DELIVERED"
+}

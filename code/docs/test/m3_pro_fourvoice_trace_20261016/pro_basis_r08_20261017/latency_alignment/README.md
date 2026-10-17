@@ -1,0 +1,3 @@
+# R8-22 latency_alignment
+
+Status: `SOFTWARE_SOURCE_READY_PENDING_REAL_INPUT`. The CLI consumes canonical-hashed `PROFILE_READY` H21 records, binds their session, timebase, trigger and uncertainty fields, and selects the first causal input, digital and threshold-matching analog samples from source-line and sample-index evidence. It checks that first analog event's clipping state against the capture summary before accepting it, so a clipped first match cannot be skipped in favor of a later sample. It rejects a claimed later match and reports a latency interval with finite uncertainty; absent common timebase, ready profiles or matching evidence remains UNKNOWN.

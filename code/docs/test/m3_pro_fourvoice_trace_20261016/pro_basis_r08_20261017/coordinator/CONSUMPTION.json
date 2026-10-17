@@ -1,0 +1,249 @@
+{
+  "schema": "M3_R08_SHARED_CONSUMPTION_V1",
+  "baseline": "ef4fbc74b9d24e08de1e09d0be0eb3163118f258",
+  "owner": "night_task_1_coordinator",
+  "old_R06_R07_budgets_restored": false,
+  "subprocesses_inside_tests_allowed": false,
+  "groups": {
+    "R": {
+      "status": "PASS_LIMITED_SOFTWARE",
+      "initial_limit_s": 90,
+      "initial_consumed": 1,
+      "repair_limit_s": 60,
+      "repair_consumed": 0,
+      "initial_output": "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\R\\R01",
+      "initial_receipt": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/RUNS/R/R01/RECEIPT.json",
+        "sha256": "c245a7c0adff9983661cce419b4fda00ea9d223ca08fd4529642acc2fb4f27e0",
+        "bytes": 9839
+      },
+      "initial_elapsed_s": 0.5939999999973224,
+      "initial_exit_code": 0,
+      "latest_run_status": "PASS_LIMITED_SOFTWARE",
+      "coverage": {
+        "planned": 29,
+        "matched_unique": 29,
+        "not_run": 0,
+        "unresolved_failed": 0
+      },
+      "not_run_cases": []
+    },
+    "S": {
+      "status": "PASS_LIMITED_SOFTWARE",
+      "initial_limit_s": 90,
+      "initial_consumed": 1,
+      "repair_limit_s": 60,
+      "repair_consumed": 1,
+      "initial_output": "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\S\\R01",
+      "initial_receipt": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/RUNS/S/R01/RECEIPT.json",
+        "sha256": "93f6dd273917e82bff4be11309c2b0c1f2bedb2c9f79feff21d94b364a8248e0",
+        "bytes": 35396
+      },
+      "initial_elapsed_s": 4.467999999993481,
+      "initial_exit_code": 1,
+      "repair_output": "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\S\\R02",
+      "latest_run_status": "PASS_LIMITED_SOFTWARE",
+      "coverage": {
+        "planned": 50,
+        "matched_unique": 50,
+        "not_run": 0,
+        "unresolved_failed": 0
+      },
+      "not_run_cases": [],
+      "repair_receipt": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/RUNS/S/R02/RECEIPT.json",
+        "sha256": "7aef4f22bb34ffe970696597f1e74be3e057ef2c17a57f039186334c31122dab",
+        "bytes": 9916
+      },
+      "repair_elapsed_s": 2.375,
+      "repair_exit_code": 0
+    },
+    "C": {
+      "status": "PASS_LIMITED_SOFTWARE",
+      "initial_limit_s": 90,
+      "initial_consumed": 1,
+      "repair_limit_s": 60,
+      "repair_consumed": 0,
+      "initial_output": "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\C\\R01",
+      "initial_receipt": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/RUNS/C/R01/RECEIPT.json",
+        "sha256": "197b3f5581da0fe396a6ac1714e299dbf3dfbd8c08748aa204e5a39350e41a25",
+        "bytes": 15313
+      },
+      "initial_elapsed_s": 0.2970000000059372,
+      "initial_exit_code": 0,
+      "latest_run_status": "PASS_LIMITED_SOFTWARE",
+      "coverage": {
+        "planned": 42,
+        "matched_unique": 42,
+        "not_run": 0,
+        "unresolved_failed": 0
+      },
+      "not_run_cases": []
+    },
+    "T": {
+      "status": "PARTIAL_NOT_RUN_REPAIR_PASS",
+      "initial_limit_s": 90,
+      "initial_consumed": 1,
+      "repair_limit_s": 60,
+      "repair_consumed": 1,
+      "initial_output": "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\T\\R01",
+      "initial_receipt": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/RUNS/T/R01/RECEIPT.json",
+        "sha256": "e4df619b443430a9f40e0625ce9ca699e4aa440068e5a32bef59e4c2bacf8fa1",
+        "bytes": 41329
+      },
+      "initial_elapsed_s": 0.6720000000059372,
+      "initial_exit_code": 1,
+      "repair_output": "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\T\\R02",
+      "repair_receipt": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/RUNS/T/R02/RECEIPT.json",
+        "sha256": "468ac175dbc434dede215574e2a76322119122e294a8af7ee194f903458a387e",
+        "bytes": 935867
+      },
+      "repair_elapsed_s": 0.5310000000026776,
+      "repair_exit_code": 0,
+      "latest_run_status": "PASS_LIMITED_SOFTWARE",
+      "coverage": {
+        "planned": 56,
+        "matched_unique": 29,
+        "not_run": 27,
+        "unresolved_failed": 0
+      },
+      "not_run_cases": [
+        {
+          "component": "midi_ingress_arrival",
+          "id": "T16_DRV_PLAN_INPUT"
+        },
+        {
+          "component": "midi_ingress_arrival",
+          "id": "T16_DRV_PLAN_SHA"
+        },
+        {
+          "component": "midi_ingress_arrival",
+          "id": "T16_FIRST_BYTE_WINDOW"
+        },
+        {
+          "component": "midi_ingress_arrival",
+          "id": "T16_FOUR_SERIAL_NOTES"
+        },
+        {
+          "component": "midi_ingress_arrival",
+          "id": "T16_RESET_TRUNCATION"
+        },
+        {
+          "component": "midi_ingress_arrival",
+          "id": "T16_STOP_BIT"
+        },
+        {
+          "component": "midi_ingress_arrival",
+          "id": "T16_TRUNCATION"
+        },
+        {
+          "component": "midi_ingress_arrival",
+          "id": "T16_UNKNOWN_TIMEBASE"
+        },
+        {
+          "component": "midi_ingress_arrival",
+          "id": "T16_WRONG_BYTE"
+        },
+        {
+          "component": "midi_recovery_schedule",
+          "id": "T17_HALF_MESSAGE_RESET"
+        },
+        {
+          "component": "midi_recovery_schedule",
+          "id": "T17_OVERLAPPING_BYTES"
+        },
+        {
+          "component": "midi_recovery_schedule",
+          "id": "T17_POLICY_SHA"
+        },
+        {
+          "component": "midi_recovery_schedule",
+          "id": "T17_RUNNING_REALTIME_ZERO"
+        },
+        {
+          "component": "midi_recovery_schedule",
+          "id": "T17_SYSEX_RESYNC"
+        },
+        {
+          "component": "midi_recovery_schedule",
+          "id": "T17_UNBOUND_UART_POLICY"
+        },
+        {
+          "component": "public_diff_diagnostics",
+          "id": "T18_BETWEEN_SAMPLES"
+        },
+        {
+          "component": "public_diff_diagnostics",
+          "id": "T18_EARLIEST_EVENT"
+        },
+        {
+          "component": "public_diff_diagnostics",
+          "id": "T18_EQUAL_NO_STAT"
+        },
+        {
+          "component": "public_diff_diagnostics",
+          "id": "T18_REPLACED_EVENT_LOG"
+        },
+        {
+          "component": "public_diff_diagnostics",
+          "id": "T18_UART_DIFFERENCE"
+        },
+        {
+          "component": "public_diff_diagnostics",
+          "id": "T18_WHITELIST_ATTEMPT"
+        },
+        {
+          "component": "tx_hold_sequences",
+          "id": "T14_HOLD_AFTER_RESET"
+        },
+        {
+          "component": "tx_hold_sequences",
+          "id": "T14_HOLD_CLIP_CHANGE"
+        },
+        {
+          "component": "tx_hold_sequences",
+          "id": "T14_INDEPENDENT_HELD"
+        },
+        {
+          "component": "tx_hold_sequences",
+          "id": "T14_SAME_PCM_OTHER_ID"
+        },
+        {
+          "component": "tx_hold_sequences",
+          "id": "T14_STARTUP_ID0"
+        },
+        {
+          "component": "tx_hold_sequences",
+          "id": "T14_TRACE_DERIVED"
+        }
+      ]
+    },
+    "H": {
+      "status": "PASS_LIMITED_SOFTWARE",
+      "initial_limit_s": 90,
+      "initial_consumed": 1,
+      "repair_limit_s": 60,
+      "repair_consumed": 0,
+      "initial_output": "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\H\\R01",
+      "initial_receipt": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/RUNS/H/R01/RECEIPT.json",
+        "sha256": "02943b3bf6522d3f752837b9a846e0c86cf20595ccf62f0d5cd1005d5e1a78cf",
+        "bytes": 71845
+      },
+      "initial_elapsed_s": 1.7340000000112923,
+      "initial_exit_code": 0,
+      "latest_run_status": "PASS_LIMITED_SOFTWARE",
+      "coverage": {
+        "planned": 54,
+        "matched_unique": 54,
+        "not_run": 0,
+        "unresolved_failed": 0
+      },
+      "not_run_cases": []
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "M3_R08_ROLE_C_COMPONENT_CONTRACT_V1",
+  "component": "i2s_serial_compare",
+  "task": "R8-13",
+  "group": "T",
+  "input_schema": "M3_R08_SERIAL_ALIGNMENT_INPUT_V1",
+  "production_cli": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/i2s_serial_compare/r08c13_serial.py",
+  "selftest": "run_case(case_id, output_dir)->dict; exclusive nonexistent directory",
+  "cases": 9,
+  "execution_status": "NOT_RUN",
+  "executed_by_this_window": 0,
+  "real_pro_pass": false,
+  "board_release_allowed": false,
+  "known_limits": "合成6/7半周期夹具只测协议，不是48kHz公式计划；不输出FRAME_PLAN，不验证M1数学。"
+}

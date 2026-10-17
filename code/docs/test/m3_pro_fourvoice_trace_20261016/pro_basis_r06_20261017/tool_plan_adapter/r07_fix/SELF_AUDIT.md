@@ -1,0 +1,13 @@
+# 首组前自审
+
+具体缺陷依据M2 reviews/source_tool：原audit未重建spec→plan，plan自算SHA可保留旧spec却改argv/cwd/output/marker/timeout；固定worker约束只在assemble。本候选不修改原生产源，在新的consumer消费入口要求独立spec路径/SHA，读原字节重建规范化计划，逐字段做类型保持的JSON比较；全字段相等才允许进入原固定夹具路径。
+
+原adapter仅内存绑定候选DOCS、audit闭包及subprocess代理；原文件/worker/helper均固定身份。候选更窄：Python与DLL、worker、helper、原adapter依TRUST原字节SHA固定，cwd固定为候选根，source/ROM/TB三种角色只用原夹具，dependencies四条明确；禁止真实工具。无字段能开启真实执行。Popen前重新audit，并核实际argv/kwargs、空独占output、消费声明身份，再核运行时；默认隐藏进程窗口。
+
+新增检查仅针对本缺陷：19种plan篡改均自算新SHA，分别在audit与consume拒收且无marker/output；独立spec也改写仍不能替换调用端原pin；直接spawn参数篡改三例；初审后晚篡改一例；一例新正向控制确认重建与Popen紧前guard确实执行。另2个真实CLI拒绝进程核exit2、双流。不是旧七类复跑；仅正向控制会运行一次原固定worker。
+
+只读子智能体指出晚篡改覆盖原plan证据缺口，已在首组前修正：独占保存原plan字节及前后identity/原binding SHA。所有初始输入、源码、case、工具与依赖先冻结。原Windows Job未验证的孙树/timeout/日志溢出/线程异常仍未扩签。父监督器只约束本次≤60秒组，不构成真实工具准入或进程树资格的新结论。
+
+冻结静态复核另修：复制前记录原件身份，复制后核原件未漂移及快照bytes/SHA相同才记入RUN_SPEC；不能分别固定一对本来不一致的身份。TRUST及其固定运行时也在冻结前核同。19个篡改均相对基准产生实质差异。此时尚未执行修复组，均属首组前修正。
+
+原RUN_01七例/三worker、固定原ZIP和已签源码均只读。当前修复组尚未执行；本文件不预写PASS，实际结果以新RUN_01原件为准。

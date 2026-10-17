@@ -1,0 +1,448 @@
+{
+  "status": "REQUEST_ONLY_NOT_GRANTED",
+  "R08_remaining": {
+    "count": 27,
+    "cases": [
+      {
+        "component": "tx_hold_sequences",
+        "id": "T14_INDEPENDENT_HELD",
+        "expected": "SCENARIO_MATCH_SYNTHETIC",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "tx_hold_sequences",
+        "id": "T14_SAME_PCM_OTHER_ID",
+        "expected": "TX_SCENARIO_DIFFERENCE",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "tx_hold_sequences",
+        "id": "T14_HOLD_CLIP_CHANGE",
+        "expected": "TX_SCENARIO_DIFFERENCE",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "tx_hold_sequences",
+        "id": "T14_STARTUP_ID0",
+        "expected": "TX_SCENARIO_DIFFERENCE",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "tx_hold_sequences",
+        "id": "T14_HOLD_AFTER_RESET",
+        "expected": "HOLD_AFTER_RESET_OR_STARTUP",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "tx_hold_sequences",
+        "id": "T14_TRACE_DERIVED",
+        "expected": "SCENARIO_NOT_INDEPENDENT",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "midi_ingress_arrival",
+        "id": "T16_FOUR_SERIAL_NOTES",
+        "expected": "MIDI_ARRIVALS_MATCH_SYNTHETIC_ONLY",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "midi_ingress_arrival",
+        "id": "T16_WRONG_BYTE",
+        "expected": "MIDI_BYTE_DIFFERENCE",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "midi_ingress_arrival",
+        "id": "T16_FIRST_BYTE_WINDOW",
+        "expected": "MIDI_ARRIVAL_WINDOW",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "midi_ingress_arrival",
+        "id": "T16_STOP_BIT",
+        "expected": "MIDI_STOP_BIT",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "midi_ingress_arrival",
+        "id": "T16_TRUNCATION",
+        "expected": "UNKNOWN_MIDI_TRUNCATED_BYTE",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "midi_ingress_arrival",
+        "id": "T16_RESET_TRUNCATION",
+        "expected": "UNKNOWN_MIDI_RESET_TRUNCATED",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "midi_ingress_arrival",
+        "id": "T16_UNKNOWN_TIMEBASE",
+        "expected": "UNKNOWN_MIDI_TIMEBASE",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "midi_ingress_arrival",
+        "id": "T16_DRV_PLAN_INPUT",
+        "expected": "MIDI_ARRIVALS_MATCH_SYNTHETIC_ONLY",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "midi_ingress_arrival",
+        "id": "T16_DRV_PLAN_SHA",
+        "expected": "R62_BYTE_PLAN_SHA",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "midi_recovery_schedule",
+        "id": "T17_RUNNING_REALTIME_ZERO",
+        "expected": "RECOVERY_PLAN_GENERATED_SYNTHETIC",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "midi_recovery_schedule",
+        "id": "T17_HALF_MESSAGE_RESET",
+        "expected": "RECOVERY_PLAN_GENERATED_SYNTHETIC",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "midi_recovery_schedule",
+        "id": "T17_SYSEX_RESYNC",
+        "expected": "RECOVERY_PLAN_GENERATED_SYNTHETIC",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "midi_recovery_schedule",
+        "id": "T17_UNBOUND_UART_POLICY",
+        "expected": "UNRESOLVED_RECOVERY_POLICY",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "midi_recovery_schedule",
+        "id": "T17_POLICY_SHA",
+        "expected": "PARSER_POLICY_IDENTITY",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "midi_recovery_schedule",
+        "id": "T17_OVERLAPPING_BYTES",
+        "expected": "BYTE_SCHEDULE_OVERLAP",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "public_diff_diagnostics",
+        "id": "T18_EQUAL_NO_STAT",
+        "expected": "PENDING_NO_COMPLETE_STAT",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "public_diff_diagnostics",
+        "id": "T18_EARLIEST_EVENT",
+        "expected": "PUBLIC_DIFFERENCE_OR_CONTRACT",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "public_diff_diagnostics",
+        "id": "T18_BETWEEN_SAMPLES",
+        "expected": "PUBLIC_DIFFERENCE_OR_CONTRACT",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "public_diff_diagnostics",
+        "id": "T18_UART_DIFFERENCE",
+        "expected": "PUBLIC_DIFFERENCE_OR_CONTRACT",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "public_diff_diagnostics",
+        "id": "T18_WHITELIST_ATTEMPT",
+        "expected": "UNSUPPORTED_DIFFERENCE_WHITELIST",
+        "assertion": "NOT_RUN"
+      },
+      {
+        "component": "public_diff_diagnostics",
+        "id": "T18_REPLACED_EVENT_LOG",
+        "expected": "PUBLIC_DIFF_INPUT_SHA",
+        "assertion": "NOT_RUN"
+      }
+    ],
+    "initial_frozen_spec": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/FREEZE_R01/SPEC_T.json",
+      "bytes": 25711,
+      "sha256": "03b739aa1e56b5a28879688484d2e6c0573fb0035af2ff682d6c4d73d024ac47"
+    },
+    "source_identities": {
+      "tx_hold_sequences": [
+        {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/r08c14_sequences.py",
+          "bytes": 4079,
+          "sha256": "ae5a4033defdd3f2377ab54fce4d9d566d77ef538e0761e8b5db9eae12e7f2fe"
+        },
+        {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/selftest.py",
+          "bytes": 3360,
+          "sha256": "afeb2f75e929d21999d3a6f8601bec6d9b6b4f3bcb2e9356515d380270c6fd59"
+        }
+      ],
+      "midi_ingress_arrival": [
+        {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/r08c16_arrival.py",
+          "bytes": 4869,
+          "sha256": "d09024e1f06ee107b2ec5dadc585a61cac9fe0880f90f357a68f198f08aee6e1"
+        },
+        {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+          "bytes": 3956,
+          "sha256": "2852a88b0f42d077269369a748bd90561e99370a5fd574a01a7ba491e7d22d5e"
+        }
+      ],
+      "midi_recovery_schedule": [
+        {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/r08c17_schedule.py",
+          "bytes": 4065,
+          "sha256": "7d83b3ef46e2753648f27e72b3ff9d8487e10939cdc213d1f2948f67791fef12"
+        },
+        {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/selftest.py",
+          "bytes": 2319,
+          "sha256": "1c279f35d2522741cba2c733df78fd14f53399ee8596b5ba99f617a4c81c832c"
+        }
+      ],
+      "public_diff_diagnostics": [
+        {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/r08c18_diagnostics.py",
+          "bytes": 3182,
+          "sha256": "394ff8955b297432b40bea47c02b6f191f8ab60231c594bea7b42346ff0fc573"
+        },
+        {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/selftest.py",
+          "bytes": 3498,
+          "sha256": "07fe264f33dd3c44870fcdc83a6df9bd8153a3c099dc2390884ec06bb757bcb3"
+        }
+      ]
+    },
+    "reason": "Initial T stopped on denied unfrozen pyc; single repair limited to related T13. Unrelated cases never run; no further group available."
+  },
+  "R7C_remaining": {
+    "count": 6,
+    "manifest": {
+      "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/cases.json",
+      "bytes": 1548,
+      "sha256": "b92b3440736454df73244fb8fa2b4d1c11c475ba8f6d062fe8fbb76129188a64"
+    },
+    "cases": [
+      {
+        "name": "hold_startup_lossless",
+        "mutation": "hold_startup",
+        "expected_exit": 0,
+        "expected_status": "SOFTWARE_READY_SYNTHETIC_PENDING_M1_PROFILE"
+      },
+      {
+        "name": "unknown_handshake_and_advance_preserved",
+        "mutation": "unknown_handshake",
+        "expected_exit": 0,
+        "expected_status": "SOFTWARE_READY_SYNTHETIC_PENDING_M1_PROFILE"
+      },
+      {
+        "name": "tampered_trace_identity",
+        "mutation": "tampered_sha",
+        "expected_exit": 2,
+        "expected_status": "CONTRACT_REJECTED",
+        "error_contains": "INPUT_IDENTITY_MISMATCH:normalized_trace"
+      },
+      {
+        "name": "missing_hold_field",
+        "mutation": "missing_hold",
+        "expected_exit": 2,
+        "expected_status": "CONTRACT_REJECTED",
+        "error_contains": "R7A_FIELDS_NOT_EXACT_61:1"
+      },
+      {
+        "name": "cycle_regression",
+        "mutation": "cycle_regression",
+        "expected_exit": 2,
+        "expected_status": "CONTRACT_REJECTED",
+        "error_contains": "TRACE_CYCLE_NOT_STRICTLY_INCREASING:2"
+      },
+      {
+        "name": "dropped_non_frame_breaks_internal_binding",
+        "mutation": "drop_non_frame",
+        "expected_exit": 2,
+        "expected_status": "CONTRACT_REJECTED",
+        "error_contains": "NORMALIZED_BINDING_TRACE_IDENTITY_OR_COVERAGE_MISMATCH"
+      }
+    ],
+    "reason": "Original initial and single targeted repair consumed; no old quota restored."
+  },
+  "execution_authority": "M2 exact additional software group approval required before any remaining case",
+  "no_request_is_permission": true,
+  "real_tool_execution": "Separate exact source/tool/executor admission required",
+  "M2_delivery": "待用户转发，尚未送达",
+  "C9_successors": {
+    "baseline": "16ac226552f6fb65347b229b8fad42146ed45644",
+    "status": "L0_STATIC_SUCCESSORS_NOT_RUN",
+    "tasks": [
+      "R7-A",
+      "R7-B",
+      "R8-02",
+      "R7-C"
+    ],
+    "normalized_fields": 74,
+    "public_observation_ports": 67,
+    "ready": [
+      {
+        "document": {
+          "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_binding/ROLE_A_C9_READY.json",
+          "bytes": 10446,
+          "sha256": "f1a216fab3cd377f6e3676e47003bf608e32dc25a06b2ca860438424434f94ca"
+        },
+        "status": "L0_C9_SUCCESSOR_SOURCE_AND_ACTUAL_BINDING_READY_NOT_RUN",
+        "level": "L0_STATIC_ONLY_NOT_RUN"
+      },
+      {
+        "document": {
+          "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/READY.json",
+          "bytes": 7322,
+          "sha256": "fdc2df394f7df9d8f0ba14e274341a7aa7c53851dba6e3b3cbf3e7d294e18b59"
+        },
+        "status": "L0_STATIC_PREPARATION_COMPLETE_REAL_EQ_PENDING",
+        "level": "L0_STATIC_ONLY_NOT_RUN"
+      },
+      {
+        "document": {
+          "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/READY.json",
+          "bytes": 6721,
+          "sha256": "c5a14d975e44ace0122f140f534c57bd89a2fc7688b0b8f437e34007b63194ff"
+        },
+        "status": "L0_STATIC_SOURCE_READY_NOT_RUN",
+        "level": "L0_STATIC_ONLY_NOT_RUN"
+      }
+    ],
+    "collections": [
+      {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/COLLECT_C9_A_R01.json",
+        "bytes": 11039,
+        "sha256": "a367f24d17fba63ecf42f84edc47a2c22f1982adf06c485ef9d7f078cb3f6d0d"
+      },
+      {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/COLLECT_C9_B_FILES.json",
+        "bytes": 58288,
+        "sha256": "09328079d6d68d0d5fbe1427525113e06a33cade4df649746aece5d330717111"
+      },
+      {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/COLLECT_C9_B_R01.json",
+        "bytes": 3789,
+        "sha256": "2f91c36c65d5f9e3fd972544bfbfb8911f7434c824b6dff1f6483fe181948686"
+      },
+      {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/COLLECT_C9_C_R01.json",
+        "bytes": 3782,
+        "sha256": "dfbf93a57915a9dbeeba8ac1db7a037fbe922d02d3d744cecb0e3145107015aa"
+      }
+    ],
+    "source_files": {
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/c9_oracle_bridge.py": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/c9_oracle_bridge.py",
+        "bytes": 24641,
+        "sha256": "5460dcf7e8539072200d55d123bc3855be2a759fea6eb84698c1e991fc22b4d8"
+      },
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/selftest.py": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/selftest.py",
+        "bytes": 12620,
+        "sha256": "e15c5e601ce016fa26259cb28108384752ede1b3efab4777ae1d9b4066e98724"
+      },
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_binding/c9_capture.py": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_binding/c9_capture.py",
+        "bytes": 9606,
+        "sha256": "0d3fcea8d75cdadcea6f6a663e6840735ccd050bbf072e01c3de61fa2477e931"
+      },
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_binding/selftest.py": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_binding/selftest.py",
+        "bytes": 4293,
+        "sha256": "681c5b2f45200b32ae7ee1bdd9063759c510565e3966556820834ac7e9d9d114"
+      },
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/c9_pair.py": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/c9_pair.py",
+        "bytes": 12622,
+        "sha256": "e4a11031826dbac28422f1973e23dc274185d8bcd80ec031faebf98656a38f13"
+      },
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/selftest.py": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/selftest.py",
+        "bytes": 9647,
+        "sha256": "e6453192dcd21f081af6a5e0b49d9810e047db2a4dd48afc0be047f6d83e9690"
+      },
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_port_map/c9_binding/c9_ports.py": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_port_map/c9_binding/c9_ports.py",
+        "bytes": 4359,
+        "sha256": "79340d8669b4eb064ae8fbf4464aa98fc05c30fbf8bf270955100a953fc1614e"
+      },
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_port_map/c9_binding/selftest.py": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_port_map/c9_binding/selftest.py",
+        "bytes": 3078,
+        "sha256": "1d5b3a37d3e7f4925b95896d1f12d8670027c9d085b0dc72120818bf9f9e042e"
+      },
+      "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/CASES.json": {
+        "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/CASES.json",
+        "bytes": 3360,
+        "sha256": "324d0d3854e149f70bef4e2005c5bd57492c3d6d991e65aef14a47ceaf3e4015"
+      },
+      "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_binding/C9_SYNTHETIC.end.json": {
+        "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_binding/C9_SYNTHETIC.end.json",
+        "bytes": 300,
+        "sha256": "e1ae8bb7d2992b815da5c7421847073b74985390d08ee4148972e038230060e5"
+      },
+      "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_binding/CASES.json": {
+        "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_binding/CASES.json",
+        "bytes": 1062,
+        "sha256": "3fc30fd02c5a84352942f31bfde16c2337f683f0973e926d95aac9bab62497ee"
+      },
+      "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_binding/r7a_c9_public_observer.sv": {
+        "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_binding/r7a_c9_public_observer.sv",
+        "bytes": 11677,
+        "sha256": "ed4c51834773e411c67cde4743c188f4e719c32f823a969f7ba4b8dea83cc7cd"
+      },
+      "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_binding/tb_r7a_c9_public_capture.sv": {
+        "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_binding/tb_r7a_c9_public_capture.sv",
+        "bytes": 11007,
+        "sha256": "a31ae010d835d62b83096ba7604f8517793401eac90e928bbefeb2f024c89a4d"
+      },
+      "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/PUBLIC_WIRE_MAP.json": {
+        "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/PUBLIC_WIRE_MAP.json",
+        "bytes": 5802,
+        "sha256": "d70b5f21b8ba8ed72bf18363e3ac7a174373612a5d6ee62701064c30e17e9171"
+      },
+      "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/tb_c9_observer.sv": {
+        "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/tb_c9_observer.sv",
+        "bytes": 9214,
+        "sha256": "e715ffdf4b6959ee59cc03da50035ff5179ce9f367a516981e485c49144bc515"
+      },
+      "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/tb_c9_original.sv": {
+        "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/tb_c9_original.sv",
+        "bytes": 2422,
+        "sha256": "de73a698b93f84a2100b0c19ebaa2402597b44647151e82c1e40fbe6fca19ca9"
+      },
+      "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_port_map/c9_binding/CASES.json": {
+        "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_port_map/c9_binding/CASES.json",
+        "bytes": 649,
+        "sha256": "882697170ff371264d21b2f4e4d3a27f530588fa8e602555d84710cbf5882499"
+      }
+    },
+    "readonly_increment_review": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/dependency_audit/C9_FINAL_REVIEW.md",
+      "bytes": 5046,
+      "sha256": "58b7bcf590a81093377267cc33b56b4bfe4021adf3fee8eaa887ef264b6cced9"
+    },
+    "functional_runs": 0,
+    "HDL_EDA_device_runs": 0,
+    "previous_software_results_apply_to_C9": false,
+    "board_release_allowed": false,
+    "decision": "Review exact final C9 files and grant any new software/HDL group explicitly; old consumed groups do not restart",
+    "remaining_semantics": [
+      "M1 NoteOn wording erratum",
+      "independent input-plan apply_event_seq mapping",
+      "audio_stable policy",
+      "real trace and independent PCM/ID/clip oracle"
+    ],
+    "physical_and_executor_requirements": "Unchanged; no board release or transfer of M2 R09 admission"
+  }
+}

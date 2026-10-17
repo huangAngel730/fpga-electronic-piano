@@ -1,0 +1,43 @@
+{
+  "schema": "M3_R06_BOARD_CAPTURE_PREPARATION_RECEIPT_V1",
+  "status": "OFFLINE_PREPARATION_COMPLETE_DEVICE_BLOCKED",
+  "verification_level": "L0_STATIC_PREPARATION",
+  "execution": {
+    "device_run": false,
+    "eda_run": false,
+    "programmer_run": false,
+    "hdl_simulation_run": false,
+    "software_test_run": false,
+    "sram_downloads_consumed": 0,
+    "flash_write": false
+  },
+  "required_before_device_run": [
+    "complete physical Pro part and package",
+    "observed Core and Dock revisions",
+    "measured relevant Bank voltages",
+    "verified power, common ground, MIDI FPGA-side levels and safe audio load",
+    "commercial tool binaries, versions and valid runtime license",
+    "exact same-version top/source/ROM/constraints/PLL identities",
+    "complete PnR and STA including setup/hold/recovery/removal/CDC/unconstrained-path review",
+    "one exact Pro .fs with bytes and SHA-256",
+    "recovery identity and procedure",
+    "one unconsumed explicit SRAM-only permission bound to the exact .fs SHA and physical unit"
+  ],
+  "legacy_not_carried_forward": [
+    "PG484 device or pins",
+    "NEO Dock 31005 wiring",
+    "legacy .fs identity",
+    "legacy SRAM permission",
+    "any Flash permission"
+  ],
+  "prepared_scenes": [
+    "S00_BOOT_RESET_MUTE_LOCK",
+    "S01_FIXED_NOTE",
+    "S02_FOUR_SOLOS",
+    "S03_FOUR_HOLD",
+    "S04_RELEASE_ONE_BY_ONE",
+    "S05_VELOCITY",
+    "S06_ACTIVE_RESET_RECOVERY"
+  ],
+  "board_release_allowed": false
+}

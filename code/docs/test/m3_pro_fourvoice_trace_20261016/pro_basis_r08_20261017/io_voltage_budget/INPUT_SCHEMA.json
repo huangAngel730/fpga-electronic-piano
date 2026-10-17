@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "M3 R08 offline IO voltage budget request",
+  "type": "object",
+  "required": ["schema", "origin", "interface_id", "fpga_endpoint", "bank_id", "observed_bank_id", "common_ground", "level_shifter", "evidence", "driver", "sink", "bank"],
+  "properties": {
+    "schema": {"const": "M3_R08_IO_BUDGET_REQUEST_V1"},
+    "origin": {"enum": ["SYNTHETIC", "REAL_CANDIDATE"]},
+    "interface_id": {"type": "string"}, "fpga_endpoint": {"enum": ["driver", "sink"]},
+    "bank_id": {"type": ["string", "null"]}, "observed_bank_id": {"type": ["string", "null"]},
+    "common_ground": {"type": ["boolean", "null"]}, "level_shifter": {"type": ["boolean", "null"]},
+    "approved": {"const": false}, "board_release_allowed": {"const": false},
+    "evidence": {"type": "array", "items": {
+      "type": "object", "required": ["id", "kind", "file"], "properties": {
+        "id": {"type": "string"}, "kind": {"enum": ["OFFICIAL_DOCUMENT", "ACTUAL_MEASUREMENT", "SYNTHETIC"]},
+        "file": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "bytes": {"type": "integer", "minimum": 0}}}
+      }
+    }},
+    "driver": {"type": "object", "required": ["direction"], "properties": {
+      "direction": {"const": "OUTPUT"}, "bank_id": {"type": ["string", "null"]},
+      "voh_min": {"$ref": "#/$defs/value"}, "vol_max": {"$ref": "#/$defs/value"}, "signal_peak_max": {"$ref": "#/$defs/value"}
+    }},
+    "sink": {"type": "object", "required": ["direction"], "properties": {
+      "direction": {"const": "INPUT"}, "bank_id": {"type": ["string", "null"]}, "five_v_tolerant": {"type": ["boolean", "null"]},
+      "vih_min": {"$ref": "#/$defs/value"}, "vil_max": {"$ref": "#/$defs/value"}, "abs_input_max": {"$ref": "#/$defs/value"}
+    }},
+    "bank": {"type": "object", "properties": {
+      "vccio_measured_min": {"$ref": "#/$defs/value"}, "vccio_measured_max": {"$ref": "#/$defs/value"},
+      "vccio_allowed_min": {"$ref": "#/$defs/value"}, "vccio_allowed_max": {"$ref": "#/$defs/value"}
+    }}
+  },
+  "$defs": {"value": {"oneOf": [{"type": "null"}, {
+    "type": "object", "required": ["value", "unit", "evidence_id", "page", "quote"], "properties": {
+      "value": {"type": ["string", "number"]}, "unit": {"const": "V"}, "evidence_id": {"type": "string"},
+      "page": {"type": "integer", "minimum": 1}, "quote": {"type": "string", "minLength": 1}
+    }
+  }]}},
+  "x-semantic-checks": ["Decimal finite nonnegative numeric value occurs in supplied quote", "File hash and evidence ID/page link checked; quote truth remains unverified", "Same observed/mapped FPGA Bank", "Known unsafe direct 5V, negative margin and no common ground reject", "Unknown inputs prevent margin calculation; REAL always pending human evidence review"]
+}

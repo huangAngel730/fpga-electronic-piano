@@ -1,0 +1,99 @@
+{
+  "schema": "M3_R7B_C9_PENDING_CASES_V1",
+  "status": "NOT_RUN",
+  "group": null,
+  "new_budget": 0,
+  "entry": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/selftest.py",
+    "bytes": 9647,
+    "sha256": "e6453192dcd21f081af6a5e0b49d9810e047db2a4dd48afc0be047f6d83e9690"
+  },
+  "candidate": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/c9_pair.py",
+    "bytes": 12622,
+    "sha256": "e4a11031826dbac28422f1973e23dc274185d8bcd80ec031faebf98656a38f13"
+  },
+  "invocation": "selftest.run_case(case, new_output, candidate_source, expected_source_sha) ONLY AFTER exact new execution admission",
+  "cases": [
+    {
+      "name": "same_seq_two_stages",
+      "expected": "kind1/2 seq7 both retained; no dedup",
+      "status": "NOT_RUN",
+      "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+    },
+    {
+      "name": "invalid_cause_sentinels",
+      "expected": "kind3/4/8 invalid zero cause retained; no fake event",
+      "status": "NOT_RUN",
+      "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+    },
+    {
+      "name": "idle_held_data",
+      "expected": "apply_valid0 kind0 raw held data preserved",
+      "status": "NOT_RUN",
+      "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+    },
+    {
+      "name": "config_only_on_take",
+      "expected": "62-bit unpack only on actual take1",
+      "status": "NOT_RUN",
+      "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+    },
+    {
+      "name": "distinct_clip_masks",
+      "expected": "upstream1/effect2/feedback3 remain distinct",
+      "status": "NOT_RUN",
+      "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+    },
+    {
+      "name": "unknown_valid_retained",
+      "expected": "x valid preserved as raw x and null, never zero",
+      "status": "NOT_RUN",
+      "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+    },
+    {
+      "name": "reset_qualification",
+      "expected": "reset0 or polyphonic_valid0 does not interpret apply",
+      "status": "NOT_RUN",
+      "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+    },
+    {
+      "name": "sentinel_valid_rejected",
+      "expected": "reject INVALID_CAUSE_SENTINEL_VALID",
+      "status": "NOT_RUN",
+      "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+    },
+    {
+      "name": "width_contract_rejected",
+      "expected": "reject COMPANION_CONTRACT_WIDTHS",
+      "status": "NOT_RUN",
+      "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+    },
+    {
+      "name": "join_pin_difference_preserved",
+      "expected": "two raw pin values remain different; no equivalence pass",
+      "status": "NOT_RUN",
+      "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+    },
+    {
+      "name": "join_phase_rejected",
+      "expected": "reject LANE_TIMEBASE",
+      "status": "NOT_RUN",
+      "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+    },
+    {
+      "name": "join_input_rejected",
+      "expected": "reject LANE_EXTERNAL_INPUT_DIFFERENCE",
+      "status": "NOT_RUN",
+      "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+    },
+    {
+      "name": "join_timeout_rejected",
+      "expected": "reject MISSING_NORMAL_EXIT_RECEIPT",
+      "status": "NOT_RUN",
+      "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+    }
+  ],
+  "HDL_EDA_device_calls": 0,
+  "board_release_allowed": false
+}

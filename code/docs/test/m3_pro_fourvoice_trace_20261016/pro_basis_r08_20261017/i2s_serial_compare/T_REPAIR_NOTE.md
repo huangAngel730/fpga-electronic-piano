@@ -1,0 +1,7 @@
+# T13 fixed-source加载修复 READY
+
+首组T原件保留：20个clip_lineage预期符合，T13_WORD_ALIGNMENT因旧pyc读取审计停组，整体exit1/FAIL_PARTIAL；不把其软件返回值当组验收通过。
+
+仅r08c13_serial.py改变，新增从固定SHA源码字节构造ModuleType、compile/exec独立namespace并复核SHA的加载函数。固定PinDecoder原源、公共r08c_common.py、自检、CASES、clip_lineage和H均未改。没有读取或删除旧pyc，没有放宽审计，没有启动执行。修复前源码/原双流/收据与首失败输入输出副本在T_REPAIR_INPUTS_R01，增量T_REPAIR.diff；新源码SHA58b08fd25d6d52d1684a421d1843a94ee19cd3753badbb4a43587100c1b01123。
+
+T_REPAIR_READY.json给出精确新旧身份及九个T13范围。静态自审未发现阻断；九项尚未运行，仅总控可按其单次<=60秒定向组执行。本窗口不运行/compile/import候选。其余27个未运行T继续NOT_RUN，20已过项/H54（本角色17）不复跑；真实Pro仍PENDING，board_release_allowed=false。

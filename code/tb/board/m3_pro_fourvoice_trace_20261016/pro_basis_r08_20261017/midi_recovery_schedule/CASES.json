@@ -1,0 +1,40 @@
+{
+  "schema": "M3_R08_CASES_V1",
+  "component": "midi_recovery_schedule",
+  "group": "T",
+  "cases": [
+    {
+      "id": "T17_RUNNING_REALTIME_ZERO",
+      "expected": "RECOVERY_PLAN_GENERATED_SYNTHETIC",
+      "description": "C6已支持running/实时字节/NoteOn0新计划"
+    },
+    {
+      "id": "T17_HALF_MESSAGE_RESET",
+      "expected": "RECOVERY_PLAN_GENERATED_SYNTHETIC",
+      "description": "半消息reset清RS后重新状态同步，应用拍未定"
+    },
+    {
+      "id": "T17_SYSEX_RESYNC",
+      "expected": "RECOVERY_PLAN_GENERATED_SYNTHETIC",
+      "description": "SysEx非法通道状态退出并按C6规则重同步"
+    },
+    {
+      "id": "T17_UNBOUND_UART_POLICY",
+      "expected": "UNRESOLVED_RECOVERY_POLICY",
+      "description": "外部坏stop到midi_byte_error尚未绑定不造策略"
+    },
+    {
+      "id": "T17_POLICY_SHA",
+      "expected": "PARSER_POLICY_IDENTITY",
+      "description": "规范身份换版拒收"
+    },
+    {
+      "id": "T17_OVERLAPPING_BYTES",
+      "expected": "BYTE_SCHEDULE_OVERLAP",
+      "description": "字节传输重叠拒收"
+    }
+  ],
+  "executed": false,
+  "execution_owner": "night1 only",
+  "old_selftests_or_runners_invoked": false
+}

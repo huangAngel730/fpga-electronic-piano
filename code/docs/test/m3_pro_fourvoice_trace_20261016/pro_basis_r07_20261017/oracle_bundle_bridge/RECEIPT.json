@@ -1,0 +1,54 @@
+{
+  "schema": "M3_R07_ORACLE_BRIDGE_TASK_RECEIPT_V1",
+  "status": "IMPLEMENTATION_COMPLETE_L1_TARGETED_SYNTHETIC",
+  "baseline_head": "4fd3366e42fd2356e56eb96eee70b6771afd4bb1",
+  "initial_group": {
+    "status": "FAIL",
+    "exit_code": 1,
+    "elapsed_seconds": 0.20785880088806152,
+    "receipt_sha256": "377ec52e3d25bc2a26da92cb06b3f4ee0d500bae70af3e19ccd70bf26545fbe2",
+    "stderr_sha256": "e4704b2897dfa7b500427147460b5ca88b64e0545fe330486b2c89b2ab1ba147",
+    "first_failure": "EVENT_ACCEPT_PLAN_ASSOCIATION_NOT_UNIQUE at backpressured cycle 988480",
+    "planned_cases": 7,
+    "executed_cases_before_stop": 1
+  },
+  "repair_group": {
+    "status": "PASS",
+    "exit_code": 0,
+    "elapsed_seconds": 0.2173755168914795,
+    "receipt_sha256": "05796b3a56f1a72fc31760d2c2ef97a0c67cadcf6878f5a21338b39627b628a7",
+    "stdout_sha256": "905cbd9bbecf37a61e36460532bcaa84f84574bc49076cc0c1cf8a561286feb1",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "executed_cases": 1,
+    "scope": "backpressure-delayed event association only"
+  },
+  "actual_consumption": {
+    "initial_software_groups": 1,
+    "repair_software_groups": 1,
+    "additional_groups_available": 0,
+    "note": "RUN_02 generic runner receipt hardcodes repair_groups_consumed=0; RUN_SPEC_R02 and this task receipt carry the correct scope."
+  },
+  "case_accounting": {
+    "targeted_repair_pass": 1,
+    "initial_failure": 1,
+    "remaining_declared_cases_not_run": 6,
+    "real_capture_cases": 0
+  },
+  "products": {
+    "bundle_sha256": "ca75aa0b8386e7514aabe77054edee18aa5595d518475861863ccb9fb610e035",
+    "manifest_sha256": "e243dcb082463056fe4f13eea540d1775e466d8666b944c635b9214ed840ee61",
+    "row_index_sha256": "54e61556f628e285ddd8b049f0e2017eb0a09689f18125eb8228cc36d352b22b",
+    "contract_gaps_sha256": "c4945ab54066021914b84e2c91fc6b5a92ca7f5c099ad0751fe1129b37e52a64",
+    "selftest_result_sha256": "a0f333eb636f98da4c8e98bd4eb90b850937fea1967e4eb30c9d4c1080669097"
+  },
+  "verification_level": "L1_SOFTWARE_TARGETED_SYNTHETIC",
+  "legacy_b0_status": "PENDING_UNSUPPORTED_PROFILE",
+  "m1_math_or_oracle_runs": 0,
+  "hdl_sim_eda_hardware_runs": 0,
+  "real_capture_pass": false,
+  "board_release_allowed": false,
+  "git_writes": 0,
+  "submitted": false,
+  "pushed": false,
+  "communication_attempt": "REJECTED_BY_PLATFORM_POLICY; local collection only"
+}

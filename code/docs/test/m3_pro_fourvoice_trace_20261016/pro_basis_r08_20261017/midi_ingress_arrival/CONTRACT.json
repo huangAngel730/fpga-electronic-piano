@@ -1,0 +1,15 @@
+{
+  "schema": "M3_R08_ROLE_C_COMPONENT_CONTRACT_V1",
+  "component": "midi_ingress_arrival",
+  "task": "R8-16",
+  "group": "T",
+  "input_schema": "M3_R08_MIDI_ARRIVAL_INPUT_V1",
+  "production_cli": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/r08c16_arrival.py",
+  "selftest": "run_case(case_id, output_dir)->dict; exclusive nonexistent directory",
+  "cases": 9,
+  "execution_status": "NOT_RUN",
+  "executed_by_this_window": 0,
+  "real_pro_pass": false,
+  "board_release_allowed": false,
+  "known_limits": "四条NoteOn分别串行到达，不推同拍应用；半byte/reset/未知时间轴保持UNKNOWN。event_seq仅来自独立计划元数据，不声称DUT已应用。"
+}

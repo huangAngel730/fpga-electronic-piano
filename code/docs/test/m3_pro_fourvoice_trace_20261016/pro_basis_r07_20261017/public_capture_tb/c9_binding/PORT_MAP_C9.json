@@ -1,0 +1,756 @@
+{
+  "schema": "M3_R7A_C9_PUBLIC_PORT_MAP_V1",
+  "raw_ports": {
+    "obs_core_clk": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_polyphonic_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_rst_n": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_frame_tick": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_event_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_event_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_event_data": {
+      "width": 64,
+      "signed": false
+    },
+    "obs_req_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_req_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_result_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_result_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_result_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_result_left": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_result_right": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_result_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_req_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_commit": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_commit_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_commit_left": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_commit_right": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_commit_clip": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_cancel": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_config_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_config_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_left": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_tx_right": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_pll_locked": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_sample_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_metadata_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_req_id_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_frame_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_tx_req_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_tx_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_tx_clip_any": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_hold": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_startup_zero": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_metadata_error": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_frame_id_overflow": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_raw_cancel_reason": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_apply_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_apply_data": {
+      "width": 64,
+      "signed": false
+    },
+    "obs_occupied_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_releasing_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_note_on_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_note_off_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_retire_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_slot_sources": {
+      "width": 16,
+      "signed": false
+    },
+    "obs_slot_channels": {
+      "width": 16,
+      "signed": false
+    },
+    "obs_slot_notes": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_slot_generations": {
+      "width": 128,
+      "signed": false
+    },
+    "obs_advance_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_advance_frame_req_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_effect_input_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_effect_input_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_effect_input_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_effect_input_left": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_effect_input_right": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_effect_input_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_apply_kind": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_apply_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_router_apply_seq": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_router_apply_seq_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_config_take": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_config_payload": {
+      "width": 62,
+      "signed": false
+    },
+    "obs_upstream_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_effect_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_feedback_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "i2s_bclk": {
+      "width": 1,
+      "signed": false
+    },
+    "i2s_lrck": {
+      "width": 1,
+      "signed": false
+    },
+    "i2s_din": {
+      "width": 1,
+      "signed": false
+    },
+    "pa_en": {
+      "width": 1,
+      "signed": false
+    },
+    "uart_tx": {
+      "width": 1,
+      "signed": false
+    }
+  },
+  "normalized_mapping": {
+    "rst_n": {
+      "port": "obs_rst_n",
+      "width": 1,
+      "signed": false
+    },
+    "frame_tick": {
+      "port": "obs_frame_tick",
+      "width": 1,
+      "signed": false
+    },
+    "event_valid": {
+      "port": "obs_event_valid",
+      "width": 1,
+      "signed": false
+    },
+    "event_ready": {
+      "port": "obs_event_ready",
+      "width": 1,
+      "signed": false
+    },
+    "event_data": {
+      "port": "obs_event_data",
+      "width": 64,
+      "signed": false
+    },
+    "req_valid": {
+      "port": "obs_req_valid",
+      "width": 1,
+      "signed": false
+    },
+    "req_ready": {
+      "port": "obs_req_ready",
+      "width": 1,
+      "signed": false
+    },
+    "result_valid": {
+      "port": "obs_result_valid",
+      "width": 1,
+      "signed": false
+    },
+    "result_ready": {
+      "port": "obs_result_ready",
+      "width": 1,
+      "signed": false
+    },
+    "result_id": {
+      "port": "obs_result_id",
+      "width": 32,
+      "signed": false
+    },
+    "result_left": {
+      "port": "obs_result_left",
+      "width": 24,
+      "signed": true
+    },
+    "result_right": {
+      "port": "obs_result_right",
+      "width": 24,
+      "signed": true
+    },
+    "result_clip_mask": {
+      "port": "obs_result_clip_mask",
+      "width": 2,
+      "signed": false
+    },
+    "req_id": {
+      "port": "obs_req_id",
+      "width": 32,
+      "signed": false
+    },
+    "commit": {
+      "port": "obs_commit",
+      "width": 1,
+      "signed": false
+    },
+    "commit_id": {
+      "port": "obs_commit_id",
+      "width": 32,
+      "signed": false
+    },
+    "commit_left": {
+      "port": "obs_commit_left",
+      "width": 24,
+      "signed": true
+    },
+    "commit_right": {
+      "port": "obs_commit_right",
+      "width": 24,
+      "signed": true
+    },
+    "commit_clip": {
+      "port": "obs_commit_clip",
+      "width": 1,
+      "signed": false
+    },
+    "cancel": {
+      "port": "obs_cancel",
+      "width": 1,
+      "signed": false
+    },
+    "config_valid": {
+      "port": "obs_config_valid",
+      "width": 1,
+      "signed": false
+    },
+    "config_ready": {
+      "port": "obs_config_ready",
+      "width": 1,
+      "signed": false
+    },
+    "tx_left": {
+      "port": "obs_tx_left",
+      "width": 24,
+      "signed": true
+    },
+    "tx_right": {
+      "port": "obs_tx_right",
+      "width": 24,
+      "signed": true
+    },
+    "pll_locked": {
+      "port": "obs_pll_locked",
+      "width": 1,
+      "signed": false
+    },
+    "tx_sample_valid": {
+      "port": "obs_tx_sample_valid",
+      "width": 1,
+      "signed": false
+    },
+    "tx_metadata_valid": {
+      "port": "obs_tx_metadata_valid",
+      "width": 1,
+      "signed": false
+    },
+    "tx_req_id_valid": {
+      "port": "obs_tx_req_id_valid",
+      "width": 1,
+      "signed": false
+    },
+    "tx_frame_id": {
+      "port": "obs_tx_frame_id",
+      "width": 32,
+      "signed": false
+    },
+    "tx_req_id": {
+      "port": "obs_tx_req_id",
+      "width": 32,
+      "signed": false
+    },
+    "tx_clip_mask": {
+      "port": "obs_tx_clip_mask",
+      "width": 2,
+      "signed": false
+    },
+    "tx_clip": {
+      "port": "obs_tx_clip_any",
+      "width": 1,
+      "signed": false
+    },
+    "tx_hold": {
+      "port": "obs_tx_hold",
+      "width": 1,
+      "signed": false
+    },
+    "tx_startup_zero": {
+      "port": "obs_tx_startup_zero",
+      "width": 1,
+      "signed": false
+    },
+    "metadata_error": {
+      "port": "obs_metadata_error",
+      "width": 1,
+      "signed": false
+    },
+    "frame_id_overflow": {
+      "port": "obs_frame_id_overflow",
+      "width": 1,
+      "signed": false
+    },
+    "cancel_reason": {
+      "port": "obs_raw_cancel_reason",
+      "width": 2,
+      "signed": false
+    },
+    "apply_valid": {
+      "port": "obs_apply_valid",
+      "width": 1,
+      "signed": false
+    },
+    "apply_data": {
+      "port": "obs_apply_data",
+      "width": 64,
+      "signed": false
+    },
+    "occupied_mask": {
+      "port": "obs_occupied_mask",
+      "width": 4,
+      "signed": false
+    },
+    "releasing_mask": {
+      "port": "obs_releasing_mask",
+      "width": 4,
+      "signed": false
+    },
+    "note_on_mask": {
+      "port": "obs_note_on_mask",
+      "width": 4,
+      "signed": false
+    },
+    "note_off_mask": {
+      "port": "obs_note_off_mask",
+      "width": 4,
+      "signed": false
+    },
+    "retire_mask": {
+      "port": "obs_retire_mask",
+      "width": 4,
+      "signed": false
+    },
+    "slot_sources": {
+      "port": "obs_slot_sources",
+      "width": 16,
+      "signed": false
+    },
+    "slot_channels": {
+      "port": "obs_slot_channels",
+      "width": 16,
+      "signed": false
+    },
+    "slot_notes": {
+      "port": "obs_slot_notes",
+      "width": 32,
+      "signed": false
+    },
+    "slot_generations": {
+      "port": "obs_slot_generations",
+      "width": 128,
+      "signed": false
+    },
+    "advance_mask": {
+      "port": "obs_advance_mask",
+      "width": 4,
+      "signed": false
+    },
+    "advance_frame_req_id": {
+      "port": "obs_advance_frame_req_id",
+      "width": 32,
+      "signed": false
+    },
+    "effect_input_valid": {
+      "port": "obs_effect_input_valid",
+      "width": 1,
+      "signed": false
+    },
+    "effect_input_ready": {
+      "port": "obs_effect_input_ready",
+      "width": 1,
+      "signed": false
+    },
+    "effect_input_id": {
+      "port": "obs_effect_input_id",
+      "width": 32,
+      "signed": false
+    },
+    "effect_input_left": {
+      "port": "obs_effect_input_left",
+      "width": 24,
+      "signed": true
+    },
+    "effect_input_right": {
+      "port": "obs_effect_input_right",
+      "width": 24,
+      "signed": true
+    },
+    "effect_input_clip_mask": {
+      "port": "obs_effect_input_clip_mask",
+      "width": 2,
+      "signed": false
+    },
+    "apply_kind": {
+      "port": "obs_apply_kind",
+      "width": 4,
+      "signed": false
+    },
+    "apply_mask": {
+      "port": "obs_apply_mask",
+      "width": 4,
+      "signed": false
+    },
+    "router_apply_seq": {
+      "port": "obs_router_apply_seq",
+      "width": 32,
+      "signed": false
+    },
+    "router_apply_seq_valid": {
+      "port": "obs_router_apply_seq_valid",
+      "width": 1,
+      "signed": false
+    },
+    "config_take": {
+      "port": "obs_config_take",
+      "width": 1,
+      "signed": false
+    },
+    "config_payload": {
+      "port": "obs_config_payload",
+      "width": 62,
+      "signed": false
+    },
+    "upstream_clip_mask": {
+      "port": "obs_upstream_clip_mask",
+      "width": 2,
+      "signed": false
+    },
+    "effect_clip_mask": {
+      "port": "obs_effect_clip_mask",
+      "width": 2,
+      "signed": false
+    },
+    "feedback_clip_mask": {
+      "port": "obs_feedback_clip_mask",
+      "width": 2,
+      "signed": false
+    },
+    "bclk": {
+      "port": "i2s_bclk",
+      "width": 1,
+      "signed": false
+    },
+    "ws": {
+      "port": "i2s_lrck",
+      "width": 1,
+      "signed": false
+    },
+    "din": {
+      "port": "i2s_din",
+      "width": 1,
+      "signed": false
+    },
+    "pa_en": {
+      "port": "pa_en",
+      "width": 1,
+      "signed": false
+    }
+  },
+  "normalized_fields": [
+    "cycle",
+    "epoch",
+    "rst_n",
+    "frame_tick",
+    "event_valid",
+    "event_ready",
+    "event_data",
+    "apply_valid",
+    "apply_event_seq",
+    "apply_data",
+    "occupied_mask",
+    "releasing_mask",
+    "note_on_mask",
+    "note_off_mask",
+    "retire_mask",
+    "slot_sources",
+    "slot_channels",
+    "slot_notes",
+    "slot_generations",
+    "req_valid",
+    "req_ready",
+    "req_id",
+    "advance_mask",
+    "advance_frame_req_id",
+    "result_valid",
+    "result_ready",
+    "result_id",
+    "result_left",
+    "result_right",
+    "result_clip_mask",
+    "commit",
+    "commit_id",
+    "commit_left",
+    "commit_right",
+    "commit_clip",
+    "cancel",
+    "cancel_reason",
+    "config_valid",
+    "config_ready",
+    "config_payload",
+    "effect_input_valid",
+    "effect_input_ready",
+    "effect_input_id",
+    "effect_input_left",
+    "effect_input_right",
+    "effect_input_clip_mask",
+    "tx_sample_valid",
+    "tx_frame_id",
+    "tx_req_id",
+    "tx_left",
+    "tx_right",
+    "tx_clip",
+    "tx_hold",
+    "tx_startup_zero",
+    "bclk",
+    "ws",
+    "din",
+    "pll_locked",
+    "audio_stable",
+    "pa_en",
+    "finish",
+    "tx_metadata_valid",
+    "tx_req_id_valid",
+    "tx_clip_mask",
+    "metadata_error",
+    "frame_id_overflow",
+    "apply_kind",
+    "apply_mask",
+    "router_apply_seq",
+    "router_apply_seq_valid",
+    "config_take",
+    "upstream_clip_mask",
+    "effect_clip_mask",
+    "feedback_clip_mask"
+  ],
+  "unimplemented": {
+    "apply_event_seq": "PENDING_INDEPENDENT_PLAN_TO_PUBLIC_ACCEPTANCE_MAPPING",
+    "audio_stable": "PENDING_OWNER_APPROVED_REAL_AUDIO_STABILITY_POLICY"
+  },
+  "sampling": "POSEDGE_PRE_NBA",
+  "new_raw_ports": [
+    "obs_raw_cancel_reason",
+    "obs_apply_valid",
+    "obs_apply_data",
+    "obs_occupied_mask",
+    "obs_releasing_mask",
+    "obs_note_on_mask",
+    "obs_note_off_mask",
+    "obs_retire_mask",
+    "obs_slot_sources",
+    "obs_slot_channels",
+    "obs_slot_notes",
+    "obs_slot_generations",
+    "obs_advance_mask",
+    "obs_advance_frame_req_id",
+    "obs_effect_input_valid",
+    "obs_effect_input_ready",
+    "obs_effect_input_id",
+    "obs_effect_input_left",
+    "obs_effect_input_right",
+    "obs_effect_input_clip_mask",
+    "obs_apply_kind",
+    "obs_apply_mask",
+    "obs_router_apply_seq",
+    "obs_router_apply_seq_valid",
+    "obs_config_take",
+    "obs_config_payload",
+    "obs_upstream_clip_mask",
+    "obs_effect_clip_mask",
+    "obs_feedback_clip_mask"
+  ],
+  "raw_port_count": 72,
+  "normalized_count": 74,
+  "HDL_status": "NOT_RUN",
+  "board_release_allowed": false
+}

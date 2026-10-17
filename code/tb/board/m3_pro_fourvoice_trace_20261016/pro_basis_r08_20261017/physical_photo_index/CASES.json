@@ -1,0 +1,36 @@
+{
+  "schema": "M3_R08_CASES_V1",
+  "group": "H",
+  "cases": [
+    {
+      "id": "19_synthetic_index",
+      "expected": "ACCEPT",
+      "description": "Explicitly synthetic claim/source/page index only"
+    },
+    {
+      "id": "19_changed_photo_identity",
+      "expected": "REJECT:FILE_IDENTITY_MISMATCH",
+      "description": "Wrong original-file SHA"
+    },
+    {
+      "id": "19_wrong_board",
+      "expected": "REJECT:BOARD_ID_MISMATCH",
+      "description": "Photo evidence from another board"
+    },
+    {
+      "id": "19_missing_page",
+      "expected": "REJECT:PAGE_REGION_REQUIRED",
+      "description": "Claim has no valid source page"
+    },
+    {
+      "id": "19_reference_not_physical",
+      "expected": "PENDING_UNKNOWN",
+      "description": "Reference document does not prove actual board"
+    },
+    {
+      "id": "19_missing_real_bank_version",
+      "expected": "PENDING_UNKNOWN",
+      "description": "Missing actual bank/version never inferred from filename"
+    }
+  ]
+}

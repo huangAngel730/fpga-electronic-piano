@@ -1,0 +1,13 @@
+{
+  "schema": "M3_R07_ORACLE_BRIDGE_COMMUNICATION_STATUS_V1",
+  "target": "night_task_1_controller",
+  "target_thread_id": "01a14050-cd98-7c41-8004-5d3e25765167",
+  "message_purpose": "Report that R7-A output schema was not yet present before the R7-C initial run.",
+  "attempted": true,
+  "delivered": false,
+  "result": "REJECTED_BY_PLATFORM_POLICY",
+  "workaround_attempted": false,
+  "local_collection": true,
+  "next_action": "Read the shared R7-A schema when it appears; otherwise close R7-C as PENDING_R7_A_SCHEMA without consuming the software group.",
+  "board_release_allowed": false
+}

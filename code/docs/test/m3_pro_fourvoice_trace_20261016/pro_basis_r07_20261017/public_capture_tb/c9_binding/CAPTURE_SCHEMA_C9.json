@@ -1,0 +1,1841 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C9 74-field row envelope, L0 unexecuted successor",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "capture_id",
+    "origin",
+    "source",
+    "fields",
+    "raw_ports",
+    "missing_reasons",
+    "events",
+    "semantics"
+  ],
+  "properties": {
+    "schema": {
+      "const": "M3_R7A_C9_PUBLIC_ROW_V1"
+    },
+    "capture_id": {
+      "type": "string"
+    },
+    "origin": {
+      "enum": [
+        "SYNTHETIC_SCHEMA_FIXTURE",
+        "HDL_PUBLIC_CAPTURE_UNVERIFIED"
+      ]
+    },
+    "source": {
+      "type": "object"
+    },
+    "fields": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "M2_R06_NORMALIZED_ROW_CANDIDATE_C9_V1",
+      "title": "74-field C9 representation; 66 inherited + apply4/config_take1/clip3; no REAL provenance claim",
+      "type": "object",
+      "required": [
+        "cycle",
+        "epoch",
+        "rst_n",
+        "frame_tick",
+        "event_valid",
+        "event_ready",
+        "event_data",
+        "apply_valid",
+        "apply_event_seq",
+        "apply_data",
+        "occupied_mask",
+        "releasing_mask",
+        "note_on_mask",
+        "note_off_mask",
+        "retire_mask",
+        "slot_sources",
+        "slot_channels",
+        "slot_notes",
+        "slot_generations",
+        "req_valid",
+        "req_ready",
+        "req_id",
+        "advance_mask",
+        "advance_frame_req_id",
+        "result_valid",
+        "result_ready",
+        "result_id",
+        "result_left",
+        "result_right",
+        "result_clip_mask",
+        "commit",
+        "commit_id",
+        "commit_left",
+        "commit_right",
+        "commit_clip",
+        "cancel",
+        "cancel_reason",
+        "config_valid",
+        "config_ready",
+        "config_payload",
+        "effect_input_valid",
+        "effect_input_ready",
+        "effect_input_id",
+        "effect_input_left",
+        "effect_input_right",
+        "effect_input_clip_mask",
+        "tx_sample_valid",
+        "tx_frame_id",
+        "tx_req_id",
+        "tx_left",
+        "tx_right",
+        "tx_clip",
+        "tx_hold",
+        "tx_startup_zero",
+        "bclk",
+        "ws",
+        "din",
+        "pll_locked",
+        "audio_stable",
+        "pa_en",
+        "finish",
+        "tx_metadata_valid",
+        "tx_req_id_valid",
+        "tx_clip_mask",
+        "metadata_error",
+        "frame_id_overflow",
+        "apply_kind",
+        "apply_mask",
+        "router_apply_seq",
+        "router_apply_seq_valid",
+        "config_take",
+        "upstream_clip_mask",
+        "effect_clip_mask",
+        "feedback_clip_mask"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "cycle": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 18446744073709551615
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 64
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "epoch": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 32
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "rst_n": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "frame_tick": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "event_valid": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "event_ready": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "event_data": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 18446744073709551615
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 64
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "apply_valid": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "C9 explicit public obs_apply_valid; static route, not runtime qualification; preserve X/null"
+        },
+        "apply_event_seq": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 32
+            }
+          ],
+          "description": "Independent input-plan sequence PENDING verified plan-to-public-acceptance mapping; never substitute router_apply_seq; preserve null/X"
+        },
+        "apply_data": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 18446744073709551615
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 64
+            }
+          ],
+          "description": "C9 explicit public obs_apply_data; static route, not runtime qualification; preserve X/null; For apply_kind 3/4/8, router_apply_seq_valid=0 and apply_data=0/router_apply_seq=0 are invalid-cause sentinels, never a real all-zero event. Kind1 and kind2 may share a valid router acceptance sequence; do not deduplicate stages by sequence. A live kind0 idle value may still reflect held data in raw RTL; interpret apply payload only when apply_valid and valid cause are established."
+        },
+        "occupied_mask": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 15
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 4
+            }
+          ],
+          "description": "C9 explicit public obs_occupied_mask; static route, not runtime qualification; preserve X/null"
+        },
+        "releasing_mask": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 15
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 4
+            }
+          ],
+          "description": "C9 explicit public obs_releasing_mask; static route, not runtime qualification; preserve X/null"
+        },
+        "note_on_mask": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 15
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 4
+            }
+          ],
+          "description": "C9 explicit public obs_note_on_mask; static route, not runtime qualification; preserve X/null; M1 preceding-edge prose is REWORK_REQUIRED; use observed consume pulse, never fixed allocation+1"
+        },
+        "note_off_mask": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 15
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 4
+            }
+          ],
+          "description": "C9 explicit public obs_note_off_mask; static route, not runtime qualification; preserve X/null"
+        },
+        "retire_mask": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 15
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 4
+            }
+          ],
+          "description": "C9 explicit public obs_retire_mask; static route, not runtime qualification; preserve X/null"
+        },
+        "slot_sources": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 16
+            }
+          ],
+          "description": "C9 explicit public obs_slot_sources; static route, not runtime qualification; preserve X/null"
+        },
+        "slot_channels": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 16
+            }
+          ],
+          "description": "C9 explicit public obs_slot_channels; static route, not runtime qualification; preserve X/null"
+        },
+        "slot_notes": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 32
+            }
+          ],
+          "description": "C9 explicit public obs_slot_notes; static route, not runtime qualification; preserve X/null"
+        },
+        "slot_generations": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 340282366920938463463374607431768211455
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 128
+            }
+          ],
+          "description": "C9 explicit public obs_slot_generations; static route, not runtime qualification; preserve X/null"
+        },
+        "req_valid": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "req_ready": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "req_id": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 32
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "advance_mask": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 15
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 4
+            }
+          ],
+          "description": "C9 explicit public obs_advance_mask; static route, not runtime qualification; preserve X/null"
+        },
+        "advance_frame_req_id": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 32
+            }
+          ],
+          "description": "C9 explicit public obs_advance_frame_req_id; static route, not runtime qualification; preserve X/null"
+        },
+        "result_valid": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "result_ready": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "result_id": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 32
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "result_left": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -8388608,
+              "maximum": 8388607
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 24
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "result_right": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -8388608,
+              "maximum": 8388607
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 24
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "result_clip_mask": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 2
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "commit": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "commit_id": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 32
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "commit_left": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -8388608,
+              "maximum": 8388607
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 24
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "commit_right": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -8388608,
+              "maximum": 8388607
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 24
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "commit_clip": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "cancel": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "cancel_reason": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "0",
+                "1",
+                "00",
+                "01"
+              ]
+            },
+            {
+              "type": "string",
+              "pattern": "^(?=.*[xXzZ])[01xXzZ]{1,2}$"
+            }
+          ],
+          "description": "2-bit raw FRAME control cause, not transaction CANCEL or request ID; capture from obs_raw_cancel_reason; X/Z retained; unobserved remains null"
+        },
+        "config_valid": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "config_ready": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "config_payload": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4611686018427387903
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 62
+            }
+          ],
+          "description": "C9 explicit public obs_config_payload; static route, not runtime qualification; preserve X/null"
+        },
+        "effect_input_valid": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "C9 explicit public obs_effect_input_valid; static route, not runtime qualification; preserve X/null"
+        },
+        "effect_input_ready": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "C9 explicit public obs_effect_input_ready; static route, not runtime qualification; preserve X/null"
+        },
+        "effect_input_id": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 32
+            }
+          ],
+          "description": "C9 explicit public obs_effect_input_id; static route, not runtime qualification; preserve X/null"
+        },
+        "effect_input_left": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -8388608,
+              "maximum": 8388607
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 24
+            }
+          ],
+          "description": "C9 explicit public obs_effect_input_left; static route, not runtime qualification; preserve X/null"
+        },
+        "effect_input_right": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -8388608,
+              "maximum": 8388607
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 24
+            }
+          ],
+          "description": "C9 explicit public obs_effect_input_right; static route, not runtime qualification; preserve X/null"
+        },
+        "effect_input_clip_mask": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 2
+            }
+          ],
+          "description": "C9 explicit public obs_effect_input_clip_mask; static route, not runtime qualification; preserve X/null"
+        },
+        "tx_sample_valid": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "tx_frame_id": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 32
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "tx_req_id": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 32
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "tx_left": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -8388608,
+              "maximum": 8388607
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 24
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "tx_right": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -8388608,
+              "maximum": 8388607
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 24
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "tx_clip": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "tx_hold": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "tx_startup_zero": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "bclk": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "ws": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "din": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "pll_locked": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "audio_stable": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "PENDING_STABILITY_POLICY_AND_IMPLEMENTATION; preserve X/null; no fill0"
+        },
+        "pa_en": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "finish": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "M2_SOURCE_RULE_BOUND_ROUTE_PENDING; preserve X/null; no fill0"
+        },
+        "tx_metadata_valid": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "C3/C4 real public sidecar output; preserve unknown/missing rather than fill0; cross-field meaning is in the capture contract"
+        },
+        "tx_req_id_valid": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "C3/C4 real public sidecar output; preserve unknown/missing rather than fill0; cross-field meaning is in the capture contract"
+        },
+        "tx_clip_mask": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 2
+            }
+          ],
+          "description": "C3/C4 real public sidecar output; preserve unknown/missing rather than fill0; cross-field meaning is in the capture contract"
+        },
+        "metadata_error": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "C3/C4 real public sidecar output; preserve unknown/missing rather than fill0; cross-field meaning is in the capture contract"
+        },
+        "frame_id_overflow": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "C3/C4 real public sidecar output; preserve unknown/missing rather than fill0; cross-field meaning is in the capture contract"
+        },
+        "apply_kind": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 15
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 4
+            }
+          ],
+          "description": "C9 explicit public obs_apply_kind; static route, not runtime qualification; preserve X/null; kinds0..8 declared; reserved raw values do not imply acceptance"
+        },
+        "apply_mask": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 15
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 4
+            }
+          ],
+          "description": "C9 explicit public obs_apply_mask; static route, not runtime qualification; preserve X/null"
+        },
+        "router_apply_seq": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 32
+            }
+          ],
+          "description": "Raw router u32 acceptance sequence, epoch scoped; zero may be invalid sentinel; interpret only with router_apply_seq_valid; wrap is not unique"
+        },
+        "router_apply_seq_valid": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "C9 explicit public obs_router_apply_seq_valid; static route, not runtime qualification; preserve X/null"
+        },
+        "config_take": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 1
+            }
+          ],
+          "description": "C9 explicit public obs_config_take; static route, not runtime qualification; preserve X/null"
+        },
+        "upstream_clip_mask": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 2
+            }
+          ],
+          "description": "C9 explicit public obs_upstream_clip_mask; static route, not runtime qualification; preserve X/null"
+        },
+        "effect_clip_mask": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 2
+            }
+          ],
+          "description": "C9 explicit public obs_effect_clip_mask; static route, not runtime qualification; preserve X/null"
+        },
+        "feedback_clip_mask": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[01xXzZ]+$",
+              "maxLength": 2
+            }
+          ],
+          "description": "C9 explicit public obs_feedback_clip_mask; static route, not runtime qualification; preserve X/null"
+        }
+      }
+    },
+    "raw_ports": {
+      "type": "object",
+      "required": [
+        "obs_core_clk",
+        "obs_polyphonic_valid",
+        "obs_rst_n",
+        "obs_frame_tick",
+        "obs_event_valid",
+        "obs_event_ready",
+        "obs_event_data",
+        "obs_req_valid",
+        "obs_req_ready",
+        "obs_result_valid",
+        "obs_result_ready",
+        "obs_result_id",
+        "obs_result_left",
+        "obs_result_right",
+        "obs_result_clip_mask",
+        "obs_req_id",
+        "obs_commit",
+        "obs_commit_id",
+        "obs_commit_left",
+        "obs_commit_right",
+        "obs_commit_clip",
+        "obs_cancel",
+        "obs_config_valid",
+        "obs_config_ready",
+        "obs_tx_left",
+        "obs_tx_right",
+        "obs_pll_locked",
+        "obs_tx_sample_valid",
+        "obs_tx_metadata_valid",
+        "obs_tx_req_id_valid",
+        "obs_tx_frame_id",
+        "obs_tx_req_id",
+        "obs_tx_clip_mask",
+        "obs_tx_clip_any",
+        "obs_tx_hold",
+        "obs_tx_startup_zero",
+        "obs_metadata_error",
+        "obs_frame_id_overflow",
+        "obs_raw_cancel_reason",
+        "obs_apply_valid",
+        "obs_apply_data",
+        "obs_occupied_mask",
+        "obs_releasing_mask",
+        "obs_note_on_mask",
+        "obs_note_off_mask",
+        "obs_retire_mask",
+        "obs_slot_sources",
+        "obs_slot_channels",
+        "obs_slot_notes",
+        "obs_slot_generations",
+        "obs_advance_mask",
+        "obs_advance_frame_req_id",
+        "obs_effect_input_valid",
+        "obs_effect_input_ready",
+        "obs_effect_input_id",
+        "obs_effect_input_left",
+        "obs_effect_input_right",
+        "obs_effect_input_clip_mask",
+        "obs_apply_kind",
+        "obs_apply_mask",
+        "obs_router_apply_seq",
+        "obs_router_apply_seq_valid",
+        "obs_config_take",
+        "obs_config_payload",
+        "obs_upstream_clip_mask",
+        "obs_effect_clip_mask",
+        "obs_feedback_clip_mask",
+        "i2s_bclk",
+        "i2s_lrck",
+        "i2s_din",
+        "pa_en",
+        "uart_tx"
+      ],
+      "properties": {
+        "obs_core_clk": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_polyphonic_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_rst_n": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_frame_tick": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_event_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_event_ready": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_event_data": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{64}$"
+        },
+        "obs_req_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_req_ready": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_result_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_result_ready": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_result_id": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{32}$"
+        },
+        "obs_result_left": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{24}$"
+        },
+        "obs_result_right": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{24}$"
+        },
+        "obs_result_clip_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{2}$"
+        },
+        "obs_req_id": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{32}$"
+        },
+        "obs_commit": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_commit_id": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{32}$"
+        },
+        "obs_commit_left": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{24}$"
+        },
+        "obs_commit_right": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{24}$"
+        },
+        "obs_commit_clip": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_cancel": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_config_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_config_ready": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_tx_left": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{24}$"
+        },
+        "obs_tx_right": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{24}$"
+        },
+        "obs_pll_locked": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_tx_sample_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_tx_metadata_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_tx_req_id_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_tx_frame_id": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{32}$"
+        },
+        "obs_tx_req_id": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{32}$"
+        },
+        "obs_tx_clip_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{2}$"
+        },
+        "obs_tx_clip_any": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_tx_hold": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_tx_startup_zero": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_metadata_error": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_frame_id_overflow": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_raw_cancel_reason": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{2}$"
+        },
+        "obs_apply_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_apply_data": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{64}$"
+        },
+        "obs_occupied_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{4}$"
+        },
+        "obs_releasing_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{4}$"
+        },
+        "obs_note_on_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{4}$"
+        },
+        "obs_note_off_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{4}$"
+        },
+        "obs_retire_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{4}$"
+        },
+        "obs_slot_sources": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{16}$"
+        },
+        "obs_slot_channels": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{16}$"
+        },
+        "obs_slot_notes": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{32}$"
+        },
+        "obs_slot_generations": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{128}$"
+        },
+        "obs_advance_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{4}$"
+        },
+        "obs_advance_frame_req_id": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{32}$"
+        },
+        "obs_effect_input_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_effect_input_ready": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_effect_input_id": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{32}$"
+        },
+        "obs_effect_input_left": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{24}$"
+        },
+        "obs_effect_input_right": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{24}$"
+        },
+        "obs_effect_input_clip_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{2}$"
+        },
+        "obs_apply_kind": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{4}$"
+        },
+        "obs_apply_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{4}$"
+        },
+        "obs_router_apply_seq": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{32}$"
+        },
+        "obs_router_apply_seq_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_config_take": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_config_payload": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{62}$"
+        },
+        "obs_upstream_clip_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{2}$"
+        },
+        "obs_effect_clip_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{2}$"
+        },
+        "obs_feedback_clip_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{2}$"
+        },
+        "i2s_bclk": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "i2s_lrck": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "i2s_din": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "pa_en": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "uart_tx": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "missing_reasons": {
+      "type": "object"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "semantics": {
+      "type": "object"
+    }
+  }
+}

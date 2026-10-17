@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "M3_R06_PRO_BOARD_CAPTURE_SESSION_V1",
+  "title": "Tang Mega 138K Pro same-version board capture session",
+  "type": "object",
+  "required": [
+    "schema",
+    "session_id",
+    "status",
+    "operator",
+    "started_at",
+    "preflight",
+    "build_identity",
+    "programming_authority",
+    "instrumentation",
+    "scenes",
+    "raw_artifacts",
+    "execution",
+    "result",
+    "board_release_allowed"
+  ],
+  "properties": {
+    "schema": {"const": "M3_R06_PRO_BOARD_CAPTURE_SESSION_V1"},
+    "session_id": {"type": "string", "minLength": 1},
+    "status": {
+      "enum": [
+        "BLOCKED_PREFLIGHT",
+        "AUTHORIZED_NOT_RUN",
+        "RUNNING",
+        "PASS_LIMITED_CAPTURE",
+        "FAIL_STOPPED",
+        "ABORTED_SAFE"
+      ]
+    },
+    "operator": {"type": ["string", "null"]},
+    "started_at": {"type": ["string", "null"]},
+    "ended_at": {"type": ["string", "null"]},
+    "preflight": {
+      "type": "object",
+      "required": [
+        "physical_unit",
+        "part_package",
+        "core_revision",
+        "dock_revision",
+        "bank_voltages",
+        "power_and_ground",
+        "midi_electrical",
+        "audio_load",
+        "tool_runtime_license",
+        "gate_status"
+      ]
+    },
+    "build_identity": {
+      "type": "object",
+      "required": [
+        "top",
+        "sources_sha256",
+        "rom_sha256",
+        "constraints_sha256",
+        "pll_sha256",
+        "pnr_report_sha256",
+        "sta_report_sha256",
+        "timing_coverage",
+        "bitstream_path",
+        "bitstream_bytes",
+        "bitstream_sha256",
+        "recovery_identity"
+      ]
+    },
+    "programming_authority": {
+      "type": "object",
+      "required": [
+        "mode",
+        "exact_bitstream_sha256",
+        "permission_text_identity",
+        "single_use",
+        "consumed_count_before",
+        "consumed_count_after",
+        "flash_write_allowed"
+      ]
+    },
+    "instrumentation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["instrument_id", "model", "serial", "calibration", "settings"]
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["scene_id", "status", "input_refs", "capture_refs", "observations"]
+      }
+    },
+    "raw_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["role", "path", "bytes", "sha256", "original_unmodified"]
+      }
+    },
+    "execution": {
+      "type": "object",
+      "required": ["method", "argv_or_gui_options", "cwd", "exit_code", "stdout", "stderr", "first_failure"]
+    },
+    "result": {
+      "type": "object",
+      "required": ["scope", "pass", "fail", "unknown", "limitations"]
+    },
+    "board_release_allowed": {"const": false}
+  },
+  "additionalProperties": false
+}

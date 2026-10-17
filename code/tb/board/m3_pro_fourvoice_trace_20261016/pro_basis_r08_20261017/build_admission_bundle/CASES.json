@@ -1,0 +1,51 @@
+{
+  "schema": "M3_R08_CASES_V1",
+  "group": "S",
+  "cases": [
+    {
+      "id": "06_synthetic_application",
+      "expected": "ACCEPT",
+      "description": "Full synthetic S dependency requests, reservation binding and source-body application"
+    },
+    {
+      "id": "06_tool_dependency_unknown",
+      "expected": "PENDING_UNKNOWN",
+      "description": "Unknown tool dependency remains in application gaps"
+    },
+    {
+      "id": "06_C6_A_application",
+      "expected": "PENDING_UNKNOWN",
+      "description": "Actual C6 plus frozen A sources and four driver inputs; first-run application only"
+    },
+    {
+      "id": "06_approved_rejected",
+      "expected": "REJECT:SELF_APPROVAL_FORBIDDEN",
+      "description": "Application cannot self-approve"
+    },
+    {
+      "id": "06_legacy_P7_rejected",
+      "expected": "REJECT:LEGACY_EXECUTION_SWITCH",
+      "description": "Old P7 environment switch rejected"
+    },
+    {
+      "id": "06_missing_TB",
+      "expected": "REJECT:REQUIRED_TB_OBSERVER_DRIVER",
+      "description": "Missing required TB body"
+    },
+    {
+      "id": "06_missing_header",
+      "expected": "REJECT:INCLUDE_MISSING_OR_INCDIR:fixture.svh",
+      "description": "Application propagates a real missing header"
+    },
+    {
+      "id": "06_foreign_port_map",
+      "expected": "REJECT:PORT_MAP_TB_SOURCE_MISMATCH",
+      "description": "Port map cannot refer to another TB body"
+    },
+    {
+      "id": "06_foreign_reservation",
+      "expected": "REJECT:RESERVATION_APPLICATION_MISMATCH",
+      "description": "Reservation output must match this application"
+    }
+  ]
+}

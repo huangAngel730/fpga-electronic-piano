@@ -1,0 +1,210 @@
+{
+  "schema": "M3_R08_T13_REPAIR_READY_V1",
+  "status": "READY_SOURCE_BYTES_LOADER_L0_NOT_RUN",
+  "created_utc": "2026-10-17T12:40:29.569Z",
+  "defect": "SourceFileLoader attempted unfrozen existing consume_capture.cpython-312.pyc; first T13 result was not accepted by group audit",
+  "initial_T_receipt": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\T\\R01\\RECEIPT.json",
+    "bytes": 41329,
+    "sha256": "e4df619b443430a9f40e0625ce9ca699e4aa440068e5a32bef59e4c2bacf8fa1"
+  },
+  "initial_T_stderr": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\T\\R01\\stderr.raw",
+    "bytes": 649,
+    "sha256": "c92bf88089028ad5ab01aa0157c94504659f91e78383b53a9f15fd30a551905c"
+  },
+  "initial_T_stdout": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\T\\R01\\stdout.raw",
+    "bytes": 3883,
+    "sha256": "bdbd13187a4543c71be3cb334d454dd7acf57c9707739b02176a05a3f80d70f9"
+  },
+  "initial_result": {
+    "exit_code": 1,
+    "group": "T",
+    "cases_total": 56,
+    "assertions_matched": 20,
+    "failed_case": "T13_WORD_ALIGNMENT",
+    "audit_violations": 1,
+    "scope_of_matched_cases": "clip_lineage20 exact initial source only"
+  },
+  "source_before": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\i2s_serial_compare\\T_REPAIR_INPUTS_R01\\BEFORE_r08c13_serial.py",
+    "bytes": 5833,
+    "sha256": "cec48eec4684adb7b52227c313d23dce807dc0b6c5294af658273abb83b30c86"
+  },
+  "source_after": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\i2s_serial_compare\\r08c13_serial.py",
+    "bytes": 6440,
+    "sha256": "58b08fd25d6d52d1684a421d1843a94ee19cd3753badbb4a43587100c1b01123"
+  },
+  "diff": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\i2s_serial_compare\\T_REPAIR.diff",
+    "bytes": 6701,
+    "sha256": "47201c1c49d91051619219a2e5e217eff5af6ca964ebed2010b5b19edcded7e6"
+  },
+  "delta_description": [
+    "import ModuleType",
+    "add local fixed-byte load_pin_decoder: read source bytes -> exact SHA -> independent module -> compile(raw, fixed path, exec, dont_inherit=True, optimize=0) -> exec namespace -> source SHA recheck",
+    "replace T13-only call; no SourceFileLoader for decoder; no source/cache/audit/worker changes"
+  ],
+  "unchanged": {
+    "shared_helper": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\i2s_serial_compare\\r08c_common.py",
+      "bytes": 4039,
+      "sha256": "975f52584ff5ddd8d245ca690d99e890a51eb17cd325802c4b653abfdb6f10fa"
+    },
+    "selftest": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\i2s_serial_compare\\selftest.py",
+      "bytes": 4583,
+      "sha256": "b0370a6aab4e364e9ba7763957146b6bde6f913c2fbcfc61b7bde90dd395793c"
+    },
+    "case_manifest": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\i2s_serial_compare\\CASES.json",
+      "bytes": 1571,
+      "sha256": "f9cff1cdf8a9d05da7f87a4883195eac03dc90fcaccb6607f16cf76354eb93c7"
+    },
+    "PinDecoder_original": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\consume_capture.py",
+      "bytes": 19277,
+      "sha256": "da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb"
+    }
+  },
+  "first_failure_case_originals": [
+    {
+      "original": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\T\\R01\\cases\\020_i2s_serial_compare_T13_WORD_ALIGNMENT\\ACTUAL.json",
+        "bytes": 394539,
+        "sha256": "d8b3170acd18b51b5d07a3056b1073995c40d7cab4a231b4773a7b827f82d2a0"
+      },
+      "preserved_copy": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\i2s_serial_compare\\T_REPAIR_INPUTS_R01\\FIRST_FAILURE_CASE\\ACTUAL.json",
+        "bytes": 394539,
+        "sha256": "d8b3170acd18b51b5d07a3056b1073995c40d7cab4a231b4773a7b827f82d2a0"
+      }
+    },
+    {
+      "original": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\T\\R01\\cases\\020_i2s_serial_compare_T13_WORD_ALIGNMENT\\ACTUAL_BEFORE_ASSERT.json",
+        "bytes": 394539,
+        "sha256": "d8b3170acd18b51b5d07a3056b1073995c40d7cab4a231b4773a7b827f82d2a0"
+      },
+      "preserved_copy": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\i2s_serial_compare\\T_REPAIR_INPUTS_R01\\FIRST_FAILURE_CASE\\ACTUAL_BEFORE_ASSERT.json",
+        "bytes": 394539,
+        "sha256": "d8b3170acd18b51b5d07a3056b1073995c40d7cab4a231b4773a7b827f82d2a0"
+      }
+    },
+    {
+      "original": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\T\\R01\\cases\\020_i2s_serial_compare_T13_WORD_ALIGNMENT\\EXPECTATION.json",
+        "bytes": 81,
+        "sha256": "7276fc37774da7fb53fcaae02ec0aa6e9241480f66d46453d02ccf5b7d4dc288"
+      },
+      "preserved_copy": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\i2s_serial_compare\\T_REPAIR_INPUTS_R01\\FIRST_FAILURE_CASE\\EXPECTATION.json",
+        "bytes": 81,
+        "sha256": "7276fc37774da7fb53fcaae02ec0aa6e9241480f66d46453d02ccf5b7d4dc288"
+      }
+    },
+    {
+      "original": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\T\\R01\\cases\\020_i2s_serial_compare_T13_WORD_ALIGNMENT\\INPUT.json",
+        "bytes": 279546,
+        "sha256": "5beef71003a138c0e50e4844c2eed0b28bd0a2c2214d26be221ac80d2cd0e444"
+      },
+      "preserved_copy": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\i2s_serial_compare\\T_REPAIR_INPUTS_R01\\FIRST_FAILURE_CASE\\INPUT.json",
+        "bytes": 279546,
+        "sha256": "5beef71003a138c0e50e4844c2eed0b28bd0a2c2214d26be221ac80d2cd0e444"
+      }
+    },
+    {
+      "original": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\T\\R01\\cases\\020_i2s_serial_compare_T13_WORD_ALIGNMENT\\INPUT_BEFORE_CALL.json",
+        "bytes": 279546,
+        "sha256": "5beef71003a138c0e50e4844c2eed0b28bd0a2c2214d26be221ac80d2cd0e444"
+      },
+      "preserved_copy": {
+        "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\i2s_serial_compare\\T_REPAIR_INPUTS_R01\\FIRST_FAILURE_CASE\\INPUT_BEFORE_CALL.json",
+        "bytes": 279546,
+        "sha256": "5beef71003a138c0e50e4844c2eed0b28bd0a2c2214d26be221ac80d2cd0e444"
+      }
+    }
+  ],
+  "self_review": "Own static review and read-only child reviewed only loader delta and necessary audit context; no import/compile/execute. No concrete blocker found.",
+  "proposed_execution": {
+    "owner": "night1 only",
+    "group": "T",
+    "phase": "single targeted repair",
+    "limit_s": 60,
+    "cases": [
+      {
+        "component": "i2s_serial_compare",
+        "id": "T13_WORD_ALIGNMENT",
+        "expected": "UNKNOWN_SERIAL_PARTIAL",
+        "description": "完整PT8211帧左右+1/-2及有效ID0对齐；保留新尾半帧UNKNOWN"
+      },
+      {
+        "component": "i2s_serial_compare",
+        "id": "T13_CHANNEL_SWAP",
+        "expected": "PIN_SERIAL_PCM_OR_CHANNEL_MISMATCH",
+        "description": "左右线槽交换输出首帧/首位索引"
+      },
+      {
+        "component": "i2s_serial_compare",
+        "id": "T13_PADDING_PHASE",
+        "expected": "PIN_LSBJ_PADDING_OR_PHASE",
+        "description": "右槽padding首位异常定位"
+      },
+      {
+        "component": "i2s_serial_compare",
+        "id": "T13_RESET_HALF",
+        "expected": "UNKNOWN_SERIAL_PARTIAL",
+        "description": "半帧复位不能签完整串行"
+      },
+      {
+        "component": "i2s_serial_compare",
+        "id": "T13_FIRST_PHASE",
+        "expected": "UNKNOWN_SERIAL_FIRST_PHASE",
+        "description": "缺首相位保留UNKNOWN"
+      },
+      {
+        "component": "i2s_serial_compare",
+        "id": "T13_OTHER_PROTOCOL",
+        "expected": "PENDING_UNSUPPORTED_SERIAL_PROTOCOL",
+        "description": "I2S模式不能套PT8211协议"
+      },
+      {
+        "component": "i2s_serial_compare",
+        "id": "T13_VALID_X",
+        "expected": "PENDING_TX_SAMPLE",
+        "description": "TX valid X不能复用PinDecoder旧sample"
+      },
+      {
+        "component": "i2s_serial_compare",
+        "id": "T13_VALID_2",
+        "expected": "TX_SAMPLE_VALID_RANGE",
+        "description": "非法TX valid=2拒收"
+      },
+      {
+        "component": "i2s_serial_compare",
+        "id": "T13_FRAME_SAMPLE0",
+        "expected": "PENDING_TX_SAMPLE",
+        "description": "active FRAME缺有效TX不能归旧ID"
+      }
+    ],
+    "old_matched20_reexecuted": false,
+    "other27_unrun_T_cases": "NOT_RUN_PENDING_M2_EXACT_ADMISSION; not included in repair quota",
+    "H": "54 matched globally; own17 matched; unchanged and no replay"
+  },
+  "cache_operations": {
+    "pyc_read_by_this_window": false,
+    "cache_deletion": false,
+    "audit_relaxation": false
+  },
+  "local_functional_execution": 0,
+  "local_compile_or_candidate_import": 0,
+  "subprocess_EXE_HDL_EDA_device_calls": 0,
+  "Git_writes": 0,
+  "board_release_allowed": false
+}

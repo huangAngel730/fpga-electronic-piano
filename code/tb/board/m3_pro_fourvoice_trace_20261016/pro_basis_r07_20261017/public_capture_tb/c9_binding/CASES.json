@@ -1,0 +1,41 @@
+{
+  "schema": "M3_C9_PENDING_CASES_V1",
+  "status": "NOT_RUN_NO_NEW_BUDGET",
+  "group": null,
+  "cases": [
+    {
+      "id": "C9_STAGE_SENTINELS_AND_SHARED_SEQ",
+      "expected": "7 rows retained; kind1/2 same valid0 seq not dedup; kind3/4/8 invalid sentinels"
+    },
+    {
+      "id": "C9_THREE_CLIPS",
+      "expected": "upstream/effect/feedback clip1/2/3 preserved separately"
+    },
+    {
+      "id": "C9_LANE_TAG_NOT_FRAME",
+      "expected": "advance15 requesttag42 with frame_tick0 does not create FRAME F"
+    },
+    {
+      "id": "C9_RAW_XZ",
+      "expected": "24bit X retained"
+    },
+    {
+      "id": "C9_INVALID_CAUSE_CONTRADICTION",
+      "expected": "INVALID_CAUSE_SENTINEL_CONTRACT"
+    },
+    {
+      "id": "C9_WRONG_RAW_VERSION",
+      "expected": "C9_RAW_SCHEMA_REQUIRED"
+    },
+    {
+      "id": "C9_MISSING_CLIP",
+      "expected": "C9_RAW_PUBLIC_PORT_SET"
+    },
+    {
+      "id": "C9_CONFIG_WITHOUT_TAKE",
+      "expected": "No config interpretation without actual config_take"
+    }
+  ],
+  "count": 8,
+  "execution_authorized": false
+}

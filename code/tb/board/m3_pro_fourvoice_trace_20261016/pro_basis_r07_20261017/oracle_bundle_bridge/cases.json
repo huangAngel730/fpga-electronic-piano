@@ -1,0 +1,51 @@
+{
+  "schema": "M3_R07_ORACLE_BRIDGE_CASES_V1",
+  "cases": [
+    {
+      "name": "frozen_r6_public_fixture",
+      "mutation": "none",
+      "expected_exit": 0,
+      "expected_status": "SOFTWARE_READY_SYNTHETIC_PENDING_M1_PROFILE"
+    },
+    {
+      "name": "hold_startup_lossless",
+      "mutation": "hold_startup",
+      "expected_exit": 0,
+      "expected_status": "SOFTWARE_READY_SYNTHETIC_PENDING_M1_PROFILE"
+    },
+    {
+      "name": "unknown_handshake_and_advance_preserved",
+      "mutation": "unknown_handshake",
+      "expected_exit": 0,
+      "expected_status": "SOFTWARE_READY_SYNTHETIC_PENDING_M1_PROFILE"
+    },
+    {
+      "name": "tampered_trace_identity",
+      "mutation": "tampered_sha",
+      "expected_exit": 2,
+      "expected_status": "CONTRACT_REJECTED",
+      "error_contains": "INPUT_IDENTITY_MISMATCH:normalized_trace"
+    },
+    {
+      "name": "missing_hold_field",
+      "mutation": "missing_hold",
+      "expected_exit": 2,
+      "expected_status": "CONTRACT_REJECTED",
+      "error_contains": "R7A_FIELDS_NOT_EXACT_61:1"
+    },
+    {
+      "name": "cycle_regression",
+      "mutation": "cycle_regression",
+      "expected_exit": 2,
+      "expected_status": "CONTRACT_REJECTED",
+      "error_contains": "TRACE_CYCLE_NOT_STRICTLY_INCREASING:2"
+    },
+    {
+      "name": "dropped_non_frame_breaks_internal_binding",
+      "mutation": "drop_non_frame",
+      "expected_exit": 2,
+      "expected_status": "CONTRACT_REJECTED",
+      "error_contains": "NORMALIZED_BINDING_TRACE_IDENTITY_OR_COVERAGE_MISMATCH"
+    }
+  ]
+}

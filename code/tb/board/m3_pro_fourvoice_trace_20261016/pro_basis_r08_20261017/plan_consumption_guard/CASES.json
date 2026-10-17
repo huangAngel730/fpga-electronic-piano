@@ -1,0 +1,41 @@
+{
+  "schema": "M3_R08_CASES_V1",
+  "group": "S",
+  "cases": [
+    {
+      "id": "03_pure_facade_receipt",
+      "expected": "ACCEPT",
+      "description": "New validation-only facade returns receipt without output reservation or process"
+    },
+    {
+      "id": "03_action_is_not_permission",
+      "expected": "REJECT:EXECUTION_ACTION_FORBIDDEN",
+      "description": "Facade cannot select RUN"
+    },
+    {
+      "id": "03_unknown_authority_field",
+      "expected": "REJECT:GUARD_REQUEST_FIELDS",
+      "description": "Extra approval field is not a new privilege"
+    },
+    {
+      "id": "03_foreign_validation_scope",
+      "expected": "REJECT:VALIDATION_SCOPE",
+      "description": "Controlled R08 validation domain cannot expand to repo root"
+    },
+    {
+      "id": "03_request_scope_binding",
+      "expected": "REJECT:SIGNED_GUARD_REJECT:CANDIDATE_PATH_SCOPE",
+      "description": "Spec/plan must lie in the declared validation domain"
+    },
+    {
+      "id": "03_request_identity_pin",
+      "expected": "REJECT:FILE_IDENTITY_MISMATCH",
+      "description": "Facade request identity checked before normalization"
+    },
+    {
+      "id": "03_no_native_loader_import",
+      "expected": "ACCEPT",
+      "description": "Pinned AST derivation preserves algorithms and removes native/process imports/routes"
+    }
+  ]
+}

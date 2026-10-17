@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "M3 R08 physical photo index request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "origin", "board_id", "claims", "evidence", "measurements"],
+  "properties": {
+    "schema": {"const": "M3_R08_PHOTO_INDEX_REQUEST_V1"},
+    "origin": {"enum": ["SYNTHETIC", "REAL_CANDIDATE"]},
+    "board_id": {"type": "string", "minLength": 1},
+    "claims": {
+      "type": "object",
+      "properties": {
+        "part_full": {"$ref": "#/$defs/claim"},
+        "device_version": {"$ref": "#/$defs/claim"},
+        "core_revision": {"$ref": "#/$defs/claim"},
+        "dock_revision": {"$ref": "#/$defs/claim"},
+        "bank_map": {"$ref": "#/$defs/claim"},
+        "measurement_board_binding": {"$ref": "#/$defs/claim"}
+      }
+    },
+    "evidence": {"type": "array", "items": {
+      "type": "object", "required": ["id", "kind", "file"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "kind": {"enum": ["ORIGINAL_PHOTO", "REFERENCE_DOCUMENT", "SYNTHETIC"]},
+        "board_id": {"type": "string"}, "file": {"$ref": "#/$defs/file"}
+      }
+    }},
+    "measurements": {"type": "array", "items": {
+      "type": "object", "required": ["id", "board_id", "evidence_id"],
+      "properties": {"id": {"type": "string"}, "board_id": {"type": "string"}, "evidence_id": {"type": "string"}}
+    }}
+  },
+  "$defs": {
+    "file": {"type": "object", "required": ["path", "sha256"], "properties": {
+      "path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "bytes": {"type": "integer", "minimum": 0}
+    }},
+    "claim": {"oneOf": [{"type": "null"}, {
+      "type": "object", "required": ["value", "evidence_id", "page", "region"],
+      "properties": {"value": {}, "evidence_id": {"type": "string"}, "page": {"type": "integer", "minimum": 1}, "region": {"type": "string", "minLength": 1}}
+    }]}
+  },
+  "x-semantic-checks": ["Unique evidence IDs and file bytes/SHA", "Photo and measurement board_id equality", "Nonempty claims linked to evidence/page/region", "REAL always pending human confirmation; reference/synthetic do not replace real photo"]
+}

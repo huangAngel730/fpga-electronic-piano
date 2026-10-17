@@ -1,0 +1,15 @@
+{
+  "schema": "M3_R08_ROLE_C_COMPONENT_CONTRACT_V1",
+  "component": "clip_lineage",
+  "task": "R8-15",
+  "group": "T",
+  "input_schema": "M3_R08_CLIP_LINEAGE_INPUT_V1",
+  "production_cli": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/clip_lineage/r08c15_lineage.py",
+  "selftest": "run_case(case_id, output_dir)->dict; exclusive nonexistent directory",
+  "cases": 20,
+  "execution_status": "NOT_RUN",
+  "executed_by_this_window": 0,
+  "real_pro_pass": false,
+  "board_release_allowed": false,
+  "known_limits": "控制位None/XZ返回PENDING，非法bit拒；同PCM/同OR不掩盖ID或双clip变化。metadata/overflow/reset不丢，缺实际M1字段不填0。"
+}

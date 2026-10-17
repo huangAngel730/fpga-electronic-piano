@@ -1,0 +1,55 @@
+{
+  "schema": "M3_R08_CASES_V1",
+  "component": "recovery_manifest",
+  "group": "H",
+  "cases": [
+    {
+      "id": "H24_COMPLETE_STILL_PENDING",
+      "expected": "PENDING_TRUSTED_M2_ADMISSION",
+      "description": "完整同版材料仍不产生可信M2许可或设备操作"
+    },
+    {
+      "id": "H24_OLD_PG484",
+      "expected": "OLD_PG484_TARGET",
+      "description": "旧PG484直接拒收"
+    },
+    {
+      "id": "H24_UNKNOWN_VERSION",
+      "expected": "PENDING_PHYSICAL_IDENTITY",
+      "description": "version未知待定"
+    },
+    {
+      "id": "H24_MISSING_FS",
+      "expected": "PENDING_BUILD_RECOVERY_MATERIAL",
+      "description": "无新.fs待定"
+    },
+    {
+      "id": "H24_MISSING_RECOVERY_REMOVAL",
+      "expected": "PENDING_FULL_PHYSICAL_COVERAGE",
+      "description": "缺Recovery/Removal不通过"
+    },
+    {
+      "id": "H24_WRONG_FS_PERMISSION",
+      "expected": "PERMISSION_SCOPE_MISMATCH",
+      "description": "SRAM许可不得迁移另一.fs"
+    },
+    {
+      "id": "H24_FLASH_FORBIDDEN",
+      "expected": "FLASH_FORBIDDEN",
+      "description": "Flash拒收"
+    },
+    {
+      "id": "H24_CONSUMED_SRAM",
+      "expected": "SRAM_REUSE_OR_REPEAT",
+      "description": "已消费SRAM不可复用"
+    },
+    {
+      "id": "H24_PERMISSION_OTHER_VERSION",
+      "expected": "PERMISSION_SCOPE_MISMATCH",
+      "description": "同许可不能迁移另一version"
+    }
+  ],
+  "executed": false,
+  "execution_owner": "night1 only",
+  "old_selftests_or_runners_invoked": false
+}

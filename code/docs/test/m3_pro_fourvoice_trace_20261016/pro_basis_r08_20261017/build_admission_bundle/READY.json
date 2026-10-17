@@ -1,0 +1,198 @@
+{
+  "schema": "M3_R08_COMPONENT_READY_V1",
+  "role": "A",
+  "task": "R8-06",
+  "component": "build_admission_bundle",
+  "group": "S",
+  "status": "READY_FOR_COORDINATOR_FREEZE_NOT_RUN",
+  "production_entry": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/m3r08_06.py",
+  "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/selftest.py",
+  "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/CASES.json",
+  "case_count": 9,
+  "cases": [
+    {
+      "id": "06_synthetic_application",
+      "expected": "ACCEPT",
+      "description": "Full synthetic S dependency requests, reservation binding and source-body application"
+    },
+    {
+      "id": "06_tool_dependency_unknown",
+      "expected": "PENDING_UNKNOWN",
+      "description": "Unknown tool dependency remains in application gaps"
+    },
+    {
+      "id": "06_C6_A_application",
+      "expected": "PENDING_UNKNOWN",
+      "description": "Actual C6 plus frozen A sources and four driver inputs; first-run application only"
+    },
+    {
+      "id": "06_approved_rejected",
+      "expected": "REJECT:SELF_APPROVAL_FORBIDDEN",
+      "description": "Application cannot self-approve"
+    },
+    {
+      "id": "06_legacy_P7_rejected",
+      "expected": "REJECT:LEGACY_EXECUTION_SWITCH",
+      "description": "Old P7 environment switch rejected"
+    },
+    {
+      "id": "06_missing_TB",
+      "expected": "REJECT:REQUIRED_TB_OBSERVER_DRIVER",
+      "description": "Missing required TB body"
+    },
+    {
+      "id": "06_missing_header",
+      "expected": "REJECT:INCLUDE_MISSING_OR_INCDIR:fixture.svh",
+      "description": "Application propagates a real missing header"
+    },
+    {
+      "id": "06_foreign_port_map",
+      "expected": "REJECT:PORT_MAP_TB_SOURCE_MISMATCH",
+      "description": "Port map cannot refer to another TB body"
+    },
+    {
+      "id": "06_foreign_reservation",
+      "expected": "REJECT:RESERVATION_APPLICATION_MISMATCH",
+      "description": "Reservation output must match this application"
+    }
+  ],
+  "source_and_evidence_files": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\build_admission_bundle\\m3r08_06.py",
+      "bytes": 10562,
+      "sha256": "d8a70c285cc3b98634305328e0deca986adb09ea49f51d9dd1cfe74f8cd2922d"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\build_admission_bundle\\selftest.py",
+      "bytes": 10392,
+      "sha256": "4f02d257b02f82acddc0708c552b81a8abf4bf3427e7f764cd52a9a92ed6de2b"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\build_admission_bundle\\CASES.json",
+      "bytes": 1607,
+      "sha256": "00ee41151e8264aa61dac181506f661656a89f29c37959ba4e6f7a9129c8c3df"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\build_admission_bundle\\README.md",
+      "bytes": 1404,
+      "sha256": "8bcb8d90a1eba3b0ed6036080c6ec0e675d63bd7cf48481e6e3838d41473f9a4"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\build_admission_bundle\\STATIC_SELF_REVIEW.json",
+      "bytes": 2239,
+      "sha256": "32cbb4edecac439b8b22a0df5a231d45858f325a5cd2e4ce0a1d42dc33030b77"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\plan_consumption_guard\\m3r08_common.py",
+      "bytes": 6657,
+      "sha256": "2cad307f975178cc00994949817b3b1da952628f2b509932bf13112cf6981c33"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\plan_consumption_guard\\m3r08_fixture_builders.py",
+      "bytes": 8655,
+      "sha256": "e1c00130e9f50a564b77029a788a6b87ef21b23c98137e6884e61914d01a5dd8"
+    }
+  ],
+  "runtime_dependencies_repository_files": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m2_138k_pro_fourvoice_candidate_20261016\\r06_public_chain_20261017\\SOURCE_CLOSURE_R06C6.zip",
+      "bytes": 180266,
+      "sha256": "155177a23ae724a1c8d9a0ca3480781d0b76ae62f5a95f59c65a15a96e0d70e4"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m2_138k_pro_fourvoice_candidate_20261016\\r06_public_chain_20261017\\SOURCE_DECISION_R06C6.json",
+      "bytes": 26200,
+      "sha256": "38b19a744e07572c45b8ab2eeb8cf08e5d2291ba6687f6e0d941b4a4f1992a4c"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\r07_fix\\consumer.py",
+      "bytes": 9594,
+      "sha256": "56ba0c5615cbe98094e5d37dc72e9e92002ce4976169723b2fd6f5ba8217bb69"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\plan_adapter.py",
+      "bytes": 18185,
+      "sha256": "bb29b19984c75a49a102b3481dff6d53403af14bb5671fffb9db587dd6cbbbcc"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_worker.py",
+      "bytes": 561,
+      "sha256": "3ae493270c3c35d174865124e16d10440f4101e5e25a06840baa493b41fda735"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py",
+      "bytes": 3481,
+      "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\r07_fix\\TRUST.json",
+      "bytes": 1230,
+      "sha256": "94787764d99e0f609136b08f743c3cc5d5ecc0509c821e28d302986929ba799c"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_source.sv",
+      "bytes": 47,
+      "sha256": "82092d74ceef38fd8499fb48b7eb9138a7d3e38ab3c5a44ca2328d7510663e8d"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_rom.hex",
+      "bytes": 18,
+      "sha256": "08e22886721d444f353e26d6297a36c5898562a07a88699b3bbcfd072b2dbe0a"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\fixture_tb.sv",
+      "bytes": 81,
+      "sha256": "6b1ee3ee2eb0f10a2ca165b7aaa3ca3e93e506ee15c8514e0ad2e78ec5c4cf4a"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\rtl\\board\\m2_138k_pro_fourvoice_candidate_20261016\\r06_observer_20261017\\m2_138k_pro_fourvoice_observer_top_r06.sv",
+      "bytes": 5040,
+      "sha256": "92baee3987ccf447c0880bb657862c16d1ea52e2868afff99a83e3b4da004ff8"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\midi_stimulus\\midi_public_port_driver.sv",
+      "bytes": 3417,
+      "sha256": "99e40266a46f1606409fa6ef270dd0c6b056dcb511363ae90dfbaf67653df89a"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_capture_tb\\r7a_public_observer.sv",
+      "bytes": 8509,
+      "sha256": "23adcdf132e7e01a986af599094b28a058c430d08c94302902fb190e58a82407"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_capture_tb\\tb_r7a_public_capture.sv",
+      "bytes": 7041,
+      "sha256": "33ae522d8906f5cff5221f1452d034ae96f86324529aa7c64aa0e449daebcae8"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\midi_stimulus\\RUN_02\\products\\bytes.drv",
+      "bytes": 810,
+      "sha256": "43bd347b7cc5082b10c5cef55e7adeac071fe6b9dfdb0b38437b5bddaa99ad9d"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\midi_stimulus\\RUN_02\\products\\reset.drv",
+      "bytes": 30,
+      "sha256": "c255e20fafbd47d3591a9166ef736e1766ff1a8b93378afd4ef895ad693c1a52"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\midi_stimulus\\RUN_02\\products\\ready.drv",
+      "bytes": 22,
+      "sha256": "ee3f97b4a0780c0a851a46c4fe8689c4518921dad3c79e5e52474d7757195d25"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\midi_stimulus\\RUN_02\\products\\plan.json",
+      "bytes": 28378,
+      "sha256": "d07c428162dbccefa8215ac629840058c3a8edd809e3f077dd695813133ad918"
+    }
+  ],
+  "entry_contract": "run_case(case_id, output_dir) creates nonexistent directory; saves full actual inputs before target calls; returns dict or raises",
+  "cli_contract": "--request REQUEST.json --output NEW_OUTPUT_DIR; documented only, not executed",
+  "permitted_next_step": "Coordinator freeze plus one shared group only; no member execution",
+  "import_side_effects": "definitions/imports only; no file writes/case/process at import",
+  "test_execution_count_by_role_A": 0,
+  "group_budget_consumed_by_role_A": 0,
+  "validation_level": "L0_STATIC_READING_AND_JSON_FILE_METADATA_ONLY",
+  "no_software_pass_claimed": true,
+  "real_pass": false,
+  "board_release_allowed": false
+}

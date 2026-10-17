@@ -1,0 +1,101 @@
+{
+  "schema": "M3_R08_ROLE_A_S_REPAIR_CLOSEOUT_V1",
+  "status": "CLOSED_LIMITED_SOFTWARE_RESULTS_CONFIRMED",
+  "created_utc": "2026-10-17T12:43:19.8099259Z",
+  "owner": "night_task_2_A",
+  "initial": {
+    "receipt": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\S\\R01\\RECEIPT.json",
+      "bytes": 35396,
+      "sha256": "93f6dd273917e82bff4be11309c2b0c1f2bedb2c9f79feff21d94b364a8248e0"
+    },
+    "matched": 41,
+    "failed": 9,
+    "preserved": true
+  },
+  "repair": {
+    "receipt": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\S\\R02\\RECEIPT.json",
+      "bytes": 9916,
+      "sha256": "7aef4f22bb34ffe970696597f1e74be3e057ef2c17a57f039186334c31122dab"
+    },
+    "status": "PASS_LIMITED_SOFTWARE",
+    "exit_code": 0,
+    "elapsed_s": 2.375,
+    "matched": 9,
+    "cases_exactly_original_failures": true,
+    "audit_violations": 0,
+    "cases": [
+      "build_admission_bundle/06_foreign_reservation",
+      "build_admission_bundle/06_synthetic_application",
+      "build_admission_bundle/06_tool_dependency_unknown",
+      "output_reservation/04_existing_output",
+      "output_reservation/04_failed_cannot_reset",
+      "output_reservation/04_nonce_mismatch",
+      "output_reservation/04_replay_claim",
+      "output_reservation/04_reserve_finalize",
+      "output_reservation/04_thread_race"
+    ]
+  },
+  "evidence": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\S\\R02\\stdout.raw",
+      "bytes": 1770,
+      "sha256": "a049a4bca2401a220ff571f02a353789e410f0662d3848c2a3ffbffd7379d3e6"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\S\\R02\\stderr.raw",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\FREEZE_S_R02\\FROZEN_FILES.json",
+      "bytes": 5518083,
+      "sha256": "7dd76f5279c30969bc8ef7efa7ac94dea31da237eab4281b8efc37c996e515c7"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\FREEZE_S_R02\\INPUTS.zip",
+      "bytes": 45421463,
+      "sha256": "74240c40f5f049ec96ae30db77ddcd68a503e51d4ba137094fb239e1a0c90949"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\FREEZE_S_R02\\SPEC_S.json",
+      "bytes": 5647,
+      "sha256": "69188a25851bf8d9f4808f1f10cb6f5aa29dc5e4982c677c6ff70ec2303ff7d2"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNNER_R02_PATH_FIX.diff",
+      "bytes": 972,
+      "sha256": "cc9719f0db0effd64f6db36e5d923487dad0e754e01af626eeb9e7cdd08f760c"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNNER_R02_PATH_FIX.json",
+      "bytes": 561,
+      "sha256": "c5dbba0952c753b8647b4d51986c666ecf5a45e229edfd2a12345cb81277e0df"
+    }
+  ],
+  "prior_static_ready": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\output_reservation\\S_REPAIR_READY.json",
+    "bytes": 15736,
+    "sha256": "c5bea039dca8dd0a30b4e144e712340939966ebbd355a0257d7fa35f09db0514"
+  },
+  "source_semantic_changes": 0,
+  "unchanged_source_files_verified": 18,
+  "actual_fix": "Coordinator-only run_group case paths use three-digit index. Full 64-hex claim identity, expected assertions, O_EXCL/nonce/scope and source bodies unchanged.",
+  "S_summary": "Initial 41 matched plus exactly nine repaired matches cover all50; original41 not rerun",
+  "H_own_summary": {
+    "receipt": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\RUNS\\H\\R01\\RECEIPT.json",
+      "bytes": 71845,
+      "sha256": "02943b3bf6522d3f752837b9a846e0c86cf20595ccf62f0d5cd1005d5e1a78cf"
+    },
+    "own_cases": 15,
+    "matched": 15,
+    "modified_or_rerun_by_role_A": false
+  },
+  "role_A_activity": "Only receipt/file-identity/static set checks in closeout; no candidate import, test execution, source/case edit or expanded review",
+  "validation_limit": "Limited software/schema/synthetic and actual-file identity checks. Actual C6 application remains PENDING_UNKNOWN, real photos/electrical/tool execution/HDL/EDA/board validation not established.",
+  "publication_owner": "Coordinator unified archive and serial publish; role A performed no Git writes or independent handoff",
+  "real_pass": false,
+  "board_release_allowed": false
+}

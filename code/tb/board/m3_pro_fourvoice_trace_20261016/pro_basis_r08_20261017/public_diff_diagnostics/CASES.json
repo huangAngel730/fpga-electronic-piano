@@ -1,0 +1,40 @@
+{
+  "schema": "M3_R08_CASES_V1",
+  "component": "public_diff_diagnostics",
+  "group": "T",
+  "cases": [
+    {
+      "id": "T18_EQUAL_NO_STAT",
+      "expected": "PENDING_NO_COMPLETE_STAT",
+      "description": "公开pins相同但无完整STAT仍待定且旧obs NOT_PUBLIC"
+    },
+    {
+      "id": "T18_EARLIEST_EVENT",
+      "expected": "PUBLIC_DIFFERENCE_OR_CONTRACT",
+      "description": "较早沿间DIN差异先于采样差异定位"
+    },
+    {
+      "id": "T18_BETWEEN_SAMPLES",
+      "expected": "PUBLIC_DIFFERENCE_OR_CONTRACT",
+      "description": "采样点相同不能掩盖沿间DIN变化"
+    },
+    {
+      "id": "T18_UART_DIFFERENCE",
+      "expected": "PUBLIC_DIFFERENCE_OR_CONTRACT",
+      "description": "UART脚差异精确分类"
+    },
+    {
+      "id": "T18_WHITELIST_ATTEMPT",
+      "expected": "UNSUPPORTED_DIFFERENCE_WHITELIST",
+      "description": "自报approved不能白名单吞真实数据差异"
+    },
+    {
+      "id": "T18_REPLACED_EVENT_LOG",
+      "expected": "PUBLIC_DIFF_INPUT_SHA",
+      "description": "事件原件替换拒收"
+    }
+  ],
+  "executed": false,
+  "execution_owner": "night1 only",
+  "old_selftests_or_runners_invoked": false
+}

@@ -1,0 +1,152 @@
+{
+  "schema": "M3_R7B_C9_READY_V1",
+  "status": "L0_STATIC_PREPARATION_COMPLETE_REAL_EQ_PENDING",
+  "task": "Night task 3 R7-B C9 static successor",
+  "declared_baseline": "16ac226552f6fb65347b229b8fad42146ed45644",
+  "prepared_at_utc": "2026-10-17T13:40:08Z",
+  "write_scope": [
+    "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding",
+    "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding",
+    "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding"
+  ],
+  "entry": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/README.md",
+    "bytes": 6997,
+    "sha256": "eebd5361896f5c8e64bb7403ac3540a5a57adf28fd0527b3deeddc5efba12890"
+  },
+  "binding": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/SOURCE_BINDING.json",
+    "bytes": 89592,
+    "sha256": "be2d98a558cadbc111610039b3c1c057451f83eb7f9457994c508538fa422143"
+  },
+  "source_archive": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/C9_TWO_LANE_ASSEMBLY.zip",
+    "bytes": 812258,
+    "sha256": "806f5bde5c856c94ae4cf6ae53a153754fde6eb298d43387d12cf19cfebdc614"
+  },
+  "archive_receipt": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/ASSEMBLY_ARCHIVE.json",
+    "bytes": 39122,
+    "sha256": "ff0405d9a09c5fb101eb7196622e19d3beeff7683a2bc5c27a56da66c83d9e39"
+  },
+  "file_manifest": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/FILE_SHA.json",
+    "bytes": 60749,
+    "sha256": "b85c907e48ec4ed41306f2a6f90ea840a3b0b2d45e848e8fee9a2cf72b12123c"
+  },
+  "static_check": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/STATIC_CHECK.json",
+    "bytes": 1324,
+    "sha256": "e9d06dea0114c5743294da986c1d806aa6efb16805835076d58312eae558dfde"
+  },
+  "A_dependency": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/A_DEPENDENCY.json",
+    "bytes": 3146,
+    "sha256": "7a10f57392b98b491aac2c8891984c16f40f61f5d8e3a0acb1a4d6dfe2df9973"
+  },
+  "cases": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/PENDING_CASES.json",
+    "bytes": 3686,
+    "sha256": "3b67e5361e784a1c74acad8a6648cbdb1d01cc60d5100394469e079d2b5c25b8"
+  },
+  "code": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/c9_pair.py",
+      "bytes": 12622,
+      "sha256": "e4a11031826dbac28422f1973e23dc274185d8bcd80ec031faebf98656a38f13"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/selftest.py",
+      "bytes": 9647,
+      "sha256": "e6453192dcd21f081af6a5e0b49d9810e047db2a4dd48afc0be047f6d83e9690"
+    }
+  ],
+  "TB": [
+    {
+      "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/tb_c9_original.sv",
+      "bytes": 2422,
+      "sha256": "de73a698b93f84a2100b0c19ebaa2402597b44647151e82c1e40fbe6fca19ca9"
+    },
+    {
+      "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/tb_c9_observer.sv",
+      "bytes": 9214,
+      "sha256": "e715ffdf4b6959ee59cc03da50035ff5179ce9f367a516981e485c49144bc515"
+    },
+    {
+      "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/PUBLIC_WIRE_MAP.json",
+      "bytes": 5802,
+      "sha256": "d70b5f21b8ba8ed72bf18363e3ac7a174373612a5d6ee62701064c30e17e9171"
+    }
+  ],
+  "actual_level": "L0",
+  "C9_contract": {
+    "fields": 74,
+    "ports": 67,
+    "source_units": 72,
+    "ROMs": 9,
+    "headers": 2
+  },
+  "isolated_universes": {
+    "original_units": 72,
+    "observer_units": 74,
+    "never_flatten": true,
+    "same_name_changed_M1_modules": 4
+  },
+  "same_input": "Six actual files equal across both lanes: driver, bytes, reset, ready, plan, clock model; future join also rejects external input/time/cycle differences",
+  "frozen_comparator": {
+    "path": "INPUT_ORIGINALS/equivalence_frozen.py",
+    "identity": {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/equivalence.py",
+      "bytes": 7662,
+      "sha256": "a8dbe186a4e8afcf5d931a52ac57b14734a2cd53113a71444378ce3658dabb8d"
+    },
+    "entry": "compare(combined.csv,combined_stdout.txt); compare_events(combined_events.csv,combined_stdout.txt); existing CLI defaults only for fixed 1200..12000000 window",
+    "status": "NOT_RUN"
+  },
+  "delta_from_old_B": [
+    "Preserve frozen original M1 modules separately from C9 same-named definitions",
+    "Connect all67 C9 public outputs; 19-field B diagnostics retain semantics",
+    "Stream paired pin/event adaptation to unchanged B comparator; source/plan/normal-end receipts required",
+    "Bind available A canonical74 static source/schema snapshots; no independent event sequence/audio-stable fabrication"
+  ],
+  "evidence": {
+    "C9_decision_payload_SHA_equal": 86,
+    "staged_payload_SHA_equal": 182,
+    "archive_members_byte_equal": 209,
+    "old_B_manifest_files_unchanged": 166,
+    "deferred_cases": 13,
+    "deferred_cases_status": "NOT_RUN",
+    "readonly_self_review": "No concrete blocker within stated static scope; not compilation/equivalence/execution admission"
+  },
+  "execution": {
+    "candidate_imports": 0,
+    "Python_compiles": 0,
+    "functional_tests": 0,
+    "HDL": 0,
+    "EDA": 0,
+    "devices": 0,
+    "Git": 0,
+    "command_exit_stdout_stderr": "NOT_RUN",
+    "new_budget": 0,
+    "new_groups": 0,
+    "old_consumption_changed": false
+  },
+  "actual_equivalence_pass": false,
+  "pending": [
+    "M2 exact two-universe tool/library/argv/window/resource/timeout/normal-cleanup admission",
+    "Full-window companion streaming/resource plan: current diagnostic codec input <=64MiB",
+    "A exact capture window/independent RESET_EDGES and canonical74 integration",
+    "M1 note_on latency wording correction and independent plan to accepted event mapping",
+    "audio_stable definition, real traces, FRAME_PLAN and PCM/ID/clip/serial mathematical comparison",
+    "Compilation/simulation/software test results and physical hardware validation"
+  ],
+  "failure_history": "No new candidate execution attempted; old failed/successful originals retained byte-identical",
+  "Git_status": "Not staged/committed/pushed by this window; coordinator serial sealing/publishing owns Git and final gates",
+  "handoff": {
+    "recipient": "Night task 1 coordinator then M2/M1 as scoped",
+    "transport": "Local READY for direct collection; no message retry",
+    "delivery_state": "Awaiting coordinator collection; not claimed M2 notified or signed",
+    "responsibility": "M2 decides exact execution and integration; M1 resolves algorithm/mapping policy; no board release"
+  },
+  "board_release_allowed": false
+}

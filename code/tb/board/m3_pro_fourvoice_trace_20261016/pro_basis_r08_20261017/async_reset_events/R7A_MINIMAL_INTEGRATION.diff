@@ -1,0 +1,20 @@
+--- a/code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/tb_r7a_public_capture.sv
++++ b/code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/tb_r7a_public_capture.sv
+@@ -11,6 +11,7 @@ module tb_r7a_public_capture #(
+     logic sys_clk_50m=0, driver_clk_40m=0, finish_requested=0;
+     wire sys_rst_n, midi_rx, driver_ready_not_connected, capture_done;
++    wire reset_raw_assert_toggle, reset_sampled_rst_n, reset_sampled_pll_locked;
+     wire obs_core_clk;
+     wire obs_polyphonic_valid;
+     wire obs_rst_n;
+@@ -52,2 +53,11 @@ module tb_r7a_public_capture #(
+     // core cycles remain the actual obs_core_clk count, not driver cycles.
+     always #12.5 driver_clk_40m=~driver_clk_40m;
++    // Passive R8 companion only. The existing R7-A observer remains unique.
++    r8_async_reset_edges_component u_reset_edges (
++        .core_clk(obs_core_clk),
++        .rst_n(obs_rst_n),
++        .pll_locked(obs_pll_locked),
++        .raw_assert_toggle(reset_raw_assert_toggle),
++        .sampled_rst_n(reset_sampled_rst_n),
++        .sampled_pll_locked(reset_sampled_pll_locked));

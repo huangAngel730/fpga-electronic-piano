@@ -1,0 +1,110 @@
+{
+  "schema": "M3_R08_CASES_V1",
+  "component": "clip_lineage",
+  "group": "T",
+  "cases": [
+    {
+      "id": "T15_RESULT_PENDING_HELD",
+      "expected": "LINEAGE_MATCH_SYNTHETIC_ONLY",
+      "description": "result握手经commit到pending/held/TX双clip原行谱系"
+    },
+    {
+      "id": "T15_CLIP_SAME_OR",
+      "expected": "TX_LINEAGE_DIFFERENCE",
+      "description": "相同PCM和OR不能吞双clip差异"
+    },
+    {
+      "id": "T15_METADATA_INVALID",
+      "expected": "PENDING_TX_METADATA",
+      "description": "无效metadata待定"
+    },
+    {
+      "id": "T15_OVERFLOW",
+      "expected": "PENDING_FRAME_ID_OVERFLOW",
+      "description": "overflow不丢弃"
+    },
+    {
+      "id": "T15_RESULT_MASK_MISSING",
+      "expected": "PENDING_RESULT_FIELDS",
+      "description": "缺双clip不填0"
+    },
+    {
+      "id": "T15_SAME_EDGE_COMMIT_TX",
+      "expected": "COMMIT_NOT_BEFORE_ADOPTION",
+      "description": "同沿commit不能当作已采纳pending"
+    },
+    {
+      "id": "T15_RESET_INVALIDATES_HELD",
+      "expected": "HOLD_WITHOUT_HELD",
+      "description": "reset失效后HOLD拒收"
+    },
+    {
+      "id": "T15_SAME_PCM_OTHER_ID",
+      "expected": "TX_LINEAGE_DIFFERENCE",
+      "description": "同PCM异ID仍定位谱系差异"
+    },
+    {
+      "id": "T15_VALID_X",
+      "expected": "PENDING_OBSERVATION_VALIDITY",
+      "description": "TX valid X不静默当无事件"
+    },
+    {
+      "id": "T15_VALID_2",
+      "expected": "OBSERVATION_FLAG_RANGE",
+      "description": "TX valid=2拒收"
+    },
+    {
+      "id": "T15_RESULT_READY_X",
+      "expected": "PENDING_OBSERVATION_VALIDITY",
+      "description": "result ready X待定"
+    },
+    {
+      "id": "T15_COMMIT_VALID_2",
+      "expected": "OBSERVATION_FLAG_RANGE",
+      "description": "commit valid=2拒收"
+    },
+    {
+      "id": "T15_STARTUP_2",
+      "expected": "TX_LINEAGE_FLAG_RANGE",
+      "description": "startup=2不可truthy通过"
+    },
+    {
+      "id": "T15_HOLD_2",
+      "expected": "TX_LINEAGE_FLAG_RANGE",
+      "description": "hold=2不可truthy通过"
+    },
+    {
+      "id": "T15_METADATA_VALID_2",
+      "expected": "TX_LINEAGE_FLAG_RANGE",
+      "description": "metadata_valid=2非法"
+    },
+    {
+      "id": "T15_ID_VALID_2",
+      "expected": "TX_LINEAGE_FLAG_RANGE",
+      "description": "id_valid=2非法"
+    },
+    {
+      "id": "T15_CLIP_ANY_2",
+      "expected": "TX_LINEAGE_FLAG_RANGE",
+      "description": "单bit clip_any=2非法"
+    },
+    {
+      "id": "T15_METADATA_ERROR_X",
+      "expected": "PENDING_METADATA_FIELDS",
+      "description": "metadata_error X不忽略"
+    },
+    {
+      "id": "T15_OVERFLOW_2",
+      "expected": "LINEAGE_METADATA_FLAG_RANGE",
+      "description": "overflow=2非法"
+    },
+    {
+      "id": "T15_BOOL_FLAG",
+      "expected": "OBSERVATION_FLAG_RANGE",
+      "description": "JSON bool不可冒整型bit"
+    }
+  ],
+  "executed": false,
+  "execution_owner": "night1 only",
+  "old_selftests_or_runners_invoked": false
+}

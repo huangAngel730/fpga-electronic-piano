@@ -1,0 +1,50 @@
+{
+  "schema": "M3_R08_CASES_V1",
+  "group": "S",
+  "cases": [
+    {
+      "id": "02_actual_A",
+      "expected": "ACCEPT",
+      "description": "Read real public wrapper, driver and A observer declarations/connections"
+    },
+    {
+      "id": "02_ready_double_driver",
+      "expected": "REJECT:MULTIPLE_PUBLIC_DRIVERS:ready",
+      "description": "Two declared outputs tied to same ready wire"
+    },
+    {
+      "id": "02_wrong_width",
+      "expected": "REJECT:PUBLIC_WIDTH_MISMATCH:data",
+      "description": "Declared bus versus connected wire width"
+    },
+    {
+      "id": "02_missing_wrapper",
+      "expected": "REJECT:MISSING_WRAPPER_OR_MODULE:absent_wrapper",
+      "description": "Required wrapper not supplied"
+    },
+    {
+      "id": "02_private_expression",
+      "expected": "REJECT:PRIVATE_HIERARCHY",
+      "description": "Private hierarchical connection expression"
+    },
+    {
+      "id": "02_missing_required_input",
+      "expected": "REJECT:MISSING_REQUIRED_INPUT:rst_n",
+      "description": "Instance omits required input with no declared default"
+    },
+    {
+      "id": "02_unknown_width",
+      "expected": "PENDING_UNKNOWN",
+      "description": "Unresolved macro width retains expression"
+    },
+    {
+      "id": "02_parameter_override",
+      "expected": "ACCEPT",
+      "description": "Named numeric parameter override determines port width"
+    },
+    {"id": "02_output_constant", "expected": "REJECT:OUTPUT_EXPRESSION_NOT_WRITABLE:ready", "description": "Output connected to constant cannot be accepted as writable net"},
+    {"id": "02_output_slice_overlap", "expected": "PENDING_UNKNOWN", "description": "Unsupported output driver ranges cannot silently pass overlap checking"},
+    {"id": "02_caller_parameter_scope", "expected": "ACCEPT", "description": "Same-name override resolves caller N=4 rather than callee default N=8"},
+    {"id": "02_unknown_caller_parameter", "expected": "PENDING_UNKNOWN", "description": "Same-name reference absent from caller remains unresolved"}
+  ]
+}

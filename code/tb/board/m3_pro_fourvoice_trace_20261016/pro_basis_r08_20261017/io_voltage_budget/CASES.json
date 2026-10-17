@@ -1,0 +1,51 @@
+{
+  "schema": "M3_R08_CASES_V1",
+  "group": "H",
+  "cases": [
+    {
+      "id": "20_synthetic_margins",
+      "expected": "ACCEPT",
+      "description": "Synthetic decimal interval arithmetic, no real electrical values or wiring approval"
+    },
+    {
+      "id": "20_negative_margin",
+      "expected": "REJECT:NEGATIVE_VOLTAGE_MARGIN",
+      "description": "Known mock high-level margin below zero"
+    },
+    {
+      "id": "20_direct_five_volts",
+      "expected": "REJECT:FIVE_V_DIRECT_TO_NON_TOLERANT_FPGA",
+      "description": "Explicit mock 5V direct unsafe path"
+    },
+    {
+      "id": "20_bank_mismatch",
+      "expected": "REJECT:BANK_ID_MISMATCH",
+      "description": "Same-board bank mapping mismatch"
+    },
+    {
+      "id": "20_bank_unknown",
+      "expected": "PENDING_UNKNOWN",
+      "description": "Bank absent means no margin calculation"
+    },
+    {
+      "id": "20_wrong_direction",
+      "expected": "REJECT:DIRECTION_MISMATCH",
+      "description": "Two drivers or reversed direction rejected"
+    },
+    {
+      "id": "20_missing_ground",
+      "expected": "REJECT:NO_COMMON_GROUND",
+      "description": "Known lack of common ground"
+    },
+    {
+      "id": "20_missing_quote",
+      "expected": "REJECT:VALUE_SOURCE_PAGE_QUOTE_REQUIRED",
+      "description": "No source quote/page for numeric bound"
+    },
+    {
+      "id": "20_real_stays_unknown",
+      "expected": "PENDING_UNKNOWN",
+      "description": "Synthetic evidence never upgrades a real-candidate electrical claim"
+    }
+  ]
+}

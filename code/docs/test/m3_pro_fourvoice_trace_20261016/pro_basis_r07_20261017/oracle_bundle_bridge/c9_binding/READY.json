@@ -1,0 +1,165 @@
+{
+  "schema": "M3_R7C_C9_READY_V1",
+  "baseline_commit": "16ac226552f6fb65347b229b8fad42146ed45644",
+  "component": "R7-C_C9_BINDING_SUCCESSOR",
+  "status": "L0_STATIC_SOURCE_READY_NOT_RUN",
+  "scope": {
+    "write_roots": [
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/",
+      "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/"
+    ],
+    "old_files_modified": false,
+    "m1_or_m2_sources_modified": false,
+    "shared_files_modified": false
+  },
+  "c9_inputs": {
+    "source_units": 72,
+    "rom_files": 9,
+    "header_files": 2,
+    "public_ports": 67,
+    "normalized_fields": 74,
+    "new_routes": 28,
+    "binding_manifest": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/INPUT_BINDING.json",
+      "bytes": 1995,
+      "sha256": "30ad034522ce03a146f06d797923a259da9dd31081f788f703a0459f5eb0bd18"
+    }
+  },
+  "deliverables": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/c9_oracle_bridge.py",
+      "bytes": 24641,
+      "sha256": "5460dcf7e8539072200d55d123bc3855be2a759fea6eb84698c1e991fc22b4d8"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/selftest.py",
+      "bytes": 12620,
+      "sha256": "e15c5e601ce016fa26259cb28108384752ede1b3efab4777ae1d9b4066e98724"
+    },
+    {
+      "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/CASES.json",
+      "bytes": 3360,
+      "sha256": "324d0d3854e149f70bef4e2005c5bd57492c3d6d991e65aef14a47ceaf3e4015"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/FORMAT.json",
+      "bytes": 4163,
+      "sha256": "38e6da76ac2e61e3c506122e722e7370a5d52189b46c20d6e2b928508e450d49"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/README.md",
+      "bytes": 3308,
+      "sha256": "c6878bc8815a6d807e7a4cfdda487416837181c510571bca8dcd88a6a71674d1"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/START.md",
+      "bytes": 1536,
+      "sha256": "e541e57775934ae5c3d98d98631a63040f3ca43344ececc41c8f9a3b623dfb2f"
+    }
+  ],
+  "semantic_delta": {
+    "old_normalized_fields": 61,
+    "new_normalized_fields": 74,
+    "added_fields": 13,
+    "required_preserved_fields": [
+      "apply_kind",
+      "apply_mask",
+      "router_apply_seq",
+      "router_apply_seq_valid",
+      "config_take",
+      "upstream_clip_mask",
+      "effect_clip_mask",
+      "feedback_clip_mask",
+      "source"
+    ],
+    "invalid_sentinel_kinds": [3, 4, 8],
+    "invalid_sentinel_condition": "data_zero_and_router_seq_zero_and_router_seq_valid_zero",
+    "same_sequence_kind_1_and_2_deduplicated": false,
+    "router_sequence_may_impersonate_apply_event_sequence": false,
+    "declaration_only_plan_association_accepted": false,
+    "independent_apply_event_sequence_output": "null_pending_real_plan_body_and_acceptance_mapping",
+    "advance_frame_req_id_is_frame_f": false,
+    "all_four_lane_advance_rule": "advance_mask_exactly_4bit_1111",
+    "partial_unknown_or_null_mask_policy": "preserve_raw_value_and_reason; do_not_declare_all_four_lane_advance"
+  },
+  "role_a_interface": {
+    "source_read_only": {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_binding/c9_capture.py",
+      "bytes": 9606,
+      "sha256": "0d3fcea8d75cdadcea6f6a663e6840735ccd050bbf072e01c3de61fa2477e931"
+    },
+    "source_schema_read_only": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_binding/CAPTURE_SCHEMA_C9.json",
+      "bytes": 49687,
+      "sha256": "b4ef1cdde7ded4fe265bc6881a9428110ec3dcdc216bf5963a25d6ddb7b25f45"
+    },
+    "expected_artifact": "PUBLIC_ROWS_C9.jsonl",
+    "expected_row_schema": "M3_R7A_C9_PUBLIC_ROW_V1",
+    "artifact_currently_present": false,
+    "mechanical_adapter": "--input-format r7a-public-c9",
+    "manual_json_edit_required": false,
+    "field_values_modified": false,
+    "upstream_evidence_preserved": true,
+    "plan_association_invented": false
+  },
+  "cases": {
+    "new_cases": 17,
+    "new_cases_status": "NOT_RUN",
+    "new_budget_consumed": 0,
+    "old_unrun_cases_preserved": 6,
+    "old_cases_reused_or_rerun": 0
+  },
+  "legacy_guard": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/oracle_bundle_bridge.py",
+      "bytes": 23344,
+      "sha256": "0bc7b4a3a038f5a483e7307927c8bd1934b48ab3a3b3f53639a948ca3cf9aac0"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/selftest.py",
+      "bytes": 13239,
+      "sha256": "a4a5172417991ba0197bd287ceea757a007d9c33fa1fa33e24c519ec0bc9689c"
+    },
+    {
+      "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/cases.json",
+      "bytes": 1548,
+      "sha256": "b92b3440736454df73244fb8fa2b4d1c11c475ba8f6d062fe8fbb76129188a64"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/FAILURE_HISTORY.md",
+      "bytes": 830,
+      "sha256": "66a51b087445c3f26138e4fa3013bb63d3069852e78e8ef865282972502b9563"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/RUN_01/receipt.json",
+      "bytes": 4220,
+      "sha256": "377ec52e3d25bc2a26da92cb06b3f4ee0d500bae70af3e19ccd70bf26545fbe2"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/RUN_01/stderr.bin",
+      "bytes": 735,
+      "sha256": "e4704b2897dfa7b500427147460b5ca88b64e0545fe330486b2c89b2ab1ba147"
+    }
+  ],
+  "pending": [
+    "real_lane_tick_mapping",
+    "independent_input_plan_apply_event_seq_mapping",
+    "audio_stable_semantics",
+    "real_trace_materialization",
+    "role_a_PUBLIC_ROWS_C9_materialization",
+    "all_case_execution",
+    "functional_test",
+    "HDL_simulation",
+    "EDA",
+    "device_test"
+  ],
+  "execution": {
+    "python_imported": false,
+    "test_cases_run": 0,
+    "functional_tests_run": 0,
+    "HDL_or_EDA_runs": 0,
+    "device_runs": 0,
+    "git_writes": 0
+  }
+}

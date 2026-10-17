@@ -1,0 +1,46 @@
+{
+  "schema": "M3_R06_UNIQUE_FRAME_PLAN_V1",
+  "formula": "n_k=ceil(128*k*2**32/659706977); cycle_k=release_cycle+n_k-1; k>=1",
+  "rules_sha256": "3c968a151b0b5369f9dd95465761b2d87449c29975b1fca914f81fc5cfd01560",
+  "input_sha256": "1ed279dd1510ce9c071e38a86c179fa7055efe446020e0c51f847180fe4d6d4e",
+  "source_identities": [
+    {
+      "path": "SYNTHETIC_R6_6_TARGETED_FIXTURE_NOT_PRO",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    }
+  ],
+  "parameters": {
+    "acc_bits": 32,
+    "phase_step": 659706977,
+    "core_hz_candidate": 40000000,
+    "half_bclk_toggles_per_frame": 128,
+    "initial_state": {
+      "accumulator": 0,
+      "bclk": 0,
+      "slot_count": 0
+    }
+  },
+  "epochs": [
+    {
+      "epoch": 0,
+      "window_kind": "ACTIVE",
+      "reset_assert_cycle": 0,
+      "release_cycle": 1,
+      "stop_cycle": 2501,
+      "cycles": [
+        834,
+        1667,
+        2500
+      ]
+    }
+  ],
+  "finish": {
+    "epoch": 0,
+    "cycle": 2501
+  },
+  "canonical_plan_id": "sha256:4e9afb8db7cbc08e7cded100798c3854420d962431e69b6741a25ca2ace52e36",
+  "canonical_identity_sha256": "4e9afb8db7cbc08e7cded100798c3854420d962431e69b6741a25ca2ace52e36",
+  "authority": "CANDIDATE_INDEPENDENT_PLAN_NOT_M2_ADMITTED",
+  "independent_of_trace": true,
+  "real_authority_claimed": false
+}

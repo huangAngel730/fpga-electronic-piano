@@ -1,0 +1,55 @@
+{
+  "schema": "M3_R08_CASES_V1",
+  "component": "midi_ingress_arrival",
+  "group": "T",
+  "cases": [
+    {
+      "id": "T16_FOUR_SERIAL_NOTES",
+      "expected": "MIDI_ARRIVALS_MATCH_SYNTHETIC_ONLY",
+      "description": "四条外部串行NoteOn各自到达；每bit1280cycle且不推应用拍"
+    },
+    {
+      "id": "T16_WRONG_BYTE",
+      "expected": "MIDI_BYTE_DIFFERENCE",
+      "description": "字节本体换值"
+    },
+    {
+      "id": "T16_FIRST_BYTE_WINDOW",
+      "expected": "MIDI_ARRIVAL_WINDOW",
+      "description": "首字节越冻结到达窗"
+    },
+    {
+      "id": "T16_STOP_BIT",
+      "expected": "MIDI_STOP_BIT",
+      "description": "8N1停止位低"
+    },
+    {
+      "id": "T16_TRUNCATION",
+      "expected": "UNKNOWN_MIDI_TRUNCATED_BYTE",
+      "description": "缺尾byte保持UNKNOWN"
+    },
+    {
+      "id": "T16_RESET_TRUNCATION",
+      "expected": "UNKNOWN_MIDI_RESET_TRUNCATED",
+      "description": "接收半byte复位保持UNKNOWN"
+    },
+    {
+      "id": "T16_UNKNOWN_TIMEBASE",
+      "expected": "UNKNOWN_MIDI_TIMEBASE",
+      "description": "无时基不算精确到达"
+    },
+    {
+      "id": "T16_DRV_PLAN_INPUT",
+      "expected": "MIDI_ARRIVALS_MATCH_SYNTHETIC_ONLY",
+      "description": "新bytes.drv格式独立fixture保留1基原byte_seq和原计划行"
+    },
+    {
+      "id": "T16_DRV_PLAN_SHA",
+      "expected": "R62_BYTE_PLAN_SHA",
+      "description": "换字节计划SHA拒收"
+    }
+  ],
+  "executed": false,
+  "execution_owner": "night1 only",
+  "old_selftests_or_runners_invoked": false
+}

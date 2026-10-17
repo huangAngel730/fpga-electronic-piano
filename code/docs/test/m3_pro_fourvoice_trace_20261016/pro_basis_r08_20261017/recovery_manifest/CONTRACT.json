@@ -1,0 +1,15 @@
+{
+  "schema": "M3_R08_ROLE_C_COMPONENT_CONTRACT_V1",
+  "component": "recovery_manifest",
+  "task": "R8-24",
+  "group": "H",
+  "input_schema": "M3_R08_RECOVERY_PREFLIGHT_V1",
+  "production_cli": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/recovery_manifest/r08c24_recovery.py",
+  "selftest": "run_case(case_id, output_dir)->dict; exclusive nonexistent directory",
+  "cases": 9,
+  "execution_status": "NOT_RUN",
+  "executed_by_this_window": 0,
+  "real_pro_pass": false,
+  "board_release_allowed": false,
+  "known_limits": "没有可信M2签收器和实物证据认证，不生成/修改/消费许可，不开设备。完整STA须含setup/hold/recovery/removal/generated_clocks/io_timing/cdc及unconstrained_paths=0。"
+}

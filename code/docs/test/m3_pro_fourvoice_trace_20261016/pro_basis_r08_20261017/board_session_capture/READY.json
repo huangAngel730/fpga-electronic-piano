@@ -1,0 +1,88 @@
+{
+  "schema": "M3_R08_COMPONENT_READY_V1",
+  "role": "C",
+  "task": "R8-23",
+  "component": "board_session_capture",
+  "group": "H",
+  "status": "READY_FOR_COORDINATOR_FREEZE_NOT_RUN",
+  "production_entry": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/board_session_capture/r08c23_session.py",
+  "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/board_session_capture/selftest.py",
+  "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/board_session_capture/CASES.json",
+  "case_count": 8,
+  "cases": [
+    {
+      "id": "H23_PRESERVE_RAW_FILES",
+      "expected": "INDEXED_SYNTHETIC_ONLY",
+      "description": "十类同会话原件本体只读复制并核SHA，WAV完整保留"
+    },
+    {
+      "id": "H23_WRONG_SESSION",
+      "expected": "SESSION_BINDING_DIFFERENCE",
+      "description": "换会话拒收"
+    },
+    {
+      "id": "H23_REPLACED_UART",
+      "expected": "RAW_FILE_IDENTITY",
+      "description": "换日志拒收"
+    },
+    {
+      "id": "H23_MISSING_MIDI",
+      "expected": "MISSING_OR_DUPLICATE_RAW_INPUT",
+      "description": "缺MIDI原始输入拒收"
+    },
+    {
+      "id": "H23_WRONG_FS",
+      "expected": "SESSION_BINDING_DIFFERENCE",
+      "description": "错.fs身份拒收"
+    },
+    {
+      "id": "H23_PATH_ESCAPE",
+      "expected": "PATH_ESCAPE",
+      "description": "原件路径逃逸拒收"
+    },
+    {
+      "id": "H23_SCREENSHOT_NOT_AUDIO",
+      "expected": "RAW_WAV_REQUIRED",
+      "description": "截图不能替代原音频"
+    },
+    {
+      "id": "H23_REAL_UNVERIFIED",
+      "expected": "PENDING_REAL_BOARD_SESSION_ADMISSION",
+      "description": "改origin不能认证真实板测"
+    }
+  ],
+  "source_and_evidence_files": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\board_session_capture\\r08c23_session.py",
+      "bytes": 4767,
+      "sha256": "e28e32378d21194d14c7144c922f6673367848ca52e070f5319cc4e759c7e7cc"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\board_session_capture\\selftest.py",
+      "bytes": 4535,
+      "sha256": "0dda872b0f87ceb59cbc34c00942f353aabb3ae50ffc2e4473447f1afa107e59"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\board_session_capture\\CASES.json",
+      "bytes": 1358,
+      "sha256": "66317dadf3a575bb710513abedd3cac26fb27cd9bfb10bf36f72e252dc5d9be9"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\board_session_capture\\CONTRACT.json",
+      "bytes": 744,
+      "sha256": "3755b13346717ff9e147dcd843747e3467fdbe4a82475ac10421da47e494461c"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\board_session_capture\\README.md",
+      "bytes": 1855,
+      "sha256": "35449d695d585dc8df3864ea0033e724852844df2fedf5dca77bfb88fabbed1a"
+    }
+  ],
+  "import_contract": "No application IO/test execution at import. run_case exclusively creates new output_dir, saves INPUT_BEFORE_CALL before production invocation and ACTUAL_BEFORE_ASSERT before assertions; unexpected failure raises.",
+  "local_functional_executions": 0,
+  "group_budget_consumption_by_this_window": 0,
+  "old_tests_invoked": 0,
+  "subprocess_EXE_HDL_EDA_hardware_calls": 0,
+  "real_pass": false,
+  "board_release_allowed": false
+}

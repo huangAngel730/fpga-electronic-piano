@@ -1,0 +1,686 @@
+{
+  "schema": "M3_R8_02_C9_STATIC_DECLARATIONS_V1",
+  "status": "L0_LITERAL_SOURCE_AND_JSON_ONLY",
+  "count": 67,
+  "ports": [
+    {
+      "port": "obs_core_clk",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_core_clk,",
+      "passive_declaration": "input wire obs_core_clk,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_polyphonic_valid",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_polyphonic_valid,",
+      "passive_declaration": "input wire obs_polyphonic_valid,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_rst_n",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_rst_n,",
+      "passive_declaration": "input wire obs_rst_n,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_frame_tick",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_frame_tick,",
+      "passive_declaration": "input wire obs_frame_tick,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_event_valid",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_event_valid,",
+      "passive_declaration": "input wire obs_event_valid,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_event_ready",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_event_ready,",
+      "passive_declaration": "input wire obs_event_ready,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_event_data",
+      "official_width": 64,
+      "official_signed": false,
+      "DUT_declaration": "output wire [63:0] obs_event_data,",
+      "passive_declaration": "input wire [63:0] obs_event_data,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_req_valid",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_req_valid,",
+      "passive_declaration": "input wire obs_req_valid,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_req_ready",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_req_ready,",
+      "passive_declaration": "input wire obs_req_ready,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_result_valid",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_result_valid,",
+      "passive_declaration": "input wire obs_result_valid,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_result_ready",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_result_ready,",
+      "passive_declaration": "input wire obs_result_ready,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_result_id",
+      "official_width": 32,
+      "official_signed": false,
+      "DUT_declaration": "output wire [31:0] obs_result_id,",
+      "passive_declaration": "input wire [31:0] obs_result_id,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_result_left",
+      "official_width": 24,
+      "official_signed": true,
+      "DUT_declaration": "output wire signed [23:0] obs_result_left,",
+      "passive_declaration": "input wire signed [23:0] obs_result_left,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_result_right",
+      "official_width": 24,
+      "official_signed": true,
+      "DUT_declaration": "output wire signed [23:0] obs_result_right,",
+      "passive_declaration": "input wire signed [23:0] obs_result_right,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_result_clip_mask",
+      "official_width": 2,
+      "official_signed": false,
+      "DUT_declaration": "output wire [1:0] obs_result_clip_mask,",
+      "passive_declaration": "input wire [1:0] obs_result_clip_mask,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_req_id",
+      "official_width": 32,
+      "official_signed": false,
+      "DUT_declaration": "output wire [31:0] obs_req_id,",
+      "passive_declaration": "input wire [31:0] obs_req_id,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_commit",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_commit,",
+      "passive_declaration": "input wire obs_commit,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_commit_id",
+      "official_width": 32,
+      "official_signed": false,
+      "DUT_declaration": "output wire [31:0] obs_commit_id,",
+      "passive_declaration": "input wire [31:0] obs_commit_id,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_commit_left",
+      "official_width": 24,
+      "official_signed": true,
+      "DUT_declaration": "output wire signed [23:0] obs_commit_left,",
+      "passive_declaration": "input wire signed [23:0] obs_commit_left,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_commit_right",
+      "official_width": 24,
+      "official_signed": true,
+      "DUT_declaration": "output wire signed [23:0] obs_commit_right,",
+      "passive_declaration": "input wire signed [23:0] obs_commit_right,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_commit_clip",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_commit_clip,",
+      "passive_declaration": "input wire obs_commit_clip,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_cancel",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_cancel,",
+      "passive_declaration": "input wire obs_cancel,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_config_valid",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_config_valid,",
+      "passive_declaration": "input wire obs_config_valid,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_config_ready",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_config_ready,",
+      "passive_declaration": "input wire obs_config_ready,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_tx_left",
+      "official_width": 24,
+      "official_signed": true,
+      "DUT_declaration": "output wire signed [23:0] obs_tx_left,",
+      "passive_declaration": "input wire signed [23:0] obs_tx_left,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_tx_right",
+      "official_width": 24,
+      "official_signed": true,
+      "DUT_declaration": "output wire signed [23:0] obs_tx_right,",
+      "passive_declaration": "input wire signed [23:0] obs_tx_right,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_pll_locked",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_pll_locked,",
+      "passive_declaration": "input wire obs_pll_locked,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_tx_sample_valid",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_tx_sample_valid,",
+      "passive_declaration": "input wire obs_tx_sample_valid,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_tx_metadata_valid",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_tx_metadata_valid,",
+      "passive_declaration": "input wire obs_tx_metadata_valid,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_tx_req_id_valid",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_tx_req_id_valid,",
+      "passive_declaration": "input wire obs_tx_req_id_valid,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_tx_frame_id",
+      "official_width": 32,
+      "official_signed": false,
+      "DUT_declaration": "output wire [31:0] obs_tx_frame_id,",
+      "passive_declaration": "input wire [31:0] obs_tx_frame_id,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_tx_req_id",
+      "official_width": 32,
+      "official_signed": false,
+      "DUT_declaration": "output wire [31:0] obs_tx_req_id,",
+      "passive_declaration": "input wire [31:0] obs_tx_req_id,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_tx_clip_mask",
+      "official_width": 2,
+      "official_signed": false,
+      "DUT_declaration": "output wire [1:0] obs_tx_clip_mask,",
+      "passive_declaration": "input wire [1:0] obs_tx_clip_mask,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_tx_clip_any",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_tx_clip_any,",
+      "passive_declaration": "input wire obs_tx_clip_any,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_tx_hold",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_tx_hold,",
+      "passive_declaration": "input wire obs_tx_hold,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_tx_startup_zero",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_tx_startup_zero,",
+      "passive_declaration": "input wire obs_tx_startup_zero,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_metadata_error",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_metadata_error,",
+      "passive_declaration": "input wire obs_metadata_error,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_frame_id_overflow",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_frame_id_overflow",
+      "passive_declaration": "input wire obs_frame_id_overflow,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_raw_cancel_reason",
+      "official_width": 2,
+      "official_signed": false,
+      "DUT_declaration": "output wire [1:0] obs_raw_cancel_reason,",
+      "passive_declaration": "input wire [1:0] obs_raw_cancel_reason,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_apply_valid",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": ",output wire obs_apply_valid,",
+      "passive_declaration": "input wire obs_apply_valid,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_apply_data",
+      "official_width": 64,
+      "official_signed": false,
+      "DUT_declaration": "output wire [63:0] obs_apply_data,",
+      "passive_declaration": "input wire [63:0] obs_apply_data,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_occupied_mask",
+      "official_width": 4,
+      "official_signed": false,
+      "DUT_declaration": "output wire [3:0] obs_occupied_mask,",
+      "passive_declaration": "input wire [3:0] obs_occupied_mask,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_releasing_mask",
+      "official_width": 4,
+      "official_signed": false,
+      "DUT_declaration": "output wire [3:0] obs_releasing_mask,",
+      "passive_declaration": "input wire [3:0] obs_releasing_mask,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_note_on_mask",
+      "official_width": 4,
+      "official_signed": false,
+      "DUT_declaration": "output wire [3:0] obs_note_on_mask,",
+      "passive_declaration": "input wire [3:0] obs_note_on_mask,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_note_off_mask",
+      "official_width": 4,
+      "official_signed": false,
+      "DUT_declaration": "output wire [3:0] obs_note_off_mask,",
+      "passive_declaration": "input wire [3:0] obs_note_off_mask,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_retire_mask",
+      "official_width": 4,
+      "official_signed": false,
+      "DUT_declaration": "output wire [3:0] obs_retire_mask,",
+      "passive_declaration": "input wire [3:0] obs_retire_mask,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_slot_sources",
+      "official_width": 16,
+      "official_signed": false,
+      "DUT_declaration": "output wire [15:0] obs_slot_sources,",
+      "passive_declaration": "input wire [15:0] obs_slot_sources,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_slot_channels",
+      "official_width": 16,
+      "official_signed": false,
+      "DUT_declaration": "output wire [15:0] obs_slot_channels,",
+      "passive_declaration": "input wire [15:0] obs_slot_channels,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_slot_notes",
+      "official_width": 32,
+      "official_signed": false,
+      "DUT_declaration": "output wire [31:0] obs_slot_notes,",
+      "passive_declaration": "input wire [31:0] obs_slot_notes,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_slot_generations",
+      "official_width": 128,
+      "official_signed": false,
+      "DUT_declaration": "output wire [127:0] obs_slot_generations,",
+      "passive_declaration": "input wire [127:0] obs_slot_generations,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_advance_mask",
+      "official_width": 4,
+      "official_signed": false,
+      "DUT_declaration": "output wire [3:0] obs_advance_mask,",
+      "passive_declaration": "input wire [3:0] obs_advance_mask,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_advance_frame_req_id",
+      "official_width": 32,
+      "official_signed": false,
+      "DUT_declaration": "output wire [31:0] obs_advance_frame_req_id,",
+      "passive_declaration": "input wire [31:0] obs_advance_frame_req_id,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_effect_input_valid",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_effect_input_valid,",
+      "passive_declaration": "input wire obs_effect_input_valid,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_effect_input_ready",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_effect_input_ready,",
+      "passive_declaration": "input wire obs_effect_input_ready,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_effect_input_id",
+      "official_width": 32,
+      "official_signed": false,
+      "DUT_declaration": "output wire [31:0] obs_effect_input_id,",
+      "passive_declaration": "input wire [31:0] obs_effect_input_id,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_effect_input_left",
+      "official_width": 24,
+      "official_signed": true,
+      "DUT_declaration": "output wire signed [23:0] obs_effect_input_left,",
+      "passive_declaration": "input wire signed [23:0] obs_effect_input_left,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_effect_input_right",
+      "official_width": 24,
+      "official_signed": true,
+      "DUT_declaration": "output wire signed [23:0] obs_effect_input_right,",
+      "passive_declaration": "input wire signed [23:0] obs_effect_input_right,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_effect_input_clip_mask",
+      "official_width": 2,
+      "official_signed": false,
+      "DUT_declaration": "output wire [1:0] obs_effect_input_clip_mask,",
+      "passive_declaration": "input wire [1:0] obs_effect_input_clip_mask,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_apply_kind",
+      "official_width": 4,
+      "official_signed": false,
+      "DUT_declaration": "output wire [3:0] obs_apply_kind,",
+      "passive_declaration": "input wire [3:0] obs_apply_kind,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_apply_mask",
+      "official_width": 4,
+      "official_signed": false,
+      "DUT_declaration": "output wire [3:0] obs_apply_mask,",
+      "passive_declaration": "input wire [3:0] obs_apply_mask,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_router_apply_seq",
+      "official_width": 32,
+      "official_signed": false,
+      "DUT_declaration": "output wire [31:0] obs_router_apply_seq,",
+      "passive_declaration": "input wire [31:0] obs_router_apply_seq,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_router_apply_seq_valid",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_router_apply_seq_valid,",
+      "passive_declaration": "input wire obs_router_apply_seq_valid,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_config_take",
+      "official_width": 1,
+      "official_signed": false,
+      "DUT_declaration": "output wire obs_config_take,",
+      "passive_declaration": "input wire obs_config_take,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_config_payload",
+      "official_width": 62,
+      "official_signed": false,
+      "DUT_declaration": "output wire [61:0] obs_config_payload,",
+      "passive_declaration": "input wire [61:0] obs_config_payload,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_upstream_clip_mask",
+      "official_width": 2,
+      "official_signed": false,
+      "DUT_declaration": "output wire [1:0] obs_upstream_clip_mask,",
+      "passive_declaration": "input wire [1:0] obs_upstream_clip_mask,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_effect_clip_mask",
+      "official_width": 2,
+      "official_signed": false,
+      "DUT_declaration": "output wire [1:0] obs_effect_clip_mask,",
+      "passive_declaration": "input wire [1:0] obs_effect_clip_mask,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    },
+    {
+      "port": "obs_feedback_clip_mask",
+      "official_width": 2,
+      "official_signed": false,
+      "DUT_declaration": "output wire [1:0] obs_feedback_clip_mask",
+      "passive_declaration": "input wire [1:0] obs_feedback_clip_mask,",
+      "DUT_direction": "output",
+      "passive_direction": "input",
+      "source": "Literal source/JSON metadata reading only, no candidate checker run"
+    }
+  ],
+  "request": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\public_port_map\\c9_binding\\ACTUAL_C9_REQUEST.json",
+    "bytes": 6483,
+    "sha256": "1bf86d54479d977b84bb2500677c85892d8aa2f174a53713fe9dd8a5e4fee0c9"
+  },
+  "candidate_imports": 0,
+  "functional_runs": 0,
+  "compile_proven": false,
+  "board_release_allowed": false
+}

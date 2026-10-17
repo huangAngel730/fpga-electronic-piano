@@ -1,0 +1,55 @@
+{
+  "schema": "M3_R07_ORACLE_BRIDGE_RUN_SPEC_V1",
+  "baseline_head": "4fd3366e42fd2356e56eb96eee70b6771afd4bb1",
+  "authorization": "one minimal repair group for RUN_01 backpressure association defect",
+  "cwd": "E:/FPGA/GAOYUNFPGA/team/fpga-electronic-piano",
+  "timeout_seconds": 60,
+  "exclusive_output": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/RUN_02",
+  "cli": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/oracle_bundle_bridge.py",
+  "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/selftest.py",
+  "cases": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/cases_repair.json",
+  "fixture_source_trace": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/RUN_02/products/valid_synthetic/trace.jsonl",
+    "bytes": 99606,
+    "sha256": "03d43a0d91808e0c279293bb9480816c30098c41f9ecfd713402c5dbf95f4a8f"
+  },
+  "binding": {
+    "schema": "M3_R07_ORACLE_BUNDLE_BRIDGE_INPUT_V1",
+    "mode": "SYNTHETIC_FIXTURE",
+    "capture_id": "R7C_SYNTHETIC_R6_235_WITH_R7A_SCHEMA",
+    "scene": "r6_midi_normalized_calendar_mechanical_bridge",
+    "source_baseline": "4fd3366e42fd2356e56eb96eee70b6771afd4bb1",
+    "r7a_status": "SCHEMA_AVAILABLE_CAPTURE_NOT_RUN",
+    "inputs": [
+      {"role":"midi_plan","path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/RUN_02/products/plan.json","bytes":28378,"sha256":"d07c428162dbccefa8215ac629840058c3a8edd809e3f077dd695813133ad918"},
+      {"role":"frame_plan","path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/RUN_02/products/valid_synthetic/frame_plan.json","bytes":651,"sha256":"70e3523a14132915790b4d4d7a929109e3b7e3aea0fd9d0d4460ba4f609ef14c"},
+      {"role":"capture_contract","path":"code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/CAPTURE_CONTRACT.json","bytes":108895,"sha256":"78c3c9344d7cbf8823e85960e341ce6412f4d0349fa8e6cc1fbe2da7ffdc1e01"},
+      {"role":"normalized_row_schema","path":"code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/NORMALIZED_ROW_SCHEMA.json","bytes":25207,"sha256":"47b21a6c6b1e636ed4c6d8d8409e1f7547929a6d25bdad9592a4e4a2845e9193"},
+      {"role":"observer_exports","path":"code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/OBSERVER_EXPORTS_R06C3.json","bytes":4595,"sha256":"be0a6d63717b89f2a6a28dd0841a95312422fbbf5321699265c6e199e9fb3445"},
+      {"role":"source_replacements","path":"code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/SOURCE_REPLACEMENTS_R06C3.json","bytes":1915,"sha256":"77e9901d1a6b018058f0c0ed5ab53ab2194f5abadf8c4c7c6c0afbd65482fc1d"},
+      {"role":"normalized_intake_contract","path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/normalized_intake/RESULT.md","bytes":2214,"sha256":"ba57f598e4f068e498221a8da1ec1690043a9f63f3ed361d05306a1d41e69164"},
+      {"role":"event_calendar_contract","path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/CALENDAR_CONTRACT.json","bytes":1960,"sha256":"68efd87c41032b0a92edd490d73b99d66778d359873bbba9abfe9a7879004404"},
+      {"role":"r7a_record_schema","path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/CAPTURE_SCHEMA.json","bytes":34958,"sha256":"6afe11ce7b0268ab8ca7c7553b7774bb5d185ac79b99fa229acc8d37c6bf8e3f"}
+    ]
+  },
+  "frozen_files": [
+    {"path":"code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/oracle_bundle_bridge.py","bytes":23344,"sha256":"0bc7b4a3a038f5a483e7307927c8bd1934b48ab3a3b3f53639a948ca3cf9aac0"},
+    {"path":"code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/selftest.py","bytes":13239,"sha256":"a4a5172417991ba0197bd287ceea757a007d9c33fa1fa33e24c519ec0bc9689c"},
+    {"path":"code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/run_once.py","bytes":3728,"sha256":"93e5963c958b551bead2a90f22b6c0c3350190d8cca5c4cf19c0f0e1e270783f"},
+    {"path":"code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/cases_repair.json","bytes":263,"sha256":"836dc6ebb9dcd5e1a2bfd096ce1ce17364524ef5822e61522a13b276ab799d3d"},
+    {"path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/RUN_02/products/valid_synthetic/trace.jsonl","bytes":99606,"sha256":"03d43a0d91808e0c279293bb9480816c30098c41f9ecfd713402c5dbf95f4a8f"},
+    {"path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/CAPTURE_SCHEMA.json","bytes":34958,"sha256":"6afe11ce7b0268ab8ca7c7553b7774bb5d185ac79b99fa229acc8d37c6bf8e3f"},
+    {"path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/RUN_02/products/plan.json","bytes":28378,"sha256":"d07c428162dbccefa8215ac629840058c3a8edd809e3f077dd695813133ad918"},
+    {"path":"code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/RUN_02/products/valid_synthetic/frame_plan.json","bytes":651,"sha256":"70e3523a14132915790b4d4d7a929109e3b7e3aea0fd9d0d4460ba4f609ef14c"}
+  ],
+  "expected": {
+    "cases": 1,
+    "accepted": 1,
+    "rejected": 0,
+    "repair_scope": "backpressure-delayed event association only",
+    "legacy_b0_status": "PENDING_UNSUPPORTED_PROFILE",
+    "real_capture_cases": 0,
+    "m1_math_or_oracle_runs": 0,
+    "hdl_eda_hardware_runs": 0
+  }
+}

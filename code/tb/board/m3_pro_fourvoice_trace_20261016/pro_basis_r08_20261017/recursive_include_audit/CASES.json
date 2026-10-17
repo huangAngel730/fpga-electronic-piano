@@ -1,0 +1,46 @@
+{
+  "schema": "M3_R08_CASES_V1",
+  "group": "S",
+  "cases": [
+    {
+      "id": "01_c6_locator",
+      "expected": "PENDING_UNKNOWN",
+      "description": "C6 identity, 71 units, 9 ROMs, 2 headers and 3 include edges; unelaborated readmem stays unknown"
+    },
+    {
+      "id": "01_recursive_literal",
+      "expected": "ACCEPT",
+      "description": "Recursive literal includes and direct readmem resolve"
+    },
+    {
+      "id": "01_missing_header",
+      "expected": "REJECT:INCLUDE_MISSING_OR_INCDIR:b.svh",
+      "description": "Missing recursively included header"
+    },
+    {
+      "id": "01_wrong_incdir",
+      "expected": "REJECT:INCLUDE_MISSING_OR_INCDIR:a.svh",
+      "description": "Wrong explicit include search directory"
+    },
+    {
+      "id": "01_duplicate_module",
+      "expected": "REJECT:DUPLICATE_MODULE:base",
+      "description": "Duplicate literal module definition"
+    },
+    {
+      "id": "01_path_escape",
+      "expected": "REJECT:PATH_ESCAPE",
+      "description": "Include path escapes selected root"
+    },
+    {
+      "id": "01_macro_unknown",
+      "expected": "PENDING_UNKNOWN",
+      "description": "Macro include remains explicitly unresolved"
+    },
+    {
+      "id": "01_missing_readmem",
+      "expected": "REJECT:READMEM_RESOURCE_MISSING:rom/a.hex",
+      "description": "Missing direct literal readmem body"
+    }
+  ]
+}

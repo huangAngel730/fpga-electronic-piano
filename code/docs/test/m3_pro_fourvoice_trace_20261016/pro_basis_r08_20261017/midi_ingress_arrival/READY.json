@@ -1,0 +1,93 @@
+{
+  "schema": "M3_R08_COMPONENT_READY_V1",
+  "role": "C",
+  "task": "R8-16",
+  "component": "midi_ingress_arrival",
+  "group": "T",
+  "status": "READY_FOR_COORDINATOR_FREEZE_NOT_RUN",
+  "production_entry": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/r08c16_arrival.py",
+  "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+  "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+  "case_count": 9,
+  "cases": [
+    {
+      "id": "T16_FOUR_SERIAL_NOTES",
+      "expected": "MIDI_ARRIVALS_MATCH_SYNTHETIC_ONLY",
+      "description": "四条外部串行NoteOn各自到达；每bit1280cycle且不推应用拍"
+    },
+    {
+      "id": "T16_WRONG_BYTE",
+      "expected": "MIDI_BYTE_DIFFERENCE",
+      "description": "字节本体换值"
+    },
+    {
+      "id": "T16_FIRST_BYTE_WINDOW",
+      "expected": "MIDI_ARRIVAL_WINDOW",
+      "description": "首字节越冻结到达窗"
+    },
+    {
+      "id": "T16_STOP_BIT",
+      "expected": "MIDI_STOP_BIT",
+      "description": "8N1停止位低"
+    },
+    {
+      "id": "T16_TRUNCATION",
+      "expected": "UNKNOWN_MIDI_TRUNCATED_BYTE",
+      "description": "缺尾byte保持UNKNOWN"
+    },
+    {
+      "id": "T16_RESET_TRUNCATION",
+      "expected": "UNKNOWN_MIDI_RESET_TRUNCATED",
+      "description": "接收半byte复位保持UNKNOWN"
+    },
+    {
+      "id": "T16_UNKNOWN_TIMEBASE",
+      "expected": "UNKNOWN_MIDI_TIMEBASE",
+      "description": "无时基不算精确到达"
+    },
+    {
+      "id": "T16_DRV_PLAN_INPUT",
+      "expected": "MIDI_ARRIVALS_MATCH_SYNTHETIC_ONLY",
+      "description": "新bytes.drv格式独立fixture保留1基原byte_seq和原计划行"
+    },
+    {
+      "id": "T16_DRV_PLAN_SHA",
+      "expected": "R62_BYTE_PLAN_SHA",
+      "description": "换字节计划SHA拒收"
+    }
+  ],
+  "source_and_evidence_files": [
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\midi_ingress_arrival\\r08c16_arrival.py",
+      "bytes": 4869,
+      "sha256": "d09024e1f06ee107b2ec5dadc585a61cac9fe0880f90f357a68f198f08aee6e1"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\midi_ingress_arrival\\selftest.py",
+      "bytes": 3956,
+      "sha256": "2852a88b0f42d077269369a748bd90561e99370a5fd574a01a7ba491e7d22d5e"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\midi_ingress_arrival\\CASES.json",
+      "bytes": 1557,
+      "sha256": "cb929dd25205165cfe06e869dad24429e81269e52433a5d3be76c373f142f9ff"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\midi_ingress_arrival\\CONTRACT.json",
+      "bytes": 721,
+      "sha256": "146c2f8971d7d0a4a4ac7dd64a10a04f2a888b708d72853703ac3324b1479d90"
+    },
+    {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\midi_ingress_arrival\\README.md",
+      "bytes": 1890,
+      "sha256": "e8eb1eb99e089f519768113609b4bce93cbbe611e4d5b276ef79a5c92295867c"
+    }
+  ],
+  "import_contract": "No application IO/test execution at import. run_case exclusively creates new output_dir, saves INPUT_BEFORE_CALL before production invocation and ACTUAL_BEFORE_ASSERT before assertions; unexpected failure raises.",
+  "local_functional_executions": 0,
+  "group_budget_consumption_by_this_window": 0,
+  "old_tests_invoked": 0,
+  "subprocess_EXE_HDL_EDA_hardware_calls": 0,
+  "real_pass": false,
+  "board_release_allowed": false
+}

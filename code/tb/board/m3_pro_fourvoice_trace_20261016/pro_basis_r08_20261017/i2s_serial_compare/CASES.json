@@ -1,0 +1,55 @@
+{
+  "schema": "M3_R08_CASES_V1",
+  "component": "i2s_serial_compare",
+  "group": "T",
+  "cases": [
+    {
+      "id": "T13_WORD_ALIGNMENT",
+      "expected": "UNKNOWN_SERIAL_PARTIAL",
+      "description": "完整PT8211帧左右+1/-2及有效ID0对齐；保留新尾半帧UNKNOWN"
+    },
+    {
+      "id": "T13_CHANNEL_SWAP",
+      "expected": "PIN_SERIAL_PCM_OR_CHANNEL_MISMATCH",
+      "description": "左右线槽交换输出首帧/首位索引"
+    },
+    {
+      "id": "T13_PADDING_PHASE",
+      "expected": "PIN_LSBJ_PADDING_OR_PHASE",
+      "description": "右槽padding首位异常定位"
+    },
+    {
+      "id": "T13_RESET_HALF",
+      "expected": "UNKNOWN_SERIAL_PARTIAL",
+      "description": "半帧复位不能签完整串行"
+    },
+    {
+      "id": "T13_FIRST_PHASE",
+      "expected": "UNKNOWN_SERIAL_FIRST_PHASE",
+      "description": "缺首相位保留UNKNOWN"
+    },
+    {
+      "id": "T13_OTHER_PROTOCOL",
+      "expected": "PENDING_UNSUPPORTED_SERIAL_PROTOCOL",
+      "description": "I2S模式不能套PT8211协议"
+    },
+    {
+      "id": "T13_VALID_X",
+      "expected": "PENDING_TX_SAMPLE",
+      "description": "TX valid X不能复用PinDecoder旧sample"
+    },
+    {
+      "id": "T13_VALID_2",
+      "expected": "TX_SAMPLE_VALID_RANGE",
+      "description": "非法TX valid=2拒收"
+    },
+    {
+      "id": "T13_FRAME_SAMPLE0",
+      "expected": "PENDING_TX_SAMPLE",
+      "description": "active FRAME缺有效TX不能归旧ID"
+    }
+  ],
+  "executed": false,
+  "execution_owner": "night1 only",
+  "old_selftests_or_runners_invoked": false
+}

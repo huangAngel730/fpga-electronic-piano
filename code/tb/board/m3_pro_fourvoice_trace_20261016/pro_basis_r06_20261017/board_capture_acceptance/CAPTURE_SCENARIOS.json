@@ -1,0 +1,66 @@
+{
+  "schema": "M3_R06_PRO_BOARD_CAPTURE_SCENARIOS_V1",
+  "status": "OFFLINE_PLAN_NOT_RUN",
+  "device_executor_present": false,
+  "common_requirements": [
+    "same authorized .fs for every scene",
+    "one monotonic session timebase",
+    "raw MIDI bytes and send timestamps",
+    "raw UART/status stream when available",
+    "raw PT8211 BCLK/WS/DIN capture",
+    "raw PA_EN/reset/pll_locked capture",
+    "raw analog capture from a verified safe output/load",
+    "trigger, probe, sample-rate, scale, grounding and calibration metadata"
+  ],
+  "scenes": [
+    {
+      "scene_id": "S00_BOOT_RESET_MUTE_LOCK",
+      "intent": "Establish power-on/reset mute, lock transition and PA enable ordering before any note.",
+      "inputs": ["power/reset transition", "no MIDI events"],
+      "stop_on": ["unknown rail", "unexpected output", "lock loss", "PA enabled before safe state"]
+    },
+    {
+      "scene_id": "S01_FIXED_NOTE",
+      "intent": "Capture one fixed Note On/Off with stable velocity and the complete digital/analog response.",
+      "inputs": ["one frozen MIDI note", "one frozen velocity", "Note Off after hold"],
+      "stop_on": ["unexpected loudness", "missing ground", "hung note"]
+    },
+    {
+      "scene_id": "S02_FOUR_SOLOS",
+      "intent": "Capture four selected notes independently under the same timebase and gain.",
+      "inputs": ["four non-harmonic-related notes, one at a time"],
+      "stop_on": ["wrong note mapping", "clipping", "unstable lock"]
+    },
+    {
+      "scene_id": "S03_FOUR_HOLD",
+      "intent": "Capture the same four notes held concurrently without changing setup.",
+      "inputs": ["four Note On events", "common hold interval"],
+      "stop_on": ["missing voice", "unexpected mute", "unsafe output"]
+    },
+    {
+      "scene_id": "S04_RELEASE_ONE_BY_ONE",
+      "intent": "Release each held note separately and preserve the remaining voices.",
+      "inputs": ["four ordered Note Off events"],
+      "stop_on": ["unrelated voice interrupted", "hung voice", "unsafe output"]
+    },
+    {
+      "scene_id": "S05_VELOCITY",
+      "intent": "Compare two frozen velocities at the same pitch and similar timing.",
+      "inputs": ["same note at low velocity", "same note at high velocity"],
+      "stop_on": ["clipping", "mapping ambiguity", "unsafe output"]
+    },
+    {
+      "scene_id": "S06_ACTIVE_RESET_RECOVERY",
+      "intent": "Assert reset while active, verify mute, then verify a new post-reset note.",
+      "inputs": ["active fixed note", "reset", "post-recovery fixed note"],
+      "stop_on": ["non-muted reset", "lock not recovered", "unsafe output"]
+    }
+  ],
+  "claims_not_implied": [
+    "production bitstream release",
+    "full contest acceptance",
+    "48 kHz accuracy without measured evidence",
+    "latency <= 10 ms without shared-timebase evidence",
+    "four voices from audible impression alone"
+  ]
+}

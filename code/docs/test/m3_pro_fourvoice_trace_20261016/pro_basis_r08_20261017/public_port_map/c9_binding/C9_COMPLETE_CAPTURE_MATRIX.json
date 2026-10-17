@@ -1,0 +1,1390 @@
+{
+  "schema": "M3_C9_COMPLETE_CAPTURE_MATRIX_V1",
+  "status": "L0_SOURCE_JSON_LITERAL_COMPARISON_ONLY",
+  "observation_ports": 67,
+  "external_pins": 5,
+  "raw_ports": [
+    {
+      "port": "obs_core_clk",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_core_clk(obs_core_clk)",
+      "passive_connection": ".obs_core_clk(obs_core_clk)",
+      "raw_key": "ports.obs_core_clk",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [],
+      "excluded_from_normalized_reason": "Raw/source sampling clock; not a normalized data field",
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_polyphonic_valid",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_polyphonic_valid(obs_polyphonic_valid)",
+      "passive_connection": ".obs_polyphonic_valid(obs_polyphonic_valid)",
+      "raw_key": "ports.obs_polyphonic_valid",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [],
+      "excluded_from_normalized_reason": "Raw required polyphonic qualification; not a normalized data field",
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_rst_n",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_rst_n(obs_rst_n)",
+      "passive_connection": ".obs_rst_n(obs_rst_n)",
+      "raw_key": "ports.obs_rst_n",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "rst_n"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_frame_tick",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_frame_tick(obs_frame_tick)",
+      "passive_connection": ".obs_frame_tick(obs_frame_tick)",
+      "raw_key": "ports.obs_frame_tick",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "frame_tick"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_event_valid",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_event_valid(obs_event_valid)",
+      "passive_connection": ".obs_event_valid(obs_event_valid)",
+      "raw_key": "ports.obs_event_valid",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "event_valid"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_event_ready",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_event_ready(obs_event_ready)",
+      "passive_connection": ".obs_event_ready(obs_event_ready)",
+      "raw_key": "ports.obs_event_ready",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "event_ready"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_event_data",
+      "width": 64,
+      "signed": false,
+      "DUT_connection": ".obs_event_data(obs_event_data)",
+      "passive_connection": ".obs_event_data(obs_event_data)",
+      "raw_key": "ports.obs_event_data",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "event_data"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_req_valid",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_req_valid(obs_req_valid)",
+      "passive_connection": ".obs_req_valid(obs_req_valid)",
+      "raw_key": "ports.obs_req_valid",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "req_valid"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_req_ready",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_req_ready(obs_req_ready)",
+      "passive_connection": ".obs_req_ready(obs_req_ready)",
+      "raw_key": "ports.obs_req_ready",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "req_ready"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_result_valid",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_result_valid(obs_result_valid)",
+      "passive_connection": ".obs_result_valid(obs_result_valid)",
+      "raw_key": "ports.obs_result_valid",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "result_valid"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_result_ready",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_result_ready(obs_result_ready)",
+      "passive_connection": ".obs_result_ready(obs_result_ready)",
+      "raw_key": "ports.obs_result_ready",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "result_ready"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_result_id",
+      "width": 32,
+      "signed": false,
+      "DUT_connection": ".obs_result_id(obs_result_id)",
+      "passive_connection": ".obs_result_id(obs_result_id)",
+      "raw_key": "ports.obs_result_id",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "result_id"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_result_left",
+      "width": 24,
+      "signed": true,
+      "DUT_connection": ".obs_result_left(obs_result_left)",
+      "passive_connection": ".obs_result_left(obs_result_left)",
+      "raw_key": "ports.obs_result_left",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "result_left"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_result_right",
+      "width": 24,
+      "signed": true,
+      "DUT_connection": ".obs_result_right(obs_result_right)",
+      "passive_connection": ".obs_result_right(obs_result_right)",
+      "raw_key": "ports.obs_result_right",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "result_right"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_result_clip_mask",
+      "width": 2,
+      "signed": false,
+      "DUT_connection": ".obs_result_clip_mask(obs_result_clip_mask)",
+      "passive_connection": ".obs_result_clip_mask(obs_result_clip_mask)",
+      "raw_key": "ports.obs_result_clip_mask",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "result_clip_mask"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_req_id",
+      "width": 32,
+      "signed": false,
+      "DUT_connection": ".obs_req_id(obs_req_id)",
+      "passive_connection": ".obs_req_id(obs_req_id)",
+      "raw_key": "ports.obs_req_id",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "req_id"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_commit",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_commit(obs_commit)",
+      "passive_connection": ".obs_commit(obs_commit)",
+      "raw_key": "ports.obs_commit",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "commit"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_commit_id",
+      "width": 32,
+      "signed": false,
+      "DUT_connection": ".obs_commit_id(obs_commit_id)",
+      "passive_connection": ".obs_commit_id(obs_commit_id)",
+      "raw_key": "ports.obs_commit_id",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "commit_id"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_commit_left",
+      "width": 24,
+      "signed": true,
+      "DUT_connection": ".obs_commit_left(obs_commit_left)",
+      "passive_connection": ".obs_commit_left(obs_commit_left)",
+      "raw_key": "ports.obs_commit_left",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "commit_left"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_commit_right",
+      "width": 24,
+      "signed": true,
+      "DUT_connection": ".obs_commit_right(obs_commit_right)",
+      "passive_connection": ".obs_commit_right(obs_commit_right)",
+      "raw_key": "ports.obs_commit_right",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "commit_right"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_commit_clip",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_commit_clip(obs_commit_clip)",
+      "passive_connection": ".obs_commit_clip(obs_commit_clip)",
+      "raw_key": "ports.obs_commit_clip",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "commit_clip"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_cancel",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_cancel(obs_cancel)",
+      "passive_connection": ".obs_cancel(obs_cancel)",
+      "raw_key": "ports.obs_cancel",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "cancel"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_config_valid",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_config_valid(obs_config_valid)",
+      "passive_connection": ".obs_config_valid(obs_config_valid)",
+      "raw_key": "ports.obs_config_valid",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "config_valid"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_config_ready",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_config_ready(obs_config_ready)",
+      "passive_connection": ".obs_config_ready(obs_config_ready)",
+      "raw_key": "ports.obs_config_ready",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "config_ready"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_tx_left",
+      "width": 24,
+      "signed": true,
+      "DUT_connection": ".obs_tx_left(obs_tx_left)",
+      "passive_connection": ".obs_tx_left(obs_tx_left)",
+      "raw_key": "ports.obs_tx_left",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "tx_left"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_tx_right",
+      "width": 24,
+      "signed": true,
+      "DUT_connection": ".obs_tx_right(obs_tx_right)",
+      "passive_connection": ".obs_tx_right(obs_tx_right)",
+      "raw_key": "ports.obs_tx_right",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "tx_right"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_pll_locked",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_pll_locked(obs_pll_locked)",
+      "passive_connection": ".obs_pll_locked(obs_pll_locked)",
+      "raw_key": "ports.obs_pll_locked",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "pll_locked"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_tx_sample_valid",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_tx_sample_valid(obs_tx_sample_valid)",
+      "passive_connection": ".obs_tx_sample_valid(obs_tx_sample_valid)",
+      "raw_key": "ports.obs_tx_sample_valid",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "tx_sample_valid"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_tx_metadata_valid",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_tx_metadata_valid(obs_tx_metadata_valid)",
+      "passive_connection": ".obs_tx_metadata_valid(obs_tx_metadata_valid)",
+      "raw_key": "ports.obs_tx_metadata_valid",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "tx_metadata_valid"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_tx_req_id_valid",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_tx_req_id_valid(obs_tx_req_id_valid)",
+      "passive_connection": ".obs_tx_req_id_valid(obs_tx_req_id_valid)",
+      "raw_key": "ports.obs_tx_req_id_valid",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "tx_req_id_valid"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_tx_frame_id",
+      "width": 32,
+      "signed": false,
+      "DUT_connection": ".obs_tx_frame_id(obs_tx_frame_id)",
+      "passive_connection": ".obs_tx_frame_id(obs_tx_frame_id)",
+      "raw_key": "ports.obs_tx_frame_id",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "tx_frame_id"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_tx_req_id",
+      "width": 32,
+      "signed": false,
+      "DUT_connection": ".obs_tx_req_id(obs_tx_req_id)",
+      "passive_connection": ".obs_tx_req_id(obs_tx_req_id)",
+      "raw_key": "ports.obs_tx_req_id",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "tx_req_id"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_tx_clip_mask",
+      "width": 2,
+      "signed": false,
+      "DUT_connection": ".obs_tx_clip_mask(obs_tx_clip_mask)",
+      "passive_connection": ".obs_tx_clip_mask(obs_tx_clip_mask)",
+      "raw_key": "ports.obs_tx_clip_mask",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "tx_clip_mask"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_tx_clip_any",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_tx_clip_any(obs_tx_clip_any)",
+      "passive_connection": ".obs_tx_clip_any(obs_tx_clip_any)",
+      "raw_key": "ports.obs_tx_clip_any",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "tx_clip"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_tx_hold",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_tx_hold(obs_tx_hold)",
+      "passive_connection": ".obs_tx_hold(obs_tx_hold)",
+      "raw_key": "ports.obs_tx_hold",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "tx_hold"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_tx_startup_zero",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_tx_startup_zero(obs_tx_startup_zero)",
+      "passive_connection": ".obs_tx_startup_zero(obs_tx_startup_zero)",
+      "raw_key": "ports.obs_tx_startup_zero",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "tx_startup_zero"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_metadata_error",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_metadata_error(obs_metadata_error)",
+      "passive_connection": ".obs_metadata_error(obs_metadata_error)",
+      "raw_key": "ports.obs_metadata_error",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "metadata_error"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_frame_id_overflow",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_frame_id_overflow(obs_frame_id_overflow)",
+      "passive_connection": ".obs_frame_id_overflow(obs_frame_id_overflow)",
+      "raw_key": "ports.obs_frame_id_overflow",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "frame_id_overflow"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_raw_cancel_reason",
+      "width": 2,
+      "signed": false,
+      "DUT_connection": ".obs_raw_cancel_reason(obs_raw_cancel_reason)",
+      "passive_connection": ".obs_raw_cancel_reason(obs_raw_cancel_reason)",
+      "raw_key": "ports.obs_raw_cancel_reason",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "cancel_reason"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_apply_valid",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_apply_valid(obs_apply_valid)",
+      "passive_connection": ".obs_apply_valid(obs_apply_valid)",
+      "raw_key": "ports.obs_apply_valid",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "apply_valid"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_apply_data",
+      "width": 64,
+      "signed": false,
+      "DUT_connection": ".obs_apply_data(obs_apply_data)",
+      "passive_connection": ".obs_apply_data(obs_apply_data)",
+      "raw_key": "ports.obs_apply_data",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "apply_data"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_occupied_mask",
+      "width": 4,
+      "signed": false,
+      "DUT_connection": ".obs_occupied_mask(obs_occupied_mask)",
+      "passive_connection": ".obs_occupied_mask(obs_occupied_mask)",
+      "raw_key": "ports.obs_occupied_mask",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "occupied_mask"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_releasing_mask",
+      "width": 4,
+      "signed": false,
+      "DUT_connection": ".obs_releasing_mask(obs_releasing_mask)",
+      "passive_connection": ".obs_releasing_mask(obs_releasing_mask)",
+      "raw_key": "ports.obs_releasing_mask",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "releasing_mask"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_note_on_mask",
+      "width": 4,
+      "signed": false,
+      "DUT_connection": ".obs_note_on_mask(obs_note_on_mask)",
+      "passive_connection": ".obs_note_on_mask(obs_note_on_mask)",
+      "raw_key": "ports.obs_note_on_mask",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "note_on_mask"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_note_off_mask",
+      "width": 4,
+      "signed": false,
+      "DUT_connection": ".obs_note_off_mask(obs_note_off_mask)",
+      "passive_connection": ".obs_note_off_mask(obs_note_off_mask)",
+      "raw_key": "ports.obs_note_off_mask",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "note_off_mask"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_retire_mask",
+      "width": 4,
+      "signed": false,
+      "DUT_connection": ".obs_retire_mask(obs_retire_mask)",
+      "passive_connection": ".obs_retire_mask(obs_retire_mask)",
+      "raw_key": "ports.obs_retire_mask",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "retire_mask"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_slot_sources",
+      "width": 16,
+      "signed": false,
+      "DUT_connection": ".obs_slot_sources(obs_slot_sources)",
+      "passive_connection": ".obs_slot_sources(obs_slot_sources)",
+      "raw_key": "ports.obs_slot_sources",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "slot_sources"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_slot_channels",
+      "width": 16,
+      "signed": false,
+      "DUT_connection": ".obs_slot_channels(obs_slot_channels)",
+      "passive_connection": ".obs_slot_channels(obs_slot_channels)",
+      "raw_key": "ports.obs_slot_channels",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "slot_channels"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_slot_notes",
+      "width": 32,
+      "signed": false,
+      "DUT_connection": ".obs_slot_notes(obs_slot_notes)",
+      "passive_connection": ".obs_slot_notes(obs_slot_notes)",
+      "raw_key": "ports.obs_slot_notes",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "slot_notes"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_slot_generations",
+      "width": 128,
+      "signed": false,
+      "DUT_connection": ".obs_slot_generations(obs_slot_generations)",
+      "passive_connection": ".obs_slot_generations(obs_slot_generations)",
+      "raw_key": "ports.obs_slot_generations",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "slot_generations"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_advance_mask",
+      "width": 4,
+      "signed": false,
+      "DUT_connection": ".obs_advance_mask(obs_advance_mask)",
+      "passive_connection": ".obs_advance_mask(obs_advance_mask)",
+      "raw_key": "ports.obs_advance_mask",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "advance_mask"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_advance_frame_req_id",
+      "width": 32,
+      "signed": false,
+      "DUT_connection": ".obs_advance_frame_req_id(obs_advance_frame_req_id)",
+      "passive_connection": ".obs_advance_frame_req_id(obs_advance_frame_req_id)",
+      "raw_key": "ports.obs_advance_frame_req_id",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "advance_frame_req_id"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_effect_input_valid",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_effect_input_valid(obs_effect_input_valid)",
+      "passive_connection": ".obs_effect_input_valid(obs_effect_input_valid)",
+      "raw_key": "ports.obs_effect_input_valid",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "effect_input_valid"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_effect_input_ready",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_effect_input_ready(obs_effect_input_ready)",
+      "passive_connection": ".obs_effect_input_ready(obs_effect_input_ready)",
+      "raw_key": "ports.obs_effect_input_ready",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "effect_input_ready"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_effect_input_id",
+      "width": 32,
+      "signed": false,
+      "DUT_connection": ".obs_effect_input_id(obs_effect_input_id)",
+      "passive_connection": ".obs_effect_input_id(obs_effect_input_id)",
+      "raw_key": "ports.obs_effect_input_id",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "effect_input_id"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_effect_input_left",
+      "width": 24,
+      "signed": true,
+      "DUT_connection": ".obs_effect_input_left(obs_effect_input_left)",
+      "passive_connection": ".obs_effect_input_left(obs_effect_input_left)",
+      "raw_key": "ports.obs_effect_input_left",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "effect_input_left"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_effect_input_right",
+      "width": 24,
+      "signed": true,
+      "DUT_connection": ".obs_effect_input_right(obs_effect_input_right)",
+      "passive_connection": ".obs_effect_input_right(obs_effect_input_right)",
+      "raw_key": "ports.obs_effect_input_right",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "effect_input_right"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_effect_input_clip_mask",
+      "width": 2,
+      "signed": false,
+      "DUT_connection": ".obs_effect_input_clip_mask(obs_effect_input_clip_mask)",
+      "passive_connection": ".obs_effect_input_clip_mask(obs_effect_input_clip_mask)",
+      "raw_key": "ports.obs_effect_input_clip_mask",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "effect_input_clip_mask"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_apply_kind",
+      "width": 4,
+      "signed": false,
+      "DUT_connection": ".obs_apply_kind(obs_apply_kind)",
+      "passive_connection": ".obs_apply_kind(obs_apply_kind)",
+      "raw_key": "ports.obs_apply_kind",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "apply_kind"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_apply_mask",
+      "width": 4,
+      "signed": false,
+      "DUT_connection": ".obs_apply_mask(obs_apply_mask)",
+      "passive_connection": ".obs_apply_mask(obs_apply_mask)",
+      "raw_key": "ports.obs_apply_mask",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "apply_mask"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_router_apply_seq",
+      "width": 32,
+      "signed": false,
+      "DUT_connection": ".obs_router_apply_seq(obs_router_apply_seq)",
+      "passive_connection": ".obs_router_apply_seq(obs_router_apply_seq)",
+      "raw_key": "ports.obs_router_apply_seq",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "router_apply_seq"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_router_apply_seq_valid",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_router_apply_seq_valid(obs_router_apply_seq_valid)",
+      "passive_connection": ".obs_router_apply_seq_valid(obs_router_apply_seq_valid)",
+      "raw_key": "ports.obs_router_apply_seq_valid",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "router_apply_seq_valid"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_config_take",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".obs_config_take(obs_config_take)",
+      "passive_connection": ".obs_config_take(obs_config_take)",
+      "raw_key": "ports.obs_config_take",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "config_take"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_config_payload",
+      "width": 62,
+      "signed": false,
+      "DUT_connection": ".obs_config_payload(obs_config_payload)",
+      "passive_connection": ".obs_config_payload(obs_config_payload)",
+      "raw_key": "ports.obs_config_payload",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "config_payload"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_upstream_clip_mask",
+      "width": 2,
+      "signed": false,
+      "DUT_connection": ".obs_upstream_clip_mask(obs_upstream_clip_mask)",
+      "passive_connection": ".obs_upstream_clip_mask(obs_upstream_clip_mask)",
+      "raw_key": "ports.obs_upstream_clip_mask",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "upstream_clip_mask"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_effect_clip_mask",
+      "width": 2,
+      "signed": false,
+      "DUT_connection": ".obs_effect_clip_mask(obs_effect_clip_mask)",
+      "passive_connection": ".obs_effect_clip_mask(obs_effect_clip_mask)",
+      "raw_key": "ports.obs_effect_clip_mask",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "effect_clip_mask"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "obs_feedback_clip_mask",
+      "width": 2,
+      "signed": false,
+      "DUT_connection": ".obs_feedback_clip_mask(obs_feedback_clip_mask)",
+      "passive_connection": ".obs_feedback_clip_mask(obs_feedback_clip_mask)",
+      "raw_key": "ports.obs_feedback_clip_mask",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "feedback_clip_mask"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "i2s_bclk",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".i2s_bclk(i2s_bclk)",
+      "passive_connection": ".i2s_bclk(i2s_bclk)",
+      "raw_key": "ports.i2s_bclk",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "bclk"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "i2s_lrck",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".i2s_lrck(i2s_lrck)",
+      "passive_connection": ".i2s_lrck(i2s_lrck)",
+      "raw_key": "ports.i2s_lrck",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "ws"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "i2s_din",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".i2s_din(i2s_din)",
+      "passive_connection": ".i2s_din(i2s_din)",
+      "raw_key": "ports.i2s_din",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "din"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "pa_en",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".pa_en(pa_en)",
+      "passive_connection": ".pa_en(pa_en)",
+      "raw_key": "ports.pa_en",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [
+        "pa_en"
+      ],
+      "excluded_from_normalized_reason": null,
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    },
+    {
+      "port": "uart_tx",
+      "width": 1,
+      "signed": false,
+      "DUT_connection": ".uart_tx(uart_tx)",
+      "passive_connection": ".uart_tx(uart_tx)",
+      "raw_key": "ports.uart_tx",
+      "raw_encoding": "Exact-width binary string with X/Z retained",
+      "normalized_fields": [],
+      "excluded_from_normalized_reason": "Raw external pin only; no UART column in M2 normalized74 schema",
+      "status": "L0_LITERAL_DIRECT_CONNECTION_PRESENT_NOT_COMPILED"
+    }
+  ],
+  "normalized74": [
+    {
+      "field": "cycle",
+      "source": "raw cycle counter",
+      "status": "RECORDED_PER_CORE_EDGE"
+    },
+    {
+      "field": "epoch",
+      "source": "Reused independent RESET_EDGES bind_epoch; ambiguity stays null",
+      "status": "BOUND_ONLY_FROM_INDEPENDENT_RESETS"
+    },
+    {
+      "field": "rst_n",
+      "source": "ports.obs_rst_n",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "frame_tick",
+      "source": "ports.obs_frame_tick",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "event_valid",
+      "source": "ports.obs_event_valid",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "event_ready",
+      "source": "ports.obs_event_ready",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "event_data",
+      "source": "ports.obs_event_data",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "apply_valid",
+      "source": "ports.obs_apply_valid",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "apply_event_seq",
+      "source": "PENDING_INDEPENDENT_PLAN_TO_PUBLIC_ACCEPTANCE_MAPPING",
+      "status": "PENDING_NULL_NOT_INVENTED"
+    },
+    {
+      "field": "apply_data",
+      "source": "ports.obs_apply_data",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "occupied_mask",
+      "source": "ports.obs_occupied_mask",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "releasing_mask",
+      "source": "ports.obs_releasing_mask",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "note_on_mask",
+      "source": "ports.obs_note_on_mask",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "note_off_mask",
+      "source": "ports.obs_note_off_mask",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "retire_mask",
+      "source": "ports.obs_retire_mask",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "slot_sources",
+      "source": "ports.obs_slot_sources",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "slot_channels",
+      "source": "ports.obs_slot_channels",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "slot_notes",
+      "source": "ports.obs_slot_notes",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "slot_generations",
+      "source": "ports.obs_slot_generations",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "req_valid",
+      "source": "ports.obs_req_valid",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "req_ready",
+      "source": "ports.obs_req_ready",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "req_id",
+      "source": "ports.obs_req_id",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "advance_mask",
+      "source": "ports.obs_advance_mask",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "advance_frame_req_id",
+      "source": "ports.obs_advance_frame_req_id",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "result_valid",
+      "source": "ports.obs_result_valid",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "result_ready",
+      "source": "ports.obs_result_ready",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "result_id",
+      "source": "ports.obs_result_id",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "result_left",
+      "source": "ports.obs_result_left",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "result_right",
+      "source": "ports.obs_result_right",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "result_clip_mask",
+      "source": "ports.obs_result_clip_mask",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "commit",
+      "source": "ports.obs_commit",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "commit_id",
+      "source": "ports.obs_commit_id",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "commit_left",
+      "source": "ports.obs_commit_left",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "commit_right",
+      "source": "ports.obs_commit_right",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "commit_clip",
+      "source": "ports.obs_commit_clip",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "cancel",
+      "source": "ports.obs_cancel",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "cancel_reason",
+      "source": "ports.obs_raw_cancel_reason",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "config_valid",
+      "source": "ports.obs_config_valid",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "config_ready",
+      "source": "ports.obs_config_ready",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "config_payload",
+      "source": "ports.obs_config_payload",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "effect_input_valid",
+      "source": "ports.obs_effect_input_valid",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "effect_input_ready",
+      "source": "ports.obs_effect_input_ready",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "effect_input_id",
+      "source": "ports.obs_effect_input_id",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "effect_input_left",
+      "source": "ports.obs_effect_input_left",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "effect_input_right",
+      "source": "ports.obs_effect_input_right",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "effect_input_clip_mask",
+      "source": "ports.obs_effect_input_clip_mask",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "tx_sample_valid",
+      "source": "ports.obs_tx_sample_valid",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "tx_frame_id",
+      "source": "ports.obs_tx_frame_id",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "tx_req_id",
+      "source": "ports.obs_tx_req_id",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "tx_left",
+      "source": "ports.obs_tx_left",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "tx_right",
+      "source": "ports.obs_tx_right",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "tx_clip",
+      "source": "ports.obs_tx_clip_any",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "tx_hold",
+      "source": "ports.obs_tx_hold",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "tx_startup_zero",
+      "source": "ports.obs_tx_startup_zero",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "bclk",
+      "source": "ports.i2s_bclk",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "ws",
+      "source": "ports.i2s_lrck",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "din",
+      "source": "ports.i2s_din",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "pll_locked",
+      "source": "ports.obs_pll_locked",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "audio_stable",
+      "source": "PENDING_OWNER_APPROVED_REAL_AUDIO_STABILITY_POLICY",
+      "status": "PENDING_NULL_NOT_INVENTED"
+    },
+    {
+      "field": "pa_en",
+      "source": "ports.pa_en",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "finish",
+      "source": "raw finish_requested at frozen PRE_NBA sample",
+      "status": "RECORDED_ACTUAL_FINISH_REQUEST"
+    },
+    {
+      "field": "tx_metadata_valid",
+      "source": "ports.obs_tx_metadata_valid",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "tx_req_id_valid",
+      "source": "ports.obs_tx_req_id_valid",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "tx_clip_mask",
+      "source": "ports.obs_tx_clip_mask",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "metadata_error",
+      "source": "ports.obs_metadata_error",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "frame_id_overflow",
+      "source": "ports.obs_frame_id_overflow",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "apply_kind",
+      "source": "ports.obs_apply_kind",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "apply_mask",
+      "source": "ports.obs_apply_mask",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "router_apply_seq",
+      "source": "ports.obs_router_apply_seq",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "router_apply_seq_valid",
+      "source": "ports.obs_router_apply_seq_valid",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "config_take",
+      "source": "ports.obs_config_take",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "upstream_clip_mask",
+      "source": "ports.obs_upstream_clip_mask",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "effect_clip_mask",
+      "source": "ports.obs_effect_clip_mask",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    },
+    {
+      "field": "feedback_clip_mask",
+      "source": "ports.obs_feedback_clip_mask",
+      "status": "ACTUAL_PUBLIC_ROUTE_PRESENT_STATIC"
+    }
+  ],
+  "connection_rule": "Every one of67 expected obs outputs is nonempty and directly connected to same net and passive input; no parser ACCEPT alone",
+  "pending_fields": [
+    "apply_event_seq",
+    "audio_stable"
+  ],
+  "candidate_checker_runs": 0,
+  "HDL_runs": 0,
+  "board_release_allowed": false
+}

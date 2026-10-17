@@ -1,0 +1,1840 @@
+{
+  "schema": "M3_R7B_C9_SOURCE_BINDING_V1",
+  "status": "L0_STATIC_SOURCE_BODY_READY_NOT_COMPILED_NOT_ADMITTED",
+  "declared_baseline": "16ac226552f6fb65347b229b8fad42146ed45644",
+  "C9_package": {
+    "path": "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_public_chain_20261017/c9_m1_semantics_20261017/SOURCE_CLOSURE_R06C9.zip",
+    "bytes": 182685,
+    "sha256": "d458ab16277bd46751318ac368b22df1b21b35c4867c47942e7bff7d27fc3aa2"
+  },
+  "C9_exports": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m2_138k_pro_fourvoice_candidate_20261016\\r06_observer_20261017\\c9_m1_semantics_20261017\\OBSERVER_EXPORTS_R06C9.json",
+    "bytes": 12066,
+    "sha256": "d8ee0c4c4ffc284e076a89a52aed1dd2363107ab6d7a63f77202b1eeb53a4867"
+  },
+  "C9_fields": 74,
+  "C9_ports": 67,
+  "C9_source_units": 72,
+  "compile_universes_separate": true,
+  "same_name_different_bytes": [
+    {
+      "module_source": "sources/m1td_audio_candidate.sv",
+      "old_sha256": "6bc32ea435ca4b6f0132cbdbccafd0c54664becd75a393d8dff90aafc746ff25",
+      "C9_sha256": "193bc5cd9c7675b7f97564223ce39c7ba8d488f2028dfbadbbb033887ab82f63",
+      "resolution": "ISOLATED_COMPILATION_UNIVERSES; NEVER_FLATTEN_LISTS"
+    },
+    {
+      "module_source": "sources/m1td_polyphonic_envelope_bank.sv",
+      "old_sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7",
+      "C9_sha256": "31c25b7e6eb22714d01c7d0f0ceb7131b3fb301d1aab54bebd041dace2fb4502",
+      "resolution": "ISOLATED_COMPILATION_UNIVERSES; NEVER_FLATTEN_LISTS"
+    },
+    {
+      "module_source": "sources/m1td_polyphonic_event_router.sv",
+      "old_sha256": "f86dc783534c7e3897197d3a967c94d614642196c8d67bff9493d70d1a5fc808",
+      "C9_sha256": "ec69d5d63cf9bd79abe794f95a92338a32a702d56422bdcbb3079dd200eea4c4",
+      "resolution": "ISOLATED_COMPILATION_UNIVERSES; NEVER_FLATTEN_LISTS"
+    },
+    {
+      "module_source": "sources/m1td_timbre_delay_chain.sv",
+      "old_sha256": "72c8e06b83fab7d5264a4ac79d27f33035da8ada509c4f59e4d8b658ee4641b5",
+      "C9_sha256": "076da7f76d641d0e9a8c2a0d910a1ff929ed923639877d36e320887fe095c995",
+      "resolution": "ISOLATED_COMPILATION_UNIVERSES; NEVER_FLATTEN_LISTS"
+    }
+  ],
+  "lanes": {
+    "original": {
+      "top": "tb_c9_original",
+      "cwd": "original",
+      "compile_f": "original/compile.f",
+      "source_units": 72,
+      "literal_modules": 74
+    },
+    "observer": {
+      "top": "tb_c9_observer",
+      "cwd": "observer",
+      "compile_f": "observer/compile.f",
+      "source_units": 74,
+      "literal_modules": 76
+    }
+  },
+  "module_maps": {
+    "original": {
+      "reset_sync": [
+        "sources/reset_sync.sv"
+      ],
+      "button_debouncer": [
+        "sources/button_debouncer.sv"
+      ],
+      "button_event_converter": [
+        "sources/button_event_converter.sv"
+      ],
+      "performance_event_fifo": [
+        "sources/performance_event_fifo.sv"
+      ],
+      "system_status_counters": [
+        "sources/system_status_counters.sv"
+      ],
+      "uart_status_reporter": [
+        "sources/uart_status_reporter.sv"
+      ],
+      "uart_tx": [
+        "sources/uart_tx.sv"
+      ],
+      "uart_rx": [
+        "sources/uart_rx.sv"
+      ],
+      "midi_event_parser": [
+        "sources/midi_event_parser.sv"
+      ],
+      "midi_input": [
+        "sources/midi_input.sv"
+      ],
+      "note_pitch": [
+        "sources/note_pitch.sv"
+      ],
+      "simple_voice": [
+        "sources/simple_voice.sv"
+      ],
+      "i2s_tx": [
+        "sources/i2s_tx.sv"
+      ],
+      "pcm_frame_buffer": [
+        "sources/pcm_frame_buffer.sv"
+      ],
+      "voice_allocator_4": [
+        "sources/voice_allocator_4.sv"
+      ],
+      "piano_dds_oscillator": [
+        "sources/piano_dds_oscillator.sv"
+      ],
+      "piano_band_wavetable_1024": [
+        "sources/piano_dds_oscillator.sv"
+      ],
+      "adsr_piano_envelope": [
+        "sources/adsr_piano_envelope.sv"
+      ],
+      "sustain_controller": [
+        "sources/sustain_controller.sv"
+      ],
+      "polyphonic_event_router": [
+        "sources/polyphonic_event_router.sv"
+      ],
+      "polyphonic_envelope_bank": [
+        "sources/polyphonic_envelope_bank.sv"
+      ],
+      "voice_gain_q15_candidate": [
+        "sources/voice_gain_q15_candidate.sv"
+      ],
+      "polyphonic_pcm_commit": [
+        "sources/polyphonic_pcm_commit.sv"
+      ],
+      "polyphonic_audio_core": [
+        "sources/polyphonic_audio_core.sv"
+      ],
+      "pcm_mixer_4voice": [
+        "sources/pcm_mixer_4voice.sv"
+      ],
+      "pcm_clip_counter": [
+        "sources/pcm_clip_counter.sv"
+      ],
+      "pcm_result_hold": [
+        "sources/pcm_result_hold.sv"
+      ],
+      "visual_event_bridge": [
+        "sources/visual_event_bridge.sv"
+      ],
+      "video_scan_timing": [
+        "sources/video_scan_timing.sv"
+      ],
+      "visual_mailbox_cdc": [
+        "sources/visual_mailbox_cdc.sv"
+      ],
+      "visual_control_bridge": [
+        "sources/visual_control_bridge.sv"
+      ],
+      "visual_live_state": [
+        "sources/visual_live_state.sv"
+      ],
+      "visual_score_tracker": [
+        "sources/visual_score_tracker.sv"
+      ],
+      "visual_scene_renderer": [
+        "sources/visual_scene_renderer.sv"
+      ],
+      "visual_hit_flash": [
+        "sources/visual_hit_flash.sv"
+      ],
+      "m3_visualizer": [
+        "sources/m3_visualizer.sv"
+      ],
+      "audio_visual_display_probe": [
+        "sources/audio_visual_display_probe.sv"
+      ],
+      "performance_control_snapshot": [
+        "sources/performance_control_snapshot.sv"
+      ],
+      "pitch_mod_fcw_pipeline": [
+        "sources/pitch_mod_fcw_pipeline.sv"
+      ],
+      "pitch_mod_snapshot_pipeline": [
+        "sources/pitch_mod_snapshot_pipeline.sv"
+      ],
+      "m1td_adsr_piano_envelope": [
+        "sources/m1td_adsr_piano_envelope.sv"
+      ],
+      "m1td_audio_candidate": [
+        "sources/m1td_audio_candidate.sv"
+      ],
+      "m1td_dds_oscillator": [
+        "sources/m1td_dds_oscillator.sv"
+      ],
+      "sine_wavetable_1024": [
+        "sources/m1td_dds_oscillator.sv"
+      ],
+      "m1td_delay_effect": [
+        "sources/m1td_delay_effect.sv"
+      ],
+      "m1td_note_pitch": [
+        "sources/m1td_note_pitch.sv"
+      ],
+      "m1td_pcm_clip_counter": [
+        "sources/m1td_pcm_clip_counter.sv"
+      ],
+      "m1td_pcm_frame_buffer": [
+        "sources/m1td_pcm_frame_buffer.sv"
+      ],
+      "m1td_pcm_mixer_4voice": [
+        "sources/m1td_pcm_mixer_4voice.sv"
+      ],
+      "m1td_performance_control_snapshot": [
+        "sources/m1td_performance_control_snapshot.sv"
+      ],
+      "m1td_piano_dds_oscillator": [
+        "sources/m1td_piano_dds_oscillator.sv"
+      ],
+      "m1td_piano_band_wavetable_1024": [
+        "sources/m1td_piano_dds_oscillator.sv"
+      ],
+      "m1td_piano_triangle_voice": [
+        "sources/m1td_piano_triangle_voice.sv"
+      ],
+      "m1td_pitch_mod_fcw_pipeline": [
+        "sources/m1td_pitch_mod_fcw_pipeline.sv"
+      ],
+      "m1td_pitch_mod_snapshot_pipeline": [
+        "sources/m1td_pitch_mod_snapshot_pipeline.sv"
+      ],
+      "m1td_polyphonic_envelope_bank": [
+        "sources/m1td_polyphonic_envelope_bank.sv"
+      ],
+      "m1td_polyphonic_event_router": [
+        "sources/m1td_polyphonic_event_router.sv"
+      ],
+      "m1td_stereo_delay": [
+        "sources/m1td_stereo_delay.sv"
+      ],
+      "m1td_sustain_controller": [
+        "sources/m1td_sustain_controller.sv"
+      ],
+      "m1td_timbre_delay_chain": [
+        "sources/m1td_timbre_delay_chain.sv"
+      ],
+      "m1td_timbre_oscillator": [
+        "sources/m1td_timbre_oscillator.sv"
+      ],
+      "m1td_voice_allocator_4": [
+        "sources/m1td_voice_allocator_4.sv"
+      ],
+      "m1td_voice_gain_q15_candidate": [
+        "sources/m1td_voice_gain_q15_candidate.sv"
+      ],
+      "premixed_frame_adapter": [
+        "sources/premixed_frame_adapter.sv"
+      ],
+      "GSR": [
+        "sources/vendor_GSR_pROM.v"
+      ],
+      "pROM": [
+        "sources/vendor_GSR_pROM.v"
+      ],
+      "TMDS_PLL": [
+        "sources/clock_plan_sim.v"
+      ],
+      "DVI_TX_Top": [
+        "sources/dvi_sim_stub.v"
+      ],
+      "dds_oscillator": [
+        "selected/dds_oscillator_leaf.sv"
+      ],
+      "m2_fourvoice_timbre_delay_frame_core": [
+        "original/m2_fourvoice_timbre_delay_frame_core.sv"
+      ],
+      "m2_fourvoice_timbre_delay_board_top": [
+        "original/m2_fourvoice_timbre_delay_board_top.sv"
+      ],
+      "m2_138k_pro_fourvoice_candidate_top": [
+        "original/m2_138k_pro_fourvoice_candidate_top.sv"
+      ],
+      "midi_public_port_driver": [
+        "tb/midi_public_port_driver.sv"
+      ],
+      "tb_c9_original": [
+        "tb/tb_c9_original.sv"
+      ]
+    },
+    "observer": {
+      "reset_sync": [
+        "sources/reset_sync.sv"
+      ],
+      "button_debouncer": [
+        "sources/button_debouncer.sv"
+      ],
+      "button_event_converter": [
+        "sources/button_event_converter.sv"
+      ],
+      "performance_event_fifo": [
+        "sources/performance_event_fifo.sv"
+      ],
+      "system_status_counters": [
+        "sources/system_status_counters.sv"
+      ],
+      "uart_status_reporter": [
+        "sources/uart_status_reporter.sv"
+      ],
+      "uart_tx": [
+        "sources/uart_tx.sv"
+      ],
+      "uart_rx": [
+        "sources/uart_rx.sv"
+      ],
+      "midi_event_parser": [
+        "sources/midi_event_parser.sv"
+      ],
+      "midi_input": [
+        "sources/midi_input.sv"
+      ],
+      "note_pitch": [
+        "sources/note_pitch.sv"
+      ],
+      "simple_voice": [
+        "sources/simple_voice.sv"
+      ],
+      "i2s_tx": [
+        "sources/i2s_tx.sv"
+      ],
+      "pcm_frame_buffer": [
+        "sources/pcm_frame_buffer.sv"
+      ],
+      "voice_allocator_4": [
+        "sources/voice_allocator_4.sv"
+      ],
+      "piano_dds_oscillator": [
+        "sources/piano_dds_oscillator.sv"
+      ],
+      "piano_band_wavetable_1024": [
+        "sources/piano_dds_oscillator.sv"
+      ],
+      "adsr_piano_envelope": [
+        "sources/adsr_piano_envelope.sv"
+      ],
+      "sustain_controller": [
+        "sources/sustain_controller.sv"
+      ],
+      "polyphonic_event_router": [
+        "sources/polyphonic_event_router.sv"
+      ],
+      "polyphonic_envelope_bank": [
+        "sources/polyphonic_envelope_bank.sv"
+      ],
+      "voice_gain_q15_candidate": [
+        "sources/voice_gain_q15_candidate.sv"
+      ],
+      "polyphonic_pcm_commit": [
+        "sources/polyphonic_pcm_commit.sv"
+      ],
+      "polyphonic_audio_core": [
+        "sources/polyphonic_audio_core.sv"
+      ],
+      "pcm_mixer_4voice": [
+        "sources/pcm_mixer_4voice.sv"
+      ],
+      "pcm_clip_counter": [
+        "sources/pcm_clip_counter.sv"
+      ],
+      "pcm_result_hold": [
+        "sources/pcm_result_hold.sv"
+      ],
+      "visual_event_bridge": [
+        "sources/visual_event_bridge.sv"
+      ],
+      "video_scan_timing": [
+        "sources/video_scan_timing.sv"
+      ],
+      "visual_mailbox_cdc": [
+        "sources/visual_mailbox_cdc.sv"
+      ],
+      "visual_control_bridge": [
+        "sources/visual_control_bridge.sv"
+      ],
+      "visual_live_state": [
+        "sources/visual_live_state.sv"
+      ],
+      "visual_score_tracker": [
+        "sources/visual_score_tracker.sv"
+      ],
+      "visual_scene_renderer": [
+        "sources/visual_scene_renderer.sv"
+      ],
+      "visual_hit_flash": [
+        "sources/visual_hit_flash.sv"
+      ],
+      "m3_visualizer": [
+        "sources/m3_visualizer.sv"
+      ],
+      "audio_visual_display_probe": [
+        "sources/audio_visual_display_probe.sv"
+      ],
+      "performance_control_snapshot": [
+        "sources/performance_control_snapshot.sv"
+      ],
+      "pitch_mod_fcw_pipeline": [
+        "sources/pitch_mod_fcw_pipeline.sv"
+      ],
+      "pitch_mod_snapshot_pipeline": [
+        "sources/pitch_mod_snapshot_pipeline.sv"
+      ],
+      "m1td_adsr_piano_envelope": [
+        "sources/m1td_adsr_piano_envelope.sv"
+      ],
+      "m1td_audio_candidate": [
+        "sources/m1td_audio_candidate.sv"
+      ],
+      "m1td_dds_oscillator": [
+        "sources/m1td_dds_oscillator.sv"
+      ],
+      "sine_wavetable_1024": [
+        "sources/m1td_dds_oscillator.sv"
+      ],
+      "m1td_delay_effect": [
+        "sources/m1td_delay_effect.sv"
+      ],
+      "m1td_note_pitch": [
+        "sources/m1td_note_pitch.sv"
+      ],
+      "m1td_pcm_clip_counter": [
+        "sources/m1td_pcm_clip_counter.sv"
+      ],
+      "m1td_pcm_frame_buffer": [
+        "sources/m1td_pcm_frame_buffer.sv"
+      ],
+      "m1td_pcm_mixer_4voice": [
+        "sources/m1td_pcm_mixer_4voice.sv"
+      ],
+      "m1td_performance_control_snapshot": [
+        "sources/m1td_performance_control_snapshot.sv"
+      ],
+      "m1td_piano_dds_oscillator": [
+        "sources/m1td_piano_dds_oscillator.sv"
+      ],
+      "m1td_piano_band_wavetable_1024": [
+        "sources/m1td_piano_dds_oscillator.sv"
+      ],
+      "m1td_piano_triangle_voice": [
+        "sources/m1td_piano_triangle_voice.sv"
+      ],
+      "m1td_pitch_mod_fcw_pipeline": [
+        "sources/m1td_pitch_mod_fcw_pipeline.sv"
+      ],
+      "m1td_pitch_mod_snapshot_pipeline": [
+        "sources/m1td_pitch_mod_snapshot_pipeline.sv"
+      ],
+      "m1td_polyphonic_envelope_bank": [
+        "sources/m1td_polyphonic_envelope_bank.sv"
+      ],
+      "m1td_polyphonic_event_router": [
+        "sources/m1td_polyphonic_event_router.sv"
+      ],
+      "m1td_stereo_delay": [
+        "sources/m1td_stereo_delay.sv"
+      ],
+      "m1td_sustain_controller": [
+        "sources/m1td_sustain_controller.sv"
+      ],
+      "m1td_timbre_delay_chain": [
+        "sources/m1td_timbre_delay_chain.sv"
+      ],
+      "m1td_timbre_oscillator": [
+        "sources/m1td_timbre_oscillator.sv"
+      ],
+      "m1td_voice_allocator_4": [
+        "sources/m1td_voice_allocator_4.sv"
+      ],
+      "m1td_voice_gain_q15_candidate": [
+        "sources/m1td_voice_gain_q15_candidate.sv"
+      ],
+      "premixed_frame_adapter": [
+        "sources/premixed_frame_adapter.sv"
+      ],
+      "GSR": [
+        "sources/vendor_GSR_pROM.v"
+      ],
+      "pROM": [
+        "sources/vendor_GSR_pROM.v"
+      ],
+      "TMDS_PLL": [
+        "sources/clock_plan_sim.v"
+      ],
+      "DVI_TX_Top": [
+        "sources/dvi_sim_stub.v"
+      ],
+      "m2_fourvoice_timbre_delay_frame_core_r06c9": [
+        "selected/m2_fourvoice_timbre_delay_frame_core_r06c9.sv"
+      ],
+      "m2_fourvoice_timbre_delay_board_top_r06c9": [
+        "selected/m2_fourvoice_timbre_delay_board_top_r06c9.sv"
+      ],
+      "m2_138k_pro_fourvoice_observer_top_r06c9": [
+        "selected/m2_138k_pro_fourvoice_observer_top_r06c9.sv"
+      ],
+      "m2_r06_tx_identity_sidecar": [
+        "selected/m2_r06_tx_identity_sidecar.sv"
+      ],
+      "dds_oscillator": [
+        "selected/dds_oscillator_leaf.sv"
+      ],
+      "m2_r06_raw_cancel_reason": [
+        "selected/m2_r06_raw_cancel_reason.sv"
+      ],
+      "midi_public_port_driver": [
+        "tb/midi_public_port_driver.sv"
+      ],
+      "tb_c9_observer": [
+        "tb/tb_c9_observer.sv"
+      ]
+    }
+  },
+  "readmem_literals": {
+    "original": [
+      "rom/piano_band_4x256_8191.mem",
+      "rom/velocity_gain_rom.mem",
+      "rom/oct_ratio_q16.mem",
+      "rom/sub_ratio_q16.mem",
+      "rom/lfo_sine_q15.mem",
+      "rom/sine_1024_32767.mem",
+      "rom/sine_1024_8192.mem",
+      "rom/sine_wavetable.hex",
+      "rom/triangle_wavetable.hex",
+      "sine_wavetable.hex",
+      "triangle_wavetable.hex"
+    ],
+    "observer": [
+      "rom/piano_band_4x256_8191.mem",
+      "rom/velocity_gain_rom.mem",
+      "rom/oct_ratio_q16.mem",
+      "rom/sub_ratio_q16.mem",
+      "rom/lfo_sine_q15.mem",
+      "rom/sine_1024_32767.mem",
+      "rom/sine_1024_8192.mem",
+      "rom/sine_wavetable.hex",
+      "rom/triangle_wavetable.hex",
+      "sine_wavetable.hex",
+      "triangle_wavetable.hex"
+    ]
+  },
+  "staged_files": [
+    {
+      "stored_path": "SOURCE_STORE/original/sources/audio_defs_pkg.sv",
+      "destination": "original/sources/audio_defs_pkg.sv",
+      "bytes": 12334,
+      "sha256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\audio_defs_pkg.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/sustain_control_contract_pkg.sv",
+      "destination": "original/sources/sustain_control_contract_pkg.sv",
+      "bytes": 846,
+      "sha256": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\sustain_control_contract_pkg.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/reset_sync.sv",
+      "destination": "original/sources/reset_sync.sv",
+      "bytes": 1713,
+      "sha256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\reset_sync.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/button_debouncer.sv",
+      "destination": "original/sources/button_debouncer.sv",
+      "bytes": 6376,
+      "sha256": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\button_debouncer.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/button_event_converter.sv",
+      "destination": "original/sources/button_event_converter.sv",
+      "bytes": 10529,
+      "sha256": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\button_event_converter.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/performance_event_fifo.sv",
+      "destination": "original/sources/performance_event_fifo.sv",
+      "bytes": 2538,
+      "sha256": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\performance_event_fifo.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/system_status_counters.sv",
+      "destination": "original/sources/system_status_counters.sv",
+      "bytes": 1948,
+      "sha256": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\system_status_counters.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/uart_status_reporter.sv",
+      "destination": "original/sources/uart_status_reporter.sv",
+      "bytes": 5476,
+      "sha256": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\uart_status_reporter.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/uart_tx.sv",
+      "destination": "original/sources/uart_tx.sv",
+      "bytes": 8233,
+      "sha256": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\uart_tx.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/uart_rx.sv",
+      "destination": "original/sources/uart_rx.sv",
+      "bytes": 10342,
+      "sha256": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\uart_rx.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/midi_event_parser.sv",
+      "destination": "original/sources/midi_event_parser.sv",
+      "bytes": 23632,
+      "sha256": "336d867856a7b3956d524105137c035ec2637fea936538979182669987212071",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\midi_event_parser.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/midi_input.sv",
+      "destination": "original/sources/midi_input.sv",
+      "bytes": 3331,
+      "sha256": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\midi_input.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/note_pitch.sv",
+      "destination": "original/sources/note_pitch.sv",
+      "bytes": 8092,
+      "sha256": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\note_pitch.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/simple_voice.sv",
+      "destination": "original/sources/simple_voice.sv",
+      "bytes": 9455,
+      "sha256": "eab4974b0315c75a8076b21afea1dade122fecbcc672eb0802ba0e358a1bf274",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\simple_voice.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/i2s_tx.sv",
+      "destination": "original/sources/i2s_tx.sv",
+      "bytes": 17021,
+      "sha256": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\i2s_tx.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/pcm_frame_buffer.sv",
+      "destination": "original/sources/pcm_frame_buffer.sv",
+      "bytes": 3796,
+      "sha256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\pcm_frame_buffer.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/voice_allocator_4.sv",
+      "destination": "original/sources/voice_allocator_4.sv",
+      "bytes": 4892,
+      "sha256": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\voice_allocator_4.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/piano_dds_oscillator.sv",
+      "destination": "original/sources/piano_dds_oscillator.sv",
+      "bytes": 6159,
+      "sha256": "bc14310149e8bccd4e71ae239d73b64b23fbbe5da5855bff95c69d22072936de",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\piano_dds_oscillator.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/adsr_piano_envelope.sv",
+      "destination": "original/sources/adsr_piano_envelope.sv",
+      "bytes": 9174,
+      "sha256": "48a732cdcca86fe30a7c48d1fe665f01fa3dd32fd6000ef3010101b11c1d9b51",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\adsr_piano_envelope.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/sustain_controller.sv",
+      "destination": "original/sources/sustain_controller.sv",
+      "bytes": 6110,
+      "sha256": "dd244b99b06eaa2ed7e7deda1c08aeb119f002bff939ce5941e5e81a559cbc4e",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\sustain_controller.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/polyphonic_event_router.sv",
+      "destination": "original/sources/polyphonic_event_router.sv",
+      "bytes": 9875,
+      "sha256": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\polyphonic_event_router.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/polyphonic_envelope_bank.sv",
+      "destination": "original/sources/polyphonic_envelope_bank.sv",
+      "bytes": 10776,
+      "sha256": "54d6db2ec1b9aebb07924e2095f4203306c351e7123a8152ca13d9b3aef1fcd6",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\polyphonic_envelope_bank.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/voice_gain_q15_candidate.sv",
+      "destination": "original/sources/voice_gain_q15_candidate.sv",
+      "bytes": 897,
+      "sha256": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\voice_gain_q15_candidate.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/polyphonic_pcm_commit.sv",
+      "destination": "original/sources/polyphonic_pcm_commit.sv",
+      "bytes": 2587,
+      "sha256": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\polyphonic_pcm_commit.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/polyphonic_audio_core.sv",
+      "destination": "original/sources/polyphonic_audio_core.sv",
+      "bytes": 3050,
+      "sha256": "2ca43e80cd18d46f7a83fce5d0dd2d2c9c05fa272f9338e79bf9f23cc9933b80",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\polyphonic_audio_core.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/pcm_mixer_4voice.sv",
+      "destination": "original/sources/pcm_mixer_4voice.sv",
+      "bytes": 2068,
+      "sha256": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\pcm_mixer_4voice.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/pcm_clip_counter.sv",
+      "destination": "original/sources/pcm_clip_counter.sv",
+      "bytes": 1015,
+      "sha256": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\pcm_clip_counter.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/pcm_result_hold.sv",
+      "destination": "original/sources/pcm_result_hold.sv",
+      "bytes": 2658,
+      "sha256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\pcm_result_hold.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/visual_event_bridge.sv",
+      "destination": "original/sources/visual_event_bridge.sv",
+      "bytes": 5118,
+      "sha256": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\visual_event_bridge.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/video_scan_timing.sv",
+      "destination": "original/sources/video_scan_timing.sv",
+      "bytes": 1953,
+      "sha256": "0b7b3def84043ddd40ed2c1e237bb2d528a117e4fc15195d40b33b0fe78b2069",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\video_scan_timing.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/visual_mailbox_cdc.sv",
+      "destination": "original/sources/visual_mailbox_cdc.sv",
+      "bytes": 2786,
+      "sha256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\visual_mailbox_cdc.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/visual_control_bridge.sv",
+      "destination": "original/sources/visual_control_bridge.sv",
+      "bytes": 3172,
+      "sha256": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\visual_control_bridge.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/visual_live_state.sv",
+      "destination": "original/sources/visual_live_state.sv",
+      "bytes": 6534,
+      "sha256": "ad5c124a1f621ef95524f998efc4ca7ed0d7840d8297af8a97cd1460f88f5938",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\visual_live_state.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/visual_score_tracker.sv",
+      "destination": "original/sources/visual_score_tracker.sv",
+      "bytes": 22348,
+      "sha256": "7e5c630fddf3da60f5fe6bd67721736ee7624817355822dadc4a09dc4cffe0dc",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\visual_score_tracker.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/visual_scene_renderer.sv",
+      "destination": "original/sources/visual_scene_renderer.sv",
+      "bytes": 11242,
+      "sha256": "8062253766925a3c6fce11aad820f51dfcf7444501164d53e95d817c3e62a8d1",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\visual_scene_renderer.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/visual_hit_flash.sv",
+      "destination": "original/sources/visual_hit_flash.sv",
+      "bytes": 1862,
+      "sha256": "1cd4cc1e3459a41ee26122bee014afd552b697e80c1900f658cc03a73ebe03e3",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\visual_hit_flash.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m3_visualizer.sv",
+      "destination": "original/sources/m3_visualizer.sv",
+      "bytes": 6897,
+      "sha256": "c3940203be5616d3cb923552267d7485d494bfd0e6a5410d7a7f3651e1fd0d2a",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m3_visualizer.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/audio_visual_display_probe.sv",
+      "destination": "original/sources/audio_visual_display_probe.sv",
+      "bytes": 7018,
+      "sha256": "df1f05b4a6a06deddd9d3a2244106ec29bb0d15e5dd808fc9bef9436d710a5cf",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\audio_visual_display_probe.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/performance_control_snapshot.sv",
+      "destination": "original/sources/performance_control_snapshot.sv",
+      "bytes": 5049,
+      "sha256": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\performance_control_snapshot.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/pitch_mod_fcw_pipeline.sv",
+      "destination": "original/sources/pitch_mod_fcw_pipeline.sv",
+      "bytes": 5692,
+      "sha256": "48ec3fda81cf286517278e24f962430b48c8a2c035b76745c96d8f37dffbfadc",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\pitch_mod_fcw_pipeline.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/pitch_mod_snapshot_pipeline.sv",
+      "destination": "original/sources/pitch_mod_snapshot_pipeline.sv",
+      "bytes": 3517,
+      "sha256": "c6724b4b3728aa0e4cc9234e73c394267cc1ebfd4c19c704ebd91c580585b8f7",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\pitch_mod_snapshot_pipeline.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_adsr_piano_envelope.sv",
+      "destination": "original/sources/m1td_adsr_piano_envelope.sv",
+      "bytes": 9179,
+      "sha256": "fd43aa6044b094d64f053c136092b767e1d3f8c384a0548c9c66fb602905a4af",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_adsr_piano_envelope.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_audio_candidate.sv",
+      "destination": "original/sources/m1td_audio_candidate.sv",
+      "bytes": 2962,
+      "sha256": "6bc32ea435ca4b6f0132cbdbccafd0c54664becd75a393d8dff90aafc746ff25",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_audio_candidate.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_dds_oscillator.sv",
+      "destination": "original/sources/m1td_dds_oscillator.sv",
+      "bytes": 2751,
+      "sha256": "b6e7ab7e33442fd288ea95c407a76033b822e7b4ffdf3fab791429629b26308b",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_dds_oscillator.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_delay_effect.sv",
+      "destination": "original/sources/m1td_delay_effect.sv",
+      "bytes": 6160,
+      "sha256": "07bcc6f4d0a448e029b5349a43fa8bcaa4afac32323bffb21fdc0e7c6a9633ac",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_delay_effect.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_note_pitch.sv",
+      "destination": "original/sources/m1td_note_pitch.sv",
+      "bytes": 8117,
+      "sha256": "3dde1ca9d72da29030e03940504abe758856fffbaf9a637867a2ebf27f3194d6",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_note_pitch.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_pcm_clip_counter.sv",
+      "destination": "original/sources/m1td_pcm_clip_counter.sv",
+      "bytes": 1020,
+      "sha256": "49c812edd27f0ac1dc33f59f902037c5ee92b9d6e56fcedbdaf1fbe82f8f4f8d",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_pcm_clip_counter.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_pcm_frame_buffer.sv",
+      "destination": "original/sources/m1td_pcm_frame_buffer.sv",
+      "bytes": 3801,
+      "sha256": "a576073d2d5f7b095531aa3fb758a243a49eb5eb577d85dc5d620b85103e592e",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_pcm_frame_buffer.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_pcm_mixer_4voice.sv",
+      "destination": "original/sources/m1td_pcm_mixer_4voice.sv",
+      "bytes": 2073,
+      "sha256": "e3a91180581d434204c6e6f1c5022a4a1447a1810fdd19e505ca0c892fa4553a",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_pcm_mixer_4voice.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_performance_control_snapshot.sv",
+      "destination": "original/sources/m1td_performance_control_snapshot.sv",
+      "bytes": 5054,
+      "sha256": "4c108c889a548656ebcdd8d645530a97ddacdce6be200cd92f9e8b750d0fed60",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_performance_control_snapshot.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_piano_dds_oscillator.sv",
+      "destination": "original/sources/m1td_piano_dds_oscillator.sv",
+      "bytes": 6174,
+      "sha256": "0b84662d535756e1560ee848202d33be2dc429a1f81768be5cdb615f03e004d5",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_piano_dds_oscillator.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_piano_triangle_voice.sv",
+      "destination": "original/sources/m1td_piano_triangle_voice.sv",
+      "bytes": 2130,
+      "sha256": "ef196fa0a89b3612ea7c2aa7751351b3fa6ccaec1f1e9a48d5c9da2014193f06",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_piano_triangle_voice.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_pitch_mod_fcw_pipeline.sv",
+      "destination": "original/sources/m1td_pitch_mod_fcw_pipeline.sv",
+      "bytes": 5697,
+      "sha256": "d53f8467c04fcd1c5c69113f73f56bff3fe126ba30d2fb9654d3c4f266973655",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_pitch_mod_fcw_pipeline.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_pitch_mod_snapshot_pipeline.sv",
+      "destination": "original/sources/m1td_pitch_mod_snapshot_pipeline.sv",
+      "bytes": 3527,
+      "sha256": "9f801ac5016d0d38e743610a7faeb717cd2a54ce34bf183fa904c5fe61b3c21e",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_pitch_mod_snapshot_pipeline.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_polyphonic_envelope_bank.sv",
+      "destination": "original/sources/m1td_polyphonic_envelope_bank.sv",
+      "bytes": 10785,
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_polyphonic_envelope_bank.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_polyphonic_event_router.sv",
+      "destination": "original/sources/m1td_polyphonic_event_router.sv",
+      "bytes": 10466,
+      "sha256": "f86dc783534c7e3897197d3a967c94d614642196c8d67bff9493d70d1a5fc808",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_polyphonic_event_router.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_stereo_delay.sv",
+      "destination": "original/sources/m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_stereo_delay.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_sustain_controller.sv",
+      "destination": "original/sources/m1td_sustain_controller.sv",
+      "bytes": 6115,
+      "sha256": "26a801c2e80653b8a9206b8c25f27d32d61610339c2641b669451ae815dc11a3",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_sustain_controller.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_timbre_delay_chain.sv",
+      "destination": "original/sources/m1td_timbre_delay_chain.sv",
+      "bytes": 2999,
+      "sha256": "72c8e06b83fab7d5264a4ac79d27f33035da8ada509c4f59e4d8b658ee4641b5",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_timbre_delay_chain.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_timbre_oscillator.sv",
+      "destination": "original/sources/m1td_timbre_oscillator.sv",
+      "bytes": 5241,
+      "sha256": "3bdbacceba4779a910ace9a508e5e6dbc849d94441c9f7f6e27a3d09329cdac2",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_timbre_oscillator.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_voice_allocator_4.sv",
+      "destination": "original/sources/m1td_voice_allocator_4.sv",
+      "bytes": 4897,
+      "sha256": "76154c355e1cc17a78707b618909395fcf539bcbc158a887a4572f142ea24eae",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_voice_allocator_4.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/m1td_voice_gain_q15_candidate.sv",
+      "destination": "original/sources/m1td_voice_gain_q15_candidate.sv",
+      "bytes": 902,
+      "sha256": "771ac92ef2ff2de11c61832bf09fb11f761e1dcd617f84cb22bd63f8b7570e14",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\m1td_voice_gain_q15_candidate.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/premixed_frame_adapter.sv",
+      "destination": "original/sources/premixed_frame_adapter.sv",
+      "bytes": 3940,
+      "sha256": "d7952a5f986eb8b609cbe657907e418cfe751c6492d6e49469b5e37c390bb56c",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\premixed_frame_adapter.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/vendor_GSR_pROM.v",
+      "destination": "original/sources/vendor_GSR_pROM.v",
+      "bytes": 10683,
+      "sha256": "7d4e1ac9a983b0eb3260273fea01789df2c0fb60b01c9c486b2f8a3670298448",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\vendor_GSR_pROM.v"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/clock_plan_sim.v",
+      "destination": "original/sources/clock_plan_sim.v",
+      "bytes": 402,
+      "sha256": "99c28744febfb6f39557e6034e79b69190d5c9a8b777a569e2b61cc10f932ecb",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\clock_plan_sim.v"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sources/dvi_sim_stub.v",
+      "destination": "original/sources/dvi_sim_stub.v",
+      "bytes": 505,
+      "sha256": "b06d15e1de1ed1d86e59719c44a1a36ef4bbbc63f802fef538b22f4c268b086a",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\sources\\dvi_sim_stub.v"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/selected/dds_oscillator_leaf.sv",
+      "destination": "original/selected/dds_oscillator_leaf.sv",
+      "bytes": 1241,
+      "sha256": "303e3a9927e743d4149ceae4bb8754ebb8abdfb14638d407254b8e555dfcd3bd",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\selected\\dds_oscillator_leaf.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/original/m2_fourvoice_timbre_delay_frame_core.sv",
+      "destination": "original/original/m2_fourvoice_timbre_delay_frame_core.sv",
+      "bytes": 3990,
+      "sha256": "6d32ddc33aa0fed39ea1290f1d6e490f241c7b20fb6c9d8f02e7317e45201e2e",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\original\\m2_fourvoice_timbre_delay_frame_core.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/original/m2_fourvoice_timbre_delay_board_top.sv",
+      "destination": "original/original/m2_fourvoice_timbre_delay_board_top.sv",
+      "bytes": 37390,
+      "sha256": "f2a8f30fef8ad2da26d1d3b80793b727f45806b6d5c78f2a071fb383322639be",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\original\\m2_fourvoice_timbre_delay_board_top.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/original/m2_138k_pro_fourvoice_candidate_top.sv",
+      "destination": "original/original/m2_138k_pro_fourvoice_candidate_top.sv",
+      "bytes": 1755,
+      "sha256": "21dbd6426beee4b504e4203c25b6ef1b941d1304fe2684b43cf3cdd7c31c1da3",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\original\\m2_138k_pro_fourvoice_candidate_top.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/tb/midi_public_port_driver.sv",
+      "destination": "original/tb/midi_public_port_driver.sv",
+      "bytes": 3417,
+      "sha256": "99e40266a46f1606409fa6ef270dd0c6b056dcb511363ae90dfbaf67653df89a",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\tb\\midi_public_port_driver.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/tb/tb_c9_original.sv",
+      "destination": "original/tb/tb_c9_original.sv",
+      "bytes": 2422,
+      "sha256": "de73a698b93f84a2100b0c19ebaa2402597b44647151e82c1e40fbe6fca19ca9",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c9_binding\\tb_c9_original.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/include/sine_table.svh",
+      "destination": "original/include/sine_table.svh",
+      "bytes": 5648,
+      "sha256": "969fc7d1036e359fc55c3b0ca18eaf3c8a123a146ed95c32a81e52ee10519cca",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\include\\sine_table.svh"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/include/sustain_controller_ports.svh",
+      "destination": "original/include/sustain_controller_ports.svh",
+      "bytes": 827,
+      "sha256": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\include\\sustain_controller_ports.svh"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/rom/lfo_sine_q15.mem",
+      "destination": "original/rom/lfo_sine_q15.mem",
+      "bytes": 6144,
+      "sha256": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\rom\\lfo_sine_q15.mem"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/rom/oct_ratio_q16.mem",
+      "destination": "original/rom/oct_ratio_q16.mem",
+      "bytes": 350,
+      "sha256": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\rom\\oct_ratio_q16.mem"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/rom/piano_band_4x256_8191.mem",
+      "destination": "original/rom/piano_band_4x256_8191.mem",
+      "bytes": 5120,
+      "sha256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\rom\\piano_band_4x256_8191.mem"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/rom/sine_1024_32767.mem",
+      "destination": "original/rom/sine_1024_32767.mem",
+      "bytes": 5120,
+      "sha256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\rom\\sine_1024_32767.mem"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/rom/sine_1024_8192.mem",
+      "destination": "original/rom/sine_1024_8192.mem",
+      "bytes": 5120,
+      "sha256": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\rom\\sine_1024_8192.mem"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/rom/sine_wavetable.hex",
+      "destination": "original/rom/sine_wavetable.hex",
+      "bytes": 5206,
+      "sha256": "1abfd5c47759cd4089f4b39069b3ff0ab388838502b325d9ef7d9e01549ec7f4",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\rom\\sine_wavetable.hex"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/rom/sub_ratio_q16.mem",
+      "destination": "original/rom/sub_ratio_q16.mem",
+      "bytes": 7168,
+      "sha256": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\rom\\sub_ratio_q16.mem"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/rom/triangle_wavetable.hex",
+      "destination": "original/rom/triangle_wavetable.hex",
+      "bytes": 5210,
+      "sha256": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\rom\\triangle_wavetable.hex"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/rom/velocity_gain_rom.mem",
+      "destination": "original/rom/velocity_gain_rom.mem",
+      "bytes": 5120,
+      "sha256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\rom\\velocity_gain_rom.mem"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/sine_wavetable.hex",
+      "destination": "original/sine_wavetable.hex",
+      "bytes": 5206,
+      "sha256": "1abfd5c47759cd4089f4b39069b3ff0ab388838502b325d9ef7d9e01549ec7f4",
+      "origin": "BYTE_IDENTICAL_ROM_ALIAS"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/triangle_wavetable.hex",
+      "destination": "original/triangle_wavetable.hex",
+      "bytes": 5210,
+      "sha256": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+      "origin": "BYTE_IDENTICAL_ROM_ALIAS"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/bytes.drv",
+      "destination": "original/bytes.drv",
+      "bytes": 810,
+      "sha256": "43bd347b7cc5082b10c5cef55e7adeac071fe6b9dfdb0b38437b5bddaa99ad9d",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\bytes.drv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/reset.drv",
+      "destination": "original/reset.drv",
+      "bytes": 30,
+      "sha256": "c255e20fafbd47d3591a9166ef736e1766ff1a8b93378afd4ef895ad693c1a52",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\reset.drv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/ready.drv",
+      "destination": "original/ready.drv",
+      "bytes": 22,
+      "sha256": "ee3f97b4a0780c0a851a46c4fe8689c4518921dad3c79e5e52474d7757195d25",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\ready.drv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/plan.json",
+      "destination": "original/plan.json",
+      "bytes": 28378,
+      "sha256": "d07c428162dbccefa8215ac629840058c3a8edd809e3f077dd695813133ad918",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\plan.json"
+    },
+    {
+      "stored_path": "SOURCE_STORE/original/compile.f",
+      "destination": "original/compile.f",
+      "bytes": 2327,
+      "sha256": "c8eba53ba150bfac715e7aded9ef35b85f8e2e85b394bbe64466452189b6f735",
+      "origin": "STATIC_ISOLATED_LIST"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/audio_defs_pkg.sv",
+      "destination": "observer/sources/audio_defs_pkg.sv",
+      "bytes": 12334,
+      "sha256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+      "origin": "C9:inputs/sources/audio_defs_pkg.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/sustain_control_contract_pkg.sv",
+      "destination": "observer/sources/sustain_control_contract_pkg.sv",
+      "bytes": 846,
+      "sha256": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+      "origin": "C9:inputs/sources/sustain_control_contract_pkg.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/reset_sync.sv",
+      "destination": "observer/sources/reset_sync.sv",
+      "bytes": 1713,
+      "sha256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+      "origin": "C9:inputs/sources/reset_sync.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/button_debouncer.sv",
+      "destination": "observer/sources/button_debouncer.sv",
+      "bytes": 6376,
+      "sha256": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+      "origin": "C9:inputs/sources/button_debouncer.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/button_event_converter.sv",
+      "destination": "observer/sources/button_event_converter.sv",
+      "bytes": 10529,
+      "sha256": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1",
+      "origin": "C9:inputs/sources/button_event_converter.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/performance_event_fifo.sv",
+      "destination": "observer/sources/performance_event_fifo.sv",
+      "bytes": 2538,
+      "sha256": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+      "origin": "C9:inputs/sources/performance_event_fifo.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/system_status_counters.sv",
+      "destination": "observer/sources/system_status_counters.sv",
+      "bytes": 1948,
+      "sha256": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+      "origin": "C9:inputs/sources/system_status_counters.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/uart_status_reporter.sv",
+      "destination": "observer/sources/uart_status_reporter.sv",
+      "bytes": 5476,
+      "sha256": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+      "origin": "C9:inputs/sources/uart_status_reporter.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/uart_tx.sv",
+      "destination": "observer/sources/uart_tx.sv",
+      "bytes": 8233,
+      "sha256": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+      "origin": "C9:inputs/sources/uart_tx.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/uart_rx.sv",
+      "destination": "observer/sources/uart_rx.sv",
+      "bytes": 10342,
+      "sha256": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+      "origin": "C9:inputs/sources/uart_rx.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/midi_event_parser.sv",
+      "destination": "observer/sources/midi_event_parser.sv",
+      "bytes": 23632,
+      "sha256": "336d867856a7b3956d524105137c035ec2637fea936538979182669987212071",
+      "origin": "C9:inputs/sources/midi_event_parser.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/midi_input.sv",
+      "destination": "observer/sources/midi_input.sv",
+      "bytes": 3331,
+      "sha256": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710",
+      "origin": "C9:inputs/sources/midi_input.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/note_pitch.sv",
+      "destination": "observer/sources/note_pitch.sv",
+      "bytes": 8092,
+      "sha256": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+      "origin": "C9:inputs/sources/note_pitch.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/simple_voice.sv",
+      "destination": "observer/sources/simple_voice.sv",
+      "bytes": 9455,
+      "sha256": "eab4974b0315c75a8076b21afea1dade122fecbcc672eb0802ba0e358a1bf274",
+      "origin": "C9:inputs/sources/simple_voice.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/i2s_tx.sv",
+      "destination": "observer/sources/i2s_tx.sv",
+      "bytes": 17021,
+      "sha256": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad",
+      "origin": "C9:inputs/sources/i2s_tx.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/pcm_frame_buffer.sv",
+      "destination": "observer/sources/pcm_frame_buffer.sv",
+      "bytes": 3796,
+      "sha256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+      "origin": "C9:inputs/sources/pcm_frame_buffer.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/voice_allocator_4.sv",
+      "destination": "observer/sources/voice_allocator_4.sv",
+      "bytes": 4892,
+      "sha256": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+      "origin": "C9:inputs/sources/voice_allocator_4.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/piano_dds_oscillator.sv",
+      "destination": "observer/sources/piano_dds_oscillator.sv",
+      "bytes": 6159,
+      "sha256": "bc14310149e8bccd4e71ae239d73b64b23fbbe5da5855bff95c69d22072936de",
+      "origin": "C9:inputs/sources/piano_dds_oscillator.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/adsr_piano_envelope.sv",
+      "destination": "observer/sources/adsr_piano_envelope.sv",
+      "bytes": 9174,
+      "sha256": "48a732cdcca86fe30a7c48d1fe665f01fa3dd32fd6000ef3010101b11c1d9b51",
+      "origin": "C9:inputs/sources/adsr_piano_envelope.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/sustain_controller.sv",
+      "destination": "observer/sources/sustain_controller.sv",
+      "bytes": 6110,
+      "sha256": "dd244b99b06eaa2ed7e7deda1c08aeb119f002bff939ce5941e5e81a559cbc4e",
+      "origin": "C9:inputs/sources/sustain_controller.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/polyphonic_event_router.sv",
+      "destination": "observer/sources/polyphonic_event_router.sv",
+      "bytes": 9875,
+      "sha256": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+      "origin": "C9:inputs/sources/polyphonic_event_router.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/polyphonic_envelope_bank.sv",
+      "destination": "observer/sources/polyphonic_envelope_bank.sv",
+      "bytes": 10776,
+      "sha256": "54d6db2ec1b9aebb07924e2095f4203306c351e7123a8152ca13d9b3aef1fcd6",
+      "origin": "C9:inputs/sources/polyphonic_envelope_bank.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/voice_gain_q15_candidate.sv",
+      "destination": "observer/sources/voice_gain_q15_candidate.sv",
+      "bytes": 897,
+      "sha256": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+      "origin": "C9:inputs/sources/voice_gain_q15_candidate.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/polyphonic_pcm_commit.sv",
+      "destination": "observer/sources/polyphonic_pcm_commit.sv",
+      "bytes": 2587,
+      "sha256": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+      "origin": "C9:inputs/sources/polyphonic_pcm_commit.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/polyphonic_audio_core.sv",
+      "destination": "observer/sources/polyphonic_audio_core.sv",
+      "bytes": 3050,
+      "sha256": "2ca43e80cd18d46f7a83fce5d0dd2d2c9c05fa272f9338e79bf9f23cc9933b80",
+      "origin": "C9:inputs/sources/polyphonic_audio_core.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/pcm_mixer_4voice.sv",
+      "destination": "observer/sources/pcm_mixer_4voice.sv",
+      "bytes": 2068,
+      "sha256": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+      "origin": "C9:inputs/sources/pcm_mixer_4voice.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/pcm_clip_counter.sv",
+      "destination": "observer/sources/pcm_clip_counter.sv",
+      "bytes": 1015,
+      "sha256": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+      "origin": "C9:inputs/sources/pcm_clip_counter.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/pcm_result_hold.sv",
+      "destination": "observer/sources/pcm_result_hold.sv",
+      "bytes": 2658,
+      "sha256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+      "origin": "C9:inputs/sources/pcm_result_hold.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/visual_event_bridge.sv",
+      "destination": "observer/sources/visual_event_bridge.sv",
+      "bytes": 5118,
+      "sha256": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c",
+      "origin": "C9:inputs/sources/visual_event_bridge.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/video_scan_timing.sv",
+      "destination": "observer/sources/video_scan_timing.sv",
+      "bytes": 1953,
+      "sha256": "0b7b3def84043ddd40ed2c1e237bb2d528a117e4fc15195d40b33b0fe78b2069",
+      "origin": "C9:inputs/sources/video_scan_timing.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/visual_mailbox_cdc.sv",
+      "destination": "observer/sources/visual_mailbox_cdc.sv",
+      "bytes": 2786,
+      "sha256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c",
+      "origin": "C9:inputs/sources/visual_mailbox_cdc.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/visual_control_bridge.sv",
+      "destination": "observer/sources/visual_control_bridge.sv",
+      "bytes": 3172,
+      "sha256": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428",
+      "origin": "C9:inputs/sources/visual_control_bridge.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/visual_live_state.sv",
+      "destination": "observer/sources/visual_live_state.sv",
+      "bytes": 6534,
+      "sha256": "ad5c124a1f621ef95524f998efc4ca7ed0d7840d8297af8a97cd1460f88f5938",
+      "origin": "C9:inputs/sources/visual_live_state.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/visual_score_tracker.sv",
+      "destination": "observer/sources/visual_score_tracker.sv",
+      "bytes": 22348,
+      "sha256": "7e5c630fddf3da60f5fe6bd67721736ee7624817355822dadc4a09dc4cffe0dc",
+      "origin": "C9:inputs/sources/visual_score_tracker.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/visual_scene_renderer.sv",
+      "destination": "observer/sources/visual_scene_renderer.sv",
+      "bytes": 11242,
+      "sha256": "8062253766925a3c6fce11aad820f51dfcf7444501164d53e95d817c3e62a8d1",
+      "origin": "C9:inputs/sources/visual_scene_renderer.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/visual_hit_flash.sv",
+      "destination": "observer/sources/visual_hit_flash.sv",
+      "bytes": 1862,
+      "sha256": "1cd4cc1e3459a41ee26122bee014afd552b697e80c1900f658cc03a73ebe03e3",
+      "origin": "C9:inputs/sources/visual_hit_flash.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m3_visualizer.sv",
+      "destination": "observer/sources/m3_visualizer.sv",
+      "bytes": 6897,
+      "sha256": "c3940203be5616d3cb923552267d7485d494bfd0e6a5410d7a7f3651e1fd0d2a",
+      "origin": "C9:inputs/sources/m3_visualizer.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/audio_visual_display_probe.sv",
+      "destination": "observer/sources/audio_visual_display_probe.sv",
+      "bytes": 7018,
+      "sha256": "df1f05b4a6a06deddd9d3a2244106ec29bb0d15e5dd808fc9bef9436d710a5cf",
+      "origin": "C9:inputs/sources/audio_visual_display_probe.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/performance_control_snapshot.sv",
+      "destination": "observer/sources/performance_control_snapshot.sv",
+      "bytes": 5049,
+      "sha256": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+      "origin": "C9:inputs/sources/performance_control_snapshot.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/pitch_mod_fcw_pipeline.sv",
+      "destination": "observer/sources/pitch_mod_fcw_pipeline.sv",
+      "bytes": 5692,
+      "sha256": "48ec3fda81cf286517278e24f962430b48c8a2c035b76745c96d8f37dffbfadc",
+      "origin": "C9:inputs/sources/pitch_mod_fcw_pipeline.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/pitch_mod_snapshot_pipeline.sv",
+      "destination": "observer/sources/pitch_mod_snapshot_pipeline.sv",
+      "bytes": 3517,
+      "sha256": "c6724b4b3728aa0e4cc9234e73c394267cc1ebfd4c19c704ebd91c580585b8f7",
+      "origin": "C9:inputs/sources/pitch_mod_snapshot_pipeline.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_adsr_piano_envelope.sv",
+      "destination": "observer/sources/m1td_adsr_piano_envelope.sv",
+      "bytes": 9179,
+      "sha256": "fd43aa6044b094d64f053c136092b767e1d3f8c384a0548c9c66fb602905a4af",
+      "origin": "C9:inputs/sources/m1td_adsr_piano_envelope.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_audio_candidate.sv",
+      "destination": "observer/sources/m1td_audio_candidate.sv",
+      "bytes": 4493,
+      "sha256": "193bc5cd9c7675b7f97564223ce39c7ba8d488f2028dfbadbbb033887ab82f63",
+      "origin": "C9:inputs/sources/m1td_audio_candidate.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_dds_oscillator.sv",
+      "destination": "observer/sources/m1td_dds_oscillator.sv",
+      "bytes": 2751,
+      "sha256": "b6e7ab7e33442fd288ea95c407a76033b822e7b4ffdf3fab791429629b26308b",
+      "origin": "C9:inputs/sources/m1td_dds_oscillator.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_delay_effect.sv",
+      "destination": "observer/sources/m1td_delay_effect.sv",
+      "bytes": 6160,
+      "sha256": "07bcc6f4d0a448e029b5349a43fa8bcaa4afac32323bffb21fdc0e7c6a9633ac",
+      "origin": "C9:inputs/sources/m1td_delay_effect.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_note_pitch.sv",
+      "destination": "observer/sources/m1td_note_pitch.sv",
+      "bytes": 8117,
+      "sha256": "3dde1ca9d72da29030e03940504abe758856fffbaf9a637867a2ebf27f3194d6",
+      "origin": "C9:inputs/sources/m1td_note_pitch.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_pcm_clip_counter.sv",
+      "destination": "observer/sources/m1td_pcm_clip_counter.sv",
+      "bytes": 1020,
+      "sha256": "49c812edd27f0ac1dc33f59f902037c5ee92b9d6e56fcedbdaf1fbe82f8f4f8d",
+      "origin": "C9:inputs/sources/m1td_pcm_clip_counter.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_pcm_frame_buffer.sv",
+      "destination": "observer/sources/m1td_pcm_frame_buffer.sv",
+      "bytes": 3801,
+      "sha256": "a576073d2d5f7b095531aa3fb758a243a49eb5eb577d85dc5d620b85103e592e",
+      "origin": "C9:inputs/sources/m1td_pcm_frame_buffer.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_pcm_mixer_4voice.sv",
+      "destination": "observer/sources/m1td_pcm_mixer_4voice.sv",
+      "bytes": 2073,
+      "sha256": "e3a91180581d434204c6e6f1c5022a4a1447a1810fdd19e505ca0c892fa4553a",
+      "origin": "C9:inputs/sources/m1td_pcm_mixer_4voice.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_performance_control_snapshot.sv",
+      "destination": "observer/sources/m1td_performance_control_snapshot.sv",
+      "bytes": 5054,
+      "sha256": "4c108c889a548656ebcdd8d645530a97ddacdce6be200cd92f9e8b750d0fed60",
+      "origin": "C9:inputs/sources/m1td_performance_control_snapshot.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_piano_dds_oscillator.sv",
+      "destination": "observer/sources/m1td_piano_dds_oscillator.sv",
+      "bytes": 6174,
+      "sha256": "0b84662d535756e1560ee848202d33be2dc429a1f81768be5cdb615f03e004d5",
+      "origin": "C9:inputs/sources/m1td_piano_dds_oscillator.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_piano_triangle_voice.sv",
+      "destination": "observer/sources/m1td_piano_triangle_voice.sv",
+      "bytes": 2130,
+      "sha256": "ef196fa0a89b3612ea7c2aa7751351b3fa6ccaec1f1e9a48d5c9da2014193f06",
+      "origin": "C9:inputs/sources/m1td_piano_triangle_voice.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_pitch_mod_fcw_pipeline.sv",
+      "destination": "observer/sources/m1td_pitch_mod_fcw_pipeline.sv",
+      "bytes": 5697,
+      "sha256": "d53f8467c04fcd1c5c69113f73f56bff3fe126ba30d2fb9654d3c4f266973655",
+      "origin": "C9:inputs/sources/m1td_pitch_mod_fcw_pipeline.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_pitch_mod_snapshot_pipeline.sv",
+      "destination": "observer/sources/m1td_pitch_mod_snapshot_pipeline.sv",
+      "bytes": 3527,
+      "sha256": "9f801ac5016d0d38e743610a7faeb717cd2a54ce34bf183fa904c5fe61b3c21e",
+      "origin": "C9:inputs/sources/m1td_pitch_mod_snapshot_pipeline.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_polyphonic_envelope_bank.sv",
+      "destination": "observer/sources/m1td_polyphonic_envelope_bank.sv",
+      "bytes": 12530,
+      "sha256": "31c25b7e6eb22714d01c7d0f0ceb7131b3fb301d1aab54bebd041dace2fb4502",
+      "origin": "C9:inputs/sources/m1td_polyphonic_envelope_bank.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_polyphonic_event_router.sv",
+      "destination": "observer/sources/m1td_polyphonic_event_router.sv",
+      "bytes": 14340,
+      "sha256": "ec69d5d63cf9bd79abe794f95a92338a32a702d56422bdcbb3079dd200eea4c4",
+      "origin": "C9:inputs/sources/m1td_polyphonic_event_router.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_stereo_delay.sv",
+      "destination": "observer/sources/m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a",
+      "origin": "C9:inputs/sources/m1td_stereo_delay.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_sustain_controller.sv",
+      "destination": "observer/sources/m1td_sustain_controller.sv",
+      "bytes": 6115,
+      "sha256": "26a801c2e80653b8a9206b8c25f27d32d61610339c2641b669451ae815dc11a3",
+      "origin": "C9:inputs/sources/m1td_sustain_controller.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_timbre_delay_chain.sv",
+      "destination": "observer/sources/m1td_timbre_delay_chain.sv",
+      "bytes": 5454,
+      "sha256": "076da7f76d641d0e9a8c2a0d910a1ff929ed923639877d36e320887fe095c995",
+      "origin": "C9:inputs/sources/m1td_timbre_delay_chain.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_timbre_oscillator.sv",
+      "destination": "observer/sources/m1td_timbre_oscillator.sv",
+      "bytes": 5241,
+      "sha256": "3bdbacceba4779a910ace9a508e5e6dbc849d94441c9f7f6e27a3d09329cdac2",
+      "origin": "C9:inputs/sources/m1td_timbre_oscillator.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_voice_allocator_4.sv",
+      "destination": "observer/sources/m1td_voice_allocator_4.sv",
+      "bytes": 4897,
+      "sha256": "76154c355e1cc17a78707b618909395fcf539bcbc158a887a4572f142ea24eae",
+      "origin": "C9:inputs/sources/m1td_voice_allocator_4.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/m1td_voice_gain_q15_candidate.sv",
+      "destination": "observer/sources/m1td_voice_gain_q15_candidate.sv",
+      "bytes": 902,
+      "sha256": "771ac92ef2ff2de11c61832bf09fb11f761e1dcd617f84cb22bd63f8b7570e14",
+      "origin": "C9:inputs/sources/m1td_voice_gain_q15_candidate.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/premixed_frame_adapter.sv",
+      "destination": "observer/sources/premixed_frame_adapter.sv",
+      "bytes": 3940,
+      "sha256": "d7952a5f986eb8b609cbe657907e418cfe751c6492d6e49469b5e37c390bb56c",
+      "origin": "C9:inputs/sources/premixed_frame_adapter.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/vendor_GSR_pROM.v",
+      "destination": "observer/sources/vendor_GSR_pROM.v",
+      "bytes": 10683,
+      "sha256": "7d4e1ac9a983b0eb3260273fea01789df2c0fb60b01c9c486b2f8a3670298448",
+      "origin": "C9:inputs/sources/vendor_GSR_pROM.v"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/clock_plan_sim.v",
+      "destination": "observer/sources/clock_plan_sim.v",
+      "bytes": 402,
+      "sha256": "99c28744febfb6f39557e6034e79b69190d5c9a8b777a569e2b61cc10f932ecb",
+      "origin": "C9:inputs/sources/clock_plan_sim.v"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sources/dvi_sim_stub.v",
+      "destination": "observer/sources/dvi_sim_stub.v",
+      "bytes": 505,
+      "sha256": "b06d15e1de1ed1d86e59719c44a1a36ef4bbbc63f802fef538b22f4c268b086a",
+      "origin": "C9:inputs/sources/dvi_sim_stub.v"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/selected/m2_fourvoice_timbre_delay_frame_core_r06c9.sv",
+      "destination": "observer/selected/m2_fourvoice_timbre_delay_frame_core_r06c9.sv",
+      "bytes": 9660,
+      "sha256": "73b90af7dfff87cb87e12da947bf70385fbbb7b2209ef4e7f81fe35b215aff41",
+      "origin": "C9:inputs/selected/m2_fourvoice_timbre_delay_frame_core_r06c9.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/selected/m2_fourvoice_timbre_delay_board_top_r06c9.sv",
+      "destination": "observer/selected/m2_fourvoice_timbre_delay_board_top_r06c9.sv",
+      "bytes": 45887,
+      "sha256": "b8b03da91c6e6f24f3dc76f83ccd67c3126e085bc1807287d82c74aeb5e704bc",
+      "origin": "C9:inputs/selected/m2_fourvoice_timbre_delay_board_top_r06c9.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/selected/m2_138k_pro_fourvoice_observer_top_r06c9.sv",
+      "destination": "observer/selected/m2_138k_pro_fourvoice_observer_top_r06c9.sv",
+      "bytes": 7726,
+      "sha256": "bf212311352573d929e7f7b5c29e3959c760d935270165463e94ce532cbb6727",
+      "origin": "C9:inputs/selected/m2_138k_pro_fourvoice_observer_top_r06c9.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/selected/m2_r06_tx_identity_sidecar.sv",
+      "destination": "observer/selected/m2_r06_tx_identity_sidecar.sv",
+      "bytes": 8510,
+      "sha256": "40fd5145a9d80bae36ead96b8e1144be84acdf3669aa5c47a26fcef305a54d1e",
+      "origin": "C9:inputs/selected/m2_r06_tx_identity_sidecar.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/selected/dds_oscillator_leaf.sv",
+      "destination": "observer/selected/dds_oscillator_leaf.sv",
+      "bytes": 1241,
+      "sha256": "303e3a9927e743d4149ceae4bb8754ebb8abdfb14638d407254b8e555dfcd3bd",
+      "origin": "C9:inputs/selected/dds_oscillator_leaf.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/selected/m2_r06_raw_cancel_reason.sv",
+      "destination": "observer/selected/m2_r06_raw_cancel_reason.sv",
+      "bytes": 439,
+      "sha256": "f926e65c44a07a6d08e5e42c88a20e73b9a5c21dbfc91ccefc7e85ca8c204043",
+      "origin": "C9:inputs/selected/m2_r06_raw_cancel_reason.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/tb/midi_public_port_driver.sv",
+      "destination": "observer/tb/midi_public_port_driver.sv",
+      "bytes": 3417,
+      "sha256": "99e40266a46f1606409fa6ef270dd0c6b056dcb511363ae90dfbaf67653df89a",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\tb\\midi_public_port_driver.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/tb/tb_c9_observer.sv",
+      "destination": "observer/tb/tb_c9_observer.sv",
+      "bytes": 9214,
+      "sha256": "e715ffdf4b6959ee59cc03da50035ff5179ce9f367a516981e485c49144bc515",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c9_binding\\tb_c9_observer.sv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/include/sine_table.svh",
+      "destination": "observer/include/sine_table.svh",
+      "bytes": 5648,
+      "sha256": "969fc7d1036e359fc55c3b0ca18eaf3c8a123a146ed95c32a81e52ee10519cca",
+      "origin": "C9:inputs/include/sine_table.svh"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/include/sustain_controller_ports.svh",
+      "destination": "observer/include/sustain_controller_ports.svh",
+      "bytes": 827,
+      "sha256": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d",
+      "origin": "C9:inputs/include/sustain_controller_ports.svh"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/rom/lfo_sine_q15.mem",
+      "destination": "observer/rom/lfo_sine_q15.mem",
+      "bytes": 6144,
+      "sha256": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4",
+      "origin": "C9:inputs/rom/lfo_sine_q15.mem"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/rom/oct_ratio_q16.mem",
+      "destination": "observer/rom/oct_ratio_q16.mem",
+      "bytes": 350,
+      "sha256": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d",
+      "origin": "C9:inputs/rom/oct_ratio_q16.mem"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/rom/piano_band_4x256_8191.mem",
+      "destination": "observer/rom/piano_band_4x256_8191.mem",
+      "bytes": 5120,
+      "sha256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+      "origin": "C9:inputs/rom/piano_band_4x256_8191.mem"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/rom/sine_1024_32767.mem",
+      "destination": "observer/rom/sine_1024_32767.mem",
+      "bytes": 5120,
+      "sha256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060",
+      "origin": "C9:inputs/rom/sine_1024_32767.mem"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/rom/sine_1024_8192.mem",
+      "destination": "observer/rom/sine_1024_8192.mem",
+      "bytes": 5120,
+      "sha256": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2",
+      "origin": "C9:inputs/rom/sine_1024_8192.mem"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/rom/sine_wavetable.hex",
+      "destination": "observer/rom/sine_wavetable.hex",
+      "bytes": 5206,
+      "sha256": "1abfd5c47759cd4089f4b39069b3ff0ab388838502b325d9ef7d9e01549ec7f4",
+      "origin": "C9:inputs/rom/sine_wavetable.hex"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/rom/sub_ratio_q16.mem",
+      "destination": "observer/rom/sub_ratio_q16.mem",
+      "bytes": 7168,
+      "sha256": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9",
+      "origin": "C9:inputs/rom/sub_ratio_q16.mem"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/rom/triangle_wavetable.hex",
+      "destination": "observer/rom/triangle_wavetable.hex",
+      "bytes": 5210,
+      "sha256": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+      "origin": "C9:inputs/rom/triangle_wavetable.hex"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/rom/velocity_gain_rom.mem",
+      "destination": "observer/rom/velocity_gain_rom.mem",
+      "bytes": 5120,
+      "sha256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+      "origin": "C9:inputs/rom/velocity_gain_rom.mem"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/sine_wavetable.hex",
+      "destination": "observer/sine_wavetable.hex",
+      "bytes": 5206,
+      "sha256": "1abfd5c47759cd4089f4b39069b3ff0ab388838502b325d9ef7d9e01549ec7f4",
+      "origin": "BYTE_IDENTICAL_ROM_ALIAS"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/triangle_wavetable.hex",
+      "destination": "observer/triangle_wavetable.hex",
+      "bytes": 5210,
+      "sha256": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+      "origin": "BYTE_IDENTICAL_ROM_ALIAS"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/bytes.drv",
+      "destination": "observer/bytes.drv",
+      "bytes": 810,
+      "sha256": "43bd347b7cc5082b10c5cef55e7adeac071fe6b9dfdb0b38437b5bddaa99ad9d",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\bytes.drv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/reset.drv",
+      "destination": "observer/reset.drv",
+      "bytes": 30,
+      "sha256": "c255e20fafbd47d3591a9166ef736e1766ff1a8b93378afd4ef895ad693c1a52",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\reset.drv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/ready.drv",
+      "destination": "observer/ready.drv",
+      "bytes": 22,
+      "sha256": "ee3f97b4a0780c0a851a46c4fe8689c4518921dad3c79e5e52474d7757195d25",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\ready.drv"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/plan.json",
+      "destination": "observer/plan.json",
+      "bytes": 28378,
+      "sha256": "d07c428162dbccefa8215ac629840058c3a8edd809e3f077dd695813133ad918",
+      "origin": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_equivalence_tb\\c5_dual_assembly\\inputs\\plan.json"
+    },
+    {
+      "stored_path": "SOURCE_STORE/observer/compile.f",
+      "destination": "observer/compile.f",
+      "bytes": 2420,
+      "sha256": "7b0611a7619c3b1a65207f96462c292031d4d78678b0d080c19f7b190303d6a2",
+      "origin": "STATIC_ISOLATED_LIST"
+    }
+  ],
+  "clock_plan_same_bytes": "99c28744febfb6f39557e6034e79b69190d5c9a8b777a569e2b61cc10f932ecb",
+  "comparison_reuse": {
+    "path": "INPUT_ORIGINALS/equivalence_frozen.py",
+    "identity": {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/equivalence.py",
+      "bytes": 7662,
+      "sha256": "a8dbe186a4e8afcf5d931a52ac57b14734a2cd53113a71444378ce3658dabb8d"
+    },
+    "entry": "compare(combined.csv,combined_stdout.txt); compare_events(combined_events.csv,combined_stdout.txt); existing CLI defaults only for fixed 1200..12000000 window",
+    "status": "NOT_RUN"
+  },
+  "A_unique_capture_dependency": {
+    "snapshot": "A_DEPENDENCY.json",
+    "status": "STATIC_BYTES_AVAILABLE_NOT_EXECUTED_NOT_M2_ADMITTED"
+  },
+  "M1_latency_erratum": "no fixed accept-to-note_on delay synthesized",
+  "execution_admission": null,
+  "new_functional_executions": 0,
+  "board_release_allowed": false
+}

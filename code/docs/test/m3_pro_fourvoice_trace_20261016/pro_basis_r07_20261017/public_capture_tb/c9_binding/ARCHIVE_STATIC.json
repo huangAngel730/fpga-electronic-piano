@@ -1,0 +1,414 @@
+{
+  "schema": "M3_R7A_C9_STATIC_ARCHIVE_V1",
+  "status": "L0_FILE_BYTES_AND_TEXT_ONLY",
+  "source_base": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m2_138k_pro_fourvoice_candidate_20261016\\r06_public_chain_20261017\\c9_m1_semantics_20261017\\SOURCE_CLOSURE_R06C9.zip",
+    "bytes": 182685,
+    "sha256": "d458ab16277bd46751318ac368b22df1b21b35c4867c47942e7bff7d27fc3aa2"
+  },
+  "application": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_capture_tb\\c9_binding\\SOURCE_APPLICATION_C9.zip",
+    "bytes": 199075,
+    "sha256": "b23c65d58e50da089bc78645cf9ec65b5a3be5149f242fbe59d9891c3e44d1a2"
+  },
+  "base_payloads_compared": 86,
+  "all_decision_payloads_count": 86,
+  "source_units": 75,
+  "compile_list": "inputs/compile_c9_capture.f",
+  "payloads": {
+    "inputs/compile.f": {
+      "bytes": 2369,
+      "sha256": "a99b460f4694ae9eb654f9497ca59451a4b4c1f0892be9780c3bba2a03ef5200"
+    },
+    "inputs/include/sine_table.svh": {
+      "bytes": 5648,
+      "sha256": "969fc7d1036e359fc55c3b0ca18eaf3c8a123a146ed95c32a81e52ee10519cca"
+    },
+    "inputs/include/sustain_controller_ports.svh": {
+      "bytes": 827,
+      "sha256": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d"
+    },
+    "inputs/rom/lfo_sine_q15.mem": {
+      "bytes": 6144,
+      "sha256": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4"
+    },
+    "inputs/rom/oct_ratio_q16.mem": {
+      "bytes": 350,
+      "sha256": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d"
+    },
+    "inputs/rom/piano_band_4x256_8191.mem": {
+      "bytes": 5120,
+      "sha256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1"
+    },
+    "inputs/rom/sine_1024_32767.mem": {
+      "bytes": 5120,
+      "sha256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060"
+    },
+    "inputs/rom/sine_1024_8192.mem": {
+      "bytes": 5120,
+      "sha256": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2"
+    },
+    "inputs/rom/sine_wavetable.hex": {
+      "bytes": 5206,
+      "sha256": "1abfd5c47759cd4089f4b39069b3ff0ab388838502b325d9ef7d9e01549ec7f4"
+    },
+    "inputs/rom/sub_ratio_q16.mem": {
+      "bytes": 7168,
+      "sha256": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9"
+    },
+    "inputs/rom/triangle_wavetable.hex": {
+      "bytes": 5210,
+      "sha256": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c"
+    },
+    "inputs/rom/velocity_gain_rom.mem": {
+      "bytes": 5120,
+      "sha256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64"
+    },
+    "inputs/selected/dds_oscillator_leaf.sv": {
+      "bytes": 1241,
+      "sha256": "303e3a9927e743d4149ceae4bb8754ebb8abdfb14638d407254b8e555dfcd3bd"
+    },
+    "inputs/selected/m2_r06_raw_cancel_reason.sv": {
+      "bytes": 439,
+      "sha256": "f926e65c44a07a6d08e5e42c88a20e73b9a5c21dbfc91ccefc7e85ca8c204043"
+    },
+    "inputs/selected/m2_r06_tx_identity_sidecar.sv": {
+      "bytes": 8510,
+      "sha256": "40fd5145a9d80bae36ead96b8e1144be84acdf3669aa5c47a26fcef305a54d1e"
+    },
+    "inputs/sources/adsr_piano_envelope.sv": {
+      "bytes": 9174,
+      "sha256": "48a732cdcca86fe30a7c48d1fe665f01fa3dd32fd6000ef3010101b11c1d9b51"
+    },
+    "inputs/sources/audio_defs_pkg.sv": {
+      "bytes": 12334,
+      "sha256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064"
+    },
+    "inputs/sources/audio_visual_display_probe.sv": {
+      "bytes": 7018,
+      "sha256": "df1f05b4a6a06deddd9d3a2244106ec29bb0d15e5dd808fc9bef9436d710a5cf"
+    },
+    "inputs/sources/button_debouncer.sv": {
+      "bytes": 6376,
+      "sha256": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32"
+    },
+    "inputs/sources/button_event_converter.sv": {
+      "bytes": 10529,
+      "sha256": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1"
+    },
+    "inputs/sources/clock_plan_sim.v": {
+      "bytes": 402,
+      "sha256": "99c28744febfb6f39557e6034e79b69190d5c9a8b777a569e2b61cc10f932ecb"
+    },
+    "inputs/sources/dvi_sim_stub.v": {
+      "bytes": 505,
+      "sha256": "b06d15e1de1ed1d86e59719c44a1a36ef4bbbc63f802fef538b22f4c268b086a"
+    },
+    "inputs/sources/i2s_tx.sv": {
+      "bytes": 17021,
+      "sha256": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad"
+    },
+    "inputs/sources/m1td_adsr_piano_envelope.sv": {
+      "bytes": 9179,
+      "sha256": "fd43aa6044b094d64f053c136092b767e1d3f8c384a0548c9c66fb602905a4af"
+    },
+    "inputs/sources/m1td_audio_candidate.sv": {
+      "bytes": 4493,
+      "sha256": "193bc5cd9c7675b7f97564223ce39c7ba8d488f2028dfbadbbb033887ab82f63"
+    },
+    "inputs/sources/m1td_dds_oscillator.sv": {
+      "bytes": 2751,
+      "sha256": "b6e7ab7e33442fd288ea95c407a76033b822e7b4ffdf3fab791429629b26308b"
+    },
+    "inputs/sources/m1td_delay_effect.sv": {
+      "bytes": 6160,
+      "sha256": "07bcc6f4d0a448e029b5349a43fa8bcaa4afac32323bffb21fdc0e7c6a9633ac"
+    },
+    "inputs/sources/m1td_note_pitch.sv": {
+      "bytes": 8117,
+      "sha256": "3dde1ca9d72da29030e03940504abe758856fffbaf9a637867a2ebf27f3194d6"
+    },
+    "inputs/sources/m1td_pcm_clip_counter.sv": {
+      "bytes": 1020,
+      "sha256": "49c812edd27f0ac1dc33f59f902037c5ee92b9d6e56fcedbdaf1fbe82f8f4f8d"
+    },
+    "inputs/sources/m1td_pcm_frame_buffer.sv": {
+      "bytes": 3801,
+      "sha256": "a576073d2d5f7b095531aa3fb758a243a49eb5eb577d85dc5d620b85103e592e"
+    },
+    "inputs/sources/m1td_pcm_mixer_4voice.sv": {
+      "bytes": 2073,
+      "sha256": "e3a91180581d434204c6e6f1c5022a4a1447a1810fdd19e505ca0c892fa4553a"
+    },
+    "inputs/sources/m1td_performance_control_snapshot.sv": {
+      "bytes": 5054,
+      "sha256": "4c108c889a548656ebcdd8d645530a97ddacdce6be200cd92f9e8b750d0fed60"
+    },
+    "inputs/sources/m1td_piano_dds_oscillator.sv": {
+      "bytes": 6174,
+      "sha256": "0b84662d535756e1560ee848202d33be2dc429a1f81768be5cdb615f03e004d5"
+    },
+    "inputs/sources/m1td_piano_triangle_voice.sv": {
+      "bytes": 2130,
+      "sha256": "ef196fa0a89b3612ea7c2aa7751351b3fa6ccaec1f1e9a48d5c9da2014193f06"
+    },
+    "inputs/sources/m1td_pitch_mod_fcw_pipeline.sv": {
+      "bytes": 5697,
+      "sha256": "d53f8467c04fcd1c5c69113f73f56bff3fe126ba30d2fb9654d3c4f266973655"
+    },
+    "inputs/sources/m1td_pitch_mod_snapshot_pipeline.sv": {
+      "bytes": 3527,
+      "sha256": "9f801ac5016d0d38e743610a7faeb717cd2a54ce34bf183fa904c5fe61b3c21e"
+    },
+    "inputs/sources/m1td_polyphonic_envelope_bank.sv": {
+      "bytes": 12530,
+      "sha256": "31c25b7e6eb22714d01c7d0f0ceb7131b3fb301d1aab54bebd041dace2fb4502"
+    },
+    "inputs/sources/m1td_polyphonic_event_router.sv": {
+      "bytes": 14340,
+      "sha256": "ec69d5d63cf9bd79abe794f95a92338a32a702d56422bdcbb3079dd200eea4c4"
+    },
+    "inputs/sources/m1td_stereo_delay.sv": {
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    "inputs/sources/m1td_sustain_controller.sv": {
+      "bytes": 6115,
+      "sha256": "26a801c2e80653b8a9206b8c25f27d32d61610339c2641b669451ae815dc11a3"
+    },
+    "inputs/sources/m1td_timbre_delay_chain.sv": {
+      "bytes": 5454,
+      "sha256": "076da7f76d641d0e9a8c2a0d910a1ff929ed923639877d36e320887fe095c995"
+    },
+    "inputs/sources/m1td_timbre_oscillator.sv": {
+      "bytes": 5241,
+      "sha256": "3bdbacceba4779a910ace9a508e5e6dbc849d94441c9f7f6e27a3d09329cdac2"
+    },
+    "inputs/sources/m1td_voice_allocator_4.sv": {
+      "bytes": 4897,
+      "sha256": "76154c355e1cc17a78707b618909395fcf539bcbc158a887a4572f142ea24eae"
+    },
+    "inputs/sources/m1td_voice_gain_q15_candidate.sv": {
+      "bytes": 902,
+      "sha256": "771ac92ef2ff2de11c61832bf09fb11f761e1dcd617f84cb22bd63f8b7570e14"
+    },
+    "inputs/sources/m3_visualizer.sv": {
+      "bytes": 6897,
+      "sha256": "c3940203be5616d3cb923552267d7485d494bfd0e6a5410d7a7f3651e1fd0d2a"
+    },
+    "inputs/sources/midi_event_parser.sv": {
+      "bytes": 23632,
+      "sha256": "336d867856a7b3956d524105137c035ec2637fea936538979182669987212071"
+    },
+    "inputs/sources/midi_input.sv": {
+      "bytes": 3331,
+      "sha256": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710"
+    },
+    "inputs/sources/note_pitch.sv": {
+      "bytes": 8092,
+      "sha256": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69"
+    },
+    "inputs/sources/pcm_clip_counter.sv": {
+      "bytes": 1015,
+      "sha256": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca"
+    },
+    "inputs/sources/pcm_frame_buffer.sv": {
+      "bytes": 3796,
+      "sha256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997"
+    },
+    "inputs/sources/pcm_mixer_4voice.sv": {
+      "bytes": 2068,
+      "sha256": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a"
+    },
+    "inputs/sources/pcm_result_hold.sv": {
+      "bytes": 2658,
+      "sha256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f"
+    },
+    "inputs/sources/performance_control_snapshot.sv": {
+      "bytes": 5049,
+      "sha256": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87"
+    },
+    "inputs/sources/performance_event_fifo.sv": {
+      "bytes": 2538,
+      "sha256": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671"
+    },
+    "inputs/sources/piano_dds_oscillator.sv": {
+      "bytes": 6159,
+      "sha256": "bc14310149e8bccd4e71ae239d73b64b23fbbe5da5855bff95c69d22072936de"
+    },
+    "inputs/sources/pitch_mod_fcw_pipeline.sv": {
+      "bytes": 5692,
+      "sha256": "48ec3fda81cf286517278e24f962430b48c8a2c035b76745c96d8f37dffbfadc"
+    },
+    "inputs/sources/pitch_mod_snapshot_pipeline.sv": {
+      "bytes": 3517,
+      "sha256": "c6724b4b3728aa0e4cc9234e73c394267cc1ebfd4c19c704ebd91c580585b8f7"
+    },
+    "inputs/sources/polyphonic_audio_core.sv": {
+      "bytes": 3050,
+      "sha256": "2ca43e80cd18d46f7a83fce5d0dd2d2c9c05fa272f9338e79bf9f23cc9933b80"
+    },
+    "inputs/sources/polyphonic_envelope_bank.sv": {
+      "bytes": 10776,
+      "sha256": "54d6db2ec1b9aebb07924e2095f4203306c351e7123a8152ca13d9b3aef1fcd6"
+    },
+    "inputs/sources/polyphonic_event_router.sv": {
+      "bytes": 9875,
+      "sha256": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240"
+    },
+    "inputs/sources/polyphonic_pcm_commit.sv": {
+      "bytes": 2587,
+      "sha256": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a"
+    },
+    "inputs/sources/premixed_frame_adapter.sv": {
+      "bytes": 3940,
+      "sha256": "d7952a5f986eb8b609cbe657907e418cfe751c6492d6e49469b5e37c390bb56c"
+    },
+    "inputs/sources/reset_sync.sv": {
+      "bytes": 1713,
+      "sha256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777"
+    },
+    "inputs/sources/simple_voice.sv": {
+      "bytes": 9455,
+      "sha256": "eab4974b0315c75a8076b21afea1dade122fecbcc672eb0802ba0e358a1bf274"
+    },
+    "inputs/sources/sustain_control_contract_pkg.sv": {
+      "bytes": 846,
+      "sha256": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2"
+    },
+    "inputs/sources/sustain_controller.sv": {
+      "bytes": 6110,
+      "sha256": "dd244b99b06eaa2ed7e7deda1c08aeb119f002bff939ce5941e5e81a559cbc4e"
+    },
+    "inputs/sources/system_status_counters.sv": {
+      "bytes": 1948,
+      "sha256": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085"
+    },
+    "inputs/sources/uart_rx.sv": {
+      "bytes": 10342,
+      "sha256": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd"
+    },
+    "inputs/sources/uart_status_reporter.sv": {
+      "bytes": 5476,
+      "sha256": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342"
+    },
+    "inputs/sources/uart_tx.sv": {
+      "bytes": 8233,
+      "sha256": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925"
+    },
+    "inputs/sources/vendor_GSR_pROM.v": {
+      "bytes": 10683,
+      "sha256": "7d4e1ac9a983b0eb3260273fea01789df2c0fb60b01c9c486b2f8a3670298448"
+    },
+    "inputs/sources/video_scan_timing.sv": {
+      "bytes": 1953,
+      "sha256": "0b7b3def84043ddd40ed2c1e237bb2d528a117e4fc15195d40b33b0fe78b2069"
+    },
+    "inputs/sources/visual_control_bridge.sv": {
+      "bytes": 3172,
+      "sha256": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428"
+    },
+    "inputs/sources/visual_event_bridge.sv": {
+      "bytes": 5118,
+      "sha256": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c"
+    },
+    "inputs/sources/visual_hit_flash.sv": {
+      "bytes": 1862,
+      "sha256": "1cd4cc1e3459a41ee26122bee014afd552b697e80c1900f658cc03a73ebe03e3"
+    },
+    "inputs/sources/visual_live_state.sv": {
+      "bytes": 6534,
+      "sha256": "ad5c124a1f621ef95524f998efc4ca7ed0d7840d8297af8a97cd1460f88f5938"
+    },
+    "inputs/sources/visual_mailbox_cdc.sv": {
+      "bytes": 2786,
+      "sha256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c"
+    },
+    "inputs/sources/visual_scene_renderer.sv": {
+      "bytes": 11242,
+      "sha256": "8062253766925a3c6fce11aad820f51dfcf7444501164d53e95d817c3e62a8d1"
+    },
+    "inputs/sources/visual_score_tracker.sv": {
+      "bytes": 22348,
+      "sha256": "7e5c630fddf3da60f5fe6bd67721736ee7624817355822dadc4a09dc4cffe0dc"
+    },
+    "inputs/sources/voice_allocator_4.sv": {
+      "bytes": 4892,
+      "sha256": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9"
+    },
+    "inputs/sources/voice_gain_q15_candidate.sv": {
+      "bytes": 897,
+      "sha256": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3"
+    },
+    "provenance/ORIGINAL_COMPILE.f": {
+      "bytes": 2203,
+      "sha256": "99279bbab257786467495ba95ee311b969ed72f94ffe458e1e935a5f29bfd2bb"
+    },
+    "provenance/ORIGINAL_dds_oscillator.sv": {
+      "bytes": 2746,
+      "sha256": "9588637c20348c7df8eda5ab5bca780de4468aec607fc9d4b918df63f746c556"
+    },
+    "inputs/selected/m2_fourvoice_timbre_delay_frame_core_r06c9.sv": {
+      "bytes": 9660,
+      "sha256": "73b90af7dfff87cb87e12da947bf70385fbbb7b2209ef4e7f81fe35b215aff41"
+    },
+    "inputs/selected/m2_fourvoice_timbre_delay_board_top_r06c9.sv": {
+      "bytes": 45887,
+      "sha256": "b8b03da91c6e6f24f3dc76f83ccd67c3126e085bc1807287d82c74aeb5e704bc"
+    },
+    "inputs/selected/m2_138k_pro_fourvoice_observer_top_r06c9.sv": {
+      "bytes": 7726,
+      "sha256": "bf212311352573d929e7f7b5c29e3959c760d935270165463e94ce532cbb6727"
+    },
+    "MANIFEST.json": {
+      "bytes": 14028,
+      "sha256": "74ac5a60b2fd46f3c21ac1992a5f66f4d3eb6986eaffd3cf5ae6e0bc3f2d2912"
+    },
+    "inputs/m3_c9/midi_public_port_driver.sv": {
+      "bytes": 3417,
+      "sha256": "99e40266a46f1606409fa6ef270dd0c6b056dcb511363ae90dfbaf67653df89a"
+    },
+    "inputs/m3_c9/r7a_c9_public_observer.sv": {
+      "bytes": 11677,
+      "sha256": "ed4c51834773e411c67cde4743c188f4e719c32f823a969f7ba4b8dea83cc7cd"
+    },
+    "inputs/m3_c9/tb_r7a_c9_public_capture.sv": {
+      "bytes": 11007,
+      "sha256": "a31ae010d835d62b83096ba7604f8517793401eac90e928bbefeb2f024c89a4d"
+    },
+    "inputs/sine_wavetable.hex": {
+      "bytes": 5206,
+      "sha256": "1abfd5c47759cd4089f4b39069b3ff0ab388838502b325d9ef7d9e01549ec7f4"
+    },
+    "inputs/triangle_wavetable.hex": {
+      "bytes": 5210,
+      "sha256": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c"
+    },
+    "inputs/bytes.drv": {
+      "bytes": 810,
+      "sha256": "43bd347b7cc5082b10c5cef55e7adeac071fe6b9dfdb0b38437b5bddaa99ad9d"
+    },
+    "inputs/reset.drv": {
+      "bytes": 30,
+      "sha256": "c255e20fafbd47d3591a9166ef736e1766ff1a8b93378afd4ef895ad693c1a52"
+    },
+    "inputs/ready.drv": {
+      "bytes": 22,
+      "sha256": "ee3f97b4a0780c0a851a46c4fe8689c4518921dad3c79e5e52474d7757195d25"
+    },
+    "inputs/plan.json": {
+      "bytes": 28378,
+      "sha256": "d07c428162dbccefa8215ac629840058c3a8edd809e3f077dd695813133ad918"
+    },
+    "inputs/compile_c9_capture.f": {
+      "bytes": 2469,
+      "sha256": "02efbf370f71d943a20b40d4c9e1dd27c5bde5ff4924f93b800e1cfb6daf1f39"
+    }
+  },
+  "ROM_aliases": "Byte identical full bodies, not additional ROM design",
+  "candidate_imports": 0,
+  "functional_runs": 0,
+  "HDL_runs": 0,
+  "elaboration_or_runtime_readmem_proven": false,
+  "board_release_allowed": false
+}

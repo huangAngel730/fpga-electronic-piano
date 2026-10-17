@@ -1,0 +1,88 @@
+{
+  "task": "V0396_delta_narrow_read_only_review",
+  "reviewed_utc": "2026-10-17T11:27:41.0868109Z",
+  "baseline_commit": "40d78131e8ed50643dd169816f7bfc7149a8ced9",
+  "result": "NO_BLOCKER_FOUND_IN_REVIEWED_LEDGER_AND_PLAN_SNAPSHOT",
+  "actual_level": "L0_STATIC_ONLY",
+  "functional_runs": 0,
+  "repair_groups_consumed_by_this_window": 0,
+  "reserves_permission_or_budget": false,
+  "original_R6_4_repair_seen_consumed": false,
+  "original_R6_6_repair_seen_consumed": false,
+  "R6_3_R6_5_new_candidates": "L0_NOT_RUN_NO_UNUSED_OLD_BUDGET_TRANSFER",
+  "C5": "SELECTED_STATIC_NOT_COMPILED_NOT_ADMITTED",
+  "source_unit_count": 71,
+  "ROM_count": 9,
+  "literal_module_count": 73,
+  "report_sha256": "76d72b9b68c549daab8764a6eadf745304eea07bb973baa5ae2c0b62b35e7c83",
+  "snapshots": [
+    {
+      "package": "tool_plan_adapter",
+      "root": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter",
+      "directories": [
+        "r07_fix",
+        "RUN_01"
+      ],
+      "r07_fix_present": true,
+      "observation": "Original RUN_01 only at review time; startup writer must recheck atomically"
+    },
+    {
+      "package": "tx_clock_reset_checker",
+      "root": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker",
+      "directories": [
+        "RUN_01"
+      ],
+      "r07_fix_present": false,
+      "observation": "Original RUN_01 only at review time; startup writer must recheck atomically"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "code/docs/M2_M3_R06准备包限定复核与源清单决定_2026-10-17.md",
+      "bytes": 6519,
+      "sha256": "28f2d52d20bbc4600002ae69c8b4ce0969e1a91185fbe4872bfac1ca457783ce"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/capture_provenance/coordinator/PLAN.md",
+      "bytes": 5517,
+      "sha256": "b9a49e00b10a1167eef103d1f3fbfa6640798a731a736a844f0a481e9ee53177"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RESULT.md",
+      "bytes": 3171,
+      "sha256": "de77a2cc8bb1f89a8b9dbc0dfdc613833b8bf1a6c9e3b74b388248b637b92a9a"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tool_plan_adapter/RUN_01/GROUP_RECEIPT.json",
+      "bytes": 63241,
+      "sha256": "f52dbd58eb6a74ffb510892820471f5c99c83f719d189d21400374b321a0d856"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/RESULT.md",
+      "bytes": 3115,
+      "sha256": "faa18a2bbfea24a6d84248a06938e407a26c6ad44cd583197a4900165d144f70"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/RUN_01/receipt.json",
+      "bytes": 3583,
+      "sha256": "14ebadc4d24e1bcd1f6cd855df0c9fb8ed20e048315930bff027b2c9d8228904"
+    },
+    {
+      "path": "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_public_chain_20261017/SOURCE_DECISION_R06C5.json",
+      "bytes": 19849,
+      "sha256": "d60cd363ca7db78f974f967abe6b3d2c16be50c85c4cb915d45d74edabe6fdfa"
+    },
+    {
+      "path": "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_public_chain_20261017/SOURCE_CLOSURE_R06C5.zip",
+      "bytes": 176361,
+      "sha256": "2fc5518a35600f67d025aa2efe55e6b436daa5a04b592053f7326385b42134fb"
+    }
+  ],
+  "unverified": [
+    "Concurrent consumption after this snapshot",
+    "Final repaired implementations and actual <=60s run receipts",
+    "HDL / behavior equivalence / Pro admission"
+  ],
+  "no_direct_send_claim": true,
+  "board_release_allowed": false
+}

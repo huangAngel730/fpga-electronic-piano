@@ -1,0 +1,301 @@
+{
+  "schema": "M3_R7B_C9_PUBLIC_WIRE_MAP_V1",
+  "ports": {
+    "obs_core_clk": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_polyphonic_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_rst_n": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_frame_tick": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_event_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_event_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_event_data": {
+      "width": 64,
+      "signed": false
+    },
+    "obs_req_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_req_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_result_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_result_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_result_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_result_left": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_result_right": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_result_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_req_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_commit": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_commit_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_commit_left": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_commit_right": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_commit_clip": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_cancel": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_config_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_config_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_left": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_tx_right": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_pll_locked": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_sample_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_metadata_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_req_id_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_frame_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_tx_req_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_tx_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_tx_clip_any": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_hold": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_tx_startup_zero": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_metadata_error": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_frame_id_overflow": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_raw_cancel_reason": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_apply_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_apply_data": {
+      "width": 64,
+      "signed": false
+    },
+    "obs_occupied_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_releasing_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_note_on_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_note_off_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_retire_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_slot_sources": {
+      "width": 16,
+      "signed": false
+    },
+    "obs_slot_channels": {
+      "width": 16,
+      "signed": false
+    },
+    "obs_slot_notes": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_slot_generations": {
+      "width": 128,
+      "signed": false
+    },
+    "obs_advance_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_advance_frame_req_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_effect_input_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_effect_input_ready": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_effect_input_id": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_effect_input_left": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_effect_input_right": {
+      "width": 24,
+      "signed": true
+    },
+    "obs_effect_input_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_apply_kind": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_apply_mask": {
+      "width": 4,
+      "signed": false
+    },
+    "obs_router_apply_seq": {
+      "width": 32,
+      "signed": false
+    },
+    "obs_router_apply_seq_valid": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_config_take": {
+      "width": 1,
+      "signed": false
+    },
+    "obs_config_payload": {
+      "width": 62,
+      "signed": false
+    },
+    "obs_upstream_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_effect_clip_mask": {
+      "width": 2,
+      "signed": false
+    },
+    "obs_feedback_clip_mask": {
+      "width": 2,
+      "signed": false
+    }
+  },
+  "wire_prefix": "c9_",
+  "companion_widths": {
+    "rst_n": 1,
+    "polyphonic_valid": 1,
+    "apply_valid": 1,
+    "apply_kind": 4,
+    "apply_mask": 4,
+    "router_apply_seq_valid": 1,
+    "router_apply_seq": 32,
+    "apply_data": 64,
+    "advance_mask": 4,
+    "advance_frame_req_id": 32,
+    "config_valid": 1,
+    "config_ready": 1,
+    "config_take": 1,
+    "config_payload": 62,
+    "result_clip_mask": 2,
+    "effect_input_clip_mask": 2,
+    "upstream_clip_mask": 2,
+    "effect_clip_mask": 2,
+    "feedback_clip_mask": 2
+  },
+  "normalized_fields74": "Owned by unique R7-A C9 collector; B output is diagnostic CSV only",
+  "independent_apply_event_seq": null,
+  "audio_stable": null,
+  "private_hierarchy_used": false,
+  "compile_universes_separate": true,
+  "HDL_status": "NOT_RUN"
+}

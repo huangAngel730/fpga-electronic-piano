@@ -1,0 +1,32 @@
+{
+  "schema": "M3_R06_FRAME_PLAN_CANDIDATE_RECEIPT_V1",
+  "status": "L0_STATIC_CANDIDATE_NOT_RUN",
+  "execution": {
+    "source_imported": false,
+    "source_compiled": false,
+    "selftest_run": false,
+    "software_groups_consumed": 0,
+    "reason": "R6-5 initial and repair groups were already consumed; new M2 incremental admission is required."
+  },
+  "frozen_rules": {
+    "path": "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/FRAME_PLAN_RULES.json",
+    "sha256": "3c968a151b0b5369f9dd95465761b2d87449c29975b1fca914f81fc5cfd01560"
+  },
+  "properties": {
+    "observed_trace_is_input": false,
+    "transaction_activity_stops_generation": false,
+    "adjacent_epoch_gaps_allowed": false,
+    "global_cycle_zero_allowed": true,
+    "formula_k_is_local_frame_ordinal": true,
+    "reset_only_epoch_uses_null_release": true,
+    "calendar_and_tx_views_share_one_identity": true,
+    "real_authority_claimed": false,
+    "board_release_allowed": false
+  },
+  "pending": [
+    "M2 frozen independent reset/release/stop/finish input",
+    "M2 exact incremental execution admission and timebox",
+    "execution receipt and output identities",
+    "real public capture correlation"
+  ]
+}

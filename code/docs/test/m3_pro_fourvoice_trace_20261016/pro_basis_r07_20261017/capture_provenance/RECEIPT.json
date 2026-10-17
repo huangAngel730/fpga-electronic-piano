@@ -1,0 +1,76 @@
+{
+  "schema": "M3_R7_D_RECEIPT_V1",
+  "status": "SOFTWARE_READY_PENDING_REAL_CAPTURE_AND_M2_ADMISSION",
+  "level": "L1_SYNTHETIC_IDENTITY_FILE_TOOL_ONLY",
+  "baseline": "4fd3366e42fd2356e56eb96eee70b6771afd4bb1",
+  "initial_groups_consumed": 1,
+  "repair_groups_consumed": 0,
+  "limit_initial_s": 90,
+  "seconds": 1.1410000000032596,
+  "group_exit": 0,
+  "new_checks": 22,
+  "input_identity_stable": true,
+  "frozen_input_count": 275,
+  "HDL_EDA_hardware_calls": 0,
+  "B_tests_executed_from_D": 0,
+  "old_R06_groups_executed": 0,
+  "first_failure": null,
+  "pre_run_static_fixes": [
+    "Aligned A raw zero-based cycle / one-based source_line before first freeze",
+    "Added normalized internal capture/raw/reset/line/cycle/time link and full coverage before first freeze"
+  ],
+  "self_review": "OWN_READ_ONLY_AGENT_NO_CONCRETE_BLOCKER_NO_EXECUTION",
+  "source": {
+    "capture_provenance_py": "76939b200e66b896b438c958a0f81424e2bf7a7032c8d14e4881bf44c4f4825c",
+    "selftest_py": "56e8cdaf800f2cc20aa36158891264b5e593905d98a419f4482cfb5f9d73cb47",
+    "runner_py": "5511cee728272c9bcff4919494ae78bdea9033064a5b85de5ae0255ef7cd086f",
+    "readonly_R7_runner": "339d822069d51c818c0c49e49f747c301ce4aded99213a45a48b6a90f71dc442"
+  },
+  "run_spec": {
+    "path": "RUN_SPEC.json",
+    "sha256": "53c2b9d6c4c1c52a4dd383c308d5ff472b018bb4ea598ce9be5a3f02f2ccabf1"
+  },
+  "run_receipt": {
+    "path": "RUN_01/RECEIPT.json",
+    "sha256": "e2cd78d8af497a855b453c5e439c34a69b21d4d4f5328904c595b2012ac126bf"
+  },
+  "file_list": {
+    "path": "FILE_SHA.json",
+    "files": 595,
+    "sha256": "4a9ef19377fa3a1d75d07946af3557c30a8ba51ae96a5e93e839d8625540c94f",
+    "metadata_self_excluded": [
+      "FILE_SHA.json",
+      "RECEIPT.json"
+    ]
+  },
+  "synthetic_seal": {
+    "path": "RUN_01/products/sealed/SYNTHETIC_R7D_001.zip",
+    "bytes": 9240,
+    "sha256": "e75fe023c47229a97888b21eee4575991ea955141f0fd937b782371ba079a0fe",
+    "CRC_size_member_SHA_verified": true,
+    "real_capture": false
+  },
+  "claims": {
+    "tool_execution_authenticity": "UNKNOWN",
+    "input_window_independence": "DECLARED_NOT_AUTHENTICATED",
+    "projection_mathematics": "NOT_RECOMPUTED",
+    "source_closure_completeness": "NOT_ELABORATED",
+    "M2_admission": "PENDING",
+    "authority_authenticated": false,
+    "pro_dut_pass": false,
+    "board_release_allowed": false
+  },
+  "remaining": [
+    "Real capture and trusted executable receipt",
+    "M2 exact assembly/tool/safety admission",
+    "M1 actual semantics/math",
+    "R6 frame/epoch/TX/whole-window real checker results"
+  ],
+  "committed": false,
+  "pushed": false,
+  "publication_owner": "night_task1",
+  "reserved_roots_untouched": [
+    "coordinator",
+    "dependency_audit"
+  ]
+}

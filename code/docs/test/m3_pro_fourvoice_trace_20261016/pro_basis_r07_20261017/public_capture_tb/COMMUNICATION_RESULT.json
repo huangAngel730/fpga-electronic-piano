@@ -1,0 +1,23 @@
+{
+  "schema": "M3_R7A_COMMUNICATION_RESULT_V1",
+  "target_thread_id": "01a14050-cd98-7c41-8004-5d3e25765167",
+  "tool": "mcp__codex_app__send_message_to_thread",
+  "attempts": 1,
+  "status": "BLOCKED_AUTO_REVIEW_NOT_DELIVERED",
+  "tool_result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "This action was rejected due to unacceptable risk.\nReason: 该消息会向未由当前用户明确授权的线程发送包含内部路径、源码状态和产物哈希的项目数据；“请继续”不足以授权此次具体通信。\nDo not bypass this rejection through a workaround or indirect execution. Continue with a safer alternative, or carry out checks to prove that the action is authorized or low risk before trying again. Complete unaffected work without asking for confirmation. Report anything that remains blocked, clarify why it was blocked by auto-review, inform the user of the risk and ask for approval."
+      }
+    ],
+    "isError": true
+  },
+  "alternative": "LOCAL_HANDOFF_AND_ORIGINALS_SEALED_FOR_COORDINATOR_READ",
+  "retry_or_workaround_performed": false,
+  "archive": "R7A_PUBLIC_CAPTURE_ORIGINALS_20261017.zip",
+  "archive_sha256": "d24d8cb47ce589a3337c945e25bafb2f7f9b6e3112380179c7494fdf115e8dcf",
+  "archive_includes_this_post_delivery_receipt": false,
+  "git_submitted": false,
+  "git_pushed": false
+}

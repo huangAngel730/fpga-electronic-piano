@@ -1,0 +1,71 @@
+{
+  "schema": "M3_R06_PRO_BOARD_CAPTURE_SESSION_V1",
+  "session_id": "UNASSIGNED",
+  "status": "BLOCKED_PREFLIGHT",
+  "operator": null,
+  "started_at": null,
+  "ended_at": null,
+  "preflight": {
+    "physical_unit": {"status": "PENDING", "evidence": []},
+    "part_package": {"status": "PENDING", "value": null, "evidence": []},
+    "core_revision": {"status": "PENDING", "value": null, "evidence": []},
+    "dock_revision": {"status": "PENDING", "value": null, "evidence": []},
+    "bank_voltages": {"status": "PENDING", "measurements": [], "evidence": []},
+    "power_and_ground": {"status": "PENDING", "evidence": []},
+    "midi_electrical": {"status": "PENDING", "direction": null, "fpga_side_levels": null, "common_ground": null, "evidence": []},
+    "audio_load": {"status": "PENDING", "path": null, "load": null, "evidence": []},
+    "tool_runtime_license": {"status": "PENDING", "tools": [], "evidence": []},
+    "gate_status": "BLOCKED"
+  },
+  "build_identity": {
+    "top": null,
+    "sources_sha256": null,
+    "rom_sha256": null,
+    "constraints_sha256": null,
+    "pll_sha256": null,
+    "pnr_report_sha256": null,
+    "sta_report_sha256": null,
+    "timing_coverage": {"setup": "UNKNOWN", "hold": "UNKNOWN", "recovery": "UNKNOWN", "removal": "UNKNOWN", "cdc": "UNKNOWN", "unconstrained_paths": "UNKNOWN"},
+    "bitstream_path": null,
+    "bitstream_bytes": null,
+    "bitstream_sha256": null,
+    "recovery_identity": null
+  },
+  "programming_authority": {
+    "mode": "SRAM_ONLY_PENDING",
+    "exact_bitstream_sha256": null,
+    "permission_text_identity": null,
+    "single_use": true,
+    "consumed_count_before": 0,
+    "consumed_count_after": 0,
+    "flash_write_allowed": false
+  },
+  "instrumentation": [],
+  "scenes": [
+    {"scene_id": "S00_BOOT_RESET_MUTE_LOCK", "status": "NOT_RUN", "input_refs": [], "capture_refs": [], "observations": []},
+    {"scene_id": "S01_FIXED_NOTE", "status": "NOT_RUN", "input_refs": [], "capture_refs": [], "observations": []},
+    {"scene_id": "S02_FOUR_SOLOS", "status": "NOT_RUN", "input_refs": [], "capture_refs": [], "observations": []},
+    {"scene_id": "S03_FOUR_HOLD", "status": "NOT_RUN", "input_refs": [], "capture_refs": [], "observations": []},
+    {"scene_id": "S04_RELEASE_ONE_BY_ONE", "status": "NOT_RUN", "input_refs": [], "capture_refs": [], "observations": []},
+    {"scene_id": "S05_VELOCITY", "status": "NOT_RUN", "input_refs": [], "capture_refs": [], "observations": []},
+    {"scene_id": "S06_ACTIVE_RESET_RECOVERY", "status": "NOT_RUN", "input_refs": [], "capture_refs": [], "observations": []}
+  ],
+  "raw_artifacts": [],
+  "execution": {
+    "method": "NOT_RUN",
+    "argv_or_gui_options": null,
+    "cwd": null,
+    "exit_code": null,
+    "stdout": null,
+    "stderr": null,
+    "first_failure": null
+  },
+  "result": {
+    "scope": "OFFLINE_PREPARATION_ONLY",
+    "pass": [],
+    "fail": [],
+    "unknown": ["all physical and device results"],
+    "limitations": ["No device, EDA, programmer, logic analyzer, oscilloscope or audio operation has run."]
+  },
+  "board_release_allowed": false
+}

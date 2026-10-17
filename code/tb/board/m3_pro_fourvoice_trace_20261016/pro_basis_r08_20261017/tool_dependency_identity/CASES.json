@@ -1,0 +1,41 @@
+{
+  "schema": "M3_R08_CASES_V1",
+  "group": "S",
+  "cases": [
+    {
+      "id": "05_actual_native_file_inventory",
+      "expected": "PENDING_UNKNOWN",
+      "description": "Read pinned actual Python/ModelSim/Gowin EXE/DLL files only; unresolved loader dependencies remain UNKNOWN"
+    },
+    {
+      "id": "05_static_identity_graph",
+      "expected": "ACCEPT",
+      "description": "Frozen synthetic script/interpreter/helper static identity graph"
+    },
+    {
+      "id": "05_changed_tool",
+      "expected": "REJECT:FILE_IDENTITY_MISMATCH",
+      "description": "Tool bytes changed after pin"
+    },
+    {
+      "id": "05_missing_dependency",
+      "expected": "REJECT:DEPENDENCY_MISSING:helper",
+      "description": "Declared/static imported helper missing"
+    },
+    {
+      "id": "05_version_is_not_identity",
+      "expected": "REJECT:TOOL_FILE_IDENTITY_REQUIRED",
+      "description": "Version string cannot replace original file"
+    },
+    {
+      "id": "05_dynamic_dependency_unknown",
+      "expected": "PENDING_UNKNOWN",
+      "description": "Dynamic unresolved dependency never becomes execution qualification"
+    },
+    {
+      "id": "05_PE_import_missing",
+      "expected": "REJECT:DEPENDENCY_MISSING:missing.dll",
+      "description": "Parse inert synthetic PE import bytes without loading or executing"
+    }
+  ]
+}

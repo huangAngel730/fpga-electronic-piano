@@ -1,0 +1,50 @@
+{
+  "schema": "M3_R08_CASES_V1",
+  "component": "board_session_capture",
+  "group": "H",
+  "cases": [
+    {
+      "id": "H23_PRESERVE_RAW_FILES",
+      "expected": "INDEXED_SYNTHETIC_ONLY",
+      "description": "十类同会话原件本体只读复制并核SHA，WAV完整保留"
+    },
+    {
+      "id": "H23_WRONG_SESSION",
+      "expected": "SESSION_BINDING_DIFFERENCE",
+      "description": "换会话拒收"
+    },
+    {
+      "id": "H23_REPLACED_UART",
+      "expected": "RAW_FILE_IDENTITY",
+      "description": "换日志拒收"
+    },
+    {
+      "id": "H23_MISSING_MIDI",
+      "expected": "MISSING_OR_DUPLICATE_RAW_INPUT",
+      "description": "缺MIDI原始输入拒收"
+    },
+    {
+      "id": "H23_WRONG_FS",
+      "expected": "SESSION_BINDING_DIFFERENCE",
+      "description": "错.fs身份拒收"
+    },
+    {
+      "id": "H23_PATH_ESCAPE",
+      "expected": "PATH_ESCAPE",
+      "description": "原件路径逃逸拒收"
+    },
+    {
+      "id": "H23_SCREENSHOT_NOT_AUDIO",
+      "expected": "RAW_WAV_REQUIRED",
+      "description": "截图不能替代原音频"
+    },
+    {
+      "id": "H23_REAL_UNVERIFIED",
+      "expected": "PENDING_REAL_BOARD_SESSION_ADMISSION",
+      "description": "改origin不能认证真实板测"
+    }
+  ],
+  "executed": false,
+  "execution_owner": "night1 only",
+  "old_selftests_or_runners_invoked": false
+}

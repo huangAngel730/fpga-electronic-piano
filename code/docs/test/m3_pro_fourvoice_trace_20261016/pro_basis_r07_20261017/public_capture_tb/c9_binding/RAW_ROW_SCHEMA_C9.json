@@ -1,0 +1,418 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "capture_id",
+    "source_line",
+    "cycle",
+    "time_ps",
+    "epoch",
+    "epoch_reason",
+    "finish",
+    "ports"
+  ],
+  "properties": {
+    "schema": {
+      "const": "M3_R7A_C9_RAW_CORE_ROW_V1"
+    },
+    "capture_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]+$"
+    },
+    "source_line": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "cycle": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "time_ps": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "epoch": {
+      "type": "null"
+    },
+    "epoch_reason": {
+      "const": "BIND_FROM_INDEPENDENT_RESET_EDGES"
+    },
+    "finish": {
+      "type": "integer",
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "ports": {
+      "type": "object",
+      "required": [
+        "obs_core_clk",
+        "obs_polyphonic_valid",
+        "obs_rst_n",
+        "obs_frame_tick",
+        "obs_event_valid",
+        "obs_event_ready",
+        "obs_event_data",
+        "obs_req_valid",
+        "obs_req_ready",
+        "obs_result_valid",
+        "obs_result_ready",
+        "obs_result_id",
+        "obs_result_left",
+        "obs_result_right",
+        "obs_result_clip_mask",
+        "obs_req_id",
+        "obs_commit",
+        "obs_commit_id",
+        "obs_commit_left",
+        "obs_commit_right",
+        "obs_commit_clip",
+        "obs_cancel",
+        "obs_config_valid",
+        "obs_config_ready",
+        "obs_tx_left",
+        "obs_tx_right",
+        "obs_pll_locked",
+        "obs_tx_sample_valid",
+        "obs_tx_metadata_valid",
+        "obs_tx_req_id_valid",
+        "obs_tx_frame_id",
+        "obs_tx_req_id",
+        "obs_tx_clip_mask",
+        "obs_tx_clip_any",
+        "obs_tx_hold",
+        "obs_tx_startup_zero",
+        "obs_metadata_error",
+        "obs_frame_id_overflow",
+        "obs_raw_cancel_reason",
+        "obs_apply_valid",
+        "obs_apply_data",
+        "obs_occupied_mask",
+        "obs_releasing_mask",
+        "obs_note_on_mask",
+        "obs_note_off_mask",
+        "obs_retire_mask",
+        "obs_slot_sources",
+        "obs_slot_channels",
+        "obs_slot_notes",
+        "obs_slot_generations",
+        "obs_advance_mask",
+        "obs_advance_frame_req_id",
+        "obs_effect_input_valid",
+        "obs_effect_input_ready",
+        "obs_effect_input_id",
+        "obs_effect_input_left",
+        "obs_effect_input_right",
+        "obs_effect_input_clip_mask",
+        "obs_apply_kind",
+        "obs_apply_mask",
+        "obs_router_apply_seq",
+        "obs_router_apply_seq_valid",
+        "obs_config_take",
+        "obs_config_payload",
+        "obs_upstream_clip_mask",
+        "obs_effect_clip_mask",
+        "obs_feedback_clip_mask",
+        "i2s_bclk",
+        "i2s_lrck",
+        "i2s_din",
+        "pa_en",
+        "uart_tx"
+      ],
+      "properties": {
+        "obs_core_clk": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_polyphonic_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_rst_n": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_frame_tick": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_event_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_event_ready": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_event_data": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{64}$"
+        },
+        "obs_req_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_req_ready": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_result_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_result_ready": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_result_id": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{32}$"
+        },
+        "obs_result_left": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{24}$"
+        },
+        "obs_result_right": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{24}$"
+        },
+        "obs_result_clip_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{2}$"
+        },
+        "obs_req_id": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{32}$"
+        },
+        "obs_commit": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_commit_id": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{32}$"
+        },
+        "obs_commit_left": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{24}$"
+        },
+        "obs_commit_right": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{24}$"
+        },
+        "obs_commit_clip": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_cancel": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_config_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_config_ready": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_tx_left": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{24}$"
+        },
+        "obs_tx_right": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{24}$"
+        },
+        "obs_pll_locked": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_tx_sample_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_tx_metadata_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_tx_req_id_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_tx_frame_id": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{32}$"
+        },
+        "obs_tx_req_id": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{32}$"
+        },
+        "obs_tx_clip_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{2}$"
+        },
+        "obs_tx_clip_any": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_tx_hold": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_tx_startup_zero": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_metadata_error": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_frame_id_overflow": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_raw_cancel_reason": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{2}$"
+        },
+        "obs_apply_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_apply_data": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{64}$"
+        },
+        "obs_occupied_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{4}$"
+        },
+        "obs_releasing_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{4}$"
+        },
+        "obs_note_on_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{4}$"
+        },
+        "obs_note_off_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{4}$"
+        },
+        "obs_retire_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{4}$"
+        },
+        "obs_slot_sources": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{16}$"
+        },
+        "obs_slot_channels": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{16}$"
+        },
+        "obs_slot_notes": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{32}$"
+        },
+        "obs_slot_generations": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{128}$"
+        },
+        "obs_advance_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{4}$"
+        },
+        "obs_advance_frame_req_id": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{32}$"
+        },
+        "obs_effect_input_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_effect_input_ready": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_effect_input_id": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{32}$"
+        },
+        "obs_effect_input_left": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{24}$"
+        },
+        "obs_effect_input_right": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{24}$"
+        },
+        "obs_effect_input_clip_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{2}$"
+        },
+        "obs_apply_kind": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{4}$"
+        },
+        "obs_apply_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{4}$"
+        },
+        "obs_router_apply_seq": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{32}$"
+        },
+        "obs_router_apply_seq_valid": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_config_take": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "obs_config_payload": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{62}$"
+        },
+        "obs_upstream_clip_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{2}$"
+        },
+        "obs_effect_clip_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{2}$"
+        },
+        "obs_feedback_clip_mask": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{2}$"
+        },
+        "i2s_bclk": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "i2s_lrck": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "i2s_din": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "pa_en": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        },
+        "uart_tx": {
+          "type": "string",
+          "pattern": "^[01xXzZ]{1}$"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

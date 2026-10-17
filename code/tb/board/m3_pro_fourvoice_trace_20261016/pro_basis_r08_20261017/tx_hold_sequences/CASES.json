@@ -1,0 +1,40 @@
+{
+  "schema": "M3_R08_CASES_V1",
+  "component": "tx_hold_sequences",
+  "group": "T",
+  "cases": [
+    {
+      "id": "T14_INDEPENDENT_HELD",
+      "expected": "SCENARIO_MATCH_SYNTHETIC",
+      "description": "独立计划startup null、ID0、关闭事务后重复HOLD、同PCM新ID7、reset清除"
+    },
+    {
+      "id": "T14_SAME_PCM_OTHER_ID",
+      "expected": "TX_SCENARIO_DIFFERENCE",
+      "description": "同PCM不能掩盖HOLD身份改变"
+    },
+    {
+      "id": "T14_HOLD_CLIP_CHANGE",
+      "expected": "TX_SCENARIO_DIFFERENCE",
+      "description": "HOLD clip01变10且OR相同仍拒"
+    },
+    {
+      "id": "T14_STARTUP_ID0",
+      "expected": "TX_SCENARIO_DIFFERENCE",
+      "description": "startup无效ID的null与数字0区分"
+    },
+    {
+      "id": "T14_HOLD_AFTER_RESET",
+      "expected": "HOLD_AFTER_RESET_OR_STARTUP",
+      "description": "reset后不能复活held"
+    },
+    {
+      "id": "T14_TRACE_DERIVED",
+      "expected": "SCENARIO_NOT_INDEPENDENT",
+      "description": "不得从被核观察生成独立场景"
+    }
+  ],
+  "executed": false,
+  "execution_owner": "night1 only",
+  "old_selftests_or_runners_invoked": false
+}

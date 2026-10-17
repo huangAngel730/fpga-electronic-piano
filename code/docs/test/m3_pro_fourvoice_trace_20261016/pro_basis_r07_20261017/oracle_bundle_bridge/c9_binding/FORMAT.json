@@ -1,0 +1,100 @@
+{
+  "schema": "M3_R7C_C9_BRIDGE_FORMAT_V1",
+  "baseline": "16ac226552f6fb65347b229b8fad42146ed45644",
+  "contract": {
+    "source_units": 72,
+    "roms": 9,
+    "headers": 2,
+    "public_ports": 67,
+    "normalized_fields": 74,
+    "new_routes": 28,
+    "sampling_phase": "POSEDGE_PRE_NBA"
+  },
+  "trace_format": "UTF-8 JSONL; one M3_R7C_C9_PUBLIC_ROW_V1 object per physical line",
+  "input_modes": {
+    "r7c-contract": "consume the native M3_R7C_C9_PUBLIC_ROW_V1 envelope",
+    "r7a-public-c9": "mechanically adapt Role A M3_R7A_C9_PUBLIC_ROW_V1 / PUBLIC_ROWS_C9.jsonl"
+  },
+  "r7a_adapter_boundary": {
+    "required_upstream_envelope": [
+      "schema",
+      "capture_id",
+      "origin",
+      "source",
+      "fields",
+      "raw_ports",
+      "missing_reasons",
+      "events",
+      "semantics"
+    ],
+    "field_policy": "require exactly the same 74 names, retain every value, and reorder keys mechanically to the frozen C9 schema order",
+    "source_policy": "auto-bind PUBLIC_ROWS_C9.jsonl by path/bytes/SHA-256 when the published base binding is still pending; copy upstream raw_sha256 as raw_capture_sha256 and preserve line/cycle/epoch/PRE_NBA",
+    "evidence_policy": "preserve upstream source, raw_ports, missing_reasons, events and semantics in upstream_evidence; bind the physical upstream row by raw_line_sha256",
+    "plan_policy": "set plan_association to null; reject any non-null apply_event_seq or declaration-only association until the plan body and actual acceptance evidence are verified",
+    "manual_json_edit_required": false
+  },
+  "row_envelope_required": [
+    "schema",
+    "capture_id",
+    "origin",
+    "source",
+    "fields",
+    "plan_association"
+  ],
+  "source_required": [
+    "trace_path",
+    "raw_capture_sha256",
+    "line",
+    "cycle",
+    "epoch",
+    "sampling_phase"
+  ],
+  "fields_contract": "exact ordered required list from NORMALIZED_ROW_SCHEMA_R06C9.json; 74/74; null/X/Z retained",
+  "preserved_c9_stage_fields": [
+    "apply_valid",
+    "apply_data",
+    "apply_kind",
+    "apply_mask",
+    "router_apply_seq",
+    "router_apply_seq_valid",
+    "config_take",
+    "upstream_clip_mask",
+    "effect_clip_mask",
+    "feedback_clip_mask"
+  ],
+  "semantic_rules": {
+    "invalid_cause_sentinel": "kind 3/4/8 with apply_data=0, router_apply_seq=0 and router_apply_seq_valid=0 is INVALID_CAUSE_SENTINEL",
+    "valid_router_seq_zero": "zero remains legal when router_apply_seq_valid=1",
+    "same_seq_multi_stage": "kind 1 and kind 2 may share a valid router sequence and remain separate ordered source rows",
+    "input_plan_sequence": "apply_event_seq remains null; any non-null value or declaration-only association is rejected until the independent plan body and actual acceptance evidence are read and verified; router sequence equality is insufficient",
+    "frame_origin": "FRAME F is derived only from frame_tick; advance_frame_req_id is preserved only as a request tag",
+    "lane_advance": "only exact 4'b1111 in advance_mask establishes all-four-lane advance; partial masks are false and X/Z/null are pending with raw values retained",
+    "config_take": "62-bit config_payload is interpreted only with actual config_take; this bridge preserves both raw fields",
+    "clip": "upstream/effect/feedback two-bit masks remain separate from effect_input/result/TX clip observations",
+    "audio_stable": "raw value is preserved; policy and real public implementation remain pending"
+  },
+  "output": {
+    "schema": "M3_R7C_C9_MECHANICAL_INDEX_V1",
+    "top_level_provenance": [
+      "trace_input path/bytes/sha256",
+      "input_adapter mode/upstream schema/no-invention flags"
+    ],
+    "per_row": [
+      "source including raw_line_sha256 and upstream_evidence for Role A rows",
+      "all 74 fields",
+      "frame_f",
+      "advance_request_tag",
+      "lane_advance raw/status/reason",
+      "apply raw fields/classification/independent_apply_event_seq",
+      "config_take",
+      "three separate clip masks",
+      "audio_stable_raw"
+    ]
+  },
+  "authority": {
+    "level": "L0_STATIC_SOURCE_NOT_RUN",
+    "dsp_oracle": false,
+    "real_verified": false,
+    "board_release_allowed": false
+  }
+}

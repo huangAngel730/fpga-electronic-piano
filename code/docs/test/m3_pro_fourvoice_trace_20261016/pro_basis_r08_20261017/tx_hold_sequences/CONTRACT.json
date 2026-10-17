@@ -1,0 +1,15 @@
+{
+  "schema": "M3_R08_ROLE_C_COMPONENT_CONTRACT_V1",
+  "component": "tx_hold_sequences",
+  "task": "R8-14",
+  "group": "T",
+  "input_schema": "M3_R08_INDEPENDENT_TX_SCENARIO_PLAN_V1 (plan字段)",
+  "production_cli": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/r08c14_sequences.py",
+  "selftest": "run_case(case_id, output_dir)->dict; exclusive nonexistent directory",
+  "cases": 6,
+  "execution_status": "NOT_RUN",
+  "executed_by_this_window": 0,
+  "real_pro_pass": false,
+  "board_release_allowed": false,
+  "known_limits": "不调用旧摄取器或旧checker；不新增内部请求、DSP或权威帧计划。"
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "M3_R08_CASES_V1",
+  "group": "S",
+  "cases": [
+    {
+      "id": "04_reserve_finalize",
+      "expected": "ACCEPT",
+      "description": "First local claim and terminal receipt persist"
+    },
+    {
+      "id": "04_replay_claim",
+      "expected": "REJECT:ALREADY_CLAIMED_OR_CONSUMED",
+      "description": "A claim cannot be used twice"
+    },
+    {
+      "id": "04_failed_cannot_reset",
+      "expected": "REJECT:ALREADY_CLAIMED_OR_CONSUMED",
+      "description": "Failure leaves consumed historical state"
+    },
+    {
+      "id": "04_nonce_mismatch",
+      "expected": "REJECT:CLAIM_IDENTITY_MISMATCH",
+      "description": "Wrong nonce cannot finalize another claim"
+    },
+    {
+      "id": "04_escape",
+      "expected": "REJECT:RESERVATION_SCOPE",
+      "description": "Output root cannot escape authorized namespace"
+    },
+    {
+      "id": "04_existing_output",
+      "expected": "REJECT:OUTPUT_EXISTS_OR_ALIAS",
+      "description": "Existing output retained and failed claim preserved"
+    },
+    {
+      "id": "04_thread_race",
+      "expected": "ACCEPT",
+      "description": "Four thread contenders yield one owner and three exact refusals"
+    }
+  ]
+}

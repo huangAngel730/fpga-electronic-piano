@@ -1,0 +1,21 @@
+{
+  "schema": "M3_R08_ROLE_A_STATIC_SELF_REVIEW_V1",
+  "status": "STATIC_READ_ONLY_REVIEWED_NOT_EXECUTED",
+  "candidate_imports": 0,
+  "candidate_executions": 0,
+  "subprocess_tool_device_actions": 0,
+  "findings_fixed_before_first_group": [
+    {"component": "03", "finding": "Legacy adapter top-level ctypes initialization conflicts with process-free import boundary", "fix": "Select pinned unchanged pure algorithm AST nodes and safe imports; preserve derivation evidence; no ctypes/Job/worker route"},
+    {"component": "04", "finding": "Existing claims subdirectory could alias outside root", "fix": "Check claims/claim/terminal/output no_alias and resolved containment before first claim write"},
+    {"component": "02", "finding": "Omitted required input could be missed", "fix": "Require connected input or declared default; unresolved defaults remain unresolved"},
+    {"component": "02", "finding": "Output constant/expression or unsupported slice could bypass driver checks", "fix": "Require declared bare output net; reject constants/expressions; unsupported output range remains PENDING"},
+    {"component": "02", "finding": "Same-name parameter override read callee default", "fix": "Resolve overrides in caller environment; unknown caller values remain unresolved; four new counterexamples"},
+    {"component": "shared_cli", "finding": "Malformed JSON/root could omit machine result", "fix": "Save raw bytes first, parse inside structured rejection handling, require object root before component call"}
+  ],
+  "review_method": "Owner source reading plus two explicitly authorized read-only helper agents; no reviewer/pre-reviewer workflow",
+  "actual_validation_level": "L0_STATIC_SOURCE_AND_JSON_METADATA_ONLY",
+  "first_execution_failure_originals": "NOT_APPLICABLE_NOT_RUN; coordinator must preserve first actual failure",
+  "known_limits": ["No syntax/import/functional tests executed by role A", "Port parser is a declared lexical subset and source defaults only", "PE/dynamic dependency closure incomplete", "Output reservation does not qualify a process executor", "Real photos/electrical originals absent", "M2 admission and actual hardware remain pending"],
+  "real_pass": false,
+  "board_release_allowed": false
+}

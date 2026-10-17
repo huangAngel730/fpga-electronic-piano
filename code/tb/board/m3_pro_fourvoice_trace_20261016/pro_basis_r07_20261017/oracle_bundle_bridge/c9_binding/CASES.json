@@ -1,0 +1,27 @@
+{
+  "schema": "M3_R7C_C9_CASES_V1",
+  "status": "NOT_RUN",
+  "group": "T_C9_SUCCESSOR_NO_NEW_BUDGET",
+  "cases": [
+    {"id": "C9_CONTRACT_BINDING_ACCEPT", "expected": "SYNTHETIC_C9_INDEX", "description": "bind the published 72-source, 9-ROM, 2-header closure to the exact 74-field and 67-port contracts"},
+    {"id": "PRESERVE_C9_FIELDS", "expected": "PASS", "description": "preserve kind, mask, router sequence validity, config_take and all three clip masks with line provenance"},
+    {"id": "INVALID_SENTINEL_348", "expected": "INVALID_CAUSE_SENTINEL", "description": "kind 3, 4 and 8 with zero data/sequence and invalid sequence are not promoted to real events"},
+    {"id": "SHARED_SEQ_MULTI_STAGE", "expected": "PASS", "description": "kind 1 and 2 rows sharing one valid router sequence remain two ordered stages"},
+    {"id": "ROUTER_SEQ_NOT_PLAN_SEQ_REJECT", "expected": "INDEPENDENT_PLAN_MAPPING_UNVERIFIED", "description": "router sequence equality alone cannot populate independent input-plan apply_event_seq"},
+    {"id": "INDEPENDENT_PLAN_ASSOCIATION_REJECT", "expected": "INDEPENDENT_PLAN_MAPPING_UNVERIFIED", "description": "a declaration-only association and formatted hash cannot supply apply_event_seq without reading and verifying the plan body and actual acceptance evidence"},
+    {"id": "ADVANCE_TAG_NOT_FRAME", "expected": "PASS", "description": "advance_frame_req_id remains a request tag while FRAME F comes only from frame_tick"},
+    {"id": "PARTIAL_MASK_NOT_FOUR_LANE", "expected": "PARTIAL_LANE_MASK", "description": "a nonzero partial 4-bit mask does not establish all-four-lane advance"},
+    {"id": "UNKNOWN_MASK_PENDING", "expected": "PENDING_UNKNOWN_LANE_MASK", "description": "an X-bearing advance mask is preserved with an explicit pending reason"},
+    {"id": "BINARY_1111_FOUR_LANE", "expected": "ALL_FOUR_LANES", "description": "an exact four-bit binary 1111 representation establishes all-four-lane advance"},
+    {"id": "VALID_ROUTER_SEQ_ZERO", "expected": "ROUTER_STAGE_PRESERVED", "description": "router sequence zero remains a legal first accepted cause when its validity bit is one"},
+    {"id": "FIELD_74_REQUIRED_REJECT", "expected": "FIELDS_NOT_EXACT_74", "description": "missing one of the published 74 fields is rejected"},
+    {"id": "SOURCE_LINE_MISMATCH_REJECT", "expected": "SOURCE_IDENTITY", "description": "per-row source line, cycle, epoch and phase must match the raw row"},
+    {"id": "CONTRACT_HASH_MISMATCH_REJECT", "expected": "FROZEN_INPUT_IDENTITY", "description": "substituting a schema while retaining its role is rejected"},
+    {"id": "UNKNOWN_SEMANTICS_PENDING", "expected": "PENDING_UNKNOWN_APPLY_SEMANTICS", "description": "X/null apply and audio stability values remain pending instead of becoming zero or valid"},
+    {"id": "R7A_PUBLIC_ROWS_MECHANICAL_ADAPTER", "expected": "PASS", "description": "consume Role A M3_R7A_C9_PUBLIC_ROW_V1 rows mechanically, preserve all 74 field values and upstream evidence, auto-bind the input file identity, and leave plan association pending"},
+    {"id": "R7A_ADAPTER_FIELD_LOSS_REJECT", "expected": "R7A_FIELDS_NOT_EXACT_74", "description": "reject a Role A envelope that loses any one of the 74 normalized fields"}
+  ],
+  "execution": {"cases_run": 0, "budget_consumed": 0},
+  "old_r7c_cases_reused_or_run": 0,
+  "board_release_allowed": false
+}

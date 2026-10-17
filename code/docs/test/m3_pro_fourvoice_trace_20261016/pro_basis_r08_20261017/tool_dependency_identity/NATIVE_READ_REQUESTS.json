@@ -1,0 +1,197 @@
+{
+  "schema": "M3_R08_NATIVE_READ_REQUESTS_V1",
+  "tools": [
+    {
+      "name": "Python",
+      "request": {
+        "schema": "M3_R08_TOOL_IDENTITY_REQUEST_V1",
+        "origin": "REAL_CANDIDATE",
+        "coverage": "IDENTITY_ONLY",
+        "tool": {
+          "file": {
+            "path": "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "bytes": 104208,
+            "sha256": "4e5a83fcdcd12bcb9ae4dc98c5405effe35dc5ac10d89982c6a6a3646493f88a"
+          },
+          "kind": "PE"
+        },
+        "dependencies": [
+          {
+            "name": "python312.dll",
+            "file": {
+              "path": "C:\\Users\\songdongkuan\\miniconda3\\python312.dll",
+              "bytes": 7463696,
+              "sha256": "d9438d6b474a6c5d7bc9271b77b2da9f08a5b7ac32dc9dd4b75061a6dd8da078"
+            },
+            "kind": "PE"
+          }
+        ],
+        "expected_dependencies": [],
+        "unresolved_dynamic_dependencies": [
+          "DYNAMIC_LOADER_LICENSE_RUNTIME_NOT_MEASURED"
+        ]
+      }
+    },
+    {
+      "name": "ModelSim_SE_candidate",
+      "request": {
+        "schema": "M3_R08_TOOL_IDENTITY_REQUEST_V1",
+        "origin": "REAL_CANDIDATE",
+        "coverage": "IDENTITY_ONLY",
+        "tool": {
+          "file": {
+            "path": "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vsim.exe",
+            "bytes": 5058416,
+            "sha256": "011f110291dc69707d7118e8f8d712b91438e0c837f9bc10ce6bf53c1d048cfd"
+          },
+          "kind": "PE"
+        },
+        "dependencies": [
+          {
+            "name": "cdbg_load.dll",
+            "file": {
+              "path": "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\cdbg_load.dll",
+              "bytes": 115378,
+              "sha256": "1a648d21f81a247df4eec4d9452b203295041fcc4155f9a0e8eb5236565f980e"
+            },
+            "kind": "PE"
+          },
+          {
+            "name": "dbghelp.dll",
+            "file": {
+              "path": "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\dbghelp.dll",
+              "bytes": 1527488,
+              "sha256": "f0c1ba2e0c1c849d142372ec33b9d1630a2136107e7b91b99b487e0d5df6d699"
+            },
+            "kind": "PE"
+          },
+          {
+            "name": "fsmST.dll",
+            "file": {
+              "path": "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\fsmST.dll",
+              "bytes": 704000,
+              "sha256": "43a679a1956cc4020584f8c7d8e5812bc166eecad50ae63a8097f2a0f54c7016"
+            },
+            "kind": "PE"
+          }
+        ],
+        "expected_dependencies": [],
+        "unresolved_dynamic_dependencies": [
+          "DYNAMIC_LOADER_LICENSE_RUNTIME_NOT_MEASURED"
+        ]
+      }
+    },
+    {
+      "name": "ModelSim_vlog",
+      "request": {
+        "schema": "M3_R08_TOOL_IDENTITY_REQUEST_V1",
+        "origin": "REAL_CANDIDATE",
+        "coverage": "IDENTITY_ONLY",
+        "tool": {
+          "file": {
+            "path": "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vlog.exe",
+            "bytes": 21366640,
+            "sha256": "39e7f5cbae66a5aa65a179f5ab8faee01a0c53dc838e5e2b76510ac6c77e80a6"
+          },
+          "kind": "PE"
+        },
+        "dependencies": [],
+        "expected_dependencies": [],
+        "unresolved_dynamic_dependencies": [
+          "DYNAMIC_LOADER_LICENSE_RUNTIME_NOT_MEASURED"
+        ]
+      }
+    },
+    {
+      "name": "ModelSim_vlib",
+      "request": {
+        "schema": "M3_R08_TOOL_IDENTITY_REQUEST_V1",
+        "origin": "REAL_CANDIDATE",
+        "coverage": "IDENTITY_ONLY",
+        "tool": {
+          "file": {
+            "path": "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vlib.exe",
+            "bytes": 3590512,
+            "sha256": "12fa9f43fac4af70f9694e6055f376dcc419c39518a0e30d7aa047c37aaca576"
+          },
+          "kind": "PE"
+        },
+        "dependencies": [],
+        "expected_dependencies": [],
+        "unresolved_dynamic_dependencies": [
+          "DYNAMIC_LOADER_LICENSE_RUNTIME_NOT_MEASURED"
+        ]
+      }
+    },
+    {
+      "name": "Gowin_gw_sh",
+      "request": {
+        "schema": "M3_R08_TOOL_IDENTITY_REQUEST_V1",
+        "origin": "REAL_CANDIDATE",
+        "coverage": "IDENTITY_ONLY",
+        "tool": {
+          "file": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\gowin_1_9_11_03\\IDE\\bin\\gw_sh.exe",
+            "bytes": 33064,
+            "sha256": "4c172d4c0d2a4c7ef5c764d091a315cbcde2127573554bfd7d09ac6f2e5ea535"
+          },
+          "kind": "PE"
+        },
+        "dependencies": [
+          {
+            "name": "alog.dll",
+            "file": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\gowin_1_9_11_03\\IDE\\bin\\alog.dll",
+              "bytes": 34816,
+              "sha256": "51887f57cb4f1ba5a441faad6c969bebf294f4be12935a5a96932245072946c7"
+            },
+            "kind": "PE"
+          },
+          {
+            "name": "Assistant.dll",
+            "file": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\gowin_1_9_11_03\\IDE\\bin\\Assistant.dll",
+              "bytes": 29696,
+              "sha256": "8a70325b6d19163198f25ed616be8df79e40d40644bc8c20788bdd3efcd2b1ac"
+            },
+            "kind": "PE"
+          },
+          {
+            "name": "CmdOption.dll",
+            "file": {
+              "path": "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\gowin_1_9_11_03\\IDE\\bin\\CmdOption.dll",
+              "bytes": 133632,
+              "sha256": "894ef5dedf293e894cbf7cc5135d452b1775d81ba54e821fd04149292d2e6d69"
+            },
+            "kind": "PE"
+          }
+        ],
+        "expected_dependencies": [],
+        "unresolved_dynamic_dependencies": [
+          "DYNAMIC_LOADER_LICENSE_RUNTIME_NOT_MEASURED"
+        ]
+      }
+    },
+    {
+      "name": "GowinSynthesis",
+      "request": {
+        "schema": "M3_R08_TOOL_IDENTITY_REQUEST_V1",
+        "origin": "REAL_CANDIDATE",
+        "coverage": "IDENTITY_ONLY",
+        "tool": {
+          "file": {
+            "path": "E:\\FPGA\\GAOYUNFPGA\\138K\\tools\\gowin_1_9_11_03\\IDE\\bin\\GowinSynthesis.exe",
+            "bytes": 21800,
+            "sha256": "c116ecc6bc3d66a7e9d88082fb3e128117e2488786d31f4bd3ca11024fe8cd55"
+          },
+          "kind": "PE"
+        },
+        "dependencies": [],
+        "expected_dependencies": [],
+        "unresolved_dynamic_dependencies": [
+          "DYNAMIC_LOADER_LICENSE_RUNTIME_NOT_MEASURED"
+        ]
+      }
+    }
+  ]
+}

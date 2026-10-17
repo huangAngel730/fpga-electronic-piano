@@ -1,0 +1,41 @@
+{
+  "scope": "NEW_CONSUMER_FORGERY_AND_IMMEDIATE_GUARD_ONLY",
+  "plan_mutations": [
+    "argv_arguments",
+    "argv_worker",
+    "argv_python",
+    "cwd",
+    "output_dir",
+    "consumption_marker",
+    "timeout_seconds",
+    "inputs",
+    "helper_identity",
+    "spec_identity",
+    "runtime_identity",
+    "unknown_field",
+    "mode",
+    "approved",
+    "status",
+    "fixture_authority",
+    "tool_kind",
+    "real_tool_launch_route_present",
+    "fixed_cwd"
+  ],
+  "extra_cases": [
+    "rebuilt_consumer_control",
+    "spec_and_plan_rehashed",
+    "spawn_argument_argv",
+    "spawn_argument_cwd",
+    "spawn_argument_shell",
+    "late_plan_tamper"
+  ],
+  "expected": {
+    "new_cases": 25,
+    "positive_controls": 1,
+    "negative_cases": 24,
+    "CLI_negative_exit2": 2,
+    "fixed_worker_launches": 1
+  },
+  "old_seven_cases_replayed": 0,
+  "tree_timeout_overflow_proof_extended": false
+}

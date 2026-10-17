@@ -1,0 +1,39 @@
+{
+  "schema": "M3_R08_ROLE_B_READY_V1",
+  "baseline": "ef4fbc74b9d24e08de1e09d0be0eb3163118f258",
+  "status": "SOURCE_AND_CASES_READY_PENDING_COORDINATOR_EXECUTION",
+  "execution": {
+    "python_imported": false,
+    "python_compiled": false,
+    "cases_run": 0,
+    "hdl_compiled": false,
+    "eda_or_device_called": false,
+    "git_write_performed": false
+  },
+  "groups": {
+    "C": {"local_components": 6, "local_cases": 42, "budget_consumed": 0},
+    "H": {"local_components": 2, "local_cases": 22, "budget_consumed": 0},
+    "R": {"r63_cases": 12, "r65_cases": 11, "generator_cases": 4,
+          "cross_package_cases": 2, "budget_consumed": 0}
+  },
+  "artifacts": [
+    {"id":"R8-07","directory":"capture_csv_codec","source_sha256":"e29bd7e4ffb9d1c902dd2ffc2b676e6df25aa8c98ce1f31f26fcf4daa432ed97","selftest_sha256":"408b0bf7d6d059cec3f235056734199361808720499cece65ab48c5aa7cb5ae9","cases_sha256":"46df5173b336dc8f31772ca0d20108b65213e98d0517c4c6dc436b84630b8ee4"},
+    {"id":"R8-08","directory":"async_reset_events","source_sha256":"50e8f4e15f7826744f827f9ef7d12cb7bde62357a0e19f752f251470220e97ef","selftest_sha256":"43754a695b00a87b8441836c915fff4560b21938929ced60bb50723bdb8595ed","cases_sha256":"921e74daae5aa87f39be9b7aab9dda3443353352739401243ffd0a7d152b0ccd","hdl_sha256":"53cd2154243ef8006fb00700b942945b38dd9c2006e01baf91d4bf94d5187527","integration_diff_sha256":"4df6aa5f05c06f71a1a5fa7b7e33dce905cae3a5da59f8c87042eddc3b13db9d"},
+    {"id":"R8-09","directory":"frame_coverage_diff","source_sha256":"0ecfa1d080abb5594f53c9649a2c962c36c7f6f9925a9a8645e03ecd8b4eff9b","selftest_sha256":"458f1d0203622199151a457f21e9a1f1aaa0795242168a1c4a9d7fa3bd7f46f8","cases_sha256":"182a16debc68e56aeeb741cff41dffc723f4cd6587fcc15bf05cd23699301b6b"},
+    {"id":"R8-10","directory":"frame_accept_provenance","source_sha256":"3cb3e0bc89ea1aa8b4dce5b764a60d334eeef2201bd1bbe33fc93d94da92980f","selftest_sha256":"0306d7ac276afe571f53a1462421093e2ecdf6f20849bac865f42aff3576f2a8","cases_sha256":"c5c0525a8c09607db38aba70db8ea6617c3c35564026a58d95f46d2a65fb8a0a"},
+    {"id":"R8-11","directory":"finish_protocol_recorder","source_sha256":"82474383aa78a4b00ce4559d5dca3012fb22bc0af02c0265849c03a765fbb2f1","selftest_sha256":"3054f74be719dabc38d07493cf585e88f02ed19a08a8422068330905335da9a9","cases_sha256":"a2fca3616c2b48e8abfa9c039bc4216e0ad9751459d72af0081e10be4eecd4ce"},
+    {"id":"R8-12","directory":"real_authority_graph","source_sha256":"dc4dc49c7a57ca9d9e240ca5f63b9a27f651108722256c55e347f42ef1db46a9","selftest_sha256":"b95d2ddaac9aadc4728cfe2b0530e8825b8b2827a537b422f931ffd5ee257570","cases_sha256":"3addfe0a89a88fc4916abc441a6f3cb2722bb5bfbdaeaa09d7dbc1d5a9dacf57"},
+    {"id":"R8-21","directory":"measurement_profile","source_sha256":"7ca49b20fcace7b526ba7cb1dfa5c3812baa7d8d706f45356aa7b98b067f5729","selftest_sha256":"8e8ffd841f90585dd2c552db156b1c2988a34d36c941c45f2ff247fa72c91ed3","cases_sha256":"b6ada2f6c64f8c169f5dd4229279e603c5cdfbb424300ba47144035291abfa8b"},
+    {"id":"R8-22","directory":"latency_alignment","source_sha256":"8cf77712878d2376ebb5dcae09e288387fc14fca2b7c9f8ae49ca7f2ef91cdd7","selftest_sha256":"2b49f4b2d1762a35d081495f10aff3547d7566a496d928e785dad77e34cd5ce5","cases_sha256":"a3ba08f02f1eed893a2f1bbe1207c1a46f98806e2bbb0a54a7cacf9a946a3400"},
+    {"id":"R08-SW-R","directory":"normalized_intake/r08_integration","selftest_sha256":"1f9d1a593a5277b086b352bfe3f6ab65f914014751d7a1d55bf74029de1e1dd8","cases_sha256":"9e66aefe78cf0151ab2723190e01cd836c6e7c46ef5e546d5d6ea1a855cde790"}
+  ],
+  "pending": [
+    "coordinator-only bounded execution for groups R and C",
+    "three-writer H group merge before coordinator execution",
+    "actual R7-A capture and trusted receipts",
+    "actual instrument specifications, calibration and same-session captures",
+    "M2 admission for REAL or physical claims"
+  ],
+  "real_verified": false,
+  "board_release_allowed": false
+}

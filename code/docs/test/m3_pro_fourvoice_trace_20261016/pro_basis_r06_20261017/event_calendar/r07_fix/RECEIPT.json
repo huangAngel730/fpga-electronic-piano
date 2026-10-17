@@ -1,0 +1,29 @@
+{
+  "schema": "M3_R65_R07_FIX_RECEIPT_V1",
+  "status": "L0_STATIC_CANDIDATE_NOT_RUN",
+  "baseline": "40d78131e8ed50643dd169816f7bfc7149a8ced9",
+  "old_signed_sources_modified": false,
+  "execution": {
+    "python_imported": false,
+    "python_compiled": false,
+    "functional_tests_run": false,
+    "hdl_run": false,
+    "eda_run": false,
+    "hardware_run": false,
+    "new_budget_consumed": 0
+  },
+  "fixed_in_candidate": [
+    "F, first-valid, A and M1 advance are separate observed facts",
+    "request acceptance is not required on F",
+    "A and advance are never invented from fixed offsets",
+    "exact unique FRAME_PLAN formula, rules SHA, parameters and full-window coverage are checked",
+    "zero-based global cycle windows are accepted without changing local k>=1",
+    "last-frame first-valid, A and advance are bounded by epoch stop/reset",
+    "contiguous reset and reset-only tail windows are supported",
+    "raw frame cancel does not become business CANCEL",
+    "untrusted REAL origin returns PENDING_SOURCE_PROVENANCE",
+    "old D3 profile returns PENDING_UNSUPPORTED_PROFILE"
+  ],
+  "real_pro_calendar_pass": false,
+  "board_release_allowed": false
+}
