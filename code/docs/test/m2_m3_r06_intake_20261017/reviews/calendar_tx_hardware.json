@@ -1,0 +1,1041 @@
+{
+  "event_calendar/RUN_02/products/summary.json": {
+    "schema": "M3_R06_EVENT_CALENDAR_SELFTEST_SUMMARY_V1",
+    "status": "PASS",
+    "cases": 14,
+    "synthetic_passes": 1,
+    "pending_cases": 3,
+    "rejected_cases": 10,
+    "real_trace_cases": 0,
+    "hdl_sim_eda_hardware_calls": 0,
+    "results": [
+      {
+        "name": "valid_synthetic",
+        "exit_code": 0,
+        "status": "PASS_SYNTHETIC_FIXTURE_ONLY",
+        "error": null
+      },
+      {
+        "name": "untrusted_source",
+        "exit_code": 3,
+        "status": "PENDING_SOURCE_AUTHORITY",
+        "error": null
+      },
+      {
+        "name": "missing_m1_semantics",
+        "exit_code": 3,
+        "status": "PENDING_M1_SEMANTICS",
+        "error": null
+      },
+      {
+        "name": "missing_frame_plan",
+        "exit_code": 3,
+        "status": "PENDING_FRAME_PLAN",
+        "error": null
+      },
+      {
+        "name": "missing_canonical_field",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "MISSING_CANONICAL_FIELD"
+      },
+      {
+        "name": "missing_actual_apply",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "LIFECYCLE_WITHOUT_APPLY"
+      },
+      {
+        "name": "duplicate_actual_apply",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "DUPLICATE_APPLY_EVENT_SEQ"
+      },
+      {
+        "name": "wrong_apply_data",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "APPLY_DATA_MISMATCH"
+      },
+      {
+        "name": "missing_post_cancel_frame",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "MISSING_FRAME_CYCLE"
+      },
+      {
+        "name": "extra_idle_advance",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "EXTRA_FRAME_CYCLE"
+      },
+      {
+        "name": "wrong_common_mask",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "ADVANCE_MASK_NOT_1111"
+      },
+      {
+        "name": "commit_after_cancel",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "COMMIT_AFTER_CANCEL"
+      },
+      {
+        "name": "cross_epoch_commit",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "CROSS_EPOCH_COMMIT"
+      },
+      {
+        "name": "missing_finish",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "MISSING_OR_DUPLICATE_FINISH"
+      }
+    ]
+  },
+  "event_calendar/RUN_02/receipt.json": {
+    "schema": "M3_R06_EVENT_CALENDAR_RUN_RECEIPT_V1",
+    "status": "PASS",
+    "argv": [
+      "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\event_calendar\\selftest.py",
+      "--plan",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\midi_stimulus\\RUN_02\\products\\plan.json",
+      "--cases",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\event_calendar\\cases.json",
+      "--output",
+      "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\event_calendar\\RUN_02\\products"
+    ],
+    "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+    "timeout_seconds": 60,
+    "elapsed_seconds": 0.176560640335083,
+    "timed_out": false,
+    "exit_code": 0,
+    "stdout_sha256": "0303f57c49effb06ea351443080be2d60f1fc2f5c7d33f51e2c247723eb143f3",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "software_groups_consumed": 1,
+    "hdl_sim_eda_hardware_calls": 0
+  },
+  "event_calendar/RUN_02/products/valid_synthetic/binding.json": {
+    "schema": "M3_R06_EVENT_CALENDAR_BINDING_V1",
+    "mode": "SYNTHETIC_SELFTEST_ONLY",
+    "trace_authority": "SYNTHETIC_FIXTURE",
+    "source_authority_verified": true,
+    "m1_semantics_authoritative": true,
+    "m2_capture_contract_authoritative": true,
+    "same_edge_priority": [
+      "CANCEL",
+      "RESULT",
+      "COMMIT",
+      "REQUEST"
+    ],
+    "max_outstanding_per_epoch": 1,
+    "cover_all_plan_events": true,
+    "warning": "Fixture semantics are not M1/M2 production authority."
+  },
+  "event_calendar/RUN_02/products/valid_synthetic/frame_plan.json": {
+    "schema": "M3_R06_INDEPENDENT_FRAME_PLAN_V1",
+    "authority": "SYNTHETIC_INDEPENDENT_PLAN",
+    "independent_of_trace": true,
+    "source": "Frozen fixture schedule; never derived from observed frame rows.",
+    "epochs": [
+      {
+        "epoch": 0,
+        "frame_cycles": [
+          50000,
+          150000,
+          250000,
+          350000,
+          450000,
+          550000,
+          650000,
+          750000,
+          850000,
+          950000
+        ]
+      },
+      {
+        "epoch": 1,
+        "frame_cycles": [
+          1005000,
+          1065000,
+          1120000
+        ]
+      }
+    ],
+    "finish": {
+      "epoch": 1,
+      "cycle": 1122320
+    }
+  },
+  "tx_clock_reset_checker/RUN_01/products/summary.json": {
+    "schema": "M3_R06_TX_CLOCK_RESET_SELFTEST_V1",
+    "status": "PASS",
+    "cases": 20,
+    "matched": 20,
+    "synthetic_passes": 1,
+    "pending_cases": 7,
+    "rejected_cases": 12,
+    "real_trace_cases": 0,
+    "hdl_sim_eda_hardware_calls": 0,
+    "results": [
+      {
+        "name": "valid_synthetic",
+        "exit_code": 0,
+        "status": "PASS_SYNTHETIC_FIXTURE_ONLY",
+        "error": null,
+        "matched": true
+      },
+      {
+        "name": "pending_tx_sidecar",
+        "exit_code": 3,
+        "status": "PENDING_TX_SIDECAR",
+        "error": null,
+        "matched": true
+      },
+      {
+        "name": "pending_public_pins",
+        "exit_code": 3,
+        "status": "PENDING_PUBLIC_PINS",
+        "error": null,
+        "matched": true
+      },
+      {
+        "name": "pending_timebase",
+        "exit_code": 3,
+        "status": "PENDING_TIMEBASE",
+        "error": null,
+        "matched": true
+      },
+      {
+        "name": "pending_event_calendar",
+        "exit_code": 3,
+        "status": "PENDING_EVENT_CALENDAR",
+        "error": null,
+        "matched": true
+      },
+      {
+        "name": "pending_pcm_oracle",
+        "exit_code": 3,
+        "status": "PENDING_PCM_ORACLE",
+        "error": null,
+        "matched": true
+      },
+      {
+        "name": "pending_frame_plan",
+        "exit_code": 3,
+        "status": "PENDING_FRAME_PLAN",
+        "error": null,
+        "matched": true
+      },
+      {
+        "name": "pending_finish_eof",
+        "exit_code": 3,
+        "status": "PENDING_FINISH_CONTRACT",
+        "error": null,
+        "matched": true
+      },
+      {
+        "name": "startup_has_request_id",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "STARTUP_ZERO_ID_OR_FLAGS",
+        "matched": true
+      },
+      {
+        "name": "hold_clip_changed",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "TX_PCM_OR_CLIP_MISMATCH",
+        "matched": true
+      },
+      {
+        "name": "commit_marked_as_tx",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "TX_VALID_OFF_FRAME",
+        "matched": true
+      },
+      {
+        "name": "same_pcm_wrong_id",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "TX_ID_NOT_IN_SELECTION_PLAN",
+        "matched": true
+      },
+      {
+        "name": "internal_age_833",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "INTERNAL_COMPLETION_AGE_NOT_LT_833",
+        "matched": true
+      },
+      {
+        "name": "missing_frame_after_cancel",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "MISSING_FRAME_AFTER_IDLE_OR_CANCEL",
+        "matched": true
+      },
+      {
+        "name": "duplicate_frame_plan",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "DUPLICATE_OR_EXTRA_FRAME",
+        "matched": true
+      },
+      {
+        "name": "reset_pin_not_silent",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "RESET_NOT_SERIAL_SILENT",
+        "matched": true
+      },
+      {
+        "name": "pa_enabled_before_lock",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "PA_ENABLED_WHILE_UNSAFE",
+        "matched": true
+      },
+      {
+        "name": "serial_bit_corruption",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "PIN_LSBJ_PADDING_OR_PHASE",
+        "matched": true
+      },
+      {
+        "name": "finish_with_unconsumed_commit",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "FINISH_WITH_UNFINISHED_TRANSACTION",
+        "matched": true
+      },
+      {
+        "name": "duplicate_finish",
+        "exit_code": 2,
+        "status": "REJECT",
+        "error": "MISSING_OR_DUPLICATE_FINISH",
+        "matched": true
+      }
+    ]
+  },
+  "tx_clock_reset_checker/RUN_01/receipt.json": {
+    "schema": "M3_R06_TX_CLOCK_RESET_RUN_RECEIPT_V1",
+    "status": "PASS",
+    "argv": [
+      "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/selftest.py",
+      "--cases",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/cases.json",
+      "--decoder",
+      "code/software/m3_40mhz_pcm_i2s_latency_20261015/night_20261016/RESUME_R02/consume_capture.py",
+      "--decoder-sha256",
+      "da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb",
+      "--output",
+      "code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tx_clock_reset_checker\\RUN_01\\products"
+    ],
+    "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+    "timeout_seconds": 90,
+    "elapsed_seconds": 5.205964088439941,
+    "timed_out": false,
+    "exit_code": 0,
+    "pid": 45220,
+    "source_before": {
+      "code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tx_clock_reset_checker\\tx_clock_reset_checker.py": "19673112f977bd559fe86eddd4f4cac7070c9a6bd7d71df00f5bff0f8a23f115",
+      "code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tx_clock_reset_checker\\fixtures.py": "afe21ab6b270b3db4430152d7b9f198ad591401b0e5202a5444be41b1755ff1c",
+      "code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tx_clock_reset_checker\\selftest.py": "a813e51c782b8f9234a1ebdfbab18c0a63549288045cdc2b6f890dcf4bb1c907",
+      "code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tx_clock_reset_checker\\run_once.py": "4cf768255b0701adeac92a2884bfbc3325fe7a8054d6643cc8a8282f30379104",
+      "code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tx_clock_reset_checker\\cases.json": "92997227b45da508de0a5a3aadd805ce8d9efb457265411d4e8f31e9f8dc8959",
+      "code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\consume_capture.py": "da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb"
+    },
+    "source_after": {
+      "code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tx_clock_reset_checker\\tx_clock_reset_checker.py": "19673112f977bd559fe86eddd4f4cac7070c9a6bd7d71df00f5bff0f8a23f115",
+      "code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tx_clock_reset_checker\\fixtures.py": "afe21ab6b270b3db4430152d7b9f198ad591401b0e5202a5444be41b1755ff1c",
+      "code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tx_clock_reset_checker\\selftest.py": "a813e51c782b8f9234a1ebdfbab18c0a63549288045cdc2b6f890dcf4bb1c907",
+      "code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tx_clock_reset_checker\\run_once.py": "4cf768255b0701adeac92a2884bfbc3325fe7a8054d6643cc8a8282f30379104",
+      "code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tx_clock_reset_checker\\cases.json": "92997227b45da508de0a5a3aadd805ce8d9efb457265411d4e8f31e9f8dc8959",
+      "code\\software\\m3_40mhz_pcm_i2s_latency_20261015\\night_20261016\\RESUME_R02\\consume_capture.py": "da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb"
+    },
+    "source_immutable": true,
+    "stdout_sha256": "af80cb9f84ad28320f3281c47bc9d0d4bc452307f12e4a26d5b10bfa3c7fc2e3",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "software_groups_consumed": 1,
+    "hdl_sim_eda_hardware_calls": 0
+  },
+  "tx_clock_reset_checker/RUN_01/products/valid_synthetic/binding.json": {
+    "schema": "M3_R06_TX_CLOCK_RESET_BINDING_V1",
+    "mode": "SYNTHETIC_SELFTEST_ONLY",
+    "clock_hz": 40000000,
+    "sample_phase": "SYS_POSEDGE_PRE_NBA",
+    "serial_format": "PT8211_32BIT_SLOT_LSBJ16_WS_LOW_RIGHT_HIGH_LEFT",
+    "pcm24_to_pcm16": "SATURATE((PCM24+128)//256)",
+    "trace_authority": "SYNTHETIC_FIXTURE",
+    "tx_sidecar_authority": "SYNTHETIC_EXPLICIT_SIDECAR",
+    "pins_authority": "SYNTHETIC_PIN_STREAM",
+    "timebase_authority": "SYNTHETIC_40MHZ_TIMEBASE",
+    "finish_authority": "SYNTHETIC_EXPLICIT_FINISH",
+    "inputs_sha256": {
+      "calendar": "6335e5edb22f6b15d34c2f559a29c2a7cc09c2b86f25a4a0ff60827506953bf9",
+      "frame_plan": "a0e82924f7f9f6336970b50cf5bc27e796e24a42165a9737243bb92b51194192",
+      "oracle": "aadd5746c604edac6ec05977bd92c3ede587c671f89003188cbd658daf008062",
+      "trace": "e69245f6fbf24fae1e27b12547f4da94f15eedba56727d507096ace542a813fa"
+    }
+  },
+  "tx_clock_reset_checker/RUN_01/products/valid_synthetic/calendar.json": {
+    "schema": "M3_R06_TX_TRANSACTION_CALENDAR_V1",
+    "authority": "SYNTHETIC_INDEPENDENT_CALENDAR",
+    "independent_of_trace": true,
+    "tx_selection_plan_authoritative": true,
+    "transactions": [
+      {
+        "epoch": 0,
+        "req_id": 0,
+        "request_cycle": 841,
+        "result_cycle": 871,
+        "commit_cycle": 872,
+        "cancel_cycle": null
+      },
+      {
+        "epoch": 0,
+        "req_id": 1,
+        "request_cycle": 1674,
+        "result_cycle": 1704,
+        "commit_cycle": 1705,
+        "cancel_cycle": null
+      },
+      {
+        "epoch": 0,
+        "req_id": 2,
+        "request_cycle": 2507,
+        "result_cycle": null,
+        "commit_cycle": null,
+        "cancel_cycle": 2527
+      },
+      {
+        "epoch": 0,
+        "req_id": 3,
+        "request_cycle": 3341,
+        "result_cycle": null,
+        "commit_cycle": null,
+        "cancel_cycle": 3800
+      },
+      {
+        "epoch": 1,
+        "req_id": 0,
+        "request_cycle": 4640,
+        "result_cycle": 4670,
+        "commit_cycle": 4671,
+        "cancel_cycle": null
+      },
+      {
+        "epoch": 1,
+        "req_id": 1,
+        "request_cycle": 5473,
+        "result_cycle": 5503,
+        "commit_cycle": 5504,
+        "cancel_cycle": null
+      },
+      {
+        "epoch": 1,
+        "req_id": 2,
+        "request_cycle": 6306,
+        "result_cycle": 6336,
+        "commit_cycle": 6337,
+        "cancel_cycle": null
+      }
+    ],
+    "tx_expectations": [
+      {
+        "epoch": 0,
+        "cycle": 840,
+        "kind": "STARTUP",
+        "req_id": null
+      },
+      {
+        "epoch": 0,
+        "cycle": 1673,
+        "kind": "NEW",
+        "req_id": 0
+      },
+      {
+        "epoch": 0,
+        "cycle": 2506,
+        "kind": "NEW",
+        "req_id": 1
+      },
+      {
+        "epoch": 0,
+        "cycle": 3340,
+        "kind": "HOLD",
+        "req_id": 1
+      },
+      {
+        "epoch": 1,
+        "cycle": 4639,
+        "kind": "STARTUP",
+        "req_id": null
+      },
+      {
+        "epoch": 1,
+        "cycle": 5472,
+        "kind": "NEW",
+        "req_id": 0
+      },
+      {
+        "epoch": 1,
+        "cycle": 6305,
+        "kind": "NEW",
+        "req_id": 1
+      },
+      {
+        "epoch": 1,
+        "cycle": 7139,
+        "kind": "NEW",
+        "req_id": 2
+      }
+    ]
+  },
+  "hardware_identity/RUN_01/FINAL_SELFTEST_RESULT.json": {
+    "case_count": 17,
+    "cases": [
+      {
+        "actual": "ACCEPTED",
+        "case": "pending_production_record",
+        "detail": "VALID_PENDING",
+        "elapsed_seconds": 0.031,
+        "exit_code": 0,
+        "expected": "ACCEPTED",
+        "passed": true
+      },
+      {
+        "actual": "ACCEPTED",
+        "case": "complete_synthetic_fixture",
+        "detail": "VALID_COMPLETE",
+        "elapsed_seconds": 0.047,
+        "exit_code": 0,
+        "expected": "ACCEPTED",
+        "passed": true
+      },
+      {
+        "actual": "REJECTED",
+        "case": "missing_required_field",
+        "detail": "identity missing required field(s): dock_revision",
+        "elapsed_seconds": 0.031,
+        "exit_code": 2,
+        "expected": "REJECTED",
+        "passed": true
+      },
+      {
+        "actual": "REJECTED",
+        "case": "wrong_board_type",
+        "detail": "wrong board_family; expected TANG_MEGA_138K_PRO",
+        "elapsed_seconds": 0.0,
+        "exit_code": 2,
+        "expected": "REJECTED",
+        "passed": true
+      },
+      {
+        "actual": "REJECTED",
+        "case": "voltage_conflict",
+        "detail": "Bank 4 voltage conflict",
+        "elapsed_seconds": 0.031,
+        "exit_code": 2,
+        "expected": "REJECTED",
+        "passed": true
+      },
+      {
+        "actual": "REJECTED",
+        "case": "fake_measurement_from_schematic",
+        "detail": "banks[3].measurement falsely observed from reference evidence only",
+        "elapsed_seconds": 0.047,
+        "exit_code": 2,
+        "expected": "REJECTED",
+        "passed": true
+      },
+      {
+        "actual": "REJECTED",
+        "case": "incomplete_measurement",
+        "detail": "banks[3].measurement.value missing required field(s): instrument",
+        "elapsed_seconds": 0.031,
+        "exit_code": 2,
+        "expected": "REJECTED",
+        "passed": true
+      },
+      {
+        "actual": "REJECTED",
+        "case": "sensitive_field",
+        "detail": "sensitive field prohibited: record.commercial_tools[0].license_server",
+        "elapsed_seconds": 0.0,
+        "exit_code": 2,
+        "expected": "REJECTED",
+        "passed": true
+      },
+      {
+        "actual": "REJECTED",
+        "case": "stale_source_sha",
+        "detail": "source pro_core_schematic_4072 sha256 mismatch",
+        "elapsed_seconds": 0.0,
+        "exit_code": 2,
+        "expected": "REJECTED",
+        "passed": true
+      },
+      {
+        "actual": "REJECTED",
+        "case": "release_authority_escalation",
+        "detail": "this validator cannot grant board release",
+        "elapsed_seconds": 0.0,
+        "exit_code": 2,
+        "expected": "REJECTED",
+        "passed": true
+      },
+      {
+        "actual": "REJECTED",
+        "case": "mandatory_not_applicable",
+        "detail": "identity.chip_stepping is mandatory and cannot be NOT_APPLICABLE",
+        "elapsed_seconds": 0.047,
+        "exit_code": 2,
+        "expected": "REJECTED",
+        "passed": true
+      },
+      {
+        "actual": "REJECTED",
+        "case": "duplicate_bank",
+        "detail": "banks must contain exactly one each of Bank 3, 4 and 5",
+        "elapsed_seconds": 0.031,
+        "exit_code": 2,
+        "expected": "REJECTED",
+        "passed": true
+      },
+      {
+        "actual": "REJECTED",
+        "case": "fixture_mixed_into_production",
+        "detail": "fixture evidence prohibited for this record: fixture_photo",
+        "elapsed_seconds": 0.016,
+        "exit_code": 2,
+        "expected": "REJECTED",
+        "passed": true
+      },
+      {
+        "actual": "REJECTED",
+        "case": "different_physical_session",
+        "detail": "identity.chip_marking mixes a different physical unit/session",
+        "elapsed_seconds": 0.047,
+        "exit_code": 2,
+        "expected": "REJECTED",
+        "passed": true
+      },
+      {
+        "actual": "REJECTED",
+        "case": "malformed_midi_value",
+        "detail": "midi_input.fpga_side_voltage.value missing required field(s): connector_pin",
+        "elapsed_seconds": 0.031,
+        "exit_code": 2,
+        "expected": "REJECTED",
+        "passed": true
+      },
+      {
+        "actual": "REJECTED",
+        "case": "sensitive_index_field",
+        "detail": "sensitive field prohibited: evidence_index.sources[0].access_token",
+        "elapsed_seconds": 0.0,
+        "exit_code": 2,
+        "expected": "REJECTED",
+        "passed": true
+      },
+      {
+        "actual": "REJECTED",
+        "case": "nonfinite_voltage",
+        "detail": "banks[3].measurement requires a numeric voltage in V",
+        "elapsed_seconds": 0.031,
+        "exit_code": 2,
+        "expected": "REJECTED",
+        "passed": true
+      }
+    ],
+    "elapsed_seconds": 0.421,
+    "failures": [],
+    "finished_at_utc": "2026-10-17T08:53:50.720625+00:00",
+    "group": "RUN_01",
+    "group_exit_code": 0,
+    "python": "C:\\Users\\songdongkuan\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "python_version": "3.12.14",
+    "result": "PASS",
+    "schema_version": "hardware-identity-selftest-result-v1",
+    "started_at_utc": "2026-10-17T08:53:50.295825+00:00",
+    "timeout_seconds": 90
+  },
+  "hardware_identity/RUN_01/EXECUTION_RECEIPT.json": {
+    "schema_version": "hardware-identity-execution-receipt-v1",
+    "task": "M3-R6-7 hardware_identity",
+    "group": "RUN_01",
+    "group_limit": 1,
+    "attempts": [
+      {
+        "attempt": 1,
+        "source_changed_after": true,
+        "command": "C:/Users/songdongkuan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/run_selftest.py --repo-root . --scope code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/TEST_SCOPE.json --output code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/RUN_01",
+        "exit_code": 1,
+        "wall_time_seconds": 0.573568,
+        "cases_started": 0,
+        "result": "FAILED_BEFORE_CASE_EXECUTION",
+        "stderr": "ATTEMPT_01.stderr.txt"
+      },
+      {
+        "attempt": 2,
+        "source_changed_after": false,
+        "command": "C:/Users/songdongkuan/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/run_selftest.py --repo-root . --scope code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/TEST_SCOPE.json --output code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/RUN_01 --repair-after code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/RUN_01/ATTEMPT_01_FAILURE.json",
+        "exit_code": 0,
+        "wall_time_seconds": 0.928005,
+        "internal_elapsed_seconds": 0.421,
+        "cases": 17,
+        "passed": 17,
+        "result": "PASS",
+        "raw_result": "ATTEMPT_02_REPAIRED/SELFTEST_RESULT.json"
+      }
+    ],
+    "fpga_or_commercial_tool_invocations": 0,
+    "board_operations": 0,
+    "network_operations": 0
+  },
+  "hardware_identity/HARDWARE_IDENTITY_PENDING.json": {
+    "schema_version": "hardware-identity-v1",
+    "record_id": "m3-r6-7-pro-hardware-pending-20261017",
+    "board_family": "TANG_MEGA_138K_PRO",
+    "unit_id": "UNASSIGNED_PHYSICAL_UNIT",
+    "session_id": "UNASSIGNED_MEASUREMENT_SESSION",
+    "fixture_only": false,
+    "board_release_allowed": false,
+    "identity": {
+      "chip_marking": {
+        "status": "PENDING",
+        "value": null,
+        "evidence": [
+          "pro_core_schematic_4072",
+          "pro_b0_input_receipt"
+        ],
+        "note": "Reference symbol suggests GW5AT-LV138FPG676A, but an in-focus physical chip-marking photo is absent. Complete part and package are not observed."
+      },
+      "chip_stepping": {
+        "status": "UNKNOWN",
+        "value": null,
+        "evidence": [
+          "pro_core_schematic_4072"
+        ],
+        "note": "Stepping/version is not established by the reference schematic and no physical marking photo exists."
+      },
+      "core_revision": {
+        "status": "PENDING",
+        "value": null,
+        "evidence": [
+          "pro_core_schematic_4072"
+        ],
+        "note": "4072 Rev1.10 is the reference-document candidate, not the observed silkscreen revision."
+      },
+      "dock_revision": {
+        "status": "PENDING",
+        "value": null,
+        "evidence": [
+          "pro_dock_schematic_4071f3"
+        ],
+        "note": "4071f3 Rev1.5 is the reference-document candidate, not the observed Dock silkscreen revision."
+      }
+    },
+    "banks": [
+      {
+        "bank": 3,
+        "expected_logic": "3.3V reference candidate; confirm against actual board/test point",
+        "measurement": {
+          "status": "PENDING",
+          "value": null,
+          "evidence": [
+            "pro_core_schematic_4072",
+            "pro_pin_relationships_r02"
+          ],
+          "note": "No raw meter/scope reading tied to the physical Pro board, ground reference and instrument identity."
+        },
+        "assessment": "UNASSESSED"
+      },
+      {
+        "bank": 4,
+        "expected_logic": "3.3V/1.8V selectable reference candidate; actual strap and rail must be observed",
+        "measurement": {
+          "status": "PENDING",
+          "value": null,
+          "evidence": [
+            "pro_dock_schematic_4071f3",
+            "pro_pin_relationships_r02"
+          ],
+          "note": "No raw voltage reading; selection state cannot be inferred from the PDF."
+        },
+        "assessment": "UNASSESSED"
+      },
+      {
+        "bank": 5,
+        "expected_logic": "3.3V/1.8V selectable reference candidate; PT8211/PA candidates cross this bank",
+        "measurement": {
+          "status": "PENDING",
+          "value": null,
+          "evidence": [
+            "pro_dock_schematic_4071f3",
+            "pro_pin_relationships_r02"
+          ],
+          "note": "No raw voltage reading; do not energize or connect an unknown-level peripheral."
+        },
+        "assessment": "UNASSESSED"
+      }
+    ],
+    "midi_input": {
+      "direction": {
+        "status": "PENDING",
+        "value": null,
+        "evidence": [
+          "pro_dock_schematic_4071f3",
+          "pro_b0_input_receipt"
+        ],
+        "note": "Candidate is adapter output into FPGA input R17/PMOD0_IO3/J22-5; actual adapter pin direction is unobserved."
+      },
+      "fpga_side_voltage": {
+        "status": "PENDING",
+        "value": null,
+        "evidence": [
+          "pro_dock_schematic_4071f3"
+        ],
+        "note": "No FPGA-side idle/high/low raw readings. Unknown levels must not be connected."
+      },
+      "common_ground": {
+        "status": "PENDING",
+        "value": null,
+        "evidence": [
+          "pro_dock_schematic_4071f3"
+        ],
+        "note": "The connector has reference GND pins, but continuity/common ground on the actual setup is not measured."
+      }
+    },
+    "audio_path": {
+      "pt8211_identity": {
+        "status": "PENDING",
+        "value": null,
+        "evidence": [
+          "pro_dock_schematic_4071f3",
+          "pt8211_datasheet_v17"
+        ],
+        "note": "Reference Dock shows PT8211-S U6; actual component population/marking photo is absent."
+      },
+      "serial_wiring": {
+        "status": "PENDING",
+        "value": null,
+        "evidence": [
+          "pro_dock_schematic_4071f3",
+          "pro_reference_cst"
+        ],
+        "note": "Reference candidate is BCK E22, WS F24, DIN G24; no continuity or active waveform capture exists."
+      },
+      "pa_path": {
+        "status": "PENDING",
+        "value": null,
+        "evidence": [
+          "pro_dock_schematic_4071f3",
+          "legacy_c_fixed_wiring"
+        ],
+        "note": "Pro candidate uses XPT4809 with H17 PA_EN high-to-work; this differs from legacy NEO low-active AB16. Physical population and polarity remain unobserved."
+      },
+      "safe_load": {
+        "status": "PENDING",
+        "value": null,
+        "evidence": [
+          "pro_dock_schematic_4071f3"
+        ],
+        "note": "No verified connection to the headphone/line path or approved speaker/load; no audio was played."
+      }
+    },
+    "commercial_tools": [
+      {
+        "name": "Gowin IDE/Synthesis",
+        "binary_identity": {
+          "status": "PENDING",
+          "value": null,
+          "evidence": [
+            "development_environment_doc",
+            "local_discovery_receipt"
+          ],
+          "note": "A local executable candidate was found outside the repository, but no immutable in-package identity receipt or permitted launch validates the complete installation."
+        },
+        "runtime_license": {
+          "status": "UNKNOWN",
+          "value": null,
+          "evidence": [
+            "development_environment_doc",
+            "local_discovery_receipt"
+          ],
+          "note": "No tool launch was permitted. An environment variable existed but its value is intentionally not captured; actual license validity is unknown."
+        }
+      },
+      {
+        "name": "Gowin Programmer",
+        "binary_identity": {
+          "status": "UNKNOWN",
+          "value": null,
+          "evidence": [
+            "development_environment_doc",
+            "local_discovery_receipt"
+          ],
+          "note": "Expected programmer CLI locations and PATH lookup did not establish an executable."
+        },
+        "runtime_license": {
+          "status": "UNKNOWN",
+          "value": null,
+          "evidence": [
+            "local_discovery_receipt"
+          ],
+          "note": "Not launched; availability and licensing remain unknown."
+        }
+      },
+      {
+        "name": "ModelSim",
+        "binary_identity": {
+          "status": "UNKNOWN",
+          "value": null,
+          "evidence": [
+            "development_environment_doc",
+            "local_discovery_receipt"
+          ],
+          "note": "No vsim command was found in the current PATH; no broader claim is made."
+        },
+        "runtime_license": {
+          "status": "UNKNOWN",
+          "value": null,
+          "evidence": [
+            "local_discovery_receipt"
+          ],
+          "note": "Not launched; actual license validity is unknown."
+        }
+      }
+    ],
+    "raw_evidence_requirements": [
+      "board_photos",
+      "raw_measurement_csv",
+      "official_source_pages",
+      "instrument_metadata"
+    ]
+  },
+  "identity_checks": [
+    {
+      "path": "event_calendar/RUN_02/stdout.bin",
+      "sha256": "0303f57c49effb06ea351443080be2d60f1fc2f5c7d33f51e2c247723eb143f3",
+      "matches_receipt": true
+    },
+    {
+      "path": "event_calendar/RUN_02/stderr.bin",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_receipt": true
+    },
+    {
+      "path": "tx_clock_reset_checker/RUN_01/stdout.bin",
+      "sha256": "af80cb9f84ad28320f3281c47bc9d0d4bc452307f12e4a26d5b10bfa3c7fc2e3",
+      "matches_receipt": true
+    },
+    {
+      "path": "tx_clock_reset_checker/RUN_01/stderr.bin",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_receipt": true
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/CALENDAR_CONTRACT.json",
+      "after_sha_matches": true,
+      "append_one_LF_recovers_before_sha": true,
+      "after_bytes_matches": true
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/FAILURE_HISTORY.md",
+      "after_sha_matches": true,
+      "append_one_LF_recovers_before_sha": true,
+      "after_bytes_matches": true
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/INPUT_IDENTITIES.json",
+      "after_sha_matches": true,
+      "append_one_LF_recovers_before_sha": true,
+      "after_bytes_matches": true
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/README.md",
+      "after_sha_matches": true,
+      "append_one_LF_recovers_before_sha": true,
+      "after_bytes_matches": true
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/START.md",
+      "after_sha_matches": true,
+      "append_one_LF_recovers_before_sha": true,
+      "after_bytes_matches": true
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/cases.json",
+      "after_sha_matches": true,
+      "append_one_LF_recovers_before_sha": true,
+      "after_bytes_matches": true
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/event_calendar.py",
+      "after_sha_matches": true,
+      "append_one_LF_recovers_before_sha": true,
+      "after_bytes_matches": true
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/fixtures.py",
+      "after_sha_matches": true,
+      "append_one_LF_recovers_before_sha": true,
+      "after_bytes_matches": true
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/run_once.py",
+      "after_sha_matches": true,
+      "append_one_LF_recovers_before_sha": true,
+      "after_bytes_matches": true
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/selftest.py",
+      "after_sha_matches": true,
+      "append_one_LF_recovers_before_sha": true,
+      "after_bytes_matches": true
+    }
+  ],
+  "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/event_calendar.py": {
+    "sha256": "96a130ac0e17140c342dd15af05d124bc66287694b0e25f6a3d4657217197ac7",
+    "bytes": 20834
+  },
+  "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/fixtures.py": {
+    "sha256": "ae720dc7e9db5b6014673077d660440d614fe7cb75725460800b21373b2ea586",
+    "bytes": 7557
+  },
+  "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/tx_clock_reset_checker.py": {
+    "sha256": "19673112f977bd559fe86eddd4f4cac7070c9a6bd7d71df00f5bff0f8a23f115",
+    "bytes": 26164
+  },
+  "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/fixtures.py": {
+    "sha256": "afe21ab6b270b3db4430152d7b9f198ad591401b0e5202a5444be41b1755ff1c",
+    "bytes": 11164
+  },
+  "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/selftest.py": {
+    "sha256": "a813e51c782b8f9234a1ebdfbab18c0a63549288045cdc2b6f890dcf4bb1c907",
+    "bytes": 11464
+  },
+  "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/hardware_identity/hardware_identity.py": {
+    "sha256": "2f82a1ff4dfe74740f7f0cc585b310453a0e63fc54fcae53e320a07e4e4d2c36",
+    "bytes": 25169
+  },
+  "zip": {
+    "sha256": "ac9bcb31d21b3af247ca6305b2d83c76922a657ae743a5c4690d294ceb1ca205",
+    "bytes": 4105410
+  }
+}
