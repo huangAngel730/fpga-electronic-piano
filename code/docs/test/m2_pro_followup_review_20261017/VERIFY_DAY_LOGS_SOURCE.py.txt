@@ -1,0 +1,85 @@
+"""Validate archived software receipts and raw logs, never run their code."""
+import hashlib
+import json
+from pathlib import Path
+import zipfile
+
+ROOT = Path(__file__).resolve().parents[3]
+TREE = ROOT / "code/output/m2_live_tasks_publish_20261017"
+OUT = Path(__file__).resolve().parent
+catalog = json.loads((OUT / "5aa4959_CATALOG.json").read_text(encoding="utf-8"))
+
+
+def member(path):
+    path = path.replace("\\", "/")
+    return "code/" + path.split("/code/", 1)[1] if "/code/" in path else path
+
+
+def read(bundle, path):
+    return json.loads(bundle.read(member(path)))
+
+
+def frozen(bundle, item):
+    raw = bundle.read(member(item["path"]))
+    assert len(raw) == item["bytes"] and hashlib.sha256(raw).hexdigest() == item["sha256"]
+    return raw
+
+
+summary = {"reviewed_programs_executed": False}
+for archive in catalog:
+    if archive["path"].endswith("M3_B1_OBSERVATION_BINDING_PREPARATION_20261017.zip"):
+        with zipfile.ZipFile(TREE / archive["path"]) as zf:
+            base = "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_binding_20261017/B1_ROUND_01/"
+            receipt = read(zf, base + "RUN_RECEIPT.json")
+            assert receipt["exit_code"] == 0 and len(receipt["cases"]) == 41 and len(receipt["calls"]) == 42
+            for kind in ("source", "tool", "input", "referenced_input"):
+                assert receipt[kind + "_before"] == receipt[kind + "_after"]
+            for call in receipt["calls"]:
+                assert call["exit_code"] == call["expected_exit"] and not call["timeout"] and not call["log_limit_exceeded"]
+                frozen(zf, call["stdout"])
+                frozen(zf, call["stderr"])
+            cases = []
+            for case in receipt["cases"]:
+                assert case["actual_exit"] == case["expected_exit"]
+                value = json.loads(frozen(zf, case["result"]))
+                assert value.get("code") == case["code"]
+                assert value.get("first_difference") == case["first_difference"]
+                if case["actual_exit"] == 0:
+                    assert value["authority_verified"] is False and value["real_trace_calendar_checked"] is False
+                    assert value["fields_checked"] == 61 and value["anchors_verified"] == 10
+                cases.append({"name": case["name"], "exit": case["actual_exit"], "code": case["code"]})
+            summary["B1"] = {"calls": 42, "cases": cases, "exit": 0,
+                "seconds": receipt["elapsed_s"], "before_after_identities_equal": True,
+                "all_raw_streams_verified": True, "scope": "METADATA_ONLY_NOT_AUTHORITY_OR_REAL_CALENDAR"}
+    if archive["path"].endswith("M3_B2_PUBLIC_CSV_SERIAL_ADAPTER_PREPARATION_20261017.zip"):
+        with zipfile.ZipFile(TREE / archive["path"]) as zf:
+            base = "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_serial_successor_20261017/"
+            receipt = read(zf, base + "NIGHT_RUN_RECEIPT.json")
+            assert receipt["rounds_consumed"] == 2 and len(receipt["cases"]) == 22
+            cases = []
+            positive_results = []
+            for case in receipt["cases"]:
+                actual = json.loads(frozen(zf, case["receipt"]))
+                assert actual["passed"] and actual["exit_code"] == case["exit_code"]
+                assert actual["actual_diagnostic"] == actual["expected_diagnostic"] == case["diagnostic"]
+                frozen(zf, actual["stdout"])
+                frozen(zf, actual["stderr"])
+                result = json.loads(frozen(zf, actual["result"]))
+                assert result["checks_passed"] == (case["exit_code"] == 0)
+                if case["exit_code"] != 0:
+                    assert result["first_difference"]["code"] == case["diagnostic"]
+                else:
+                    positive_results.append({"round": case["round"], "case": case["case"],
+                        "cycles": result["cycles"], "complete_stereo": result["complete_stereo"],
+                        "serial_dispositions": result["serial_dispositions"],
+                        "window_completeness": result["window_completeness"], "pro_dut_pass": result["pro_dut_pass"]})
+                cases.append({"round": case["round"], "name": case["case"], "exit": case["exit_code"], "code": case["diagnostic"]})
+            assert sum(case["round"] == 1 for case in cases) == 19
+            assert sum(case["round"] == 2 for case in cases) == 3
+            summary["B2"] = {"cases": cases, "positive_results": positive_results,
+                "seconds": receipt["seconds"], "all_case_receipts_streams_and_results_verified": True,
+                "final_source_22_full_rerun": False, "real_finish_END_MONITOR_END_validated": receipt["real_finish_END_MONITOR_END_validated"]}
+summary["status"] = "PASS_EXISTING_LOG_VERIFICATION"
+(OUT / "5aa4959_LOG_VERIFICATION.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+print(json.dumps({"status": summary["status"], "B1_cases": len(summary["B1"]["cases"]),
+    "B2_cases": len(summary["B2"]["cases"]), "B2_positive_results": summary["B2"]["positive_results"]}, ensure_ascii=False))

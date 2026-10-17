@@ -1,0 +1,126 @@
+"""Independent hashes and existing-log checks; never import reviewed code."""
+
+import argparse
+import csv
+import hashlib
+import io
+import json
+from pathlib import Path
+import re
+import subprocess
+import zipfile
+
+
+ROOT = Path(__file__).resolve().parents[3]
+TREE = ROOT / "code/output/m2_live_tasks_publish_20261017"
+OUT = Path(__file__).resolve().parent
+
+
+def sha(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+
+def read_json(bundle, name):
+    return json.loads(bundle.read(name))
+
+
+def monitor_logs(bundle):
+    base = "code/docs/test/m3_pro_fourvoice_trace_20261016/D/pro_monitor_20261017/"
+    rounds = []
+    for number in (1, 2):
+        prefix = base + f"ROUND_{number:02d}/"
+        receipt = read_json(bundle, prefix + "RECEIPT.json")
+        assert receipt["passed"] and receipt["identity_stable"]
+        assert receipt["source_before"] == receipt["source_after"]
+        for call in receipt["calls"]:
+            assert call["exit_code"] == call["expected_exit"] and not call["timeout"]
+            for stream in ("stdout", "stderr"):
+                raw = bundle.read(prefix + call["label"] + "." + stream + ".bin")
+                assert sha(raw) == call[stream]["sha256"] and len(raw) == call[stream]["bytes"]
+        rounds.append({"round": number, "calls": len(receipt["calls"]), "passed": True,
+                       "seconds": receipt["seconds"], "source_hashes": receipt["source_after"]})
+    final = read_json(bundle, base + "ROUND_02/RECEIPT.json")
+    prefix = base + "ROUND_02/"
+    observations = []
+    for fault in [0, 23, 24, *map(int, final["negative_targets"])]:
+        stdout = bundle.read(prefix + f"case_{fault:02d}.stdout.bin").decode("utf-8")
+        rows = list(csv.DictReader(io.StringIO(bundle.read(prefix + f"case_{fault:02d}.csv").decode("utf-8"))))
+        assert all(len(row) == 29 and int(row["cycle"]) == i + 1 for i, row in enumerate(rows))
+        accepted = [r for r in rows if r["rst_n"] == "1" and r["cancel"] == "0" and r["req_valid"] == r["req_ready"] == "1"]
+        item = {"case": fault, "rows": len(rows)}
+        if fault == 0:
+            assert len(rows) == 5062 and len(accepted) == 8
+            assert sum(r["commit"] == "1" for r in rows) == 6
+            assert "MONITOR_END accepts=8 commits=6 cancels=2 max=10 epochs=2" in stdout
+            assert "PASS PRO_MONITOR_SELFTEST_ONLY" in stdout
+            item.update(accepts=8, commits=6, cancels=2, epochs=2, max_commit_cycles=10)
+        elif fault in (23, 24):
+            first = accepted[0]
+            cleanup = next(r for r in rows if int(r["cycle"]) > int(first["cycle"]) and (r["cancel"] == "1" if fault == 23 else r["rst_n"] == "0"))
+            age = int(cleanup["cycle"]) - int(first["cycle"])
+            assert age == 832 and "PASS PRO_MONITOR_BOUNDARY_SELFTEST_ONLY" in stdout
+            item["cleanup_age"] = age
+        else:
+            rejects = re.findall(r"^FIRST_REJECT (\w+) cycle=(\d+)", stdout, re.MULTILINE)
+            assert len(rejects) == 1 and rejects[0][0] == final["negative_targets"][str(fault)]
+            assert int(rejects[0][1]) == int(rows[-1]["cycle"])
+            assert "FAULT_ESCAPED" not in stdout and "SELFTEST_TIMEOUT" not in stdout
+            item.update(reject=rejects[0][0], reject_cycle=int(rejects[0][1]), failure_edge_retained=True)
+            if fault in (9, 21, 22):
+                age = int(rows[-1]["cycle"]) - int(accepted[-1]["cycle"])
+                assert age == 833
+                item["reject_age"] = age
+        observations.append(item)
+    return {"rounds": rounds, "final_cases": observations}
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument("commit", choices=("414e1a9", "5aa4959"))
+args = parser.parse_args()
+catalog = json.loads((OUT / (args.commit + "_CATALOG.json")).read_text(encoding="utf-8"))
+result = {"commit": args.commit, "archives": [], "reviewed_programs_executed": False}
+for original in catalog:
+    path = TREE / original["path"]
+    item = {key: original[key] for key in ("path", "bytes", "sha256", "members")}
+    assert sha(path.read_bytes()) == original["sha256"]
+    with zipfile.ZipFile(path) as bundle:
+        assert bundle.testzip() is None
+        assert len(bundle.namelist()) == len(set(bundle.namelist()))
+        manifest_names = [name for name in bundle.namelist() if name.rsplit("/", 1)[-1].endswith("MANIFEST.json")]
+        assert len(manifest_names) == 1
+        manifest_name = manifest_names[0]
+        manifest_object = read_json(bundle, manifest_name)
+        if all(isinstance(row, dict) and "sha256" in row for row in manifest_object.values()):
+            manifest = manifest_object
+        else:
+            lists = [manifest_object[key] for key in ("entries", "members", "payloads", "files") if key in manifest_object]
+            assert len(lists) == 1
+            manifest = {row.get("member", row.get("path")): row for row in lists[0]}
+            assert len(manifest) == len(lists[0])
+        assert set(bundle.namelist()) == set(manifest) | {manifest_name}
+        for name, declared in manifest.items():
+            raw = bundle.read(name)
+            assert len(raw) == declared["bytes"] and sha(raw) == declared["sha256"], name
+        exact = []
+        lf_only = []
+        for name in manifest:
+            published = TREE / name
+            if published.is_file():
+                raw = bundle.read(name)
+                current = published.read_bytes()
+                if current == raw:
+                    exact.append(name)
+                elif current.replace(b"\r\n", b"\n") == raw.replace(b"\r\n", b"\n"):
+                    lf_only.append(name)
+                else:
+                    raise AssertionError("Published payload mismatch: " + name)
+        item.update(crc_size_sha="PASS", payloads=len(manifest), published_exact=exact, published_lf_only=lf_only)
+        if args.commit == "414e1a9":
+            item["existing_execution_evidence"] = monitor_logs(bundle)
+        result["archives"].append(item)
+result["status"] = "PASS_PURE_FILE_AND_EXISTING_LOG_VERIFICATION"
+destination = OUT / (args.commit + "_VERIFICATION.json")
+destination.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+print(json.dumps({"status": result["status"], "commit": args.commit,
+    "archives": [{k: row[k] for k in ("path", "bytes", "sha256", "members", "payloads")} for row in result["archives"]],
+    "detail": str(destination)}, ensure_ascii=False))

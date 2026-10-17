@@ -1,0 +1,388 @@
+{
+  "reviewed_programs_executed": false,
+  "B1": {
+    "calls": 42,
+    "cases": [
+      {
+        "name": "metadata_structure_positive_only",
+        "exit": 0,
+        "code": null
+      },
+      {
+        "name": "wrong_expected_binding_sha",
+        "exit": 2,
+        "code": "BINDING_SHA_MISMATCH"
+      },
+      {
+        "name": "unprovided_expected_binding_sha",
+        "exit": 2,
+        "code": "EXPECTED_BINDING_SHA_REQUIRED"
+      },
+      {
+        "name": "legacy_toy_scope",
+        "exit": 2,
+        "code": "SCOPE"
+      },
+      {
+        "name": "false_Pro_PASS",
+        "exit": 2,
+        "code": "UNSUPPORTED_PRO_OR_BOARD_CLAIM"
+      },
+      {
+        "name": "false_board_release",
+        "exit": 2,
+        "code": "UNSUPPORTED_PRO_OR_BOARD_CLAIM"
+      },
+      {
+        "name": "wrong_edge",
+        "exit": 2,
+        "code": "SAMPLING_PHASE"
+      },
+      {
+        "name": "bool_clock",
+        "exit": 2,
+        "code": "CLOCK_CONTRACT"
+      },
+      {
+        "name": "lane_as_frame_ID",
+        "exit": 2,
+        "code": "ID_DOMAIN"
+      },
+      {
+        "name": "staggered_toy_lanes",
+        "exit": 2,
+        "code": "LANE_IDENTITY_MODE"
+      },
+      {
+        "name": "missing_trace_anchor",
+        "exit": 2,
+        "code": "IDENTITY_ANCHOR_MISSING"
+      },
+      {
+        "name": "missing_M2_binding_review",
+        "exit": 2,
+        "code": "IDENTITY_ANCHOR_MISSING"
+      },
+      {
+        "name": "path_traversal",
+        "exit": 2,
+        "code": "ARTIFACT_PATH"
+      },
+      {
+        "name": "absolute_path",
+        "exit": 2,
+        "code": "ARTIFACT_PATH"
+      },
+      {
+        "name": "artifact_bool_size",
+        "exit": 2,
+        "code": "ARTIFACT_SIZE"
+      },
+      {
+        "name": "source_manifest_byte_drift",
+        "exit": 2,
+        "code": "ARTIFACT_BYTES"
+      },
+      {
+        "name": "trace_sha_drift",
+        "exit": 2,
+        "code": "ARTIFACT_SHA_MISMATCH"
+      },
+      {
+        "name": "anchor_alias",
+        "exit": 2,
+        "code": "ARTIFACT_ALIAS"
+      },
+      {
+        "name": "missing_advance_mask",
+        "exit": 2,
+        "code": "REQUIRED_PUBLIC_FIELD_MISSING"
+      },
+      {
+        "name": "missing_TX_adoption_ID",
+        "exit": 2,
+        "code": "REQUIRED_PUBLIC_FIELD_MISSING"
+      },
+      {
+        "name": "missing_effect_input_accept",
+        "exit": 2,
+        "code": "REQUIRED_PUBLIC_FIELD_MISSING"
+      },
+      {
+        "name": "duplicate_cycle_field",
+        "exit": 2,
+        "code": "DUPLICATE_PUBLIC_FIELD"
+      },
+      {
+        "name": "wrong_PCM_width",
+        "exit": 2,
+        "code": "PUBLIC_WIDTH"
+      },
+      {
+        "name": "private_PCM_as_golden",
+        "exit": 2,
+        "code": "PRIVATE_STATE_OR_INVALID_DERIVATION"
+      },
+      {
+        "name": "unknown_public_map",
+        "exit": 2,
+        "code": "PUBLIC_MAPPING_MISSING"
+      },
+      {
+        "name": "whitespace_public_map",
+        "exit": 2,
+        "code": "PUBLIC_MAPPING_MISSING"
+      },
+      {
+        "name": "padded_unknown_public_map",
+        "exit": 2,
+        "code": "PUBLIC_MAPPING_MISSING"
+      },
+      {
+        "name": "missing_Release_semantics",
+        "exit": 2,
+        "code": "SEMANTIC_CONTRACT_MISSING"
+      },
+      {
+        "name": "whitespace_Release_semantics",
+        "exit": 2,
+        "code": "SEMANTIC_CONTRACT_MISSING"
+      },
+      {
+        "name": "padded_pending_Release_semantics",
+        "exit": 2,
+        "code": "SEMANTIC_CONTRACT_MISSING"
+      },
+      {
+        "name": "missing_finish",
+        "exit": 2,
+        "code": "CAPTURE_CLOSURE_MISSING"
+      },
+      {
+        "name": "missing_END",
+        "exit": 2,
+        "code": "CAPTURE_CLOSURE_MISSING"
+      },
+      {
+        "name": "missing_MONITOR_END",
+        "exit": 2,
+        "code": "CAPTURE_CLOSURE_MISSING"
+      },
+      {
+        "name": "failed_capture",
+        "exit": 2,
+        "code": "CAPTURE_PROCESS_NOT_SUCCESS"
+      },
+      {
+        "name": "timeout_capture",
+        "exit": 2,
+        "code": "CAPTURE_PROCESS_NOT_SUCCESS"
+      },
+      {
+        "name": "commit_filled_TX_sample",
+        "exit": 2,
+        "code": "DERIVED_TX_OR_SYNTHESIZED_PINS_FORBIDDEN"
+      },
+      {
+        "name": "PCM_synthesized_serial",
+        "exit": 2,
+        "code": "DERIVED_TX_OR_SYNTHESIZED_PINS_FORBIDDEN"
+      },
+      {
+        "name": "duplicate_JSON_claim_key",
+        "exit": 2,
+        "code": "DUPLICATE_JSON_KEY"
+      },
+      {
+        "name": "truncated_JSON",
+        "exit": 2,
+        "code": "JSON_ENCODING_OR_SYNTAX"
+      },
+      {
+        "name": "empty_replacement_contract",
+        "exit": 2,
+        "code": "CONTRACT_SHA_MISMATCH"
+      },
+      {
+        "name": "actual_missing_Pro_arrival",
+        "exit": 2,
+        "code": "PENDING_PRO_SOURCE_OR_TRACE"
+      }
+    ],
+    "exit": 0,
+    "seconds": 3.6089999999967404,
+    "before_after_identities_equal": true,
+    "all_raw_streams_verified": true,
+    "scope": "METADATA_ONLY_NOT_AUTHORITY_OR_REAL_CALENDAR"
+  },
+  "B2": {
+    "cases": [
+      {
+        "round": 1,
+        "name": "csv_cycle_gap",
+        "exit": 1,
+        "code": "CSV_CYCLE_SEQUENCE"
+      },
+      {
+        "round": 1,
+        "name": "lane_id_domain",
+        "exit": 1,
+        "code": "CLOCK_PHASE_OR_ID_DOMAIN"
+      },
+      {
+        "round": 1,
+        "name": "missing_bclk",
+        "exit": 1,
+        "code": "CSV_PUBLIC_FIELDS"
+      },
+      {
+        "round": 1,
+        "name": "missing_public_samples",
+        "exit": 1,
+        "code": "MISSING_PUBLIC_TX_SAMPLE"
+      },
+      {
+        "round": 1,
+        "name": "missing_sample_pcm",
+        "exit": 1,
+        "code": "PUBLIC_SAMPLE_FIELDS"
+      },
+      {
+        "round": 1,
+        "name": "missing_ws_edges",
+        "exit": 1,
+        "code": "PIN_FRAME_WS_BOUNDARY_PHASE"
+      },
+      {
+        "round": 1,
+        "name": "old_monitor_zero_pins",
+        "exit": 1,
+        "code": "PIN_BCLK_STALLED_OR_MISSING_EDGE"
+      },
+      {
+        "round": 1,
+        "name": "overdue_commit",
+        "exit": 1,
+        "code": "SERVICE_DEADLINE"
+      },
+      {
+        "round": 1,
+        "name": "physical_channels_swapped",
+        "exit": 1,
+        "code": "PIN_SERIAL_PCM_OR_CHANNEL_MISMATCH"
+      },
+      {
+        "round": 1,
+        "name": "positive",
+        "exit": 0,
+        "code": null
+      },
+      {
+        "round": 1,
+        "name": "reset_serial_nonzero",
+        "exit": 1,
+        "code": "RESET_SERIAL_NOT_SILENT"
+      },
+      {
+        "round": 1,
+        "name": "wrong_binding_sha",
+        "exit": 1,
+        "code": "BINDING_SHA"
+      },
+      {
+        "round": 1,
+        "name": "wrong_commit_pcm",
+        "exit": 1,
+        "code": "COMMIT_EXTERNAL_PCM_OR_CLIP"
+      },
+      {
+        "round": 1,
+        "name": "wrong_csv_sha",
+        "exit": 1,
+        "code": "INPUT_SHA_csv"
+      },
+      {
+        "round": 1,
+        "name": "wrong_sample_clip",
+        "exit": 1,
+        "code": "SAMPLE_EXTERNAL_PCM_OR_CLIP"
+      },
+      {
+        "round": 1,
+        "name": "wrong_sample_epoch",
+        "exit": 1,
+        "code": "PUBLIC_SAMPLE_EPOCH"
+      },
+      {
+        "round": 1,
+        "name": "wrong_sample_id",
+        "exit": 1,
+        "code": "PUBLIC_SAMPLE_ID_NOT_COMMITTED"
+      },
+      {
+        "round": 1,
+        "name": "wrong_sample_pcm",
+        "exit": 1,
+        "code": "SAMPLE_EXTERNAL_PCM_OR_CLIP"
+      },
+      {
+        "round": 1,
+        "name": "wrong_source_basis",
+        "exit": 1,
+        "code": "SOURCE_ROM_INPUT_BASIS_MISMATCH"
+      },
+      {
+        "round": 2,
+        "name": "commit_on_cancel",
+        "exit": 1,
+        "code": "COMMIT_ON_CANCEL"
+      },
+      {
+        "round": 2,
+        "name": "unexpected_cancel_before_commit",
+        "exit": 1,
+        "code": "UNEXPECTED_CANCEL"
+      },
+      {
+        "round": 2,
+        "name": "valid_cancel_no_publication",
+        "exit": 0,
+        "code": null
+      }
+    ],
+    "positive_results": [
+      {
+        "round": 1,
+        "case": "positive",
+        "cycles": 12000,
+        "complete_stereo": 12,
+        "serial_dispositions": {
+          "COMPLETE": 10,
+          "RESET_BEFORE_SERIAL_COMPLETE": 2,
+          "UNKNOWN_OBSERVATION_TAIL": 2
+        },
+        "window_completeness": "DECLARED_WINDOW_ONLY_NO_MONITOR_END_FINISH_CLAIM",
+        "pro_dut_pass": false
+      },
+      {
+        "round": 2,
+        "case": "valid_cancel_no_publication",
+        "cycles": 12000,
+        "complete_stereo": 12,
+        "serial_dispositions": {
+          "CANCELLED_BEFORE_COMMIT": 1,
+          "COMPLETE": 9,
+          "RESET_BEFORE_SERIAL_COMPLETE": 2,
+          "UNKNOWN_OBSERVATION_TAIL": 2
+        },
+        "window_completeness": "DECLARED_WINDOW_ONLY_NO_MONITOR_END_FINISH_CLAIM",
+        "pro_dut_pass": false
+      }
+    ],
+    "seconds": 11.186999999990803,
+    "all_case_receipts_streams_and_results_verified": true,
+    "final_source_22_full_rerun": false,
+    "real_finish_END_MONITOR_END_validated": false
+  },
+  "status": "PASS_EXISTING_LOG_VERIFICATION"
+}
