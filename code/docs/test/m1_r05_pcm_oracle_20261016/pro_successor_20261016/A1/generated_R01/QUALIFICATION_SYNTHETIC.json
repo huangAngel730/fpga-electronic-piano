@@ -1,0 +1,142 @@
+{
+  "schema": "M1_PRO_A1_QUALIFICATION_V1",
+  "source_kind": "SYNTHETIC_ONLY",
+  "result": "SOFTWARE_A1_INCREMENT_VALIDATED",
+  "actual_dut_result": "PENDING_REAL_CAPTURE",
+  "evidence_level": "L0_SOFTWARE_REFERENCE",
+  "profile": "SYNTHETIC_ONLY_PRO_A1_IDENTITY_AND_HISTORY_INCREMENT",
+  "scenes": 5,
+  "samples_per_scene": 256,
+  "total_samples": 1280,
+  "tolerance_pcm_lsb": 0,
+  "identity_fields": [
+    "scene_id",
+    "source",
+    "channel",
+    "note",
+    "generation"
+  ],
+  "lane_order": "solo lane0 maps to canonical all4 lane by note identity",
+  "effect_nonzero_history_rows": {
+    "solo60": 253,
+    "solo63": 254,
+    "solo67": 253,
+    "solo70": 252,
+    "all4": 255
+  },
+  "observed_true_clip_rows": {
+    "solo60": 0,
+    "solo63": 0,
+    "solo67": 0,
+    "solo70": 0,
+    "all4": 0
+  },
+  "nonzero_clip_coverage_claimed": false,
+  "real_capture_nonzero_clip_coverage_claimed": false,
+  "inherited_scene_validation": {
+    "schema": "M1_SOLO_CHORD_VALIDATION_V1",
+    "profile": "SYNTHETIC_SETTLED_EVENT_NOT_R06_TB_OR_FFT",
+    "actual_dut_result": "PENDING_REAL_CAPTURE",
+    "scene_count": 5,
+    "total_samples": 1280,
+    "tolerance_pcm_lsb": 0,
+    "coverage": {
+      "solo60": {
+        "samples": 256,
+        "selected_notes": [
+          60
+        ],
+        "selected_lane_nonzero_rows": [
+          254
+        ]
+      },
+      "solo63": {
+        "samples": 256,
+        "selected_notes": [
+          63
+        ],
+        "selected_lane_nonzero_rows": [
+          255
+        ]
+      },
+      "solo67": {
+        "samples": 256,
+        "selected_notes": [
+          67
+        ],
+        "selected_lane_nonzero_rows": [
+          254
+        ]
+      },
+      "solo70": {
+        "samples": 256,
+        "selected_notes": [
+          70
+        ],
+        "selected_lane_nonzero_rows": [
+          253
+        ]
+      },
+      "all4": {
+        "samples": 256,
+        "selected_notes": [
+          60,
+          63,
+          67,
+          70
+        ],
+        "selected_lane_nonzero_rows": [
+          254,
+          255,
+          254,
+          253
+        ]
+      }
+    },
+    "final_solo_sum_counterexample": {
+      "source_kind": "SOFTWARE_REFERENCE_ONLY",
+      "actual_dut_result": "PENDING_REAL_CAPTURE",
+      "request_id": 1,
+      "advance_cycle": 961,
+      "solo_effected_left": [
+        3711,
+        255,
+        255,
+        255
+      ],
+      "sum_solo_effected_left": 4476,
+      "saturated_sum_solo_effected_left": 4476,
+      "all4_effected_left": 4479,
+      "all4_mixed_left": 4096,
+      "reason": "sum(each rounded/effected solo) is not the ALL4 golden"
+    },
+    "witness_status": "FOUND"
+  },
+  "final_solo_sum_counterexample": {
+    "source_kind": "SOFTWARE_REFERENCE_ONLY",
+    "actual_dut_result": "PENDING_REAL_CAPTURE",
+    "request_id": 1,
+    "advance_cycle": 961,
+    "solo_effected_left": [
+      3711,
+      255,
+      255,
+      255
+    ],
+    "sum_solo_effected_left": 4476,
+    "saturated_sum_solo_effected_left": 4476,
+    "all4_effected_left": 4479,
+    "all4_mixed_left": 4096,
+    "reason": "sum(each rounded/effected solo) is not the ALL4 golden"
+  },
+  "pro_identity": {
+    "status": "PENDING_REAL_CAPTURE",
+    "pro_top_sha256": null,
+    "pro_source_manifest_sha256": null,
+    "pro_reset_contract": null,
+    "pro_rom_role_mapping": null,
+    "pro_independent_calendar_sha256": null,
+    "pro_public_pcm_capture_sha256": null
+  },
+  "boundary": "Frozen R06 arithmetic is a referenced basis only. New Pro top, reset/port contract, ROM role mapping and same-run independent calendar/public PCM are missing. No Pro RTL/board claim."
+}

@@ -1,0 +1,63 @@
+{
+  "board_release_allowed": false,
+  "calendar_counts": {
+    "calendar_rows": 25,
+    "cancels": 2,
+    "config_accepts": 1,
+    "effect_accepts": 5,
+    "events": 9,
+    "lane_ticks": 6,
+    "public_pcm_rows": 4,
+    "resets": 2
+  },
+  "capture_id": "B0_FOUR_VOICE_FIXTURE",
+  "compared_public_samples": 4,
+  "identity_check": "PASS",
+  "manifest_sha256": "7a10df46738c48ce81f7fe3fc41dffe5afab82d938ff86e56b5f1cd53756ff9e",
+  "missing_real_requirements": [
+    "PRO_TOP_SOURCE_SHA_MISSING",
+    "PRO_ROM_SHA_MAPPING_MISSING",
+    "PRO_PORT_RESET_MAPPING_MISSING",
+    "PRO_ASYNC_RESET_EDGES_NOT_COVERED_BY_SETTLED_PROFILE",
+    "M3_RAW_DRIVER_FULL_TRACE_OBSERVER_AND_SOURCE_BINDINGS_REQUIRED",
+    "M3_EXECUTION_TOOLS_ARGV_DUAL_STREAMS_EXIT_AND_QUOTA_RECEIPT_REQUIRED",
+    "M3_ORIGINAL_TRACE_CONTINUITY_AND_SAME_RUN_AUTHENTICATION_REQUIRED"
+  ],
+  "mode": "REAL",
+  "original_inputs": {
+    "calendar": {
+      "bytes": 11834,
+      "path": "calendar.json",
+      "sha256": "c35f7fa2abe28e447d2c3f7cb857a1e3ff119644954c18df14d3050ba7144c9d"
+    },
+    "public_pcm": {
+      "bytes": 3344,
+      "path": "public_pcm.json",
+      "sha256": "ebc78795f15877df97b1e761d7f9d6d86c50171f1fdf209b4bdfb2c30fee1d50"
+    }
+  },
+  "pro_map_sha256": null,
+  "profile": "R06_SETTLED_SIMULTANEOUS_LANE_TICKS_V1",
+  "reference_bindings": {
+    "frozen_files": {
+      "frozen/allocator_oracle.py": "634208931558eea580a0a4406d0c45e04fed1afa1e446455e1341cb19171b4a7",
+      "frozen/dds_model.py": "c127f5af83e52cbcd7484e96fbb26f149862cdb225023f72041c61f220c0950d",
+      "frozen/delay_effect_fixed.py": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+      "frozen/envelope_model.py": "5826bb00da5d8ecc5c2eb3ffe43d159514781bc2f3bb1033965dcf312d12f933",
+      "frozen/rom/piano_band_4x256_8191.mem": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+      "frozen/rom/triangle_wavetable.hex": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+      "frozen/rom/velocity_gain_rom.mem": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64"
+    },
+    "signed_files": {
+      "DEPENDENCIES.json": "fb9c0ffaec3b9e001cb2255256565dae49d573155da62473bea2e592716a28de",
+      "REFERENCE_CONTRACT.json": "f7373c1be0d70b9bb45800738b8a992efadd854c1cb1aecf82910f3644cf091e",
+      "oracle.py": "cb2cda8b6c9c17d7e5f93be4e48407383173934437c0592d2da64f778535d4a3"
+    }
+  },
+  "rtl_or_board_pass": false,
+  "scene": "four_different_notes_with_cancel_and_reset",
+  "schema": "M1_PRO_CAPTURE_COMPARISON_V1",
+  "status": "PENDING_REAL_CAPTURE",
+  "tolerance_pcm_lsb": 0,
+  "zero_lsb_check": "PASS"
+}

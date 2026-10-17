@@ -1,0 +1,10 @@
+{
+  "status": "INITIAL_RECEIPT_ASSEMBLY_KEYERROR_FIXED",
+  "source": "Root tool output a4106e (tool transcript, not original raw stream)",
+  "argv": "E:/python3.10/python.exe -B -X utf8 code/docs/test/m1_r05_pcm_oracle_20261016/pro_successor_20261016/finalize_receipt.py",
+  "exit_code": 1,
+  "error": "KeyError: 'code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/capture_compare.py'",
+  "cause": "Receipt source path keys used Windows backslashes while lookup used forward slashes",
+  "fix": "Normalize keys only when assembling summary; raw command receipts and production code unchanged",
+  "model_test_failure": false
+}

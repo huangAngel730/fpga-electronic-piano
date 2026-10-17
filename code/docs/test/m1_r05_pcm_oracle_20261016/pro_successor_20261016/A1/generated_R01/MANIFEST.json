@@ -1,0 +1,182 @@
+{
+  "schema": "M1_PRO_A1_SYNTHETIC_BUNDLE_V1",
+  "source_kind": "SYNTHETIC_ONLY",
+  "result": "SOFTWARE_REFERENCE_GENERATED",
+  "actual_dut_result": "PENDING_REAL_CAPTURE",
+  "evidence_level": "L0_SOFTWARE_REFERENCE",
+  "profile": "SYNTHETIC_ONLY_PRO_A1_IDENTITY_AND_HISTORY_INCREMENT",
+  "source_sha256": {
+    "pro_successor_20261016/a1_vectors.py": "1065ee9d6f7d56a6abc57e0f33b3b58bcd0a34176816014d097424cecbd2cc1f",
+    "pro_successor_20261016/test_a1_vectors.py": "9978a52072db45ec19f9b2c23669f0f3b91a2be6dc9008cd13f15f9356fd2626",
+    "oracle.py": "cb2cda8b6c9c17d7e5f93be4e48407383173934437c0592d2da64f778535d4a3",
+    "solo_chord_vectors.py": "61a7b08b68afab12b320836a620d9b381d0503a9cf0c8213460e6dfdd7e327f1",
+    "timbre_switch_pairs_R01.py": "eb07c27e2cd4a682d54f2340b8d55de66ebd240311559de508dedb181ee77df9",
+    "DEPENDENCIES.json": "fb9c0ffaec3b9e001cb2255256565dae49d573155da62473bea2e592716a28de"
+  },
+  "basis_contract_sha256": "f7373c1be0d70b9bb45800738b8a992efadd854c1cb1aecf82910f3644cf091e",
+  "frozen_dependencies": {
+    "schema": "M1_R06_PCM_REFERENCE_DEPENDENCIES_V1",
+    "r06_archive_sha256": "4be2b4c185691a3e493827a3a95303fa90f49ba6336eb4a8e0183942c8f05483",
+    "frozen_reference_only_not_reexecuted_old_tests": true,
+    "files": [
+      {
+        "source": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\software\\audio_math_acceptance_candidate\\dds_model.py",
+        "path": "frozen/dds_model.py",
+        "sha256": "c127f5af83e52cbcd7484e96fbb26f149862cdb225023f72041c61f220c0950d",
+        "bytes": 5221
+      },
+      {
+        "source": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\software\\audio_math_acceptance_candidate\\envelope_model.py",
+        "path": "frozen/envelope_model.py",
+        "sha256": "5826bb00da5d8ecc5c2eb3ffe43d159514781bc2f3bb1033965dcf312d12f933",
+        "bytes": 6222
+      },
+      {
+        "source": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\tb\\board\\generate_t010_allocator_vectors.py",
+        "path": "frozen/allocator_oracle.py",
+        "sha256": "634208931558eea580a0a4406d0c45e04fed1afa1e446455e1341cb19171b4a7",
+        "bytes": 4797
+      },
+      {
+        "source": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\model\\m1_timbre_delay_chain_candidate_20261014\\delay_effect_fixed.py",
+        "path": "frozen/delay_effect_fixed.py",
+        "sha256": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+        "bytes": 8971
+      },
+      {
+        "source_zip": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\evidence\\m2_m1td_physical_20261015\\M2_138K_M1TD_R06_XSAFE_7ms_ModelSim输入_20261016.zip",
+        "member": "inputs/rom/piano_band_4x256_8191.mem",
+        "path": "frozen/rom/piano_band_4x256_8191.mem",
+        "sha256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+        "bytes": 5120
+      },
+      {
+        "source_zip": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\evidence\\m2_m1td_physical_20261015\\M2_138K_M1TD_R06_XSAFE_7ms_ModelSim输入_20261016.zip",
+        "member": "inputs/rom/triangle_wavetable.hex",
+        "path": "frozen/rom/triangle_wavetable.hex",
+        "sha256": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+        "bytes": 5210
+      },
+      {
+        "source_zip": "D:\\嵌赛\\高云二\\m1_develop_sync_20261015\\code\\docs\\evidence\\m2_m1td_physical_20261015\\M2_138K_M1TD_R06_XSAFE_7ms_ModelSim输入_20261016.zip",
+        "member": "inputs/rom/velocity_gain_rom.mem",
+        "path": "frozen/rom/velocity_gain_rom.mem",
+        "sha256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+        "bytes": 5120
+      }
+    ]
+  },
+  "clock_hz": 40000000,
+  "sample_rate_hz": 48000,
+  "scenes": [
+    "solo60",
+    "solo63",
+    "solo67",
+    "solo70",
+    "all4"
+  ],
+  "samples_per_scene": 256,
+  "files": {
+    "all4/EVENT_DECISIONS_SYNTHETIC.json": {
+      "bytes": 1075,
+      "sha256": "1bc378399bb610eecd5a75b3cba192109b8ab5108bb8ebe2110293a63c7f9d90"
+    },
+    "all4/EXPECTED_PCM_AND_HISTORY_SYNTHETIC.json": {
+      "bytes": 1380759,
+      "sha256": "2e486468054347349767c03ad7f0030db61cabe4d3f0b497a8beebf8463eb3a1"
+    },
+    "all4/PCM_SYNTHETIC.csv": {
+      "bytes": 87673,
+      "sha256": "eca7afd0cbd2febbd18fc482af9e08d1cc53a7561cd65030a6a31021e6b2d762"
+    },
+    "all4/STIMULUS_SYNTHETIC.json": {
+      "bytes": 48892,
+      "sha256": "e62b7d11d79167f67dbcb11f1c163851fc08f75d214fdc95ddc60d7475235728"
+    },
+    "PRO_IDENTITY_PENDING.json": {
+      "bytes": 449,
+      "sha256": "ea86a33e7cd1433268d0fb34d1794823a801369d90966985018c7d3a90565a7d"
+    },
+    "QUALIFICATION_SYNTHETIC.json": {
+      "bytes": 3622,
+      "sha256": "994eba54e664dab068e831c205a57557d950162012a0a900bd040d9b368d8b97"
+    },
+    "solo60/EVENT_DECISIONS_SYNTHETIC.json": {
+      "bytes": 412,
+      "sha256": "84deeb644232dc614e97d212348b3eef911d9a33387c44d3913423dee92aa1e9"
+    },
+    "solo60/EXPECTED_PCM_AND_HISTORY_SYNTHETIC.json": {
+      "bytes": 1180035,
+      "sha256": "b42213cc522bbb4abdcbc7adb18b4d326aa884bba85b2bfe70f9d280e232fdac"
+    },
+    "solo60/PCM_SYNTHETIC.csv": {
+      "bytes": 56987,
+      "sha256": "8716f478ec67c7a0a88cddc8d5655aa93fd08d2dda37150ac55556e2a24f677b"
+    },
+    "solo60/STIMULUS_SYNTHETIC.json": {
+      "bytes": 48486,
+      "sha256": "a1051bcc08d4cf0f898aed3a207a7ff33fa0b88b79c144ff61de0bbc416c4cfd"
+    },
+    "solo63/EVENT_DECISIONS_SYNTHETIC.json": {
+      "bytes": 411,
+      "sha256": "f4972b145817cf2cafb2ce4291a6aa6818071cdd54fc46c46cd1bdcf8c034460"
+    },
+    "solo63/EXPECTED_PCM_AND_HISTORY_SYNTHETIC.json": {
+      "bytes": 1179556,
+      "sha256": "d01b0c7a7ab360f9207ee7c046442a41dfc56aded311c8b4b55ec3772bf89bb1"
+    },
+    "solo63/PCM_SYNTHETIC.csv": {
+      "bytes": 56835,
+      "sha256": "d4d4fc38e4a9fde942d40dc728daa692e749973b129c89a2764fd933d6b9deb9"
+    },
+    "solo63/STIMULUS_SYNTHETIC.json": {
+      "bytes": 48485,
+      "sha256": "b63ac063f82783a7c5190ad45fd49dded9848503d68e8c8ab0f697361cd56075"
+    },
+    "solo67/EVENT_DECISIONS_SYNTHETIC.json": {
+      "bytes": 411,
+      "sha256": "c3aad4121ccdf09e874193eba68e40f5f43d4de8f0546b587ccca137dc808232"
+    },
+    "solo67/EXPECTED_PCM_AND_HISTORY_SYNTHETIC.json": {
+      "bytes": 1179364,
+      "sha256": "de1cbd7b747fd96aafd9ade0f18e1a66c363f9fe6d10a08f1404b85011f990ed"
+    },
+    "solo67/PCM_SYNTHETIC.csv": {
+      "bytes": 56783,
+      "sha256": "e0efb4b54b5de8a58e20bbf4fd6f8ebb5bf17d93fe3d9120a9cedfb21fdc116b"
+    },
+    "solo67/STIMULUS_SYNTHETIC.json": {
+      "bytes": 48485,
+      "sha256": "d399718a1f5e2be0de51f4925a07882bdb49f578cac4162a86b8a910c8481073"
+    },
+    "solo70/EVENT_DECISIONS_SYNTHETIC.json": {
+      "bytes": 411,
+      "sha256": "ef26b549b91f31cca3ae2482abdedb33373d35b968858aeba73d8e58c7f938c7"
+    },
+    "solo70/EXPECTED_PCM_AND_HISTORY_SYNTHETIC.json": {
+      "bytes": 1178487,
+      "sha256": "ba1587755ea7195bd174ae8e62a7de50250d1b80fe8bf197c23bb106a2f06153"
+    },
+    "solo70/PCM_SYNTHETIC.csv": {
+      "bytes": 56501,
+      "sha256": "d9b84a83539f8cfa7a9a56c22a808e960c2ef358d125c0b36ac43ccc2aa63103"
+    },
+    "solo70/STIMULUS_SYNTHETIC.json": {
+      "bytes": 48485,
+      "sha256": "a69bf289ff7a9a8a9d0e2c8c1d76ddf6247e5111965e44fdab7167c00891a0b0"
+    }
+  },
+  "pro_identity": {
+    "status": "PENDING_REAL_CAPTURE",
+    "pro_top_sha256": null,
+    "pro_source_manifest_sha256": null,
+    "pro_reset_contract": null,
+    "pro_rom_role_mapping": null,
+    "pro_independent_calendar_sha256": null,
+    "pro_public_pcm_capture_sha256": null
+  },
+  "boundary": "Frozen R06 arithmetic is a referenced basis only. New Pro top, reset/port contract, ROM role mapping and same-run independent calendar/public PCM are missing. No Pro RTL/board claim.",
+  "algorithms_copied": false,
+  "old_test_suites_reexecuted": false,
+  "final_solo_pcm_may_be_added_as_chord_golden": false
+}

@@ -1,0 +1,197 @@
+{
+  "schema": "M1_PRO_B0_RAW_CLI_QUALIFICATION_V1",
+  "scope": "SYNTHETIC_SOFTWARE_FIXTURES_ONLY",
+  "REAL_RESULT": "PENDING_REAL_CAPTURE",
+  "board_release_allowed": false,
+  "cases": [
+    {
+      "name": "synthetic_fourvoice",
+      "argv": [
+        "E:\\python3.10\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q\\code\\model\\m1_r05_pcm_oracle_20261016\\pro_successor_20261016\\capture_compare.py",
+        "--manifest",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\pro_successor_20261016\\B0\\cli_R01\\synthetic_fourvoice\\bundle.json",
+        "--out",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\pro_successor_20261016\\B0\\cli_R01\\synthetic_fourvoice\\REPORT.json"
+      ],
+      "cwd": "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "status": "SYNTHETIC_FIXTURE_PASS",
+      "expected_status": "SYNTHETIC_FIXTURE_PASS",
+      "elapsed_seconds": 0.12299895286560059,
+      "expectation_matched": true,
+      "files": {
+        "bundle.json": {
+          "bytes": 1843,
+          "sha256": "bc14ee8487566da48677c774332b612ce1e8689e9be1b7c8846253f0bc522772"
+        },
+        "calendar.json": {
+          "bytes": 11838,
+          "sha256": "1b45101392b8a5389de6e3b086a8b74c8412a979d0a667ffdb5d3feea25ca92d"
+        },
+        "public_pcm.json": {
+          "bytes": 3340,
+          "sha256": "eefcf644f14c05972684b4a56c0be4eb962a791a200a356d7fc62c804c1b087b"
+        },
+        "REPORT.json": {
+          "bytes": 2643,
+          "sha256": "d831aac7429c3c238555f335ae6188e2e9ca17fc49fcd3b5f43e7dbfd2aebb4f"
+        },
+        "stderr.bin": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.bin": {
+          "bytes": 24,
+          "sha256": "0cd75fc5d89f6af9528e6bdb6692a4a827b98a3fd987ee42005ea68051e50c1a"
+        }
+      }
+    },
+    {
+      "name": "left_one_lsb",
+      "argv": [
+        "E:\\python3.10\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q\\code\\model\\m1_r05_pcm_oracle_20261016\\pro_successor_20261016\\capture_compare.py",
+        "--manifest",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\pro_successor_20261016\\B0\\cli_R01\\left_one_lsb\\bundle.json",
+        "--out",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\pro_successor_20261016\\B0\\cli_R01\\left_one_lsb\\REPORT.json"
+      ],
+      "cwd": "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "status": "PCM_MISMATCH",
+      "expected_status": "PCM_MISMATCH",
+      "elapsed_seconds": 0.14305734634399414,
+      "expectation_matched": true,
+      "files": {
+        "bundle.json": {
+          "bytes": 1843,
+          "sha256": "555d3a66de2f89aea44f13c4900ebc1c428b4a59729dbe72c704aeec2f695a12"
+        },
+        "calendar.json": {
+          "bytes": 11838,
+          "sha256": "1b45101392b8a5389de6e3b086a8b74c8412a979d0a667ffdb5d3feea25ca92d"
+        },
+        "public_pcm.json": {
+          "bytes": 3340,
+          "sha256": "b6c546f21e0204b2eac90cb52212026e390d2588e81dc45ba080b4968717bdfc"
+        },
+        "REPORT.json": {
+          "bytes": 5352,
+          "sha256": "2bb789b484477835b41bbf9adb461daf00a995b0e4257446f1ecd9c91b171ced"
+        },
+        "stderr.bin": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.bin": {
+          "bytes": 14,
+          "sha256": "71f454bdfa3ca247b68e594bb9df941e947dd123e269e872106e5053ef48e216"
+        }
+      }
+    },
+    {
+      "name": "identity_before_pcm",
+      "argv": [
+        "E:\\python3.10\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q\\code\\model\\m1_r05_pcm_oracle_20261016\\pro_successor_20261016\\capture_compare.py",
+        "--manifest",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\pro_successor_20261016\\B0\\cli_R01\\identity_before_pcm\\bundle.json",
+        "--out",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\pro_successor_20261016\\B0\\cli_R01\\identity_before_pcm\\REPORT.json"
+      ],
+      "cwd": "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q",
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "status": "CONTRACT_REJECTED",
+      "expected_status": "CONTRACT_REJECTED",
+      "elapsed_seconds": 0.16064143180847168,
+      "expectation_matched": true,
+      "files": {
+        "bundle.json": {
+          "bytes": 1843,
+          "sha256": "87bace3eb71d3c494698b2cd7ce9925e12e1c44522f2dc524b93ec3a78f362f1"
+        },
+        "calendar.json": {
+          "bytes": 11838,
+          "sha256": "1b45101392b8a5389de6e3b086a8b74c8412a979d0a667ffdb5d3feea25ca92d"
+        },
+        "public_pcm.json": {
+          "bytes": 3340,
+          "sha256": "adbb6b939ff32946a7a04f45f6a7169df884d16c860bfa4d05c57902641684f4"
+        },
+        "REPORT.json": {
+          "bytes": 962,
+          "sha256": "1150e8b008635511b904cc641721d965c07943de5e58b44909bf9cbfbb237f65"
+        },
+        "stderr.bin": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.bin": {
+          "bytes": 19,
+          "sha256": "01cdf370a87e4b49df98ad1dc86f44e0690de2a2eb572587c46783c93e34c8ed"
+        }
+      }
+    },
+    {
+      "name": "relabelled_real_admission_negative",
+      "argv": [
+        "E:\\python3.10\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q\\code\\model\\m1_r05_pcm_oracle_20261016\\pro_successor_20261016\\capture_compare.py",
+        "--manifest",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\pro_successor_20261016\\B0\\cli_R01\\relabelled_real_admission_negative\\bundle.json",
+        "--out",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\pro_successor_20261016\\B0\\cli_R01\\relabelled_real_admission_negative\\REPORT.json"
+      ],
+      "cwd": "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q",
+      "exit_code": 3,
+      "expected_exit_code": 3,
+      "status": "PENDING_REAL_CAPTURE",
+      "expected_status": "PENDING_REAL_CAPTURE",
+      "elapsed_seconds": 0.14181756973266602,
+      "expectation_matched": true,
+      "files": {
+        "bundle.json": {
+          "bytes": 1838,
+          "sha256": "7a10df46738c48ce81f7fe3fc41dffe5afab82d938ff86e56b5f1cd53756ff9e"
+        },
+        "calendar.json": {
+          "bytes": 11834,
+          "sha256": "c35f7fa2abe28e447d2c3f7cb857a1e3ff119644954c18df14d3050ba7144c9d"
+        },
+        "public_pcm.json": {
+          "bytes": 3344,
+          "sha256": "ebc78795f15877df97b1e761d7f9d6d86c50171f1fdf209b4bdfb2c30fee1d50"
+        },
+        "REPORT.json": {
+          "bytes": 2636,
+          "sha256": "b9489c933b850eeaa55e9bbd5bba9c3400e5cef0a3175ca1e8b98d8a8e04dac2"
+        },
+        "stderr.bin": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.bin": {
+          "bytes": 22,
+          "sha256": "fb89ba56acb95078931cb77942e282735cd486553b7e2599125461093c976d3f"
+        }
+      }
+    }
+  ],
+  "all_expectations_matched": true
+}

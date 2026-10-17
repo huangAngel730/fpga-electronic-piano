@@ -1,0 +1,27 @@
+{
+  "schema": "M1_PRO_CAPTURE_BUNDLE_V1",
+  "mode": "SYNTHETIC",
+  "capture_id": "B0_STATIC_IDLE_SYNTHETIC",
+  "scene": "idle_cancel_and_reset_fixture",
+  "profile": "R06_SETTLED_SIMULTANEOUS_LANE_TICKS_V1",
+  "reference": {
+    "signed_files": {
+      "oracle.py": "cb2cda8b6c9c17d7e5f93be4e48407383173934437c0592d2da64f778535d4a3",
+      "DEPENDENCIES.json": "fb9c0ffaec3b9e001cb2255256565dae49d573155da62473bea2e592716a28de",
+      "REFERENCE_CONTRACT.json": "f7373c1be0d70b9bb45800738b8a992efadd854c1cb1aecf82910f3644cf091e"
+    },
+    "frozen_files": {
+      "frozen/dds_model.py": "c127f5af83e52cbcd7484e96fbb26f149862cdb225023f72041c61f220c0950d",
+      "frozen/envelope_model.py": "5826bb00da5d8ecc5c2eb3ffe43d159514781bc2f3bb1033965dcf312d12f933",
+      "frozen/allocator_oracle.py": "634208931558eea580a0a4406d0c45e04fed1afa1e446455e1341cb19171b4a7",
+      "frozen/delay_effect_fixed.py": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+      "frozen/rom/piano_band_4x256_8191.mem": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+      "frozen/rom/triangle_wavetable.hex": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+      "frozen/rom/velocity_gain_rom.mem": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64"
+    }
+  },
+  "calendar": {"path": "synthetic_idle.calendar.json", "bytes": 3605, "sha256": "d48ae14f41cf6c54851c4fd809184bd5b0bdbabba5015e5765c48932c411a39a"},
+  "public_pcm": {"path": "synthetic_idle.public_pcm.json", "bytes": 1156, "sha256": "1e96d9fe73405d4e489d902be0067f1b61a926b275850afbb31592d613371f15"},
+  "pro_binding": null,
+  "counts": {"calendar_rows": 12, "public_pcm_rows": 2, "resets": 2, "events": 0, "lane_ticks": 4, "effect_accepts": 3, "config_accepts": 1, "cancels": 2}
+}

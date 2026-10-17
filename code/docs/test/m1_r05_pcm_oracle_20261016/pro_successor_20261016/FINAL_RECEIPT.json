@@ -1,0 +1,490 @@
+{
+  "schema": "M1_PRO_17_OFFLINE_DELIVERY_RECEIPT_V1",
+  "status": "OFFLINE_SOFTWARE_PREPARATION_COMPLETE_REAL_AND_PUBLICATION_PENDING",
+  "basis_local_head": "228879b6713188d71e1e97ae1170eaa53c523168",
+  "last_successful_origin_develop": "8b129dee4248e055d97d2910675f1c4b23473c96",
+  "remote_latest_verified": false,
+  "authorization_task_sha256": "219ed01008d5d76e176f3dea3b69f803007bedbe3c328b31de19570cf6ee6979",
+  "actual_level": "L0_SOURCE_AND_SYNTHETIC_SOFTWARE_PREPARATION",
+  "REAL_RESULT": "PENDING_REAL_CAPTURE",
+  "board_release_allowed": false,
+  "A0": {
+    "files": 73,
+    "archive_members": 32,
+    "frozen_dependencies": 7,
+    "source_manifest_sha256": "8c40eeef4d95f31eb34929d2ffc96dfad3b2a435099cfa8cd73fbbcac4f6c522",
+    "original_outer_raw_streams_saved": false,
+    "limitation": "Original A0 tool transcript and structured child Git receipts preserved; final independent static SHA verification has separate raw streams."
+  },
+  "A1": {
+    "new_test_methods_passed": 14,
+    "scenes": 5,
+    "rows_per_scene": 256,
+    "total_synthetic_rows": 1280,
+    "qualification_sha256": "994eba54e664dab068e831c205a57557d950162012a0a900bd040d9b368d8b97",
+    "true_clip_rows": {
+      "solo60": 0,
+      "solo63": 0,
+      "solo67": 0,
+      "solo70": 0,
+      "all4": 0
+    },
+    "sum_of_effected_solos_is_chord_golden": false,
+    "counterexample": {
+      "source_kind": "SOFTWARE_REFERENCE_ONLY",
+      "actual_dut_result": "PENDING_REAL_CAPTURE",
+      "request_id": 1,
+      "advance_cycle": 961,
+      "solo_effected_left": [
+        3711,
+        255,
+        255,
+        255
+      ],
+      "sum_solo_effected_left": 4476,
+      "saturated_sum_solo_effected_left": 4476,
+      "all4_effected_left": 4479,
+      "all4_mixed_left": 4096,
+      "reason": "sum(each rounded/effected solo) is not the ALL4 golden"
+    }
+  },
+  "B0": {
+    "final_production_sha256": "7213e9fdce5fcab4dd5828b282613def88e8f5d7566986e3af6b89ae9c899267",
+    "final_test_file_sha256": "7597ecacaa898a51ae6cb91dda1f1eb1172954fd906c2d908513a347381ad50f",
+    "initial_new_methods_passed": 30,
+    "specific_fix_round": {
+      "first_command_methods_passed": 32,
+      "subsequently_added_method_passed": 1,
+      "single_final_33_method_suite_run_claimed": false,
+      "same_final_production_sha_on_both_commands": true
+    },
+    "pre_fix_cli_expected_and_actual_exits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "pre_fix_cli_results_are_not_relabelled_as_final_source_reruns": true,
+    "profile": "R06_SETTLED_SIMULTANEOUS_LANE_TICKS_V1",
+    "real_admission": "ALWAYS_PENDING_WITH_CURRENT_PRO_GAPS",
+    "tolerance_pcm_lsb": 0
+  },
+  "executions": {
+    "A1_TEST_R01": {
+      "receipt": "RUNS/A1_TEST_R01/RECEIPT.json",
+      "receipt_sha256": "76edc1b012a08d7af90197c95d01e8358cb1fb31d4d5904ebe2c70355af77855",
+      "argv": [
+        "E:\\python3.10\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/test_a1_vectors.py"
+      ],
+      "cwd": "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q",
+      "exit_code": 0,
+      "duration_seconds": 4.71226167678833,
+      "python": {
+        "path": "E:\\python3.10\\python.exe",
+        "version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+        "sha256": "53f323d1e593efc85553553f87a634dd8ed1266593ef7dc1ef6c808809eb8885"
+      },
+      "streams": {
+        "stdout.bin": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.bin": {
+          "bytes": 1348,
+          "sha256": "01531c3e9187fc655265bfb3eb74f7833e2be199ca85f4064401b655d8a786d6"
+        }
+      },
+      "source_sha256": {
+        "code/model/m1_r05_pcm_oracle_20261016/compare_math.py": "3b12bc2388fadb0a45bdb773de2bd3b0412ed65c1a97039982a34bfbdcab2acf",
+        "code/model/m1_r05_pcm_oracle_20261016/generate_vectors.py": "6e9020cf39ca10793f19a8a86412a09a0958745462075b200731f1e14da35b0c",
+        "code/model/m1_r05_pcm_oracle_20261016/oracle.py": "cb2cda8b6c9c17d7e5f93be4e48407383173934437c0592d2da64f778535d4a3",
+        "code/model/m1_r05_pcm_oracle_20261016/qualify_comparison.py": "8855fd171a1283f3dd9f3c52919a74450212d908f115198738bbf642411592aa",
+        "code/model/m1_r05_pcm_oracle_20261016/run_checks.py": "9b37229899b5e159a74fdc1c34050a187f23396277360f1c857e131ef5b63162",
+        "code/model/m1_r05_pcm_oracle_20261016/solo_chord_vectors.py": "61a7b08b68afab12b320836a620d9b381d0503a9cf0c8213460e6dfdd7e327f1",
+        "code/model/m1_r05_pcm_oracle_20261016/test_oracle.py": "a01fab0a7d396461a2f9eeebb1882e3aab535d4152699a71ebee5e8f82f8ff9e",
+        "code/model/m1_r05_pcm_oracle_20261016/test_solo_chord_vectors.py": "500c5ca34565a30d0c10f1bc68083a31663c5f2870388ab350b8ccbd0c262259",
+        "code/model/m1_r05_pcm_oracle_20261016/test_timbre_switch_pairs_R01.py": "4938dcc0940d4bccd7558f276e0ddb3da52939aa76a6995842707dacfe3bcdb6",
+        "code/model/m1_r05_pcm_oracle_20261016/timbre_switch_pairs_R01.py": "eb07c27e2cd4a682d54f2340b8d55de66ebd240311559de508dedb181ee77df9",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/allocator_oracle.py": "634208931558eea580a0a4406d0c45e04fed1afa1e446455e1341cb19171b4a7",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/dds_model.py": "c127f5af83e52cbcd7484e96fbb26f149862cdb225023f72041c61f220c0950d",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/delay_effect_fixed.py": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/envelope_model.py": "5826bb00da5d8ecc5c2eb3ffe43d159514781bc2f3bb1033965dcf312d12f933",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/rom/piano_band_4x256_8191.mem": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/rom/triangle_wavetable.hex": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/rom/velocity_gain_rom.mem": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/a1_vectors.py": "1065ee9d6f7d56a6abc57e0f33b3b58bcd0a34176816014d097424cecbd2cc1f",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/capture_compare.py": "463bfa448f1056362f2ab2956124578c8dbb1abf16f1c4950336ca8fc752db6b",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/test_a1_vectors.py": "9978a52072db45ec19f9b2c23669f0f3b91a2be6dc9008cd13f15f9356fd2626",
+        "code/model/m1_r05_pcm_oracle_20261016/DEPENDENCIES.json": "fb9c0ffaec3b9e001cb2255256565dae49d573155da62473bea2e592716a28de",
+        "code/docs/test/m1_r05_pcm_oracle_20261016/pro_successor_20261016/TASK_RECEIVED.md": "219ed01008d5d76e176f3dea3b69f803007bedbe3c328b31de19570cf6ee6979",
+        "code/docs/test/m1_r05_pcm_oracle_20261016/pro_successor_20261016/capture_run.py": "36cdee5c5a54241d443223e77306473266a8929f30e56220d9fa51fd2945cf63"
+      }
+    },
+    "A1_GENERATE_R01": {
+      "receipt": "RUNS/A1_GENERATE_R01/RECEIPT.json",
+      "receipt_sha256": "c0563842baddc7856258759f9eef5f3141905342b6483a9d524846b1b220fa5e",
+      "argv": [
+        "E:\\python3.10\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/a1_vectors.py",
+        "--output",
+        "code/docs/test/m1_r05_pcm_oracle_20261016/pro_successor_20261016/A1/generated_R01"
+      ],
+      "cwd": "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q",
+      "exit_code": 0,
+      "duration_seconds": 0.9500072002410889,
+      "python": {
+        "path": "E:\\python3.10\\python.exe",
+        "version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+        "sha256": "53f323d1e593efc85553553f87a634dd8ed1266593ef7dc1ef6c808809eb8885"
+      },
+      "streams": {
+        "stdout.bin": {
+          "bytes": 152,
+          "sha256": "3e36b4e16ecc67c4abc05dc0ee4b13f15ad57f26dc429b5d076652b372ea1153"
+        },
+        "stderr.bin": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "source_sha256": {
+        "code/model/m1_r05_pcm_oracle_20261016/compare_math.py": "3b12bc2388fadb0a45bdb773de2bd3b0412ed65c1a97039982a34bfbdcab2acf",
+        "code/model/m1_r05_pcm_oracle_20261016/generate_vectors.py": "6e9020cf39ca10793f19a8a86412a09a0958745462075b200731f1e14da35b0c",
+        "code/model/m1_r05_pcm_oracle_20261016/oracle.py": "cb2cda8b6c9c17d7e5f93be4e48407383173934437c0592d2da64f778535d4a3",
+        "code/model/m1_r05_pcm_oracle_20261016/qualify_comparison.py": "8855fd171a1283f3dd9f3c52919a74450212d908f115198738bbf642411592aa",
+        "code/model/m1_r05_pcm_oracle_20261016/run_checks.py": "9b37229899b5e159a74fdc1c34050a187f23396277360f1c857e131ef5b63162",
+        "code/model/m1_r05_pcm_oracle_20261016/solo_chord_vectors.py": "61a7b08b68afab12b320836a620d9b381d0503a9cf0c8213460e6dfdd7e327f1",
+        "code/model/m1_r05_pcm_oracle_20261016/test_oracle.py": "a01fab0a7d396461a2f9eeebb1882e3aab535d4152699a71ebee5e8f82f8ff9e",
+        "code/model/m1_r05_pcm_oracle_20261016/test_solo_chord_vectors.py": "500c5ca34565a30d0c10f1bc68083a31663c5f2870388ab350b8ccbd0c262259",
+        "code/model/m1_r05_pcm_oracle_20261016/test_timbre_switch_pairs_R01.py": "4938dcc0940d4bccd7558f276e0ddb3da52939aa76a6995842707dacfe3bcdb6",
+        "code/model/m1_r05_pcm_oracle_20261016/timbre_switch_pairs_R01.py": "eb07c27e2cd4a682d54f2340b8d55de66ebd240311559de508dedb181ee77df9",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/allocator_oracle.py": "634208931558eea580a0a4406d0c45e04fed1afa1e446455e1341cb19171b4a7",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/dds_model.py": "c127f5af83e52cbcd7484e96fbb26f149862cdb225023f72041c61f220c0950d",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/delay_effect_fixed.py": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/envelope_model.py": "5826bb00da5d8ecc5c2eb3ffe43d159514781bc2f3bb1033965dcf312d12f933",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/rom/piano_band_4x256_8191.mem": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/rom/triangle_wavetable.hex": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/rom/velocity_gain_rom.mem": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/a1_vectors.py": "1065ee9d6f7d56a6abc57e0f33b3b58bcd0a34176816014d097424cecbd2cc1f",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/capture_compare.py": "463bfa448f1056362f2ab2956124578c8dbb1abf16f1c4950336ca8fc752db6b",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/test_a1_vectors.py": "9978a52072db45ec19f9b2c23669f0f3b91a2be6dc9008cd13f15f9356fd2626",
+        "code/model/m1_r05_pcm_oracle_20261016/DEPENDENCIES.json": "fb9c0ffaec3b9e001cb2255256565dae49d573155da62473bea2e592716a28de",
+        "code/docs/test/m1_r05_pcm_oracle_20261016/pro_successor_20261016/TASK_RECEIVED.md": "219ed01008d5d76e176f3dea3b69f803007bedbe3c328b31de19570cf6ee6979",
+        "code/docs/test/m1_r05_pcm_oracle_20261016/pro_successor_20261016/capture_run.py": "36cdee5c5a54241d443223e77306473266a8929f30e56220d9fa51fd2945cf63"
+      }
+    },
+    "B0_TEST_R01": {
+      "receipt": "RUNS/B0_TEST_R01/RECEIPT.json",
+      "receipt_sha256": "a52c7b62e083447bf8ad9705e2716400696cd797cbaeec6b9823298e79f943e1",
+      "argv": [
+        "E:\\python3.10\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016",
+        "-p",
+        "test_capture_compare.py",
+        "-v"
+      ],
+      "cwd": "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q",
+      "exit_code": 0,
+      "duration_seconds": 3.9842662811279297,
+      "python": {
+        "path": "E:\\python3.10\\python.exe",
+        "version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+        "sha256": "53f323d1e593efc85553553f87a634dd8ed1266593ef7dc1ef6c808809eb8885"
+      },
+      "streams": {
+        "stdout.bin": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.bin": {
+          "bytes": 3298,
+          "sha256": "3acfe9b8e2dbba30ffd74a1218d1872765c5d53cd20ba6fb1e960e40c8190e2e"
+        }
+      },
+      "source_sha256": {
+        "code/model/m1_r05_pcm_oracle_20261016/compare_math.py": "3b12bc2388fadb0a45bdb773de2bd3b0412ed65c1a97039982a34bfbdcab2acf",
+        "code/model/m1_r05_pcm_oracle_20261016/generate_vectors.py": "6e9020cf39ca10793f19a8a86412a09a0958745462075b200731f1e14da35b0c",
+        "code/model/m1_r05_pcm_oracle_20261016/oracle.py": "cb2cda8b6c9c17d7e5f93be4e48407383173934437c0592d2da64f778535d4a3",
+        "code/model/m1_r05_pcm_oracle_20261016/qualify_comparison.py": "8855fd171a1283f3dd9f3c52919a74450212d908f115198738bbf642411592aa",
+        "code/model/m1_r05_pcm_oracle_20261016/run_checks.py": "9b37229899b5e159a74fdc1c34050a187f23396277360f1c857e131ef5b63162",
+        "code/model/m1_r05_pcm_oracle_20261016/solo_chord_vectors.py": "61a7b08b68afab12b320836a620d9b381d0503a9cf0c8213460e6dfdd7e327f1",
+        "code/model/m1_r05_pcm_oracle_20261016/test_oracle.py": "a01fab0a7d396461a2f9eeebb1882e3aab535d4152699a71ebee5e8f82f8ff9e",
+        "code/model/m1_r05_pcm_oracle_20261016/test_solo_chord_vectors.py": "500c5ca34565a30d0c10f1bc68083a31663c5f2870388ab350b8ccbd0c262259",
+        "code/model/m1_r05_pcm_oracle_20261016/test_timbre_switch_pairs_R01.py": "4938dcc0940d4bccd7558f276e0ddb3da52939aa76a6995842707dacfe3bcdb6",
+        "code/model/m1_r05_pcm_oracle_20261016/timbre_switch_pairs_R01.py": "eb07c27e2cd4a682d54f2340b8d55de66ebd240311559de508dedb181ee77df9",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/allocator_oracle.py": "634208931558eea580a0a4406d0c45e04fed1afa1e446455e1341cb19171b4a7",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/dds_model.py": "c127f5af83e52cbcd7484e96fbb26f149862cdb225023f72041c61f220c0950d",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/delay_effect_fixed.py": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/envelope_model.py": "5826bb00da5d8ecc5c2eb3ffe43d159514781bc2f3bb1033965dcf312d12f933",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/rom/piano_band_4x256_8191.mem": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/rom/triangle_wavetable.hex": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/rom/velocity_gain_rom.mem": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/a1_vectors.py": "1065ee9d6f7d56a6abc57e0f33b3b58bcd0a34176816014d097424cecbd2cc1f",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/capture_compare.py": "497e8a7d071d4e556ecd3eafd20bfc58147d3f58f6d6ebb4e8d801b3216894de",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/qualify_capture_cli.py": "e23a843093fabe0bb1e138d620918c75e7b46077d3eccbe2aaebe03e43573b30",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/test_a1_vectors.py": "9978a52072db45ec19f9b2c23669f0f3b91a2be6dc9008cd13f15f9356fd2626",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/test_capture_compare.py": "7a9bd4256c6a88363e06659c90ffd6e808b65472cb867be57211c30f6a2629f4",
+        "code/model/m1_r05_pcm_oracle_20261016/DEPENDENCIES.json": "fb9c0ffaec3b9e001cb2255256565dae49d573155da62473bea2e592716a28de",
+        "code/docs/test/m1_r05_pcm_oracle_20261016/pro_successor_20261016/TASK_RECEIVED.md": "219ed01008d5d76e176f3dea3b69f803007bedbe3c328b31de19570cf6ee6979",
+        "code/docs/test/m1_r05_pcm_oracle_20261016/pro_successor_20261016/capture_run.py": "36cdee5c5a54241d443223e77306473266a8929f30e56220d9fa51fd2945cf63"
+      }
+    },
+    "B0_CLI_R01": {
+      "receipt": "RUNS/B0_CLI_R01/RECEIPT.json",
+      "receipt_sha256": "a456a4754dde3cc24691db8536455c8e911aa90590ac03cccfbec61b4758ed34",
+      "argv": [
+        "E:\\python3.10\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/qualify_capture_cli.py",
+        "--output",
+        "code/docs/test/m1_r05_pcm_oracle_20261016/pro_successor_20261016/B0/cli_R01"
+      ],
+      "cwd": "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q",
+      "exit_code": 0,
+      "duration_seconds": 1.0670585632324219,
+      "python": {
+        "path": "E:\\python3.10\\python.exe",
+        "version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+        "sha256": "53f323d1e593efc85553553f87a634dd8ed1266593ef7dc1ef6c808809eb8885"
+      },
+      "streams": {
+        "stdout.bin": {
+          "bytes": 137,
+          "sha256": "b048e54880223c5be9d1e1373388186d2acd0fed9009fb2bc9236ddd0e9f390d"
+        },
+        "stderr.bin": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "source_sha256": {
+        "code/model/m1_r05_pcm_oracle_20261016/compare_math.py": "3b12bc2388fadb0a45bdb773de2bd3b0412ed65c1a97039982a34bfbdcab2acf",
+        "code/model/m1_r05_pcm_oracle_20261016/generate_vectors.py": "6e9020cf39ca10793f19a8a86412a09a0958745462075b200731f1e14da35b0c",
+        "code/model/m1_r05_pcm_oracle_20261016/oracle.py": "cb2cda8b6c9c17d7e5f93be4e48407383173934437c0592d2da64f778535d4a3",
+        "code/model/m1_r05_pcm_oracle_20261016/qualify_comparison.py": "8855fd171a1283f3dd9f3c52919a74450212d908f115198738bbf642411592aa",
+        "code/model/m1_r05_pcm_oracle_20261016/run_checks.py": "9b37229899b5e159a74fdc1c34050a187f23396277360f1c857e131ef5b63162",
+        "code/model/m1_r05_pcm_oracle_20261016/solo_chord_vectors.py": "61a7b08b68afab12b320836a620d9b381d0503a9cf0c8213460e6dfdd7e327f1",
+        "code/model/m1_r05_pcm_oracle_20261016/test_oracle.py": "a01fab0a7d396461a2f9eeebb1882e3aab535d4152699a71ebee5e8f82f8ff9e",
+        "code/model/m1_r05_pcm_oracle_20261016/test_solo_chord_vectors.py": "500c5ca34565a30d0c10f1bc68083a31663c5f2870388ab350b8ccbd0c262259",
+        "code/model/m1_r05_pcm_oracle_20261016/test_timbre_switch_pairs_R01.py": "4938dcc0940d4bccd7558f276e0ddb3da52939aa76a6995842707dacfe3bcdb6",
+        "code/model/m1_r05_pcm_oracle_20261016/timbre_switch_pairs_R01.py": "eb07c27e2cd4a682d54f2340b8d55de66ebd240311559de508dedb181ee77df9",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/allocator_oracle.py": "634208931558eea580a0a4406d0c45e04fed1afa1e446455e1341cb19171b4a7",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/dds_model.py": "c127f5af83e52cbcd7484e96fbb26f149862cdb225023f72041c61f220c0950d",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/delay_effect_fixed.py": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/envelope_model.py": "5826bb00da5d8ecc5c2eb3ffe43d159514781bc2f3bb1033965dcf312d12f933",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/rom/piano_band_4x256_8191.mem": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/rom/triangle_wavetable.hex": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/rom/velocity_gain_rom.mem": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/a1_vectors.py": "1065ee9d6f7d56a6abc57e0f33b3b58bcd0a34176816014d097424cecbd2cc1f",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/capture_compare.py": "497e8a7d071d4e556ecd3eafd20bfc58147d3f58f6d6ebb4e8d801b3216894de",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/qualify_capture_cli.py": "e23a843093fabe0bb1e138d620918c75e7b46077d3eccbe2aaebe03e43573b30",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/test_a1_vectors.py": "9978a52072db45ec19f9b2c23669f0f3b91a2be6dc9008cd13f15f9356fd2626",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/test_capture_compare.py": "7a9bd4256c6a88363e06659c90ffd6e808b65472cb867be57211c30f6a2629f4",
+        "code/model/m1_r05_pcm_oracle_20261016/DEPENDENCIES.json": "fb9c0ffaec3b9e001cb2255256565dae49d573155da62473bea2e592716a28de",
+        "code/docs/test/m1_r05_pcm_oracle_20261016/pro_successor_20261016/TASK_RECEIVED.md": "219ed01008d5d76e176f3dea3b69f803007bedbe3c328b31de19570cf6ee6979",
+        "code/docs/test/m1_r05_pcm_oracle_20261016/pro_successor_20261016/capture_run.py": "36cdee5c5a54241d443223e77306473266a8929f30e56220d9fa51fd2945cf63"
+      }
+    },
+    "B0_TEST_R02_AFTER_SPECIFIC_FIX": {
+      "receipt": "RUNS/B0_TEST_R02_AFTER_SPECIFIC_FIX/RECEIPT.json",
+      "receipt_sha256": "ecdffe38745be94ec4d9cfc6f82f6c01310b7936267bc7ae4136d54e1723c523",
+      "argv": [
+        "E:\\python3.10\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016",
+        "-p",
+        "test_capture_compare.py",
+        "-v"
+      ],
+      "cwd": "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q",
+      "exit_code": 0,
+      "duration_seconds": 2.642080307006836,
+      "python": {
+        "path": "E:\\python3.10\\python.exe",
+        "version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+        "sha256": "53f323d1e593efc85553553f87a634dd8ed1266593ef7dc1ef6c808809eb8885"
+      },
+      "streams": {
+        "stdout.bin": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.bin": {
+          "bytes": 3544,
+          "sha256": "027952061647cfe6a8d8f32020892ae0fbb951de530550b1733f346376b12ff1"
+        }
+      },
+      "source_sha256": {
+        "code/model/m1_r05_pcm_oracle_20261016/compare_math.py": "3b12bc2388fadb0a45bdb773de2bd3b0412ed65c1a97039982a34bfbdcab2acf",
+        "code/model/m1_r05_pcm_oracle_20261016/generate_vectors.py": "6e9020cf39ca10793f19a8a86412a09a0958745462075b200731f1e14da35b0c",
+        "code/model/m1_r05_pcm_oracle_20261016/oracle.py": "cb2cda8b6c9c17d7e5f93be4e48407383173934437c0592d2da64f778535d4a3",
+        "code/model/m1_r05_pcm_oracle_20261016/qualify_comparison.py": "8855fd171a1283f3dd9f3c52919a74450212d908f115198738bbf642411592aa",
+        "code/model/m1_r05_pcm_oracle_20261016/run_checks.py": "9b37229899b5e159a74fdc1c34050a187f23396277360f1c857e131ef5b63162",
+        "code/model/m1_r05_pcm_oracle_20261016/solo_chord_vectors.py": "61a7b08b68afab12b320836a620d9b381d0503a9cf0c8213460e6dfdd7e327f1",
+        "code/model/m1_r05_pcm_oracle_20261016/test_oracle.py": "a01fab0a7d396461a2f9eeebb1882e3aab535d4152699a71ebee5e8f82f8ff9e",
+        "code/model/m1_r05_pcm_oracle_20261016/test_solo_chord_vectors.py": "500c5ca34565a30d0c10f1bc68083a31663c5f2870388ab350b8ccbd0c262259",
+        "code/model/m1_r05_pcm_oracle_20261016/test_timbre_switch_pairs_R01.py": "4938dcc0940d4bccd7558f276e0ddb3da52939aa76a6995842707dacfe3bcdb6",
+        "code/model/m1_r05_pcm_oracle_20261016/timbre_switch_pairs_R01.py": "eb07c27e2cd4a682d54f2340b8d55de66ebd240311559de508dedb181ee77df9",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/allocator_oracle.py": "634208931558eea580a0a4406d0c45e04fed1afa1e446455e1341cb19171b4a7",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/dds_model.py": "c127f5af83e52cbcd7484e96fbb26f149862cdb225023f72041c61f220c0950d",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/delay_effect_fixed.py": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/envelope_model.py": "5826bb00da5d8ecc5c2eb3ffe43d159514781bc2f3bb1033965dcf312d12f933",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/rom/piano_band_4x256_8191.mem": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/rom/triangle_wavetable.hex": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/rom/velocity_gain_rom.mem": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/a1_vectors.py": "1065ee9d6f7d56a6abc57e0f33b3b58bcd0a34176816014d097424cecbd2cc1f",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/capture_compare.py": "7213e9fdce5fcab4dd5828b282613def88e8f5d7566986e3af6b89ae9c899267",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/qualify_capture_cli.py": "e23a843093fabe0bb1e138d620918c75e7b46077d3eccbe2aaebe03e43573b30",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/test_a1_vectors.py": "9978a52072db45ec19f9b2c23669f0f3b91a2be6dc9008cd13f15f9356fd2626",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/test_capture_compare.py": "85814f2e61caddb8bcaf4adaabacdeddcb81cce1e4e51bc10b6701598349ad21",
+        "code/model/m1_r05_pcm_oracle_20261016/DEPENDENCIES.json": "fb9c0ffaec3b9e001cb2255256565dae49d573155da62473bea2e592716a28de",
+        "code/docs/test/m1_r05_pcm_oracle_20261016/pro_successor_20261016/TASK_RECEIVED.md": "219ed01008d5d76e176f3dea3b69f803007bedbe3c328b31de19570cf6ee6979",
+        "code/docs/test/m1_r05_pcm_oracle_20261016/pro_successor_20261016/capture_run.py": "36cdee5c5a54241d443223e77306473266a8929f30e56220d9fa51fd2945cf63"
+      }
+    },
+    "B0_FIX_ONLY_ADDED_CASE_R02B": {
+      "receipt": "RUNS/B0_FIX_ONLY_ADDED_CASE_R02B/RECEIPT.json",
+      "receipt_sha256": "fbab21d6cbb90ac481f3b5189baed363768f44df9e47cc4a1950fb01c276e2bb",
+      "argv": [
+        "E:\\python3.10\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/test_capture_compare.py",
+        "CaptureCompareTests.test_calendar_only_checks_available_counts_and_lane_identity",
+        "-v"
+      ],
+      "cwd": "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\q",
+      "exit_code": 0,
+      "duration_seconds": 0.2661011219024658,
+      "python": {
+        "path": "E:\\python3.10\\python.exe",
+        "version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+        "sha256": "53f323d1e593efc85553553f87a634dd8ed1266593ef7dc1ef6c808809eb8885"
+      },
+      "streams": {
+        "stdout.bin": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.bin": {
+          "bytes": 202,
+          "sha256": "e48a8d45cff2fa3ef2a70d446ce8a0585756fd062616d7507ac86e7631d719ab"
+        }
+      },
+      "source_sha256": {
+        "code/model/m1_r05_pcm_oracle_20261016/compare_math.py": "3b12bc2388fadb0a45bdb773de2bd3b0412ed65c1a97039982a34bfbdcab2acf",
+        "code/model/m1_r05_pcm_oracle_20261016/generate_vectors.py": "6e9020cf39ca10793f19a8a86412a09a0958745462075b200731f1e14da35b0c",
+        "code/model/m1_r05_pcm_oracle_20261016/oracle.py": "cb2cda8b6c9c17d7e5f93be4e48407383173934437c0592d2da64f778535d4a3",
+        "code/model/m1_r05_pcm_oracle_20261016/qualify_comparison.py": "8855fd171a1283f3dd9f3c52919a74450212d908f115198738bbf642411592aa",
+        "code/model/m1_r05_pcm_oracle_20261016/run_checks.py": "9b37229899b5e159a74fdc1c34050a187f23396277360f1c857e131ef5b63162",
+        "code/model/m1_r05_pcm_oracle_20261016/solo_chord_vectors.py": "61a7b08b68afab12b320836a620d9b381d0503a9cf0c8213460e6dfdd7e327f1",
+        "code/model/m1_r05_pcm_oracle_20261016/test_oracle.py": "a01fab0a7d396461a2f9eeebb1882e3aab535d4152699a71ebee5e8f82f8ff9e",
+        "code/model/m1_r05_pcm_oracle_20261016/test_solo_chord_vectors.py": "500c5ca34565a30d0c10f1bc68083a31663c5f2870388ab350b8ccbd0c262259",
+        "code/model/m1_r05_pcm_oracle_20261016/test_timbre_switch_pairs_R01.py": "4938dcc0940d4bccd7558f276e0ddb3da52939aa76a6995842707dacfe3bcdb6",
+        "code/model/m1_r05_pcm_oracle_20261016/timbre_switch_pairs_R01.py": "eb07c27e2cd4a682d54f2340b8d55de66ebd240311559de508dedb181ee77df9",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/allocator_oracle.py": "634208931558eea580a0a4406d0c45e04fed1afa1e446455e1341cb19171b4a7",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/dds_model.py": "c127f5af83e52cbcd7484e96fbb26f149862cdb225023f72041c61f220c0950d",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/delay_effect_fixed.py": "67944597965e3135e3172d6a6490d2f50c8c9d13e5cf43f607391450971584d2",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/envelope_model.py": "5826bb00da5d8ecc5c2eb3ffe43d159514781bc2f3bb1033965dcf312d12f933",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/rom/piano_band_4x256_8191.mem": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/rom/triangle_wavetable.hex": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+        "code/model/m1_r05_pcm_oracle_20261016/frozen/rom/velocity_gain_rom.mem": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/a1_vectors.py": "1065ee9d6f7d56a6abc57e0f33b3b58bcd0a34176816014d097424cecbd2cc1f",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/capture_compare.py": "7213e9fdce5fcab4dd5828b282613def88e8f5d7566986e3af6b89ae9c899267",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/qualify_capture_cli.py": "e23a843093fabe0bb1e138d620918c75e7b46077d3eccbe2aaebe03e43573b30",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/test_a1_vectors.py": "9978a52072db45ec19f9b2c23669f0f3b91a2be6dc9008cd13f15f9356fd2626",
+        "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/test_capture_compare.py": "7597ecacaa898a51ae6cb91dda1f1eb1172954fd906c2d908513a347381ad50f",
+        "code/model/m1_r05_pcm_oracle_20261016/DEPENDENCIES.json": "fb9c0ffaec3b9e001cb2255256565dae49d573155da62473bea2e592716a28de",
+        "code/docs/test/m1_r05_pcm_oracle_20261016/pro_successor_20261016/TASK_RECEIVED.md": "219ed01008d5d76e176f3dea3b69f803007bedbe3c328b31de19570cf6ee6979",
+        "code/docs/test/m1_r05_pcm_oracle_20261016/pro_successor_20261016/capture_run.py": "36cdee5c5a54241d443223e77306473266a8929f30e56220d9fa51fd2945cf63"
+      }
+    }
+  },
+  "self_review": {
+    "A1": "Read-only review found no blocker in new adapter and required parent generator context",
+    "B0_first_finding": "Static review: missing public PCM returned pending before validating supplied calendar identities/counts; original 30 tests had not covered it",
+    "B0_minimal_fix": "Reconstruct supplied calendar and check each available count component before pending return; no arithmetic rewrite",
+    "B0_followup": "Read-only review confirmed that specific blocker closed",
+    "runtime_failure_fabricated": false
+  },
+  "source_and_artifacts": {
+    "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/a1_vectors.py": {
+      "bytes": 15325,
+      "sha256": "1065ee9d6f7d56a6abc57e0f33b3b58bcd0a34176816014d097424cecbd2cc1f"
+    },
+    "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/capture_compare.py": {
+      "bytes": 29854,
+      "sha256": "7213e9fdce5fcab4dd5828b282613def88e8f5d7566986e3af6b89ae9c899267"
+    },
+    "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/qualify_capture_cli.py": {
+      "bytes": 4776,
+      "sha256": "e23a843093fabe0bb1e138d620918c75e7b46077d3eccbe2aaebe03e43573b30"
+    },
+    "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/test_a1_vectors.py": {
+      "bytes": 8515,
+      "sha256": "9978a52072db45ec19f9b2c23669f0f3b91a2be6dc9008cd13f15f9356fd2626"
+    },
+    "code/model/m1_r05_pcm_oracle_20261016/pro_successor_20261016/test_capture_compare.py": {
+      "bytes": 23777,
+      "sha256": "7597ecacaa898a51ae6cb91dda1f1eb1172954fd906c2d908513a347381ad50f"
+    }
+  },
+  "publication": {
+    "status": "BLOCKED_GIT_FETCH",
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "exact_tree_nine_gate_executed": false,
+    "reason": "Cannot synchronize current develop; preserve local originals and require fresh sync/scoped staging/cached check/exact-tree gate before publishing",
+    "network_global_config_changed": false,
+    "certificate_verification_disabled": false,
+    "attempts": [
+      "default proxy connect failed; root tool transcript retained",
+      "process-only direct Schannel SEC_E_NO_CREDENTIALS; SESSION raw streams",
+      "process-only direct OpenSSL credential-helper signal-pipe failure; SESSION raw streams"
+    ]
+  },
+  "no_new_execution": [
+    "old signed software test suites",
+    "old303 replay",
+    "ModelSim",
+    "Gowin",
+    "PnR",
+    "STA",
+    "bitstream",
+    "board"
+  ],
+  "missing_real_inputs": [
+    "same-version Pro part/top/PLL/reset/source+ROM role mapping",
+    "M3 original driver/full trace/observer source chain",
+    "independent applications/slot/epoch/all lane_tick/cancel/FX config acceptances",
+    "asynchronous RESET_EDGES",
+    "same-run public PCM/ID/clip",
+    "tool/argv/raw streams/exit/quota/continuity provenance"
+  ],
+  "notification": "待用户转发，尚未送达",
+  "next_action": "Software preparation is sealed; real comparison waits for required Pro/M3 originals and a trusted supported contract"
+}

@@ -1,0 +1,607 @@
+{
+  "capture_id": "B0_FOUR_VOICE_FIXTURE",
+  "declared_count": 25,
+  "origin": "SYNTHETIC_FIXTURE",
+  "producer": "B0_SYNTHETIC_FIXTURE",
+  "rows": [
+    {
+      "cycle": 0,
+      "epoch": 0,
+      "kind": "reset",
+      "payload": {},
+      "seq": 0
+    },
+    {
+      "cycle": 16,
+      "epoch": 0,
+      "kind": "config_accept",
+      "payload": {
+        "dry": 32767,
+        "enable": true,
+        "feedback": 8192,
+        "length": 1,
+        "wet": 16384
+      },
+      "seq": 1
+    },
+    {
+      "cycle": 32,
+      "epoch": 0,
+      "kind": "event",
+      "payload": {
+        "channel": 0,
+        "decision": "program",
+        "event": "program",
+        "generation": null,
+        "lane": null,
+        "note": 60,
+        "program": 0,
+        "source": 1,
+        "velocity10": 0
+      },
+      "seq": 2
+    },
+    {
+      "cycle": 48,
+      "epoch": 0,
+      "kind": "event",
+      "payload": {
+        "channel": 0,
+        "decision": "new",
+        "event": "note_on",
+        "generation": 1,
+        "lane": 0,
+        "note": 60,
+        "program": 0,
+        "source": 1,
+        "velocity10": 1023
+      },
+      "seq": 3
+    },
+    {
+      "cycle": 64,
+      "epoch": 0,
+      "kind": "event",
+      "payload": {
+        "channel": 1,
+        "decision": "program",
+        "event": "program",
+        "generation": null,
+        "lane": null,
+        "note": 60,
+        "program": 1,
+        "source": 2,
+        "velocity10": 0
+      },
+      "seq": 4
+    },
+    {
+      "cycle": 80,
+      "epoch": 0,
+      "kind": "event",
+      "payload": {
+        "channel": 1,
+        "decision": "new",
+        "event": "note_on",
+        "generation": 1,
+        "lane": 1,
+        "note": 63,
+        "program": 0,
+        "source": 2,
+        "velocity10": 900
+      },
+      "seq": 5
+    },
+    {
+      "cycle": 96,
+      "epoch": 0,
+      "kind": "event",
+      "payload": {
+        "channel": 2,
+        "decision": "new",
+        "event": "note_on",
+        "generation": 1,
+        "lane": 2,
+        "note": 67,
+        "program": 0,
+        "source": 3,
+        "velocity10": 800
+      },
+      "seq": 6
+    },
+    {
+      "cycle": 112,
+      "epoch": 0,
+      "kind": "event",
+      "payload": {
+        "channel": 3,
+        "decision": "new",
+        "event": "note_on",
+        "generation": 1,
+        "lane": 3,
+        "note": 70,
+        "program": 0,
+        "source": 4,
+        "velocity10": 700
+      },
+      "seq": 7
+    },
+    {
+      "cycle": 160,
+      "epoch": 0,
+      "kind": "lane_tick",
+      "payload": {
+        "identities": [
+          {
+            "channel": 0,
+            "generation": 1,
+            "lane": 0,
+            "note": 60,
+            "source": 1
+          },
+          {
+            "channel": 1,
+            "generation": 1,
+            "lane": 1,
+            "note": 63,
+            "source": 2
+          },
+          {
+            "channel": 2,
+            "generation": 1,
+            "lane": 2,
+            "note": 67,
+            "source": 3
+          },
+          {
+            "channel": 3,
+            "generation": 1,
+            "lane": 3,
+            "note": 70,
+            "source": 4
+          }
+        ],
+        "lane_cycles": [
+          {
+            "cycle": 160,
+            "lane": 0
+          },
+          {
+            "cycle": 160,
+            "lane": 1
+          },
+          {
+            "cycle": 160,
+            "lane": 2
+          },
+          {
+            "cycle": 160,
+            "lane": 3
+          }
+        ],
+        "request_id": 0
+      },
+      "seq": 8
+    },
+    {
+      "cycle": 167,
+      "epoch": 0,
+      "kind": "effect_accept",
+      "payload": {
+        "publish": true,
+        "publish_cycle": 168,
+        "request_id": 0
+      },
+      "seq": 9
+    },
+    {
+      "cycle": 993,
+      "epoch": 0,
+      "kind": "lane_tick",
+      "payload": {
+        "identities": [
+          {
+            "channel": 0,
+            "generation": 1,
+            "lane": 0,
+            "note": 60,
+            "source": 1
+          },
+          {
+            "channel": 1,
+            "generation": 1,
+            "lane": 1,
+            "note": 63,
+            "source": 2
+          },
+          {
+            "channel": 2,
+            "generation": 1,
+            "lane": 2,
+            "note": 67,
+            "source": 3
+          },
+          {
+            "channel": 3,
+            "generation": 1,
+            "lane": 3,
+            "note": 70,
+            "source": 4
+          }
+        ],
+        "lane_cycles": [
+          {
+            "cycle": 993,
+            "lane": 0
+          },
+          {
+            "cycle": 993,
+            "lane": 1
+          },
+          {
+            "cycle": 993,
+            "lane": 2
+          },
+          {
+            "cycle": 993,
+            "lane": 3
+          }
+        ],
+        "request_id": 1
+      },
+      "seq": 10
+    },
+    {
+      "cycle": 1000,
+      "epoch": 0,
+      "kind": "effect_accept",
+      "payload": {
+        "publish": false,
+        "publish_cycle": null,
+        "request_id": 1
+      },
+      "seq": 11
+    },
+    {
+      "cycle": 1001,
+      "epoch": 0,
+      "kind": "cancel",
+      "payload": {
+        "reason": "synthetic_unpublished_work",
+        "request_id": 1
+      },
+      "seq": 12
+    },
+    {
+      "cycle": 1826,
+      "epoch": 0,
+      "kind": "lane_tick",
+      "payload": {
+        "identities": [
+          {
+            "channel": 0,
+            "generation": 1,
+            "lane": 0,
+            "note": 60,
+            "source": 1
+          },
+          {
+            "channel": 1,
+            "generation": 1,
+            "lane": 1,
+            "note": 63,
+            "source": 2
+          },
+          {
+            "channel": 2,
+            "generation": 1,
+            "lane": 2,
+            "note": 67,
+            "source": 3
+          },
+          {
+            "channel": 3,
+            "generation": 1,
+            "lane": 3,
+            "note": 70,
+            "source": 4
+          }
+        ],
+        "lane_cycles": [
+          {
+            "cycle": 1826,
+            "lane": 0
+          },
+          {
+            "cycle": 1826,
+            "lane": 1
+          },
+          {
+            "cycle": 1826,
+            "lane": 2
+          },
+          {
+            "cycle": 1826,
+            "lane": 3
+          }
+        ],
+        "request_id": 2
+      },
+      "seq": 13
+    },
+    {
+      "cycle": 1832,
+      "epoch": 0,
+      "kind": "cancel",
+      "payload": {
+        "reason": "synthetic_unpublished_work",
+        "request_id": 2
+      },
+      "seq": 14
+    },
+    {
+      "cycle": 1920,
+      "epoch": 0,
+      "kind": "event",
+      "payload": {
+        "channel": 0,
+        "decision": "release",
+        "event": "note_off",
+        "generation": 1,
+        "lane": 0,
+        "note": 60,
+        "program": 0,
+        "source": 1,
+        "velocity10": 0
+      },
+      "seq": 15
+    },
+    {
+      "cycle": 2659,
+      "epoch": 0,
+      "kind": "lane_tick",
+      "payload": {
+        "identities": [
+          {
+            "channel": 0,
+            "generation": 1,
+            "lane": 0,
+            "note": 60,
+            "source": 1
+          },
+          {
+            "channel": 1,
+            "generation": 1,
+            "lane": 1,
+            "note": 63,
+            "source": 2
+          },
+          {
+            "channel": 2,
+            "generation": 1,
+            "lane": 2,
+            "note": 67,
+            "source": 3
+          },
+          {
+            "channel": 3,
+            "generation": 1,
+            "lane": 3,
+            "note": 70,
+            "source": 4
+          }
+        ],
+        "lane_cycles": [
+          {
+            "cycle": 2659,
+            "lane": 0
+          },
+          {
+            "cycle": 2659,
+            "lane": 1
+          },
+          {
+            "cycle": 2659,
+            "lane": 2
+          },
+          {
+            "cycle": 2659,
+            "lane": 3
+          }
+        ],
+        "request_id": 3
+      },
+      "seq": 16
+    },
+    {
+      "cycle": 2666,
+      "epoch": 0,
+      "kind": "effect_accept",
+      "payload": {
+        "publish": true,
+        "publish_cycle": 2667,
+        "request_id": 3
+      },
+      "seq": 17
+    },
+    {
+      "cycle": 3000,
+      "epoch": 1,
+      "kind": "reset",
+      "payload": {},
+      "seq": 18
+    },
+    {
+      "cycle": 3016,
+      "epoch": 1,
+      "kind": "event",
+      "payload": {
+        "channel": 5,
+        "decision": "program",
+        "event": "program",
+        "generation": null,
+        "lane": null,
+        "note": 60,
+        "program": 1,
+        "source": 7,
+        "velocity10": 0
+      },
+      "seq": 19
+    },
+    {
+      "cycle": 3032,
+      "epoch": 1,
+      "kind": "event",
+      "payload": {
+        "channel": 5,
+        "decision": "new",
+        "event": "note_on",
+        "generation": 1,
+        "lane": 0,
+        "note": 72,
+        "program": 0,
+        "source": 7,
+        "velocity10": 650
+      },
+      "seq": 20
+    },
+    {
+      "cycle": 3100,
+      "epoch": 1,
+      "kind": "lane_tick",
+      "payload": {
+        "identities": [
+          {
+            "channel": 5,
+            "generation": 1,
+            "lane": 0,
+            "note": 72,
+            "source": 7
+          },
+          {
+            "channel": null,
+            "generation": 0,
+            "lane": 1,
+            "note": null,
+            "source": null
+          },
+          {
+            "channel": null,
+            "generation": 0,
+            "lane": 2,
+            "note": null,
+            "source": null
+          },
+          {
+            "channel": null,
+            "generation": 0,
+            "lane": 3,
+            "note": null,
+            "source": null
+          }
+        ],
+        "lane_cycles": [
+          {
+            "cycle": 3100,
+            "lane": 0
+          },
+          {
+            "cycle": 3100,
+            "lane": 1
+          },
+          {
+            "cycle": 3100,
+            "lane": 2
+          },
+          {
+            "cycle": 3100,
+            "lane": 3
+          }
+        ],
+        "request_id": 0
+      },
+      "seq": 21
+    },
+    {
+      "cycle": 3107,
+      "epoch": 1,
+      "kind": "effect_accept",
+      "payload": {
+        "publish": true,
+        "publish_cycle": 3108,
+        "request_id": 0
+      },
+      "seq": 22
+    },
+    {
+      "cycle": 3933,
+      "epoch": 1,
+      "kind": "lane_tick",
+      "payload": {
+        "identities": [
+          {
+            "channel": 5,
+            "generation": 1,
+            "lane": 0,
+            "note": 72,
+            "source": 7
+          },
+          {
+            "channel": null,
+            "generation": 0,
+            "lane": 1,
+            "note": null,
+            "source": null
+          },
+          {
+            "channel": null,
+            "generation": 0,
+            "lane": 2,
+            "note": null,
+            "source": null
+          },
+          {
+            "channel": null,
+            "generation": 0,
+            "lane": 3,
+            "note": null,
+            "source": null
+          }
+        ],
+        "lane_cycles": [
+          {
+            "cycle": 3933,
+            "lane": 0
+          },
+          {
+            "cycle": 3933,
+            "lane": 1
+          },
+          {
+            "cycle": 3933,
+            "lane": 2
+          },
+          {
+            "cycle": 3933,
+            "lane": 3
+          }
+        ],
+        "request_id": 1
+      },
+      "seq": 23
+    },
+    {
+      "cycle": 3940,
+      "epoch": 1,
+      "kind": "effect_accept",
+      "payload": {
+        "publish": true,
+        "publish_cycle": 3941,
+        "request_id": 1
+      },
+      "seq": 24
+    }
+  ],
+  "scene": "four_different_notes_with_cancel_and_reset",
+  "schema": "M1_PRO_INDEPENDENT_CALENDAR_V1"
+}

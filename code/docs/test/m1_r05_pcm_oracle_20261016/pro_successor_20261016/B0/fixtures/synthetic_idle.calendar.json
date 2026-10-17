@@ -1,0 +1,54 @@
+{
+  "schema": "M1_PRO_INDEPENDENT_CALENDAR_V1",
+  "origin": "SYNTHETIC_FIXTURE",
+  "producer": "B0_SYNTHETIC_FIXTURE",
+  "capture_id": "B0_STATIC_IDLE_SYNTHETIC",
+  "scene": "idle_cancel_and_reset_fixture",
+  "declared_count": 12,
+  "rows": [
+    {"seq": 0, "cycle": 0, "epoch": 0, "kind": "reset", "payload": {}},
+    {"seq": 1, "cycle": 16, "epoch": 0, "kind": "config_accept", "payload": {"enable": false, "length": 1, "dry": 32767, "wet": 0, "feedback": 0}},
+    {"seq": 2, "cycle": 32, "epoch": 0, "kind": "lane_tick", "payload": {
+      "request_id": 0,
+      "lane_cycles": [{"lane": 0, "cycle": 32}, {"lane": 1, "cycle": 32}, {"lane": 2, "cycle": 32}, {"lane": 3, "cycle": 32}],
+      "identities": [
+        {"lane": 0, "source": null, "channel": null, "note": null, "generation": 0},
+        {"lane": 1, "source": null, "channel": null, "note": null, "generation": 0},
+        {"lane": 2, "source": null, "channel": null, "note": null, "generation": 0},
+        {"lane": 3, "source": null, "channel": null, "note": null, "generation": 0}
+      ]}},
+    {"seq": 3, "cycle": 39, "epoch": 0, "kind": "effect_accept", "payload": {"request_id": 0, "publish": true, "publish_cycle": 40}},
+    {"seq": 4, "cycle": 64, "epoch": 0, "kind": "lane_tick", "payload": {
+      "request_id": 1,
+      "lane_cycles": [{"lane": 0, "cycle": 64}, {"lane": 1, "cycle": 64}, {"lane": 2, "cycle": 64}, {"lane": 3, "cycle": 64}],
+      "identities": [
+        {"lane": 0, "source": null, "channel": null, "note": null, "generation": 0},
+        {"lane": 1, "source": null, "channel": null, "note": null, "generation": 0},
+        {"lane": 2, "source": null, "channel": null, "note": null, "generation": 0},
+        {"lane": 3, "source": null, "channel": null, "note": null, "generation": 0}
+      ]}},
+    {"seq": 5, "cycle": 71, "epoch": 0, "kind": "effect_accept", "payload": {"request_id": 1, "publish": false, "publish_cycle": null}},
+    {"seq": 6, "cycle": 72, "epoch": 0, "kind": "cancel", "payload": {"request_id": 1, "reason": "synthetic_accepted_unpublished"}},
+    {"seq": 7, "cycle": 96, "epoch": 0, "kind": "lane_tick", "payload": {
+      "request_id": 2,
+      "lane_cycles": [{"lane": 0, "cycle": 96}, {"lane": 1, "cycle": 96}, {"lane": 2, "cycle": 96}, {"lane": 3, "cycle": 96}],
+      "identities": [
+        {"lane": 0, "source": null, "channel": null, "note": null, "generation": 0},
+        {"lane": 1, "source": null, "channel": null, "note": null, "generation": 0},
+        {"lane": 2, "source": null, "channel": null, "note": null, "generation": 0},
+        {"lane": 3, "source": null, "channel": null, "note": null, "generation": 0}
+      ]}},
+    {"seq": 8, "cycle": 102, "epoch": 0, "kind": "cancel", "payload": {"request_id": 2, "reason": "synthetic_unaccepted_advance"}},
+    {"seq": 9, "cycle": 128, "epoch": 1, "kind": "reset", "payload": {}},
+    {"seq": 10, "cycle": 160, "epoch": 1, "kind": "lane_tick", "payload": {
+      "request_id": 0,
+      "lane_cycles": [{"lane": 0, "cycle": 160}, {"lane": 1, "cycle": 160}, {"lane": 2, "cycle": 160}, {"lane": 3, "cycle": 160}],
+      "identities": [
+        {"lane": 0, "source": null, "channel": null, "note": null, "generation": 0},
+        {"lane": 1, "source": null, "channel": null, "note": null, "generation": 0},
+        {"lane": 2, "source": null, "channel": null, "note": null, "generation": 0},
+        {"lane": 3, "source": null, "channel": null, "note": null, "generation": 0}
+      ]}},
+    {"seq": 11, "cycle": 167, "epoch": 1, "kind": "effect_accept", "payload": {"request_id": 0, "publish": true, "publish_cycle": 168}}
+  ]
+}
