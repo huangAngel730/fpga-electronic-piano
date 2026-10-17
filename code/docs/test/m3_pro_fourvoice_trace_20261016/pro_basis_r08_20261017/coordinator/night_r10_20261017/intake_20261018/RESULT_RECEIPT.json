@@ -1,0 +1,94 @@
+{
+  "schema": "NIGHT_HANDOFF_V1",
+  "handoff_id": "M3-OCT18-C9-INTAKE-CAPTURE-LINK-20261018-01",
+  "task_id": "M3-OCT18-LOCAL-AND-REMOTE-DEDUP/N10-M3-LINK",
+  "plan_version": "R10",
+  "producer": "M3",
+  "consumer": "M2",
+  "base_commit": "82a9e826fb991fc550cbafcf948aac1e3405358a",
+  "result_commit": "daf171163d889f2f5ddf3c9061813c1da7220ab2",
+  "manifest": [
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/DELIVERY/M3_OCT18_CAPTURE_LINK_AND_INTAKE_ORIGINALS.zip",
+      "bytes": 104292,
+      "sha256": "6bada8ed6a8241201a9b67337e8ca1c9e3555d38afede17fb94c2fc52e6ffd3f"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/DELIVERY/PUBLICATION_ORIGINALS.zip",
+      "bytes": 1425901,
+      "sha256": "ce40443a9c2fc872992a1e34a93a815c655bd9fa8b29c0a10ae1212627a7eeb7"
+    }
+  ],
+  "validation": {
+    "status": "LIMITED_SOFTWARE_SEAM_COMPLETE_OVERALL_PARTIAL_WAITING_INPUT",
+    "level": "L0/L1",
+    "self_review": true,
+    "repair": {
+      "matched": 6,
+      "planned": 6,
+      "actual_tool_exit": 0,
+      "seconds": 0.5,
+      "scope": "Dispatch positive spies/reject only; no complete capture/FRAME/serial/math processing"
+    },
+    "first_defect_increment": "1/1 now CONSUMED_PASS; source/task-completion static first-defect witness preserved; old7 not replayed",
+    "repository_gate": {
+      "pass_count": 9,
+      "exit_code": 0,
+      "seconds": 185.92199999999139,
+      "input_bytes_unchanged": true,
+      "checked_source_commit": "daf171163d889f2f5ddf3c9061813c1da7220ab2",
+      "exact_candidate_path_count": 34,
+      "surface": "Actual workspace+staged34 candidate, no separate clean checkout",
+      "originals_ref": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/DELIVERY/PUBLICATION_ORIGINALS.zip",
+        "bytes": 1425901,
+        "sha256": "ce40443a9c2fc872992a1e34a93a815c655bd9fa8b29c0a10ae1212627a7eeb7"
+      },
+      "metadata_tail": "Generated gateoriginalZIP plus this source-commit receipt only; final metadata gate required before ordinary push, no executable/source changes"
+    }
+  },
+  "current_INTEGRATION_HANDOFF": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/INTEGRATION_HANDOFF.json",
+    "bytes": 53596,
+    "sha256": "461e187a795ed9c8206a0c651f32a6d9adc7d73561e4ccade0c8e1cf99f2f452"
+  },
+  "ready_for": [
+    "M2 limited review of successor unified entry, raw originals and conditional repair scope",
+    "M2 exact finish/executor/dynamic dependency/admission decision",
+    "Future actual same-source capture after prerequisites"
+  ],
+  "next_action": "M2 verify this original unit and source receipt; M1 owns math; M3 resumes only on verified frozen input/execution or processing budget within original deadline, otherwise next effective card",
+  "blockers": [
+    {
+      "owner": "M2",
+      "need": "Version-bound source STOP/finish freeze or exact approved TB successor, trusted executor/dynamic dependencies and new precise C9 HDL admission/budget; audio_stable/backpressure policy"
+    },
+    {
+      "owner": "M3 after validated inputs/admission",
+      "need": "Same-capture actual raw/pins/reset/END/exit/stdout/stderr; canonical full FRAME, serial/provenance and mechanical math input bundle; full successor route not yet invoked"
+    },
+    {
+      "owner": "M1",
+      "need": "Independent apply mapping/supported profile and actual same-capture PCM24/ID/doubleclip math; NoteOn textual correction already closedL0"
+    },
+    {
+      "owner": "M2/M3",
+      "need": "Real drill sender/session/recovery originals, limited review, scheduler/restart scope separately verified; no synthetic4/4"
+    },
+    {
+      "owner": "M3 with real materials and scoped budget",
+      "need": "Exact instrument formats/thresholds/timebase and board originals before implementing any missing raw-import adapters; do not replayH54"
+    }
+  ],
+  "receipts": [],
+  "publication_state": "REMOTE_VERIFIED",
+  "source_ancestor_exit_code": 0,
+  "remote_tip_observed": "daf171163d889f2f5ddf3c9061813c1da7220ab2",
+  "receipt_commit": null,
+  "receiver_status": "M2_NOT_OBSERVED",
+  "board_release_allowed": false,
+  "original_START": "2026-10-17T21:52:00+08:00",
+  "deadline": "2026-10-18T02:52:00+08:00",
+  "originals_resolution": "Top ZIP descriptors resolve Git binary bytes; nested originals use repository-relative ZIP members. Prior R10 source/application inputs remain in original published preparation ZIP. External commercial executables identity-only; no fabricated RAW/math/real4of4.",
+  "Goal_meter": "Published source GOAL_SNAPSHOT actual API value; final raw API snapshot local outbox, no inferred member tokens/currency"
+}
