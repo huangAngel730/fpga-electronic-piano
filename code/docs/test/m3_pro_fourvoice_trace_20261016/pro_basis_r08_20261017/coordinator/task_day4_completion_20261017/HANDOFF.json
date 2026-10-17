@@ -1,0 +1,266 @@
+{
+  "schema": "NIGHT_HANDOFF_RECEIPT_V1",
+  "handoff_id": "M3-TASK-DAY4-C9-20261017-01",
+  "task_id": "M3-TASK-DAY4-OLD-REMAINDER",
+  "plan_version": "TASK_DAY4_REMAINDER_SW_R01_WITH_TARGETED_R02_R03_R04",
+  "producer": "M3/night_task_1",
+  "consumer": [
+    "M2"
+  ],
+  "base_commit": "969d978d5f4bc7dda3613ca41474e2338f39076b",
+  "software_execution_base": "164ed3452eaa23e56a544cf13e7e0acf040e7908",
+  "result_commit": "af25fa5e14d9c3a288e7d8a6a6d05f2f9cf75f95",
+  "created_utc": "2026-10-17T15:44:14.993074+00:00",
+  "state_at_creation": "LOCAL_COMMITTED_PENDING_REMOTE_VERIFICATION",
+  "manifest": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/DELIVERY/ORIGINALS_MANIFEST.json",
+    "bytes": 293629,
+    "sha256": "875935b034a2092083a81639dd011fb5c1e6b6058b957aa9f65050664bdc4734"
+  },
+  "archive_receipt": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/DELIVERY/ARCHIVE_RECEIPT.json",
+    "bytes": 1851,
+    "sha256": "80694f6ef441fb3fd1cb11517e969e5c3d408b64ac4351279fabad5c907f64a2"
+  },
+  "archive_reconstruction": {
+    "algorithm": "ordered raw concatenation",
+    "archive": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/DELIVERY/M3_TASK_DAY4_C9_COMPLETION.zip",
+      "bytes": 77181102,
+      "sha256": "5e03d33672552be866633491d9278194fe923e4bbbaff03c77eb7915a67fb237"
+    },
+    "parts": [
+      {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/DELIVERY/M3_TASK_DAY4_C9_COMPLETION.zip.part001",
+        "bytes": 25165824,
+        "sha256": "c1f86e04311ad50776337655caaeff51c06dba23729f8f398139043f7c567bb6"
+      },
+      {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/DELIVERY/M3_TASK_DAY4_C9_COMPLETION.zip.part002",
+        "bytes": 25165824,
+        "sha256": "4aa954d31844c91bf1447cf199d786661710c60ae54123615e51c1b7bce58510"
+      },
+      {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/DELIVERY/M3_TASK_DAY4_C9_COMPLETION.zip.part003",
+        "bytes": 25165824,
+        "sha256": "d3f5556c34175415210190bb5ca33fd556651c562b8d73318d77749cf6d7c9dd"
+      },
+      {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/DELIVERY/M3_TASK_DAY4_C9_COMPLETION.zip.part004",
+        "bytes": 1683630,
+        "sha256": "386dc82148187ec80b5947d133adc3100b936382578042a50f64b747a8ac06ec"
+      }
+    ],
+    "sha_crc_verified": true,
+    "original_files": 1458,
+    "content_paths": "Archive members retain repository-relative source/freeze/run paths. Original raw stdout/stderr, exit codes, all failures, input/source/dependency hashes and per-phase manifests included."
+  },
+  "validation": {
+    "actual_level": "LIMITED_L1_FILE_SOFTWARE; separate mandatory repository gate",
+    "result": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/RESULT.json",
+      "bytes": 10535,
+      "sha256": "a4e93f77c5148a9f8b12b379202f3e1c55bb578f56797f56188d16e1bbdf6624"
+    },
+    "matched_old75": 75,
+    "matched_new39": 39,
+    "total": 114,
+    "initial_consumed": 1,
+    "repair_consumed": 3,
+    "actual_group_seconds": 119.34299999999348,
+    "raw_run_receipts": [
+      {
+        "output": "code/output/m3_c9_complete_d4_20261017/R01",
+        "receipt": {
+          "path": "code/output/m3_c9_complete_d4_20261017/R01/RECEIPT.json",
+          "bytes": 122949,
+          "sha256": "6324a0c68672c3c018648faa8eb2c477894c6bb69356d4690fcf5ac435bca73b"
+        },
+        "exit_code": 1,
+        "actual_process_exit": 1,
+        "timeout_markers": [],
+        "spec": {
+          "path": "code/output/m3_c9_complete_d4_20261017/R01/SPEC.json",
+          "bytes": 67061,
+          "sha256": "6cf7490e630ef758a3d7b1d105ffe31b84207b8e5b611af155881dd3796c71ab"
+        },
+        "elapsed_s": 3.389999999999418,
+        "matched": 40,
+        "remaining": 73,
+        "raw_stdout": {
+          "path": "code/output/m3_c9_complete_d4_20261017/R01/stdout.raw",
+          "bytes": 7820,
+          "sha256": "517d7d997cd7bc901f84470ed0ffca3f3da0017803d17bdd59549d200647aaee"
+        },
+        "raw_stderr": {
+          "path": "code/output/m3_c9_complete_d4_20261017/R01/stderr.raw",
+          "bytes": 3364,
+          "sha256": "e48890590b100b7156feb33d1f3e83128825ae2c819292294017cb2d01be6702"
+        }
+      },
+      {
+        "output": "code/output/m3_c9_complete_d4_20261017/R02",
+        "receipt": {
+          "path": "code/output/m3_c9_complete_d4_20261017/R02/RECEIPT.json",
+          "bytes": 78619,
+          "sha256": "dbd7518cea954324d78cd7f463886d56682e767a45bf12bac0d25542a9c8611f"
+        },
+        "exit_code": 1,
+        "actual_process_exit": 1,
+        "timeout_markers": [],
+        "spec": {
+          "path": "code/output/m3_c9_complete_d4_20261017/R02/SPEC.json",
+          "bytes": 48075,
+          "sha256": "da912c5131c4555057adf31344c9ff43540abfcd680937a8f3f98f0a9a6965f4"
+        },
+        "elapsed_s": 27.796999999991385,
+        "matched": 62,
+        "remaining": 11,
+        "raw_stdout": {
+          "path": "code/output/m3_c9_complete_d4_20261017/R02/stdout.raw",
+          "bytes": 13169,
+          "sha256": "d050af6e3cd541013dae884d31580501c9bc0ddbeb1d8f1b2f6086df06bdcf21"
+        },
+        "raw_stderr": {
+          "path": "code/output/m3_c9_complete_d4_20261017/R02/stderr.raw",
+          "bytes": 16278,
+          "sha256": "4b31687f7a8d4e6bf8b09b42768775adb30b375384c16bbeb26698ea4850e078"
+        }
+      },
+      {
+        "output": "code/output/m3_c9_complete_d4_20261017/R03",
+        "receipt": {
+          "path": "code/output/m3_c9_complete_d4_20261017/R03/RECEIPT.json",
+          "bytes": 25633,
+          "sha256": "6bb8fcae7a0a5b47617d893191baeff05b616a0190d3e1b859d562feba45b58f"
+        },
+        "exit_code": 0,
+        "actual_process_exit": 0,
+        "timeout_markers": [],
+        "spec": {
+          "path": "code/output/m3_c9_complete_d4_20261017/R03/SPEC.json",
+          "bytes": 8990,
+          "sha256": "451651c9c6df84c9048c20ef7544086e2f6cc25af6a7df4861aa80c5da0b7474"
+        },
+        "elapsed_s": 40.46899999999732,
+        "matched": 11,
+        "remaining": 1,
+        "raw_stdout": {
+          "path": "code/output/m3_c9_complete_d4_20261017/R03/stdout.raw",
+          "bytes": 1895,
+          "sha256": "dabc1361e255b1e551aa26c17f6e04989feb5707b46e103b0aa6276742804068"
+        },
+        "raw_stderr": {
+          "path": "code/output/m3_c9_complete_d4_20261017/R03/stderr.raw",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      {
+        "output": "code/output/m3_c9_complete_d4_20261017/R04",
+        "receipt": {
+          "path": "code/output/m3_c9_complete_d4_20261017/R04/RECEIPT.json",
+          "bytes": 6834,
+          "sha256": "58cf9949f84884a91faa9771ffafb04b38e2a4b54e49c203672f2e5366f8fe3f"
+        },
+        "exit_code": 0,
+        "actual_process_exit": 0,
+        "timeout_markers": [],
+        "spec": {
+          "path": "code/output/m3_c9_complete_d4_20261017/R04/SPEC.json",
+          "bytes": 2391,
+          "sha256": "0cbd71a9f998b8c0f459fada9bc504655895b724e592d1596ec26771ecd71d70"
+        },
+        "elapsed_s": 47.687000000005355,
+        "matched": 1,
+        "remaining": 0,
+        "raw_stdout": {
+          "path": "code/output/m3_c9_complete_d4_20261017/R04/stdout.raw",
+          "bytes": 195,
+          "sha256": "b5cb259d60c5020dabcde826f69680d4d03ae37f0425426ce90e3ca53f5acc83"
+        },
+        "raw_stderr": {
+          "path": "code/output/m3_c9_complete_d4_20261017/R04/stderr.raw",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    ],
+    "source_versions": "Each matched assertion is bound to its own frozen run version. Unaffected passed cases are not replayed after targeted repairs; no claim of one complete final-version rerun.",
+    "gate_receipt": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/CURRENT_GATE/GATE_R01/GATE_RECEIPT.json",
+      "bytes": 1903,
+      "sha256": "4c9ceafd74267339c81cf7bd169ccb8ee7360c5ef4aa36819f303a93f32fc9d4"
+    },
+    "gate_host_derivation": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/CURRENT_GATE/DERIVATION.json",
+      "bytes": 1048,
+      "sha256": "3393323113b4cdc0ee62be48637437724dc753e393e26efd776e7642f294b0f6"
+    },
+    "gate_raw_logs": "Original .bin streams are repository-relative members of GATE_ORIGINALS.zip; exact bytes retained, not converted.",
+    "first_gate_launch_failure": "GATE_R01/stderr.bin, exit1, zero checks; current PS7 existing RemoteSigned used, no policy changes",
+    "old_consumption_unchanged": true,
+    "new_Pro_HDL_EDA_devices": 0,
+    "real_verified": false,
+    "math_verified": false,
+    "board_release_allowed": false,
+    "final_staged_tree_gate_expected": "PUBLISH_GATE/GATE_R01/GATE_RECEIPT.json",
+    "receipt_preparation_gate": {
+      "path": "FINAL_GATE/GATE_R01/GATE_RECEIPT.json",
+      "status": "PASS",
+      "exit_code": 0,
+      "pass_count": 9,
+      "seconds": 215.625
+    },
+    "verification_tail": "Generated gate logs are proof artifacts; functional code and all pre-existing receipt inputs are bound by the final staged-tree snapshot.",
+    "gate_raw_originals": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/DELIVERY/GATE_ORIGINALS.zip",
+      "bytes": 4660470,
+      "sha256": "bd116d9ac559d94573f2b105557a376fa2dbd6b88d25db296bb780a42c9c89ae"
+    },
+    "gate_raw_originals_manifest": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/DELIVERY/GATE_ORIGINALS_MANIFEST.json",
+      "bytes": 7973,
+      "sha256": "2e79b8ada8cf7473b8fd3432ee4b5085751f6d5c59ca0e40cac10c8a78a0a222"
+    }
+  },
+  "large_file_evidence": {
+    "A_C9_raw_bytes": 68162790,
+    "A_rows": 25246,
+    "A_normalized_and_csv_roundtrip": true,
+    "B_companion_bytes": 67113358,
+    "B_rows": 262768,
+    "B_unknown_rows_preserved": 1
+  },
+  "ready_for": [
+    "M2 limited software review and state registration",
+    "M2 decision on exact first-C9 HDL execution application"
+  ],
+  "next_action": "M2 verify original bytes, exact versions and narrow scope; register actual software result, then decide precise execution admission. No old quota restoration or automatic physical action.",
+  "blockers": {
+    "M1": [
+      "independent accepted/apply plan association",
+      "supported arithmetic profile and independent PCM24/ID/clip golden results"
+    ],
+    "M2": [
+      "exact C9 first HDL execution admission and trusted executor/dynamic dependency identity",
+      "audio_stable implementation/policy",
+      "actual Pro part/PLL/CST/SDC, PnR/STA/recovery/removal/CDC and matching new .fs/recovery"
+    ],
+    "physical_owner": [
+      "same-board Core/Dock/chip/version and Bank/MIDI/ground/audio electrical originals",
+      "instruments/common timebase and same-session raw digital/analog captures",
+      "precise one-SRAM permission plus safe real hardware conditions"
+    ]
+  },
+  "overall_Pro": "PARTIAL_PENDING_REAL_EXECUTION_MATH_PHYSICAL",
+  "receipts": [],
+  "source_delivery_is_not_receiver_acceptance": true,
+  "human_notification": "待用户转发给真人，尚未送达",
+  "AI_receipt_policy": "Repository handoff under latest night rules; no need for human forwarding as AI receipt prerequisite; receipt/acceptance must be produced by M2.",
+  "goal_id": null,
+  "polling": "POLLING_NOT_VERIFIED; no background trigger deployed",
+  "new_drill_task": "SEEN_SEPARATE_NOT_STARTED",
+  "N32_new_work": false,
+  "R10_business_resumed": false
+}
