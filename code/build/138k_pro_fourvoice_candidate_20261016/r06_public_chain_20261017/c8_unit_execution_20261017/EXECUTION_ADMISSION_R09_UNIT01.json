@@ -1,0 +1,336 @@
+{
+  "schema": "M2_R09_UNIT_ADMISSION_V1",
+  "scope": "R09_UNIT01_RAW_AND_BOUNDARY_ONLY",
+  "approved": true,
+  "approved_by": "M2 integration",
+  "approved_utc": "2026-10-17T12:27:51.673098+00:00",
+  "authority": "M2 R09 scoped execution plan; user start execution and resume instructions",
+  "runner_inputs": {
+    "D:\\17\\project_17\\fpga_gowin\\code\\build\\138k_pro_fourvoice_candidate_20261016\\r06_public_chain_20261017\\c8_unit_execution_20261017\\run_r09.py": {
+      "bytes": 18543,
+      "sha256": "fce975ad1f47f6e186d283e5dbc10d2d1fc34a503757b14b3ac732d989ab078e"
+    },
+    "D:\\17\\project_17\\fpga_gowin\\code\\build\\138k_pro_fourvoice_candidate_20261016\\r06_public_chain_20261017\\c8_unit_execution_20261017\\owned_unit_runtime.py": {
+      "bytes": 16102,
+      "sha256": "249731f8efd67c2c63a434c05c495157972f6800f50b11089affaf43b853d56c"
+    },
+    "D:\\17\\project_17\\fpga_gowin\\code\\build\\138k_pro_fourvoice_candidate_20261016\\r06_public_chain_20261017\\c8_unit_execution_20261017\\unit_fixture.py": {
+      "bytes": 1689,
+      "sha256": "4fd5c4760f9771d6c2f5190e42bacd20139ed6c2641224cdbedd3f9c732cfc00"
+    },
+    "D:\\17\\project_17\\fpga_gowin\\code\\software\\t052_runner_acceptance_candidate_20261012\\windows_job.py": {
+      "bytes": 3481,
+      "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+    },
+    "D:\\ProgramData\\anaconda3\\python.exe": {
+      "bytes": 104264,
+      "sha256": "388fe2cffda8a134e7d7dc4e978f7c478857ece6b69694daecbed25e51ec633a"
+    },
+    "D:\\ProgramData\\anaconda3\\python313.dll": {
+      "bytes": 7119176,
+      "sha256": "266889b30355dc5a03dd5e15b0a43966e7a58e33c9916da22c583169d9aab2e4"
+    }
+  },
+  "software_proof_identity": {
+    "bytes": 3985,
+    "sha256": "7b53544a782d215a4aad6bcc43be1ca2716740d5215f4853bf8ee59996d07af4"
+  },
+  "software_cases": [
+    "changed_argv_rejected_before_launch",
+    "unknown_operation_rejected_before_launch",
+    "normal",
+    "nonzero",
+    "orphan",
+    "timeout",
+    "flood",
+    "tail_log_guard",
+    "pre_attach_abort",
+    "abort_receipt_error",
+    "duplicate_step_rejected_before_launch"
+  ],
+  "tool_files": {
+    "D:/Gowin/oss-cad-suite/bin/iverilog.exe": {
+      "bytes": 457576,
+      "sha256": "6503585bb8ae9b956a8b708c9ba655f1888ac1132720b6e76231d0183c3a8a14"
+    },
+    "D:/Gowin/oss-cad-suite/bin/vvp.exe": {
+      "bytes": 325265,
+      "sha256": "ee31a31e8d8cc5a5fb8f3e1abc5eab2a12d79e8185f5f5b2bf69a49fdd0b9a0b"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/ivl.exe": {
+      "bytes": 60304277,
+      "sha256": "a7e0343c0662909843c9fff209fac0b3d9b1dab4ea5811c6a6778c4dca85cfcf"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/ivlpp.exe": {
+      "bytes": 646128,
+      "sha256": "bc2dc09633dec76e6157a768e725057336ff9f013fd876d7ab442811bee8c8c1"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/vvp.tgt": {
+      "bytes": 963348,
+      "sha256": "cf02ed6a91f8baef78e8e24ef00be1dedf1a74888c52d7b858aa1ae964e314c3"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/system.vpi": {
+      "bytes": 2929992,
+      "sha256": "5e190b8a1ffc642d74dfa6fcedd0947b076729f23bc147b84262d851aac897c2"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/v2005_math.vpi": {
+      "bytes": 366186,
+      "sha256": "9f7fd3c074803a75c8b16100f9158d0acaac7efd81edfa2778b4d23b93f4ca00"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/v2009.vpi": {
+      "bytes": 455534,
+      "sha256": "834aded031912ad1a2cbedd867818afef8bdf650c891e4bcea7171bb1927050a"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/va_math.vpi": {
+      "bytes": 288750,
+      "sha256": "c7ed0d7e10fe4584b25699bfe93d79768176dd20301e86828fe5b13b170e2b89"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/vhdl_sys.vpi": {
+      "bytes": 315136,
+      "sha256": "623bed80f43b81067ed0b0dc403a11c67e3174b1902712459e209a021f73b32e"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/vhdl_textio.vpi": {
+      "bytes": 525788,
+      "sha256": "6531786295c0e18612fac8077db064070b9f16592488c438baf5941051b2e143"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/vpi_debug.vpi": {
+      "bytes": 129150,
+      "sha256": "41f38f4071d6e94345e7d46c72215466f5a58648af4dbc615f17bfa59f692589"
+    },
+    "D:/Gowin/oss-cad-suite/bin/libvvp-1.dll": {
+      "bytes": 13988319,
+      "sha256": "10a3f90d81baba29d97b439ca2491d78fa22baf2cbf7d900c35021f938a15d7c"
+    },
+    "D:/Gowin/oss-cad-suite/lib/libgcc_s_seh-1.dll": {
+      "bytes": 977681,
+      "sha256": "8601abde8bcffd435233865553ea9f4175e6b07cc0e8c9d08f50ecebab98b019"
+    },
+    "D:/Gowin/oss-cad-suite/lib/libstdc++-6.dll": {
+      "bytes": 26405150,
+      "sha256": "29e4a7219d914fcdf296c07951280dd77bc284f0ad3eae052da32ac05264858e"
+    },
+    "D:/Gowin/oss-cad-suite/lib/libbz2-1.dll": {
+      "bytes": 113950,
+      "sha256": "8de14c88d70cbac79bc8e3fdbc9859f7abc1d397a42533d1bddf1d4268136ea7"
+    },
+    "D:/Gowin/oss-cad-suite/lib/libwinpthread-1.dll": {
+      "bytes": 71906,
+      "sha256": "ccbd0ad81d6fed75e076670710643ad02d3c390179866ad3e1fe6b9ef7bc92c2"
+    },
+    "D:/Gowin/oss-cad-suite/lib/zlib1.dll": {
+      "bytes": 137390,
+      "sha256": "84e998099a945872750d326f4a86a4fc275bbf1434e2de88d7d87973465ed491"
+    },
+    "D:/Gowin/oss-cad-suite/lib/libreadline8.dll": {
+      "bytes": 316921,
+      "sha256": "9a8b0f17791a91aa419d35d26d4bfea668b1163492fd65a98ae8431eac16bae9"
+    },
+    "D:/Gowin/oss-cad-suite/lib/libtermcap-0.dll": {
+      "bytes": 23173,
+      "sha256": "400a4452231d5de692fa8c1a4000eb013f6cf99a836764f5b37eefc503e9671c"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/vvp.conf": {
+      "bytes": 49,
+      "sha256": "010640622bb192ad3d7b3d405e27b5c226955685b217b4f5c27cabf60ef99d6e"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/vvp-s.conf": {
+      "bytes": 96,
+      "sha256": "23af66f55cf0a1d3bbc8885c90c395c18989c4f248a7c56ac8701c2ff93a1abc"
+    },
+    "C:/Windows/System32/kernel32.dll": {
+      "bytes": 861992,
+      "sha256": "e132eba4166256e2f414b91fe7d5386590bc5ea8626aee5af9c9738383cf2ae1"
+    },
+    "C:/Windows/System32/msvcrt.dll": {
+      "bytes": 716104,
+      "sha256": "fc1447db4e4814cbcb002179a8003a41f383fc417879f628727043cab8c25093"
+    },
+    "C:/Windows/System32/user32.dll": {
+      "bytes": 1974768,
+      "sha256": "f285937030bcb325cad39ee5be4818f6666241229adeadea4ff1ae469dfd7ef3"
+    },
+    "C:/Windows/System32/cmd.exe": {
+      "bytes": 339968,
+      "sha256": "15cd209c995b7d3009c91ca40892d5b8f1fb162f3e5f10716642ea278e8e0d7b"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/blif-s.conf": {
+      "bytes": 96,
+      "sha256": "3ce285013d51a0f632be229a513c17d4f8a314319c0e7d7fbbe53a2339580e1c"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/blif.conf": {
+      "bytes": 96,
+      "sha256": "3ce285013d51a0f632be229a513c17d4f8a314319c0e7d7fbbe53a2339580e1c"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/blif.tgt": {
+      "bytes": 837161,
+      "sha256": "ea15ce9a0ef1d6166615e61ae04b6b9e3d37483167f12f57fea79f318112a2fb"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/include/constants.vams": {
+      "bytes": 1377,
+      "sha256": "48cb40767dd73f50a3288c0b8b5fc779a6462b4e27f565dd9aae31a53f4a6f09"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/include/disciplines.vams": {
+      "bytes": 1125,
+      "sha256": "6540e1f3f01b64eee3a26239c1bab6fe80db5b1fca30e336fe40189b52add231"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/null-s.conf": {
+      "bytes": 65,
+      "sha256": "8a4b79342b5d58fcd576238e928403c986bf623e5e9c63fc7e199f5c5bf57fae"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/null.conf": {
+      "bytes": 18,
+      "sha256": "313ef43d707cf69cabac9b02c1cee5223b7179007aa627c0963a567691751cd0"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/null.tgt": {
+      "bytes": 101470,
+      "sha256": "3333a86617210b584cc6f2690ab2ad4c66dea80a97c892181d6c13f5262a9838"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/pcb-s.conf": {
+      "bytes": 95,
+      "sha256": "2f184346cab431bfa26ef1bf0a906a8d78469aae495f93974896ec952dee3657"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/pcb.conf": {
+      "bytes": 48,
+      "sha256": "5a84492e9e830658590cc28d5c39d8b137124ac2f6e5c111a838d91b99aa3cb9"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/pcb.tgt": {
+      "bytes": 1586595,
+      "sha256": "458fa296e9b23e78f07f5808167306be66e6705fd60d056a80c56d6f907c3184"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/sizer-s.conf": {
+      "bytes": 97,
+      "sha256": "03a8f24468995e87b23840915b613abd339843a6ec6d0931b57ea56720ff415d"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/sizer.conf": {
+      "bytes": 97,
+      "sha256": "03a8f24468995e87b23840915b613abd339843a6ec6d0931b57ea56720ff415d"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/sizer.tgt": {
+      "bytes": 805279,
+      "sha256": "bd20927edd47a6903ba6fff6840791ebbb4845b5cae337f88b94b360e1b6c3f0"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/stub-s.conf": {
+      "bytes": 96,
+      "sha256": "ca77cff51d74ad77e33efd589c82fb410823ad88a5933a5e4aca86251250b302"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/stub.conf": {
+      "bytes": 49,
+      "sha256": "03c9241decbe4502f087790fe7eaf6568fb7992788fbf56be0f69737a98c67fb"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/stub.tgt": {
+      "bytes": 473322,
+      "sha256": "7114b39aea9d8c37194145f56cfb9bbd2875b31e8661629934251ad964f8a54f"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/vhdl-s.conf": {
+      "bytes": 103,
+      "sha256": "d9b3d7de12e25e14c86738110f4e2baf3711f60a161e34ad329104f13ccabc5d"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/vhdl.conf": {
+      "bytes": 86,
+      "sha256": "7f8563bd0a386bedf111f5f23ce827b8efd6749cb3b104cf236358324ccd840a"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/vhdl.tgt": {
+      "bytes": 5474807,
+      "sha256": "05bd60d0827b355e5a86ad276e6315d7259a18c29a8ea5ffbeaea0dc8ea148cb"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/vhdlpp.exe": {
+      "bytes": 15177527,
+      "sha256": "fbda7aa35d55bfe8bc14203b6709ceb4308d0f19386b1bcc63472fab4bce557d"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/vlog95-s.conf": {
+      "bytes": 141,
+      "sha256": "f4f09237dc90f1e4e58658b2bb14bb446e93619c911b8ead10cc0240f64cad51"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/vlog95.conf": {
+      "bytes": 57,
+      "sha256": "47d4a923819bdf601c5fa62065b6787f81d2ea64cb0e6b33c33c4e9001d356c0"
+    },
+    "D:/Gowin/oss-cad-suite/lib/ivl/vlog95.tgt": {
+      "bytes": 773599,
+      "sha256": "8220aea8e65a2b59985cf9c6a611b24056e38d8b0d89399e2d6030c2e473d6a3"
+    }
+  },
+  "tool_catalog_identity": {
+    "bytes": 4799,
+    "sha256": "c2a79e3eb6086bab7d689b56944e722b86145aae4b905d65273f6df9131383a5"
+  },
+  "tool_binding_identity": {
+    "bytes": 68967,
+    "sha256": "ccb5cf0935f2d33428ba3adff1e82d507911255a02be3f72725f1c4b8276cef5"
+  },
+  "unit_source_identities": {
+    "pcm_result_hold.sv": {
+      "bytes": 2658,
+      "sha256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f"
+    },
+    "pcm_frame_buffer.sv": {
+      "bytes": 3796,
+      "sha256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997"
+    },
+    "m2_r06_raw_cancel_reason.sv": {
+      "bytes": 439,
+      "sha256": "f926e65c44a07a6d08e5e42c88a20e73b9a5c21dbfc91ccefc7e85ca8c204043"
+    },
+    "tb_m2_r06_raw_cancel_reason.sv": {
+      "bytes": 1031,
+      "sha256": "47f6f2ce26f727748df95ef3ae2e654b42837d286cd9d2aeffb4e20b3e72dd20"
+    },
+    "m2_r06_tx_identity_sidecar.sv": {
+      "bytes": 8510,
+      "sha256": "40fd5145a9d80bae36ead96b8e1144be84acdf3669aa5c47a26fcef305a54d1e"
+    },
+    "tb_m2_r06_tx_identity_boundary_c7.sv": {
+      "bytes": 22432,
+      "sha256": "76522d683740f97e8021f3725f22830fde778c037c68014193eea270d980c5b7"
+    }
+  },
+  "group_seconds": 60,
+  "compile_seconds_each": 15,
+  "run_seconds_each": 10,
+  "launches": [
+    "raw_compile",
+    "raw_run",
+    "boundary_compile",
+    "boundary_run"
+  ],
+  "fixed_units": {
+    "raw": {
+      "top": "tb_m2_r06_raw_cancel_reason",
+      "marker": "PASS raw_cancel_reason checks=7",
+      "files": [
+        "m2_r06_raw_cancel_reason.sv",
+        "tb_m2_r06_raw_cancel_reason.sv"
+      ]
+    },
+    "boundary": {
+      "top": "tb_m2_r06_tx_identity_boundary_c7",
+      "marker": "PASS M2_R06_SIDECAR_BOUNDARY_C7 ",
+      "files": [
+        "pcm_result_hold.sv",
+        "pcm_frame_buffer.sv",
+        "m2_r06_tx_identity_sidecar.sv",
+        "tb_m2_r06_tx_identity_boundary_c7.sv"
+      ]
+    }
+  },
+  "environment": {
+    "SystemRoot": "C:\\Windows",
+    "WINDIR": "C:\\Windows",
+    "COMSPEC": "C:\\Windows\\System32\\cmd.exe",
+    "PATH": "D:\\Gowin\\oss-cad-suite\\bin;D:\\Gowin\\oss-cad-suite\\lib;C:\\Windows\\System32",
+    "PYTHONIOENCODING": "utf-8"
+  },
+  "VPI_policy": "product-declared paths resolve to frozen IVL .vpi files; vvp -M- -M fixed_IVL",
+  "tool_application_static_files": 50,
+  "full_ivl_directory_files": 36,
+  "command_processor_AutoRun": "absent HKCU/HKLM 32/64 at admission; checked again before group",
+  "EXE_local_manifest": "absent for fixed five executables; checked again before group",
+  "platform_boundary": "current installed Windows API-set/SxS/loader and Python standard library accepted as platform for these two local software simulations only",
+  "full_dynamic_closure_proven": false,
+  "limitation": "static application identities and observed owned Job lifetime; no claim of complete OS dynamic module inventory",
+  "old_budgets_restored": false,
+  "full_chain_allowed": false,
+  "Gowin_EDA_allowed": false,
+  "device_allowed": false,
+  "board_release_allowed": false
+}

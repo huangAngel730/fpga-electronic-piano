@@ -1,0 +1,61 @@
+{
+  "schema": "M2_R09_ACTUAL_RESULT_V1",
+  "status": "PARTIAL_COMPILER_ACCESS_VIOLATION",
+  "software_group": {
+    "passed": true,
+    "actual_launch_cases": 8,
+    "prelaunch_refusals": 3,
+    "controller_exit": 0,
+    "controller_seconds": 4.393640199967194
+  },
+  "software_increment": {
+    "consumed": true,
+    "passed": true,
+    "checks": 5,
+    "seconds": 0.94808020000346,
+    "defect": "top-level enumeration omitted two frozen include/*.vams files",
+    "lifecycle_cases_rerun": false
+  },
+  "unit_group": {
+    "consumed": true,
+    "passed": false,
+    "compile_launches": 1,
+    "VVP_launches": 0,
+    "raw_compile_exit": 3221225477,
+    "raw_compile_exit_hex": "0xC0000005",
+    "raw_compile_seconds": 9.448011200001929,
+    "raw_simulation": "NOT_STARTED",
+    "boundary_compile": "NOT_STARTED",
+    "boundary_simulation": "NOT_STARTED",
+    "job_total": 5,
+    "job_final_active": 0,
+    "root_handle_closed": true,
+    "stdout_bytes": 0,
+    "stderr_bytes": 0,
+    "inputs_unchanged": true,
+    "residual_unvalidated_product": {
+      "bytes": 4934,
+      "sha256": "514a6338bd4f03500674a73b7c4c6799bfc1f6c80534a80de5d09f7647dd2865"
+    }
+  },
+  "unit_repair": {
+    "consumed": false,
+    "seconds": 30,
+    "condition": "only one identified source/entry defect in same scope; unknown compiler crash does not satisfy it"
+  },
+  "root_cause": "UNKNOWN",
+  "blind_retry": false,
+  "alternate_tool_or_privilege_bypass": false,
+  "application_event_log_read": "denied; no retry or alternate access",
+  "full_dynamic_OS_loader_closure_proven": false,
+  "protected_files_verified": 528,
+  "C4_C7_originals_modified": false,
+  "M3_R08_task_count": 36,
+  "M3_notification_delivered": false,
+  "full_chain_executed": false,
+  "Gowin_EDA_calls": 0,
+  "device_calls": 0,
+  "board_release_allowed": false,
+  "task_completed": false,
+  "next_action": "new independent bounded diagnostic scope in an explicitly usable execution environment; retain original compiler/Job/streams/source evidence"
+}
