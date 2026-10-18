@@ -1,0 +1,89 @@
+{
+  "schema": "M3_R11_COMPLETE_ORIGINALS_INTERFACE_NOTE_V1",
+  "source": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/capture_complete_r11/entry.py",
+    "bytes": 11615,
+    "sha256": "7f90353342048118aea1ef1e0ea9509dc022482db46fabec7f081d71d2de95e0"
+  },
+  "validation": "L0_STATIC_ONLY_NOT_IMPORTED_NOT_COMPILED_NOT_RUN",
+  "envelope": "Existing N10_M3_UNIFIED_PIPELINE_REQUEST_V1 schema/mode/request; same PROCESS_CAPTURE/PREPARE_APPLICATION_ONLY",
+  "request_inputs_new_required": [
+    "stderr",
+    "source_manifest",
+    "rom_manifest",
+    "tool_manifest"
+  ],
+  "receipt_ref": "existing request.math_inputs.execution_receipt",
+  "existing_receipt_schema": "M3_R7D_DECLARED_EXECUTION_V1",
+  "receipt_fields": [
+    "schema",
+    "capture_id",
+    "argv",
+    "cwd",
+    "bindings",
+    "exit_code",
+    "timeout",
+    "cleanup_complete",
+    "consumption"
+  ],
+  "bound_roles": [
+    "source_manifest",
+    "rom_manifest",
+    "tool_manifest",
+    "driver",
+    "observer",
+    "input_plan",
+    "window_plan",
+    "raw_stdout",
+    "raw_stderr",
+    "raw_trace",
+    "reset_edges",
+    "finish_receipt"
+  ],
+  "binding_values": "Exact SHA per role, checked descriptor bytes; 12 roles and receipt require 13 distinct canonical casefold paths. Equal hashes permitted for distinct files.",
+  "consumption": "pid positive int, group_id nonempty string, started_utc/ended_utc timezone-aware and ordered; declaration only",
+  "existing_closure_schema": "M3_R7D_FILE_CLOSURE_V1",
+  "closure_source_ROM_fields": [
+    "schema",
+    "files"
+  ],
+  "closure_tool_fields": [
+    "schema",
+    "files",
+    "argv",
+    "cwd",
+    "version"
+  ],
+  "closure_members": "1..4096 exact path/bytes/sha256 descriptors, no canonical duplicate; every byte checked",
+  "application_cross_binding": "Source includes existing base/application ZIPs and driver/observer/TB. ROM includes unchanged application ZIP containing original 9 ROM. Tool includes application-declared 3 PEs and listed DLLs; native outside-repository paths only when exact application-declared. No invented ZIP-member identity format.",
+  "argv": "Receipt equals tool closure, equals proposed existing vsim step; vlib/vlog not capture proof",
+  "actual_native_C9_executor_mapping": "PENDING_M2; existing R09 owned-step receipt is not automatically a complete C9 receipt",
+  "tool_dynamic_closure": "NOT_VERIFIED; listed PE/DLL bytes only",
+  "outputs_proposed": [
+    "R11_DECLARED_ORIGINALS.json",
+    "R11_HANDOFF.json"
+  ],
+  "authority": {
+    "execution_allowed": false,
+    "real_verified": false,
+    "math_verified": false,
+    "board_release_allowed": false
+  },
+  "new_validation_cases_proposed_NOT_RUN": [
+    "missing stderr",
+    "missing receipt",
+    "capture_id/role digest mismatch",
+    "role path alias",
+    "closure empty/member mismatch/duplicate",
+    "application ZIP or capture-source omission",
+    "native PE/DLL mismatch",
+    "non-vsim argv or cwd mismatch",
+    "bad exit/timeout/cleanup",
+    "missing/invalid pid/group/time",
+    "inputs mutate during old pipeline",
+    "prepare remains limited",
+    "all authority flags remain false"
+  ],
+  "new_validation_granted": 0,
+  "request_status": "Runner/fixture/output/budget must be frozen and admitted by M2 before any execution"
+}

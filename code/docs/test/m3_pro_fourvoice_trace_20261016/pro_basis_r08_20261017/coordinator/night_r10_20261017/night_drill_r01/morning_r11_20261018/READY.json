@@ -1,0 +1,148 @@
+{
+  "schema": "M3_R11_PACKAGE_A_READY_V1",
+  "task": "R11 A - actual transport/outbox successor and exact frozen HANDOFF/result binding",
+  "writer": "night_task_2",
+  "coordinator_thread": "01a14050-cd98-7c41-8004-5d3e25765167",
+  "created": "2026-10-18T12:19:05.9999059+08:00",
+  "status": "READY_FOR_COORDINATOR_STATIC_INTEGRATION",
+  "overall_drill": "PARTIAL",
+  "actual_level": "STATIC_ONLY",
+  "source_implementation_and_static_review_ready": true,
+  "candidate_runtime": "NOT_RUN",
+  "execution_allowed": false,
+  "active_publisher_changed": false,
+  "unique_git_publisher": "night1 coordinator, unchanged verified entry",
+  "git_write_commands": 0,
+  "network_runs": 0,
+  "worker_runs": 0,
+  "HDL_EDA_device_runs": 0,
+  "old_budgets_restored": false,
+  "legacy_result_contract_edge": "MISSING; historical examples refuse queueing, no retrospective provenance",
+  "future_result_contract_edge": "New production schema requires actual admitted executor provenance and complete exact archive identities",
+  "new_validation_scope": "VALIDATION_REQUEST.json: 13 new assertions; draft only, needs new frozen runner/fixtures/argv and explicit admission; granted=0",
+  "original_defects": {
+    "mutable_handoff": "old run_group.py:127-139 used reread HANDOFF task/version; verify_inputs.py:75 sample hardcode",
+    "actual_transport": "old network.py:34-100 had no Store/outbox calls"
+  },
+  "static_verification": {
+    "candidate_executed": false,
+    "metadata_helper_error": "Retained, corrected and final descriptor check exit0: METADATA_TOOL_NOTE.json",
+    "metadata_mismatches": 0,
+    "metadata_descriptor_checks": 31,
+    "legacy_frozen_sources_rechecked": 9,
+    "zip_member_mismatches": 0,
+    "zip_members_hashed": 3,
+    "legacy_baseline_prefix_preserved": true,
+    "selfaudit": "Root plus own read-only child; last source delta has no new concrete blocker"
+  },
+  "next_owner": {
+    "provenance": "future admitted executor, same actual run",
+    "publication": "night1, old verified path only after its normal gates",
+    "real_two_machine_acceptance": "M2, still PENDING",
+    "validation": "night1/M2 exact new scope; no implicit grant"
+  },
+  "delivery": {
+    "ACCEPTED": false,
+    "RECEIVED": false,
+    "INTEGRATED": false,
+    "LOCAL_PREPARED": true,
+    "REMOTE_VERIFIED": false,
+    "LOCAL_COMMITTED": false,
+    "direct_message": "REJECTED_BY_AUTOMATIC_APPROVAL_REVIEW_NOT_DELIVERED",
+    "fallback": "Local READY for coordinator direct read, as preauthorized by dispatch"
+  },
+  "manifest": [
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/BASELINE_ORIGINALS_R01.zip",
+      "bytes": 39721,
+      "sha256": "243ebde925af7f8d86593b2e2e24c7a5e5498362fbf6066a1f0643b1b9efebaa"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/BASELINE_STORAGE_REVISION.json",
+      "bytes": 2692,
+      "sha256": "8cad6995de46ad60a5919eb27f000b9b1afd2dd72713cbe248c5cd18239d906d"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/DELIVERY_STATUS.json",
+      "bytes": 1927,
+      "sha256": "3ad68bb4d93c42c00837ff273e01841f94f76acac052a968caed371ddda81ff2"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/HISTORICAL_INPUT_AVAILABILITY.json",
+      "bytes": 1082,
+      "sha256": "892cf71cf64e29e240d30c0ba4903d491392d6c640baa1d90272aa0b02e2d8c3"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/LEGACY_NETWORK_BASELINE.json",
+      "bytes": 34907,
+      "sha256": "ca723ff05905b81dce4d2a80bf226369cc9f03def4e444245bbddb662350e6ce"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/METADATA_TOOL_NOTE.json",
+      "bytes": 727,
+      "sha256": "2e38d32040724703472fcba5f4ed7652c98dda27a21bb931f0e615b2e15792e1"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/README.md",
+      "bytes": 6025,
+      "sha256": "0004704c0968527fc476b3fabe31fd2acd1b48a53af08e62b48a4ba544b53e44"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/RECEIVE_BINDING_EXAMPLE.json",
+      "bytes": 7269,
+      "sha256": "81f6a7fcfb9cc3e5aa106c650d0f24650b092f2d669c9fdcd8c6275a3a08c98f"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/SEND_BINDING_EXAMPLE.json",
+      "bytes": 8931,
+      "sha256": "ffb6c4bc68f03d3f23f7d2b6b2ec5ffba75eb4a985d89bdb1119be27ecec6070"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/SOURCE_BINDINGS.json",
+      "bytes": 9554,
+      "sha256": "e68bb310823c477157e835ce3bfde20b067a397b46110829c28be45002fbf777"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/STATIC_METADATA_CHECK.json",
+      "bytes": 12996,
+      "sha256": "836f364d2139fbfb5ece52744abfdc3d9b1b3485010e937f1a298835cec27192"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/STATIC_REVIEW.md",
+      "bytes": 3868,
+      "sha256": "ccc2d80b4eac3b426c1187e21c1af5d194b86b77a15839051b3226fa5fa9686a"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/VALIDATION_REQUEST.json",
+      "bytes": 6258,
+      "sha256": "8f3b63f92a872cd26261984c688f358075c33c5bd5392e18b3e4981af4a211c8"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/binding.py",
+      "bytes": 10230,
+      "sha256": "5c5d99102bbe0c5fe836b7db3279c2af51f60308aa64c48acdb77b3b0ef62a19"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/transport.py",
+      "bytes": 13242,
+      "sha256": "30f02f9fb175bcdc8b630dd0abec8f875bf47e0cb470bbaa93eea2eb3ba3a5fd"
+    }
+  ],
+  "revision": "R02_BASELINE_LF_STORAGE",
+  "revised": "2026-10-18T12:37:01.0981417+08:00",
+  "baseline_storage_revision": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/BASELINE_STORAGE_REVISION.json",
+    "bytes": 2692,
+    "sha256": "8cad6995de46ad60a5919eb27f000b9b1afd2dd72713cbe248c5cd18239d906d"
+  },
+  "prior_version_archive": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/BASELINE_ORIGINALS_R01.zip",
+    "bytes": 39721,
+    "sha256": "243ebde925af7f8d86593b2e2e24c7a5e5498362fbf6066a1f0643b1b9efebaa"
+  },
+  "publish_exclude_local_history": [
+    "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/LEGACY_NETWORK_BASELINE.raw",
+    "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/READY_BEFORE_MESSAGE.raw"
+  ],
+  "final_index_gate": "PENDING_COORDINATOR_RECHECK; prior 9/9 not transferred"
+}

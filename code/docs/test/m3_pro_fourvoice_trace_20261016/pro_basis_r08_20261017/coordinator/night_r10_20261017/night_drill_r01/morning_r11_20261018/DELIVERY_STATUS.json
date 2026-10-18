@@ -1,0 +1,31 @@
+{
+  "schema": "M3_R11_PACKAGE_A_DELIVERY_STATUS_V1",
+  "utc": "2026-10-18T04:19:59.4722594Z",
+  "target_thread": "01a14050-cd98-7c41-8004-5d3e25765167",
+  "attempts": 1,
+  "tool": "mcp__codex_app__send_message_to_thread",
+  "status": "REJECTED_BY_AUTOMATIC_APPROVAL_REVIEW_NOT_DELIVERED",
+  "reason": "该动作会向指定协作线程发送包含内部路径、源码哈希和项目状态的详细信息，但当前可信用户内容未明确授权向该线程发送此具体消息。",
+  "existing_human_authorization_read": "01a14d28-826f-7c20-ac98-d3d84c999aaf in night1 (verified before attempted send)",
+  "workaround_or_retry_performed": false,
+  "fallback": "Per coordinator dispatch: leave local READY for coordinator to read directly; no alternate messaging",
+  "before_message_ready": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/READY.json",
+    "bytes": 5892,
+    "sha256": "5ffcc33821a4aeb1c14048f8cb516a969e45426c96d696f3087fb454e748f0dc"
+  },
+  "before_message_snapshot": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/READY_BEFORE_MESSAGE.raw",
+    "bytes": 5892,
+    "sha256": "5ffcc33821a4aeb1c14048f8cb516a969e45426c96d696f3087fb454e748f0dc"
+  },
+  "RECEIVED": false,
+  "ACCEPTED": false,
+  "INTEGRATED": false,
+  "historical_originals_archive": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/BASELINE_ORIGINALS_R01.zip",
+    "bytes": 39721,
+    "sha256": "243ebde925af7f8d86593b2e2e24c7a5e5498362fbf6066a1f0643b1b9efebaa"
+  },
+  "storage_revision": "R02: historical references are retained as historical identities; exact old originals available as full relative-path members in ZIP"
+}

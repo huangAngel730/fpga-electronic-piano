@@ -1,0 +1,20 @@
+{
+  "schema": "M3_R11_CAPACITY_STATIC_AMENDMENT_V1",
+  "format_note": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/mechanical/CURRENT_FORMAT.md",
+    "bytes": 13305,
+    "sha256": "6c663932654841c5360392cc71d255b5c70baea1e6a693a62bc21d722990c41d"
+  },
+  "existing_common": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/common.py",
+    "bytes": 3628,
+    "sha256": "025d801ffcb98697f7732632feb8b6a6c214fc551bbd2e5c382ce3eded11c2f5"
+  },
+  "finding": "Existing common.ref uses Path.read_bytes for hashing. Full route may read whole RAW files even though downstream stream.py iterates rows.",
+  "consequence": "Whole-pipeline peak RAM and full-window capacity NOT_VERIFIED. Streaming module ceilings are not verified pipeline/M1 capacity.",
+  "actual_full_window_bytes": null,
+  "actual_full_window_rows": null,
+  "no_source_modified_for_capacity": true,
+  "M1_consumer_capacity": "PENDING",
+  "resume": "M1 selects one compatible consumer format/capacity; M2 freezes allowed exact processing and memory/output limits before whole-window invocation. No cropping or per-part independent row reindex."
+}

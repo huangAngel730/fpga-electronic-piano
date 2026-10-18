@@ -1,0 +1,49 @@
+{
+  "schema": "M3_R11_MECHANICAL_READY_V1",
+  "unit": "R11 package B",
+  "status": "READY_FOR_COORDINATOR_STATIC_INTEGRATION",
+  "manifest": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/mechanical/MANIFEST.json",
+    "bytes": 9094,
+    "sha256": "910aa4b64b62c7ed4196f1f1a5b80057f441b41a12c9047d27508a6c33598447"
+  },
+  "files": [
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/mechanical/CURRENT_FORMAT.md",
+      "bytes": 13305,
+      "sha256": "6c663932654841c5360392cc71d255b5c70baea1e6a693a62bc21d722990c41d"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/mechanical/MECHANICAL_INPUTS.json",
+      "bytes": 40363,
+      "sha256": "0a91305ac89f6e9c2a4f5c6ebb6c9c24f69d201fbbad96ed4886f2a89d283025"
+    }
+  ],
+  "completion_scope": "Docs-only production format/capacity/global-order/source graph/reachable originals/independent input gaps and one M1 consumer decision",
+  "validation": "L0_STATIC_ONLY",
+  "readonly_self_review": {
+    "scope": [
+      "CURRENT_FORMAT.md",
+      "MECHANICAL_INPUTS.json"
+    ],
+    "level": "L0_READ_ONLY",
+    "reviewer": "/root/c_consumer_self_review",
+    "initial_finding": "Explicitly distinguish ready.drv plan labels from DUT backpressure: C9 driver_ready_not_connected.",
+    "resolution": "Documented no DUT ready connection; JSON ready_drv_applied_to_DUT=false; source TB/driver identities added.",
+    "other_blockers_found": false,
+    "candidate_execution": false
+  },
+  "remaining": [
+    "M1-CONSUMER-COMPATIBILITY decision",
+    "M1 independent causal plan/profile/golden",
+    "M2 frozen finish/epoch/audio_stable/backpressure and precise execution admission",
+    "Same-capture full original material and complete downstream route NOT_RUN"
+  ],
+  "new_candidate_execution": 0,
+  "new_git_network": 0,
+  "publication_state": "LOCAL_FILES_ONLY_NOT_COMMITTED_NOT_PUSHED",
+  "notification_state": "READY_FOR_ONE_AUTHORIZED_COORDINATOR_MESSAGE; not receiver acceptance",
+  "math_verified": false,
+  "real_verified": false,
+  "board_release_allowed": false
+}

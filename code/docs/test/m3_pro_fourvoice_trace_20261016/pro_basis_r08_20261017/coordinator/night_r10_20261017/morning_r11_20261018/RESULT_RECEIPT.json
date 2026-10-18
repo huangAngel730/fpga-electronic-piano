@@ -1,0 +1,90 @@
+{
+  "schema": "NIGHT_HANDOFF_V1",
+  "handoff_id": "M3-R11-20261018-STATIC-01",
+  "task_id": "M3-MORNING-R11-20261018",
+  "plan_version": "R11",
+  "producer": "M3",
+  "consumer": "M2",
+  "base_commit": "3202946161f6df6985effe7f2824c97cc4daf03f",
+  "result_commit": "3c5101f19daa85b85d43082d9cadaca37fcbea13",
+  "manifest": [
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/DELIVERY/SOURCE_PAYLOAD.zip",
+      "bytes": 4333709,
+      "sha256": "63b98bb8a833d5f6eb3525a76cb2022a775cf442f98665fc84dadac093cf1f57"
+    }
+  ],
+  "current_INTEGRATION_HANDOFF": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/INTEGRATION_HANDOFF.json",
+    "bytes": 59081,
+    "sha256": "7ec9d51696f0076e06d8ac2a5b7f66795838a05486e9776bb152d99c5d049da5"
+  },
+  "publication_originals": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/DELIVERY/PUBLICATION_ORIGINALS.zip",
+    "bytes": 9835561,
+    "sha256": "c106d72f5103c415f0157e2459b9efac15d4fc9f81462df1400cd530448455c2"
+  },
+  "publication_originals_resolution": "Evidence-only metadata tail in the envelope commit, not claimed inside earlier result_commit. Every manifest payload is present byte-for-byte in result_commit.",
+  "next_action": "M2 limited review and exact admission decisions; synchronize effective morning cards/overview/state/board. M1 returns one consumer compatibility decision. Source publication does not constitute receipt/acceptance.",
+  "validation": {
+    "status": "STATIC_HANDOFF_UNIT_COMPLETE_OVERALL_PARTIAL_WAITING_INPUT",
+    "level": "L0",
+    "candidate_runtime": "NOT_RUN",
+    "whole_route": "NOT_RUN",
+    "repository_gate": {
+      "status": "PASS",
+      "exit_code": 0,
+      "pass_count": 9,
+      "seconds": 137.51599999997416,
+      "input_bytes_unchanged": true,
+      "candidate_input_count": 18009
+    },
+    "gate_scope": "Actual workspace/index source tree, no separate clean checkout; gate old T007/T019 only, not new C9/Pro. Metadata tail gate performed before receipt commit.",
+    "index_bytes": "All final candidate staged blobs matched working/archive source bytes",
+    "first_gate_history": "Initial9/9/0 working-tree gate retained; one raw baseline CRLF index mismatch found separately, fixed through LF logical snapshot plus raw ZIP; final gate rerun on successor."
+  },
+  "original_START": "2026-10-18T11:57:42+08:00",
+  "deadline": "2026-10-18T16:57:42+08:00",
+  "Goal_meter": {
+    "goal": {
+      "threadId": "01a14050-cd98-7c41-8004-5d3e25765167",
+      "objective": "作为夜间任务1/M3唯一总控，按用户派发的 E:/FPGA/GAOYUNFPGA/night_task/10.18/task-day1/M3_夜间Pro无实物收口任务单_R10_2026-10-17.md 中晨接R11卡，在原本日实际START 2026-10-18 11:57:42+08:00 至16:57:42+08:00 内，协调夜间任务2/3/4完成同一大板块的可独立推进事项：原演练实际transport安全outbox复用及HANDOFF冻结身份绑定两项最小可逆源码后继、现有机械bundle/JSONL真实格式容量与来源交接、finish D/D+1最小变更与精确申请、整链接续/PENDING路径静态后继，汇成一份完整INTEGRATION_HANDOFF及可访问原件。仅在R11精确写集内工作，保持旧源/失败/消费；旧R08/D4/LINK/演练组全部按原账复用，新完整处理软件/worker/HDL/ModelSim/C9/EDA/设备许可均0，缺M1/M2输入或精确新许可不执行。完成允许的静态实现、只读自审和规定发布门禁后普通develop发布并核远端，交M1/M2限定接收/复核；整体仍PARTIAL，未真实执行项明确NOT_RUN和恢复条件。不新开竞争写者，不修改共享状态/看板，不启动N32。",
+      "status": "active",
+      "tokensUsed": 630562,
+      "timeUsedSeconds": 2626,
+      "createdAt": 1792296002,
+      "updatedAt": 1792298628
+    },
+    "remainingTokens": null,
+    "completionBudgetReport": null
+  },
+  "consumption": {
+    "candidate_software_groups": 0,
+    "worker": 0,
+    "new_HDL_ModelSim_C9": 0,
+    "EDA": 0,
+    "devices": 0,
+    "old_consumption_preserved": true,
+    "currency_cost": null,
+    "currency_note": "No per-task currency meter available; no inferred member tokens or purchase value"
+  },
+  "pending": [
+    "M1 unique consumer compatibility/version/SHA/capacity and independent plan/math profile",
+    "M2 finish phase/write set, native executor mapping/dynamic closure and exact new processing/HDL admission",
+    "M2 audio_stable and actual DUT backpressure policy",
+    "same-run actual raw/pins/reset/END/stdout/stderr/exit/cleanup and actual mathematical/physical evidence"
+  ],
+  "publication_state": "REMOTE_VERIFIED",
+  "source_remote_tip": "3c5101f19daa85b85d43082d9cadaca37fcbea13",
+  "source_ancestor_exit_code": 0,
+  "receiver_status": "NOT_OBSERVED",
+  "M2_acceptance": "NOT_OBSERVED",
+  "human_notification": "NOT_CLAIMED",
+  "receipt_commit": null,
+  "receipt_commit_note": "Envelope is a later metadata commit; final remote inclusion proof local outbox plus actual Git ancestry, no self-reference",
+  "originals_resolution": "ZIP members retain repository-relative original paths. PUBLICATION_MANIFEST resolves 11 legacy output descriptors. Source archive contains all new bodies and unchanged source/archive dependencies. No RAW/FRAME/math fabricated.",
+  "execution_allowed": false,
+  "real_verified": false,
+  "math_verified": false,
+  "board_release_allowed": false
+}

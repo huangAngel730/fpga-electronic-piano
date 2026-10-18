@@ -1,0 +1,177 @@
+{
+  "schema": "M3_R11_FROZEN_DELIVERY_SPEC_V1",
+  "purpose": "HISTORICAL_BINDING_EXAMPLE",
+  "direction": "RECEIVE",
+  "handoff": {
+    "path": "code/docs/test/m2_night_drill_r01_20261017/HANDOFF.json",
+    "bytes": 2679,
+    "sha256": "0b3001bcf9ab2a1437f7538d0cb2aa9f44e21ccba195c584f5dd872257398707"
+  },
+  "run_contract": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/RUN_CONTRACT_FROZEN.json",
+    "bytes": 503654,
+    "sha256": "22f24cf6479e452e21e639c1290b441bb44c39c75fddc208897b6a24ea34a2f2"
+  },
+  "expected_identity": {
+    "handoff_id": "NIGHT-RULES-GOAL-20261017-01",
+    "task_id": "NIGHT-RULES-EIGHT-FILES-20261017",
+    "plan_version": "M3-DRILL-R01; existing authorized eight-rule sample",
+    "producer": "M2",
+    "consumer": "M3",
+    "base_commit": "164ed3452eaa23e56a544cf13e7e0acf040e7908",
+    "result_commit": "30a8cd5474e6ff485ce0bf8fd5f3c1d51643123a"
+  },
+  "expected_manifest": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 27168,
+      "sha256": "76fd9c1d9d5585f35fb62e49bb845c22c90a91402fbf4c002852de1342554276"
+    },
+    {
+      "path": "code/AGENTS.md",
+      "bytes": 8438,
+      "sha256": "38d45d5ad9f7ae5b650ecf129345b2be79ada2951ec4207fcb7e7afecaa008ec"
+    },
+    {
+      "path": "code/docs/夜间任务通用执行规范.md",
+      "bytes": 19933,
+      "sha256": "076ffd0036ac711869b5aa947fc6771dd0d9941c2b635134ace5dfce0056f633"
+    },
+    {
+      "path": "code/docs/Git协作规范.md",
+      "bytes": 24540,
+      "sha256": "42a31eefd059054bd2661d22866ba354bd4ffbf712fa14292ecf204c321dd5fc"
+    },
+    {
+      "path": "code/docs/协作入口.md",
+      "bytes": 8320,
+      "sha256": "22682f8222cbae3ac1f1f8a7afb2f0ca0a58ff838136284429fc98e140d3e1da"
+    },
+    {
+      "path": "code/docs/AI开工提示词.md",
+      "bytes": 9665,
+      "sha256": "c69799655783218a7a2f28a9113d000a4565e45c0daf0454d1db279dd21e4cb4"
+    },
+    {
+      "path": "code/docs/三人协作执行手册.md",
+      "bytes": 13186,
+      "sha256": "cce04d1783b92b6e417b42e0ea1bf4f8d6a189941cc9e154c64305b12e0db960"
+    },
+    {
+      "path": "code/docs/README.md",
+      "bytes": 3628,
+      "sha256": "114cadc97b55e931a3199754e82298b9cf62cef28b0861e3734050adcd8a9c23"
+    }
+  ],
+  "frozen_inputs": [
+    {
+      "path": "code/docs/M3_夜间协作双机演练任务单_R01_2026-10-17.md",
+      "bytes": 13086,
+      "sha256": "da8dbb5da4f7ddd3e8307058506fc342bd2c4e26b4d219ce4654bc97d1f48055"
+    },
+    {
+      "path": "code/docs/test/m2_night_drill_r01_20261017/ASSIGNMENT_RECEIPT.json",
+      "bytes": 3479,
+      "sha256": "d6c681f2ec9c38fc224f05e24582cc42cbdb568234abab59c38c98b0e827f42c"
+    },
+    {
+      "path": "code/docs/test/m2_night_drill_r01_20261017/HANDOFF.json",
+      "bytes": 2679,
+      "sha256": "0b3001bcf9ab2a1437f7538d0cb2aa9f44e21ccba195c584f5dd872257398707"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/START.md",
+      "bytes": 4624,
+      "sha256": "64d0c8e4ff678eb290d0fb802d571cb38a430bf3d8befb2f2b87c3fb029d1ab5"
+    }
+  ],
+  "frozen_sources": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/gate.py",
+      "bytes": 1842,
+      "sha256": "e24d9d82580820f1f0691d2998b9ea995f0dcdc1454f26a39c300c53194434c4"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/intake/engine.py",
+      "bytes": 16752,
+      "sha256": "f463927e4c719e2b40645896b644647bed93f70a7640dca342ce2dc3cba6233b"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/intake/selftest.py",
+      "bytes": 10908,
+      "sha256": "b559c0da2392cede9453f8d22b7bbf182b1fe86084f0b983b2585523a82e7d18"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/network.py",
+      "bytes": 4809,
+      "sha256": "add7a4195f70e8ad7dd23fb50b46892cda1d5d3a09edefd70794a145579016c5"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/recovery/owned_worker.py",
+      "bytes": 6124,
+      "sha256": "11b065c36b149e01cb3e3077a0a07ec829cb52baa25b271c344e58d639b15ade"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/recovery/run_recovery.py",
+      "bytes": 12109,
+      "sha256": "4955933740e8db9ab84c2eb4f099bdeffadf1c6a49263ccaf5dd46f96d02b9b3"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/run_group.py",
+      "bytes": 9045,
+      "sha256": "e26de854209f143f5b2103e2af58dd7a28ff8ee8f79ca37503429fd68be73a3f"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/run_worker.py",
+      "bytes": 6107,
+      "sha256": "71873d3744e30b9d188440a27f80efb0605398942aa6b0149fc66313451ead1e"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/verify_inputs.py",
+      "bytes": 6258,
+      "sha256": "fd7cf78a16e2205b69f0c09d0c403ddb56a7ccf51dc6406287a75e4bff0704ae"
+    }
+  ],
+  "result_relations": [
+    {
+      "file": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/INPUT_VERIFICATION.json",
+        "bytes": 19838,
+        "sha256": "3b36ef4b8e4d9077183b8eaaa348ef6cc87a440316a0183689ac25e60bc1ffc2"
+      },
+      "equalities": [
+        {
+          "pointer": "/sample_commit",
+          "equals": "30a8cd5474e6ff485ce0bf8fd5f3c1d51643123a"
+        }
+      ],
+      "manifest_check": {
+        "pointer": "/checks",
+        "filter_key": "receipt",
+        "filter_value": "sample"
+      }
+    }
+  ],
+  "commit_binding": {
+    "file": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/INPUT_VERIFICATION.json",
+      "bytes": 19838,
+      "sha256": "3b36ef4b8e4d9077183b8eaaa348ef6cc87a440316a0183689ac25e60bc1ffc2"
+    },
+    "pointer": "/sample_commit"
+  },
+  "archive_bindings": [],
+  "legacy_network_snapshot": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/LEGACY_NETWORK_BASELINE.json",
+    "bytes": 34907,
+    "sha256": "ca723ff05905b81dce4d2a80bf226369cc9f03def4e444245bbddb662350e6ce"
+  },
+  "limitations": {
+    "do_not_fabricate_execution_provenance": true,
+    "direct_result_contract_binding": "MISSING_IN_OLD_EXECUTION_ORIGINALS",
+    "production_admission": false,
+    "candidate_executed": false,
+    "queue_allowed": false
+  },
+  "baseline_storage_revision": "R02: identical JSON content stored with LF; original raw bytes and prior R01 in BASELINE_ORIGINALS_R01.zip"
+}

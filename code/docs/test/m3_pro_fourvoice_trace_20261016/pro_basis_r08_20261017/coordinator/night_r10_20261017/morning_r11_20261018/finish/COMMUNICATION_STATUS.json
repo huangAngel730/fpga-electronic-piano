@@ -1,0 +1,20 @@
+{
+  "schema": "M3_R11_C_COMMUNICATION_STATUS_V1",
+  "status": "DIRECT_MESSAGE_REJECTED_LOCAL_READY_AVAILABLE",
+  "READY": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/finish/READY.json",
+    "bytes": 5125,
+    "sha256": "4ef5f7b28aee49e954a1bd07f7b8f7113be0dfe65467a2b99faddca129863230"
+  },
+  "intended_receiver": "01a14050-cd98-7c41-8004-5d3e25765167",
+  "send_attempts": 1,
+  "delivered": false,
+  "receiver_read_or_acceptance": "NOT_OBSERVED",
+  "auto_review_response": "This action was rejected due to unacceptable risk.",
+  "auto_review_reason": "该动作向另一任务线程发送完整交接报告，但可信用户消息仅授权查看 GitHub，未明确授权跨线程发送此消息；应先请求用户确认。",
+  "authorization_evidence_read": "Source root human user message01a14d28-826f-7c20-ac98-d3d84c999aaf was read with read_thread and explicitly authorizes night1/2/3/4 dispatch/results communication. Rejection nevertheless preserved, no further send or alternate messaging attempted.",
+  "fallback": "Per original dispatch: preserve local READY for root to read; this receipt does not claim message delivery, remote publication or acceptance.",
+  "READY_unchanged": true,
+  "retry_or_bypass": false,
+  "new_network_calls": 0
+}
