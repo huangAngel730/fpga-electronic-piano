@@ -1,0 +1,42 @@
+{
+  "schema": "M1_R13_FIRST_DIFF_V1",
+  "required": [
+    "source_line",
+    "cycle",
+    "epoch",
+    "request_id",
+    "independent_event_seq",
+    "router_sequence",
+    "layer",
+    "field",
+    "expected",
+    "actual"
+  ],
+  "N45": {
+    "source_line": 422,
+    "cycle": 421,
+    "epoch": 0,
+    "request_id": 7,
+    "independent_event_seq": 101,
+    "router_sequence": 0,
+    "layer": "clip",
+    "field": "effect_clip_mask"
+  },
+  "N46": {
+    "source_line": 422,
+    "cycle": 421,
+    "epoch": 0,
+    "request_id": 7,
+    "independent_event_seq": 101,
+    "router_sequence": 0,
+    "layer": "clip",
+    "field": "feedback_clip_mask"
+  },
+  "source": {
+    "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/clocked_math_stream.py",
+    "bytes": 7183,
+    "sha256": "5daea28084d32f3bbefff16158b6b1b61f764ae7e4ed701b8ea7812209b1659f"
+  },
+  "failure": "First failure stops group/dependents; no draining or later MATCH; preserve failure bytes and consumption",
+  "unknown_event": "Use explicitnull+snapshotlane provenance if no single trusted cause; never infer planseq from routersequence"
+}

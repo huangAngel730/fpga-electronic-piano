@@ -1,0 +1,219 @@
+{
+  "schema": "M1_R13_CAPACITY_SPEC_V1",
+  "approval": "PROPOSED_NOT_AUTHORIZED",
+  "profile": "C9_PIANO_TRIANGLE_NOTES_DELAY_CLOCKED_V1; capacity recipe uses piano ordinary notes and delay only, no profile expansion.",
+  "geometry": {
+    "cycles": 1130662,
+    "first_cycle": 0,
+    "last_cycle": 1130661,
+    "raw_rows": 1130662,
+    "public_rows": 1130662,
+    "row_index_rows": 1130662,
+    "frame_count": 1352,
+    "request_accepts": 1352,
+    "all_lane_advances": 1352,
+    "lane_edge_advances": 5408,
+    "snapshots": 1352,
+    "effect_accepts": 1352,
+    "result_accepts": 1346,
+    "commits": 1346,
+    "post_FX_cancelled_requests": 6,
+    "result_hold_rows": 4874,
+    "result_valid_rows": 6220,
+    "midi_bytes": 63,
+    "midi_events": 23,
+    "note_on_events": 12,
+    "note_off_events": 11,
+    "config_events": 2,
+    "total_external_event_and_config_accepts": 25,
+    "reset_assertions_including_initial": 2,
+    "reset_releases": 2,
+    "reset_edge_records": 4,
+    "epochs": 2,
+    "reset_low_rows": 2804,
+    "reset_high_rows": 1127858,
+    "reset_aborted_requests": 0,
+    "expected_event_apply_actions": 53,
+    "expected_retire_actions": 0,
+    "action_count_basis": "12 on×2 +9 matching off×3 +2 ignored off×1 =53; release completion requires4800 advances, larger than either epoch. Re-trigger and fifth-note steal use original allocator. Any contrary generator result is a fixture failure, not a reason to adjust counts after run.",
+    "input_apply_history_expected_rows": 76,
+    "input_apply_history_count_rule": "23 input accepts +53 distinct apply rows, generator must confirm no overlap; max128 is a safety cap, not permission to drop or pad rows.",
+    "event16": "M1 L0 source reasoning confirms ignored_off, no release/consume",
+    "event20": "M1 L0 confirms normalized ignored_off note74"
+  },
+  "recipe_path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/04_CAPACITY_SCHEDULE_R13.json",
+  "recipe_sha256": "6e1b2e6e806c68b97235b4773a617e4d8d65f3f6450b4a1770b13f8e1b432316",
+  "data_files": [
+    {
+      "role": "raw_capture",
+      "logical_file": "raw.jsonl",
+      "rows": 1130662,
+      "line_bytes_max": 4096,
+      "file_bytes_max": 4631191552,
+      "transport_parts": 80
+    },
+    {
+      "role": "public_rows",
+      "logical_file": "PUBLIC_ROWS_C9.jsonl",
+      "rows": 1130662,
+      "line_bytes_max": 6144,
+      "file_bytes_max": 6946787328,
+      "transport_parts": 112
+    },
+    {
+      "role": "line_index",
+      "logical_file": "RAW_PUBLIC_LINE_INDEX.jsonl",
+      "rows": 1130662,
+      "line_bytes_max": 512,
+      "file_bytes_max": 578898944,
+      "transport_parts": 9
+    },
+    {
+      "role": "row_index",
+      "logical_file": "MATH_ROW_INDEX.jsonl",
+      "rows": 1130662,
+      "line_bytes_max": 8192,
+      "file_bytes_max": 9262383104,
+      "transport_parts": 144
+    },
+    {
+      "role": "fx_history",
+      "logical_file": "FX_HISTORY.jsonl",
+      "rows": 1354,
+      "line_bytes_max": 2048,
+      "file_bytes_max": 2772992,
+      "transport_parts": 1
+    },
+    {
+      "role": "advance_history",
+      "logical_file": "ADVANCE_HISTORY.jsonl",
+      "rows": 1352,
+      "line_bytes_max": 1024,
+      "file_bytes_max": 1384448,
+      "transport_parts": 1
+    },
+    {
+      "role": "input_apply_history",
+      "logical_file": "INPUT_AND_APPLY_HISTORY.jsonl",
+      "rows": 76,
+      "rows_max": 128,
+      "line_bytes_max": 2048,
+      "file_bytes_max": 262144,
+      "transport_parts": 1
+    }
+  ],
+  "metadata": {
+    "max_file_bytes": 16777216,
+    "total_metadata_bytes_max": 67108864,
+    "includes": "manifest, original plan/config/FRAME/reset/END, source/ROM/tool identity-only, execution/synthetic ledger/TX context descriptors; none are actual execution evidence."
+  },
+  "logical_input_total_bytes_max": 23622320128,
+  "volume_rule": {
+    "large_stream_parts": 345,
+    "all_stream_parts_including_histories": 348,
+    "max_part_bytes": 67108864,
+    "total_part_bytes_max": 23622320128,
+    "partition": "Arbitrary byte cuts [floor(i*B/K),floor((i+1)*B/K));80 raw/112 public/9 physical-line-index/144 math-index/1each threehistories; no empty/padded volumes. Original bytes and all copies retained.",
+    "boundary": "Arbitrary byte boundaries may split UTF-8 or JSON lines. Consumer reads one unchanged logical stream; never restarts cycle/epoch/parser/model at a part. Metadata not additionally split.",
+    "keeps_original_logical_and_transport_bytes": true,
+    "logical_plus_volumes_bytes_max": 47244640256,
+    "old339": "Original proposal omitted physical raw/public line index. Add9parts; same22GiB logical cap is a sum cap, not guaranteed sufficient for future M3 geometry."
+  },
+  "outputs": {
+    "clock_audit_rows": 1130662,
+    "clock_audit_max_line_bytes": 1024,
+    "clock_audit_max_bytes": 1157797888,
+    "action_audit_rows": 53,
+    "request_audit_rows": 1352,
+    "accepted_event_audit_rows": 23,
+    "config_audit_rows": 2,
+    "result_comparison_audit_rows": 6220,
+    "result_accept_audit_rows": 1346,
+    "commit_audit_rows": 1346,
+    "FX_accept_audit_rows": 1352,
+    "all_actions_accepted_events_cancellations_retained": true,
+    "all_output_audit_logs_RSS_and_receipts_bytes_max": 4294967296,
+    "final_result_json_bytes_max": 1048576,
+    "std_stream_bytes_max_each": 4194304,
+    "RSS_samples_bytes_max": 16777216,
+    "failure_receipt_reservation_bytes": 8388608,
+    "result_shape": "Versioned final JSON contains exact counts/full sidecar descriptors and first difference, not an in-memory list. No truncation to diagnostic_limit; all evidence remains in sidecars."
+  },
+  "scratch": {
+    "all_SQLite_DB_journal_WAL_SHM_temp_and_staging_bytes_max": 4294967296,
+    "sqlite_main_bytes_max": 536870912,
+    "sqlite_cache_bytes_max": 8388608,
+    "sqlite_settings": "page_size4096, cache_size=-8192, temp_store=FILE, mmap_size=0, max_page_count=131072, journal_mode=DELETE, synchronous=FULL; monitor all sidefiles. These settings are proposed source requirements, not executed.",
+    "DB_primary_keys": [
+      "(epoch,request_id) exact unsigned32 key",
+      "(epoch,router_sequence) exact accepted/stage metadata"
+    ],
+    "no_probabilistic_dedup_or_historical_ID_forgetting": true
+  },
+  "disk": {
+    "output_absolute_root": "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\m1_r10_publish_ascii\\code\\output\\m1_c9_oracle_night_r10_20261017\\R13_BOUNDED_PREP\\CAP01",
+    "same_volume_all_scratch": true,
+    "all_created_files_hard_bytes_max": 60129542144,
+    "preflight_free_bytes_min": 68719476736,
+    "free_space_reserve_bytes_min": 8589934592,
+    "filesystem_allocation_overhead_bytes_reserved": 268435456,
+    "observed_preparation_free_bytes": 133428367360,
+    "observation_is_not_future_preflight": true,
+    "accounting": "Count each created logical/part/output/DB/journal/log/partial file once, include allocated cluster rounding and monitor GetDiskFreeSpace. Pre-reserve declared next write against category/global/free-space bounds. No compression/sparse-file credit.",
+    "stop": "Before a write crossing any cap, record RESOURCE_LIMIT; preserve all existing originals/partials within failure reserve. No automatic deletion of original/old-run files, no fallback disk or larger cap.",
+    "original_budget_arithmetic": {
+      "logical_and_volumes": 47244640256,
+      "outputs": 4294967296,
+      "scratch": 4294967296,
+      "allocation_reserved": 268435456,
+      "total": 56103010304,
+      "equation": "44+4+4+0.25=52.25GiB<56GiB hardcreatedlimit; proposal only, no bytes generated/measurement"
+    }
+  },
+  "RSS": {
+    "scope": "Sum of the fixed Python supervisor and its one Python worker; include generator, reader, model, SQLite, buffers, output and monitoring. Generation and consumption sequential in the same worker.",
+    "process_tree_nodes_max": 2,
+    "allowed_children": "Supervisor may start exactly one fixed Python worker suspended in an owned Job after explicit M2 permission. Worker may create threads, no subprocesses. No compiler/HDL/EDA/device/network.",
+    "sample_period_ms": 20,
+    "max_sample_gap_ms": 100,
+    "Windows_API": "GetProcessMemoryInfo WorkingSetSize/PeakWorkingSetSize for each held process handle",
+    "pass_peak_bytes_max": 536870912,
+    "primary_peak": "Conservative sum of per-process OS-latched PeakWorkingSetSize, including their noncoincident peaks. Report observed simultaneous sum separately. This stricter upper bound covers between-sample peaks.",
+    "other_metrics": "Report PrivateUsage/PeakPagefileUsage separately as Windows commit counters; never label them RSS. System-wide file cache and external tool host are outside process RSS and disclosed.",
+    "missing_measurement": "Any sampling gap>100ms, child identity drift, untracked descendant or unavailable native peak counter makes capacity MEASUREMENT_INCOMPLETE, never PASS.",
+    "enforcement": "RSS is a measured success ceiling and immediate stop trigger, not a promise to prevent every transient allocation. A separate owned-Job worker commit cap of768MiB is proposed for hard allocation containment; supervisor is outside that worker Job and included in all RSS totals. Supervisor PrivateUsage>128MiB fails/stops the group. Neither commit counter is called RSS; exceeding512MiB process-tree RSS fails even if commit cap not reached.",
+    "monitor_artifacts": [
+      "RSS_SAMPLES.jsonl",
+      "PROCESS_START_END.json",
+      "PEAK_COUNTERS.json",
+      "GAPS.json"
+    ]
+  },
+  "time": {
+    "group_wall_seconds_max": 600,
+    "control": {
+      "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/08_TIME_AND_STOP_R13.json",
+      "bytes": 1722,
+      "sha256": "a29eb3ee324bcd74c28089f0719943736d6f2d86aa4067c3c049d1ca0c28bd00"
+    },
+    "counts": "supervisor preparation before worker, imports/identities, all generation/volumes, inputs, state, math/audits, EOF/final identities, flush/fsync, process/Job/streams, receipts and supervisor exit",
+    "performance_verified": false
+  },
+  "scope_limit": "Synthetic geometry matches the full target length only. It does not approve actual D/D+1 finish, actual reset policy, C9 execution, physical timing, serial closure or real math.",
+  "all_inputs_actual_sha256": null,
+  "input_identity_policy": "No large fixture generated now. Freeze the recipe SHA and future generator/source SHA before approved launch; generated bodies receive actual bytes/SHA during the counted group and must match deterministic counts/upper bounds before consumption. No invented pre-generation SHA.",
+  "generation_failure": "Any missing promised action/count/profile, byte cap breach or geometry mismatch stops the group as fixture failure; no mid-run shrink/row deletion/padding or retry.",
+  "source_bindings": {
+    "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/SOURCE_BINDINGS_R13.json",
+    "bytes": 17171,
+    "sha256": "ae66eacdc0348b9e1987dbeb6160b5251a578af71af10982431708b0d8d953df"
+  },
+  "time_successor": {
+    "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/08_TIME_AND_STOP_R13.json",
+    "bytes": 1722,
+    "sha256": "a29eb3ee324bcd74c28089f0719943736d6f2d86aa4067c3c049d1ca0c28bd00"
+  },
+  "status": "PROPOSED_FULL_GEOMETRY_NOT_MEASURED",
+  "M3_R13_actual_geometry": null,
+  "source_runtime_gap": "M3_R13 actual geometry/shape not delivered; do not substitute old39MBfrontend or proposed512MiBbackend measurements"
+}

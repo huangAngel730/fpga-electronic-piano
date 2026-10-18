@@ -1,0 +1,62 @@
+{
+  "schema": "M1_R13_INTAKE_LEDGER_V1",
+  "received": [
+    {
+      "handoff_id": "M2-TEAM-NIGHT-R13-20261018",
+      "task": "M1 R13-R02",
+      "package_sha256": "0e5f2b930df91396d0c771cbe070fb0d08b2a7d3f4da18b81b3efeed319858db",
+      "consumer": "M1",
+      "state": "RECEIVED_L0",
+      "actual_START": "2026-10-18T23:35:59+08:00",
+      "originals_crc_SHA": "41/41PASS",
+      "result_commit": null
+    }
+  ],
+  "remote_check": {
+    "receipt": {
+      "argv": [
+        "git",
+        "-c",
+        "core.longpaths=true",
+        "-c",
+        "http.proxy=http://127.0.0.1:26001",
+        "-c",
+        "http.version=HTTP/1.1",
+        "-c",
+        "credential.interactive=false",
+        "-c",
+        "http.lowSpeedLimit=1",
+        "-c",
+        "http.lowSpeedTime=20",
+        "ls-remote",
+        "--heads",
+        "origin",
+        "develop"
+      ],
+      "cwd": "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\m1_r10_publish_ascii",
+      "job_dependency_sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b",
+      "owned_job_closed": true,
+      "proxy_basis": "Enabled HKCU Internet Settings ProxyServer read in this session; no persistent Git configuration modified.",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 2.3280000000086147,
+      "limit_seconds": 30,
+      "streams": {
+        "stdout.raw": {
+          "bytes": 60,
+          "sha256": "f9366354387469134943c62da636753317e1687859ae4d6aea3ee4ab449e418e"
+        },
+        "stderr.raw": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    "stdout_utf8": "e39b36b9b7f956659f7fd5e3ca6dd57e5a34735b\trefs/heads/develop\n",
+    "checked_utc": "2026-10-18T15:49:38Z",
+    "source_tree_changed": false
+  },
+  "M3_R12": "Previously received32originals/9source identities, not a new M1 RUN_GO",
+  "M3_R13": null,
+  "remote_task_docs_published": false
+}

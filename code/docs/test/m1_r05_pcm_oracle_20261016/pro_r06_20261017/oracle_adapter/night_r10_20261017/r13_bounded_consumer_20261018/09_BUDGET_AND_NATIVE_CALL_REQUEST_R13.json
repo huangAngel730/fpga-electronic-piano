@@ -1,0 +1,358 @@
+{
+  "schema": "M1_R13_EXACT_BUDGET_REQUEST_V1",
+  "state": "STATIC_IMPLEMENTED_SINGLE_PUBLICATION_PACKET_APPROVED_NO_BUSINESS_TESTS",
+  "suggested_group_limits": [
+    {
+      "id": "SW01",
+      "seconds": 120,
+      "cases": 54,
+      "actual_invocations": 54
+    },
+    {
+      "id": "CAP01",
+      "seconds": 600,
+      "geometry": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/05_CAPACITY_LIMITS_AND_MEASUREMENT_R13.json",
+        "bytes": 11711,
+        "sha256": "f505adbd96be1d923f9ab7803ef1b22d39e874cd763b863e77eda9972f524467"
+      }
+    },
+    {
+      "id": "FIX01",
+      "seconds": 60,
+      "at_most": 1,
+      "first_located_failure_only": true
+    }
+  ],
+  "suggested_total_test_seconds": 780,
+  "current_authorized_seconds": 0,
+  "runtime": {
+    "executable": "E:\\python3.10\\python.exe",
+    "bytes": 99216,
+    "sha256": "53f323d1e593efc85553553f87a634dd8ed1266593ef7dc1ef6c808809eb8885",
+    "version_claim": "Existing local Python3.10 runtime; no candidate invoked to inspect it in this static preparation.",
+    "static_runtime_file_identities": [
+      {
+        "path": "E:\\python3.10\\python.exe",
+        "bytes": 99216,
+        "sha256": "53f323d1e593efc85553553f87a634dd8ed1266593ef7dc1ef6c808809eb8885",
+        "basis": "READ_ONLY_STATIC_FILE_IDENTITY"
+      },
+      {
+        "path": "E:\\python3.10\\python3.dll",
+        "bytes": 62352,
+        "sha256": "70596aea8c5ca8f3bf88e46a0606522413b50208ec9fcc6b706f7a064cf83b79",
+        "basis": "READ_ONLY_STATIC_FILE_IDENTITY"
+      },
+      {
+        "path": "E:\\python3.10\\python310.dll",
+        "bytes": 4453776,
+        "sha256": "b7a7f3707beab109b66de3e340e3022dd83c3a18f444feb9e982c29cf23c29b8",
+        "basis": "READ_ONLY_STATIC_FILE_IDENTITY"
+      },
+      {
+        "path": "E:\\python3.10\\vcruntime140.dll",
+        "bytes": 97168,
+        "sha256": "ded5adaa94341e6c62aea03845762591666381dca30eb7c17261dd154121b83e",
+        "basis": "READ_ONLY_STATIC_FILE_IDENTITY"
+      },
+      {
+        "path": "E:\\python3.10\\vcruntime140_1.dll",
+        "bytes": 37240,
+        "sha256": "1554b5802968fdb2705a67cbb61585e9560b9e429d043a5aa742ef3c9bbfb6bf",
+        "basis": "READ_ONLY_STATIC_FILE_IDENTITY"
+      },
+      {
+        "path": "E:\\python3.10\\DLLs\\_ctypes.pyd",
+        "bytes": 119696,
+        "sha256": "0bd4ed11f2fb097f235b62eb26a00c0cb16815bbf90ab29f191af823a9fed8cf",
+        "basis": "READ_ONLY_STATIC_FILE_IDENTITY"
+      },
+      {
+        "path": "E:\\python3.10\\DLLs\\libffi-7.dll",
+        "bytes": 32792,
+        "sha256": "f60dd9f2fcbd495674dfc1555effb710eb081fc7d4cae5fa58c438ab50405081",
+        "basis": "READ_ONLY_STATIC_FILE_IDENTITY"
+      },
+      {
+        "path": "E:\\python3.10\\DLLs\\_sqlite3.pyd",
+        "bytes": 94608,
+        "sha256": "cf9d37dbdafa0565b6a2dc0c9680d6d5664a52f31d1b5e0c72f599140b94167f",
+        "basis": "READ_ONLY_STATIC_FILE_IDENTITY"
+      },
+      {
+        "path": "E:\\python3.10\\DLLs\\sqlite3.dll",
+        "bytes": 1465744,
+        "sha256": "78bef574a1122eb9f44ee0572d0da962a8ced0e467faf6f5d55e829bd1e8b18d",
+        "basis": "READ_ONLY_STATIC_FILE_IDENTITY"
+      }
+    ],
+    "dynamic_runtime_closure": "NOT_EXECUTED_OR_CLAIMED; freeze final loader/std-library dependencies with the implemented source before approved launch.",
+    "owned_Job_dependency": {
+      "path": "code/software/m3_r05_functional_integration_20261015/windows_job.py",
+      "bytes": 9600,
+      "sha256": "b55722e869f5acc09d4e2365ec9254c2fe18fbf89f3d917c7d3b53010b9f30a9",
+      "state": "PROPOSED_READ_ONLY_NEW_HELPER_BINDING_NOT_RUN"
+    },
+    "native_calls_proposed": [
+      "Fixed native Python parent→one Python worker in owned Windows Job",
+      "GetProcessMemoryInfo/FileInformation/CreateFile read sharing/free-space accounting",
+      "Only owned process/job termination at timeout/resource failure"
+    ],
+    "launcher_requires_explicit_approval": true
+  },
+  "future_argv": [
+    {
+      "group": "SW01",
+      "argv": [
+        "E:\\python3.10\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\m1_r10_publish_ascii\\code\\model\\m1_r05_pcm_oracle_20261016\\pro_r06_20261017\\oracle_adapter\\night_r10_20261017\\r11_stream_v01_20261018\\measure_group.py",
+        "--group",
+        "SW01",
+        "--package",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\m1_r10_publish_ascii\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\pro_r06_20261017\\oracle_adapter\\night_r10_20261017\\r11_stream_v01_20261018\\EXECUTION_PACKAGE_R11_V01.json",
+        "--output",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\m1_r10_publish_ascii\\code\\output\\m1_c9_oracle_night_r10_20261017\\r11_stream_v01_20261018\\SW01"
+      ],
+      "cwd": "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\m1_r10_publish_ascii",
+      "worker_children_max": 0,
+      "supervisor_fixed_python_worker_max": 1
+    },
+    {
+      "group": "CAP01",
+      "argv": [
+        "E:\\python3.10\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\m1_r10_publish_ascii\\code\\model\\m1_r05_pcm_oracle_20261016\\pro_r06_20261017\\oracle_adapter\\night_r10_20261017\\r11_stream_v01_20261018\\measure_group.py",
+        "--group",
+        "CAP01",
+        "--package",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\m1_r10_publish_ascii\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\pro_r06_20261017\\oracle_adapter\\night_r10_20261017\\r11_stream_v01_20261018\\EXECUTION_PACKAGE_R11_V01.json",
+        "--output",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\m1_r10_publish_ascii\\code\\output\\m1_c9_oracle_night_r10_20261017\\r11_stream_v01_20261018\\CAP01"
+      ],
+      "cwd": "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\m1_r10_publish_ascii",
+      "worker_children_max": 0,
+      "supervisor_fixed_python_worker_max": 1
+    },
+    {
+      "group": "FIX01",
+      "argv": [
+        "E:\\python3.10\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\m1_r10_publish_ascii\\code\\model\\m1_r05_pcm_oracle_20261016\\pro_r06_20261017\\oracle_adapter\\night_r10_20261017\\r11_stream_v01_20261018\\measure_group.py",
+        "--group",
+        "FIX01",
+        "--package",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\m1_r10_publish_ascii\\code\\docs\\test\\m1_r05_pcm_oracle_20261016\\pro_r06_20261017\\oracle_adapter\\night_r10_20261017\\r11_stream_v01_20261018\\EXECUTION_PACKAGE_R11_V01.json",
+        "--output",
+        "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\m1_r10_publish_ascii\\code\\output\\m1_c9_oracle_night_r10_20261017\\r11_stream_v01_20261018\\FIX01"
+      ],
+      "cwd": "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\m1_r10_publish_ascii",
+      "worker_children_max": 0,
+      "supervisor_fixed_python_worker_max": 1
+    }
+  ],
+  "publication": {
+    "currently_authorized": true,
+    "gate_runs": 0,
+    "git_writes": 0,
+    "network_publish_commands": 0,
+    "separate_request_if_delivery_publication_is_approved": {
+      "original_final_tree_check_repo_runs_max": 1,
+      "gate_wall_seconds_max": 1000,
+      "original_T007_T019_native_limits_unchanged": true,
+      "metadata_seal_seconds_max": 120,
+      "seal_scope": "Bounded small handoff artifacts and original descriptors; no hidden large capacity verification after its600s.",
+      "native_git": "Each exact file add and each commit/push is a separate simple command, no force.",
+      "network_commands": [
+        {
+          "action": "fetch_before_number",
+          "max_seconds": 30
+        },
+        {
+          "action": "ordinary_push_HEAD_develop",
+          "max_seconds": 30
+        },
+        {
+          "action": "fetch_and_remote_ancestor_identity_verification",
+          "max_seconds": 30
+        }
+      ],
+      "transient_retry": "At most1 retry of the first transient failed network action in this publication packet, result unknown→remote inclusion check before repush; no authorization or policy denial workaround.",
+      "max_network_seconds_including_one_retry": 120,
+      "source_tree_change": "Remote changes or any final-tree byte drift invalidates this gate; stop with outbox and request a new exact scope, do not auto-run more gates."
+    },
+    "ordinary_push_intent_authorized_by_latest_user": true,
+    "gate_native_budget_still_missing": false,
+    "original_final_tree_gate_rounds_max": 1,
+    "gate_actual_runs_at_freeze": 0,
+    "frozen_check_repo": {
+      "path": "code/scripts/check_repo.ps1",
+      "bytes": 25010,
+      "sha256": "23c69c10bd84c968f4ee23d186205d47075bfda8359f4df4e8d4196f9891ecaa"
+    },
+    "final_gate_evidence": "IgnoredR13_BOUNDED_PREP/gate_*/RESULT.json; final remote receipt references exact tree+gate identity without changing frozen tracked files after gate"
+  },
+  "hardware_or_actual_capture_authority": {
+    "new_HDL": 0,
+    "EDA": 0,
+    "devices": 0,
+    "actual_capture": 0,
+    "actual_N10_M1_MATH": 0
+  },
+  "actual_N10_rule": "Original unconsumed slot remains pending exact actual bundle/source/provenance/finish and a still-valid precise admission; synthetic groups never consume or grant it.",
+  "all_proposed_not_performed": true,
+  "sources": [
+    {
+      "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/stream_io.py",
+      "bytes": 4573,
+      "sha256": "6d92da3d9225f9276c667aef69e45f1c9ba28759cde2f83f70f5b4a38ef44288"
+    },
+    {
+      "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/identity_guard.py",
+      "bytes": 3745,
+      "sha256": "a286465ca31f18504318df6a975e0afce59c6cf843c081b83eb57ea235bbe0c1"
+    },
+    {
+      "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/history_join.py",
+      "bytes": 6942,
+      "sha256": "b2266eb9efb7152d8dfcc279c8b01555e0ef780cb969d83705095369ace2be4b"
+    },
+    {
+      "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/lifecycle_store.py",
+      "bytes": 3996,
+      "sha256": "34105e47469f1fbe9c4d0cb3e867f014b7b1b26fb2fd826d3f86e426a5851dcf"
+    },
+    {
+      "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/clocked_math_stream.py",
+      "bytes": 7183,
+      "sha256": "5daea28084d32f3bbefff16158b6b1b61f764ae7e4ed701b8ea7812209b1659f"
+    },
+    {
+      "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/results_stream.py",
+      "bytes": 4038,
+      "sha256": "dab2d33d1becb6666d2f389dd1416e0ca9b9856e617f5a255716947e37a82eec"
+    },
+    {
+      "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/run_stream_math.py",
+      "bytes": 6123,
+      "sha256": "5203b5998a3f0b70329599636c3e2e2cf931335599e70574285678a68c5cc326"
+    },
+    {
+      "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/measure_group.py",
+      "bytes": 9883,
+      "sha256": "d765833ef5e65b63433618d3ac214adc6db154099433afa2dc9c7466f2b76d09"
+    },
+    {
+      "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/worker_group.py",
+      "bytes": 7527,
+      "sha256": "e0809e03cfc4bfef0bbd4a3ab336d7cf4d1ca590f9ac690aa10a3483dfef6b63"
+    },
+    {
+      "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/independent_plan.py",
+      "bytes": 6944,
+      "sha256": "070f35d39ffdc26b1aa79b5e91e1cc5f3171a7330331754bce84a55aa2e848c4"
+    },
+    {
+      "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/fixture_recipe.py",
+      "bytes": 6823,
+      "sha256": "2a6dcbfcbc8591123dd61476d6c1b5de23dc05888c314201fb8e10443f6c762d"
+    },
+    {
+      "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/test_new_seams.py",
+      "bytes": 2198,
+      "sha256": "29ceaac4709805f74a191e808db7badd53d275641eeace6e38a0f6ad92ccc5a0"
+    },
+    {
+      "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/SOURCE_BINDINGS_R13.json",
+      "bytes": 17171,
+      "sha256": "ae66eacdc0348b9e1987dbeb6160b5251a578af71af10982431708b0d8d953df"
+    }
+  ],
+  "controls": [
+    {
+      "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/04_CAPACITY_SCHEDULE_R13.json",
+      "bytes": 705499,
+      "sha256": "6e1b2e6e806c68b97235b4773a617e4d8d65f3f6450b4a1770b13f8e1b432316"
+    },
+    {
+      "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/05_CAPACITY_LIMITS_AND_MEASUREMENT_R13.json",
+      "bytes": 11711,
+      "sha256": "f505adbd96be1d923f9ab7803ef1b22d39e874cd763b863e77eda9972f524467"
+    },
+    {
+      "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/06_CASE_MATRIX_R13.json",
+      "bytes": 40181,
+      "sha256": "dc49a13870cb780b1e8815745c6e6df59d2acdb40b546e1cc0d2b4f7d8353914"
+    },
+    {
+      "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/08_TIME_AND_STOP_R13.json",
+      "bytes": 1722,
+      "sha256": "a29eb3ee324bcd74c28089f0719943736d6f2d86aa4067c3c049d1ca0c28bd00"
+    }
+  ],
+  "source_bindings": {
+    "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/SOURCE_BINDINGS_R13.json",
+    "bytes": 17171,
+    "sha256": "ae66eacdc0348b9e1987dbeb6160b5251a578af71af10982431708b0d8d953df"
+  },
+  "actual_target_calls": 0,
+  "worker_launched": 0,
+  "current_user": "Read batch23 then complete and may push; permission to ordinary publish received, not permission to run excluded worker/native gates",
+  "requested_gate_only": "After M2/static scope completion:1 exact final-tree original9gate<=1000s; no candidate cases/worker/CAP/HDL C9 outside standard gate; preserve firstfailure and stop, no extra gate. Requires explicit gate-budget approval.",
+  "windows_job_proposed_dependency": {
+    "path": "code/software/m3_r05_functional_integration_20261015/windows_job.py",
+    "bytes": 9600,
+    "sha256": "b55722e869f5acc09d4e2365ec9254c2fe18fbf89f3d917c7d3b53010b9f30a9"
+  },
+  "actual_sources_no_longer_null": true,
+  "old_proposed_argv_read_only": true,
+  "execution_packet": "NOT_ADMITTED; actual RUN_GO envelope/13source+tools+inputs+5control freeze still required",
+  "proposed_fixed_entry": {
+    "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/measure_group.py",
+    "args": [
+      "--group",
+      "SW01|CAP01|FIX01",
+      "--package",
+      "<future exact admitted package>",
+      "--package-sha256",
+      "<actualSHA>",
+      "--root",
+      "C:\\Users\\lc\\.codex\\visualizations\\2026\\10\\14\\01a138d3-c198-7b02-aba4-64f9e7960af9\\m1_r10_publish_ascii",
+      "--output",
+      "<new group output>",
+      "--outer-start-ns",
+      "<trusted parent clock before launch>"
+    ]
+  },
+  "user_publication_grant": {
+    "schema": "M1_R13_USER_PUBLICATION_GRANT_V1",
+    "permission_id": "M1-R13-PUBLISH-USER-20261019-0000",
+    "user_answer": "批准这一发布执行包",
+    "recorded_utc": "2026-10-18T16:03:19.813987+00:00",
+    "reviewed_static_seal_sha256": "2b7b115a891557f63846e1df4c213eceec7d40bc2223d55eb585522f8eb0e9eb",
+    "exact_files": "36R13 static sources/evidence + code/docs/验证记录.md exactly1L0 registration row",
+    "max_seconds": {
+      "original_final_tree9gate": 1000,
+      "local_git": 360,
+      "seal": 120,
+      "network": 120,
+      "total": 1600
+    },
+    "gate_rounds_max": 1,
+    "gate_failure": "Save originals and stop; no repair or rerun",
+    "software54cases": false,
+    "SW_CAP_FIX_780_seconds": false,
+    "capacity_worker": false,
+    "real_C9": false,
+    "publication": "Ordinary push develop then fetch/ancestor/blob identity proof; no force; no M2/M3 receipt or acceptance inferred"
+  }
+}

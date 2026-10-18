@@ -1,0 +1,78 @@
+{
+  "schema": "M1_R13_STATIC_HANDOFF_V1",
+  "handoff_id": "M1-R13-R02-STATIC-20261018-01",
+  "producer": "M1",
+  "consumers": [
+    "M2",
+    "M3"
+  ],
+  "task_id": "M1-R13-R02-20261018",
+  "base_commit": "f1991b2ffdb64783fe71e19b5eb7d2dea9844613",
+  "result_commit": null,
+  "status": "STATIC_HANDOFF_READY",
+  "source_manifest": {
+    "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/SOURCE_MANIFEST.json",
+    "bytes": 8936,
+    "sha256": "8b0bb766ac5b45b5a7c0150d2c63245f2dd7514bd5ebb74995a5aa0ed8523384"
+  },
+  "package_manifests": [
+    {
+      "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/MANIFEST_A.json",
+      "bytes": 4287,
+      "sha256": "3b8d462b0c7636772a55629c1fca095b18588f0a8b9a5c113e4c05753b812c3f"
+    },
+    {
+      "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/MANIFEST_B.json",
+      "bytes": 2996,
+      "sha256": "c7e888ab339f894e35e084c9b528daab6ecd62a0475ded2f3e1bc235ce040239"
+    }
+  ],
+  "actual_validation": "L0 only:41originals CRC/bytes/SHA,12newpy AST,13source realSHA,48baseline source identities and exact36write-set",
+  "target_cases": 0,
+  "workers": 0,
+  "process_measurements": 0,
+  "repo_gate_runs": 0,
+  "git_commits": 0,
+  "github_push": 0,
+  "remote_verified": false,
+  "M2_acceptance": false,
+  "event16_M1": "Confirmedignored_off via frozen allocator source reasoning; actualtrace timing stillpending",
+  "pending": [
+    "M3 R13 actual same-source seven mechanical streams, manifest and accessible raw originals",
+    "M2 exact epoch/reset/finish D/D+1/timebase/audio-stable/backpressure source admission",
+    "Actual independently generated per-case fixtures/envelopes and all54 jobs to freeze inside approved clock",
+    "CAP01 full fixture generation/volume construction and geometry must be finalized with actual M3 contract",
+    "worker_group CAP01 explicitly raises CAPACITY_GENERATOR_BINDING_PENDING: no pre-generated fixture can bypass600s; needs a precise static successor wiring the fixed generator after M3 geometry closes",
+    "M2 complete RUN_GO source/tool/input/control/time/process/resource grant; SW120+CAP600+FIX60 is unapproved",
+    "Explicit native final-tree9gate budget before any GitHub publication"
+  ],
+  "next_owner": "M2 review static36 and exact gate/target budget; M3 actual same-source seveninputs",
+  "ready_for": "M2 L0 static review and one explicit budget decision; no target/software/math acceptance",
+  "real_verified": false,
+  "math_verified": false,
+  "board_release_allowed": false,
+  "user_publication_grant": {
+    "schema": "M1_R13_USER_PUBLICATION_GRANT_V1",
+    "permission_id": "M1-R13-PUBLISH-USER-20261019-0000",
+    "user_answer": "批准这一发布执行包",
+    "recorded_utc": "2026-10-18T16:03:19.813987+00:00",
+    "reviewed_static_seal_sha256": "2b7b115a891557f63846e1df4c213eceec7d40bc2223d55eb585522f8eb0e9eb",
+    "exact_files": "36R13 static sources/evidence + code/docs/验证记录.md exactly1L0 registration row",
+    "max_seconds": {
+      "original_final_tree9gate": 1000,
+      "local_git": 360,
+      "seal": 120,
+      "network": 120,
+      "total": 1600
+    },
+    "gate_rounds_max": 1,
+    "gate_failure": "Save originals and stop; no repair or rerun",
+    "software54cases": false,
+    "SW_CAP_FIX_780_seconds": false,
+    "capacity_worker": false,
+    "real_C9": false,
+    "publication": "Ordinary push develop then fetch/ancestor/blob identity proof; no force; no M2/M3 receipt or acceptance inferred"
+  },
+  "state_at_freeze": "STATIC_HANDOFF_READY_SINGLE_GATE_APPROVED_NOT_YET_RUN",
+  "final_publication_receipt": "IgnoredR13_BOUNDED_PREP/REMOTE_VERIFIED.json, captures final result_commit/publication_commit/gate+tree"
+}

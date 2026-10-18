@@ -1,0 +1,45 @@
+{
+  "schema": "M1_R13_OUTBOX_REFERENCE_V1",
+  "unique_publisher": "M1_MAIN current static working tree",
+  "result_commit": null,
+  "publication_commit": null,
+  "state": "READY_FOR_APPROVED_SINGLE_GATE_THEN_ORDINARY_PUSH",
+  "git_add_commit_push": 0,
+  "remote_verified": false,
+  "inherited_R10_outbox": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/OUTBOX.json",
+  "inherited_R10_state": "AlreadyREMOTE_VERIFIED f1991b2f, no resend",
+  "recovery": "Read this HANDOFF/SOURCE_MANIFEST/09budget and original card; explicit gate budget→finalsafe fetch/sync→original exacttree9gate→separate finalnumber→ordinary push→fetch/ancestry. Do not run54cases while only gate is approved.",
+  "network_attempts": [
+    {
+      "action": "remote_query",
+      "exit_code": 0,
+      "seconds": 2.3280000000086147
+    }
+  ],
+  "no_publisher_or_task_spawned": true,
+  "user_publication_grant": {
+    "schema": "M1_R13_USER_PUBLICATION_GRANT_V1",
+    "permission_id": "M1-R13-PUBLISH-USER-20261019-0000",
+    "user_answer": "批准这一发布执行包",
+    "recorded_utc": "2026-10-18T16:03:19.813987+00:00",
+    "reviewed_static_seal_sha256": "2b7b115a891557f63846e1df4c213eceec7d40bc2223d55eb585522f8eb0e9eb",
+    "exact_files": "36R13 static sources/evidence + code/docs/验证记录.md exactly1L0 registration row",
+    "max_seconds": {
+      "original_final_tree9gate": 1000,
+      "local_git": 360,
+      "seal": 120,
+      "network": 120,
+      "total": 1600
+    },
+    "gate_rounds_max": 1,
+    "gate_failure": "Save originals and stop; no repair or rerun",
+    "software54cases": false,
+    "SW_CAP_FIX_780_seconds": false,
+    "capacity_worker": false,
+    "real_C9": false,
+    "publication": "Ordinary push develop then fetch/ancestor/blob identity proof; no force; no M2/M3 receipt or acceptance inferred"
+  },
+  "gate_not_yet_run": true,
+  "retry_count": 0,
+  "remote_publish_receipt": "IgnoredR13_BOUNDED_PREP/REMOTE_VERIFIED.json"
+}

@@ -1,0 +1,59 @@
+{
+  "schema": "M1_R13_GROUP_TIME_V1",
+  "approved": false,
+  "same_clock": "Parent monotonic_ns captured before supervisor launch; unchanged start passed to fixed worker. No phase restarts.",
+  "total_seconds_proposed": 780,
+  "group_limits": {
+    "SW01": 120,
+    "CAP01": 600,
+    "FIX01": 60
+  },
+  "CAP01_preparation": [
+    {
+      "until_seconds": 240,
+      "scope": "all preparation/source/hash/fixture-golden-generation"
+    },
+    {
+      "until_seconds": 300,
+      "scope": "all byte-volume creation and input admission"
+    },
+    {
+      "until_seconds": 540,
+      "scope": "all reading/integer math/complete audits/EOF/identity checks"
+    }
+  ],
+  "fences_seconds": {
+    "SW01": {
+      "cooperative_stop": 108,
+      "kill": 114,
+      "roots_closed": 117,
+      "evidence_flushed": 119,
+      "supervisor_exit": 120
+    },
+    "CAP01": {
+      "cooperative_stop": 540,
+      "kill": 570,
+      "roots_closed": 585,
+      "evidence_flushed": 595,
+      "supervisor_exit": 600
+    },
+    "FIX01": {
+      "cooperative_stop": 54,
+      "kill": 57,
+      "roots_closed": 58,
+      "evidence_flushed": 59,
+      "supervisor_exit": 60
+    }
+  },
+  "cooperative_stop_ns": {
+    "SW01": 108000000000,
+    "CAP01": 540000000000,
+    "FIX01": 54000000000
+  },
+  "all_cleanup_and_receipt_tails_inside_group": true,
+  "kill_at_600_forbidden": true,
+  "first_failure": "Stop group and dependency chain immediately, preserve original failures; no EOF drain after first math failure",
+  "repair": "One located changed successor FIX01<=60s only after exact approved reason+delta+scope; no rerun/refund, FIX PASS does not grant CAP",
+  "actual_native_process_times": null,
+  "performance_or_cleanup_verified": false
+}

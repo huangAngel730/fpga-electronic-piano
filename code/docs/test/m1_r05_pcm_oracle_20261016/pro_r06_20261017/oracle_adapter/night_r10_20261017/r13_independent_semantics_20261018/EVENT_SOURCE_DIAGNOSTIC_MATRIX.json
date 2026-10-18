@@ -1,0 +1,422 @@
+{
+  "schema": "M1_R13_EVENT_SOURCE_DIAGNOSTICS_V1",
+  "source": {
+    "path": "code/model/m1_r05_pcm_oracle_20261016/frozen/allocator_oracle.py",
+    "bytes": 4797,
+    "sha256": "634208931558eea580a0a4406d0c45e04fed1afa1e446455e1341cb19171b4a7"
+  },
+  "mapping_original": {
+    "path": "D:\\嵌赛\\高云二\\拓展\\M1_R11静态执行包_20261018_R04\\originals\\23事件独立映射草案.json",
+    "bytes": 27027,
+    "sha256": "f4321152f6e20771ad38f958aac3d0e6df38197ac165ef6ca83ba190f02cdfb4"
+  },
+  "events": [
+    {
+      "event_seq": 1,
+      "note": 60,
+      "expected_event_hex": "000f244000000000",
+      "normalized_kind": "note_on",
+      "draft_epoch": 0,
+      "synthetic_lane": 0,
+      "classification": "new",
+      "required_stages": [
+        1,
+        2
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 2,
+      "note": 60,
+      "expected_event_hex": "200f000000000000",
+      "normalized_kind": "note_off",
+      "draft_epoch": 0,
+      "synthetic_lane": 0,
+      "classification": "matching_off",
+      "required_stages": [
+        6,
+        3,
+        4
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 3,
+      "note": 64,
+      "expected_event_hex": "0010183000000000",
+      "normalized_kind": "note_on",
+      "draft_epoch": 0,
+      "synthetic_lane": 1,
+      "classification": "new",
+      "required_stages": [
+        1,
+        2
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 4,
+      "note": 64,
+      "expected_event_hex": "2010000000000000",
+      "normalized_kind": "note_off",
+      "draft_epoch": 0,
+      "synthetic_lane": 1,
+      "classification": "matching_off",
+      "required_stages": [
+        6,
+        3,
+        4
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 5,
+      "note": 67,
+      "expected_event_hex": "0010f06000000000",
+      "normalized_kind": "note_on",
+      "draft_epoch": 0,
+      "synthetic_lane": 2,
+      "classification": "new",
+      "required_stages": [
+        1,
+        2
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 6,
+      "note": 67,
+      "expected_event_hex": "2010c00000000000",
+      "normalized_kind": "note_off",
+      "draft_epoch": 0,
+      "synthetic_lane": 2,
+      "classification": "matching_off",
+      "required_stages": [
+        6,
+        3,
+        4
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 7,
+      "note": 72,
+      "expected_event_hex": "00123c7000000000",
+      "normalized_kind": "note_on",
+      "draft_epoch": 0,
+      "synthetic_lane": 3,
+      "classification": "new",
+      "required_stages": [
+        1,
+        2
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 8,
+      "note": 72,
+      "expected_event_hex": "2012000000000000",
+      "normalized_kind": "note_off",
+      "draft_epoch": 0,
+      "synthetic_lane": 3,
+      "classification": "matching_off",
+      "required_stages": [
+        6,
+        3,
+        4
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 9,
+      "note": 60,
+      "expected_event_hex": "000f0c1000000000",
+      "normalized_kind": "note_on",
+      "draft_epoch": 0,
+      "synthetic_lane": 0,
+      "classification": "retrigger",
+      "required_stages": [
+        1,
+        2
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 10,
+      "note": 64,
+      "expected_event_hex": "00101a3000000000",
+      "normalized_kind": "note_on",
+      "draft_epoch": 0,
+      "synthetic_lane": 1,
+      "classification": "retrigger",
+      "required_stages": [
+        1,
+        2
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 11,
+      "note": 67,
+      "expected_event_hex": "0010ec5000000000",
+      "normalized_kind": "note_on",
+      "draft_epoch": 0,
+      "synthetic_lane": 2,
+      "classification": "retrigger",
+      "required_stages": [
+        1,
+        2
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 12,
+      "note": 72,
+      "expected_event_hex": "00123c7000000000",
+      "normalized_kind": "note_on",
+      "draft_epoch": 0,
+      "synthetic_lane": 3,
+      "classification": "retrigger",
+      "required_stages": [
+        1,
+        2
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 13,
+      "note": 60,
+      "expected_event_hex": "000f346000000000",
+      "normalized_kind": "note_on",
+      "draft_epoch": 0,
+      "synthetic_lane": 0,
+      "classification": "retrigger",
+      "required_stages": [
+        1,
+        2
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 14,
+      "note": 76,
+      "expected_event_hex": "0013204000000000",
+      "normalized_kind": "note_on",
+      "draft_epoch": 0,
+      "synthetic_lane": 1,
+      "classification": "steal",
+      "required_stages": [
+        1,
+        2
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 15,
+      "note": 60,
+      "expected_event_hex": "200f000000000000",
+      "normalized_kind": "note_off",
+      "draft_epoch": 0,
+      "synthetic_lane": 0,
+      "classification": "matching_off",
+      "required_stages": [
+        6,
+        3,
+        4
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 16,
+      "note": 64,
+      "expected_event_hex": "2010000000000000",
+      "normalized_kind": "note_off",
+      "draft_epoch": 0,
+      "synthetic_lane": null,
+      "classification": "ignored_off",
+      "required_stages": [
+        7
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 17,
+      "note": 67,
+      "expected_event_hex": "2010c00000000000",
+      "normalized_kind": "note_off",
+      "draft_epoch": 0,
+      "synthetic_lane": 2,
+      "classification": "matching_off",
+      "required_stages": [
+        6,
+        3,
+        4
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 18,
+      "note": 72,
+      "expected_event_hex": "2012000000000000",
+      "normalized_kind": "note_off",
+      "draft_epoch": 0,
+      "synthetic_lane": 3,
+      "classification": "matching_off",
+      "required_stages": [
+        6,
+        3,
+        4
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 19,
+      "note": 76,
+      "expected_event_hex": "2013000000000000",
+      "normalized_kind": "note_off",
+      "draft_epoch": 0,
+      "synthetic_lane": 1,
+      "classification": "matching_off",
+      "required_stages": [
+        6,
+        3,
+        4
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 20,
+      "note": 74,
+      "expected_event_hex": "2012800000000000",
+      "normalized_kind": "note_off",
+      "draft_epoch": 0,
+      "synthetic_lane": null,
+      "classification": "ignored_off",
+      "required_stages": [
+        7
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 21,
+      "note": 55,
+      "expected_event_hex": "000de85000000000",
+      "normalized_kind": "note_on",
+      "draft_epoch": 0,
+      "synthetic_lane": 2,
+      "classification": "steal",
+      "required_stages": [
+        1,
+        2
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 22,
+      "note": 69,
+      "expected_event_hex": "0011726000000000",
+      "normalized_kind": "note_on",
+      "draft_epoch": 1,
+      "synthetic_lane": 0,
+      "classification": "new",
+      "required_stages": [
+        1,
+        2
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    },
+    {
+      "event_seq": 23,
+      "note": 69,
+      "expected_event_hex": "2011400000000000",
+      "normalized_kind": "note_off",
+      "draft_epoch": 1,
+      "synthetic_lane": 0,
+      "classification": "matching_off",
+      "required_stages": [
+        6,
+        3,
+        4
+      ],
+      "actual_accept_cycle": null,
+      "actual_epoch": null,
+      "source_rule": "allocator Oracle.step: same identity first, then first idle, otherwise order[0]; every NoteOn moves lane to newest; release does not erase slot",
+      "validation": "L0_SOURCE_REASONING_NOT_EXECUTED"
+    }
+  ],
+  "count": {
+    "note_on": 12,
+    "matching_off": 9,
+    "ignored_off": 2,
+    "actions": 53,
+    "input_plus_apply_history": 76
+  },
+  "event16_proof": "After events9..12 recency[0,1,2,3]; event13 note60 retrigger=>[1,2,3,0]; event14note76 steals lane1note64=>[2,3,0,1]; no note64 until event16, so only kind7.",
+  "actual_capture_or_math_verified": false
+}
