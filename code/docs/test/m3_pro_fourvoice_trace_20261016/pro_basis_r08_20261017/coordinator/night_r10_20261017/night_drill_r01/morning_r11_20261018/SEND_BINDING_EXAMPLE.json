@@ -1,0 +1,186 @@
+{
+  "schema": "M3_R11_FROZEN_DELIVERY_SPEC_V1",
+  "purpose": "HISTORICAL_BINDING_EXAMPLE",
+  "direction": "SEND",
+  "handoff": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/RESULT_RECEIPT.json",
+    "bytes": 3744,
+    "sha256": "e9e27435c062a6f873a9b0abd72ad7505e27be4aa80bbb60e22f09f5e08da53e"
+  },
+  "run_contract": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/RUN_CONTRACT_FROZEN.json",
+    "bytes": 503654,
+    "sha256": "22f24cf6479e452e21e639c1290b441bb44c39c75fddc208897b6a24ea34a2f2"
+  },
+  "expected_identity": {
+    "handoff_id": "M3-NIGHT-DRILL-R01-RESULT-20261018-01",
+    "task_id": "M3-NIGHT-DRILL-R01-20261017",
+    "plan_version": "R01",
+    "producer": "M3",
+    "consumer": "M2",
+    "base_commit": "358c16c2a927e3684c075dfc5ede70a6a67e036a",
+    "result_commit": "7fcc1ee1bd95a602311253949ec2cda8e4da7cd2"
+  },
+  "expected_manifest": [
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/DELIVERY/M3_NIGHT_DRILL_RESULT_R01_20261018.zip",
+      "bytes": 368174,
+      "sha256": "0a1c470c21dd54efaffa4bddd9927435c2475001fa3df770dc58b9094ac891a3"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/DELIVERY/PUBLICATION_ORIGINALS.zip",
+      "bytes": 1403339,
+      "sha256": "8b969fddfcf65de52f31b511f05aadb5cd520d6ecb57224e4409e1e77d4f7644"
+    }
+  ],
+  "frozen_inputs": [
+    {
+      "path": "code/docs/M3_夜间协作双机演练任务单_R01_2026-10-17.md",
+      "bytes": 13086,
+      "sha256": "da8dbb5da4f7ddd3e8307058506fc342bd2c4e26b4d219ce4654bc97d1f48055"
+    },
+    {
+      "path": "code/docs/test/m2_night_drill_r01_20261017/ASSIGNMENT_RECEIPT.json",
+      "bytes": 3479,
+      "sha256": "d6c681f2ec9c38fc224f05e24582cc42cbdb568234abab59c38c98b0e827f42c"
+    },
+    {
+      "path": "code/docs/test/m2_night_drill_r01_20261017/HANDOFF.json",
+      "bytes": 2679,
+      "sha256": "0b3001bcf9ab2a1437f7538d0cb2aa9f44e21ccba195c584f5dd872257398707"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/START.md",
+      "bytes": 4624,
+      "sha256": "64d0c8e4ff678eb290d0fb802d571cb38a430bf3d8befb2f2b87c3fb029d1ab5"
+    }
+  ],
+  "frozen_sources": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/gate.py",
+      "bytes": 1842,
+      "sha256": "e24d9d82580820f1f0691d2998b9ea995f0dcdc1454f26a39c300c53194434c4"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/intake/engine.py",
+      "bytes": 16752,
+      "sha256": "f463927e4c719e2b40645896b644647bed93f70a7640dca342ce2dc3cba6233b"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/intake/selftest.py",
+      "bytes": 10908,
+      "sha256": "b559c0da2392cede9453f8d22b7bbf182b1fe86084f0b983b2585523a82e7d18"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/network.py",
+      "bytes": 4809,
+      "sha256": "add7a4195f70e8ad7dd23fb50b46892cda1d5d3a09edefd70794a145579016c5"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/recovery/owned_worker.py",
+      "bytes": 6124,
+      "sha256": "11b065c36b149e01cb3e3077a0a07ec829cb52baa25b271c344e58d639b15ade"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/recovery/run_recovery.py",
+      "bytes": 12109,
+      "sha256": "4955933740e8db9ab84c2eb4f099bdeffadf1c6a49263ccaf5dd46f96d02b9b3"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/run_group.py",
+      "bytes": 9045,
+      "sha256": "e26de854209f143f5b2103e2af58dd7a28ff8ee8f79ca37503429fd68be73a3f"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/run_worker.py",
+      "bytes": 6107,
+      "sha256": "71873d3744e30b9d188440a27f80efb0605398942aa6b0149fc66313451ead1e"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/verify_inputs.py",
+      "bytes": 6258,
+      "sha256": "fd7cf78a16e2205b69f0c09d0c403ddb56a7ccf51dc6406287a75e4bff0704ae"
+    }
+  ],
+  "result_relations": [
+    {
+      "file": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/DRILL_RESULT.json",
+        "bytes": 6684,
+        "sha256": "e041d468d97e3f21b2f0e331290157114bf9c035af0efdc768fe962e7c5d6d69"
+      },
+      "equalities": [
+        {
+          "pointer": "/task_id",
+          "equals": "M3-NIGHT-DRILL-R01-20261017"
+        },
+        {
+          "pointer": "/sample_commit",
+          "equals": "30a8cd5474e6ff485ce0bf8fd5f3c1d51643123a"
+        }
+      ]
+    }
+  ],
+  "commit_binding": {
+    "file": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/REMOTE_VERIFICATION_LOCAL.json",
+      "bytes": 675,
+      "sha256": "0632f526f7975b3ad8b35b1e4c3a806d5514124f3e1064f6036c46aaebd63202"
+    },
+    "pointer": "/source_commit"
+  },
+  "archive_bindings": [
+    {
+      "archive": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/DELIVERY/M3_NIGHT_DRILL_RESULT_R01_20261018.zip",
+        "bytes": 368174,
+        "sha256": "0a1c470c21dd54efaffa4bddd9927435c2475001fa3df770dc58b9094ac891a3"
+      },
+      "member": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/RUN_CONTRACT_FROZEN.json",
+      "file": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/RUN_CONTRACT_FROZEN.json",
+        "bytes": 503654,
+        "sha256": "22f24cf6479e452e21e639c1290b441bb44c39c75fddc208897b6a24ea34a2f2"
+      }
+    },
+    {
+      "archive": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/DELIVERY/M3_NIGHT_DRILL_RESULT_R01_20261018.zip",
+        "bytes": 368174,
+        "sha256": "0a1c470c21dd54efaffa4bddd9927435c2475001fa3df770dc58b9094ac891a3"
+      },
+      "member": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/INPUT_VERIFICATION.json",
+      "file": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/INPUT_VERIFICATION.json",
+        "bytes": 19838,
+        "sha256": "3b36ef4b8e4d9077183b8eaaa348ef6cc87a440316a0183689ac25e60bc1ffc2"
+      }
+    },
+    {
+      "archive": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/DELIVERY/M3_NIGHT_DRILL_RESULT_R01_20261018.zip",
+        "bytes": 368174,
+        "sha256": "0a1c470c21dd54efaffa4bddd9927435c2475001fa3df770dc58b9094ac891a3"
+      },
+      "member": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/DRILL_RESULT.json",
+      "file": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/DRILL_RESULT.json",
+        "bytes": 6684,
+        "sha256": "e041d468d97e3f21b2f0e331290157114bf9c035af0efdc768fe962e7c5d6d69"
+      }
+    }
+  ],
+  "legacy_network_snapshot": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/LEGACY_NETWORK_BASELINE.json",
+    "bytes": 34907,
+    "sha256": "ca723ff05905b81dce4d2a80bf226369cc9f03def4e444245bbddb662350e6ce"
+  },
+  "limitations": {
+    "do_not_fabricate_execution_provenance": true,
+    "direct_result_contract_binding": "MISSING_IN_OLD_EXECUTION_ORIGINALS",
+    "production_admission": false,
+    "candidate_executed": false,
+    "queue_allowed": false
+  },
+  "baseline_storage_revision": "R02: identical JSON content stored with LF; original raw bytes and prior R01 in BASELINE_ORIGINALS_R01.zip"
+}

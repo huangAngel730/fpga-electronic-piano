@@ -1,0 +1,36 @@
+{
+  "schema": "M3_R11_NONOVERLAP_ASSIGNMENTS_V1",
+  "deadline": "2026-10-18T16:57:42+08:00",
+  "members": [
+    {
+      "thread": "01a14050-f074-7320-8dc9-efdf35bc749b",
+      "name": "夜间任务2",
+      "package": "A_DRILL_TRANSPORT_AND_FROZEN_HANDOFF",
+      "software_write": "night_drill_r01/morning_r11_20261018/ only",
+      "docs_write": "night_drill_r01/morning_r11_20261018/ only",
+      "runtime_validation": "NOT_AUTHORIZED"
+    },
+    {
+      "thread": "01a14051-19da-7e62-ac56-7e0f7cbb4287",
+      "name": "夜间任务3",
+      "package": "B_MECHANICAL_FORMAT_CAPACITY",
+      "docs_write": "morning_r11_20261018/mechanical/ only",
+      "software_write": null
+    },
+    {
+      "thread": "01a14051-345f-7d41-9d4c-9fc036f62b33",
+      "name": "夜间任务4",
+      "package": "C_FINISH_SCHEDULING_REQUEST",
+      "docs_write": "morning_r11_20261018/finish/ only",
+      "RTL_TB_write": null
+    },
+    {
+      "thread": "01a14050-cd98-7c41-8004-5d3e25765167",
+      "name": "夜间任务1（夜间总控）",
+      "package": "D_INTEGRATION_SELF_REVIEW_ARCHIVE_PUBLICATION",
+      "docs_write": "morning_r11_20261018 root, excluding member directories",
+      "runtime_validation": "Gate only; no new business groups"
+    }
+  ],
+  "messages": "One initial dispatch each; completion/blocker only thereafter; direct human communication grant in source_user_message"
+}

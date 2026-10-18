@@ -1,0 +1,34 @@
+{
+  "schema": "M3_R11_A_COORDINATOR_SELFREVIEW_V1",
+  "reviewer": "/root/r11_drill_selfaudit plus root",
+  "source": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/binding.py",
+      "bytes": 10230,
+      "sha256": "5c5d99102bbe0c5fe836b7db3279c2af51f60308aa64c48acdb77b3b0ef62a19"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/transport.py",
+      "bytes": 13242,
+      "sha256": "30f02f9fb175bcdc8b630dd0abec8f875bf47e0cb470bbaa93eea2eb3ba3a5fd"
+    }
+  ],
+  "read_scope": "Two new sources, old Store/network related paths, binding examples/validation request",
+  "conclusion": "No new concrete blocker found in limited static reading. Historical examples refuse queue/receive; declared provenance is not actual execution. Source connects Store.enqueue/begin_attempt/network.run/finish_attempt with stable full key, old ledger prefix, IN_FLIGHT/UNKNOWN and two-attempt cap.",
+  "level": "L0",
+  "import_compile_run": 0,
+  "real_integration_fault_boundary": "NOT_RUN",
+  "initial_sources_before_storage_revision": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/binding.py",
+      "bytes": 10230,
+      "sha256": "5c5d99102bbe0c5fe836b7db3279c2af51f60308aa64c48acdb77b3b0ef62a19"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/transport.py",
+      "bytes": 13242,
+      "sha256": "943ee77dfa28998c1b69b4c4288da5b268a5b169962bd4d0f474028bce015c20"
+    }
+  ],
+  "storage_revision_review": "Root compares source diff: only pinned legacy LF baseline identity and explanatory comment changed; JSON semantics match raw archive. Candidate remains NOT_RUN."
+}

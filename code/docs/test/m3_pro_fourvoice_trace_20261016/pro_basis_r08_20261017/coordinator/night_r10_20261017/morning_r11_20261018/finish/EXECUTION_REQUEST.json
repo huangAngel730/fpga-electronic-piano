@@ -1,0 +1,260 @@
+{
+  "schema": "M3_R11_FINISH_AND_FULL_ROUTE_DECISION_REQUEST_V1",
+  "status": "PENDING_M2_DECISION_NOT_EXECUTABLE",
+  "task_id": "M3-MORNING-R11-20261018-C",
+  "producer": "night_task4",
+  "consumer": "night_task1/M2",
+  "START": "2026-10-18T11:57:42+08:00",
+  "deadline": "2026-10-18T16:57:42+08:00",
+  "authority": "R11 section3/4 preparation only; no RTL/TB implementation or execution permission",
+  "source_bindings": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/finish/SOURCE_BINDINGS.json",
+    "bytes": 20131,
+    "sha256": "bac33e8712f5c894c354f89d0666e0012ecc9b5e9641a0871014bfc0d755b2c7"
+  },
+  "change_proposal": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/finish/CHANGE_PROPOSAL.md",
+    "bytes": 8465,
+    "sha256": "70f9a9d5739ac38e5c9209688da4ab1d5bff93b7a0f323a3a1b3928240e8e83a"
+  },
+  "requested_decisions": [
+    {
+      "id": "PHASE",
+      "owner": "M2",
+      "need": "Approve explicit core-posedge/core-negedge barrier successor or specify exact alternative, preserve original candidates",
+      "proposed_finish": 1130661,
+      "approved_finish": null,
+      "approved_source_path": null,
+      "approved_source_sha256": null,
+      "approved": false
+    },
+    {
+      "id": "FROZEN_WINDOW",
+      "owner": "M2",
+      "need": "Bind clock/reset/driver/input/source/observer/TB with approved independent window and epochs, no inference from observed FRAME",
+      "first_core_ps_proposal": 12500,
+      "core_period_ps_proposal": 25000,
+      "release_candidates": [
+        802,
+        1002482
+      ],
+      "approved_frame_input": null,
+      "approved": false
+    },
+    {
+      "id": "EXECUTOR_TOOLS",
+      "owner": "M2",
+      "need": "Trusted executor source/runtime; tool version and dynamic DLL/runtime/license/config closure; process lifetime, timeout/cleanup and final log watermarks",
+      "executor": null,
+      "tool_runtime_closure": null,
+      "approved": false
+    },
+    {
+      "id": "HDL_SCOPE",
+      "owner": "M2",
+      "need": "Fresh precise source/input/argv/cwd/env/output, steps/count/wall/log/storage budget; ModelSim version acceptance does not admit C9 route",
+      "execution_admission": null,
+      "approved": false
+    },
+    {
+      "id": "PROCESSING_SCOPE",
+      "owner": "M2",
+      "need": "Separate full-window processing group and exact runner/dependency/input freeze with bounded budget; old LINK/D4 consumed",
+      "runner": null,
+      "request_descriptor": null,
+      "processing_seconds": null,
+      "approved": false
+    },
+    {
+      "id": "POLICY",
+      "owner": "M2/M1",
+      "need": "M2 audio_stable/backpressure; M1 independent per-event plan mapping, arithmetic/profile and PCM24/ID/clip golden",
+      "actual_math_result": null,
+      "approved": false
+    }
+  ],
+  "alternatives_preserved": [
+    {
+      "finish_cycle": 1130660,
+      "time_ps": 28266512500,
+      "row_count": 1130661,
+      "status": "ORIGINAL_UNAPPROVED"
+    },
+    {
+      "finish_cycle": 1130661,
+      "time_ps": 28266537500,
+      "row_count": 1130662,
+      "status": "ORIGINAL_UNAPPROVED_AND_PROPOSED_BARRIER_RESULT"
+    }
+  ],
+  "historical_unapproved_request": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/admission/APPLICATION_REQUEST.json",
+    "bytes": 20237,
+    "sha256": "778f81f486b9fd951544a66fd368fef8fd929f9f4f0f5b2a4fbb80b5c7fa2aa6"
+  },
+  "historical_unapproved_execution_spec": {
+    "top": "tb_r7a_c9_public_capture",
+    "cwd": "inputs",
+    "environment": {
+      "LANG": "C",
+      "LC_ALL": "C",
+      "TZ": "UTC"
+    },
+    "window_parameters": {
+      "CAPTURE_ID": "C9_R10_PROPOSAL_20261018",
+      "PLAN_STOP_ID": "R10_R62_63BYTE_PLUS_10FRAMES",
+      "STOP_DRIVER_CYCLE": 1130660,
+      "EXPECTED_FINISH_CORE_CYCLE": 1130661,
+      "MAX_CORE_SAMPLES": 1130676,
+      "MAX_SIM_TIME_PS": 28291500000
+    },
+    "steps": [
+      {
+        "tool": "vlib",
+        "argv": [
+          "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vlib.exe",
+          "work"
+        ]
+      },
+      {
+        "tool": "vlog",
+        "argv": [
+          "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vlog.exe",
+          "-sv",
+          "-f",
+          "compile_c9_capture.f"
+        ]
+      },
+      {
+        "tool": "vsim",
+        "argv": [
+          "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vsim.exe",
+          "-c",
+          "-gCAPTURE_ID=C9_R10_PROPOSAL_20261018",
+          "-gPLAN_STOP_ID=R10_R62_63BYTE_PLUS_10FRAMES",
+          "-gSTOP_DRIVER_CYCLE=1130660",
+          "-gEXPECTED_FINISH_CORE_CYCLE=1130661",
+          "-gMAX_CORE_SAMPLES=1130676",
+          "-gMAX_SIM_TIME_PS=28291500000",
+          "work.tb_r7a_c9_public_capture",
+          "-do",
+          "run -all; quit -f"
+        ]
+      }
+    ],
+    "budget": {
+      "wall_seconds": 120,
+      "max_log_bytes": 16777216,
+      "max_output_bytes": 17179869184
+    },
+    "nonce": "6e4e1572f062432f856bc4e27906c19ae7a4157ffcced0a272f9d62ab345c6f8",
+    "expected_assertions": [
+      "75 exact C9 sources/9 ROM/2 headers plus aliases2",
+      "Public67 observation ports and raw72/normalized74 contract",
+      "Pre-NBA F distinct from A; requesttag not FRAME; lane_tick routed",
+      "Kind3/4/8 invalid-cause sentinels; kind1/2 shared seq stages retained",
+      "Independent reset and unique END/MONITOR_END; TX tail separately pending",
+      "No independent input-plan mapping or audio_stable fabrication",
+      "No process execution from application assembly"
+    ]
+  },
+  "historical_spec_reference_only": true,
+  "new_execution_spec": null,
+  "proposal_output_after_new_admission": "code/output/m3_c9_chain_night_r10_20261017/MORNING_R11_20261018/CAPTURE_AFTER_ADMISSION_R01",
+  "output_directory_created": false,
+  "same_capture_required": [
+    {
+      "role": "RAW_CAPTURE.jsonl",
+      "status": "NOT_CAPTURED",
+      "identity": null,
+      "need": "Actual complete PRE_NBA raw72 including pins, continuous line/cycle/time through unique finish"
+    },
+    {
+      "role": "RESET_EDGES.jsonl",
+      "status": "NOT_CAPTURED",
+      "identity": null,
+      "need": "Actual INITIAL/async CHANGE snapshots, X/Z and same-time ordering; never reconstruct from row reset"
+    },
+    {
+      "role": "END.json + stdout MONITOR_END",
+      "status": "NOT_CAPTURED",
+      "identity": null,
+      "need": "Unique planned END agrees with actual last raw line/capture/stop/cycle/time/rows"
+    },
+    {
+      "role": "stdout/stderr + execution receipt",
+      "status": "PENDING_EXECUTION",
+      "identity": null,
+      "need": "Per-step actual argv/cwd/env, source/input/tools/dependencies, exit/timeout/lifetime/cleanup/final output watermarks from trusted executor"
+    },
+    {
+      "role": "independent window/frame input/rules",
+      "status": "PENDING_M2_PHASE_FREEZE",
+      "identity": null,
+      "need": "M2-approved independent input, finish=last epoch stop, source identities exact path/sha256 pair, frozen rules"
+    },
+    {
+      "role": "unique FRAME/calendar/TX/serial/provenance",
+      "status": "NOT_RUN",
+      "identity": null,
+      "need": "Sole frozen generator and full coverage/deadline reports after fresh processing admission; partial tail UNKNOWN"
+    },
+    {
+      "role": "MATH_INPUT_BUNDLE + independent golden",
+      "status": "NOT_RUN_MATH_PENDING",
+      "identity": null,
+      "need": "Mechanical M1 contract with original raw/reset/source/ROM/FX history, observed PCM never golden"
+    }
+  ],
+  "current_route": {
+    "entry": {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/capture_link_r01/entry.py",
+      "bytes": 7109,
+      "sha256": "ca175b497bd8438f198d5c0777ae0d073383702a868129c5b8eae00f61fec80a"
+    },
+    "module_bindings": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/CAPTURE_MODULE_BINDINGS.json",
+      "bytes": 2746,
+      "sha256": "dc66002f2a14017ae7abb439ea683b9b2dc1dfca18a35c6b07b43e6a37d661f8"
+    },
+    "complete_processing": "NOT_RUN",
+    "last_6_tests": "Dispatch spies/rejection only, original receipt reused not replayed",
+    "old_D4": "114 limited software cases, reused not replayed",
+    "FROZEN_string": "Declaration, not trusted approval",
+    "authority_flags_always_false": true
+  },
+  "M3_owned_seam_to_root": {
+    "status": "STATIC_COMPLETENESS_GAP_NOT_RUNTIME_FAILURE",
+    "files": [
+      "capture_link_r01/entry.py:required",
+      "task_day4_completion_20261017/provenance.py:required",
+      "task_day4_completion_20261017/chain.py:optional execution_receipt"
+    ],
+    "gap": "Actual stderr/receipt not mandatory same-capture complete-original evidence; math missing_roles is not an authentication gate",
+    "minimal_next": "Root serially prepare authorized successor envelope binding immutable receipt/stderr/source/input/window/tool/output/exit/cleanup. Complete-original mode rejects missing evidence; runtime separately admitted",
+    "implemented": false
+  },
+  "required_delta_assertions": [
+    "Reject unapproved phase/source/window before HDL route",
+    "D row finish=0, D+1 finish=1 under fixed model, no second finish/later row",
+    "END/marker/raw coordinates agree; bad finish/time/rows rejected",
+    "Changed clock/reset/TB/driver/observer/tool/dependency SHA rejected",
+    "Missing/mismatched actual stderr/receipt is PENDING/reject for complete-original mode",
+    "Failure/timeout/truncation retains first failure and never creates accepted handoff",
+    "Partial serial tail UNKNOWN; math/REAL/audio_stable/independent-seq never fabricated"
+  ],
+  "permission_counts": {
+    "new_software_groups": 0,
+    "complete_processing": 0,
+    "worker": 0,
+    "HDL_ModelSim_C9": 0,
+    "EDA": 0,
+    "devices": 0,
+    "old_consumption_restored": false
+  },
+  "execution_allowed": false,
+  "digital_verified": false,
+  "math_verified": false,
+  "real_verified": false,
+  "board_release_allowed": false
+}

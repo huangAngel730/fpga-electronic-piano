@@ -1,0 +1,26 @@
+{
+  "schema": "M3_R11_ROOT_ROUTE_STATIC_REVIEW_V1",
+  "UTC": "2026-10-18T04:25:54.523462+00:00",
+  "final_source": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/capture_complete_r11/entry.py",
+    "bytes": 11615,
+    "sha256": "7f90353342048118aea1ef1e0ea9509dc022482db46fabec7f081d71d2de95e0"
+  },
+  "reviewer": "/root/r11_route_selfaudit plus root",
+  "actual_level": "L0_READ_ONLY",
+  "first_review_source_sha256": "794c3bb24ff853016a9358ae07693aac9d4a61cf5293f8a3c54893e60146551c",
+  "first_review_not_runtime_failure": true,
+  "findings_and_resolution": [
+    {
+      "finding": "13 receipt/material roles could canonical-path alias",
+      "fix": "casefold unique canonical paths, not digest dedup"
+    },
+    {
+      "finding": "File-closure outer identity did not check members or bind actual application",
+      "fix": "exact existing closure schema/member identities and application archive/capture/ROM/native tool coverage"
+    }
+  ],
+  "final_conclusion": "No new concrete blocker found within increment static reading; dynamic closure, actual launch cwd/native mapping and execution authenticity remain pending. This is not runtime PASS.",
+  "candidate_import_compile_execute": 0,
+  "history": "First draft was unexecuted and replaced during implementation; exact old source bytes are not separately archived. Recorded old SHA/findings are review history, not a retained executable test result."
+}

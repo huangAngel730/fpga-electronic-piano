@@ -1,0 +1,49 @@
+{
+  "schema": "M3_R11_C_STATIC_PREPARATION_DIAGNOSTICS_V1",
+  "scope": "Shell text/metadata preparation, never candidate execution",
+  "records": [
+    {
+      "id": "READ_RANGE",
+      "command": "PowerShell Get-Content line-range display for driver",
+      "tool_report": "OperationStopped: Argument types do not match",
+      "exit_code": 0,
+      "meaning": "Nonterminating display helper type error, later commands in same shell returned0",
+      "fix": "Read driver with direct Get-Content -Raw; actual text read successfully",
+      "candidate_execution": false
+    },
+    {
+      "id": "PATH_LOOKUP",
+      "command": "Get-Content of unconfirmed D4 RESULT_RECEIPT.json and event_calendar/FRAME_PLAN_RULES.json",
+      "tool_report": "Get-Content: Cannot find path because it does not exist.",
+      "exit_code": 0,
+      "meaning": "Nonterminating path-read failures; no input or candidate changes",
+      "fix": "Locate existing RESULT.json and official r06_observer_20261017/FRAME_PLAN_RULES.json; bound actual paths",
+      "candidate_execution": false
+    },
+    {
+      "id": "BOOL_LITERAL",
+      "command": "Build JSON metadata with loaded=false in a PowerShell ordered object",
+      "tool_report": "ResourceUnavailable: Program 'false.exe' failed to run: StandardOutputEncoding is only supported when standard output is redirected.",
+      "exit_code": 1,
+      "meaning": "Bare boolean token treated as command. Shell reported failed launch; no candidate was imported/compiled/run; no ModelSim/HDL/EDA/device launched. Independent process-start telemetry was not collected.",
+      "fix": "Use literal $false for all booleans; successful metadata command is tool chunk28ff95",
+      "candidate_execution": false,
+      "JSON_files_written_before_error": 0
+    },
+    {
+      "id": "METADATA_DEDUP",
+      "command": "Metadata output count check after Sort-Object path -Unique on ordered dictionaries",
+      "tool_report": "bound_files: 1",
+      "exit_code": 0,
+      "meaning": "Static sanity check exposed dictionary sorting behavior before READY was sealed",
+      "fix": "Cast descriptors to PSCustomObject before sort; source manifest now47 identities, request SHA updated",
+      "candidate_execution": false
+    }
+  ],
+  "candidate_imports": 0,
+  "candidate_compiles": 0,
+  "candidate_tests": 0,
+  "HDL_EDA_devices": 0,
+  "old_failed_originals_modified": false,
+  "old_budgets_restored": false
+}

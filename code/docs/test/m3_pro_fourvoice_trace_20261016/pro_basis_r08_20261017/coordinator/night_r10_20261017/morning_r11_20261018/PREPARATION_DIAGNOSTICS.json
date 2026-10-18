@@ -1,0 +1,36 @@
+{
+  "schema": "M3_R11_ROOT_METADATA_DIAGNOSTICS_V1",
+  "records": [
+    {
+      "tool_chunk": "51b6a3",
+      "exit_code": 1,
+      "operation": "Metadata exploration mistakenly decoded base source ZIP as JSON",
+      "error": "UnicodeDecodeError byte 0xa5 position10",
+      "candidate_executed": false
+    },
+    {
+      "tool_chunk": "559836",
+      "exit_code": 0,
+      "operation": "Corrected metadata read through zipfile; ZIP MANIFEST.json/source identities inspected",
+      "candidate_executed": false
+    },
+    {
+      "tool_chunk": "48ed9d",
+      "exit_code": 1,
+      "operation": "Archive metadata helper relative path used relative_to absolute ROOT",
+      "error": "ValueError before first output write; no candidate execution",
+      "fix": "Normalize metadata path to absolute before relative_to; original helper retained in SOURCE_PAYLOAD",
+      "candidate_executed": false
+    },
+    {
+      "tool_chunk": "383107",
+      "exit_code": 1,
+      "operation": "Archive body CRC/SHA matched, then publication path-list relative_to absolute ROOT failed",
+      "error": "ValueError in metadata-only path list",
+      "fix": "Absolute normalization for publication list; original intermediate helper/archive/manifest preserved locally; rebuild only own new static package",
+      "candidate_executed": false
+    }
+  ],
+  "no_business_test_consumption": true,
+  "member_diagnostics_preserved": true
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "M3_R11_METADATA_TOOL_NOTE_V1",
+  "first_tool_chunk": "9239fc",
+  "first_process_exit_code": 0,
+  "nonterminating_error": true,
+  "failing_expression": "$oldrefs=@($rx.frozen_sources)+@(Ref \"$sw/network.py\",$null)",
+  "error": "Unused Ref call interpreted as invalid network.py/ path; Get-Item/Get-FileHash failed and null method error",
+  "actual_failure_scope": "Unused metadata local variable only, not candidate/runtime",
+  "capture_boundary": "Original tool merged output in conversation; no fabricated standalone stdout/stderr",
+  "repair": "Remove unused call; use ErrorActionPreference Stop; independently reread all final JSON descriptors",
+  "candidate_runs": 0,
+  "old_test_budget_restored": false
+}

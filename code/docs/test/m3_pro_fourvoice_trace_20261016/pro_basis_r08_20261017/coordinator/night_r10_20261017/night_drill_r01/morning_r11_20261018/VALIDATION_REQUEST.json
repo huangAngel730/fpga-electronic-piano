@@ -1,0 +1,136 @@
+{
+  "schema": "M3_R11_PACKAGE_A_VALIDATION_SCOPE_PROPOSAL_V1",
+  "status": "DRAFT_SCOPE_NOT_EXECUTABLE_ADMISSION",
+  "candidate_status": "STATIC_ONLY",
+  "current_granted": {
+    "HDL": 0,
+    "devices": 0,
+    "software_groups": 0,
+    "EDA": 0,
+    "worker_groups": 0,
+    "network_runs": 0
+  },
+  "old_consumption_restored": false,
+  "proposed_file_only_group": {
+    "missing_before_executable_request": [
+      "New minimal test runner and fixtures must be written and independently frozen; no historical group rerun",
+      "Exact runner/tool/source/input SHA, argv/cwd, isolated output and monotonic deadline must be fixed",
+      "Root/M2 must grant the specific new scope; this proposal grants nothing"
+    ],
+    "output_scope": "code/output/m3_m2_night_drill_20261017/runs/morning_r11_20261018/validation",
+    "source_directory": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018",
+    "argv": null,
+    "approved": false,
+    "cases": [
+      {
+        "id": "RAW_HANDOFF_REPLACED_AFTER_FREEZE",
+        "mutation": "Replace only raw HANDOFF bytes after spec descriptor freeze",
+        "assert": "FILE_CHANGED before any Store write",
+        "target": "binding.verify"
+      },
+      {
+        "id": "FULL_IDENTITY_AND_MANIFEST",
+        "mutation": "Change one field at a time; include short SHA and same-size wrong body",
+        "assert": "Reject changed task/version/producer/consumer/full commit or payload identity",
+        "target": "binding.verify"
+      },
+      {
+        "id": "HISTORICAL_EXAMPLE_QUEUE_BLOCK",
+        "mutation": "Keep all historical originals unchanged",
+        "assert": "Both historical examples cannot enqueue or receive; direct contract edge MISSING",
+        "target": "transport.prepare_send / receive_frozen"
+      },
+      {
+        "id": "PROVENANCE_REQUIRED",
+        "mutation": "Omit provenance; splice run A result with run B contract/source/input",
+        "assert": "New profile requires actual provenance descriptor and pinned contract/input/source/results",
+        "target": "binding.verify"
+      },
+      {
+        "id": "ALL_RESULTS_IN_SAME_ARCHIVE",
+        "mutation": "Omit one result/provenance/input HANDOFF; replace same-size ZIP member",
+        "assert": "OUTPUT_RESULTS_ARCHIVE_BINDING_REQUIRED or ARCHIVE_RESULT_SPLICE",
+        "target": "binding.verify"
+      },
+      {
+        "id": "HASH_GRAPH_ACYCLIC",
+        "mutation": "Require no future commit SHA in pre-publication execution result",
+        "assert": "Execution identity excludes future result_commit; commit proof remains independently pinned",
+        "target": "binding.verify"
+      },
+      {
+        "id": "PRECISE_GIT_TREE",
+        "mutation": "Local payload matches but git show stdout differs",
+        "assert": "Reject wrong commit, loose branch argv, wrong blob or missing stdout/stderr original",
+        "target": "transport.check_admission"
+      },
+      {
+        "id": "CALL_PATH_TO_DURABLE_OUTBOX",
+        "mutation": "Fake adapter observes original Store then returns deterministic failure/success",
+        "assert": "Store must be IN_FLIGHT before adapter; finish saves exact actual argv/raw streams/outcome; never remote_verified",
+        "target": "transport.send_once with file-only fake legacy adapter"
+      },
+      {
+        "id": "STABLE_KEY_RELOAD_AND_RETRY",
+        "mutation": "Rename caller operation; offer third attempt; missing/new wrong-key retry basis",
+        "assert": "Reload preserves counts; same key uses same op; one retry only with separately pinned basis",
+        "target": "transport.send_once with file-only fake legacy adapter"
+      },
+      {
+        "id": "UNKNOWN_DENIAL_NO_RESEND",
+        "mutation": "Inject adapter outcomes without processes/network",
+        "assert": "Timeout/reset/exception UNKNOWN; DENIED/NON_FAST_FORWARD/REJECTED cannot retry",
+        "target": "transport.classify / send_once"
+      },
+      {
+        "id": "LEGACY_HISTORY_PREFIX",
+        "mutation": "Operate on isolated copies; never alter real network.json",
+        "assert": "Original snapshot SHA required; deleting/changing prefix or other unresolved failure rejects",
+        "target": "transport.preserve_history"
+      },
+      {
+        "id": "DEADLINE_BEFORE_AND_AFTER_CONSUMPTION",
+        "mutation": "Controlled clock and fake slow store; no sleeps or real transport",
+        "assert": "Less than 31s rejects before begin; expiry after begin preserves consumption/IN_FLIGHT",
+        "target": "transport.require_launch_window / send_once"
+      },
+      {
+        "id": "WRAPPER_FAILURE_ORIGINAL",
+        "mutation": "File-only adapter fails after begin",
+        "assert": "Exception keeps slot consumed and writes exclusive failure original; no state reset or auto stale-lock removal",
+        "target": "transport.send_once"
+      }
+    ],
+    "count": 1,
+    "network": 0,
+    "runner": null,
+    "devices": 0,
+    "processes": 0,
+    "seconds_limit": 60
+  },
+  "real_transport": {
+    "requires": [
+      "new actual delivery/provenance originals from an admitted executor",
+      "exact full commit and commit-tree blob originals",
+      "new separate bounded transport contract and fresh remote check originals",
+      "root-only publication and explicit admission; no use of historical examples"
+    ],
+    "restore_old_failure_or_unknown": false,
+    "fixed_total_attempts_max": 2,
+    "fixed_network_seconds": 30,
+    "approved": false,
+    "executor": "01a14050-cd98-7c41-8004-5d3e25765167",
+    "not_requested_now": true
+  },
+  "future_provenance_fields": [
+    "schema=M3_R11_RESULT_PROVENANCE_V1",
+    "run_contract exact raw descriptor",
+    "delivery_identity exact six fields except future result_commit",
+    "input_handoff exact raw descriptor included in frozen_inputs",
+    "frozen_inputs exact contract inputs",
+    "frozen_sources exact contract source_frozen",
+    "result_refs nonempty exact descriptors including all result_relations files"
+  ],
+  "provenance_origin": "Must be written by admitted executor from actually read contract and actual outputs; a hand-authored post-hoc sidecar is not runtime evidence",
+  "all_cases": "NOT_RUN"
+}

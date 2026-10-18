@@ -1,0 +1,71 @@
+{
+  "schema": "M3_R11_MORNING_READY_RECEIPT_V1",
+  "task_id": "M3-MORNING-R11-20261018",
+  "plan_version": "R11",
+  "created_UTC": "2026-10-18T04:03:45.754536+00:00",
+  "producer": "M3",
+  "root_thread": "01a14050-cd98-7c41-8004-5d3e25765167",
+  "source_user_turn": "01a14d28-821e-75b3-853b-94750c0fdd67",
+  "source_user_message": "01a14d28-826f-7c20-ac98-d3d84c999aaf",
+  "actual_START": "2026-10-18T11:57:42+08:00",
+  "deadline": "2026-10-18T16:57:42+08:00",
+  "START_evidence": "read_thread current root turn startedAt=1792295862; whole preparation/publication included",
+  "old_night_window": {
+    "START": "2026-10-17T21:52:00+08:00",
+    "deadline": "2026-10-18T02:52:00+08:00",
+    "status": "EXPIRED_PRESERVED; R11 explicitly defines new morning window, budgets not reset"
+  },
+  "local_task": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\night_task\\10.18\\task-day1\\M3_夜间Pro无实物收口任务单_R10_2026-10-17.md",
+    "bytes": 14150,
+    "sha256": "ca9a530c0298c5a7db71dff10008b1ae49208c775d6490da19a18585f61dee2a"
+  },
+  "published_task_original": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/R11_TASK_ORIGINAL.md",
+    "bytes": 14150,
+    "sha256": "ca9a530c0298c5a7db71dff10008b1ae49208c775d6490da19a18585f61dee2a"
+  },
+  "remote_observed": "3202946161f6df6985effe7f2824c97cc4daf03f",
+  "remote_R11_task_update": "NOT_OBSERVED; local R11 directly delivered by user takes precedence; M2 synchronization requested in final handoff",
+  "Goal": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/GOAL_INITIAL.json",
+    "bytes": 1404,
+    "sha256": "80b688b9796658906e340656308f878ae130824675af4eabbd056b1e1615c9f6"
+  },
+  "Goal_identity": {
+    "threadId": "01a14050-cd98-7c41-8004-5d3e25765167",
+    "createdAt": 1792296002
+  },
+  "sole_publisher": "night_task_1 root; members no Git mutations/network/new Goal",
+  "protection_baseline": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/PROTECTED_BASELINE.json",
+    "bytes": 3821,
+    "sha256": "3a41bcef2eccb5dec0cc8347b8b98b0c076e4516397fd61dce165c6999907e46"
+  },
+  "untracked_original_inventory": {
+    "path": "code/output/m3_c9_chain_night_r10_20261017/MORNING_R11_20261018/START/WORKTREE_PORCELAIN.bin",
+    "bytes": 17105,
+    "sha256": "e7cdb3744439c9832ce74a921dac57f488ce93a87de0140305dcd1fe1b40f66e"
+  },
+  "automation": {
+    "id": "m3-30-github",
+    "actual_status_at_intake": "PAUSED",
+    "changed": false,
+    "cadence_history": "17 actual wakeups+successful fetches observed previously",
+    "current_plan": "Root active Goal checks origin/develop at checkpoints and each30min; do not reactivate paused automation implicitly"
+  },
+  "execution_permission": {
+    "new_software_groups": 0,
+    "complete_capture_processing": 0,
+    "worker": 0,
+    "HDL_ModelSim_C9": 0,
+    "EDA": 0,
+    "devices": 0,
+    "old_groups_replayed": 0,
+    "metadata_hash_JSON_archive_and_repository_gate": "Separate authorized preparation/publication operations only"
+  },
+  "status": "STATIC_IMPLEMENTATION_AND_PREPARATION_IN_PROGRESS",
+  "real_verified": false,
+  "math_verified": false,
+  "board_release_allowed": false
+}

@@ -1,0 +1,125 @@
+{
+  "schema": "M3_R11_EXACT_FULL_ROUTE_ADMISSION_REQUEST_V1",
+  "task_id": "M3-MORNING-R11-20261018",
+  "submission_status": "REQUEST_ONLY_NOT_ADMITTED",
+  "created_UTC": "2026-10-18T04:06:41.999879+00:00",
+  "current_entry": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/capture_complete_r11/entry.py",
+    "bytes": 11615,
+    "sha256": "7f90353342048118aea1ef1e0ea9509dc022482db46fabec7f081d71d2de95e0"
+  },
+  "prior_handoff": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/INTEGRATION_HANDOFF.json",
+    "bytes": 53596,
+    "sha256": "461e187a795ed9c8206a0c651f32a6d9adc7d73561e4ccade0c8e1cf99f2f452"
+  },
+  "fixed_application_request_ref": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/admission/APPLICATION_REQUEST.json",
+    "bytes": 20237,
+    "sha256": "778f81f486b9fd951544a66fd368fef8fd929f9f4f0f5b2a4fbb80b5c7fa2aa6"
+  },
+  "original_source_identity": "75=72 base units plus driver/observer/TB; original identities retained, not rerun",
+  "current_route_status": "NOT_RUN",
+  "current_software_status": "R10 original7 and dispatch/rejection6 REUSED, no complete processing claim",
+  "original_morning_START": "2026-10-18T11:57:42+08:00",
+  "deadline": "2026-10-18T16:57:42+08:00",
+  "new_budget_currently_available": {
+    "complete_capture_processing": 0,
+    "candidate_software_group": 0,
+    "worker": 0,
+    "HDL_ModelSim_C9": 0,
+    "EDA": 0,
+    "devices": 0
+  },
+  "decisions_requested": [
+    {
+      "owner": "M2",
+      "decision": "Select and freeze deterministic finish phase or approve exact reversible TB successor and affected assertion scope; old1130660/1130661 preserved",
+      "current": "PENDING"
+    },
+    {
+      "owner": "M2",
+      "decision": "Bind exact trusted executor, all dynamic native dependencies, argv/cwd/env/output and new group count/seconds to frozen candidate",
+      "current": "PENDING"
+    },
+    {
+      "owner": "M2",
+      "decision": "Define audio_stable and actual public DUT backpressure policy; driver ready is not proof of DUT backpressure",
+      "current": "PENDING"
+    },
+    {
+      "owner": "M1",
+      "decision": "Consumer compatibility for current full-window mechanical format, independent event mapping and supported mathematical profile",
+      "current": "PENDING"
+    }
+  ],
+  "raw_input_requirements": [
+    {
+      "kind": "public_trace_and_pins",
+      "required": "same-source raw edges/public pins with complete low/high observation and PCM/ID/doubleclip fields, no row deletion",
+      "status": "NOT_RECEIVED"
+    },
+    {
+      "kind": "independent_input_plan",
+      "required": "actual driver arrival, independent per-event plan sequence distinct from router_apply_seq; input-plan bytes and source binding",
+      "status": "PARTIAL_PLAN_ONLY"
+    },
+    {
+      "kind": "reset_epochs",
+      "required": "actual raw reset edges/epoch boundaries bound to clock profile; expected profile is not observed raw_edges",
+      "status": "NOT_RECEIVED"
+    },
+    {
+      "kind": "window_END",
+      "required": "approved finish cycle/time_ps/row_count, matching capture_id/plan_stop_id and PLANNED_WINDOW_END",
+      "status": "FINISH_PENDING"
+    },
+    {
+      "kind": "execution_originals",
+      "required": "actual native launch/exit/stdout/stderr/tool/input/finish receipts from same run",
+      "status": "NOT_RECEIVED"
+    }
+  ],
+  "expected_route": "one fixed canonical pipeline only: raw normalization -> FRAME_PLAN calendar -> TX lineage -> fixed PinDecoder serial -> mechanical mathematical bundle -> provenance",
+  "authority": {
+    "execution_allowed": false,
+    "execution_verified": false,
+    "real_verified": false,
+    "math_verified": false,
+    "board_release_allowed": false
+  },
+  "permission_note": "ModelSim version approval and M2 Icarus minimum units do not admit this pipeline; no invocation until exact new permission and all frozen inputs",
+  "previous_limited_entry": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/capture_link_r01/entry.py",
+    "bytes": 7109,
+    "sha256": "ca175b497bd8438f198d5c0777ae0d073383702a868129c5b8eae00f61fec80a"
+  },
+  "complete_originals_interface": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/COMPLETE_ORIGINALS_INTERFACE.json",
+    "bytes": 3339,
+    "sha256": "8e96738c7003432ac5926a3c1eeeeaf856c5c576f62e826dd3e8b8661a15a103"
+  },
+  "static_successor": "L0_ONLY_NOT_RUN; reuses old algorithms plus declared stderr/receipt/closure identity guard, never authenticates real execution",
+  "capacity_amendment": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/CAPACITY_AMENDMENT.json",
+    "bytes": 1260,
+    "sha256": "efd6634349484583fcfc79edc82e798117b9d8a1edaba28c45a47c50cc4d8646"
+  },
+  "finish_proposal": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/finish/EXECUTION_REQUEST.json",
+    "bytes": 10180,
+    "sha256": "53a007b417236eb01e516c9abda424b471d43fd1088e78cee2b3f11615d165f0"
+  },
+  "software_validation_not_granted": {
+    "drill": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/morning_r11_20261018/VALIDATION_REQUEST.json",
+      "bytes": 6258,
+      "sha256": "8f3b63f92a872cd26261984c688f358075c33c5bd5392e18b3e4981af4a211c8"
+    },
+    "complete_originals": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/COMPLETE_ORIGINALS_INTERFACE.json",
+      "bytes": 3339,
+      "sha256": "8e96738c7003432ac5926a3c1eeeeaf856c5c576f62e826dd3e8b8661a15a103"
+    }
+  }
+}
