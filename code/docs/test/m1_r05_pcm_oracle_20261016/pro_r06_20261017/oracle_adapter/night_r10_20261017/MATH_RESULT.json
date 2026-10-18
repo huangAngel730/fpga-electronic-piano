@@ -1,0 +1,63 @@
+{
+  "schema": "M1_C9_MATH_RESULT_V1",
+  "status": "PENDING_REAL_INPUT",
+  "assessment": "Readiness record; no actual C9 capture comparison was attempted",
+  "software_status": "SOFTWARE_READY",
+  "profile": "C9_PIANO_TRIANGLE_NOTES_DELAY_CLOCKED_V1",
+  "level": "L1_SOFTWARE_ONLY",
+  "real_verified": false,
+  "board_release_allowed": false,
+  "source_commit": "30a8cd5474e6ff485ce0bf8fd5f3c1d51643123a",
+  "software_evidence": {
+    "initial_methods": 71,
+    "initial_passed": 70,
+    "initial_failed": 1,
+    "initial_seconds": 38.84300000000076,
+    "repair_methods": 1,
+    "repair_passed": 1,
+    "repair_seconds": 30.297000000005937,
+    "final_all_71_single_run": false,
+    "production_unchanged_during_and_after_initial": true,
+    "repair_scope": "Saturation fixture only; default fixture gains preserved; production source unchanged",
+    "archive": {
+      "path": "RAW_EXECUTION_ORIGINALS.zip",
+      "bytes": 67747,
+      "sha256": "8c2bbd971624930aea6a6d3ae1a0acfe761246321454e58bf86fcee538daab25"
+    }
+  },
+  "missing_inputs": [
+    {
+      "item": "C9 mechanical MATH_INPUT_BUNDLE / index and full original public rows",
+      "owner": "M3",
+      "reason": "Received C9 READY says NOT_RUN and trace descriptor null"
+    },
+    {
+      "item": "Independent complete event/byte plan and acceptance windows",
+      "owner": "M3",
+      "reason": "Router seq is not plan seq; exact payload/order/epoch/window mapping required"
+    },
+    {
+      "item": "Independent FRAME_PLAN, raw RESET_EDGES and normal finish",
+      "owner": "M3",
+      "reason": "Cannot derive these expected facts by truncating or reading the trace backwards"
+    },
+    {
+      "item": "Same-source raw capture, driver/observer/tool/argv/stdout/stderr/exit/provenance original",
+      "owner": "M3",
+      "reason": "No actual C9 execution supplied"
+    },
+    {
+      "item": "Exact M2 source/capture/tool/finish admission",
+      "owner": "M2",
+      "reason": "No real capture provenance admitted; allowlist intentionally empty"
+    },
+    {
+      "item": "M2 audio_stable policy and complete Pro target/physical/board evidence",
+      "owner": "M2/M3",
+      "reason": "Outside this mathematical software result"
+    }
+  ],
+  "actual_math_budget": "N10-M1-MATH_NOT_CONSUMED",
+  "old_golden_tests_rerun": false,
+  "HDL_EDA_device_calls": 0
+}

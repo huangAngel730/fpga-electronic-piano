@@ -1,0 +1,1080 @@
+{
+  "schema": "M1_R06_SOURCE_SEMANTICS_V1",
+  "basis": {
+    "commit": "ef4fbc74b9d24e08de1e09d0be0eb3163118f258",
+    "evidence_origin": "M2/19 R07 task and frozen RESUME_R02/RUN_01 R06 sources; current candidate bytes are static only, no new HDL execution."
+  },
+  "observation_module": "m1td_timbre_delay_chain",
+  "m2_external_observer_mapping": "UNRESOLVED_PENDING_M2_BLOB_AND_INTEGRATION",
+  "pro_admission": false,
+  "sample": {
+    "clock": "clk",
+    "edge": "posedge",
+    "phase": "pre_NBA",
+    "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+  },
+  "sources": [
+    {
+      "id": "old_router",
+      "path": "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/RUN_01/stage/inputs/sources/m1td_polyphonic_event_router.sv",
+      "sha256": "f86dc783534c7e3897197d3a967c94d614642196c8d67bff9493d70d1a5fc808",
+      "role": "BASELINE"
+    },
+    {
+      "id": "old_bank",
+      "path": "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/RUN_01/stage/inputs/sources/m1td_polyphonic_envelope_bank.sv",
+      "sha256": "f1da9dfd870328d60723c67707d6af5d58466967d0ca9b3f6d48a8569b477cd7",
+      "role": "BASELINE"
+    },
+    {
+      "id": "old_audio",
+      "path": "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/RUN_01/stage/inputs/sources/m1td_audio_candidate.sv",
+      "sha256": "6bc32ea435ca4b6f0132cbdbccafd0c54664becd75a393d8dff90aafc746ff25",
+      "role": "BASELINE"
+    },
+    {
+      "id": "old_chain",
+      "path": "code/docs/test/m3_r05_functional_integration_20261015/night_20261016/RESUME_R02/RUN_01/stage/inputs/sources/m1td_timbre_delay_chain.sv",
+      "sha256": "72c8e06b83fab7d5264a4ac79d27f33035da8ada509c4f59e4d8b658ee4641b5",
+      "role": "BASELINE"
+    },
+    {
+      "id": "router",
+      "path": "code/rtl/audio/m1_pro_observer_r06_20261017/m1td_polyphonic_event_router.sv",
+      "sha256": "ec69d5d63cf9bd79abe794f95a92338a32a702d56422bdcbb3079dd200eea4c4",
+      "role": "CANDIDATE"
+    },
+    {
+      "id": "bank",
+      "path": "code/rtl/audio/m1_pro_observer_r06_20261017/m1td_polyphonic_envelope_bank.sv",
+      "sha256": "31c25b7e6eb22714d01c7d0f0ceb7131b3fb301d1aab54bebd041dace2fb4502",
+      "role": "CANDIDATE"
+    },
+    {
+      "id": "audio",
+      "path": "code/rtl/audio/m1_pro_observer_r06_20261017/m1td_audio_candidate.sv",
+      "sha256": "193bc5cd9c7675b7f97564223ce39c7ba8d488f2028dfbadbbb033887ab82f63",
+      "role": "CANDIDATE"
+    },
+    {
+      "id": "chain",
+      "path": "code/rtl/audio/m1_pro_observer_r06_20261017/m1td_timbre_delay_chain.sv",
+      "sha256": "076da7f76d641d0e9a8c2a0d910a1ff929ed923639877d36e320887fe095c995",
+      "role": "CANDIDATE"
+    }
+  ],
+  "source_list": [
+    "router",
+    "bank",
+    "audio",
+    "chain"
+  ],
+  "replacements": [
+    {
+      "baseline": "old_router",
+      "candidate": "router",
+      "module": "m1td_polyphonic_event_router"
+    },
+    {
+      "baseline": "old_bank",
+      "candidate": "bank",
+      "module": "m1td_polyphonic_envelope_bank"
+    },
+    {
+      "baseline": "old_audio",
+      "candidate": "audio",
+      "module": "m1td_audio_candidate"
+    },
+    {
+      "baseline": "old_chain",
+      "candidate": "chain",
+      "module": "m1td_timbre_delay_chain"
+    }
+  ],
+  "fields": [
+    {
+      "semantic_id": "apply_valid",
+      "public_name": "obs_apply_valid",
+      "width": 1,
+      "signed": false,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "APPLY_ACTION_PRE_NBA",
+      "semantic_rules": [
+        "ACTUAL_ROUTER_ACTION_NOT_INGRESS_ACCEPT"
+      ],
+      "definition": "Actual router action at this pre-NBA edge: ALLOC_COMMIT, NOTE_ON_CONSUME, RELEASE_COMMIT, NOTE_OFF_CONSUME, PROGRAM_COMMIT, CONTROL_ACCEPT, IGNORE or RETIRE. This is not ingress accept or a fixed accept+N pulse. Interpret together with obs_apply_kind/mask/seq/seq_valid proposals.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "router",
+        "sha256": "ec69d5d63cf9bd79abe794f95a92338a32a702d56422bdcbb3079dd200eea4c4",
+        "module": "m1td_polyphonic_event_router",
+        "signal": "obs_apply_valid",
+        "evidence": [
+          {
+            "line": 230,
+            "text": "    assign obs_apply_valid = |obs_apply_kind;"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "router",
+            "module": "m1td_polyphonic_event_router",
+            "port": "obs_apply_valid",
+            "instance": null
+          },
+          {
+            "file_id": "bank",
+            "module": "m1td_polyphonic_envelope_bank",
+            "port": "obs_apply_valid",
+            "instance": "u_events"
+          },
+          {
+            "file_id": "audio",
+            "module": "m1td_audio_candidate",
+            "port": "obs_apply_valid",
+            "instance": "u_bank"
+          },
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_apply_valid",
+            "instance": "u_audio"
+          }
+        ]
+      }
+    },
+    {
+      "semantic_id": "apply_data",
+      "public_name": "obs_apply_data",
+      "width": 64,
+      "signed": false,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "APPLY_DATA_WHEN_KNOWN",
+      "semantic_rules": [
+        "NO_FABRICATED_EVENT_FOR_RETIRE_OR_DEFERRED_RELEASE"
+      ],
+      "definition": "held_event only when obs_original_event_w: allocation/note-on/program/control/ignore. Deferred sustain release, note-off-consume and autonomous retirement have no provable original event tag; data=0 and seq_valid=0 are an invalid sentinel, not a zero event. Extra apply_kind/mask/seq/seq_valid must accompany real interpretation.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "router",
+        "sha256": "ec69d5d63cf9bd79abe794f95a92338a32a702d56422bdcbb3079dd200eea4c4",
+        "module": "m1td_polyphonic_event_router",
+        "signal": "obs_apply_data",
+        "evidence": [
+          {
+            "line": 245,
+            "text": "    assign obs_apply_data = obs_original_event_w ? held_event : 64'd0;"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "router",
+            "module": "m1td_polyphonic_event_router",
+            "port": "obs_apply_data",
+            "instance": null
+          },
+          {
+            "file_id": "bank",
+            "module": "m1td_polyphonic_envelope_bank",
+            "port": "obs_apply_data",
+            "instance": "u_events"
+          },
+          {
+            "file_id": "audio",
+            "module": "m1td_audio_candidate",
+            "port": "obs_apply_data",
+            "instance": "u_bank"
+          },
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_apply_data",
+            "instance": "u_audio"
+          }
+        ]
+      }
+    },
+    {
+      "semantic_id": "occupied_mask",
+      "public_name": "obs_slot_occupied",
+      "width": 4,
+      "signed": false,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "LIVE_ALLOCATOR_STATE",
+      "semantic_rules": [
+        "RELEASING_REMAINS_OCCUPIED"
+      ],
+      "definition": "Live registered slot occupancy before this edge update; releasing lanes remain occupied until actual retirement. Same-edge allocation/retirement visible in next sampled state.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "bank",
+        "sha256": "31c25b7e6eb22714d01c7d0f0ceb7131b3fb301d1aab54bebd041dace2fb4502",
+        "module": "m1td_polyphonic_envelope_bank",
+        "signal": "obs_slot_occupied",
+        "evidence": [
+          {
+            "line": 67,
+            "text": "    assign obs_slot_occupied=slot_occupied;"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "bank",
+            "module": "m1td_polyphonic_envelope_bank",
+            "port": "obs_slot_occupied",
+            "instance": null
+          },
+          {
+            "file_id": "audio",
+            "module": "m1td_audio_candidate",
+            "port": "obs_slot_occupied",
+            "instance": "u_bank"
+          },
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_slot_occupied",
+            "instance": "u_audio"
+          }
+        ]
+      }
+    },
+    {
+      "semantic_id": "releasing_mask",
+      "public_name": "obs_slot_releasing",
+      "width": 4,
+      "signed": false,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "LIVE_ALLOCATOR_STATE",
+      "semantic_rules": [
+        "NOTE_OFF_NOT_RETIRE"
+      ],
+      "definition": "Live registered release state. NoteOff/control acceptance, delayed release commit, voice consumption and final retirement are different actions.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "bank",
+        "sha256": "31c25b7e6eb22714d01c7d0f0ceb7131b3fb301d1aab54bebd041dace2fb4502",
+        "module": "m1td_polyphonic_envelope_bank",
+        "signal": "obs_slot_releasing",
+        "evidence": [
+          {
+            "line": 68,
+            "text": "    assign obs_slot_releasing=slot_releasing;"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "bank",
+            "module": "m1td_polyphonic_envelope_bank",
+            "port": "obs_slot_releasing",
+            "instance": null
+          },
+          {
+            "file_id": "audio",
+            "module": "m1td_audio_candidate",
+            "port": "obs_slot_releasing",
+            "instance": "u_bank"
+          },
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_slot_releasing",
+            "instance": "u_audio"
+          }
+        ]
+      }
+    },
+    {
+      "semantic_id": "note_on_mask",
+      "public_name": "obs_slot_note_on",
+      "width": 4,
+      "signed": false,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "CONSUMED_NOTE_ON_PULSE",
+      "semantic_rules": [
+        "RETRIGGER_AND_STEAL_NOT_SAME_GENERATION"
+      ],
+      "definition": "At a rising-edge pre-NBA sample with reset inactive, this is the current registered slot_note_on pulse consumed by the lane voice/ADSR Note On inputs on this edge. The pulse was asserted by nonblocking assignment after the preceding CTRL_ON && cmd_ready handshake edge H, not by the allocation edge. For a successful ALLOC_APPLY && slot_valid edge E, with no intervening reset abort, H is the first subsequent CTRL_ON && cmd_ready edge and consumption occurs at C=H+1. The earliest handshake is H=E+1 and the earliest consumption is C=E+2; CTRL_ON backpressure defers H and C. Source/channel/note/generation are the live registered lane identity committed at E. A Note On pulse does not itself imply sample_tick/advance_mask or a DDS phase reset.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "bank",
+        "sha256": "31c25b7e6eb22714d01c7d0f0ceb7131b3fb301d1aab54bebd041dace2fb4502",
+        "module": "m1td_polyphonic_envelope_bank",
+        "signal": "obs_slot_note_on",
+        "evidence": [
+          {
+            "line": 69,
+            "text": "    assign obs_slot_note_on=slot_note_on;"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "bank",
+            "module": "m1td_polyphonic_envelope_bank",
+            "port": "obs_slot_note_on",
+            "instance": null
+          },
+          {
+            "file_id": "audio",
+            "module": "m1td_audio_candidate",
+            "port": "obs_slot_note_on",
+            "instance": "u_bank"
+          },
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_slot_note_on",
+            "instance": "u_audio"
+          }
+        ]
+      }
+    },
+    {
+      "semantic_id": "note_off_mask",
+      "public_name": "obs_slot_note_off",
+      "width": 4,
+      "signed": false,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "CONSUMED_NOTE_OFF_PULSE",
+      "semantic_rules": [
+        "NOTE_OFF_NOT_RETIRE"
+      ],
+      "definition": "Registered release pulse consumed by DDS/ADSR at this edge. Does not free occupancy and is not the retirement mask.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "bank",
+        "sha256": "31c25b7e6eb22714d01c7d0f0ceb7131b3fb301d1aab54bebd041dace2fb4502",
+        "module": "m1td_polyphonic_envelope_bank",
+        "signal": "obs_slot_note_off",
+        "evidence": [
+          {
+            "line": 70,
+            "text": "    assign obs_slot_note_off=slot_note_off;"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "bank",
+            "module": "m1td_polyphonic_envelope_bank",
+            "port": "obs_slot_note_off",
+            "instance": null
+          },
+          {
+            "file_id": "audio",
+            "module": "m1td_audio_candidate",
+            "port": "obs_slot_note_off",
+            "instance": "u_bank"
+          },
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_slot_note_off",
+            "instance": "u_audio"
+          }
+        ]
+      }
+    },
+    {
+      "semantic_id": "retire_mask",
+      "public_name": "obs_retire_mask",
+      "width": 4,
+      "signed": false,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "ACTUAL_RETIRE_ACTION",
+      "semantic_rules": [
+        "RELEASE_DONE_AND_NO_PENDING_NOTE_ON"
+      ],
+      "definition": "Current router RETIRE state and cmd_ready select target_slot for actual clearing. Slot state sampled pre-NBA remains old; cleared occupancy is seen next edge. It is not the raw release_done mask.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "router",
+        "sha256": "ec69d5d63cf9bd79abe794f95a92338a32a702d56422bdcbb3079dd200eea4c4",
+        "module": "m1td_polyphonic_event_router",
+        "signal": "obs_retire_mask",
+        "evidence": [
+          {
+            "line": 237,
+            "text": "    assign obs_retire_mask = obs_retire_w ? (4'b0001 << target_slot) : 4'd0;"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "router",
+            "module": "m1td_polyphonic_event_router",
+            "port": "obs_retire_mask",
+            "instance": null
+          },
+          {
+            "file_id": "bank",
+            "module": "m1td_polyphonic_envelope_bank",
+            "port": "obs_retire_mask",
+            "instance": "u_events"
+          },
+          {
+            "file_id": "audio",
+            "module": "m1td_audio_candidate",
+            "port": "obs_retire_mask",
+            "instance": "u_bank"
+          },
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_retire_mask",
+            "instance": "u_audio"
+          }
+        ]
+      }
+    },
+    {
+      "semantic_id": "slot_source",
+      "public_name": "obs_slot_sources",
+      "width": 16,
+      "signed": false,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "LIVE_ALLOCATOR_STATE",
+      "semantic_rules": [
+        "LANE0_LEAST_SIGNIFICANT_4_BITS"
+      ],
+      "definition": "Four live registered source IDs, lane i at bits 4*i +:4, retained throughout release until reused/reset; read with occupancy.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "bank",
+        "sha256": "31c25b7e6eb22714d01c7d0f0ceb7131b3fb301d1aab54bebd041dace2fb4502",
+        "module": "m1td_polyphonic_envelope_bank",
+        "signal": "obs_slot_sources",
+        "evidence": [
+          {
+            "line": 71,
+            "text": "    assign obs_slot_sources=slot_sources;"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "bank",
+            "module": "m1td_polyphonic_envelope_bank",
+            "port": "obs_slot_sources",
+            "instance": null
+          },
+          {
+            "file_id": "audio",
+            "module": "m1td_audio_candidate",
+            "port": "obs_slot_sources",
+            "instance": "u_bank"
+          },
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_slot_sources",
+            "instance": "u_audio"
+          }
+        ]
+      }
+    },
+    {
+      "semantic_id": "slot_channel",
+      "public_name": "obs_slot_channels",
+      "width": 16,
+      "signed": false,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "LIVE_ALLOCATOR_STATE",
+      "semantic_rules": [
+        "LANE0_LEAST_SIGNIFICANT_4_BITS"
+      ],
+      "definition": "Four live registered MIDI channels, lane i at bits 4*i +:4, retained throughout release until reused/reset; read with occupancy.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "bank",
+        "sha256": "31c25b7e6eb22714d01c7d0f0ceb7131b3fb301d1aab54bebd041dace2fb4502",
+        "module": "m1td_polyphonic_envelope_bank",
+        "signal": "obs_slot_channels",
+        "evidence": [
+          {
+            "line": 72,
+            "text": "    assign obs_slot_channels=slot_channels;"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "bank",
+            "module": "m1td_polyphonic_envelope_bank",
+            "port": "obs_slot_channels",
+            "instance": null
+          },
+          {
+            "file_id": "audio",
+            "module": "m1td_audio_candidate",
+            "port": "obs_slot_channels",
+            "instance": "u_bank"
+          },
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_slot_channels",
+            "instance": "u_audio"
+          }
+        ]
+      }
+    },
+    {
+      "semantic_id": "slot_note",
+      "public_name": "obs_slot_notes",
+      "width": 32,
+      "signed": false,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "LIVE_ALLOCATOR_STATE",
+      "semantic_rules": [
+        "LANE0_LEAST_SIGNIFICANT_8_BITS_ZERO_EXTENDED_MIDI7"
+      ],
+      "definition": "Four live registered zero-extended MIDI notes, lane i at bits 8*i +:8. Seven-bit note inside each eight-bit lane; empty-lane values do not denote active voices.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "bank",
+        "sha256": "31c25b7e6eb22714d01c7d0f0ceb7131b3fb301d1aab54bebd041dace2fb4502",
+        "module": "m1td_polyphonic_envelope_bank",
+        "signal": "obs_slot_notes",
+        "evidence": [
+          {
+            "line": 73,
+            "text": "    assign obs_slot_notes=slot_notes;"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "bank",
+            "module": "m1td_polyphonic_envelope_bank",
+            "port": "obs_slot_notes",
+            "instance": null
+          },
+          {
+            "file_id": "audio",
+            "module": "m1td_audio_candidate",
+            "port": "obs_slot_notes",
+            "instance": "u_bank"
+          },
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_slot_notes",
+            "instance": "u_audio"
+          }
+        ]
+      }
+    },
+    {
+      "semantic_id": "slot_generation",
+      "public_name": "obs_slot_generations",
+      "width": 128,
+      "signed": false,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "LIVE_ALLOCATOR_STATE",
+      "semantic_rules": [
+        "PER_LANE_32_RESET_ZERO_INCREMENT_ON_ALLOCATION"
+      ],
+      "definition": "Four live u32 generation counters, lane i at bits 32*i +:32. Reset zero; successful allocation/retrigger/steal increments modulo 2^32. No globally unique generation promise across wrap or reset.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "bank",
+        "sha256": "31c25b7e6eb22714d01c7d0f0ceb7131b3fb301d1aab54bebd041dace2fb4502",
+        "module": "m1td_polyphonic_envelope_bank",
+        "signal": "obs_slot_generations",
+        "evidence": [
+          {
+            "line": 74,
+            "text": "    assign obs_slot_generations=slot_generations;"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "bank",
+            "module": "m1td_polyphonic_envelope_bank",
+            "port": "obs_slot_generations",
+            "instance": null
+          },
+          {
+            "file_id": "audio",
+            "module": "m1td_audio_candidate",
+            "port": "obs_slot_generations",
+            "instance": "u_bank"
+          },
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_slot_generations",
+            "instance": "u_audio"
+          }
+        ]
+      }
+    },
+    {
+      "semantic_id": "advance_mask",
+      "public_name": "obs_advance_mask",
+      "width": 4,
+      "signed": false,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "COMMON_LANE_TICK",
+      "semantic_rules": [
+        "ALL_FOUR_LANES_SAME_EDGE_INCLUDING_EMPTY",
+        "ONLY_0000_OR_1111"
+      ],
+      "definition": "Exactly {4{lane_tick}}. The same lane_tick advances all four DDS/ADSR lanes including empty slots, only when rst_n && !frame_tick && phase==ADVANCE && live_identity_matches. Legal values only 0000 and 1111.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "bank",
+        "sha256": "31c25b7e6eb22714d01c7d0f0ceb7131b3fb301d1aab54bebd041dace2fb4502",
+        "module": "m1td_polyphonic_envelope_bank",
+        "signal": "obs_advance_mask",
+        "evidence": [
+          {
+            "line": 158,
+            "text": "    assign obs_advance_mask={4{lane_tick}};"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "bank",
+            "module": "m1td_polyphonic_envelope_bank",
+            "port": "obs_advance_mask",
+            "instance": null
+          },
+          {
+            "file_id": "audio",
+            "module": "m1td_audio_candidate",
+            "port": "obs_advance_mask",
+            "instance": "u_bank"
+          },
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_advance_mask",
+            "instance": "u_audio"
+          }
+        ]
+      }
+    },
+    {
+      "semantic_id": "advance_frame_id",
+      "public_name": "obs_advance_frame_id",
+      "width": 32,
+      "signed": false,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "ID_VALID_ONLY_WITH_ADVANCE",
+      "semantic_rules": [
+        "PENDING_ACCEPTED_REQUEST_ID_NOT_NEWEST_FRAME"
+      ],
+      "definition": "Bank pending_req_id saved on the accepted request, meaningful only when advance_mask is 1111. It is not the independent FRAME F or possibly newer current sample_req_id.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "bank",
+        "sha256": "31c25b7e6eb22714d01c7d0f0ceb7131b3fb301d1aab54bebd041dace2fb4502",
+        "module": "m1td_polyphonic_envelope_bank",
+        "signal": "obs_advance_frame_id",
+        "evidence": [
+          {
+            "line": 159,
+            "text": "    assign obs_advance_frame_id=pending_req_id;"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "bank",
+            "module": "m1td_polyphonic_envelope_bank",
+            "port": "obs_advance_frame_id",
+            "instance": null
+          },
+          {
+            "file_id": "audio",
+            "module": "m1td_audio_candidate",
+            "port": "obs_advance_frame_id",
+            "instance": "u_bank"
+          },
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_advance_frame_id",
+            "instance": "u_audio"
+          }
+        ]
+      }
+    },
+    {
+      "semantic_id": "effect_input_valid",
+      "public_name": "obs_effect_input_valid",
+      "width": 1,
+      "signed": false,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "ACTUAL_EFFECT_INPUT_HANDSHAKE",
+      "semantic_rules": [
+        "ACCEPT_ONLY_VALID_AND_READY"
+      ],
+      "definition": "Actual audio_valid wire feeding stereo delay input_valid. Consumption requires valid&&ready at this edge, independent of later publication/cancel.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "chain",
+        "sha256": "076da7f76d641d0e9a8c2a0d910a1ff929ed923639877d36e320887fe095c995",
+        "module": "m1td_timbre_delay_chain",
+        "signal": "obs_effect_input_valid",
+        "evidence": [
+          {
+            "line": 56,
+            "text": "    assign obs_effect_input_valid=audio_valid;"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_effect_input_valid",
+            "instance": null
+          }
+        ]
+      }
+    },
+    {
+      "semantic_id": "effect_input_ready",
+      "public_name": "obs_effect_input_ready",
+      "width": 1,
+      "signed": false,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "ACTUAL_EFFECT_INPUT_HANDSHAKE",
+      "semantic_rules": [
+        "ACCEPT_ONLY_VALID_AND_READY"
+      ],
+      "definition": "Actual audio_ready returned by stereo delay input_ready. Not busy, correct current request ID and no frame/config/reset conflict are enforced by original postprocessor.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "chain",
+        "sha256": "076da7f76d641d0e9a8c2a0d910a1ff929ed923639877d36e320887fe095c995",
+        "module": "m1td_timbre_delay_chain",
+        "signal": "obs_effect_input_ready",
+        "evidence": [
+          {
+            "line": 57,
+            "text": "    assign obs_effect_input_ready=audio_ready;"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_effect_input_ready",
+            "instance": null
+          }
+        ]
+      }
+    },
+    {
+      "semantic_id": "effect_input_id",
+      "public_name": "obs_effect_input_id",
+      "width": 32,
+      "signed": false,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "PAYLOAD_ON_EFFECT_ACCEPT",
+      "semantic_rules": [
+        "ACCEPTED_THEN_CANCELLED_HISTORY_NOT_ROLLED_BACK"
+      ],
+      "definition": "Actual accepted audio_id feeding stereo delay. Accepted work may subsequently lose publication; enabled delay history is not rolled back. Disabled effect bypass does not clock delay history.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "chain",
+        "sha256": "076da7f76d641d0e9a8c2a0d910a1ff929ed923639877d36e320887fe095c995",
+        "module": "m1td_timbre_delay_chain",
+        "signal": "obs_effect_input_id",
+        "evidence": [
+          {
+            "line": 58,
+            "text": "    assign obs_effect_input_id=audio_id;"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_effect_input_id",
+            "instance": null
+          }
+        ]
+      }
+    },
+    {
+      "semantic_id": "effect_input_left",
+      "public_name": "obs_effect_input_left",
+      "width": 24,
+      "signed": true,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "PAYLOAD_ON_EFFECT_ACCEPT",
+      "semantic_rules": [
+        "SIGNED_PCM24_NO_RECOMPUTED_MIX"
+      ],
+      "definition": "Signed 24-bit audio_left after four-lane gain/mix saturation, directly feeding postprocessor input_left. No summing four effected solo PCMs.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "chain",
+        "sha256": "076da7f76d641d0e9a8c2a0d910a1ff929ed923639877d36e320887fe095c995",
+        "module": "m1td_timbre_delay_chain",
+        "signal": "obs_effect_input_left",
+        "evidence": [
+          {
+            "line": 59,
+            "text": "    assign obs_effect_input_left=audio_left;"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_effect_input_left",
+            "instance": null
+          }
+        ]
+      }
+    },
+    {
+      "semantic_id": "effect_input_right",
+      "public_name": "obs_effect_input_right",
+      "width": 24,
+      "signed": true,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "PAYLOAD_ON_EFFECT_ACCEPT",
+      "semantic_rules": [
+        "SIGNED_PCM24_NO_RECOMPUTED_MIX"
+      ],
+      "definition": "Signed 24-bit audio_right after four-lane gain/mix saturation, directly feeding postprocessor input_right. Real input sample only on valid&&ready.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "chain",
+        "sha256": "076da7f76d641d0e9a8c2a0d910a1ff929ed923639877d36e320887fe095c995",
+        "module": "m1td_timbre_delay_chain",
+        "signal": "obs_effect_input_right",
+        "evidence": [
+          {
+            "line": 60,
+            "text": "    assign obs_effect_input_right=audio_right;"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_effect_input_right",
+            "instance": null
+          }
+        ]
+      }
+    },
+    {
+      "semantic_id": "effect_input_clip",
+      "public_name": "obs_effect_input_clip",
+      "width": 2,
+      "signed": false,
+      "sample": {
+        "clock": "clk",
+        "edge": "posedge",
+        "phase": "pre_NBA",
+        "reset": "ASYNC_ASSERT_UPSTREAM_SYNC_RELEASE"
+      },
+      "update_rule": "PAYLOAD_ON_EFFECT_ACCEPT",
+      "semantic_rules": [
+        "BIT0_LEFT_BIT1_RIGHT_UPSTREAM_CLIP"
+      ],
+      "definition": "Two upstream mix flags packed {audio_clip_right,audio_clip_left}; bit0 left and bit1 right. This is not final effect clip or feedback clip.",
+      "derivation": "DIRECT_SOURCE_OBSERVATION",
+      "source": {
+        "file_id": "chain",
+        "sha256": "076da7f76d641d0e9a8c2a0d910a1ff929ed923639877d36e320887fe095c995",
+        "module": "m1td_timbre_delay_chain",
+        "signal": "obs_effect_input_clip",
+        "evidence": [
+          {
+            "line": 61,
+            "text": "    assign obs_effect_input_clip={audio_clip_right,audio_clip_left};"
+          }
+        ]
+      },
+      "export": {
+        "status": "PROVIDED",
+        "reason": null,
+        "route": [
+          {
+            "file_id": "chain",
+            "module": "m1td_timbre_delay_chain",
+            "port": "obs_effect_input_clip",
+            "instance": null
+          }
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "NO_HDL_RUN",
+    "NO_GOLDEN_MATH_PROOF",
+    "NO_PRO_BOARD_PASS",
+    "M2_PUBLIC_ROUTE_AND_SOURCE_ADMISSION_REQUIRED",
+    "RESET_EDGES_REMAIN_REQUIRED",
+    "LOGICAL_19_AND_M1_OBS_PORTS_ONLY_M2_EXTERNAL_NAMES_UNRESOLVED",
+    "APPLY_KIND_MASK_SEQ_SEQ_VALID_REQUIRED_TO_INTERPRET_UNKNOWN_EVENT_ASSOCIATION",
+    "SOURCE_LIST_ONLY_FOUR_REPLACEMENTS_FULL_CLOSURE_OWNED_BY_M3",
+    "CONFIG_62BIT_PACKING_IS_M1_PROPOSAL_PENDING_M2"
+  ]
+}

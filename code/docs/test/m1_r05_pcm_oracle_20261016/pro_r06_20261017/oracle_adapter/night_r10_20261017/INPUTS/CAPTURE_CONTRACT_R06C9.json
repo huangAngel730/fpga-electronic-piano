@@ -1,0 +1,282 @@
+{
+  "schema": "M2_R06C9_PUBLIC_CAPTURE_CONTRACT_V1",
+  "status": "PARTIAL_STATIC_ROUTES_NOT_CAPTURED",
+  "authority": "existing M2-R6-2 public observation routing; this user-supplied M1 input intake",
+  "M2_decision_before_RTL": true,
+  "baseline": "C7 exact originals and M1 attachment 019d50298c171b4359c7882a092f11f5b582033a8d81cb318f22b817a6c3e287",
+  "writes": [
+    "code/rtl/board/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/c9_m1_semantics_20261017/",
+    "code/build/138k_pro_fourvoice_candidate_20261016/r06_public_chain_20261017/c9_m1_semantics_20261017/",
+    "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/c9_m1_semantics_20261017/",
+    "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_public_chain_20261017/c9_m1_semantics_20261017/"
+  ],
+  "nineteen_fields": 19,
+  "new_routed_ports": [
+    {
+      "field": "apply_valid",
+      "port": "obs_apply_valid",
+      "m1_port": "obs_apply_valid",
+      "width": 1,
+      "signed": false
+    },
+    {
+      "field": "apply_data",
+      "port": "obs_apply_data",
+      "m1_port": "obs_apply_data",
+      "width": 64,
+      "signed": false
+    },
+    {
+      "field": "occupied_mask",
+      "port": "obs_occupied_mask",
+      "m1_port": "obs_slot_occupied",
+      "width": 4,
+      "signed": false
+    },
+    {
+      "field": "releasing_mask",
+      "port": "obs_releasing_mask",
+      "m1_port": "obs_slot_releasing",
+      "width": 4,
+      "signed": false
+    },
+    {
+      "field": "note_on_mask",
+      "port": "obs_note_on_mask",
+      "m1_port": "obs_slot_note_on",
+      "width": 4,
+      "signed": false
+    },
+    {
+      "field": "note_off_mask",
+      "port": "obs_note_off_mask",
+      "m1_port": "obs_slot_note_off",
+      "width": 4,
+      "signed": false
+    },
+    {
+      "field": "retire_mask",
+      "port": "obs_retire_mask",
+      "m1_port": "obs_retire_mask",
+      "width": 4,
+      "signed": false
+    },
+    {
+      "field": "slot_sources",
+      "port": "obs_slot_sources",
+      "m1_port": "obs_slot_sources",
+      "width": 16,
+      "signed": false
+    },
+    {
+      "field": "slot_channels",
+      "port": "obs_slot_channels",
+      "m1_port": "obs_slot_channels",
+      "width": 16,
+      "signed": false
+    },
+    {
+      "field": "slot_notes",
+      "port": "obs_slot_notes",
+      "m1_port": "obs_slot_notes",
+      "width": 32,
+      "signed": false
+    },
+    {
+      "field": "slot_generations",
+      "port": "obs_slot_generations",
+      "m1_port": "obs_slot_generations",
+      "width": 128,
+      "signed": false
+    },
+    {
+      "field": "advance_mask",
+      "port": "obs_advance_mask",
+      "m1_port": "obs_advance_mask",
+      "width": 4,
+      "signed": false
+    },
+    {
+      "field": "advance_frame_req_id",
+      "port": "obs_advance_frame_req_id",
+      "m1_port": "obs_advance_frame_id",
+      "width": 32,
+      "signed": false
+    },
+    {
+      "field": "effect_input_valid",
+      "port": "obs_effect_input_valid",
+      "m1_port": "obs_effect_input_valid",
+      "width": 1,
+      "signed": false
+    },
+    {
+      "field": "effect_input_ready",
+      "port": "obs_effect_input_ready",
+      "m1_port": "obs_effect_input_ready",
+      "width": 1,
+      "signed": false
+    },
+    {
+      "field": "effect_input_id",
+      "port": "obs_effect_input_id",
+      "m1_port": "obs_effect_input_id",
+      "width": 32,
+      "signed": false
+    },
+    {
+      "field": "effect_input_left",
+      "port": "obs_effect_input_left",
+      "m1_port": "obs_effect_input_left",
+      "width": 24,
+      "signed": true
+    },
+    {
+      "field": "effect_input_right",
+      "port": "obs_effect_input_right",
+      "m1_port": "obs_effect_input_right",
+      "width": 24,
+      "signed": true
+    },
+    {
+      "field": "effect_input_clip_mask",
+      "port": "obs_effect_input_clip_mask",
+      "m1_port": "obs_effect_input_clip",
+      "width": 2,
+      "signed": false
+    },
+    {
+      "field": "apply_kind",
+      "port": "obs_apply_kind",
+      "m1_port": "obs_apply_kind",
+      "width": 4,
+      "signed": false
+    },
+    {
+      "field": "apply_mask",
+      "port": "obs_apply_mask",
+      "m1_port": "obs_apply_mask",
+      "width": 4,
+      "signed": false
+    },
+    {
+      "field": "router_apply_seq",
+      "port": "obs_router_apply_seq",
+      "m1_port": "obs_apply_seq",
+      "width": 32,
+      "signed": false
+    },
+    {
+      "field": "router_apply_seq_valid",
+      "port": "obs_router_apply_seq_valid",
+      "m1_port": "obs_apply_seq_valid",
+      "width": 1,
+      "signed": false
+    },
+    {
+      "field": "config_take",
+      "port": "obs_config_take",
+      "m1_port": "obs_config_take",
+      "width": 1,
+      "signed": false
+    },
+    {
+      "field": "config_payload",
+      "port": "obs_config_payload",
+      "m1_port": "obs_config_payload",
+      "width": 62,
+      "signed": false
+    },
+    {
+      "field": "upstream_clip_mask",
+      "port": "obs_upstream_clip_mask",
+      "m1_port": null,
+      "width": 2,
+      "signed": false,
+      "source": "existing chain upstream_clipped_left/right"
+    },
+    {
+      "field": "effect_clip_mask",
+      "port": "obs_effect_clip_mask",
+      "m1_port": null,
+      "width": 2,
+      "signed": false,
+      "source": "existing chain effect_clipped_left/right"
+    },
+    {
+      "field": "feedback_clip_mask",
+      "port": "obs_feedback_clip_mask",
+      "m1_port": null,
+      "width": 2,
+      "signed": false,
+      "source": "existing chain feedback_clipped_left/right"
+    }
+  ],
+  "config_packing": [
+    {
+      "field": "enable",
+      "msb": 61,
+      "lsb": 61
+    },
+    {
+      "field": "delay_samples",
+      "msb": 60,
+      "lsb": 45
+    },
+    {
+      "field": "dry_gain",
+      "msb": 44,
+      "lsb": 30
+    },
+    {
+      "field": "wet_gain",
+      "msb": 29,
+      "lsb": 15
+    },
+    {
+      "field": "feedback",
+      "msb": 14,
+      "lsb": 0
+    }
+  ],
+  "config_policy": "M2 accepts diagnostic 62-bit concatenation; interpret on real config_take; no control-interface change",
+  "apply_event_seq": "PENDING independent input-plan mapping; never assign M1 router_apply_seq to this field by equality",
+  "router_apply_seq": "u32 router acceptance counter from zero per reset epoch; invalid for unsaved cause; wrap not globally unique",
+  "apply_kind": {
+    "0": "NONE",
+    "1": "ALLOC_COMMIT",
+    "2": "NOTE_ON_CONSUME",
+    "3": "RELEASE_COMMIT",
+    "4": "NOTE_OFF_CONSUME",
+    "5": "PROGRAM_COMMIT",
+    "6": "CONTROL_ACCEPT",
+    "7": "IGNORE",
+    "8": "RETIRE"
+  },
+  "M1_note_on_definition": "REWORK_REQUIRED: preceding edge statement conflicts with actual CTRL_ON/cmd_ready and registered pulse; M1 confirmation pending",
+  "no_fixed_accept_to_apply_latency": true,
+  "sampling": "posedge obs_core_clk PRE_NBA, qualify rst_n/epoch and obs_polyphonic_valid",
+  "clip_policy": "bit0 left bit1 right; effect input, result/upstream, effect arithmetic, feedback internal clip remain distinct",
+  "formal_shared_interface_group_changed": false,
+  "production_top_or_constraints_changed": false,
+  "M1_originals_changed": false,
+  "C4_C7_or_R09_sources_changed": false,
+  "scope_of_result": "static candidate wiring and exact source assembly only; not HDL behavior or physical equivalence",
+  "HDL_EDA_device_runs_authorized": 0,
+  "old_budgets_restored": false,
+  "board_release_allowed": false,
+  "field_count": 74,
+  "observation_ports": 67,
+  "source_mode": 0,
+  "independent_sequence_mapping": [
+    "keep independent original plan and byte/event schedule",
+    "record actual public event_valid&&event_ready/data per epoch",
+    "establish one accepted-record to original plan identity; counter equality alone insufficient",
+    "associate only valid router_apply_seq within proven no-wrap window; delayed/autonomous actions remain unassociated"
+  ],
+  "no_real_trace_or_full_frame_plan_created": true,
+  "audio_stable": "PENDING owner-approved real policy, no constant0/accept+1 fill",
+  "source_testbench_status": "M3 R7-A/B public sampling and behavior TB still required; existing raw/boundary TB do not cover C9",
+  "execution_admission": false,
+  "apply_invalid_cause_and_multi_stage_policy": "For apply_kind 3/4/8, router_apply_seq_valid=0 and apply_data=0/router_apply_seq=0 are invalid-cause sentinels, never a real all-zero event. Kind1 and kind2 may share a valid router acceptance sequence; do not deduplicate stages by sequence. A live kind0 idle value may still reflect held data in raw RTL; interpret apply payload only when apply_valid and valid cause are established."
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "M1_R10_FAILURE_HISTORY_V1",
+  "software": [
+    {
+      "group": "R6_2_SOFTWARE_R01",
+      "exit_code": 1,
+      "kind": "fixture coverage gap",
+      "case": "tests_integration.IntegrationTests.test_real_clip_and_clear_samples",
+      "detail": "No true clipping in the originally selected unity-bypass fixture",
+      "correction": "Explicit enabled full dry/wet/feedback gains; true effect clip and clear samples asserted",
+      "successor": "R6_2_SOFTWARE_REPAIR_R02",
+      "successor_exit_code": 0
+    }
+  ],
+  "network": [
+    {
+      "step": "initial sandbox fetch",
+      "result": "SEC_E_NO_CREDENTIALS; elevated fetch succeeded"
+    },
+    {
+      "step": "first explicit blob batch",
+      "result": "bad revision; exact per-file Git reads succeeded"
+    },
+    {
+      "step": "later C9 sampler optional source read",
+      "result": "low-speed timeout; not needed for received 74-field/bridge contracts"
+    },
+    {
+      "step": "checkpoint fetch",
+      "result": "GitHub TCP 443 connect failure"
+    },
+    {
+      "step": "one transient retry",
+      "result": "DNS resolution failure"
+    }
+  ],
+  "publication": "REMOTE_STALE; complete publish worktree materialization not yet available; no gate or push claim"
+}

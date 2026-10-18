@@ -1,0 +1,36 @@
+{
+  "task_id": "M1_R10_C9_MATH_ENGINE",
+  "plan_version": "R10_2026-10-17",
+  "session_id": "01a138d3-c198-7b02-aba4-64f9e7960af9",
+  "producer": "M1",
+  "first_verified_start_utc": "2026-10-17T15:01:07+00:00",
+  "recorded_utc": "2026-10-17T15:02:46.934705+00:00",
+  "deadline_utc": "2026-10-17T19:55:00+00:00",
+  "deadline_note": "Conservative cutoff before five hours from first verified time; preliminary intake included.",
+  "initial_head": "228879b6713188d71e1e97ae1170eaa53c523168",
+  "task_commit": "30a8cd5474e6ff485ce0bf8fd5f3c1d51643123a",
+  "goal_enabled": false,
+  "goal_note": "Executing the requested task in this session; no separate Goal was explicitly requested in the user message.",
+  "polling_status": "POLLING_NOT_VERIFIED",
+  "polling_entry": "Manual bounded git fetch/check in this active session at 30-minute checkpoints and handoff boundaries; no background scheduler claimed.",
+  "next_remote_check_utc": "2026-10-17T15:31:07+00:00",
+  "physical_hardware": false,
+  "HDL_EDA_device_permission": false,
+  "network_timeout_seconds": 40,
+  "transient_retry_limit": 1,
+  "write_roots": [
+    "code\\model\\m1_r05_pcm_oracle_20261016\\pro_r06_20261017\\oracle_adapter\\night_r10_20261017",
+    "code\\docs\\test\\m1_r05_pcm_oracle_20261016\\pro_r06_20261017\\oracle_adapter\\night_r10_20261017",
+    "code\\output\\m1_c9_oracle_night_r10_20261017"
+  ],
+  "steps": [
+    "Receive and bind R10/C9/bridge/model inputs",
+    "Implement strict independent arithmetic adapter",
+    "Freeze and run unused R6-2 new software group",
+    "Run real N10-M1-MATH only if real admitted bundle arrives; otherwise package runnable software and precise gaps"
+  ],
+  "new_software_group": "R6-2 <=120s if unconsumed; first concrete fix <=60s",
+  "real_group": "N10-M1-MATH <=180s only with admitted real input; first concrete fix <=60s",
+  "existing_r6_1_budget": "Consumed; no re-run",
+  "notification": "AI receipt via verified GitHub; human notification not claimed"
+}
