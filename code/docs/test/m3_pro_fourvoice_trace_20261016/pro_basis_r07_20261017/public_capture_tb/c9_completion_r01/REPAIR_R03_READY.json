@@ -1,0 +1,98 @@
+{
+  "schema": "M3_D4_B_REPAIR_R03_READY_V1",
+  "status": "TARGETED_CALENDAR_FIXTURE_REPAIR_READY_L0_NOT_RUN",
+  "target_case": "C9_INTAKE_UNIQUE_CALENDAR_SEAM",
+  "cause": {
+    "path": "code/output/m3_c9_complete_d4_20261017/R02/stderr.raw",
+    "bytes": 16278,
+    "sha256": "4b31687f7a8d4e6bf8b09b42768775adb30b375384c16bbeb26698ea4850e078",
+    "failure": "CalendarReject FRAME_PLAN_SOURCE_IDENTITY_0",
+    "reason": "The fixture used common.artifact(anchor), including bytes, but the frozen calendar requires each source identity to contain exactly path and sha256."
+  },
+  "changed_files": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/selftest.py",
+      "bytes": 17426,
+      "sha256": "c89a12d7386d7bc3972d0db84c0022cb2e2123efbf54113be983d5fdd6b87859",
+      "change": "Only the calendar fixture: compute actual anchor artifact once, then provide an explicit path/sha256 pair to the unchanged unique generator."
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/capture_csv_codec/c9_completion_r01/selftest.py",
+      "bytes": 1650,
+      "sha256": "1b49f9c9f16f97fb39c92d1370e9718af252cf3b94397898ccdab103c66e459d",
+      "change": "CASE_SHA identity binding only; local case definitions and assertions unchanged."
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/normalized_intake/c9_completion_r01/selftest.py",
+      "bytes": 1624,
+      "sha256": "69fa7c80477bfdceabbccc333554e110967a39de588d5e78a8deee643c083b44",
+      "change": "CASE_SHA identity binding only."
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/selftest.py",
+      "bytes": 1616,
+      "sha256": "5cf6db74241c6a00860333a923d97735c9707946f390e7920168c067b4dad1e6",
+      "change": "CASE_SHA identity binding only."
+    }
+  ],
+  "repair": {
+    "source_identity_keys": [
+      "path",
+      "sha256"
+    ],
+    "anchor_file_SHA_is_actual": true,
+    "old_calendar_checks_relaxed": false,
+    "original_generator_unchanged": true,
+    "canonical_frame_formula_unchanged": true,
+    "F_A_assertions_unchanged": true,
+    "STREAM_GT64M_case_body_unchanged": true,
+    "streaming_production_sources_unchanged": true,
+    "note": "Local wrappers must point to the new exact test source bytes; updating these hashes preserves their existing fixed-source contract and does not rerun their passed cases."
+  },
+  "entry": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/selftest.py",
+    "sha256": "c89a12d7386d7bc3972d0db84c0022cb2e2123efbf54113be983d5fdd6b87859",
+    "api": "run_case('C9_INTAKE_UNIQUE_CALENDAR_SEAM',new_output_dir)->dict"
+  },
+  "coordinator_reported_state": {
+    "old_75": "MATCHED; do not rerun",
+    "hold_startup_R02": "MATCHED; do not rerun",
+    "other_B_small_new_cases": "8 MATCHED; do not rerun",
+    "STREAM_GT64M_CSV_ROUNDTRIP": "NOT_RUN; may be selected separately by coordinator under the current new budget",
+    "member_claim": "No member execution or independent re-run was performed."
+  },
+  "history": {
+    "original_ready": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/READY.json",
+      "sha256": "1ca47379127f6efbb1c40511e7c0d01dee1bb1b659f7361f5f34000be87dc223",
+      "unchanged": true
+    },
+    "R02_ready": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/REPAIR_R02_READY.json",
+      "sha256": "2845d7829d983f61be0951e328344e23c214d33318eb39b2dc7238b4ee3632ee",
+      "unchanged": true
+    },
+    "prior_test_source_sha256": "c4fcf5514fa339423356fad9da2e2bcefe47e5f47496c8090784080c7baabcc4",
+    "R01_R02_failed_originals": "Retained under controller FREEZE_R01/FREEZE_R02 and code/output R01/R02; not overwritten."
+  },
+  "self_review": {
+    "read_only_helper": "old6_readonly",
+    "conclusion": "Exact two-key shape now matches unchanged calendar; wrapper CASE_SHA values match the new central test source. No specific blocker seen in this limited static diff.",
+    "candidate_import_compile_runs": 0
+  },
+  "verification": {
+    "level": "L0_STATIC_ONLY",
+    "member_tests_run": 0,
+    "member_candidate_imports": 0,
+    "member_candidate_compiles": 0,
+    "HDL_EDA_device_runs": 0,
+    "git_writes": 0,
+    "old_consumption_modified": false,
+    "real_verified": false,
+    "board_release_allowed": false
+  },
+  "handoff": {
+    "status": "READY_FOR_COORDINATOR_R03_FREEZE",
+    "action": "Freeze the four changed test-source identities; select only the failed calendar seam and still-unrun items. Do not rerun old75 or eight already matched B small cases."
+  }
+}

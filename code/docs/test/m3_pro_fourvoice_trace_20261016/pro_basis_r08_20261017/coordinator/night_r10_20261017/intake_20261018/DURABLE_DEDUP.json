@@ -1,0 +1,33 @@
+{
+  "schema": "M3_OCT18_RECEIVER_DEDUP_V1",
+  "note": "Legacy notice has no NIGHT_HANDOFF handoff_id; receiver alias explicitly assigned, not attributed to producer. Standard previous R01 sample key remains in its unchanged durable state.",
+  "items": [
+    {
+      "upstream_handoff_id": null,
+      "receiver_legacy_alias": "M2-C9-STATIC-NOTICE-20261017",
+      "result_commit": "16ac226552f6fb65347b229b8fad42146ed45644",
+      "consumer": "M3",
+      "receipt_state": "RECEIVED_REUSED_C9_SCOPE_PRIOR_R08_ORDER_SUPERSEDED_BY_R10",
+      "advance_count": 0,
+      "budget_consumption": 0
+    },
+    {
+      "task_id": "M3-NIGHT-DRILL-R01-20261017",
+      "task_commit": "edab067e0ceaad9d324d5048771ac3531c3663fe",
+      "consumer": "M3",
+      "receipt_state": "REUSED_PREVIOUS_R01_RESULT",
+      "advance_count": 0,
+      "budget_consumption": 0
+    },
+    {
+      "task_id": "N10-M3-LINK",
+      "task_commit": "edab067e0ceaad9d324d5048771ac3531c3663fe",
+      "consumer": "M3",
+      "receipt_state": "REUSED_INITIAL_AND_FIRST_NEW_STATIC_SEAM_DEFECT_REPAIRED",
+      "advance_count": 1,
+      "budget_consumption": "Only shared once-only repair, not a reset"
+    }
+  ],
+  "new_intake_goal": "Current user-directed continuation1792257077 in same root, previous bounded Goal completed; original start/caps retained",
+  "M2_acceptance": "NOT_OBSERVED"
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "M3_D4_GATE_HOST_CORRECTION_V1",
+  "original_source": "code\\software\\m3_pro_fourvoice_trace_20261016\\pro_binding_20261017\\coordinator_20261017\\run_gate.py",
+  "original_sha256": "3fcd3a5f036e4aa9bd4f3d2ccd15e6bcfd327154d1522552528894c584a61543",
+  "derived_sha256": "ec65321b332388fc60e9ab3a464e8711655f0c9501e74ee482eb1ba9db77b8e4",
+  "only_text_replacement": {
+    "before": "shell = Path(\"C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe\")",
+    "after": "shell = Path(\"C:/Users/songdongkuan/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe\")"
+  },
+  "reason": "Legacy hardcoded Windows PowerShell5 defaults Restricted; current actual PowerShell7.6.5 existing LocalMachine RemoteSigned. Both MachinePolicy and UserPolicy undefined. No policy mutation or ExecutionPolicy flags. Same publication_gate.ps1 and check_repo.ps1 bytes.",
+  "old_attempt": "GATE_R01/LAUNCH.json + stderr.bin; actual exit1, zero checks",
+  "gate_budget_s": 900,
+  "business_test_budget_changed": false
+}

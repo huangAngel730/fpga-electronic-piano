@@ -1,0 +1,70 @@
+{
+  "schema": "M3_TASK_DAY4_CASES_V1",
+  "group": "TASK_DAY4_REMAINDER_SW",
+  "status": "PREPARED_NOT_RUN",
+  "cases": [
+    {
+      "expected": "PENDING_M2_EXECUTION_ADMISSION",
+      "description": "Actual frozen C9 base/application75 bodies and native file identities, nonempty requested window/argv; no launch",
+      "id": "D4_A_ACTUAL_C9"
+    },
+    {
+      "expected": "HEADER_MISSING:sine_table.svh",
+      "description": "Remove real header body from a new fixture archive",
+      "id": "D4_A_MISSING_HEADER"
+    },
+    {
+      "expected": "C9_BASE_IDENTITY_REQUIRED",
+      "description": "Use C6 as purported base, plan rebuilt but C9 identity still refuses",
+      "id": "D4_A_WRONG_BASE"
+    },
+    {
+      "expected": "C9_SOURCE_COUNT_72_PLUS_3",
+      "description": "Remove only TB list line in new fixture compile list",
+      "id": "D4_A_MISSING_75"
+    },
+    {
+      "expected": "PLAN_FIELD_MISMATCH:execution",
+      "description": "Modify proposed argv and keep original spec",
+      "id": "D4_A_PLAN_TAMPER"
+    },
+    {
+      "expected": "WINDOW_REFERENCE_MISMATCH",
+      "description": "Modify spec and proposed window together but retain independent frozen window descriptor",
+      "id": "D4_A_WINDOW_TAMPER"
+    },
+    {
+      "expected": "SELF_APPROVAL_FORBIDDEN",
+      "description": "Self approved request never grants permission",
+      "id": "D4_A_SELF_APPROVAL"
+    },
+    {
+      "expected": "EXECUTION_SPEC_FIELDS",
+      "description": "Inject output field into original spec and proposed plan; reject uncontrolled output selection",
+      "id": "D4_A_UNKNOWN_OUTPUT"
+    },
+    {
+      "id": "D4_A_ZIP_DEVICE",
+      "expected": "DEVICE_NAME",
+      "description": "Uncompiled inputs/NUL entry is rejected during preflight before any path materialization"
+    },
+    {
+      "id": "D4_A_ARGV_DUPLICATE",
+      "expected": "EXACT_TOOL_ARGV_TEMPLATE:vsim",
+      "description": "Duplicate conflicting-g argument cannot override requested window even if spec/proposed plan both edited"
+    },
+    {
+      "id": "D4_A_INCDIR_TAMPER",
+      "expected": "C9_EXACT_COMPILE_ORDER_AND_INCDIRS",
+      "description": "Keep all75 units but prepend an unapproved include directory; exact compile order/incdirs must reject"
+    },
+    {
+      "id": "D4_A_EXTERNAL_TAMPER",
+      "expected": "EXTERNAL_INPUT_MANIFEST_REQUIRED",
+      "description": "Replacing the external whitelist with another valid internal descriptor must not authorize alternate external reads"
+    }
+  ],
+  "count": 12,
+  "execution_owner": "night_task_1_coordinator",
+  "member_execution_authorized": false
+}

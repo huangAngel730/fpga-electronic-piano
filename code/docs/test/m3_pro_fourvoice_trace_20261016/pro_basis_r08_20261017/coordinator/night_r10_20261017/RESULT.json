@@ -1,0 +1,73 @@
+{
+  "schema": "N10_M3_FINAL_SOFTWARE_RESULT_V1",
+  "utc": "2026-10-17T16:50:51.845786+00:00",
+  "status": "PARTIAL_WAITING_M2_FINISH_PHASE_EXECUTION_AND_M1_MATH",
+  "software_unit": "SOURCE_BOUND_PREPARATION_READY",
+  "original_START": "2026-10-17T21:52:00+08:00",
+  "deadline": "2026-10-18T02:52:00+08:00",
+  "goal": {
+    "threadId": "01a14050-cd98-7c41-8004-5d3e25765167",
+    "createdAt": 1792253457,
+    "status": "active"
+  },
+  "unique_executor_publisher": "night1",
+  "new_LINK": {
+    "planned": 7,
+    "matched": 7,
+    "exit_code": 0,
+    "seconds": 9.39100000000326,
+    "actual_preparation": "PREPARED_PENDING_FINISH_PHASE_AND_M2_ADMISSION"
+  },
+  "old_114": "REUSED_NO_REPLAY",
+  "old_budgets_restored": false,
+  "actual_level": "L0 source identity and L1 pure-file software seams; no actual new HDL/EDA/device",
+  "integration_handoff": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/INTEGRATION_HANDOFF.json",
+    "bytes": 49768,
+    "sha256": "8c58686bc40e226859c3e5a6cd4f9c082a07880295f60b62c425b115b3402af7"
+  },
+  "pending": [
+    {
+      "item": "FINISH_PHASE_D_OR_D_PLUS_1",
+      "owner": "M2",
+      "condition": "Freeze actual finish/core sampling phase"
+    },
+    {
+      "item": "TRUSTED_EXECUTOR_AND_EXACT_C9_EXECUTION",
+      "owner": "M2",
+      "condition": "New exact execution admission"
+    },
+    {
+      "item": "ACTUAL_RAW_PINS_RESET_EDGES_EXIT_STREAMS",
+      "owner": "M3 after M2 admission",
+      "condition": "Same-capture actual originals"
+    },
+    {
+      "item": "INDEPENDENT_APPLY_PLAN_AND_PCM24_ID_CLIP_GOLDEN",
+      "owner": "M1",
+      "condition": "Supported arithmetic/profile independent results"
+    },
+    {
+      "item": "AUDIO_STABLE_POLICY",
+      "owner": "M2",
+      "condition": "Published implementation/definition"
+    },
+    {
+      "item": "DUT_BACKPRESSURE_NOT_DRIVEN",
+      "owner": "M2/M3",
+      "condition": "ready.drv output is not connected to actual DUT ready"
+    }
+  ],
+  "FRAME_PLAN": "NOT_GENERATED_PENDING_FINISH_PHASE",
+  "capture": "HDL_NOT_RUN",
+  "math": "NOT_RUN_NO_ACTUAL_BUNDLE",
+  "clock_model": "First core edge12500ps, period25000ps; nominal source derivation only",
+  "finish_phase": "D or D+1 at1130660 driver stop unresolved; proposed argv does not freeze authority",
+  "new_execution_permission": false,
+  "real_verified": false,
+  "math_verified": false,
+  "board_release_allowed": false,
+  "next_action": "M2 review one exact request and freeze stop/finish phase or approve exact TB successor and separately bind trusted executor/tool dependencies/HDL budget; M1 owns math once actual bundle exists",
+  "stop_or_resume": "No old-group replay or arbitrary waiting; process verified new repository input only within original deadline and remaining explicit budgets",
+  "M2_final_limited_review": "PENDING"
+}

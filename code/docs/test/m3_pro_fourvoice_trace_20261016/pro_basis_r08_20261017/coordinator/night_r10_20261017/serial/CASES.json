@@ -1,0 +1,34 @@
+{
+  "schema": "N10_M3_LINK_CASES_V1",
+  "group": "N10-M3-LINK",
+  "component": "integration_handoff",
+  "cases": [
+    {
+      "id": "N10_HANDOFF_COMPLETE_PACKAGE",
+      "expected": "SOURCE_BOUND_PREPARATION",
+      "description": "全覆M2合同14个实际字段，源码/输入/工具/计划/argv与旧准备收据关联；保留所有真实证据PENDING；额外同basename ref不能覆盖固定owner路径",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "N10_HANDOFF_CAPTURE_SOURCE_SPLICE",
+      "expected": "CAPTURE_MISMATCH+APPLICATION_SOURCE_SPLICE",
+      "description": "独立拒绝capture错配与application来源拼包，保留每个新反例首失败",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "N10_HANDOFF_RESERVATION_CLAIM_SPLICE",
+      "expected": "RESERVATION_SPLICE+CLAIM_PLAN_CAPTURE_SPLICE",
+      "description": "合法文件自身SHA不能代替reservation/claim与计划/capture/nonce/output的关联",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "N10_HANDOFF_UNKNOWN_NO_REAL_AUTHORITY",
+      "expected": "SOURCE_BOUND_PREPARATION",
+      "description": "缺START/Goal/收据或空上下文始终UNKNOWN/PENDING，不造RAW/MATH/执行收据或权限",
+      "status": "NOT_RUN"
+    }
+  ],
+  "execution_owner": "night1 sole executor",
+  "member_executions": 0,
+  "old_tests_replayed": false
+}

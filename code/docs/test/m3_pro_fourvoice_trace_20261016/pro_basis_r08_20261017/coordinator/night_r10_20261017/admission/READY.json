@@ -1,0 +1,140 @@
+{
+  "schema": "M3_R10_ADMISSION_ROLE2_READY_V1",
+  "status": "STATIC_READY_NOT_RUN",
+  "role": "night_task_2",
+  "ready_UTC": "2026-10-17T16:45:44Z",
+  "scope": "R10 admission output-only adapter and unapproved actual C9/R62 proposal",
+  "adapter": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/admission/adapter.py",
+    "bytes": 4704,
+    "sha256": "91ef6b5e0f757edc3e50363c10ff5196af6ffa6d5d42e1fc6d377ee614eb1c90"
+  },
+  "selftest": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/admission/selftest.py",
+    "bytes": 6333,
+    "sha256": "11797ee772b240d6d7990f38ab1cf86025a68d79c74532ffd8b99ef8227cf496"
+  },
+  "API": "build_application(request:dict,out:Path)->dict",
+  "test_API": "run_case(case_id,out:Path)->dict",
+  "case_count": 3,
+  "case_manifest": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/admission/CASES.json",
+    "bytes": 806,
+    "sha256": "4704cdfe4271cf3d2784894b37741e624f580c6dafc981ec932f3c85252aa419"
+  },
+  "cases": [
+    {
+      "id": "R10_APPLICATION_PREPARE",
+      "expected": "R10_PROPOSAL_PREPARED_PENDING",
+      "description": "One new R10 output-scope seam with actual unchanged C9/R62/tool identities; explicit unapproved phase candidates and request agree; no trace prerequisite or FRAME generation"
+    },
+    {
+      "id": "R10_REJECT_OLD_OUTPUT",
+      "expected": "OLD_OUTPUT_REJECTED",
+      "description": "Adapter rejects old D4 output root before loading legacy candidate or creating target"
+    },
+    {
+      "id": "R10_REJECT_ROOT_AND_OTHER",
+      "expected": "ROOT_AND_OTHER_REJECTED",
+      "description": "R10 root itself and unrelated sibling output root reject; strict descendant only"
+    }
+  ],
+  "request": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/admission/APPLICATION_REQUEST.json",
+    "bytes": 20237,
+    "sha256": "778f81f486b9fd951544a66fd368fef8fd929f9f4f0f5b2a4fbb80b5c7fa2aa6"
+  },
+  "window": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/admission/WINDOW_PROPOSAL.json",
+    "bytes": 4882,
+    "sha256": "84ffc30715ec1470402f0f883c77b24efc718630617198e71fc8a33b534c8b08"
+  },
+  "binding": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/admission/BINDING.json",
+    "bytes": 2592,
+    "sha256": "18e75b6b0af23e2a045ac1eddec745aee514239c4bac4cd2b09432e171a23aa3"
+  },
+  "interface": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/admission/INTERFACE.json",
+    "bytes": 1217,
+    "sha256": "3666c98795f29ecc2fc6b42eabb532f1718f0a4018862804d9f6ae10709cfb74"
+  },
+  "readme": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/admission/README.md",
+    "bytes": 3561,
+    "sha256": "7bbdca2cddf1d7bc3376a8f591943ecf143d32e6d34f0d63922acd295da7294b"
+  },
+  "static_review": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/admission/STATIC_REVIEW.json",
+    "bytes": 17057,
+    "sha256": "ca69d54e350eae4925365ba9a16f4c4fa275c978d4edac4d966e490b126bf2a1"
+  },
+  "first_static_checker_failure": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/admission/STATIC_CHECK_FIRST_FAILURE.json",
+    "bytes": 713,
+    "sha256": "a5de0e89918968148d40784fdeb773bddf9306af530af51db36c70438383d1ec"
+  },
+  "legacy_assembler": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/assembler.py",
+    "bytes": 22940,
+    "sha256": "ae4ad0f3fefa1bc28e099a2aabcb827f733358d9bd93988af31e5de20a824ccf"
+  },
+  "legacy_request": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/APPLICATION_REQUEST.json",
+    "bytes": 20293,
+    "sha256": "a30cb2045453db4b3394926d2f1d7c804f780683acdeec64f5910dd1ca481a34"
+  },
+  "legacy_dependency_binding": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/IMPLEMENTATION_BINDING.json",
+    "bytes": 2937,
+    "sha256": "b502304ba95108d09bbe7b064a1cb50dbe6b292965f6c5c713c0ce67ea448b89"
+  },
+  "common": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/common.py",
+    "bytes": 6144,
+    "sha256": "55cb7481fe9c0870247a7d8b2453dea859f0f2e81879795cc0e34ffe8c996dca"
+  },
+  "source_loading": "Fresh fixed-source module; original __file__; only OUTPUT overridden; original module not mutated",
+  "output_scope": "Strict nonexistent descendant of code/output/m3_c9_chain_night_r10_20261017; reject oldD4/other/root itself",
+  "artifacts": "Original8 plus output_scope_derivation; original RESULT.json preserved, ADAPTER_RESULT.json added",
+  "capture_id": "C9_R10_PROPOSAL_20261018",
+  "window_status": "PROPOSED_NOT_M2_FROZEN",
+  "phase_ambiguity": [
+    1130660,
+    1130661
+  ],
+  "selected_finish_only_for_unapproved_argv": 1130661,
+  "source_reset_candidates": [
+    802,
+    1002482
+  ],
+  "source_reset_second_assert": 1000480,
+  "FRAME_INPUT_generated": false,
+  "FRAME_PLAN_generated": false,
+  "candidate_imports": 0,
+  "candidate_compile_AST_checks": 0,
+  "candidate_test_runs": 0,
+  "old114_runs": 0,
+  "drill_runs": 0,
+  "Git_writes": 0,
+  "network_calls": 0,
+  "HDL_EDA_device_runs": 0,
+  "group": "N10-M3-LINK",
+  "group_executor": "night_task_1 only; role does not consume120s/repair60s",
+  "original_START": "2026-10-17T21:52:00+08:00",
+  "deadline": "2026-10-18T02:52:00+08:00",
+  "same_Goal": "Coordinator existing Goal; no new Goal or publisher",
+  "execution_allowed": false,
+  "approved": false,
+  "real_pass": false,
+  "board_release_allowed": false,
+  "pending": [
+    "Coordinator frozen bounded software group not run by role",
+    "M2 finish scheduling/phase and exact window freeze",
+    "Trusted execution admission/native dynamic dependencies and resources",
+    "Independent plan seq/audio_stable/real capture/math/physical/board verification"
+  ],
+  "publication": "NOT_COMMITTED_NOT_PUSHED_BY_ROLE2; coordinator serial publication only",
+  "delivery": "LOCAL_READY_FOR_COORDINATOR_READ; no direct-message retry after previous approval rejection",
+  "source_freeze": "Do not change absent concrete coordinator defect/interface blocker"
+}

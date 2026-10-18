@@ -1,0 +1,751 @@
+{
+  "schema": "M3_C9_C_ROLE_OLD_SELECTIONS_V1",
+  "status": "LOOKUP_ONLY_NOT_EXECUTED",
+  "group": "TASK_DAY4_REMAINDER_SW",
+  "old_ledgers_unchanged": true,
+  "T27": {
+    "count": 27,
+    "original_spec": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/FREEZE_R01/SPEC_T.json",
+      "bytes": 25711,
+      "sha256": "03b739aa1e56b5a28879688484d2e6c0573fb0035af2ff682d6c4d73d024ac47"
+    },
+    "original_frozen_dependencies": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/FREEZE_R01/FROZEN_FILES.json",
+      "bytes": 5510163,
+      "sha256": "a76e3407d2059cfbfd6fd967daecc45c16c7ed02441545be861836fee6fdc4d7"
+    },
+    "cases": [
+      {
+        "component": "midi_ingress_arrival",
+        "id": "T16_FOUR_SERIAL_NOTES",
+        "expected": "MIDI_ARRIVALS_MATCH_SYNTHETIC_ONLY",
+        "description": "四条外部串行NoteOn各自到达；每bit1280cycle且不推应用拍",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+          "bytes": 3956,
+          "sha256": "2852a88b0f42d077269369a748bd90561e99370a5fd574a01a7ba491e7d22d5e"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+          "bytes": 1557,
+          "sha256": "cb929dd25205165cfe06e869dad24429e81269e52433a5d3be76c373f142f9ff"
+        },
+        "definition": {
+          "id": "T16_FOUR_SERIAL_NOTES",
+          "expected": "MIDI_ARRIVALS_MATCH_SYNTHETIC_ONLY",
+          "description": "四条外部串行NoteOn各自到达；每bit1280cycle且不推应用拍"
+        }
+      },
+      {
+        "component": "midi_ingress_arrival",
+        "id": "T16_WRONG_BYTE",
+        "expected": "MIDI_BYTE_DIFFERENCE",
+        "description": "字节本体换值",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+          "bytes": 3956,
+          "sha256": "2852a88b0f42d077269369a748bd90561e99370a5fd574a01a7ba491e7d22d5e"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+          "bytes": 1557,
+          "sha256": "cb929dd25205165cfe06e869dad24429e81269e52433a5d3be76c373f142f9ff"
+        },
+        "definition": {
+          "id": "T16_WRONG_BYTE",
+          "expected": "MIDI_BYTE_DIFFERENCE",
+          "description": "字节本体换值"
+        }
+      },
+      {
+        "component": "midi_ingress_arrival",
+        "id": "T16_FIRST_BYTE_WINDOW",
+        "expected": "MIDI_ARRIVAL_WINDOW",
+        "description": "首字节越冻结到达窗",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+          "bytes": 3956,
+          "sha256": "2852a88b0f42d077269369a748bd90561e99370a5fd574a01a7ba491e7d22d5e"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+          "bytes": 1557,
+          "sha256": "cb929dd25205165cfe06e869dad24429e81269e52433a5d3be76c373f142f9ff"
+        },
+        "definition": {
+          "id": "T16_FIRST_BYTE_WINDOW",
+          "expected": "MIDI_ARRIVAL_WINDOW",
+          "description": "首字节越冻结到达窗"
+        }
+      },
+      {
+        "component": "midi_ingress_arrival",
+        "id": "T16_STOP_BIT",
+        "expected": "MIDI_STOP_BIT",
+        "description": "8N1停止位低",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+          "bytes": 3956,
+          "sha256": "2852a88b0f42d077269369a748bd90561e99370a5fd574a01a7ba491e7d22d5e"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+          "bytes": 1557,
+          "sha256": "cb929dd25205165cfe06e869dad24429e81269e52433a5d3be76c373f142f9ff"
+        },
+        "definition": {
+          "id": "T16_STOP_BIT",
+          "expected": "MIDI_STOP_BIT",
+          "description": "8N1停止位低"
+        }
+      },
+      {
+        "component": "midi_ingress_arrival",
+        "id": "T16_TRUNCATION",
+        "expected": "UNKNOWN_MIDI_TRUNCATED_BYTE",
+        "description": "缺尾byte保持UNKNOWN",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+          "bytes": 3956,
+          "sha256": "2852a88b0f42d077269369a748bd90561e99370a5fd574a01a7ba491e7d22d5e"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+          "bytes": 1557,
+          "sha256": "cb929dd25205165cfe06e869dad24429e81269e52433a5d3be76c373f142f9ff"
+        },
+        "definition": {
+          "id": "T16_TRUNCATION",
+          "expected": "UNKNOWN_MIDI_TRUNCATED_BYTE",
+          "description": "缺尾byte保持UNKNOWN"
+        }
+      },
+      {
+        "component": "midi_ingress_arrival",
+        "id": "T16_RESET_TRUNCATION",
+        "expected": "UNKNOWN_MIDI_RESET_TRUNCATED",
+        "description": "接收半byte复位保持UNKNOWN",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+          "bytes": 3956,
+          "sha256": "2852a88b0f42d077269369a748bd90561e99370a5fd574a01a7ba491e7d22d5e"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+          "bytes": 1557,
+          "sha256": "cb929dd25205165cfe06e869dad24429e81269e52433a5d3be76c373f142f9ff"
+        },
+        "definition": {
+          "id": "T16_RESET_TRUNCATION",
+          "expected": "UNKNOWN_MIDI_RESET_TRUNCATED",
+          "description": "接收半byte复位保持UNKNOWN"
+        }
+      },
+      {
+        "component": "midi_ingress_arrival",
+        "id": "T16_UNKNOWN_TIMEBASE",
+        "expected": "UNKNOWN_MIDI_TIMEBASE",
+        "description": "无时基不算精确到达",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+          "bytes": 3956,
+          "sha256": "2852a88b0f42d077269369a748bd90561e99370a5fd574a01a7ba491e7d22d5e"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+          "bytes": 1557,
+          "sha256": "cb929dd25205165cfe06e869dad24429e81269e52433a5d3be76c373f142f9ff"
+        },
+        "definition": {
+          "id": "T16_UNKNOWN_TIMEBASE",
+          "expected": "UNKNOWN_MIDI_TIMEBASE",
+          "description": "无时基不算精确到达"
+        }
+      },
+      {
+        "component": "midi_ingress_arrival",
+        "id": "T16_DRV_PLAN_INPUT",
+        "expected": "MIDI_ARRIVALS_MATCH_SYNTHETIC_ONLY",
+        "description": "新bytes.drv格式独立fixture保留1基原byte_seq和原计划行",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+          "bytes": 3956,
+          "sha256": "2852a88b0f42d077269369a748bd90561e99370a5fd574a01a7ba491e7d22d5e"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+          "bytes": 1557,
+          "sha256": "cb929dd25205165cfe06e869dad24429e81269e52433a5d3be76c373f142f9ff"
+        },
+        "definition": {
+          "id": "T16_DRV_PLAN_INPUT",
+          "expected": "MIDI_ARRIVALS_MATCH_SYNTHETIC_ONLY",
+          "description": "新bytes.drv格式独立fixture保留1基原byte_seq和原计划行"
+        }
+      },
+      {
+        "component": "midi_ingress_arrival",
+        "id": "T16_DRV_PLAN_SHA",
+        "expected": "R62_BYTE_PLAN_SHA",
+        "description": "换字节计划SHA拒收",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/selftest.py",
+          "bytes": 3956,
+          "sha256": "2852a88b0f42d077269369a748bd90561e99370a5fd574a01a7ba491e7d22d5e"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_ingress_arrival/CASES.json",
+          "bytes": 1557,
+          "sha256": "cb929dd25205165cfe06e869dad24429e81269e52433a5d3be76c373f142f9ff"
+        },
+        "definition": {
+          "id": "T16_DRV_PLAN_SHA",
+          "expected": "R62_BYTE_PLAN_SHA",
+          "description": "换字节计划SHA拒收"
+        }
+      },
+      {
+        "component": "midi_recovery_schedule",
+        "id": "T17_RUNNING_REALTIME_ZERO",
+        "expected": "RECOVERY_PLAN_GENERATED_SYNTHETIC",
+        "description": "C6已支持running/实时字节/NoteOn0新计划",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/selftest.py",
+          "bytes": 2319,
+          "sha256": "1c279f35d2522741cba2c733df78fd14f53399ee8596b5ba99f617a4c81c832c"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/CASES.json",
+          "bytes": 1210,
+          "sha256": "05eaddc5f3c4bb087bceeebafd8254878faaf7a9a1b78cdabf97031182780219"
+        },
+        "definition": {
+          "id": "T17_RUNNING_REALTIME_ZERO",
+          "expected": "RECOVERY_PLAN_GENERATED_SYNTHETIC",
+          "description": "C6已支持running/实时字节/NoteOn0新计划"
+        }
+      },
+      {
+        "component": "midi_recovery_schedule",
+        "id": "T17_HALF_MESSAGE_RESET",
+        "expected": "RECOVERY_PLAN_GENERATED_SYNTHETIC",
+        "description": "半消息reset清RS后重新状态同步，应用拍未定",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/selftest.py",
+          "bytes": 2319,
+          "sha256": "1c279f35d2522741cba2c733df78fd14f53399ee8596b5ba99f617a4c81c832c"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/CASES.json",
+          "bytes": 1210,
+          "sha256": "05eaddc5f3c4bb087bceeebafd8254878faaf7a9a1b78cdabf97031182780219"
+        },
+        "definition": {
+          "id": "T17_HALF_MESSAGE_RESET",
+          "expected": "RECOVERY_PLAN_GENERATED_SYNTHETIC",
+          "description": "半消息reset清RS后重新状态同步，应用拍未定"
+        }
+      },
+      {
+        "component": "midi_recovery_schedule",
+        "id": "T17_SYSEX_RESYNC",
+        "expected": "RECOVERY_PLAN_GENERATED_SYNTHETIC",
+        "description": "SysEx非法通道状态退出并按C6规则重同步",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/selftest.py",
+          "bytes": 2319,
+          "sha256": "1c279f35d2522741cba2c733df78fd14f53399ee8596b5ba99f617a4c81c832c"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/CASES.json",
+          "bytes": 1210,
+          "sha256": "05eaddc5f3c4bb087bceeebafd8254878faaf7a9a1b78cdabf97031182780219"
+        },
+        "definition": {
+          "id": "T17_SYSEX_RESYNC",
+          "expected": "RECOVERY_PLAN_GENERATED_SYNTHETIC",
+          "description": "SysEx非法通道状态退出并按C6规则重同步"
+        }
+      },
+      {
+        "component": "midi_recovery_schedule",
+        "id": "T17_UNBOUND_UART_POLICY",
+        "expected": "UNRESOLVED_RECOVERY_POLICY",
+        "description": "外部坏stop到midi_byte_error尚未绑定不造策略",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/selftest.py",
+          "bytes": 2319,
+          "sha256": "1c279f35d2522741cba2c733df78fd14f53399ee8596b5ba99f617a4c81c832c"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/CASES.json",
+          "bytes": 1210,
+          "sha256": "05eaddc5f3c4bb087bceeebafd8254878faaf7a9a1b78cdabf97031182780219"
+        },
+        "definition": {
+          "id": "T17_UNBOUND_UART_POLICY",
+          "expected": "UNRESOLVED_RECOVERY_POLICY",
+          "description": "外部坏stop到midi_byte_error尚未绑定不造策略"
+        }
+      },
+      {
+        "component": "midi_recovery_schedule",
+        "id": "T17_POLICY_SHA",
+        "expected": "PARSER_POLICY_IDENTITY",
+        "description": "规范身份换版拒收",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/selftest.py",
+          "bytes": 2319,
+          "sha256": "1c279f35d2522741cba2c733df78fd14f53399ee8596b5ba99f617a4c81c832c"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/CASES.json",
+          "bytes": 1210,
+          "sha256": "05eaddc5f3c4bb087bceeebafd8254878faaf7a9a1b78cdabf97031182780219"
+        },
+        "definition": {
+          "id": "T17_POLICY_SHA",
+          "expected": "PARSER_POLICY_IDENTITY",
+          "description": "规范身份换版拒收"
+        }
+      },
+      {
+        "component": "midi_recovery_schedule",
+        "id": "T17_OVERLAPPING_BYTES",
+        "expected": "BYTE_SCHEDULE_OVERLAP",
+        "description": "字节传输重叠拒收",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/selftest.py",
+          "bytes": 2319,
+          "sha256": "1c279f35d2522741cba2c733df78fd14f53399ee8596b5ba99f617a4c81c832c"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/midi_recovery_schedule/CASES.json",
+          "bytes": 1210,
+          "sha256": "05eaddc5f3c4bb087bceeebafd8254878faaf7a9a1b78cdabf97031182780219"
+        },
+        "definition": {
+          "id": "T17_OVERLAPPING_BYTES",
+          "expected": "BYTE_SCHEDULE_OVERLAP",
+          "description": "字节传输重叠拒收"
+        }
+      },
+      {
+        "component": "public_diff_diagnostics",
+        "id": "T18_EQUAL_NO_STAT",
+        "expected": "PENDING_NO_COMPLETE_STAT",
+        "description": "公开pins相同但无完整STAT仍待定且旧obs NOT_PUBLIC",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/selftest.py",
+          "bytes": 3498,
+          "sha256": "07fe264f33dd3c44870fcdc83a6df9bd8153a3c099dc2390884ec06bb757bcb3"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/CASES.json",
+          "bytes": 1188,
+          "sha256": "c500ec9f7e0606f516b902dbac3c26e6ac0cca923833118e22865ea2a1ba71dc"
+        },
+        "definition": {
+          "id": "T18_EQUAL_NO_STAT",
+          "expected": "PENDING_NO_COMPLETE_STAT",
+          "description": "公开pins相同但无完整STAT仍待定且旧obs NOT_PUBLIC"
+        }
+      },
+      {
+        "component": "public_diff_diagnostics",
+        "id": "T18_EARLIEST_EVENT",
+        "expected": "PUBLIC_DIFFERENCE_OR_CONTRACT",
+        "description": "较早沿间DIN差异先于采样差异定位",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/selftest.py",
+          "bytes": 3498,
+          "sha256": "07fe264f33dd3c44870fcdc83a6df9bd8153a3c099dc2390884ec06bb757bcb3"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/CASES.json",
+          "bytes": 1188,
+          "sha256": "c500ec9f7e0606f516b902dbac3c26e6ac0cca923833118e22865ea2a1ba71dc"
+        },
+        "definition": {
+          "id": "T18_EARLIEST_EVENT",
+          "expected": "PUBLIC_DIFFERENCE_OR_CONTRACT",
+          "description": "较早沿间DIN差异先于采样差异定位"
+        }
+      },
+      {
+        "component": "public_diff_diagnostics",
+        "id": "T18_BETWEEN_SAMPLES",
+        "expected": "PUBLIC_DIFFERENCE_OR_CONTRACT",
+        "description": "采样点相同不能掩盖沿间DIN变化",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/selftest.py",
+          "bytes": 3498,
+          "sha256": "07fe264f33dd3c44870fcdc83a6df9bd8153a3c099dc2390884ec06bb757bcb3"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/CASES.json",
+          "bytes": 1188,
+          "sha256": "c500ec9f7e0606f516b902dbac3c26e6ac0cca923833118e22865ea2a1ba71dc"
+        },
+        "definition": {
+          "id": "T18_BETWEEN_SAMPLES",
+          "expected": "PUBLIC_DIFFERENCE_OR_CONTRACT",
+          "description": "采样点相同不能掩盖沿间DIN变化"
+        }
+      },
+      {
+        "component": "public_diff_diagnostics",
+        "id": "T18_UART_DIFFERENCE",
+        "expected": "PUBLIC_DIFFERENCE_OR_CONTRACT",
+        "description": "UART脚差异精确分类",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/selftest.py",
+          "bytes": 3498,
+          "sha256": "07fe264f33dd3c44870fcdc83a6df9bd8153a3c099dc2390884ec06bb757bcb3"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/CASES.json",
+          "bytes": 1188,
+          "sha256": "c500ec9f7e0606f516b902dbac3c26e6ac0cca923833118e22865ea2a1ba71dc"
+        },
+        "definition": {
+          "id": "T18_UART_DIFFERENCE",
+          "expected": "PUBLIC_DIFFERENCE_OR_CONTRACT",
+          "description": "UART脚差异精确分类"
+        }
+      },
+      {
+        "component": "public_diff_diagnostics",
+        "id": "T18_WHITELIST_ATTEMPT",
+        "expected": "UNSUPPORTED_DIFFERENCE_WHITELIST",
+        "description": "自报approved不能白名单吞真实数据差异",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/selftest.py",
+          "bytes": 3498,
+          "sha256": "07fe264f33dd3c44870fcdc83a6df9bd8153a3c099dc2390884ec06bb757bcb3"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/CASES.json",
+          "bytes": 1188,
+          "sha256": "c500ec9f7e0606f516b902dbac3c26e6ac0cca923833118e22865ea2a1ba71dc"
+        },
+        "definition": {
+          "id": "T18_WHITELIST_ATTEMPT",
+          "expected": "UNSUPPORTED_DIFFERENCE_WHITELIST",
+          "description": "自报approved不能白名单吞真实数据差异"
+        }
+      },
+      {
+        "component": "public_diff_diagnostics",
+        "id": "T18_REPLACED_EVENT_LOG",
+        "expected": "PUBLIC_DIFF_INPUT_SHA",
+        "description": "事件原件替换拒收",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/selftest.py",
+          "bytes": 3498,
+          "sha256": "07fe264f33dd3c44870fcdc83a6df9bd8153a3c099dc2390884ec06bb757bcb3"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/public_diff_diagnostics/CASES.json",
+          "bytes": 1188,
+          "sha256": "c500ec9f7e0606f516b902dbac3c26e6ac0cca923833118e22865ea2a1ba71dc"
+        },
+        "definition": {
+          "id": "T18_REPLACED_EVENT_LOG",
+          "expected": "PUBLIC_DIFF_INPUT_SHA",
+          "description": "事件原件替换拒收"
+        }
+      },
+      {
+        "component": "tx_hold_sequences",
+        "id": "T14_INDEPENDENT_HELD",
+        "expected": "SCENARIO_MATCH_SYNTHETIC",
+        "description": "独立计划startup null、ID0、关闭事务后重复HOLD、同PCM新ID7、reset清除",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/selftest.py",
+          "bytes": 3360,
+          "sha256": "afeb2f75e929d21999d3a6f8601bec6d9b6b4f3bcb2e9356515d380270c6fd59"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/CASES.json",
+          "bytes": 1164,
+          "sha256": "99196b45ea34ee858a490dd2b307158d6d14c4a5ac9a86b44b0aad12d8b2dbe0"
+        },
+        "definition": {
+          "id": "T14_INDEPENDENT_HELD",
+          "expected": "SCENARIO_MATCH_SYNTHETIC",
+          "description": "独立计划startup null、ID0、关闭事务后重复HOLD、同PCM新ID7、reset清除"
+        }
+      },
+      {
+        "component": "tx_hold_sequences",
+        "id": "T14_SAME_PCM_OTHER_ID",
+        "expected": "TX_SCENARIO_DIFFERENCE",
+        "description": "同PCM不能掩盖HOLD身份改变",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/selftest.py",
+          "bytes": 3360,
+          "sha256": "afeb2f75e929d21999d3a6f8601bec6d9b6b4f3bcb2e9356515d380270c6fd59"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/CASES.json",
+          "bytes": 1164,
+          "sha256": "99196b45ea34ee858a490dd2b307158d6d14c4a5ac9a86b44b0aad12d8b2dbe0"
+        },
+        "definition": {
+          "id": "T14_SAME_PCM_OTHER_ID",
+          "expected": "TX_SCENARIO_DIFFERENCE",
+          "description": "同PCM不能掩盖HOLD身份改变"
+        }
+      },
+      {
+        "component": "tx_hold_sequences",
+        "id": "T14_HOLD_CLIP_CHANGE",
+        "expected": "TX_SCENARIO_DIFFERENCE",
+        "description": "HOLD clip01变10且OR相同仍拒",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/selftest.py",
+          "bytes": 3360,
+          "sha256": "afeb2f75e929d21999d3a6f8601bec6d9b6b4f3bcb2e9356515d380270c6fd59"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/CASES.json",
+          "bytes": 1164,
+          "sha256": "99196b45ea34ee858a490dd2b307158d6d14c4a5ac9a86b44b0aad12d8b2dbe0"
+        },
+        "definition": {
+          "id": "T14_HOLD_CLIP_CHANGE",
+          "expected": "TX_SCENARIO_DIFFERENCE",
+          "description": "HOLD clip01变10且OR相同仍拒"
+        }
+      },
+      {
+        "component": "tx_hold_sequences",
+        "id": "T14_STARTUP_ID0",
+        "expected": "TX_SCENARIO_DIFFERENCE",
+        "description": "startup无效ID的null与数字0区分",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/selftest.py",
+          "bytes": 3360,
+          "sha256": "afeb2f75e929d21999d3a6f8601bec6d9b6b4f3bcb2e9356515d380270c6fd59"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/CASES.json",
+          "bytes": 1164,
+          "sha256": "99196b45ea34ee858a490dd2b307158d6d14c4a5ac9a86b44b0aad12d8b2dbe0"
+        },
+        "definition": {
+          "id": "T14_STARTUP_ID0",
+          "expected": "TX_SCENARIO_DIFFERENCE",
+          "description": "startup无效ID的null与数字0区分"
+        }
+      },
+      {
+        "component": "tx_hold_sequences",
+        "id": "T14_HOLD_AFTER_RESET",
+        "expected": "HOLD_AFTER_RESET_OR_STARTUP",
+        "description": "reset后不能复活held",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/selftest.py",
+          "bytes": 3360,
+          "sha256": "afeb2f75e929d21999d3a6f8601bec6d9b6b4f3bcb2e9356515d380270c6fd59"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/CASES.json",
+          "bytes": 1164,
+          "sha256": "99196b45ea34ee858a490dd2b307158d6d14c4a5ac9a86b44b0aad12d8b2dbe0"
+        },
+        "definition": {
+          "id": "T14_HOLD_AFTER_RESET",
+          "expected": "HOLD_AFTER_RESET_OR_STARTUP",
+          "description": "reset后不能复活held"
+        }
+      },
+      {
+        "component": "tx_hold_sequences",
+        "id": "T14_TRACE_DERIVED",
+        "expected": "SCENARIO_NOT_INDEPENDENT",
+        "description": "不得从被核观察生成独立场景",
+        "selftest": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/selftest.py",
+        "case_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/CASES.json",
+        "selftest_identity": {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/selftest.py",
+          "bytes": 3360,
+          "sha256": "afeb2f75e929d21999d3a6f8601bec6d9b6b4f3bcb2e9356515d380270c6fd59"
+        },
+        "manifest_identity": {
+          "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tx_hold_sequences/CASES.json",
+          "bytes": 1164,
+          "sha256": "99196b45ea34ee858a490dd2b307158d6d14c4a5ac9a86b44b0aad12d8b2dbe0"
+        },
+        "definition": {
+          "id": "T14_TRACE_DERIVED",
+          "expected": "SCENARIO_NOT_INDEPENDENT",
+          "description": "不得从被核观察生成独立场景"
+        }
+      }
+    ]
+  },
+  "B13": {
+    "count": 13,
+    "manifest": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/PENDING_CASES.json",
+      "bytes": 3686,
+      "sha256": "3b67e5361e784a1c74acad8a6648cbdb1d01cc60d5100394469e079d2b5c25b8"
+    },
+    "entry": {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/selftest.py",
+      "bytes": 9647,
+      "sha256": "e6453192dcd21f081af6a5e0b49d9810e047db2a4dd48afc0be047f6d83e9690"
+    },
+    "candidate": {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/c9_pair.py",
+      "bytes": 12622,
+      "sha256": "e4a11031826dbac28422f1973e23dc274185d8bcd80ec031faebf98656a38f13"
+    },
+    "source_archive": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/C9_TWO_LANE_ASSEMBLY.zip",
+      "bytes": 812258,
+      "sha256": "806f5bde5c856c94ae4cf6ae53a153754fde6eb298d43387d12cf19cfebdc614"
+    },
+    "original_dependency_manifest": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_equivalence_tb/c9_binding/FILE_SHA.json",
+      "bytes": 60749,
+      "sha256": "b85c907e48ec4ed41306f2a6f90ea840a3b0b2d45e848e8fee9a2cf72b12123c"
+    },
+    "invocation": "selftest.run_case(case, new_output, candidate_source, expected_source_sha) ONLY AFTER exact new execution admission",
+    "cases": [
+      {
+        "name": "same_seq_two_stages",
+        "expected": "kind1/2 seq7 both retained; no dedup",
+        "status": "NOT_RUN",
+        "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+      },
+      {
+        "name": "invalid_cause_sentinels",
+        "expected": "kind3/4/8 invalid zero cause retained; no fake event",
+        "status": "NOT_RUN",
+        "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+      },
+      {
+        "name": "idle_held_data",
+        "expected": "apply_valid0 kind0 raw held data preserved",
+        "status": "NOT_RUN",
+        "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+      },
+      {
+        "name": "config_only_on_take",
+        "expected": "62-bit unpack only on actual take1",
+        "status": "NOT_RUN",
+        "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+      },
+      {
+        "name": "distinct_clip_masks",
+        "expected": "upstream1/effect2/feedback3 remain distinct",
+        "status": "NOT_RUN",
+        "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+      },
+      {
+        "name": "unknown_valid_retained",
+        "expected": "x valid preserved as raw x and null, never zero",
+        "status": "NOT_RUN",
+        "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+      },
+      {
+        "name": "reset_qualification",
+        "expected": "reset0 or polyphonic_valid0 does not interpret apply",
+        "status": "NOT_RUN",
+        "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+      },
+      {
+        "name": "sentinel_valid_rejected",
+        "expected": "reject INVALID_CAUSE_SENTINEL_VALID",
+        "status": "NOT_RUN",
+        "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+      },
+      {
+        "name": "width_contract_rejected",
+        "expected": "reject COMPANION_CONTRACT_WIDTHS",
+        "status": "NOT_RUN",
+        "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+      },
+      {
+        "name": "join_pin_difference_preserved",
+        "expected": "two raw pin values remain different; no equivalence pass",
+        "status": "NOT_RUN",
+        "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+      },
+      {
+        "name": "join_phase_rejected",
+        "expected": "reject LANE_TIMEBASE",
+        "status": "NOT_RUN",
+        "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+      },
+      {
+        "name": "join_input_rejected",
+        "expected": "reject LANE_EXTERNAL_INPUT_DIFFERENCE",
+        "status": "NOT_RUN",
+        "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+      },
+      {
+        "name": "join_timeout_rejected",
+        "expected": "reject MISSING_NORMAL_EXIT_RECEIPT",
+        "status": "NOT_RUN",
+        "input_origin": "synthetic_fixture_in_deferred_function_not_real_capture"
+      }
+    ]
+  }
+}

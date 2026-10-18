@@ -1,0 +1,71 @@
+{
+  "schema": "N10_M3_CAPTURE_LINK_REPAIR_RESULT_V1",
+  "utc": "2026-10-17T17:24:09.610335+00:00",
+  "exit_code": 0,
+  "seconds": 0.5,
+  "matched": 6,
+  "planned": 6,
+  "results": [
+    {
+      "case": "CAPTURE_DISPATCH_BOUND_APPLICATION",
+      "status": "MATCHED",
+      "calls": [
+        [
+          "LINK_DISPATCH_PROBE",
+          "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_c9_chain_night_r10_20261017\\CAPTURE_LINK_REPAIR_R01\\cases\\capture_result"
+        ]
+      ],
+      "boundary": "SPY_DISPATCH_ONLY; no raw/FRAME/serial/math processing"
+    },
+    {
+      "case": "UNFROZEN_PHASE_REJECT",
+      "status": "MATCHED",
+      "expected_rejection": "CAPTURE_LINK_PHASE_NOT_FROZEN"
+    },
+    {
+      "case": "OLD_APPLICATION_BINDING_REJECT",
+      "status": "MATCHED",
+      "expected_rejection": "CAPTURE_LINK_BINDING"
+    },
+    {
+      "case": "OUTPUT_ESCAPE_REJECT",
+      "status": "MATCHED",
+      "expected_rejection": "CAPTURE_LINK_STRICT_OUTPUT_SCOPE"
+    },
+    {
+      "case": "APPLICATION_ADAPTER_SCOPE_REJECT",
+      "status": "MATCHED",
+      "expected_rejection": "SCOPE"
+    },
+    {
+      "case": "PREPARATION_DISPATCH",
+      "status": "MATCHED",
+      "calls": [
+        "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_c9_chain_night_r10_20261017\\CAPTURE_LINK_REPAIR_R01\\cases\\prepare_result"
+      ],
+      "boundary": "SPY_DISPATCH_ONLY; old preparation group not replayed"
+    }
+  ],
+  "spec": {
+    "path": "code/output/m3_c9_chain_night_r10_20261017/CAPTURE_LINK_REPAIR_R01/SPEC.json",
+    "bytes": 1498,
+    "sha256": "c42dc99691e37209aabd1fb1e30ac42479ca1d550c8dc6dc8e16f71c608f7a79"
+  },
+  "stdout": {
+    "path": "code/output/m3_c9_chain_night_r10_20261017/CAPTURE_LINK_REPAIR_R01/stdout.raw",
+    "bytes": 1038,
+    "sha256": "42d6cdfc204fac685f5f268f355ec26eab4d41c7e8ecab907989c418d304f938"
+  },
+  "stderr": {
+    "path": "code/output/m3_c9_chain_night_r10_20261017/CAPTURE_LINK_REPAIR_R01/stderr.raw",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "old_signed_groups_replayed": 0,
+  "full_capture_processed": false,
+  "HDL_EDA_devices": 0,
+  "first_runtime_failure": null,
+  "real_verified": false,
+  "math_verified": false,
+  "board_release_allowed": false
+}

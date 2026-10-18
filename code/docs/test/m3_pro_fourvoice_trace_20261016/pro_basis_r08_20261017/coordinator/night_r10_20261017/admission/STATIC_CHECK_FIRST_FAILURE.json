@@ -1,0 +1,13 @@
+{
+  "schema": "M3_R10_STATIC_CHECK_FIRST_FAILURE_V1",
+  "operation": "Static UTF8/LF/BOM inspection only",
+  "failed_expression": "raw.StartsWith([string][char]0xfeff)",
+  "actual_error": "Exception Line18: throw BOM",
+  "exit_code": 1,
+  "candidate_runs": 0,
+  "cause": "PowerShell/.NET culture-sensitive StartsWith treats U+FEFF as ignorable; this string check reports true without EF BB BF bytes",
+  "different_followup": "Read byte[0..2] and compare exactly239,187,191 before UTF8 decode",
+  "byte_inspection": "All eight local files have no239,187,191 prefix; no source or JSON bytes changed",
+  "artifact_change": "None from failed checker; STATIC_REVIEW was not written",
+  "test_budget_consumed": false
+}

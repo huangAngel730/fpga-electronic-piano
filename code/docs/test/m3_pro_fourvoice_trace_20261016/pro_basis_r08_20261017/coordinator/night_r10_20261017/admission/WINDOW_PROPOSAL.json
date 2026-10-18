@@ -1,0 +1,107 @@
+{
+  "schema": "M3_R10_C9_REQUESTED_WINDOW_V1",
+  "status": "PROPOSED_NOT_M2_FROZEN",
+  "origin": "ACTUAL_C9_SOURCE_AND_EXISTING_R62_PLAN_PROPOSAL",
+  "window_parameters": {
+    "CAPTURE_ID": "C9_R10_PROPOSAL_20261018",
+    "PLAN_STOP_ID": "R10_R62_63BYTE_PLUS_10FRAMES",
+    "STOP_DRIVER_CYCLE": 1130660,
+    "EXPECTED_FINISH_CORE_CYCLE": 1130661,
+    "MAX_CORE_SAMPLES": 1130676,
+    "MAX_SIM_TIME_PS": 28291500000
+  },
+  "independent_input_plan": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\midi_stimulus\\RUN_02\\products\\plan.json",
+    "bytes": 28378,
+    "sha256": "d07c428162dbccefa8215ac629840058c3a8edd809e3f077dd695813133ad918"
+  },
+  "input_total_cycles": 1122320,
+  "clock_hz": 40000000,
+  "bit_cycles": 1280,
+  "source_clock_model": {
+    "first_core_posedge_ps": 12500,
+    "core_period_ps": 25000,
+    "core_initial_level": 0,
+    "driver_first_posedge_ps": 12500,
+    "driver_period_ps": 25000,
+    "evidence_kind": "STATIC_SOURCE_DERIVATION_ONLY_NO_ELABORATION_NO_ANALOG_PLL_PROOF",
+    "members": [
+      {
+        "archive": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m2_138k_pro_fourvoice_candidate_20261016\\r06_public_chain_20261017\\c9_m1_semantics_20261017\\SOURCE_CLOSURE_R06C9.zip",
+          "bytes": 182685,
+          "sha256": "d458ab16277bd46751318ac368b22df1b21b35c4867c47942e7bff7d27fc3aa2"
+        },
+        "member": "inputs/sources/clock_plan_sim.v",
+        "bytes": 402,
+        "sha256": "99c28744febfb6f39557e6034e79b69190d5c9a8b777a569e2b61cc10f932ecb"
+      },
+      {
+        "archive": {
+          "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m2_138k_pro_fourvoice_candidate_20261016\\r06_public_chain_20261017\\c9_m1_semantics_20261017\\SOURCE_CLOSURE_R06C9.zip",
+          "bytes": 182685,
+          "sha256": "d458ab16277bd46751318ac368b22df1b21b35c4867c47942e7bff7d27fc3aa2"
+        },
+        "member": "inputs/sources/reset_sync.sv",
+        "bytes": 1713,
+        "sha256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777"
+      }
+    ]
+  },
+  "reset_source": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/RUN_02/products/reset.drv",
+    "bytes": 30,
+    "sha256": "c255e20fafbd47d3591a9166ef736e1766ff1a8b93378afd4ef895ad693c1a52"
+  },
+  "driver_source": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\midi_stimulus\\midi_public_port_driver.sv",
+    "bytes": 3417,
+    "sha256": "99e40266a46f1606409fa6ef270dd0c6b056dcb511363ae90dfbaf67653df89a"
+  },
+  "TB_source": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_capture_tb\\c9_binding\\tb_r7a_c9_public_capture.sv",
+    "bytes": 11007,
+    "sha256": "a31ae010d835d62b83096ba7604f8517793401eac90e928bbefeb2f024c89a4d"
+  },
+  "observer_source": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_capture_tb\\c9_binding\\r7a_c9_public_observer.sv",
+    "bytes": 11677,
+    "sha256": "ed4c51834773e411c67cde4743c188f4e719c32f823a969f7ba4b8dea83cc7cd"
+  },
+  "source_derived_reset_candidates": [
+    {
+      "epoch": 0,
+      "deassert_driver_cycle": 800,
+      "first_PRE_NBA_release_core_cycle": 802
+    },
+    {
+      "epoch": 1,
+      "assert_driver_cycle": 1000480,
+      "deassert_driver_cycle": 1002480,
+      "first_PRE_NBA_release_core_cycle": 1002482
+    }
+  ],
+  "reset_candidates_status": "SOURCE_DERIVED_NOT_RUNTIME_VERIFIED_NOT_FRAME_INPUT",
+  "tail_policy": "Requested ten maximum-length834-cycle frames after independent R62 total; no new MIDI/FRAME golden generated",
+  "finish_phase_disagreement": {
+    "source_anchor": "tb_r7a_c9_public_capture.sv:248-251",
+    "coincident_driver_and_core_negedge": true,
+    "possible_finish_core_cycles": [
+      1130660,
+      1130661
+    ],
+    "selected_for_exact_argv_only": 1130661,
+    "selection_status": "UNAPPROVED_PROPOSAL",
+    "reason": "TB waits driver negedge then core negedge at the same nominal phase. Whether the second wait observes the coincident event or the next event is not frozen.",
+    "M2_required_action": "Freeze simulator scheduling/finish contract and exact source/argv/window before any HDL execution"
+  },
+  "max_sim_time_policy": "Driver stop plus1000 nominal cycles at25000ps; requested cap only",
+  "real_window_phase_verified": false,
+  "M2_frozen": false,
+  "FRAME_INPUT_generated": false,
+  "FRAME_PLAN_generated": false,
+  "not_derived_from_observed_trace": true,
+  "approved": false,
+  "execution_allowed": false,
+  "board_release_allowed": false
+}

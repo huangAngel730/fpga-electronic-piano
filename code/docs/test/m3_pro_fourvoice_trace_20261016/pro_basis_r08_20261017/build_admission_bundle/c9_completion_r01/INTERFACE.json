@@ -1,0 +1,27 @@
+{
+  "schema": "M3_D4_APPLICATION_INTERFACE_V1",
+  "status": "SOURCE_WRITTEN_NOT_RUN",
+  "entry": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/assembler.py",
+  "API": "build_application(request:dict, output_dir:Path)->dict",
+  "output_scope": "code/output/m3_c9_complete_d4_20261017",
+  "output_dir": "Must not exist; assembler creates it",
+  "request_schema": "M3_C9_EXECUTION_APPLICATION_REQUEST_V1",
+  "result_status": "PENDING_M2_EXECUTION_ADMISSION",
+  "artifacts": [
+    "application",
+    "guard",
+    "reservation",
+    "dependency_graph",
+    "tools",
+    "resolved_plan",
+    "source",
+    "claim"
+  ],
+  "execution_allowed": false,
+  "common_pin": "55cb7481fe9c0870247a7d8b2453dea859f0f2e81879795cc0e34ffe8c996dca",
+  "common_contract": "ROOT/artifact/identity/no_alias/checked_descriptor/read_json/write_json/load_source/require",
+  "old_pure_modules": "01 inspect;03 pinned pure_module and unchanged consumer canonical/need;04 atomic evaluate with DOC isolated under this out;05 static PE identity only",
+  "old_Python_worker_audit": "Not invoked; Python-only constraints are not widened to HDL permission",
+  "candidate_imports": 0,
+  "functional_runs": 0
+}

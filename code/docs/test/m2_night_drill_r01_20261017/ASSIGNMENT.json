@@ -1,0 +1,40 @@
+{
+  "schema": "M3_DRILL_ASSIGNMENT_R01",
+  "handoff_id": "NIGHT-DRILL-M3-R01-20261017",
+  "task_id": "M3-NIGHT-DRILL-R01-20261017",
+  "producer": "M2",
+  "consumer": "M3",
+  "plan_version": "R01",
+  "entrypoint": "code/docs/M3_夜间协作双机演练任务单_R01_2026-10-17.md",
+  "sample_handoff": "code/docs/test/m2_night_drill_r01_20261017/HANDOFF.json",
+  "sample_result_commit": "30a8cd5474e6ff485ce0bf8fd5f3c1d51643123a",
+  "assignment_result_commit": null,
+  "assignment_commit_binding": "ASSIGNMENT_RECEIPT.json will reference the formed functional commit",
+  "execution_status": "ASSIGNED_NOT_ACKNOWLEDGED",
+  "actual_START": null,
+  "goal_id": null,
+  "session_id": null,
+  "deadline": "min(original START+5h, 2026-10-18T06:30:00+08:00)",
+  "role_order": "M3 takes this user-directed drill at a safe point before expansion to overnight three-role execution; original R10 priorities/old evidence otherwise preserved",
+  "M3_write_roots": [
+    "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/",
+    "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/",
+    "code/output/m3_m2_night_drill_20261017/"
+  ],
+  "existing_unique_M3_publisher_required": true,
+  "publication": "Necessary machine receipts or complete authorized drill unit only; exact gates and normal develop push; no synthetic test push",
+  "network_seconds_per_call": 30,
+  "temporary_retries_per_failure": 1,
+  "subsequent_readonly_recovery_probe_limit": 2,
+  "new_drill_only_software_budgets": {
+    "local_pure_file_group_seconds": 120,
+    "one_owned_python_worker_interruption_group_seconds": 60,
+    "first_specific_new_defect_repair_count": 1,
+    "repair_seconds": 60
+  },
+  "business_budget_restored": false,
+  "HDL_EDA_device_allowed": false,
+  "polling": "POLLING_NOT_VERIFIED",
+  "four_classes": "4 NOT_RUN",
+  "board_release_allowed": false
+}

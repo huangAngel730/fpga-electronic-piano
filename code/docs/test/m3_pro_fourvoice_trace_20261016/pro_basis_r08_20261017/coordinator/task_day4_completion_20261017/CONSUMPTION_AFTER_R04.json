@@ -1,0 +1,97 @@
+{
+  "schema": "M3_C9_D4_CONSUMPTION_V1",
+  "group": "TASK_DAY4_REMAINDER_SW",
+  "initial_consumed": 1,
+  "repair_consumed": 3,
+  "status": "PASS_LIMITED_SOFTWARE",
+  "remaining_case_keys": [],
+  "old_consumption_restored": false,
+  "runs": [
+    {
+      "output": "code/output/m3_c9_complete_d4_20261017/R01",
+      "receipt": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R01/RECEIPT.json",
+        "bytes": 122949,
+        "sha256": "6324a0c68672c3c018648faa8eb2c477894c6bb69356d4690fcf5ac435bca73b"
+      },
+      "exit_code": 1,
+      "actual_process_exit": 1,
+      "timeout_markers": [],
+      "spec": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R01/SPEC.json",
+        "bytes": 67061,
+        "sha256": "6cf7490e630ef758a3d7b1d105ffe31b84207b8e5b611af155881dd3796c71ab"
+      },
+      "elapsed_s": 3.389999999999418,
+      "matched": 40,
+      "remaining": 73
+    },
+    {
+      "output": "code/output/m3_c9_complete_d4_20261017/R02",
+      "receipt": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R02/RECEIPT.json",
+        "bytes": 78619,
+        "sha256": "dbd7518cea954324d78cd7f463886d56682e767a45bf12bac0d25542a9c8611f"
+      },
+      "exit_code": 1,
+      "actual_process_exit": 1,
+      "timeout_markers": [],
+      "spec": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R02/SPEC.json",
+        "bytes": 48075,
+        "sha256": "da912c5131c4555057adf31344c9ff43540abfcd680937a8f3f98f0a9a6965f4"
+      },
+      "elapsed_s": 27.796999999991385,
+      "matched": 62,
+      "remaining": 11
+    },
+    {
+      "output": "code/output/m3_c9_complete_d4_20261017/R03",
+      "receipt": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R03/RECEIPT.json",
+        "bytes": 25633,
+        "sha256": "6bb8fcae7a0a5b47617d893191baeff05b616a0190d3e1b859d562feba45b58f"
+      },
+      "exit_code": 0,
+      "actual_process_exit": 0,
+      "timeout_markers": [],
+      "spec": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R03/SPEC.json",
+        "bytes": 8990,
+        "sha256": "451651c9c6df84c9048c20ef7544086e2f6cc25af6a7df4861aa80c5da0b7474"
+      },
+      "elapsed_s": 40.46899999999732,
+      "matched": 11,
+      "remaining": 1
+    },
+    {
+      "output": "code/output/m3_c9_complete_d4_20261017/R04",
+      "receipt": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R04/RECEIPT.json",
+        "bytes": 6834,
+        "sha256": "58cf9949f84884a91faa9771ffafb04b38e2a4b54e49c203672f2e5366f8fe3f"
+      },
+      "exit_code": 0,
+      "actual_process_exit": 0,
+      "timeout_markers": [],
+      "spec": {
+        "path": "code/output/m3_c9_complete_d4_20261017/R04/SPEC.json",
+        "bytes": 2391,
+        "sha256": "0cbd71a9f998b8c0f459fada9bc504655895b724e592d1596ec26771ecd71d70"
+      },
+      "elapsed_s": 47.687000000005355,
+      "matched": 1,
+      "remaining": 0
+    }
+  ],
+  "current_output": "code/output/m3_c9_complete_d4_20261017/R04",
+  "necessary_case_extensions": [
+    {
+      "key": "NEW_A:D4_A_PROVENANCE_TAMPER",
+      "basis": "R02 DECISION_MEMBER_PREFIX fix must verify previously omitted two provenance payloads; necessary corresponding new negative under START and current user scope; no passed case replay",
+      "definition_manifest": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/CASES.json",
+      "initial_case_count": 113,
+      "extended_case_count": 114
+    }
+  ]
+}

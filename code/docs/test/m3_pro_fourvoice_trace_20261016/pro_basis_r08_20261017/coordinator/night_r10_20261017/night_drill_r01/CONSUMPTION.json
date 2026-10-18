@@ -1,0 +1,736 @@
+{
+  "schema": "M3_DRILL_CONSUMPTION_R01",
+  "original_START": "2026-10-17T21:52:00+08:00",
+  "deadline": "2026-10-18T02:52:00+08:00",
+  "goal": {
+    "threadId": "01a14050-cd98-7c41-8004-5d3e25765167",
+    "createdAt": 1792253457,
+    "status": "active",
+    "opaque_goal_id": null,
+    "identity_note": "platform exposes threadId plus createdAt, no separate opaque ID"
+  },
+  "initial_local_group": {
+    "count_limit": 1,
+    "seconds_limit": 120,
+    "status": "CONSUMED_PASS",
+    "output": "code\\output\\m3_m2_night_drill_20261017\\runs\\local_group_01",
+    "spec_sha256": "f3c91b2a5028e30a07cf3bf8c1d1cf47be5f062a4d3cab88742f13010b344390",
+    "result": {
+      "schema": "M3_DRILL_LOCAL_GROUP_RESULT_R01",
+      "origin": "LOCAL_SYNTHETIC",
+      "exit_code": 0,
+      "elapsed_seconds": 1.3439999999973224,
+      "results": [
+        {
+          "id": "INTAKE_NORMAL",
+          "expected": "RECEIVED_THEN_ADVANCED",
+          "result": {
+            "case_id": "INTAKE_NORMAL",
+            "assertion": "MATCHED",
+            "expected": "RECEIVED_THEN_ADVANCED",
+            "actual": {
+              "case_id": "INTAKE_NORMAL",
+              "origin": "LOCAL_SYNTHETIC",
+              "remote_verified": false,
+              "status": "RECEIVED_THEN_ADVANCED",
+              "received": {
+                "status": "RECEIVED",
+                "key": "eef7d0c93c2487d9ead5a05c1584a1c66e9857df12d6308d0c7474989a3083a7",
+                "receipt": {
+                  "schema": "NIGHT_HANDOFF_RECEIPT_V1",
+                  "status": "RECEIVED",
+                  "key": "eef7d0c93c2487d9ead5a05c1584a1c66e9857df12d6308d0c7474989a3083a7",
+                  "handoff_id": "DRILL-SYNTHETIC-01",
+                  "task_id": "M3-NIGHT-DRILL-R01-20261017",
+                  "plan_version": "R01",
+                  "producer": "M2",
+                  "base_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "result_commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                  "consumer": "M3",
+                  "handoff_sha256": "852435e8d9cf88c7ccbe0fc55673609232c0b9f19dbada73543ed920874b7944",
+                  "manifest": [
+                    {
+                      "path": "payload.txt",
+                      "bytes": 39,
+                      "sha256": "b4d1d120f707c18f93681ac6f7bb16bc9ddf709ffb0d85bff78be638af0f881a"
+                    }
+                  ],
+                  "origin": "LOCAL_SYNTHETIC",
+                  "received_utc": "2026-10-17T16:24:14.029678+00:00",
+                  "advance_count": 0,
+                  "remote_verified": false,
+                  "accepted": false,
+                  "integrated": false
+                },
+                "remote_verified": false
+              },
+              "advanced": {
+                "status": "ADVANCED",
+                "key": "eef7d0c93c2487d9ead5a05c1584a1c66e9857df12d6308d0c7474989a3083a7",
+                "advance_count": 1
+              }
+            },
+            "origin": "LOCAL_SYNTHETIC",
+            "remote_verified": false,
+            "network_calls": 0,
+            "business_tools_started": 0
+          },
+          "seconds": 0.10900000001129229
+        },
+        {
+          "id": "INTAKE_DUPLICATE_RELOAD",
+          "expected": "DUPLICATE_EXACTLY_ONCE",
+          "result": {
+            "case_id": "INTAKE_DUPLICATE_RELOAD",
+            "assertion": "MATCHED",
+            "expected": "DUPLICATE_EXACTLY_ONCE",
+            "actual": {
+              "case_id": "INTAKE_DUPLICATE_RELOAD",
+              "origin": "LOCAL_SYNTHETIC",
+              "remote_verified": false,
+              "status": "DUPLICATE_EXACTLY_ONCE",
+              "snapshot": {
+                "advance_count": 1,
+                "consumer": "M3",
+                "outbox": {},
+                "receipts": {
+                  "eef7d0c93c2487d9ead5a05c1584a1c66e9857df12d6308d0c7474989a3083a7": {
+                    "accepted": false,
+                    "advance_count": 1,
+                    "advanced_utc": "2026-10-17T16:24:14.161280+00:00",
+                    "base_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "consumer": "M3",
+                    "handoff_id": "DRILL-SYNTHETIC-01",
+                    "handoff_sha256": "852435e8d9cf88c7ccbe0fc55673609232c0b9f19dbada73543ed920874b7944",
+                    "integrated": false,
+                    "key": "eef7d0c93c2487d9ead5a05c1584a1c66e9857df12d6308d0c7474989a3083a7",
+                    "manifest": [
+                      {
+                        "bytes": 39,
+                        "path": "payload.txt",
+                        "sha256": "b4d1d120f707c18f93681ac6f7bb16bc9ddf709ffb0d85bff78be638af0f881a"
+                      }
+                    ],
+                    "origin": "LOCAL_SYNTHETIC",
+                    "plan_version": "R01",
+                    "producer": "M2",
+                    "received_utc": "2026-10-17T16:24:14.134110+00:00",
+                    "remote_verified": false,
+                    "result_commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                    "schema": "NIGHT_HANDOFF_RECEIPT_V1",
+                    "status": "RECEIVED",
+                    "task_id": "M3-NIGHT-DRILL-R01-20261017"
+                  }
+                },
+                "revision": 2,
+                "schema": "M3_DRILL_INTAKE_STATE_V1"
+              }
+            },
+            "origin": "LOCAL_SYNTHETIC",
+            "remote_verified": false,
+            "network_calls": 0,
+            "business_tools_started": 0
+          },
+          "seconds": 0.10899999999674037
+        },
+        {
+          "id": "INTAKE_MANIFEST_BOUNDARIES",
+          "expected": "MANIFEST_4_REJECTIONS",
+          "result": {
+            "case_id": "INTAKE_MANIFEST_BOUNDARIES",
+            "assertion": "MATCHED",
+            "expected": "MANIFEST_4_REJECTIONS",
+            "actual": {
+              "case_id": "INTAKE_MANIFEST_BOUNDARIES",
+              "origin": "LOCAL_SYNTHETIC",
+              "remote_verified": false,
+              "status": "MANIFEST_4_REJECTIONS",
+              "reasons": [
+                "MANIFEST_BYTES_MISMATCH:payload.txt",
+                "MANIFEST_SHA_MISMATCH:payload.txt",
+                "MANIFEST_PATH",
+                "DEVICE_NAME"
+              ]
+            },
+            "origin": "LOCAL_SYNTHETIC",
+            "remote_verified": false,
+            "network_calls": 0,
+            "business_tools_started": 0
+          },
+          "seconds": 0.14100000000325963
+        },
+        {
+          "id": "INTAKE_SCHEMA_VERSION_CONSUMER",
+          "expected": "CONTRACT_4_REJECTIONS",
+          "result": {
+            "case_id": "INTAKE_SCHEMA_VERSION_CONSUMER",
+            "assertion": "MATCHED",
+            "expected": "CONTRACT_4_REJECTIONS",
+            "actual": {
+              "case_id": "INTAKE_SCHEMA_VERSION_CONSUMER",
+              "origin": "LOCAL_SYNTHETIC",
+              "remote_verified": false,
+              "status": "CONTRACT_4_REJECTIONS",
+              "reasons": [
+                "HANDOFF_SCHEMA",
+                "HANDOFF_VERSION",
+                "HANDOFF_CONSUMER",
+                "FULL_COMMIT_REQUIRED"
+              ]
+            },
+            "origin": "LOCAL_SYNTHETIC",
+            "remote_verified": false,
+            "network_calls": 0,
+            "business_tools_started": 0
+          },
+          "seconds": 0.0
+        },
+        {
+          "id": "OUTBOX_RETRY_RELOAD",
+          "expected": "ONE_RETRY_MAXIMUM",
+          "result": {
+            "case_id": "OUTBOX_RETRY_RELOAD",
+            "assertion": "MATCHED",
+            "expected": "ONE_RETRY_MAXIMUM",
+            "actual": {
+              "case_id": "OUTBOX_RETRY_RELOAD",
+              "origin": "LOCAL_SYNTHETIC",
+              "remote_verified": false,
+              "status": "ONE_RETRY_MAXIMUM",
+              "outbox": {
+                "attempts": 2,
+                "binding_sha256": "596986a32275cdab1179b9b6e5c77c3527aa5169d56ac2bc5dc70a5417488e94",
+                "branch": "develop",
+                "handoff": {
+                  "base_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "consumer": "M2",
+                  "handoff_id": "DRILL-SYNTHETIC-01",
+                  "manifest": [
+                    {
+                      "bytes": 39,
+                      "path": "payload.txt",
+                      "sha256": "b4d1d120f707c18f93681ac6f7bb16bc9ddf709ffb0d85bff78be638af0f881a"
+                    }
+                  ],
+                  "plan_version": "R01",
+                  "producer": "M3",
+                  "result_commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                  "schema": "NIGHT_HANDOFF_V1",
+                  "task_id": "M3-NIGHT-DRILL-R01-20261017",
+                  "validation": {
+                    "level": "LOCAL_SYNTHETIC_ONLY"
+                  }
+                },
+                "history": [
+                  {
+                    "argv": [
+                      "LOCAL_SYNTHETIC_ADAPTER",
+                      "origin",
+                      "develop",
+                      "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                    ],
+                    "attempt": 1,
+                    "elapsed_seconds": 0.01,
+                    "error": "LOCAL_SYNTHETIC:FAILED_TEMPORARY",
+                    "exit_code": 1,
+                    "network_budget_exceeded": false,
+                    "network_limit_seconds": 30,
+                    "origin": "LOCAL_SYNTHETIC",
+                    "outcome": "FAILED_TEMPORARY",
+                    "recorded_utc": "2026-10-17T16:24:14.439163+00:00"
+                  },
+                  {
+                    "argv": [
+                      "LOCAL_SYNTHETIC_ADAPTER",
+                      "origin",
+                      "develop",
+                      "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                    ],
+                    "attempt": 2,
+                    "elapsed_seconds": 0.01,
+                    "error": "LOCAL_SYNTHETIC:FAILED_TEMPORARY",
+                    "exit_code": 1,
+                    "network_budget_exceeded": false,
+                    "network_limit_seconds": 30,
+                    "origin": "LOCAL_SYNTHETIC",
+                    "outcome": "FAILED_TEMPORARY",
+                    "recorded_utc": "2026-10-17T16:24:14.485001+00:00"
+                  }
+                ],
+                "key": "be04c89f39cb0e6a83116060a20fbe7c985e7b1f12c3cb95827913205c83a87d",
+                "max_retries": 1,
+                "next_action": "Stop sends; preserve outbox",
+                "remote": "origin",
+                "remote_verified": false,
+                "status": "RETRY_EXHAUSTED"
+              }
+            },
+            "origin": "LOCAL_SYNTHETIC",
+            "remote_verified": false,
+            "network_calls": 0,
+            "business_tools_started": 0
+          },
+          "seconds": 0.17199999999138527
+        },
+        {
+          "id": "OUTBOX_UNKNOWN",
+          "expected": "UNKNOWN_NO_RESEND_OR_REMOTE_PASS",
+          "result": {
+            "case_id": "OUTBOX_UNKNOWN",
+            "assertion": "MATCHED",
+            "expected": "UNKNOWN_NO_RESEND_OR_REMOTE_PASS",
+            "actual": {
+              "case_id": "OUTBOX_UNKNOWN",
+              "origin": "LOCAL_SYNTHETIC",
+              "remote_verified": false,
+              "status": "UNKNOWN_NO_RESEND_OR_REMOTE_PASS",
+              "outbox": {
+                "attempts": 1,
+                "binding_sha256": "596986a32275cdab1179b9b6e5c77c3527aa5169d56ac2bc5dc70a5417488e94",
+                "branch": "develop",
+                "handoff": {
+                  "base_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "consumer": "M2",
+                  "handoff_id": "DRILL-SYNTHETIC-01",
+                  "manifest": [
+                    {
+                      "bytes": 39,
+                      "path": "payload.txt",
+                      "sha256": "b4d1d120f707c18f93681ac6f7bb16bc9ddf709ffb0d85bff78be638af0f881a"
+                    }
+                  ],
+                  "plan_version": "R01",
+                  "producer": "M3",
+                  "result_commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                  "schema": "NIGHT_HANDOFF_V1",
+                  "task_id": "M3-NIGHT-DRILL-R01-20261017",
+                  "validation": {
+                    "level": "LOCAL_SYNTHETIC_ONLY"
+                  }
+                },
+                "history": [
+                  {
+                    "argv": [
+                      "LOCAL_SYNTHETIC_ADAPTER",
+                      "origin",
+                      "develop",
+                      "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                    ],
+                    "attempt": 1,
+                    "elapsed_seconds": 0.01,
+                    "error": "LOCAL_SYNTHETIC:UNKNOWN",
+                    "exit_code": null,
+                    "network_budget_exceeded": false,
+                    "network_limit_seconds": 30,
+                    "origin": "LOCAL_SYNTHETIC",
+                    "outcome": "UNKNOWN",
+                    "recorded_utc": "2026-10-17T16:24:14.607527+00:00"
+                  }
+                ],
+                "key": "be04c89f39cb0e6a83116060a20fbe7c985e7b1f12c3cb95827913205c83a87d",
+                "max_retries": 1,
+                "next_action": "Coordinator must fetch/query exact commit containment before any resend",
+                "remote": "origin",
+                "remote_verified": false,
+                "status": "UNKNOWN"
+              }
+            },
+            "origin": "LOCAL_SYNTHETIC",
+            "remote_verified": false,
+            "network_calls": 0,
+            "business_tools_started": 0
+          },
+          "seconds": 0.125
+        },
+        {
+          "id": "OUTBOX_DENIED",
+          "expected": "DENIED_NO_RETRY",
+          "result": {
+            "case_id": "OUTBOX_DENIED",
+            "assertion": "MATCHED",
+            "expected": "DENIED_NO_RETRY",
+            "actual": {
+              "case_id": "OUTBOX_DENIED",
+              "origin": "LOCAL_SYNTHETIC",
+              "remote_verified": false,
+              "status": "DENIED_NO_RETRY",
+              "outbox": {
+                "attempts": 1,
+                "binding_sha256": "596986a32275cdab1179b9b6e5c77c3527aa5169d56ac2bc5dc70a5417488e94",
+                "branch": "develop",
+                "handoff": {
+                  "base_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "consumer": "M2",
+                  "handoff_id": "DRILL-SYNTHETIC-01",
+                  "manifest": [
+                    {
+                      "bytes": 39,
+                      "path": "payload.txt",
+                      "sha256": "b4d1d120f707c18f93681ac6f7bb16bc9ddf709ffb0d85bff78be638af0f881a"
+                    }
+                  ],
+                  "plan_version": "R01",
+                  "producer": "M3",
+                  "result_commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                  "schema": "NIGHT_HANDOFF_V1",
+                  "task_id": "M3-NIGHT-DRILL-R01-20261017",
+                  "validation": {
+                    "level": "LOCAL_SYNTHETIC_ONLY"
+                  }
+                },
+                "history": [
+                  {
+                    "argv": [
+                      "LOCAL_SYNTHETIC_ADAPTER",
+                      "origin",
+                      "develop",
+                      "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                    ],
+                    "attempt": 1,
+                    "elapsed_seconds": 0.01,
+                    "error": "LOCAL_SYNTHETIC:DENIED",
+                    "exit_code": 1,
+                    "network_budget_exceeded": false,
+                    "network_limit_seconds": 30,
+                    "origin": "LOCAL_SYNTHETIC",
+                    "outcome": "DENIED",
+                    "recorded_utc": "2026-10-17T16:24:14.735467+00:00"
+                  }
+                ],
+                "key": "be04c89f39cb0e6a83116060a20fbe7c985e7b1f12c3cb95827913205c83a87d",
+                "max_retries": 1,
+                "next_action": "Coordinator verifies actual remote containment; no automatic resend",
+                "remote": "origin",
+                "remote_verified": false,
+                "status": "STOPPED_DENIED"
+              }
+            },
+            "origin": "LOCAL_SYNTHETIC",
+            "remote_verified": false,
+            "network_calls": 0,
+            "business_tools_started": 0
+          },
+          "seconds": 0.14100000000325963
+        },
+        {
+          "id": "OUTBOX_INTERRUPTED",
+          "expected": "INTERRUPTED_SEND_UNKNOWN",
+          "result": {
+            "case_id": "OUTBOX_INTERRUPTED",
+            "assertion": "MATCHED",
+            "expected": "INTERRUPTED_SEND_UNKNOWN",
+            "actual": {
+              "case_id": "OUTBOX_INTERRUPTED",
+              "origin": "LOCAL_SYNTHETIC",
+              "remote_verified": false,
+              "status": "INTERRUPTED_SEND_UNKNOWN",
+              "outbox": {
+                "attempts": 1,
+                "binding_sha256": "596986a32275cdab1179b9b6e5c77c3527aa5169d56ac2bc5dc70a5417488e94",
+                "branch": "develop",
+                "handoff": {
+                  "base_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "consumer": "M2",
+                  "handoff_id": "DRILL-SYNTHETIC-01",
+                  "manifest": [
+                    {
+                      "bytes": 39,
+                      "path": "payload.txt",
+                      "sha256": "b4d1d120f707c18f93681ac6f7bb16bc9ddf709ffb0d85bff78be638af0f881a"
+                    }
+                  ],
+                  "plan_version": "R01",
+                  "producer": "M3",
+                  "result_commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                  "schema": "NIGHT_HANDOFF_V1",
+                  "task_id": "M3-NIGHT-DRILL-R01-20261017",
+                  "validation": {
+                    "level": "LOCAL_SYNTHETIC_ONLY"
+                  }
+                },
+                "history": [],
+                "key": "be04c89f39cb0e6a83116060a20fbe7c985e7b1f12c3cb95827913205c83a87d",
+                "max_retries": 1,
+                "next_action": "Interrupted send: query exact remote containment; do not resend",
+                "remote": "origin",
+                "remote_verified": false,
+                "status": "UNKNOWN"
+              }
+            },
+            "origin": "LOCAL_SYNTHETIC",
+            "remote_verified": false,
+            "network_calls": 0,
+            "business_tools_started": 0
+          },
+          "seconds": 0.125
+        },
+        {
+          "id": "INTAKE_SINGLE_WRITER",
+          "expected": "EXCLUSIVE_WRITER",
+          "result": {
+            "case_id": "INTAKE_SINGLE_WRITER",
+            "assertion": "MATCHED",
+            "expected": "EXCLUSIVE_WRITER",
+            "actual": {
+              "case_id": "INTAKE_SINGLE_WRITER",
+              "origin": "LOCAL_SYNTHETIC",
+              "remote_verified": false,
+              "status": "EXCLUSIVE_WRITER",
+              "rejection": "SINGLE_WRITER_LOCK_HELD"
+            },
+            "origin": "LOCAL_SYNTHETIC",
+            "remote_verified": false,
+            "network_calls": 0,
+            "business_tools_started": 0
+          },
+          "seconds": 0.07799999999406282
+        },
+        {
+          "id": "INTAKE_CHECKPOINT_GAP",
+          "expected": "RELOAD_CONTINUES_AFTER_RECEIVED",
+          "result": {
+            "case_id": "INTAKE_CHECKPOINT_GAP",
+            "assertion": "MATCHED",
+            "expected": "RELOAD_CONTINUES_AFTER_RECEIVED",
+            "actual": {
+              "case_id": "INTAKE_CHECKPOINT_GAP",
+              "origin": "LOCAL_SYNTHETIC",
+              "remote_verified": false,
+              "status": "RELOAD_CONTINUES_AFTER_RECEIVED"
+            },
+            "origin": "LOCAL_SYNTHETIC",
+            "remote_verified": false,
+            "network_calls": 0,
+            "business_tools_started": 0
+          },
+          "seconds": 0.13999999999941792
+        }
+      ],
+      "planned": 10,
+      "completed": 10,
+      "source_after": {
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/gate.py": {
+          "bytes": 1842,
+          "sha256": "e24d9d82580820f1f0691d2998b9ea995f0dcdc1454f26a39c300c53194434c4"
+        },
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/intake/engine.py": {
+          "bytes": 16752,
+          "sha256": "f463927e4c719e2b40645896b644647bed93f70a7640dca342ce2dc3cba6233b"
+        },
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/intake/selftest.py": {
+          "bytes": 10908,
+          "sha256": "b559c0da2392cede9453f8d22b7bbf182b1fe86084f0b983b2585523a82e7d18"
+        },
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/network.py": {
+          "bytes": 4809,
+          "sha256": "add7a4195f70e8ad7dd23fb50b46892cda1d5d3a09edefd70794a145579016c5"
+        },
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/recovery/owned_worker.py": {
+          "bytes": 6124,
+          "sha256": "11b065c36b149e01cb3e3077a0a07ec829cb52baa25b271c344e58d639b15ade"
+        },
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/recovery/run_recovery.py": {
+          "bytes": 12109,
+          "sha256": "4955933740e8db9ab84c2eb4f099bdeffadf1c6a49263ccaf5dd46f96d02b9b3"
+        },
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/run_group.py": {
+          "bytes": 9045,
+          "sha256": "e26de854209f143f5b2103e2af58dd7a28ff8ee8f79ca37503429fd68be73a3f"
+        },
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/run_worker.py": {
+          "bytes": 6107,
+          "sha256": "71873d3744e30b9d188440a27f80efb0605398942aa6b0149fc66313451ead1e"
+        },
+        "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/verify_inputs.py": {
+          "bytes": 6258,
+          "sha256": "fd7cf78a16e2205b69f0c09d0c403ddb56a7ccf51dc6406287a75e4bff0704ae"
+        },
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/intake/CASES.json": {
+          "bytes": 1933,
+          "sha256": "24670a1ad49e1d85dd25961e7645e0e0b5806058898b4776fa106d3e53da33c6"
+        },
+        "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/intake/BINDING.json": {
+          "bytes": 993,
+          "sha256": "eff95afec3b838fbb824f51c68957f0e59bf7296ce4b3c5d68a0a21099d1335d"
+        }
+      },
+      "limit_seconds": 120,
+      "actual_level": "L1_PURE_FILE_SOFTWARE_ONLY"
+    }
+  },
+  "owned_worker_group": {
+    "count_limit": 1,
+    "seconds_limit": 60,
+    "status": "CONSUMED_PASS",
+    "output": "code\\output\\m3_m2_night_drill_20261017\\runs\\worker_group_01",
+    "result": {
+      "schema": "M3_DRILL_WORKER_GROUP_RECEIPT_R01",
+      "origin": "LOCAL_SYNTHETIC",
+      "exit_code": 0,
+      "elapsed_seconds": 0.6560000000026776,
+      "sources": [
+        {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/recovery/run_recovery.py",
+          "bytes": 12109,
+          "sha256": "4955933740e8db9ab84c2eb4f099bdeffadf1c6a49263ccaf5dd46f96d02b9b3"
+        },
+        {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/recovery/owned_worker.py",
+          "bytes": 6124,
+          "sha256": "11b065c36b149e01cb3e3077a0a07ec829cb52baa25b271c344e58d639b15ade"
+        },
+        {
+          "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/run_worker.py",
+          "bytes": 6107,
+          "sha256": "71873d3744e30b9d188440a27f80efb0605398942aa6b0149fc66313451ead1e"
+        },
+        {
+          "path": "code/software/t052_runner_acceptance_candidate_20261012/windows_job.py",
+          "bytes": 3481,
+          "sha256": "5450b8943b0616cc0f8ad7147c1c6a4b20eb4f04d8a7cc3fb515825941c0df1b"
+        }
+      ],
+      "actual_launches": [
+        {
+          "argv": [
+            "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "-I",
+            "-S",
+            "-B",
+            "-X",
+            "utf8",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\night_r10_20261017\\night_drill_r01\\recovery\\owned_worker.py",
+            "prepare",
+            "--directory",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_m2_night_drill_20261017\\runs\\worker_group_01\\worker_results",
+            "--token",
+            "a9d46508e13e434e820ec4ae2b30fd80",
+            "--seed-sha",
+            "fae80d6507ea913bcbbee63145f1288e3052634296d126da1106ea0efdba6684"
+          ],
+          "pid": 41312,
+          "creationflags": 134217732,
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_m2_night_drill_20261017\\runs\\worker_group_01\\worker_results",
+          "owned_job": true
+        },
+        {
+          "argv": [
+            "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "-I",
+            "-S",
+            "-B",
+            "-X",
+            "utf8",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\night_r10_20261017\\night_drill_r01\\recovery\\owned_worker.py",
+            "resume",
+            "--directory",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_m2_night_drill_20261017\\runs\\worker_group_01\\worker_results",
+            "--token",
+            "a9d46508e13e434e820ec4ae2b30fd80",
+            "--seed-sha",
+            "fae80d6507ea913bcbbee63145f1288e3052634296d126da1106ea0efdba6684"
+          ],
+          "pid": 57904,
+          "creationflags": 134217732,
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_m2_night_drill_20261017\\runs\\worker_group_01\\worker_results",
+          "owned_job": true
+        }
+      ],
+      "owned_processes_closed": true,
+      "result": {
+        "schema": "M3_RECOVERY_DRILL_RESULT_V1",
+        "status": "PASS_LOCAL_SYNTHETIC",
+        "origin": "LOCAL_SYNTHETIC",
+        "original_START": "2026-10-17T21:52:00+08:00",
+        "goal": {
+          "threadId": "01a14050-cd98-7c41-8004-5d3e25765167",
+          "createdAt": 1792253457,
+          "status": "active",
+          "opaque_goal_id": null,
+          "identity_note": "platform exposes threadId plus createdAt, no separate opaque ID"
+        },
+        "consumption_not_reset": true,
+        "dedup_receipts": 1,
+        "task_advances": 1,
+        "outbox_attempts": 1,
+        "same_state_bytes_before_after": true,
+        "processes": [
+          {
+            "mode": "prepare",
+            "pid": 41312,
+            "argv": [
+              "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+              "-I",
+              "-S",
+              "-B",
+              "-X",
+              "utf8",
+              "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\night_r10_20261017\\night_drill_r01\\recovery\\owned_worker.py",
+              "prepare",
+              "--directory",
+              "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_m2_night_drill_20261017\\runs\\worker_group_01\\worker_results",
+              "--token",
+              "a9d46508e13e434e820ec4ae2b30fd80",
+              "--seed-sha",
+              "fae80d6507ea913bcbbee63145f1288e3052634296d126da1106ea0efdba6684"
+            ],
+            "started_monotonic": 99858.75,
+            "exit_code": 1,
+            "interrupted_by_owner": true
+          },
+          {
+            "mode": "resume",
+            "pid": 57904,
+            "argv": [
+              "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+              "-I",
+              "-S",
+              "-B",
+              "-X",
+              "utf8",
+              "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\night_r10_20261017\\night_drill_r01\\recovery\\owned_worker.py",
+              "resume",
+              "--directory",
+              "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_m2_night_drill_20261017\\runs\\worker_group_01\\worker_results",
+              "--token",
+              "a9d46508e13e434e820ec4ae2b30fd80",
+              "--seed-sha",
+              "fae80d6507ea913bcbbee63145f1288e3052634296d126da1106ea0efdba6684"
+            ],
+            "started_monotonic": 99858.953,
+            "exit_code": 0
+          }
+        ],
+        "group_elapsed_s": 0.625,
+        "real_Git_network_calls": 0,
+        "foreign_process_termination": 0,
+        "App_restart_verified": false,
+        "machine_restart_verified": false,
+        "remote_recheck": "REQUIRED: coordinator network.py immediately after return",
+        "real_two_machine_recovery": "PENDING",
+        "board_release_allowed": false
+      },
+      "remote_recheck_required": true,
+      "App_restart_verified": false,
+      "machine_restart_verified": false
+    }
+  },
+  "first_defect_increment": {
+    "count_limit": 1,
+    "seconds_limit": 60,
+    "status": "CONSUMED_PASS",
+    "actual_seconds": 0.125,
+    "defect": "input verifier checked base tree instead of result tree",
+    "reused_original_git_reads": 20,
+    "evidence": "INPUT_VERIFICATION.json and failure_01/",
+    "remaining_count": 0
+  },
+  "network": {
+    "seconds_each": 30,
+    "temporary_retries_used": 0,
+    "recovery_readonly_probes_used": 0,
+    "state": "code/output/m3_m2_night_drill_20261017/state/network.json"
+  },
+  "new_HDL_EDA_device": 0,
+  "business_budget_restored": false
+}

@@ -1,0 +1,89 @@
+{
+  "schema": "M3_TASK_DAY4_ROLE_A_REPAIR_R03_READY_V1",
+  "status": "READY_FOR_COORDINATOR_TARGETED_SW_NOT_RUN",
+  "ready_at_UTC": "2026-10-17T15:18:38Z",
+  "role": "night_task_2",
+  "reason": "R02 DECISION_MEMBER_PREFIX on actual C9 noninputs provenance",
+  "production_entry": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/assembler.py",
+    "bytes": 22940,
+    "sha256": "ae4ad0f3fefa1bc28e099a2aabcb827f733358d9bd93988af31e5de20a824ccf"
+  },
+  "selftest": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/selftest.py",
+    "bytes": 7944,
+    "sha256": "e378d7d55256a96c42200179876597adf0802f13d58d24a119b31c4dc86bbca5"
+  },
+  "API": "build_application(request:dict, output_dir:Path)->dict",
+  "selftest_API": "run_case(id:str, output_dir:Path)->dict",
+  "implementation_binding": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/IMPLEMENTATION_BINDING.json",
+    "bytes": 2937,
+    "sha256": "b502304ba95108d09bbe7b064a1cb50dbe6b292965f6c5c713c0ce67ea448b89"
+  },
+  "case_manifest": {
+    "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/CASES.json",
+    "bytes": 2888,
+    "sha256": "74d74c2573d5468bf03b8782a2d5fbf664618972b81dd710ba3517ebe00f3654"
+  },
+  "total_case_definitions": 13,
+  "targeted_A_failed_ids": [
+    "D4_A_ACTUAL_C9",
+    "D4_A_WINDOW_TAMPER",
+    "D4_A_UNKNOWN_OUTPUT",
+    "D4_A_ARGV_DUPLICATE",
+    "D4_A_INCDIR_TAMPER",
+    "D4_A_EXTERNAL_TAMPER"
+  ],
+  "new_necessary_case": "D4_A_PROVENANCE_TAMPER",
+  "already_matched_do_not_rerun": [
+    "D4_A_MISSING_HEADER",
+    "D4_A_WRONG_BASE",
+    "D4_A_MISSING_75",
+    "D4_A_PLAN_TAMPER",
+    "D4_A_SELF_APPROVAL",
+    "D4_A_ZIP_DEVICE"
+  ],
+  "coordinator_original_failed_seams": [
+    "D4_PREPARE_NO_PRIOR_CAPTURE",
+    "D4_IDLE_CHAIN_PENDING"
+  ],
+  "inventory": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/REPAIR_R03/SOURCE_INVENTORY.json",
+    "bytes": 6143,
+    "sha256": "0657ea2ced0bbffc6ce7cd2eaee219593b4ff175eb1eb1e65da3b20dececdf5c"
+  },
+  "static_archive_proof": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/REPAIR_R03/STATIC_ARCHIVE_PROOF.json",
+    "bytes": 1450,
+    "sha256": "1638187d43aca75b5041e6ad80480c1f3a6a01ce54378b8e8ac054da03170282"
+  },
+  "repair_note": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/REPAIR_R03/README.md",
+    "bytes": 2170,
+    "sha256": "77afe220542da06ded725022d9bddc5a5559d7f529878543ba159c41d5b662ae"
+  },
+  "original_READY_unchanged": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/READY.json",
+    "bytes": 4869,
+    "sha256": "e4b938068c85023245c23287dbc541a223cae285d5dd7a7dc6e8e5871c275fc6"
+  },
+  "common": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/common.py",
+    "bytes": 6144,
+    "sha256": "55cb7481fe9c0870247a7d8b2453dea859f0f2e81879795cc0e34ffe8c996dca"
+  },
+  "verification": "STATIC_ONLY archive172 payload-SHA comparisons plus2 manifest hashes; no candidate execution",
+  "auxiliary_review": "Static incremental review: no specific subsequent blocker found; not runtime acceptance",
+  "candidate_imports": 0,
+  "syntax_or_AST_checks": 0,
+  "candidate_executions": 0,
+  "tools_started": 0,
+  "HDL_runs": 0,
+  "execution_allowed": false,
+  "real_pass": false,
+  "board_release_allowed": false,
+  "git": "NOT_COMMITTED_NOT_PUSHED_BY_ROLE_A; coordinator serial publish",
+  "delivery": "LOCAL_READY; no cross-thread delivery claimed",
+  "freeze": "Do not mutate except concrete coordinator failure or blocker"
+}

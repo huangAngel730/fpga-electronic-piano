@@ -1,0 +1,60 @@
+{
+  "schema": "M3_D4_R02_DIAGNOSIS_V1",
+  "actual_exit_code": 1,
+  "matched_this_run": 62,
+  "cumulative_matched": 102,
+  "old_unrun_75_now_matched": true,
+  "failed": [
+    {
+      "component": "NEW_A",
+      "id": "D4_A_ACTUAL_C9",
+      "error": "ContractReject:CASE_REJECTION_MISMATCH:DECISION_MEMBER_PREFIX"
+    },
+    {
+      "component": "NEW_A",
+      "id": "D4_A_WINDOW_TAMPER",
+      "error": "ContractReject:CASE_REJECTION_MISMATCH:DECISION_MEMBER_PREFIX"
+    },
+    {
+      "component": "NEW_A",
+      "id": "D4_A_UNKNOWN_OUTPUT",
+      "error": "ContractReject:CASE_REJECTION_MISMATCH:DECISION_MEMBER_PREFIX"
+    },
+    {
+      "component": "NEW_A",
+      "id": "D4_A_ARGV_DUPLICATE",
+      "error": "ContractReject:CASE_REJECTION_MISMATCH:DECISION_MEMBER_PREFIX"
+    },
+    {
+      "component": "NEW_A",
+      "id": "D4_A_INCDIR_TAMPER",
+      "error": "ContractReject:CASE_REJECTION_MISMATCH:DECISION_MEMBER_PREFIX"
+    },
+    {
+      "component": "NEW_A",
+      "id": "D4_A_EXTERNAL_TAMPER",
+      "error": "ContractReject:CASE_REJECTION_MISMATCH:DECISION_MEMBER_PREFIX"
+    },
+    {
+      "component": "NEW_B_normalized_intake",
+      "id": "C9_INTAKE_UNIQUE_CALENDAR_SEAM",
+      "error": "CalendarReject:FRAME_PLAN_SOURCE_IDENTITY_0"
+    },
+    {
+      "component": "NEW_ROOT",
+      "id": "D4_PREPARE_NO_PRIOR_CAPTURE",
+      "error": "ContractReject:DECISION_MEMBER_PREFIX"
+    },
+    {
+      "component": "NEW_ROOT",
+      "id": "D4_IDLE_CHAIN_PENDING",
+      "error": "ContractReject:DECISION_MEMBER_PREFIX"
+    }
+  ],
+  "audit_violations": [],
+  "fixes": [
+    "A decision payload includes two provenance/ members in addition to inputs/; preserve and verify auxiliary source bodies instead of treating all members as compilation inputs",
+    "B and root fixture FRAME_PLAN source_identities must be exact path+sha256 as required by unchanged old calendar checker"
+  ],
+  "large_A_B_cases": "NOT_RUN_SEPARATE_PENDING"
+}

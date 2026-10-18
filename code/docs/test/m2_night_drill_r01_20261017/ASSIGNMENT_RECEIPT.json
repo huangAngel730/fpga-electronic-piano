@@ -1,0 +1,86 @@
+{
+  "schema": "NIGHT_HANDOFF_V1",
+  "handoff_id": "NIGHT-DRILL-M3-R01-20261017",
+  "task_id": "M3-NIGHT-DRILL-R01-20261017",
+  "plan_version": "R01",
+  "producer": "M2",
+  "consumer": "M3",
+  "base_commit": "30a8cd5474e6ff485ce0bf8fd5f3c1d51643123a",
+  "result_commit": "edab067e0ceaad9d324d5048771ac3531c3663fe",
+  "manifest": [
+    {
+      "path": "code/docs/Pro基础无实物夜间总任务单_R10_2026-10-17.md",
+      "bytes": 11587,
+      "sha256": "3185a19e9df7e2a442a84685e812717803648388e913892069d7abf058114565"
+    },
+    {
+      "path": "code/docs/M3_夜间Pro无实物收口任务单_R10_2026-10-17.md",
+      "bytes": 8428,
+      "sha256": "83fc51ccfd9c7061aba788846fd007400ac04bcfd755da52bd41afd660bbfa39"
+    },
+    {
+      "path": "code/docs/test/m2_night_drill_r01_20261017/ASSIGNMENT.json",
+      "bytes": 1965,
+      "sha256": "d8f3e9f42f0b968b32b1317b38d725993f83050781b4ce10d21284abd69954a6"
+    },
+    {
+      "path": "code/docs/test/m2_night_drill_r01_20261017/HANDOFF.json",
+      "bytes": 2679,
+      "sha256": "0b3001bcf9ab2a1437f7538d0cb2aa9f44e21ccba195c584f5dd872257398707"
+    },
+    {
+      "path": "code/docs/test/m2_night_drill_r01_20261017/README.md",
+      "bytes": 956,
+      "sha256": "732f34934b16018180511df0afdd136d202c5ced4c9d889de407c3d08a3e5379"
+    },
+    {
+      "path": "code/docs/test/m2_night_drill_r01_20261017/SOURCE_GATE_RECEIPT.json",
+      "bytes": 1621,
+      "sha256": "70f884f79b7d16baae2347a0bff78171935868c61291f1962a38a1b823b80574"
+    },
+    {
+      "path": "code/docs/test/m2_night_drill_r01_20261017/SOURCE_MANIFEST.json",
+      "bytes": 2712,
+      "sha256": "dc2c4d9cd592e97d7752fa030781ec73968d2013c06e6dcc9b918ffa9888f007"
+    },
+    {
+      "path": "code/docs/test/m2_night_drill_r01_20261017/SOURCE_PUBLICATION_RECEIPT.json",
+      "bytes": 4721,
+      "sha256": "9ffbdeeaaeb56b06346a735420e432ac3bb7c543c6d4aee23c1bf29589231192"
+    },
+    {
+      "path": "code/docs/test/m2_night_drill_r01_20261017/SOURCE_RAW_EVIDENCE.zip",
+      "bytes": 4491,
+      "sha256": "9960b250b53ae6d95923b4bab649e13468d543735f7f1b734d9ff684de9c4bb4"
+    },
+    {
+      "path": "code/docs/M3_夜间协作双机演练任务单_R01_2026-10-17.md",
+      "bytes": 13086,
+      "sha256": "da8dbb5da4f7ddd3e8307058506fc342bd2c4e26b4d219ce4654bc97d1f48055"
+    }
+  ],
+  "validation": {
+    "level": "L0 task/evidence preparation only",
+    "self_review": true,
+    "UTF8_LF_JSON_checks": "PASS",
+    "source_archive_CRC_and_raw_byte_checks": "PASS",
+    "original_21_dirty_tracked_bytes_preserved": true,
+    "four_real_drills": "4 NOT_RUN",
+    "repo_gate_required_before_push": true
+  },
+  "ready_for": [
+    "M3 verify actual identity/START, persist receipt, prepare bounded runtime"
+  ],
+  "next_action": "Read code/docs/M3_夜间协作双机演练任务单_R01_2026-10-17.md; verify task and sample commits independently",
+  "blockers": [
+    "M3 actual START/session/Goal/polling not bound",
+    "M3 receipt and actual runtime results not observed",
+    "four real two-machine scenarios not executed"
+  ],
+  "receipts": [],
+  "assignment_status": "ASSIGNED_NOT_ACKNOWLEDGED",
+  "publication_verification": "Receiver verifies this formed result_commit is contained by fetched origin/develop and checks manifest; no self-referential receipt SHA",
+  "sample_handoff": "code/docs/test/m2_night_drill_r01_20261017/HANDOFF.json",
+  "sample_result_commit": "30a8cd5474e6ff485ce0bf8fd5f3c1d51643123a",
+  "board_release_allowed": false
+}

@@ -1,0 +1,95 @@
+{
+  "schema": "M3_DRILL_RECOVERY_READY_V1",
+  "prepared_at_utc": "2026-10-17T16:21:23.586Z",
+  "role": "night3",
+  "status": "READY_L0_NOT_RUN",
+  "source_files": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/recovery/owned_worker.py",
+      "bytes": 6124,
+      "sha256": "11b065c36b149e01cb3e3077a0a07ec829cb52baa25b271c344e58d639b15ade"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/recovery/run_recovery.py",
+      "bytes": 12109,
+      "sha256": "4955933740e8db9ab84c2eb4f099bdeffadf1c6a49263ccaf5dd46f96d02b9b3"
+    }
+  ],
+  "file_manifest": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/recovery/FILE_SHA.json",
+    "bytes": 1603,
+    "sha256": "e70c0bbd3adadf3b45fe60314973bd9780cebdbbc27824507ff58e562e0f9eba"
+  },
+  "entry": "run_recovery.run(out:Path, context:dict)->dict",
+  "README": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/recovery/README.md",
+    "bytes": 4209,
+    "sha256": "5cbd1964702488a86354ba6474ad215278b46ff8f5240f8dc1eb63b963e75962"
+  },
+  "cases": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/recovery/CASES.json",
+    "bytes": 1142,
+    "sha256": "06cee21361a249ad17bfb3db83ff0bece359997304632614ff69eef4aa4f3864"
+  },
+  "R10_readiness": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/recovery/R10_READINESS.json",
+    "bytes": 7837,
+    "sha256": "d1c9f2696f379246133a987dbb2a05053ecf850a5e8347ebd31e455541729605"
+  },
+  "context_required": [
+    "original_START",
+    "deadline",
+    "goal{threadId,createdAt,status=active}",
+    "consumption=actual already-persisted consumed ledger snapshot"
+  ],
+  "context_max_bytes": 262144,
+  "optional_handoff": "handoff{handoff_id,result_commit}; default is published M2 rules sample and consumerM3",
+  "output_scope": "Fresh child of code/output/m3_m2_night_drill_20261017; cannot use its root",
+  "budget": "Coordinator sole invocation/consumption:1x<=60s; internal55s plus cleanup reserve; no allocation by member",
+  "success_expectation": "PASS_LOCAL_SYNTHETIC; first owned handle interrupted; resume exit0; dedup receipt/advance1; outbox attempts1; same state bytes; START/Goal/consumption retained",
+  "failures_and_originals": "Partial state retained; FIRST_FAILURE plus FINAL_PROCESS_RECEIPTS record final exit/stdout/stderr SHA and cleanup status for all started direct Popen objects",
+  "dependency_boundary": "Pinned runner/worker/interpreter plus parent already-loaded stdlib source/cache snapshot before Popen; worker lazy imports/dynamic system DLL closure PENDING; not claimed authenticated complete closure",
+  "self_review": {
+    "readonly_child": "No concrete blocker in final static increments; execution not performed",
+    "changes_for_findings": [
+      "Five-second guard before each Popen and final deadline checks",
+      "Atomic fsynced checkpoint publication",
+      "Minimal environment and -I -S -B worker startup",
+      "Existing stdlib caches snapshot; dependency coverage limited honestly",
+      "Final process exit/cleanup/raw stream receipts on failure and success"
+    ]
+  },
+  "execution_by_member": {
+    "candidate_import": 0,
+    "Python_compile": 0,
+    "selftest": 0,
+    "worker_start": 0,
+    "Git_write": 0,
+    "network": 0,
+    "HDL_EDA_device": 0
+  },
+  "R10_conclusion": "task_day4114 matched, all initial+3 repair consumed. R10 business not resumed. No >one-hour continuous test permission found in checked latest contracts; work-phase hours/gate duration are not business runtime authority.",
+  "original_START": "2026-10-17T21:52:00+08:00",
+  "deadline": "2026-10-18T02:52:00+08:00",
+  "goal": {
+    "threadId": "01a14050-cd98-7c41-8004-5d3e25765167",
+    "createdAt": 1792253457,
+    "status": "active",
+    "opaque_goal_id": null,
+    "identity_note": "platform exposes threadId plus createdAt, no separate opaque ID"
+  },
+  "new_Goal_created": false,
+  "coordinator_next": [
+    "Collect exact files and freeze source/dependency/argv/cwd/output",
+    "Persist own1x60 consumed ledger then pass its actual snapshot in context",
+    "Only coordinator executes recovery; preserve all raw outputs",
+    "Immediately recheck real remote through unique network.py and record missed interval/queue recomputation",
+    "Keep actual App/machine/two-machine recovery PENDING until real evidence"
+  ],
+  "publication": "Not staged/committed/pushed by member; night1 sole publisher",
+  "communication": "Prepared one local READY return; not claimed M2 received/accepted",
+  "real_App_restart_verified": false,
+  "real_machine_restart_verified": false,
+  "real_two_machine_recovery_verified": false,
+  "board_release_allowed": false
+}

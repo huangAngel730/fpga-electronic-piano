@@ -1,0 +1,101 @@
+{
+  "schema": "M3_TASK_DAY4_ROLE_A_READY_V1",
+  "role": "night_task_2",
+  "task": "C9 execution application source/tool/guard/output/window same-version assembly",
+  "status": "READY_FOR_COORDINATOR_BOUNDED_SW_NOT_RUN",
+  "freeze_revision": 1,
+  "ready_at_UTC": "2026-10-17T15:01:27Z",
+  "production_entry": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/assembler.py",
+    "bytes": 21889,
+    "sha256": "4c83cd491abc7979077e317d73c442c16b6edf7f1e8b18770d661c5cac5d82a7"
+  },
+  "API": "build_application(request:dict, output_dir:Path)->dict",
+  "CLI": "assembler.py --request APPLICATION_REQUEST.json --output NEW_DIR",
+  "CLI_pending_exit_code": 3,
+  "CLI_reject_exit_code": 2,
+  "selftest": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/selftest.py",
+    "bytes": 7203,
+    "sha256": "dc27e8fd08526d73b1b07a56ec324888f64dc189b505326d9a58c363d3fe20ed"
+  },
+  "selftest_API": "run_case(id:str, output_dir:Path)->dict",
+  "case_manifest": {
+    "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/CASES.json",
+    "bytes": 2609,
+    "sha256": "65fe2e30cb15b3ed5479c081d9bb905a78dfb0045224eb823db182ca26d0127f"
+  },
+  "case_count": 12,
+  "input_request": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/APPLICATION_REQUEST.json",
+    "bytes": 20293,
+    "sha256": "a30cb2045453db4b3394926d2f1d7c804f780683acdeec64f5910dd1ca481a34"
+  },
+  "implementation_binding": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/IMPLEMENTATION_BINDING.json",
+    "bytes": 2926,
+    "sha256": "4e1ecdb562fecaf376531389336dac34cce3e27d77d5ec1be727e2ce2a6a1733"
+  },
+  "inventory": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/SOURCE_INPUT_INVENTORY.json",
+    "bytes": 12570,
+    "sha256": "354eb52d184df079cd44c938832695e35715fa0158c17ebeaf144434af89cad2"
+  },
+  "static_review": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/STATIC_SELF_REVIEW.json",
+    "bytes": 16785,
+    "sha256": "36084f7fe59fa717d365859b58e21d816ea5ff4761c0d8ad610f997cb782caf8"
+  },
+  "interface": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/INTERFACE.json",
+    "bytes": 1237,
+    "sha256": "dedd12db9ec89716175fd90a4361dfc307d2d2990b6b726767c01bb9c5ebcaf4"
+  },
+  "common": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/common.py",
+    "bytes": 6144,
+    "sha256": "55cb7481fe9c0870247a7d8b2453dea859f0f2e81879795cc0e34ffe8c996dca"
+  },
+  "external_input_manifest": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\tool_dependency_identity\\EXTERNAL_INPUTS.json",
+    "bytes": 2732,
+    "sha256": "2948315ef48ae229baf9d926676445ebde0bcc8c39fc0ed5a7fe5b89c5df2e0c"
+  },
+  "output_scope": "code/output/m3_c9_complete_d4_20261017",
+  "output_dir": "Must be nonexistent; function creates it. Use compact numerical coordinator case path.",
+  "artifacts": [
+    "application",
+    "guard",
+    "reservation",
+    "dependency_graph",
+    "tools",
+    "resolved_plan",
+    "source",
+    "claim"
+  ],
+  "first_capture_requires_existing_trace": false,
+  "candidate_imports": 0,
+  "syntax_or_AST_checks": 0,
+  "functional_runs": 0,
+  "tools_started": 0,
+  "DLLs_loaded": 0,
+  "HDL_runs": 0,
+  "EDA_runs": 0,
+  "hardware_actions": 0,
+  "read_only_auxiliary_review": "Concrete ZIP/argv/compile-incdir/whitelist fixes reviewed statically; no execution or approval",
+  "verification_level": "STATIC_JSON_TEXT_HASH_ONLY",
+  "runtime_test_owner": "night_task_1 coordinator TASK_DAY4_REMAINDER_SW",
+  "execution_allowed": false,
+  "real_pass": false,
+  "board_release_allowed": false,
+  "pending": [
+    "Coordinator new bounded software group and any justified targeted repair",
+    "M2 exact trusted executor admission and real output consumption",
+    "Requested window phase/resource freeze",
+    "Native delay/dynamic dependencies and process cleanup",
+    "HDL/real capture/independent plan mapping/audio_stable/PCM math/physical validation"
+  ],
+  "git_status": "NOT_COMMITTED_NOT_PUSHED_BY_ROLE_A; coordinator serial publish only",
+  "delivery_status": "LOCAL_READY_FOR_COORDINATOR_READ; no cross-thread delivery claimed",
+  "source_freeze_rule": "No further changes absent concrete coordinator failure or interface blocker"
+}

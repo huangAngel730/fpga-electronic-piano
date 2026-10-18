@@ -1,0 +1,11 @@
+{
+  "schema": "INPUT_READ_EVIDENCE_AMENDMENT_V1",
+  "original_verification_file": "INPUT_VERIFICATION.json",
+  "original_verifier_sha256": "c23f3a82b646aa99481a1329553508e174b0068ffcb33c5d97dc619d5c0d3d7d",
+  "correction": "In reused_original_read command entries, exit_code=0 was reconstructed from original successful control flow, not a separately persisted child exit receipt. Treat those entries exit_code as NOT_SEPARATELY_PERSISTED. Empty stdout alone is not exit proof.",
+  "authoritative_ancestry_exit_evidence": "READ_COMMAND_TOOL_RECEIPTS.json records separate actual tool responses for both full SHAs, each exit0",
+  "payload_hash_evidence": "18 preserved Git stdout byte payloads match exact manifest size/SHA; no extra candidate test performed",
+  "source_gate_tree": "7352880e5091a7396d7a9727d98e6f7d0446aa0c",
+  "first_failure_capture_type": "original exec tool merged output; no independently separated stdout/stderr raw capture for that first verifier attempt",
+  "remaining_repair_count": 0
+}

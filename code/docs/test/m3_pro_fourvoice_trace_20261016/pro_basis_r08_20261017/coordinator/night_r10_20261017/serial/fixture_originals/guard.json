@@ -1,0 +1,102 @@
+{
+  "schema": "M3_C9_APPLICATION_GUARD_V1",
+  "permission": "NOT_GRANTED",
+  "process_route": "ABSENT",
+  "bound_fields": [
+    "execution",
+    "external_inputs",
+    "permission",
+    "process_route",
+    "schema",
+    "source",
+    "tools",
+    "window_reference"
+  ],
+  "spec_reconstructed_equal": true,
+  "C9_application_extension_only": true,
+  "guard_primitives": {
+    "original": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\tool_plan_adapter\\r07_fix\\consumer.py",
+      "bytes": 9594,
+      "sha256": "56ba0c5615cbe98094e5d37dc72e9e92002ce4976169723b2fd6f5ba8217bb69"
+    },
+    "selected_definitions": [
+      "Refusal",
+      "canonical",
+      "digest",
+      "need",
+      "pairs",
+      "parse"
+    ],
+    "selected_constants": [],
+    "removed_imports": [
+      "argparse",
+      "importlib",
+      "os",
+      "subprocess"
+    ],
+    "definition_AST_sha256": {
+      "Refusal": "094902c2e033ad28e75d6573d36776e6ed2c739dd1a58239cc5aa49cf1bb568d",
+      "need": "b53298cb02734ad198314ed0280cb5afae421237647e704d668923830770128e",
+      "digest": "7e2b61bdb800307ce234842ec7d11f79d199671c8e9c3ff5ef97957790c0a087",
+      "pairs": "622790b417f18f44f3666cdc2327ecc051b523dca487fb585ef4fb72d9e32047",
+      "parse": "dccec0605f964db1df85f057ff881faca8fbbbe7544efc681c42cd396e0fdc29",
+      "canonical": "7d501540889640cd99aff322352f7674eddfe130706e623f38930e014d8c7505"
+    },
+    "definition_source_ranges": {
+      "Refusal": {
+        "start": 25,
+        "end": 26
+      },
+      "need": {
+        "start": 29,
+        "end": 31
+      },
+      "digest": {
+        "start": 34,
+        "end": 35
+      },
+      "pairs": {
+        "start": 44,
+        "end": 49
+      },
+      "parse": {
+        "start": 52,
+        "end": 54
+      },
+      "canonical": {
+        "start": 57,
+        "end": 58
+      }
+    },
+    "derived_AST_sha256": "9bd35c0467dd4035be483058b401c8d90996e02a1cd0647d8fe87b5eee12f019",
+    "derived_source_sha256": "95336fdacb521ac879019aba691936b83fc07f53a45451cc98e0cdfd09a153c8",
+    "module_globals": [
+      "Path",
+      "Refusal",
+      "annotations",
+      "canonical",
+      "digest",
+      "hashlib",
+      "json",
+      "need",
+      "pairs",
+      "parse",
+      "sys"
+    ],
+    "normalization_algorithm_nodes_changed": false
+  },
+  "guard_loader": {
+    "source": {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/plan_consumption_guard/m3r08_03.py",
+      "bytes": 5969,
+      "sha256": "cfebf362c50187448ec3a7ed868872602e4cae8e5d3ae75b39133d51fee7f213"
+    },
+    "unchanged_definitions": [
+      "pure_module"
+    ],
+    "AST_sha256": "5d62cd66b1e49dede4f3d4607309ea422845d12a46740cd3ae28a7bb992517ff"
+  },
+  "old_Python_worker_audit_invoked": false,
+  "reason": "Old guard is fixed-Python scope; reuse unchanged pure canonical comparison, never broaden it into HDL permission"
+}

@@ -1,0 +1,92 @@
+{
+  "schema": "N10_HANDOFF_SOURCE_DEPENDENCIES_V1",
+  "status": "L0_IDENTITIES_ONLY",
+  "files": [
+    {
+      "path": "code/docs/test/m2_night_r10_20261017/DELIVERY_CONTRACT.json",
+      "bytes": 2847,
+      "sha256": "bc375cadc16188a716e2b710fa337082e252b99193b8d36830e095397f6241bf"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/MODULE_BINDINGS.json",
+      "bytes": 3249,
+      "sha256": "aa646892539f9cfd2c7caa0d5a0538a097dc384dcb17e00e13ca99b519de474e"
+    },
+    {
+      "path": "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_public_chain_20261017/c9_m1_semantics_20261017/SOURCE_CLOSURE_R06C9.zip",
+      "bytes": 182685,
+      "sha256": "d458ab16277bd46751318ac368b22df1b21b35c4867c47942e7bff7d27fc3aa2"
+    },
+    {
+      "path": "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/c9_m1_semantics_20261017/CAPTURE_CONTRACT_R06C9.json",
+      "bytes": 8582,
+      "sha256": "2a36e92e5ea4c518f9b3a4787e5632271907db7603dcedeed31bf2dfe74a2ead"
+    },
+    {
+      "path": "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/c9_m1_semantics_20261017/NORMALIZED_ROW_SCHEMA_R06C9.json",
+      "bytes": 33317,
+      "sha256": "0fca8cd3deba9f5edd11aa2b97e3023465f3210b03eb6e6115b3eb7eceb927c1"
+    },
+    {
+      "path": "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/c9_m1_semantics_20261017/OBSERVER_EXPORTS_R06C9.json",
+      "bytes": 12066,
+      "sha256": "d8ee0c4c4ffc284e076a89a52aed1dd2363107ab6d7a63f77202b1eeb53a4867"
+    },
+    {
+      "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/NEXT_INPUT_CONTRACT.md",
+      "bytes": 2485,
+      "sha256": "b9cd60d3df2184e318b03e6d973f3ebf319ae73614f6e7deb51f771159a52373"
+    }
+  ],
+  "fixed_capture_source_pins": {
+    "TB": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_capture_tb\\c9_binding\\tb_r7a_c9_public_capture.sv",
+      "bytes": 11007,
+      "sha256": "a31ae010d835d62b83096ba7604f8517793401eac90e928bbefeb2f024c89a4d"
+    },
+    "DRIVER": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\tb\\board\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\midi_stimulus\\midi_public_port_driver.sv",
+      "bytes": 3417,
+      "sha256": "99e40266a46f1606409fa6ef270dd0c6b056dcb511363ae90dfbaf67653df89a"
+    },
+    "reset": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r06_20261017\\midi_stimulus\\RUN_02\\products\\reset.drv",
+      "bytes": 30,
+      "sha256": "c255e20fafbd47d3591a9166ef736e1766ff1a8b93378afd4ef895ad693c1a52"
+    }
+  },
+  "fixed_existing75_application": {
+    "path": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\docs\\test\\m3_pro_fourvoice_trace_20261016\\pro_basis_r07_20261017\\public_capture_tb\\c9_binding\\SOURCE_APPLICATION_C9.zip",
+    "bytes": 199075,
+    "sha256": "b23c65d58e50da089bc78645cf9ec65b5a3be5149f242fbe59d9891c3e44d1a2"
+  },
+  "source_load_rule": "Only selftest explicit invocation compiles exact handoff.py source after SOURCE_SHA. Production assemble does not load or call any candidate/checker/FRAME function.",
+  "external_tools": "Actual bytes checked against preserved request/external manifest during coordinator execution only; no member tool reads/execution.",
+  "reused_code_identities": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/frame_plan_generator_candidate.py",
+      "bytes": 10359,
+      "sha256": "38592faebeeeb0a2022668785453760a5b58babd24af6ff18a96f15790597191"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/r07_fix/calendar_r07_fix_candidate.py",
+      "bytes": 14768,
+      "sha256": "9af7022b0a228e0f8e180fd6a3c58646757cb407dfb132726c8ae0ace28413a5"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/c9_completion_r01/serial.py",
+      "bytes": 31061,
+      "sha256": "c576a5c79169eb5e91d796775aec820260a5df0e47b5c4472acf8630f5dcc5b7"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/math_bundle.py",
+      "bytes": 9608,
+      "sha256": "83659169c25e5d77621e1649eeda25697b7f0eb4767d8321599144a19ceb3854"
+    },
+    {
+      "path": "code/software/m3_40mhz_pcm_i2s_latency_20261015/night_20261016/RESUME_R02/consume_capture.py",
+      "bytes": 19277,
+      "sha256": "da91462e8421719e09ffab60d7bbe38d4ee05ac1793ea70e1f09c7a69ccda0cb"
+    }
+  ]
+}

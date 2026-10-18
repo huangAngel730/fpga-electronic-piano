@@ -1,0 +1,19 @@
+{
+  "schema": "M3_DRILL_INTAKE_CASES_V1",
+  "status": "PREPARED_NOT_RUN",
+  "origin": "LOCAL_SYNTHETIC",
+  "count": 10,
+  "execution_owner": "night_task_1",
+  "cases": [
+    {"id": "INTAKE_NORMAL", "expected": "RECEIVED_THEN_ADVANCED", "description": "Exact bytes verified; durable RECEIVED exists before separate atomic advance"},
+    {"id": "INTAKE_DUPLICATE_RELOAD", "expected": "DUPLICATE_EXACTLY_ONCE", "description": "Reload then rediscover identical full-key handoff: one receipt and one advancement"},
+    {"id": "INTAKE_MANIFEST_BOUNDARIES", "expected": "MANIFEST_4_REJECTIONS", "description": "Wrong bytes, wrong SHA, parent escape and Windows NUL each reject without receipt"},
+    {"id": "INTAKE_SCHEMA_VERSION_CONSUMER", "expected": "CONTRACT_4_REJECTIONS", "description": "Schema/version/consumer mismatch and abbreviated result_commit reject"},
+    {"id": "OUTBOX_RETRY_RELOAD", "expected": "ONE_RETRY_MAXIMUM", "description": "Exact target/commit/error persists; reload retains attempts; first send plus one retry only"},
+    {"id": "OUTBOX_UNKNOWN", "expected": "UNKNOWN_NO_RESEND_OR_REMOTE_PASS", "description": "Unknown result persists, refuses blind resend, never marks REMOTE_VERIFIED"},
+    {"id": "OUTBOX_DENIED", "expected": "DENIED_NO_RETRY", "description": "Permission denial persists exact error and stops even before temporary retry allowance"},
+    {"id": "OUTBOX_INTERRUPTED", "expected": "INTERRUPTED_SEND_UNKNOWN", "description": "File-only simulated checkpoint reload turns unfinished IN_FLIGHT into UNKNOWN; no process interruption claimed"},
+    {"id": "INTAKE_SINGLE_WRITER", "expected": "EXCLUSIVE_WRITER", "description": "Second store cannot acquire writer lock; first releases only its own token"},
+    {"id": "INTAKE_CHECKPOINT_GAP", "expected": "RELOAD_CONTINUES_AFTER_RECEIVED", "description": "Advance before receipt rejects; reload after received-before-advance gap continues once"}
+  ]
+}

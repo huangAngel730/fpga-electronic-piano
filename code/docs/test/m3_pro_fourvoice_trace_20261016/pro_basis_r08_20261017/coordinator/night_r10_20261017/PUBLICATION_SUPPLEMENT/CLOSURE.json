@@ -1,0 +1,95 @@
+{
+  "schema": "M3_NIGHT_DRILL_R10_BOUNDED_CLOSURE_R01",
+  "utc": "2026-10-17T17:03:50.775142+00:00",
+  "original_START": "2026-10-17T21:52:00+08:00",
+  "deadline": "2026-10-18T02:52:00+08:00",
+  "same_Goal": {
+    "threadId": "01a14050-cd98-7c41-8004-5d3e25765167",
+    "createdAt": 1792253457,
+    "status": "active"
+  },
+  "unique_executor_publisher": "night1",
+  "members": {
+    "night2": "intake then admission, static only",
+    "night3": "recovery then serial handoff, static only"
+  },
+  "drill": {
+    "status": "PARTIAL_WAITING_INPUT",
+    "source_commit": "7fcc1ee1bd95a602311253949ec2cda8e4da7cd2",
+    "receipt_commit": "4d4afad2f7069c4a8f216b6d915112eb8fc98636",
+    "local_group_matched": 10,
+    "local_group_seconds": 1.344,
+    "worker_group_seconds": 0.656,
+    "first_input_repair_seconds": 0.125,
+    "archive": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/night_drill_r01/DELIVERY/M3_NIGHT_DRILL_RESULT_R01_20261018.zip",
+      "bytes": 368174,
+      "sha256": "0a1c470c21dd54efaffa4bddd9927435c2475001fa3df770dc58b9094ac891a3"
+    },
+    "real_two_machine_four_of_four": false,
+    "missing": [
+      "M2 explicit host/session originals",
+      "Real send-failure/unknown cross-machine recovery originals",
+      "M2 limited review/acceptance"
+    ],
+    "App_machine_restart_verified": false
+  },
+  "R10": {
+    "status": "PARTIAL_WAITING_M2_FINISH_PHASE_EXECUTION_AND_M1_MATH",
+    "software_unit": "SOURCE_BOUND_PREPARATION_READY",
+    "source_commit": "26cb6fed2cfa2302a2776cbe010d2e105d428bb1",
+    "remote_verified": true,
+    "ancestor_exit_code": 0,
+    "LINK_cases": 7,
+    "LINK_seconds": 9.391,
+    "LINK_exit_code": 0,
+    "first_defect_increment": "NOT_CONSUMED; no reason to spend",
+    "archive": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/DELIVERY/M3_NIGHT_R10_PREPARATION_20261018.zip",
+      "bytes": 1784880,
+      "sha256": "2ab7f98a543518afa4a985e282ab6e07325f77320fd7b0bc09695930782d5e67"
+    },
+    "integration_handoff": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/INTEGRATION_HANDOFF.json",
+      "bytes": 49768,
+      "sha256": "8c58686bc40e226859c3e5a6cd4f9c082a07880295f60b62c425b115b3402af7"
+    },
+    "missing": [
+      "M2 freeze exact source STOP/finish D or D+1 at1130660",
+      "M2 trusted executor/native dynamic tool dependency identity and new exact HDL admission/budget",
+      "Actual same-source capture, unique full FRAME and M1 independent PCM24/ID/clip math",
+      "Actual Pro part/clock/constraints/offline physical/board evidence"
+    ]
+  },
+  "consumption_summary": {
+    "DRILL_local_group": "1/1 used<=120s",
+    "DRILL_owned_worker": "1/1 used<=60s, exactly two direct own worker processes",
+    "DRILL_first_defect_increment": "1/1 used0.125s<=60s; ordinary input checker tree comparison only; failures retained",
+    "N10_LINK": "1/1 used9.391s<=120s",
+    "N10_repair": "0/1 used, remains conditional<=60s",
+    "network_operations_observed": 10,
+    "network_elapsed_max_seconds": 5.202999999994063,
+    "network_all_exit_zero": true,
+    "temporary_retries_used": 0,
+    "recovery_probes_used": 0,
+    "repository_gates_seconds": [
+      221.907,
+      216.70300000000861
+    ],
+    "repository_gates_exit": [
+      0,
+      0
+    ],
+    "old_114_and_old_204": "REUSED_NOT_REPLAYED",
+    "new_Pro_HDL_EDA_devices": 0,
+    "N32_new_work": false
+  },
+  "queue_end": "NO_ACTIONABLE_WORK within current ready/binding scope; independent preparation completed, remaining dependencies need owner inputs/permission",
+  "remaining_budget_rule": "Unused conditional repair is not new work or HDL permission; no quota restoration",
+  "polling": "POLLING_NOT_VERIFIED; actual active-session checkpoint queries and raw logs supplied, no deployed autonomous wakeup promise",
+  "receiver_status": "M2_NOT_OBSERVED; Git publication is not M2 acceptance",
+  "shared_status_board": "No M3 edits; M2 owns registration",
+  "budget_meter": "GOAL_SNAPSHOT.json actual API response; other-member tokens unavailable; no currency estimate",
+  "first_failures": "DRILL failure_01 and R10 admission/STATIC_CHECK_FIRST_FAILURE retained in original archives; first checker merged-tool capture limitation explicit",
+  "next_action": "M2 verify both original bundles and precise gates, add own host/session receipt, decide exact finish phase and trusted executor/new HDL budget; M1 owns future math. Resume only after verified source/input/permission and remaining original time/budget, otherwise next valid task card."
+}

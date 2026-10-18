@@ -1,0 +1,26 @@
+{
+  "schema": "M3_D4_B_C9_COMPLETION_CASES_V1",
+  "status": "NOT_RUN",
+  "group": "TASK_DAY4_REMAINDER_SW_NEW_SEAMS",
+  "entry": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/selftest.py",
+  "cases": [
+    {
+      "id": "C9_CSV_ENVELOPE_REJECT",
+      "expected": "PASS",
+      "description": "Reject wrong public envelope/schema."
+    },
+    {
+      "id": "C9_CSV_MISSING_FIELD_REJECT",
+      "expected": "PASS",
+      "description": "Reject loss of any one of 74 fields."
+    },
+    {
+      "id": "C9_CSV_X_NULL_LONG_CELL_ROUNDTRIP",
+      "expected": "PASS",
+      "description": "Keep X/null/full provenance and 140000-byte metadata cell; reject a cross-line unterminated CSV record."
+    }
+  ],
+  "old_passed_tests_rerun": false,
+  "candidate_runs": 0,
+  "board_release_allowed": false
+}

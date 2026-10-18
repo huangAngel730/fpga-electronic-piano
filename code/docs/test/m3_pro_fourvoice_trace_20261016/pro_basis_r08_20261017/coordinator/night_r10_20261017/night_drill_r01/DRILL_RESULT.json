@@ -1,0 +1,186 @@
+{
+  "schema": "M3_NIGHT_DRILL_RESULT_R01",
+  "task_id": "M3-NIGHT-DRILL-R01-20261017",
+  "utc": "2026-10-17T16:26:05.973336+00:00",
+  "status": "PARTIAL",
+  "queue_status": "WAITING_INPUT",
+  "original_START": "2026-10-17T21:52:00+08:00",
+  "deadline": "2026-10-18T02:52:00+08:00",
+  "goal": {
+    "threadId": "01a14050-cd98-7c41-8004-5d3e25765167",
+    "createdAt": 1792253457,
+    "status": "active",
+    "opaque_goal_id": null,
+    "identity_note": "platform exposes threadId plus createdAt, no separate opaque ID"
+  },
+  "unique_publisher": "night1/M3/root/current thread",
+  "assignment_commit": "edab067e0ceaad9d324d5048771ac3531c3663fe",
+  "sample_commit": "30a8cd5474e6ff485ce0bf8fd5f3c1d51643123a",
+  "result_commit": null,
+  "receipt_commit": null,
+  "four_classes": {
+    "normal": {
+      "actual": "REAL_GIT_SAMPLE_RECEIVED_DURABLY",
+      "receive_count": 1,
+      "M3_machine": {
+        "machine": "LAPTOP-KSS1MRR7",
+        "session_id": "01a14050-cd98-7c41-8004-5d3e25765167",
+        "repo": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+        "head": "358c16c2a927e3684c075dfc5ede70a6a67e036a"
+      },
+      "sample_payloads": 8,
+      "real_two_machine_complete": false,
+      "pending": [
+        "M2 explicit host/session binding",
+        "M2 limited review"
+      ],
+      "evidence": {
+        "path": "code/output/m3_m2_night_drill_20261017/runs/local_group_01/ACTUAL_SAMPLE_RECEIVE.json",
+        "bytes": 8522,
+        "sha256": "fc8e3701cc8cbe31c53848844eb487279aa4c606e00aae1f0996d8cc493284f1"
+      }
+    },
+    "duplicate": {
+      "actual": "REAL_SAMPLE_LOCAL_RELOAD_DUPLICATE_NO_REPLAY",
+      "receipt_count": 1,
+      "advance_count": 1,
+      "additional_Goals": 0,
+      "synthetic_group": "PASS",
+      "real_two_machine_complete": false,
+      "pending": [
+        "M2 identity/receiving confirmation"
+      ],
+      "same_sample_not_repushed": true
+    },
+    "failure_unknown": {
+      "local_adapter": "PASS_LOCAL_SYNTHETIC",
+      "real_sample_remote_ancestor_exit": 0,
+      "actual_send_failure_cross_machine_recovery": "PENDING",
+      "real_two_machine_complete": false,
+      "no_real_fault_push_created": true,
+      "error_and_exact_target_retained": true
+    },
+    "interruption_recovery": {
+      "actual_owned_worker_interrupt": "PASS",
+      "state_origin": "LOCAL_SYNTHETIC",
+      "seconds": 0.6560000000026776,
+      "owned_processes_closed": true,
+      "original_START_Goal_consumption_retained": true,
+      "real_post_recovery_fetch": {
+        "kind": "fetch",
+        "operation_id": "post_worker_fetch",
+        "attempt": 1,
+        "retry_basis": null,
+        "argv": [
+          "C:/Program Files/Git/cmd/git.exe",
+          "-c",
+          "http.proxy=http://127.0.0.1:7892",
+          "-c",
+          "http.version=HTTP/1.1",
+          "-c",
+          "credential.interactive=false",
+          "fetch",
+          "origin"
+        ],
+        "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+        "utc": "2026-10-17T16:24:35.166709+00:00",
+        "timeout_seconds": 30,
+        "process_wait_seconds": 28,
+        "status": "OK",
+        "pid": 41192,
+        "exit_code": 0,
+        "elapsed_seconds": 2.062000000005355,
+        "process_exit_code": 0,
+        "within_30_seconds": true
+      },
+      "sample_ancestor_exit": 0,
+      "ancestor_tool_capture": {
+        "chunk_id": "fd122a",
+        "exit_code": 0,
+        "output": ""
+      },
+      "App_restart_verified": false,
+      "machine_restart_verified": false,
+      "real_two_machine_complete": false
+    }
+  },
+  "local_group": {
+    "matched": 10,
+    "planned": 10,
+    "exit_code": 0,
+    "seconds": 1.3439999999973224,
+    "source_version": {
+      "path": "code/output/m3_m2_night_drill_20261017/runs/local_group_01/SPEC.json",
+      "bytes": 5547,
+      "sha256": "f3c91b2a5028e30a07cf3bf8c1d1cf47be5f062a4d3cab88742f13010b344390"
+    }
+  },
+  "worker_group": {
+    "exit_code": 0,
+    "seconds": 0.6560000000026776,
+    "actual_level": "L1_PROCESS_LIFECYCLE_ONLY",
+    "evidence": {
+      "path": "code/output/m3_m2_night_drill_20261017/runs/worker_group_01/RESULT.json",
+      "bytes": 6130,
+      "sha256": "65a5755e19c9ab6213435742aa5264c715c428091081133654af4783690d08ad"
+    },
+    "wall_time_boundary": "Original monotonic launch/time budget records plus filesystem creation metadata; no fabricated restart interval"
+  },
+  "first_failure": {
+    "phase": "input tree verifier",
+    "error": "SOURCE_TREE_MISMATCH",
+    "retained": "failure_01/",
+    "targeted_repair": "CONSUMED_PASS, 0.125s",
+    "original_exec_capture": "merged tool output, not separate raw child streams",
+    "input_exit_evidence_amendment": "INPUT_READ_EVIDENCE_AMENDMENT.json"
+  },
+  "self_review": {
+    "method": "Root and own read-only subagents; night2/night3 own static self-review",
+    "not_formal_review_windows": true,
+    "findings_fixed_before_groups": [
+      "deadline covers evidence writes and sealing",
+      "owned Job before worker resume",
+      "runtime pure-file audit hook",
+      "actual vs reconstructed exit evidence separated"
+    ]
+  },
+  "actual_levels": [
+    "L0 Git/input byte verification",
+    "L1 local file/adaptor and owned process tests"
+  ],
+  "new_Pro_HDL_EDA_devices": 0,
+  "business_budget_restored": false,
+  "board_release_allowed": false,
+  "polling": {
+    "status": "POLLING_NOT_VERIFIED",
+    "actual_active_session_queries": [
+      "startup_fetch_01",
+      "post_worker_fetch_01"
+    ],
+    "background_scheduler": "NOT_DEPLOYED",
+    "pre_drill_interval": "No claim of verified periodic scheduling from original START",
+    "missed_interval": "Worker interrupt/resume is subsecond; no App/machine outage was exercised"
+  },
+  "stop_reason": "No further authorized real failure/restart/remote identity inputs; do not wait indefinitely",
+  "resume_conditions": [
+    {
+      "item": "M2 explicit machine/session identities",
+      "owner": "M2"
+    },
+    {
+      "item": "real send-failure/unknown cross-machine recovery evidence",
+      "owner": "M2/M3, do not inject real push failure"
+    },
+    {
+      "item": "actual App/machine restart survival proof",
+      "owner": "future explicit scope"
+    },
+    {
+      "item": "M2 limited final review/ACCEPTED receipt",
+      "owner": "M2"
+    }
+  ],
+  "next_authorized_queue": "Continue latest M3 R10 independent ready items within same original START/deadline/Goal and old budgets",
+  "M2_limited_review": "PENDING",
+  "overall_Pro": "PARTIAL"
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "M3_OCT18_INTAKE_GAP_RECONCILIATION_R01",
+  "task_id": "M3-OCT18-LOCAL-AND-REMOTE-DEDUP",
+  "role": "M3/night1 coordinator",
+  "root_thread": "01a14050-cd98-7c41-8004-5d3e25765167",
+  "goal_createdAt": 1792257077,
+  "goal_lineage": "Previous bounded R01/R10 preparation Goal createdAt1792253457 completed; current user-directed gap reconciliation uses the same root session, original START/deadline and all original consumed ledgers. No second writer or quota restoration.",
+  "original_START": "2026-10-17T21:52:00+08:00",
+  "deadline": "2026-10-18T02:52:00+08:00",
+  "base_commit": "82a9e826fb991fc550cbafcf948aac1e3405358a",
+  "remote_branch": "origin/develop",
+  "local_input": "E:/FPGA/GAOYUNFPGA/night_task/10.18/FORWARD_TO_M3_PUBLISHED.md",
+  "priority": ["latest effective M3 R01 drill and R10 card", "compare old C9 notice against already published D4/R01/R10", "only remaining authorized independent work with valid unconsumed budget"],
+  "delegation": {
+    "night2": "Read-only stage1/2 and C9 notice gap audit; report only under member2/",
+    "night3": "Read-only stage3/4 and R8-19..24 fallback gap audit; report only under member3/",
+    "root_self_audit": "Existing read-only child checks receipt conclusions; no formal review windows"
+  },
+  "write_set": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/",
+  "scratch_output": "code/output/m3_c9_chain_night_r10_20261017/INTAKE_20261018/",
+  "execution": {
+    "candidate_tests_authorized_by_this_contract": 0,
+    "HDL_EDA_device_N32": 0,
+    "allowed": "Read/hash existing originals and Git identities, compare task and durable ledgers, preserve local notice raw bytes, produce necessary receiver/gap receipt. Any discovered executable change must first match an already valid write-set and unconsumed case-specific permission.",
+    "new_repository_gate": "Only if this necessary receiver receipt is published; standard nine-check publication gate, separate from candidate budgets",
+    "network": "Existing verified night_drill_r01/network.py entry; <=30s each, temporary fault at most one evidenced retry, recovery probes <=2, no bypass or unattended timer claim"
+  },
+  "consumption": {
+    "R08_R_S_C_T_H": "All initial groups consumed; S/T repairs consumed, other repairs remain conditional on matching first defect",
+    "D4": "Initial1 plus repairs3 closed,114 unique matched; old204 REUSED",
+    "R01_drill": "Local1/1,owned-worker1/1,input-repair1/1 consumed",
+    "N10_LINK": "Initial1/1 consumed7/7; repair0/1 remains conditional, not a new group"
+  },
+  "single_publisher": "night1; members do not stage/commit/push",
+  "complete_delivery_unit": "Durable receiver receipt and gap matrix bind both user entry points to latest tasks, exact previous result identities, member findings, remaining conditions and no duplicate consumption. Publish only this intake unit and original notice evidence; whole Pro remains PARTIAL if real dependencies absent.",
+  "stop": "At original deadline, rejected permission, or NO_ACTIONABLE_WORK after actual dependency check; retain WAITING_INPUT/PARTIAL without infinite waiting or repeated signed groups",
+  "resume": "Verify new task/source/input/permission delivery and remaining original time/budget at a safe checkpoint; an old notice, title, screenshot or Goal does not create execution permission",
+  "polling": "Active-session checkpoint fetch only. POLLING_NOT_VERIFIED for autonomous wakeups."
+}

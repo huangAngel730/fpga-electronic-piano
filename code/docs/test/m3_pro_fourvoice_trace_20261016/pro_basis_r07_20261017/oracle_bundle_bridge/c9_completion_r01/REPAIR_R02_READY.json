@@ -1,0 +1,114 @@
+{
+  "schema": "M3_D4_B_REPAIR_R02_READY_V1",
+  "status": "TARGETED_FIXTURE_REPAIR_READY_L0_NOT_RUN",
+  "task": "TASK_DAY4_REMAINDER_SW_R02",
+  "target_cases": [
+    "hold_startup_lossless"
+  ],
+  "do_not_rerun": [
+    "unknown_handshake_and_advance_preserved",
+    "tampered_trace_identity",
+    "missing_hold_field",
+    "cycle_regression",
+    "dropped_non_frame_breaks_internal_binding"
+  ],
+  "cause": {
+    "path": "code/output/m3_c9_complete_d4_20261017/R01/stderr.raw",
+    "bytes": 3364,
+    "sha256": "e48890590b100b7156feb33d1f3e83128825ae2c819292294017cb2d01be6702",
+    "case_directory": "code/output/m3_c9_complete_d4_20261017/R01/cases/027",
+    "failure": "StopIteration in unchanged helper.write_r7a_trace: next(tx_sample_valid==1)",
+    "basis": "The frozen original fixture has 99 rows, all tx_sample_valid=0; the original hold_startup mutation requires one known valid TX sample."
+  },
+  "changed_files": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/pending_only.py",
+      "bytes": 11089,
+      "sha256": "770788b5635425b95af3c4b2691711f45a45bc5e9f1b2da25815809321a21d27"
+    }
+  ],
+  "repair": {
+    "scope": "Only the hold_startup_lossless fixture adaptation in the new completion successor",
+    "method": "Generate a separate 99-row SYNTHETIC_TX_SEED.jsonl in the new exclusive output. At original source line2/cycle800/epoch0 idle row set tx_sample_valid=1 and _event_order=['TX']; then call the unchanged frozen helper with its original hold_startup mutation and unchanged production.main CALLABLE_ROUTE.",
+    "changed_seed_keys": [
+      "tx_sample_valid",
+      "_event_order"
+    ],
+    "runtime_evidence": "FIXTURE_ADAPTATION.json records original/seed file identities, exact chosen row and complete before/after. The original fixture stays read-only.",
+    "case_definition_unchanged": true,
+    "all_original_assertions_unchanged": true,
+    "production_and_helper_unchanged": true,
+    "other_five_input_routes_unchanged": true,
+    "physical_TX_state_validity_claimed": false,
+    "real_capture_claimed": false,
+    "note": "This case tests synthetic bit transport of the original HOLD/startup combination. It does not validate that startup and HOLD should coincide in actual hardware."
+  },
+  "source_entry": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/pending_only.py",
+    "api": "run_case('hold_startup_lossless', output_dir)->dict",
+    "route": "CALLABLE_ROUTE",
+    "serial_only": true,
+    "expected_original_production_exit": 0,
+    "expected_original_status": "SOFTWARE_READY_SYNTHETIC_PENDING_M1_PROFILE"
+  },
+  "preserved_initial": {
+    "archive": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/FREEZE_R01/INPUTS.zip",
+      "bytes": 51328680,
+      "sha256": "06ed64aab4091ce81bf0d0242f5dd4851f6640ecbda1441e6a19869c202a018d"
+    },
+    "entry": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/pending_only.py",
+    "entry_bytes": 8892,
+    "entry_sha256": "c55df97506cf2d75ff927770c526a50cab7987319c8c2226ca2f217717535da1",
+    "archive_entry_bytes_independently_hashed": true,
+    "original_READY": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/READY.json",
+      "sha256": "1ca47379127f6efbb1c40511e7c0d01dee1bb1b659f7361f5f34000be87dc223",
+      "not_overwritten": true,
+      "note": "Historical R01 READY retains its original c55df975 source identity. This repair manifest overrides only the pending_only.py entry for the new R02 freeze."
+    }
+  },
+  "unchanged_inputs": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/oracle_bundle_bridge.py",
+      "bytes": 23344,
+      "sha256": "0bc7b4a3a038f5a483e7307927c8bd1934b48ab3a3b3f53639a948ca3cf9aac0"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/selftest.py",
+      "bytes": 13239,
+      "sha256": "a4a5172417991ba0197bd287ceea757a007d9c33fa1fa33e24c519ec0bc9689c"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/RUN_02/products/valid_synthetic/trace.jsonl",
+      "bytes": 99606,
+      "sha256": "03d43a0d91808e0c279293bb9480816c30098c41f9ecfd713402c5dbf95f4a8f"
+    },
+    {
+      "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/cases.json",
+      "bytes": 1548,
+      "sha256": "b92b3440736454df73244fb8fa2b4d1c11c475ba8f6d062fe8fbb76129188a64"
+    }
+  ],
+  "self_review": {
+    "read_only_agent": "old6_readonly",
+    "conclusion": "Missing-helper-precondition fix statically closes; original case/flags assertions remain, only hold branch uses seed; no concrete blocker seen in this bounded diff.",
+    "candidate_import_compile_or_execution": 0
+  },
+  "verification": {
+    "level": "L0_STATIC_ONLY",
+    "member_tests_run": 0,
+    "member_candidate_imports": 0,
+    "member_candidate_compiles": 0,
+    "HDL_EDA_device_runs": 0,
+    "git_writes": 0,
+    "old_consumption_modified": false,
+    "real_verified": false,
+    "board_release_allowed": false
+  },
+  "handoff": {
+    "owner": "night_task_1_coordinator",
+    "action": "Freeze the changed source SHA and this repair manifest; run only hold_startup_lossless plus independently selected audit-stop NOT_RUN items under the new R02 budget. Other five already matched and must not rerun.",
+    "status": "READY_FOR_COORDINATOR"
+  }
+}

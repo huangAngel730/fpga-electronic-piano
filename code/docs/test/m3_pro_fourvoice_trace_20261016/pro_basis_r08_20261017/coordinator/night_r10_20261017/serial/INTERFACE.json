@@ -1,0 +1,59 @@
+{
+  "schema": "N10_M3_HANDOFF_INTERFACE_V1",
+  "status": "STATIC_READY_NOT_RUN",
+  "entry": "handoff.assemble(request,out)->dict",
+  "request_schema": "N10_M3_HANDOFF_REQUEST_V1",
+  "required": {
+    "capture_id": "nonempty string exactly application execution_spec window_parameters CAPTURE_ID",
+    "application_request": "descriptor(path,bytes,sha256) of actual old-assembler request JSON",
+    "application_report": "night2 result dict same M3_C9_APPLICATION_BUILD_RESULT_V1 shape; artifacts include application, resolved_plan, dependency_graph, tools/source/guard/reservation/claim",
+    "source_contract_refs": "list of actual descriptor objects containing all5 M2 DELIVERY_CONTRACT references unchanged",
+    "context": "dict original_START/deadline/goal plus receipts dict(role->list[descriptor]); UNKNOWN/nullable allowed but explicitly pending"
+  },
+  "out": "new child of code/output/m3_c9_chain_night_r10_20261017",
+  "delivery_contract": {
+    "path": "code/docs/test/m2_night_r10_20261017/DELIVERY_CONTRACT.json",
+    "bytes": 2847,
+    "sha256": "bc375cadc16188a716e2b710fa337082e252b99193b8d36830e095397f6241bf"
+  },
+  "contract_package_field_count": 14,
+  "field_count_note": "Actual frozen JSON enumerates14 fields (dispatch said15). Every enumerated field will be covered; application_request_ref and explicit authority flags also present.",
+  "status_ceiling": "SOURCE_BOUND_PREPARATION / HDL_NOT_RUN; execution/real/math/board false",
+  "FRAME": "DRAFT only, no generator invocation, no canonical FRAME plan; PENDING_FINISH_PHASE",
+  "math": "existing mechanical wrapper code identities + NEXT_INPUT_CONTRACT only; actual bundle NOT_RUN",
+  "raw_execution": "No empty RAW/MATH/execution receipt created",
+  "ready_drv": "input artifact only; not connected to real DUT backpressure",
+  "candidate_execution_by_member": 0,
+  "context": "START/deadline timezone-qualified <=5h and active Goal threadId/createdAt; absent/invalid/UNKNOWN stays pending. receipts dict old_software/consumption/first_failure->lists of actual descriptors",
+  "fixed_draft_source_pins": {
+    "TB": "a31ae010d835d62b83096ba7604f8517793401eac90e928bbefeb2f024c89a4d",
+    "DRIVER": "99e40266a46f1606409fa6ef270dd0c6b056dcb511363ae90dfbaf67653df89a",
+    "reset": "c255e20fafbd47d3591a9166ef736e1766ff1a8b93378afd4ef895ad693c1a52"
+  },
+  "new_cases": 4,
+  "reuse": "New handoff cases read preserved old preparation metadata; no old tests, assembler, FRAME, capture or math called.",
+  "source": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/serial/handoff.py",
+    "bytes": 22786,
+    "sha256": "1ccc1c20a756c649fc6f5325eec20408c73d879f61a15e3e207815a7990f388f"
+  },
+  "application_archive_required_sha256": "b23c65d58e50da089bc78645cf9ec65b5a3be5149f242fbe59d9891c3e44d1a2",
+  "application_archive_scope": "Existing75-unit application only; adapter may rebind window/argv/output proposal but source closure stays exact",
+  "contract_fields": [
+    "schema_version",
+    "capture_id",
+    "source_contract_refs",
+    "source_ROM_include_TB_driver_observer_checker_tool_identities",
+    "independent_input_plan",
+    "clock_reset_profile_and_raw_edges",
+    "unique_FRAME_PLAN_ref",
+    "raw_public_trace_and_pins_or_explicit_NOT_RUN",
+    "math_input_bundle_ref",
+    "exact_argv_cwd_environment_output_budget_request",
+    "assertions_and_software_receipts",
+    "actual_exit_streams_finish_receipts_or_explicit_PENDING",
+    "consumption_and_first_failure_history",
+    "missing_inputs_and_next_owner"
+  ],
+  "owner_role_selection": "Only fixed DELIVERY_CONTRACT.references paths select base/exports/row_schema/capture/M1 contract. Extra same-basename refs cannot replace owner role."
+}
