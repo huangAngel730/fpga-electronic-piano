@@ -56,3 +56,7 @@ REAL模式还需 `SOURCE_BINDINGS.json` 中已审查的精确 provenance SHA；�
 40 件原软件载荷已形成成果提交 `238b4812a8b8a0238729935730fff7675effe32e`，并安全同步远端。按本机实际系统代理与 HTTP/1.1 恢复了全部 Git 缺失对象，3037 件缺失/截断基线文件按原 blob 核同恢复；未提交基线删除。先前失败和本次原始日志在 `PUBLICATION_RECOVERY_ORIGINALS_20261018.zip`，恢复收据见 `PUBLICATION_RECOVERY_20261018.json`。最终仓库门禁与远端发布状态见后继交接/发布收据；此处不预签通过。原软件测试不重跑，真实 C9 输入和精确 M2 准入仍待。
 
 首次仓库门禁为8/9：T007在中文发布根路径生成ASCII批处理时抛出UnicodeEncodeError，未进入相关仿真。原始日志在`GATE_PATH_FAILURE_ORIGINALS_20261018.zip`。同一工作树迁入纯英文工作区后重新执行原版完整门禁；不修改任何业务代码、门禁脚本、测试或时间限制，不重置C9软件消费。最终状态以发布后的独立验证记录和远端包含核验为准。
+
+## 2026-10-18 最终接收与发布准备
+
+原43件功能交付在ASCII路径原版门禁9/9、exit0、索引不变/漂移0；完整原件见`PASSING_GATE_ORIGINALS_20261018.zip`。末次fetch发现M3 R11新交接，已按完整提交/交接ID核验并安全合入，静态接收及唯一消费格式回复见`R11_INTAKE_RECEIPT_20261018.json`与`CONSUMER_COMPATIBILITY_R11_20261018.json`。当前引擎只读旧机械索引，不能直接接新manifest/JSONL，512MiB是每个文件输入护栏，不是流式/全窗容量通过。选择现有M3流式合同为后继适配目标，不生成第二格式；新实现/软件额度需M2精确批准。实际raw/pins/math/reset/finish/准入仍缺，N10-M1-MATH未消费；本次新增候选运行0。含本收据与验证编号的最终合并树须再次全9PASS才普通推送，最终送达以远端包含回执为准。

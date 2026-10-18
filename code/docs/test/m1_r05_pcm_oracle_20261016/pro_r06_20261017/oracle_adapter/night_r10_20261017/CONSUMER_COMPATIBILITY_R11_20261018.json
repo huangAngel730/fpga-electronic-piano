@@ -1,0 +1,84 @@
+{
+  "schema": "M1_C9_CONSUMER_COMPATIBILITY_V1",
+  "decision_id": "M1-CONSUMER-COMPATIBILITY-R11-20261018",
+  "producer": "M1",
+  "consumer": "M3",
+  "upstream_handoff_id": "M3-R11-20261018-STATIC-01",
+  "upstream_result_commit": "3c5101f19daa85b85d43082d9cadaca37fcbea13",
+  "upstream_envelope_commit": "ec833d1955fdf5e9cdd2224fbcbc342ba5c1e07f",
+  "validation_level": "L0_STATIC_SOURCE_AND_ORIGINAL_IDENTITY_ONLY",
+  "current_consumer": {
+    "payload_commit": "238b4812a8b8a0238729935730fff7675effe32e",
+    "files": [
+      {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/c9_inputs.py",
+        "bytes": 16822,
+        "sha256": "a9e1a4a96e75a40463d5a7daa71743741eee6890f52d871ef6e98e1c89022f36"
+      },
+      {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/c9_math.py",
+        "bytes": 25835,
+        "sha256": "2ce39e74db08c9af904972b95423e0a3a4361e1ed0148543827fbe752e7dcda5"
+      },
+      {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/run_math.py",
+        "bytes": 2925,
+        "sha256": "b0081c0d3ba5409727e89165d1d1089de947503bcab6bedcae46e9652825f507"
+      },
+      {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/SOURCE_BINDINGS.json",
+        "bytes": 11250,
+        "sha256": "a9dca0d456a1e0101af64eefd7417db37f1d958904833c7aec4e21685f6dd587"
+      }
+    ],
+    "CLI": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/run_math.py",
+    "job_schema": "M1_C9_MATH_JOB_V1",
+    "mechanical_index_schema": "M3_R7C_C9_MECHANICAL_INDEX_V1",
+    "profile": "C9_PIANO_TRIANGLE_NOTES_DELAY_CLOCKED_V1",
+    "direct_stream_bundle_supported": false
+  },
+  "decision": "Use the existing M3_D4_C9_MATH_INPUT_BUNDLE_V1 manifest and unchanged MATH_ROW_INDEX/three history JSONL streams as the sole future adapter target; current signed R10 consumer is not directly compatible.",
+  "current_capacity": {
+    "per_artifact_guard_bytes": 536870912,
+    "guard_meaning": "512 MiB per artifact, not a total-memory or full-window capacity guarantee.",
+    "IO": "artifact() reads each whole file; mechanical index and public rows materialize lists. Current consumer is not a streaming reader.",
+    "integer_semantics": "Python arbitrary-precision int; duplicate keys/floats/non-finite values rejected. bool not accepted as integer. Preserve 64/62/128-bit values and raw bit strings.",
+    "full_window_capacity": "NOT_VALIDATED",
+    "new_volume_api": "NOT_IMPLEMENTED",
+    "no_16_or_64_MiB_total_package_limit_claimed": true
+  },
+  "minimal_same_contract_adapter_request": [
+    "Add a versioned reader for the existing producer manifest and byte-identical JSONL bodies; do not invent a second math data schema or rewrite producer originals.",
+    "Verify each descriptor SHA/bytes, canonical row content hash, global source.line/cycle/time/epoch/raw/reset identity; stream one continuous logical file across byte-preserving transport volumes, preserving algorithm state.",
+    "Retain every canonical row and sparse FX/advance/input-apply history, including unknown values and cancelled/unpublished advances. Correlate sparse records by global source identity, never by file position or router/req ID.",
+    "Feed existing independent ClockedMath only after equivalent strict source, integer, capture-origin, plan, FRAME/reset/finish and provenance checks; actual PCM remains comparison output, never golden input.",
+    "Retain unsupported-profile/PENDING rejection and separately admitted REAL mode. Exact full-window time/memory/volume recovery capacity needs a newly authorized implementation and measured software group."
+  ],
+  "independent_semantics": {
+    "public_acceptance": "Use actual public event_valid/event_ready acceptance; plan arrival windows are constraints, not observed acceptance. Driver ready labels are not DUT backpressure evidence.",
+    "plan_sequence": "Independent event_seq matched to actual public acceptance and staged applications; router_apply_seq remains a separate counter and repeated stage seq is not deduplicated.",
+    "note_on": "Reuse the accepted E-to-H-to-C semantic successor: C=H+1 and earliest E+2 without interrupting reset; do not reopen the accepted wording decision.",
+    "reset": "Only same-run original asynchronous reset evidence determines epoch; external reset.drv plans and transport volume boundaries are not actual reset edges.",
+    "profile": "Current bounded Piano/Triangle ordinary notes/NoteOff and stereo delay profile only; no claim of general controls, arbitrary advance masks or untested full-window coverage."
+  },
+  "execution": {
+    "candidate_imports": 0,
+    "new_software_runs": 0,
+    "worker": 0,
+    "C9_HDL": 0,
+    "EDA": 0,
+    "devices": 0,
+    "N10_M1_MATH_consumed": false,
+    "R6_2_original_and_repair_consumption_preserved": true,
+    "new_implementation_or_test_budget": "NOT_GRANTED_BY_THIS_RESPONSE; obtain exact M2 scope and numeric budget, do not reuse consumed R10 software allowance."
+  },
+  "pending": [
+    "M2 exact same-source implementation scope and new software capacity budget for streaming adapter",
+    "M2 frozen FRAME/finish/audio_stable/actual DUT backpressure and exact capture admission",
+    "M3 same-run original raw/pins/public/actual reset/END/streams/exit/cleanup and actual mechanical streams",
+    "M1 independent plan/config association and real arithmetic after exact provenance admission"
+  ],
+  "real_verified": false,
+  "math_verified": false,
+  "board_release_allowed": false
+}

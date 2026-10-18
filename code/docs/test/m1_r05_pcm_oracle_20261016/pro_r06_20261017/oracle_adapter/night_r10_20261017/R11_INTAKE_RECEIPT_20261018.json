@@ -1,0 +1,67 @@
+{
+  "schema": "M1_R11_REPOSITORY_INTAKE_RECEIPT_V1",
+  "producer": "M1",
+  "consumer": "M3",
+  "upstream_handoff_id": "M3-R11-20261018-STATIC-01",
+  "upstream_result_commit": "3c5101f19daa85b85d43082d9cadaca37fcbea13",
+  "upstream_envelope_commit": "ec833d1955fdf5e9cdd2224fbcbc342ba5c1e07f",
+  "received_utc": "2026-10-18T05:11:00.636182+00:00",
+  "state": "RECEIVED_STATIC_ORIGINALS_COMPATIBILITY_GAP_REPORTED",
+  "delivery_identity_checks": [
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/DELIVERY/SOURCE_PAYLOAD.zip",
+      "bytes": 4333709,
+      "sha256": "63b98bb8a833d5f6eb3525a76cb2022a775cf442f98665fc84dadac093cf1f57"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/INTEGRATION_HANDOFF.json",
+      "bytes": 59081,
+      "sha256": "7ec9d51696f0076e06d8ac2a5b7f66795838a05486e9776bb152d99c5d049da5"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/DELIVERY/PUBLICATION_ORIGINALS.zip",
+      "bytes": 9835561,
+      "sha256": "c106d72f5103c415f0157e2459b9efac15d4fc9f81462df1400cd530448455c2"
+    }
+  ],
+  "zip_checks": [
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/DELIVERY/SOURCE_PAYLOAD.zip",
+      "bytes": 4333709,
+      "sha256": "63b98bb8a833d5f6eb3525a76cb2022a775cf442f98665fc84dadac093cf1f57",
+      "members": 103,
+      "CRC": "PASS"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/morning_r11_20261018/DELIVERY/PUBLICATION_ORIGINALS.zip",
+      "bytes": 9835561,
+      "sha256": "c106d72f5103c415f0157e2459b9efac15d4fc9f81462df1400cd530448455c2",
+      "members": 241,
+      "CRC": "PASS"
+    }
+  ],
+  "publication_original_member_checks": 240,
+  "remote_ancestry": "Source and envelope commits fetched and merged; source/manifest identities match. No acceptance of actual runtime.",
+  "actual_state": {
+    "status": "R11_STATIC_HANDOFF_UNIT_READY_OVERALL_PARTIAL_WAITING_INPUT",
+    "HDL": "HDL_NOT_RUN",
+    "raw": null,
+    "pins": null,
+    "math_bundle": null,
+    "actual_exit": {
+      "status": "PENDING_EXECUTION",
+      "execution_receipt": null,
+      "exit_code": null,
+      "stdout": null,
+      "stderr": null,
+      "finish": null
+    }
+  },
+  "compatibility_response": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/CONSUMER_COMPATIBILITY_R11_20261018.json",
+  "new_candidate_runs": 0,
+  "N10_M1_MATH_consumed": false,
+  "real_verified": false,
+  "board_release_allowed": false,
+  "M2_acceptance": "NOT_CLAIMED",
+  "human_notification": "待用户转发，尚未送达"
+}
