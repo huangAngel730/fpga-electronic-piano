@@ -9,12 +9,12 @@
     "M3"
   ],
   "base_commit": "30a8cd5474e6ff485ce0bf8fd5f3c1d51643123a",
-  "result_commit": null,
+  "result_commit": "238b4812a8b8a0238729935730fff7675effe32e",
   "created_utc": "2026-10-17T15:15:57.680677+00:00",
-  "state": "LOCAL_STAGED_BASE_OBJECTS_MISSING",
+  "state": "LOCAL_COMMITTED_PENDING_FINAL_GATE_AND_REMOTE_VERIFICATION",
   "manifest": {
     "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/DELIVERY_MANIFEST.json",
-    "sha256": "eb1b9e7a435742ff531548dda0163d51880060973a55e3805e84c076daecb573"
+    "sha256": "a6914eb8df9d48ee8d4e55443a078ffb3f012bc354f58dcd0d203cd59c5e34bc"
   },
   "validation": {
     "level": "L1_SOFTWARE",
@@ -31,14 +31,24 @@
     "M2 limited review of runnable engine and exact first C9 execution admission"
   ],
   "blockers": [
-    "Incomplete baseline checkout and remaining missing promisor objects.",
-    "Recovery failed after 20.750 seconds on c911ecf9c83debc1a4030e8592d83110e34546de.",
-    "One retry failed after 21.281 seconds on 754fed45d9263829b84075463e849268318520d2.",
-    "Actual original C9 math job and exact M2 admission still absent."
+    "Final exact-tree repository gate and ordinary push/remote verification pending.",
+    "Actual C9 original math input and exact M2 admission still absent."
   ],
   "receipts": [],
   "real_verified": false,
   "board_release_allowed": false,
   "human_notification": "待用户转发，尚未送达",
-  "latest_check_receipt": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/GITHUB_INTAKE_20261018.json"
+  "latest_check_receipt": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/GITHUB_INTAKE_20261018.json",
+  "recovery_receipt": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/PUBLICATION_RECOVERY_20261018.json",
+  "first_gate_and_path_fix": {
+    "passed": 8,
+    "total": 9,
+    "exit_code": 1,
+    "cause": "T007 UnicodeEncodeError while writing ASCII batch paths before simulation.",
+    "raw_archive": {
+      "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/GATE_PATH_FAILURE_ORIGINALS_20261018.zip",
+      "bytes": 1551412,
+      "sha256": "eb588b17b7aef3959511663d3d5a48a4de0ef5126a479fd632322467fe75f249"
+    }
+  }
 }

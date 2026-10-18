@@ -50,3 +50,9 @@ REAL模式还需 `SOURCE_BINDINGS.json` 中已审查的精确 provenance SHA；�
 `RAW_EXECUTION_ORIGINALS.zip` 保存两组原始双流、退出回执、RUN_SPEC、全部对应源码快照；分散文本遵LF，原始双流以ZIP内字节为权威。源、ROM和接收合同25件已绑定；`INPUTS/`为接收原件快照，`SOURCE_BINDINGS.json`在模型目录。生成脚本、本地路径和历史R01失败均可追溯。
 
 真实 `N10-M1-MATH` 尚未消费。M2/M3需要补齐的具体原件见 `MATH_RESULT.json`；没有实际 C9 编译/仿真、完整串行或新物理/板测结果。NoteOn勘误已采用M2的原/后继绑定，本单不再生成重复勘误。
+
+## 2026-10-18 发布恢复
+
+40 件原软件载荷已形成成果提交 `238b4812a8b8a0238729935730fff7675effe32e`，并安全同步远端。按本机实际系统代理与 HTTP/1.1 恢复了全部 Git 缺失对象，3037 件缺失/截断基线文件按原 blob 核同恢复；未提交基线删除。先前失败和本次原始日志在 `PUBLICATION_RECOVERY_ORIGINALS_20261018.zip`，恢复收据见 `PUBLICATION_RECOVERY_20261018.json`。最终仓库门禁与远端发布状态见后继交接/发布收据；此处不预签通过。原软件测试不重跑，真实 C9 输入和精确 M2 准入仍待。
+
+首次仓库门禁为8/9：T007在中文发布根路径生成ASCII批处理时抛出UnicodeEncodeError，未进入相关仿真。原始日志在`GATE_PATH_FAILURE_ORIGINALS_20261018.zip`。同一工作树迁入纯英文工作区后重新执行原版完整门禁；不修改任何业务代码、门禁脚本、测试或时间限制，不重置C9软件消费。最终状态以发布后的独立验证记录和远端包含核验为准。
