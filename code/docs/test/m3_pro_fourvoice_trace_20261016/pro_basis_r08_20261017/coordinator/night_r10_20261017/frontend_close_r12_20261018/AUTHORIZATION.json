@@ -1,0 +1,64 @@
+{
+  "schema": "M3_R12_FRONTEND_BUNDLE_AUTHORIZATION_V1",
+  "approved": true,
+  "plan_sha256": "5dfd47d18a6bc3230437327723b796e145323a703a8aa3af4026a8ab966aba7d",
+  "approval_source": "Direct human reply to request_user_input_async call_f667b2cf7243499e9b8baa04ec3b4383",
+  "approval_exact_answer": "批准 M3 R12 整包，按上述边界执行",
+  "recorded_utc": "2026-10-18T06:37:18.141847+00:00",
+  "owner": "M3 main execution session only",
+  "scope": "Exact plan new9 source/23 evidence/owned output; independent implementation,self-review,software groups,controlled seal,standard two gates and ordinary develop publication",
+  "software_caps_seconds": {
+    "P0": 60,
+    "J": 60,
+    "G": 60,
+    "C": 120,
+    "W": 240,
+    "R_conditional_located_repair": 240
+  },
+  "software_total_max": 780,
+  "seal_caps_seconds": {
+    "S1": 60,
+    "S2": 60
+  },
+  "gate_caps_seconds": {
+    "GATE_01": 900,
+    "GATE_02": 900
+  },
+  "network": {
+    "ops_max": 15,
+    "each_max_seconds": 60,
+    "cumulative_max_seconds": 900,
+    "transient_retry_max": 1
+  },
+  "total_max_seconds": 3600,
+  "gate_native_caps": {
+    "Yosys_read_slang": 6,
+    "iverilog_driver": 18,
+    "ivlpp_internal": 18,
+    "ivl_internal": 18,
+    "VVP": 18
+  },
+  "timebox": {
+    "reuse_original_actual_START": true,
+    "reference_START": "2026-10-18T11:57:42+08:00",
+    "reference_deadline": "2026-10-18T16:57:42+08:00",
+    "earliest_actual_cutoff_applies": true,
+    "no_new_five_hours": true,
+    "whole_budget_plus60reserve_latest_start_if_reference_confirmed": "2026-10-18T15:56:42+08:00"
+  },
+  "conditions_before_execution": [
+    "M3 confirms receipt and exact R11 full resultSHA or provides delta for M2 review",
+    "M3 confirms actual START/end/paused status and effective earlier deadline",
+    "One main writer/publisher and actual existing outbox reference; no competing writer",
+    "Freeze exact plan/auth/source/tool/input identities and initialize new once-only per-group consumption on M3 computer; this file does not claim execution already started",
+    "Full next group plus unconsumed seal/future required budget fits; first failure and one conditional repair follow exact plan"
+  ],
+  "final_tree_rule": "Tracked pending metadata frozen before Gate02; after Gate02 tracked bytes immutable; actual final-gate/push/fullSHA/containment records only in owned ignored output, S2 final evidence package; no extra metadata commit or third gate",
+  "M2_original16_gates_publication_resumed": false,
+  "old_failure_and_consumption_restored": false,
+  "standalone_HDL_C9_extra_EDA_device": false,
+  "final_reviewer": "M2 main conversation; optional collaboration is this-increment analysis only",
+  "M3_received": false,
+  "M3_new_groups_started_by_M2": 0,
+  "board_release_allowed": false
+}

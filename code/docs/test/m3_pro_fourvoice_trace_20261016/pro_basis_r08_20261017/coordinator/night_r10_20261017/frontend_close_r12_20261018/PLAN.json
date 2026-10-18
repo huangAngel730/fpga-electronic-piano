@@ -1,0 +1,266 @@
+{
+  "schema": "M3_R12_FRONTEND_SOFTWARE_AND_PUBLICATION_BUDGET_PROPOSAL_V1",
+  "task_id": "M3-FRONTEND-CLOSE-R12-20261018",
+  "approved": false,
+  "state": "IMPLEMENTATION_AND_STATIC_PREPARATION_AUTHORIZED_NEW_EXECUTION_AND_PUBLICATION_PENDING",
+  "owner": "M3 main execution/publisher",
+  "final_reviewer": "M2 main conversation",
+  "collaboration_role": "Optional read-only analysis of this increment only; no final acceptance, no competing writer/publisher",
+  "source_baseline": {
+    "result_commit": "3c5101f19daa85b85d43082d9cadaca37fcbea13",
+    "receipt_commit": "ec833d1955fdf5e9cdd2224fbcbc342ba5c1e07f",
+    "latest_observed_remote": "f1991b2ffdb64783fe71e19b5eb7d2dea9844613",
+    "new_remote_commits_since_receipt": "M1 only; no new M3 payload path in inspected delta",
+    "M3_verbal_completion_SHA_personally_confirmed": false,
+    "old_102_and240_payload_review_repeated": false
+  },
+  "three_findings": [
+    "R11-DRILL-FROZEN-JSON-BYTES",
+    "R11-DRILL-FRESH-CHECK-BINDING",
+    "R11-CAPTURE-WHOLE-FILE-READ"
+  ],
+  "write_set": {
+    "new_source_files": [
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/json_identity.py",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/delivery_binding.py",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/delivery_transport.py",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/capture_identity.py",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/capture_link_successor.py",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/capture_entry.py",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/selftest.py",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/DEPENDENCIES.json",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/CALL_CHAIN_BINDINGS.json"
+    ],
+    "new_evidence_files": [
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/README.md",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/TASK_ORIGINAL.md",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/PLAN.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/AUTHORIZATION.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/BASELINE.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/SOURCE_MANIFEST.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/CASE_MATRIX.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/CAPACITY_PROFILE.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/CONSUMPTION.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/RESULT_RECEIPT.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/INTEGRATION_HANDOFF.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/SELF_REVIEW.md",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/FAILURE_HISTORY.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/GATE_01.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/GATE_02.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/PUBLISH_ALLOWLIST.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/PUBLICATION_RECEIPT.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/ORIGINALS_MANIFEST.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/SOURCE_PAYLOAD.zip",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/PUBLICATION_ORIGINALS.zip",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/GIT_WRITE_RECEIPTS.jsonl",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/ACK_M2_REVIEW.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/OUTBOX_REFERENCE.json"
+    ],
+    "owned_output": "code/output/m3_frontend_close_r12_20261018 only",
+    "existing_M3_outbox": "No unknown existing path is authorized here. First identify the sole actual publisher/outbox in ACK; record OUTBOX_REFERENCE within authorized evidence. No second publisher or competing queue; any append outside these exact roots requires its existing valid authorization.",
+    "old_files": "Read-only; preserve original R11/R10 code, frozen common.py and old consumption",
+    "M2_only_task_and_status_docs": "M3 must not edit shared current status/board or M2-authored task master"
+  },
+  "implementation_contract": {
+    "same_buffer_JSON": "Read bounded raw once; verify bytes/SHA and parse exactly that raw for every decision object; preserve MAX_JSON, duplicate-key/nonfinite/path/scope rejects and archive-original same-buffer association",
+    "Git_prechecks": "fetch/ancestry/each show normalized cwd equals same ROOT; fetch stdout and stderr descriptors both verify actual bodies; preserve stable key/operation_id/Store attempts/network.run/UNKNOWN and denied resend boundaries",
+    "capture_real_chain": "New entry declaration AND actual processing must use successor streaming identity across entry.process->legacy processing->helper checked/ref; preserve old common. Explicit isolated dependency injection or minimal orchestration successor within capture_link_successor.py allowed, no production global monkeypatch or algorithm rewrite. Pin each old function/source SHA/new call point in CALL_CHAIN_BINDINGS.",
+    "large_roles": "raw/stdout/stderr and other large artifacts stream SHA/size in chunks<=1MiB; small JSON retains bounded same-buffer parsing",
+    "data_semantics": "No new schema, controlled interface, finish phase, dropped rows/window cuts, fake PCM/goldens or profile simplification"
+  },
+  "new_software_groups": {
+    "P0_admission": {
+      "cap_seconds": 60,
+      "runs": 1,
+      "purpose": "Freeze exact successor/tool/input identities, actual writer/publisher/outbox reference, source-only AST and admitted existing owned-process mechanism; no new runtime/helper modifications"
+    },
+    "J_same_buffer": {
+      "cap_seconds": 60,
+      "maximum_cases": 12,
+      "cases": [
+        "J01 actual receive_frozen positive with stable key and RECEIVED-only",
+        "J02 A-B-A alternate content through actual identity/parse path rejects before state advance",
+        "J03 spec wrong SHA rejects",
+        "J04 HANDOFF duplicate JSON key rejects",
+        "J05 contract wrong bytes rejects",
+        "J06 provenance nonfinite number rejects",
+        "J07 result wrong SHA rejects",
+        "J08 admission over MAX_JSON rejects",
+        "J09 fetch JSON descriptor/body mismatch rejects",
+        "J10 ancestry JSON descriptor/body mismatch rejects",
+        "J11 tree/show JSON descriptor/body mismatch rejects",
+        "J12 archive JSON body and original same validated-buffer identity; reread substitution rejected"
+      ]
+    },
+    "G_Git_preflight": {
+      "cap_seconds": 60,
+      "maximum_cases": 12,
+      "cases": [
+        "G01 actual send_once positive, fixed software network callback exactly1",
+        "G02 fetch cwd wrong rejects before network callback",
+        "G03 ancestry cwd wrong rejects before callback",
+        "G04 one show cwd wrong rejects before callback",
+        "G05 fetch stdout body missing rejects",
+        "G06 fetch stdout SHA wrong rejects",
+        "G07 fetch stderr body missing rejects",
+        "G08 fetch stderr SHA wrong rejects",
+        "G09 stable key+operation_id retained and persistent attempts unchanged after reload",
+        "G10 UNKNOWN result never resent as new attempt",
+        "G11 DENIED/REJECTED/non-fast-forward forbid unauthorized resend, no live network fault injection",
+        "G12 duplicate received delivery stays RECEIVED with no automatic advance"
+      ]
+    },
+    "C_actual_capture_path": {
+      "cap_seconds": 120,
+      "maximum_cases": 12,
+      "cases": [
+        "C01 new capture_entry through actual successor processing of archived valid small synthetic full envelope; compare stored expected output without rerunning old signed suite",
+        "C02 actual process/declaration and legacy helper call map is exact and pinned",
+        "C03 forbid large-role read_bytes in private test context; actual entry still works",
+        "C04 forbid unbounded read on large roles; all requests<=1MiB",
+        "C05 raw late content mutation rejects",
+        "C06 stdout role truncation rejects",
+        "C07 stderr identity mismatch rejects",
+        "C08 source/binding declaration mismatch rejects",
+        "C09 END missing or wrong refuses complete processing; never invent END",
+        "C10 full global ordering and cross-chunk state maintained, no dropped rows",
+        "C11 JSON control path still bounded same-buffer and capability checks not bypassed",
+        "C12 injected file/progress/consumer error propagates failure with complete owned-process cleanup"
+      ]
+    },
+    "W_complete_window_frontend": {
+      "cap_seconds": 240,
+      "maximum_cases": 4,
+      "cases": [
+        "W01 deterministic non-sparse large role>=1398627657B through actual front-end identity/binding/dispatch; measure Windows own-worker PeakWorkingSet64<=512MiB",
+        "W02 same large role late byte mutation rejects, expected software backend not called",
+        "W03 same large role truncation rejects, expected software backend not called",
+        "W04 private forbidden-whole-read probe on actual large-input path, record real max chunk<=1MiB and total bytes; heap-only metrics insufficient"
+      ]
+    },
+    "R_located_software_repair": {
+      "cap_seconds": 240,
+      "maximum_cases": 16,
+      "groups": 1,
+      "conditional": "Only one newly located software defect from J/G/C/W, written cause+minimal diff+new input/source SHA before execution; changed successor only, complete affected acceptance cases. Never retry identical failed group or use for native/gate/network failures. Preserve primary failure and full cap consumption. After repair PASS resume only unconsumed dependent groups."
+    }
+  },
+  "new_software_seconds_max": 780,
+  "seal": {
+    "cap_seconds": 120,
+    "cumulative": true,
+    "purpose": "All successes/failures, source/input/tool SHA, natural/cleanup/UNKNOWN exit classes, raw dual streams, ownJob0/closed handles, ZIP CRC and per-member SHA; no unplanned extra archive after cumulative cutoff",
+    "pieces": [
+      {
+        "id": "S1",
+        "cap_seconds": 60,
+        "runs": 1,
+        "purpose": "After software and candidate Gate01, preserve current results/failures and freeze all tracked payloads before Gate02; if earlier failure, seal once and stop publication"
+      },
+      {
+        "id": "S2",
+        "cap_seconds": 60,
+        "runs": 1,
+        "purpose": "After Gate02/publication terminal result, seal actual final-gate/push/full-SHA/containment or failure receipts in ignored owned output; no tracked changes and no repeat of S1"
+      }
+    ],
+    "cumulative_accounting": "Separate fixed purposes and per-piece clocks, cap60 each/cumulative120; waiting or gate/network time is not seal execution; record both starts/ends and charge full piece cap before use; neither piece is retry credit"
+  },
+  "software_plus_seal_max": 900,
+  "capacity_profile": {
+    "large_role_min_bytes": 1398627657,
+    "large_role_kind": "Deterministic generated synthetic frontend role, not real Pro trace or mathematical result",
+    "front_end_peak_working_set_max_bytes": 536870912,
+    "peak_metric": "Windows PeakWorkingSet64 of own admitted worker; if unavailable no capacity PASS; Python heap alone diagnostic only",
+    "max_read_chunk_bytes": 1048576,
+    "temporary_disk_max_bytes": 4294967296,
+    "no_sparse_shortcut": true,
+    "small_C_actual_processor": "Use archived synthetic valid expected outputs via actual successor processing; do not rerun old signed suite",
+    "large_W_backend": "Fixed private software substitute at documented processing boundary; explicitly frontend-only, no complete C9/math/real-capture claim",
+    "original_access": "Keep full generated original on own output; package portable compressed chunks<=64MiB decoded each with full global order/total bytes/chunk+whole SHA and reconstruction descriptor if needed for M2 access. No enormous raw or synthetic file direct Git add; missing accessible originals blocks final acceptance, not upgraded by generator+SHA alone.",
+    "split_storage": "Compressed chunks are members of the two already allowed ZIPs or ignored output only; no extra tracked split-volume path beyond exact23 evidence files"
+  },
+  "publication": {
+    "approved": false,
+    "gates": [
+      {
+        "id": "GATE_01",
+        "cap_seconds": 900,
+        "runs": 1,
+        "purpose": "Complete implemented/software-accepted candidate standard check_repo9/9"
+      },
+      {
+        "id": "GATE_02",
+        "cap_seconds": 900,
+        "runs": 1,
+        "purpose": "Exact final publication tree standard check_repo9/9, not retry of first"
+      }
+    ],
+    "gate_seconds_max": 1800,
+    "maximum_native_calls_over_two_gates": {
+      "Yosys_read_slang": 6,
+      "iverilog_driver": 18,
+      "ivlpp_internal": 18,
+      "ivl_internal": 18,
+      "VVP": 18
+    },
+    "gate_profile_basis_commit": "f1991b2ffdb64783fe71e19b5eb7d2dea9844613",
+    "gate_profile_files": [
+      "code/scripts/check_repo.ps1",
+      "code/scripts/run_t007_sim.ps1",
+      "code/scripts/run_t019_sim.ps1",
+      "code/scripts/run_t025_top_stat.py"
+    ],
+    "native_scope": "Only existing native calls within these two standard gates after explicit bundle approval. No standalone HDL/C9/EDA tests, no third gate, no tool replacement, no M2 R05 held scope revived.",
+    "first_native_or_gate_failure": "Stop publication, preserve original evidence; second gate cannot repair/retry first; software repair group cannot repair a gate",
+    "path_allowlist": "Only the exact9 new source files plus23 new evidence files above; no M2 task/status/norms, no unrelated changes. Final nonempty set frozen before gates; no extra source changes after candidate gate.",
+    "Git": "One M3 publisher, independent simple single-file git add path, standalone commit/push; ordinary develop only, never force, preserve others staging/commits. Record user-required staging command/time/output fields; no Trace2 wrapper; unavailable internal Git time UNKNOWN.",
+    "delivery_receipt": "Record full result SHA and receipt SHA, remote containment even if peer adds later; M2 final ACCEPTED/INTEGRATED not implied by push.",
+    "final_tree_invariant": {
+      "tracked_gate_and_publication_receipts": "GATE_02.json and PUBLICATION_RECEIPT.json are frozen before Gate02 as honest PENDING conditions/references. RESULT_RECEIPT and INTEGRATION_HANDOFF must also not forecast future success.",
+      "after_final_gate": "No tracked file byte changes. Actual final-gate raw streams/natural exit/result, git staging/commit/push receipts, full result SHA and remote containment are written ONLY under authorized ignored output and referenced via existing outbox if already authorized.",
+      "actual_results_delivery": "S2 creates ignored-output FINAL_HANDOFF.zip with actual Gate02/publication records and exact tracked-tree binding. Return this accessible original package to M2 through available authorized route/user forwarding; do not make another metadata commit to pretend prior final-tree gate covers it.",
+      "receipt_commit": "May be null with explicit actual receipt delivered via output package; never invent a receipt commit or falsely label remote PENDING metadata REMOTE_VERIFIED.",
+      "source_changes_after_candidate_gate": "Not permitted by this package; freeze final source identity before first gate, only planned evidence freeze before second; no third gate or silent revalidation."
+    },
+    "ordered_workflow": [
+      "P0 source/tool/inputs frozen",
+      "J/G/C/W and conditional one located R group",
+      "Candidate complete Gate01",
+      "S1<=60 evidence seal, PENDING tracked future receipts, freeze exact tracked tree and allowlist",
+      "Final complete Gate02 on that exact tree",
+      "Independent single-file staging/commit/ordinary develop push and containment only if both gates PASS",
+      "S2<=60 actual Gate02/publication/failure output package; tracked tree never changed after Gate02",
+      "M2 main conversation reviews increment plus accessible actual results and decides ACCEPTED/INTEGRATED"
+    ]
+  },
+  "network": {
+    "new_ops_max": 15,
+    "each_op_seconds_max": 60,
+    "cumulative_seconds_max": 900,
+    "covers": "Opening/30min/milestone observations and needed fetch, last fetch and numbering, one ordinary push and containment, one allowed transient retry/unknown-result resolution; unused slots are not retry credits",
+    "temporary_fault_retry_max": 1,
+    "unknown_result": "Check remote containment before any resend",
+    "non_fast_forward_or_permission_or_gate_denial": "Preserve queue and stop dependent publication; no force/automatic merge/tool bypass",
+    "old_fault_consumption_not_reset": true
+  },
+  "total_execution_seconds_including_network_max": 3600,
+  "timebox": {
+    "reported_original_M3_START_Asia_Shanghai": "2026-10-18T11:57:42+08:00",
+    "reported_original_M3_deadline_Asia_Shanghai": "2026-10-18T16:57:42+08:00",
+    "requires_M3_ACK_actual_START_end_and_state": true,
+    "effective_deadline": "Earlier of confirmed original deadline and actual earlier user/member cutoff; no new5h and no extension by receipt/approval",
+    "latest_full_budget_start_if_original_deadline_confirmed": "2026-10-18T15:56:42+08:00",
+    "first_full_execution_need_seconds": 3660,
+    "before_each_group": "Entire current cap plus unconsumed seal and remaining required complete-unit budgets must fit; otherwise do not start; no partial group rollover"
+  },
+  "preserved_old_consumption": "All R08/D4/LINK/drill groups, original R11 and M2 R05/R01/R02 remain as originally charged; no old group or failed artifact reused as new permission",
+  "stop_and_completion": {
+    "primary_group_first_failure": "Stop that group immediately; stop dependent sequence, preserve full cap and original. Only preapproved one located repair as above may run; if it fails or defect not located, seal and stop.",
+    "gate_first_failure": "All publication stops with no native/gate retry",
+    "unit_complete": "Three findings closed by actual new-entry software proof, measured frontend capacity boundary and whole evidence; M3 self-audited and bounded sealed; publish only both gates fullPASS under new permission; M2 later reviews increment only",
+    "labels": "SOFTWARE_FRONTEND_READY_FOR_M2_REVIEW; real complete capture/HDL/math/board remains NOT_RUN/PENDING; board_release_allowed=false"
+  },
+  "execution_permission_needed": "One explicit user approval for this entire new software+seal+two-gate native+network/publication scope, conditional on M3 receipt/SHA/time/source freeze; this proposal authorizes no new runs",
+  "board_release_allowed": false
+}

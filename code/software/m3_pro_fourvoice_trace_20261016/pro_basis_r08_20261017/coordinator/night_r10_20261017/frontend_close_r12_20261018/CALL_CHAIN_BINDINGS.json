@@ -1,0 +1,223 @@
+{
+  "schema": "M3_R12_CALL_CHAIN_BINDINGS_V1",
+  "status": "FROZEN_FOR_R01_RUNTIME_NOT_YET_ACCEPTED",
+  "dependencies": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/DEPENDENCIES.json",
+    "bytes": 9918,
+    "sha256": "73525eaa939c0b9627e42d9e763d93e206028102d8e7fed07350a493a8aac731"
+  },
+  "old_call_points": [
+    {
+      "source": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/frame_plan_generator_candidate.py",
+        "bytes": 10359,
+        "sha256": "38592faebeeeb0a2022668785453760a5b58babd24af6ff18a96f15790597191"
+      },
+      "functions": [
+        {
+          "name": "generate",
+          "line": 242
+        }
+      ]
+    },
+    {
+      "source": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_binding/c9_oracle_bridge.py",
+        "bytes": 24641,
+        "sha256": "5460dcf7e8539072200d55d123bc3855be2a759fea6eb84698c1e991fc22b4d8"
+      },
+      "functions": [
+        {
+          "name": "verify_binding",
+          "line": 140
+        },
+        {
+          "name": "_resolve",
+          "line": 126
+        },
+        {
+          "name": "_sha256",
+          "line": 114
+        }
+      ]
+    },
+    {
+      "source": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/assembler.py",
+        "bytes": 22940,
+        "sha256": "ae4ad0f3fefa1bc28e099a2aabcb827f733358d9bd93988af31e5de20a824ccf"
+      },
+      "functions": [
+        {
+          "name": "build_application",
+          "line": 109
+        },
+        {
+          "name": "read_archive",
+          "line": 84
+        },
+        {
+          "name": "pure_part",
+          "line": 49
+        }
+      ]
+    },
+    {
+      "source": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/capture_complete_r11/entry.py",
+        "bytes": 11615,
+        "sha256": "7f90353342048118aea1ef1e0ea9509dc022482db46fabec7f081d71d2de95e0"
+      },
+      "functions": [
+        {
+          "name": "process",
+          "line": 170
+        },
+        {
+          "name": "declared_binding",
+          "line": 78
+        },
+        {
+          "name": "closure_members",
+          "line": 43
+        }
+      ]
+    },
+    {
+      "source": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/capture_link_r01/entry.py",
+        "bytes": 7109,
+        "sha256": "ca175b497bd8438f198d5c0777ae0d073383702a868129c5b8eae00f61fec80a"
+      },
+      "functions": [
+        {
+          "name": "process",
+          "line": 104
+        },
+        {
+          "name": "capture_preflight",
+          "line": 52
+        },
+        {
+          "name": "helpers",
+          "line": 39
+        },
+        {
+          "name": "capture_module",
+          "line": 47
+        }
+      ]
+    },
+    {
+      "source": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/chain.py",
+        "bytes": 12667,
+        "sha256": "64bfdf4787aa9dd1ddab30a30ed7cf4fb05be763b9303ec965061005430f1c44"
+      },
+      "functions": [
+        {
+          "name": "process",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "source": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/plan_consumption_guard/m3r08_common.py",
+        "bytes": 6657,
+        "sha256": "2cad307f975178cc00994949817b3b1da952628f2b509932bf13112cf6981c33"
+      },
+      "functions": [
+        {
+          "name": "identity",
+          "line": 49
+        },
+        {
+          "name": "checked_file",
+          "line": 67
+        }
+      ]
+    },
+    {
+      "source": {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/tool_dependency_identity/m3r08_05.py",
+        "bytes": 7084,
+        "sha256": "d70c34966a87b018d9d07335ca08af20866da24bfce88c5fc8378f00b3f00c4a"
+      },
+      "functions": [
+        {
+          "name": "evaluate",
+          "line": 61
+        },
+        {
+          "name": "pe_imports",
+          "line": 17
+        }
+      ]
+    }
+  ],
+  "successor_call_chain": [
+    "capture_entry.process",
+    "DependencyContext.complete",
+    "R11.process/declared_binding",
+    "R10.process/capture_preflight",
+    "D4.process",
+    "private application/frame/stream/codec/intake/calendar/serial/math/provenance",
+    "IdentityFacade.checked/identity/read/ref"
+  ],
+  "buffer_boundaries": [
+    "JSONRecord verifies and parses same bounded raw",
+    "R08 private common globals and PE FrozenBufferPath (64MiB cap, not constant-memory)",
+    "FRAME input/rules FrozenBufferPath (8MiB cap)",
+    "bridge _resolve buffer and streaming _sha256",
+    "assembler archive snapshot survives context and later source-copy open"
+  ],
+  "runtime_closure_verified": false,
+  "C01_compatible_full_envelope_available": "PENDING_METADATA_DIAG",
+  "acceptance_harness": "P0/J/G/C/W CLI prepared; execution/acceptance require independent raw group receipts",
+  "all_authority_flags": false,
+  "parallel_assignment": {
+    "path": "code/output/m3_frontend_close_r12_20261018/RESUME_R01_20261018/PARALLEL_ASSIGNMENT.json",
+    "bytes": 3657,
+    "sha256": "bc59684ef44381391b4619698e42dcb3b72ab394e9d60c8b7446acc9400f9ac0"
+  },
+  "successor_sources": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/capture_entry.py",
+      "bytes": 3132,
+      "sha256": "b993a2cfd35cb2b435cda5ce2be1533c2f8836f8448b2aa7dd5237f2c6e5699e"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/capture_identity.py",
+      "bytes": 21815,
+      "sha256": "360731186004a9008e8a5e1cac1bb32c059b8653a380dc39ee3bb9be45b17bbb"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/capture_link_successor.py",
+      "bytes": 20407,
+      "sha256": "369b6f5b4f692ea86013ce02c92bf411e7469175a3b8671f1ba2abcdcd551328"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/delivery_binding.py",
+      "bytes": 10662,
+      "sha256": "bd8bc9a6f3b40dc793db8a32a91b5d4eb464d783f5166f2976e6a73d0a83844d"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/delivery_transport.py",
+      "bytes": 14594,
+      "sha256": "075ebb9af73b6218d3e15aa64e32c9f78f5e959b1390e4053e4616738b1b1cef"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/json_identity.py",
+      "bytes": 6234,
+      "sha256": "d601d68bb2ee5d4ba4c4a435bdf3709dc943f05bb4858d516b854c507c9e6ae4"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/selftest.py",
+      "bytes": 72764,
+      "sha256": "5ce7234c457e8c53cdcbe857e40cc2c1235ad171bd95d647a13a8c04a5930c1c"
+    }
+  ],
+  "runtime_result_reference": "PUBLICATION_ORIGINALS.zip and ignored-output S2 FINAL_HANDOFF.zip",
+  "located_repair": "Selftest G11 physical directory names shortened; stable full operation IDs and production code unchanged"
+}

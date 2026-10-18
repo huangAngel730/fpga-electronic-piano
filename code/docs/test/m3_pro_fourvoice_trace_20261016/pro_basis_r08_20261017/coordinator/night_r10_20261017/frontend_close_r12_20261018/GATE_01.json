@@ -1,0 +1,120 @@
+{
+  "id": "NEW_GATE_ENV_R02",
+  "state": "PASS",
+  "pass": true,
+  "actual_result": {
+    "argv": [
+      "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "-NoProfile",
+      "-ExecutionPolicy",
+      "Bypass",
+      "-File",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RECOVERY_R02_20261018\\GATE_CHILD_R02_FIX01.ps1",
+      "-ContractPath",
+      "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RECOVERY_R02_20261018\\CONTRACT_GATE_ENV_R02_ACTUAL.json",
+      "-ContractSha256",
+      "d4ede73882ee13e7756e7af2e463f3b597afdbe64aee96bc713883011a4e82db"
+    ],
+    "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+    "cap_seconds": 900,
+    "started_utc": "2026-10-18T12:16:33.244279+00:00",
+    "exit_code": 0,
+    "job_handle_closed": true,
+    "root_process_handle_closed": true,
+    "job_zero_observed_before_job_close": true,
+    "samples": [
+      {
+        "active": 0,
+        "total": 368,
+        "terminated": 0,
+        "returned_bytes": 48,
+        "monotonic": 5025.281
+      }
+    ],
+    "pid": 19076,
+    "exit_class": "NATURAL",
+    "process_exit_code": 0,
+    "peak_working_set": {
+      "metric": "Windows PROCESS_MEMORY_COUNTERS.PeakWorkingSetSize (PeakWorkingSet64)",
+      "bytes": 180441088,
+      "pointer_bits": 64
+    },
+    "before_root_handle_close": {
+      "active": 0,
+      "total": 368,
+      "terminated": 0,
+      "returned_bytes": 48,
+      "monotonic": 5025.281
+    },
+    "elapsed_seconds": 144.375,
+    "ended_utc": "2026-10-18T12:18:57.614160+00:00",
+    "within_cap": true
+  },
+  "raw_stdout": {
+    "path": "code/output/m3_frontend_close_r12_20261018/RECOVERY_R02_20261018/RUNS/GATE_ENV_R02_ACTUAL/stdout.bin",
+    "bytes": 751,
+    "sha256": "99f5356aaffad04f4c568c013f7efc8fb7686b7ef1b47d53a0af4d8151e39934"
+  },
+  "raw_stderr": {
+    "path": "code/output/m3_frontend_close_r12_20261018/RECOVERY_R02_20261018/RUNS/GATE_ENV_R02_ACTUAL/stderr.bin",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "environment_proof": {
+    "path": "code/output/m3_frontend_close_r12_20261018/RECOVERY_R02_20261018/RUNS/GATE_ENV_R02_ACTUAL/ENVIRONMENT_PROOF.json",
+    "bytes": 34953,
+    "sha256": "79b60c8ca87bddfb79b8f7f8113a98bc6cde7598381574982aee96bb4817312b"
+  },
+  "nine_checks": {
+    "checks": [
+      [
+        "PASS",
+        "Required paths present (22)"
+      ],
+      [
+        "PASS",
+        "Git whitespace clean"
+      ],
+      [
+        "PASS",
+        "Forbidden tracked files"
+      ],
+      [
+        "PASS",
+        "Python syntax (296 files)"
+      ],
+      [
+        "PASS",
+        "Pin map matches official reference (8 pins)"
+      ],
+      [
+        "PASS",
+        "DOCX structure (8 files)"
+      ],
+      [
+        "PASS",
+        "T007 top-level simulation"
+      ],
+      [
+        "PASS",
+        "T019 common-package simulation"
+      ],
+      [
+        "PASS",
+        "Reference digests annotated"
+      ]
+    ],
+    "all_pass": true,
+    "contract": {
+      "path": "code/output/m3_frontend_close_r12_20261018/RECOVERY_R02_20261018/CONTRACT_GATE_ENV_R02_ACTUAL.json",
+      "bytes": 12160,
+      "sha256": "d4ede73882ee13e7756e7af2e463f3b597afdbe64aee96bc713883011a4e82db"
+    }
+  },
+  "old_failed_Gate01": {
+    "path": "code/output/m3_frontend_close_r12_20261018/RESUME_R01_20261018/RUNS/GATE_01/RESULT.json",
+    "bytes": 1148,
+    "sha256": "32aecee8ff8374c9555e3eed83a3dcba1be0180475d5b2b35d2a60ad6a7e0612"
+  },
+  "old_consumption_preserved": true
+}

@@ -1,0 +1,72 @@
+{
+  "schema": "M3_R12_RECEIPT_AND_COMPLETION_SHA_TEMPLATE_V1",
+  "template_only_not_submitted": false,
+  "receiver": "M3",
+  "handoff_id": "M2-TO-M3-R12-20261018",
+  "review_received_and_SHA_verified": true,
+  "expected_review": {
+    "bytes": 3802,
+    "sha256": "6425a45c7a7b320119ea84d8aa09a332dac861469790f4a13624c136c7bf4b54"
+  },
+  "expected_receiver_receipt": {
+    "bytes": 5368,
+    "sha256": "3302df82b1bad20c0eaf00808105d8b6acd3633fda00772ba8e2960747462bd0"
+  },
+  "morning_completion_claim": {
+    "full_result_commit_confirmed_by_M3": "3c5101f19daa85b85d43082d9cadaca37fcbea13",
+    "expected_known_result_commit": "3c5101f19daa85b85d43082d9cadaca37fcbea13",
+    "full_receipt_commit": "ec833d1955fdf5e9cdd2224fbcbc342ba5c1e07f",
+    "expected_known_receipt_commit": "ec833d1955fdf5e9cdd2224fbcbc342ba5c1e07f",
+    "completion_scope": "Same R11 limited static preparation only; no other M3 result SHA; complete capture/math/physical not signed",
+    "remote_containment_verified_by_M3": true,
+    "if_different": "Provide new full SHA+exact changed paths+accessible originals; M2 reviews only delta. No old full review replay.",
+    "remote_tip_observed": "f1991b2ffdb64783fe71e19b5eb7d2dea9844613",
+    "local_ancestry_query_exit_codes": [
+      0,
+      0
+    ]
+  },
+  "actual_M3_START": "2026-10-18T11:57:42+08:00",
+  "actual_deadline": "2026-10-18T16:57:42+08:00",
+  "prior_end_or_paused_state": "R11 bounded static Goal completed at12:48:33; no user pause or earlier availability cutoff; current direct R12 instruction resumes within same original day window, no extra5h",
+  "sole_writer_thread_and_publisher": "01a14050-cd98-7c41-8004-5d3e25765167 root only",
+  "actual_existing_outbox_path_and_SHA": {
+    "path": "code\\output\\m3_c9_chain_night_r10_20261017\\MORNING_R11_20261018\\SOURCE_PUBLICATION_QUEUE_FINAL.json",
+    "bytes": 8547,
+    "sha256": "637c0e47d5dbfd7c3ba4054f1c27fd26f89b56aa2c6ee3b4c56163dd57c06cd1"
+  },
+  "new_budget_plan_sha256": "5dfd47d18a6bc3230437327723b796e145323a703a8aa3af4026a8ab966aba7d",
+  "new_budget_approval_evidence": {
+    "plan_sha256": "5dfd47d18a6bc3230437327723b796e145323a703a8aa3af4026a8ab966aba7d",
+    "authorization_file": "AUTHORIZATION_R12.json",
+    "approved_by_user": true,
+    "does_not_claim_M3_started": true
+  },
+  "new_software_groups_started": 0,
+  "new_gates_started": 0,
+  "old_consumption_restored": false,
+  "M2_final_acceptance": false,
+  "board_release_allowed": false,
+  "source_identity": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/DEPENDENCIES.json",
+    "bytes": 8419,
+    "sha256": "e14348490580c9c92202e8477b1382dadbbfc94136553732f05d1648b28154b1"
+  },
+  "runtime_admission": "R01_USER_AUTHORIZED_SUCCESSOR_PARALLEL_PREPARATION_AND_SOFTWARE_TESTS",
+  "R01_authorization": {
+    "path": "code/output/m3_frontend_close_r12_20261018/RESUME_R01_20261018/AUTHORIZATION_AND_PLAN.json",
+    "bytes": 3205,
+    "sha256": "b92d545517ed7c22edb8d7e0c8011279d0e72b7ac0a54cf6e425c0e894ab9b65"
+  },
+  "parallel_write_assignment": {
+    "path": "code/output/m3_frontend_close_r12_20261018/RESUME_R01_20261018/PARALLEL_ASSIGNMENT.json",
+    "bytes": 3657,
+    "sha256": "bc59684ef44381391b4619698e42dcb3b72ab394e9d60c8b7446acc9400f9ac0"
+  },
+  "R02_user_resumed_authority": {
+    "path": "code/output/m3_frontend_close_r12_20261018/RECOVERY_R02_20261018/EXECUTION_PLAN.json",
+    "bytes": 3610,
+    "sha256": "6e07d2fa7e956e83e712553ab14be17c15e183595b244d4b84c0207f4e4b1745"
+  },
+  "old_actual_time_and_SHA_fields_are_historical_preserved": true
+}

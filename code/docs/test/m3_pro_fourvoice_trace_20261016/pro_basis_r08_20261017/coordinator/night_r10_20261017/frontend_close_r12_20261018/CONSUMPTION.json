@@ -1,0 +1,1280 @@
+{
+  "R02_at_S1": {
+    "schema": "M3_R12_R02_CONSUMPTION_V1",
+    "slots": {
+      "CAPTURE_EVIDENCE_DELTA": {
+        "state": "PASS",
+        "attempts": 1,
+        "charged_seconds": 120,
+        "cap_seconds": 120,
+        "runs": 1,
+        "cases_max": 2,
+        "scope": "Persist ordered actual call-chain evidence and inject an exception after an active verified text read; frozen production9 unchanged, no software40 replay or native tools",
+        "started_utc": "2026-10-18T12:05:50.185537+00:00",
+        "admission": {
+          "path": "code\\output\\m3_frontend_close_r12_20261018\\RECOVERY_R02_20261018\\ADMISSION_DELTA.json",
+          "bytes": 24509,
+          "sha256": "836d517d2ab6affc4815d973f859229fed7298933c0306b2adc79071a0fc5c47"
+        },
+        "ended_utc": "2026-10-18T12:06:17.350669+00:00",
+        "actual_result": {
+          "argv": [
+            "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RECOVERY_R02_20261018\\capture_evidence_delta.py",
+            "--admission",
+            "code\\output\\m3_frontend_close_r12_20261018\\RECOVERY_R02_20261018\\ADMISSION_DELTA.json",
+            "--admission-sha256",
+            "836d517d2ab6affc4815d973f859229fed7298933c0306b2adc79071a0fc5c47",
+            "--output",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RECOVERY_R02_20261018\\RUNS\\CD\\worker"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "cap_seconds": 120,
+          "started_utc": "2026-10-18T12:05:50.236083+00:00",
+          "exit_code": 0,
+          "job_handle_closed": true,
+          "root_process_handle_closed": true,
+          "job_zero_observed_before_job_close": true,
+          "samples": [
+            {
+              "active": 0,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 4264.984
+            }
+          ],
+          "pid": 50500,
+          "exit_class": "NATURAL",
+          "process_exit_code": 0,
+          "peak_working_set": {
+            "metric": "Windows PROCESS_MEMORY_COUNTERS.PeakWorkingSetSize (PeakWorkingSet64)",
+            "bytes": 79355904,
+            "pointer_bits": 64
+          },
+          "before_root_handle_close": {
+            "active": 0,
+            "total": 2,
+            "terminated": 0,
+            "returned_bytes": 48,
+            "monotonic": 4264.984
+          },
+          "elapsed_seconds": 27.07800000000043,
+          "ended_utc": "2026-10-18T12:06:17.317181+00:00",
+          "within_cap": true
+        }
+      },
+      "GATE_ENV_R02": {
+        "state": "FAILED_STOP",
+        "attempts": 1,
+        "charged_seconds": 900,
+        "cap_seconds": 900,
+        "runs": 1,
+        "scope": "New corrected candidate gate using process-only frozen Python PATH, verify before and after enter_fpga_env",
+        "started_utc": "2026-10-18T12:08:11.049159+00:00",
+        "admission": {
+          "path": "code\\output\\m3_frontend_close_r12_20261018\\RECOVERY_R02_20261018\\ADMISSION_DELTA.json",
+          "bytes": 24509,
+          "sha256": "836d517d2ab6affc4815d973f859229fed7298933c0306b2adc79071a0fc5c47"
+        },
+        "ended_utc": "2026-10-18T12:08:11.556442+00:00",
+        "actual_result": {
+          "argv": [
+            "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RECOVERY_R02_20261018\\GATE_CHILD_R02.ps1",
+            "-ContractPath",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RECOVERY_R02_20261018\\CONTRACT_GATE_ENV_R02.json",
+            "-ContractSha256",
+            "5990dd90d20156c4f84964b922270134f7564a6c42426f0a8ef34cd4316623fd"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "cap_seconds": 900,
+          "started_utc": "2026-10-18T12:08:11.087426+00:00",
+          "exit_code": 97,
+          "job_handle_closed": true,
+          "root_process_handle_closed": true,
+          "job_zero_observed_before_job_close": true,
+          "samples": [
+            {
+              "active": 0,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 4379.093
+            }
+          ],
+          "pid": 50288,
+          "exit_class": "NATURAL",
+          "process_exit_code": 97,
+          "peak_working_set": {
+            "metric": "Windows PROCESS_MEMORY_COUNTERS.PeakWorkingSetSize (PeakWorkingSet64)",
+            "bytes": 90460160,
+            "pointer_bits": 64
+          },
+          "before_root_handle_close": {
+            "active": 0,
+            "total": 2,
+            "terminated": 0,
+            "returned_bytes": 48,
+            "monotonic": 4379.093
+          },
+          "elapsed_seconds": 0.3429999999998472,
+          "ended_utc": "2026-10-18T12:08:11.425898+00:00",
+          "within_cap": true
+        },
+        "actual_standard_gate_started": false,
+        "prelaunch_failure_preserved_no_refund": true
+      },
+      "S1_R02": {
+        "state": "CONSUMED_BEFORE_LAUNCH",
+        "attempts": 1,
+        "charged_seconds": 60,
+        "cap_seconds": 60,
+        "runs": 1,
+        "started_utc": "2026-10-18T12:22:06.705945+00:00",
+        "admission": {
+          "path": "code\\output\\m3_frontend_close_r12_20261018\\RECOVERY_R02_20261018\\ADMISSION_FIX01.json",
+          "bytes": 25161,
+          "sha256": "926e5b071d8fc7b0affe6cec84ef5f9801bede0145f8440cc68fb357405dd1c2"
+        }
+      },
+      "S2_R02": {
+        "state": "NOT_STARTED",
+        "attempts": 0,
+        "charged_seconds": 0,
+        "cap_seconds": 60,
+        "runs": 1
+      },
+      "GATE_02": {
+        "state": "NOT_STARTED",
+        "attempts": 0,
+        "charged_seconds": 0,
+        "cap_seconds": 900,
+        "carried_original_unused_slot": true
+      },
+      "SOFTWARE_FIX_DIAG_02": {
+        "state": "PASS",
+        "attempts": 1,
+        "charged_seconds": 60,
+        "cap_seconds": 60,
+        "started_utc": "2026-10-18T12:15:29.992799+00:00",
+        "admission": {
+          "path": "code/output/m3_frontend_close_r12_20261018/RECOVERY_R02_20261018/ADMISSION_FIX01.json",
+          "bytes": 25161,
+          "sha256": "926e5b071d8fc7b0affe6cec84ef5f9801bede0145f8440cc68fb357405dd1c2"
+        },
+        "ended_utc": "2026-10-18T12:15:31.234281+00:00",
+        "actual_result": {
+          "argv": [
+            "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RECOVERY_R02_20261018\\GATE_CHILD_R02_FIX01.ps1",
+            "-ContractPath",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RECOVERY_R02_20261018\\CONTRACT_SOFTWARE_FIX_DIAG_02.json",
+            "-ContractSha256",
+            "c36728a03068f2426a89bc3cf4d6b01dd23bf3623ef8a6d84fba9dd6b8251fd6",
+            "-PreflightOnly"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "cap_seconds": 60,
+          "started_utc": "2026-10-18T12:15:30.037325+00:00",
+          "exit_code": 0,
+          "job_handle_closed": true,
+          "root_process_handle_closed": true,
+          "job_zero_observed_before_job_close": true,
+          "samples": [
+            {
+              "active": 0,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 4818.843
+            }
+          ],
+          "pid": 48096,
+          "exit_class": "NATURAL",
+          "process_exit_code": 0,
+          "peak_working_set": {
+            "metric": "Windows PROCESS_MEMORY_COUNTERS.PeakWorkingSetSize (PeakWorkingSet64)",
+            "bytes": 176099328,
+            "pointer_bits": 64
+          },
+          "before_root_handle_close": {
+            "active": 0,
+            "total": 2,
+            "terminated": 0,
+            "returned_bytes": 48,
+            "monotonic": 4818.843
+          },
+          "elapsed_seconds": 1.139999999999418,
+          "ended_utc": "2026-10-18T12:15:31.183948+00:00",
+          "within_cap": true
+        }
+      },
+      "GATE_ENV_R02_ACTUAL": {
+        "state": "PASS",
+        "attempts": 1,
+        "charged_seconds": 900,
+        "cap_seconds": 900,
+        "started_utc": "2026-10-18T12:16:33.214910+00:00",
+        "admission": {
+          "path": "code/output/m3_frontend_close_r12_20261018/RECOVERY_R02_20261018/ADMISSION_FIX01.json",
+          "bytes": 25161,
+          "sha256": "926e5b071d8fc7b0affe6cec84ef5f9801bede0145f8440cc68fb357405dd1c2"
+        },
+        "ended_utc": "2026-10-18T12:18:57.663480+00:00",
+        "actual_result": {
+          "argv": [
+            "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RECOVERY_R02_20261018\\GATE_CHILD_R02_FIX01.ps1",
+            "-ContractPath",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RECOVERY_R02_20261018\\CONTRACT_GATE_ENV_R02_ACTUAL.json",
+            "-ContractSha256",
+            "d4ede73882ee13e7756e7af2e463f3b597afdbe64aee96bc713883011a4e82db"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "cap_seconds": 900,
+          "started_utc": "2026-10-18T12:16:33.244279+00:00",
+          "exit_code": 0,
+          "job_handle_closed": true,
+          "root_process_handle_closed": true,
+          "job_zero_observed_before_job_close": true,
+          "samples": [
+            {
+              "active": 0,
+              "total": 368,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 5025.281
+            }
+          ],
+          "pid": 19076,
+          "exit_class": "NATURAL",
+          "process_exit_code": 0,
+          "peak_working_set": {
+            "metric": "Windows PROCESS_MEMORY_COUNTERS.PeakWorkingSetSize (PeakWorkingSet64)",
+            "bytes": 180441088,
+            "pointer_bits": 64
+          },
+          "before_root_handle_close": {
+            "active": 0,
+            "total": 368,
+            "terminated": 0,
+            "returned_bytes": 48,
+            "monotonic": 5025.281
+          },
+          "elapsed_seconds": 144.375,
+          "ended_utc": "2026-10-18T12:18:57.614160+00:00",
+          "within_cap": true
+        }
+      }
+    },
+    "deadline": "2026-10-18T21:20:12+08:00",
+    "old_charge_snapshot": {
+      "path": "code/output/m3_frontend_close_r12_20261018/RECOVERY_R02_20261018/R01_CONSUMPTION_AT_RESUME.json",
+      "bytes": 32744,
+      "sha256": "f87add2bd9ee94277952b6362ed42380ae4b5010319adb55c0ed61de8a5d9390"
+    },
+    "network": {
+      "operations": [
+        {
+          "operation_id": "r12_r02_start_fetch_01",
+          "kind": "fetch",
+          "state": "OK",
+          "charged_seconds": 60,
+          "result": {
+            "kind": "fetch",
+            "operation_id": "r12_r02_start_fetch_01",
+            "attempt": 1,
+            "retry_basis": null,
+            "argv": [
+              "C:/Program Files/Git/cmd/git.exe",
+              "-c",
+              "http.proxy=http://127.0.0.1:7892",
+              "-c",
+              "http.version=HTTP/1.1",
+              "-c",
+              "credential.interactive=false",
+              "fetch",
+              "origin"
+            ],
+            "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+            "utc": "2026-10-18T12:00:29.698586+00:00",
+            "timeout_seconds": 30,
+            "process_wait_seconds": 28,
+            "status": "OK",
+            "pid": 33220,
+            "exit_code": 0,
+            "elapsed_seconds": 3.5470000000000255,
+            "process_exit_code": 0,
+            "within_30_seconds": true
+          }
+        },
+        {
+          "operation_id": "r12_r02_candidate_handoff_fetch_02",
+          "kind": "fetch",
+          "state": "OK",
+          "charged_seconds": 60,
+          "result": {
+            "kind": "fetch",
+            "operation_id": "r12_r02_candidate_handoff_fetch_02",
+            "attempt": 1,
+            "retry_basis": null,
+            "argv": [
+              "C:/Program Files/Git/cmd/git.exe",
+              "-c",
+              "http.proxy=http://127.0.0.1:7892",
+              "-c",
+              "http.version=HTTP/1.1",
+              "-c",
+              "credential.interactive=false",
+              "fetch",
+              "origin"
+            ],
+            "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+            "utc": "2026-10-18T12:21:26.781934+00:00",
+            "timeout_seconds": 30,
+            "process_wait_seconds": 28,
+            "status": "OK",
+            "pid": 50948,
+            "exit_code": 0,
+            "elapsed_seconds": 3.95299999999952,
+            "process_exit_code": 0,
+            "within_30_seconds": true
+          }
+        }
+      ],
+      "ops_max": 7,
+      "seconds_max": 420
+    },
+    "old_consumption_refunded": false,
+    "publisher": "01a14050-cd98-7c41-8004-5d3e25765167"
+  },
+  "R01_at_resume": {
+    "schema": "M3_R12_SUCCESSOR_CONSUMPTION_V1",
+    "authorization_sha256": "b92d545517ed7c22edb8d7e0c8011279d0e72b7ac0a54cf6e425c0e894ab9b65",
+    "original_consumption_snapshot": {
+      "bytes": 6120,
+      "sha256": "5c163804eba3c4946e75b26d575883c8470607311939f0dc3b3eee0e9bb12393"
+    },
+    "old_charge_preserved": {
+      "network_ops": 3,
+      "network_seconds": 180,
+      "S1_seconds": 60
+    },
+    "successor_START": "2026-10-18T17:09:21+08:00",
+    "deadline": "2026-10-18T20:09:21+08:00",
+    "groups": {
+      "SOFTWARE_FIX_DIAG": {
+        "state": "PASS",
+        "charged_seconds": 60,
+        "attempts": 1,
+        "cap_seconds": 240,
+        "started_utc": "2026-10-18T09:59:12.999771+00:00",
+        "admission": {
+          "path": "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_PREPARE.json",
+          "sha256": "1a56d05bed07308efb5845cfa036eb25dd54e48848e703afd7bbe5e10e107354"
+        },
+        "output": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\SOFTWARE_FIX_DIAG_1",
+        "ended_utc": "2026-10-18T09:59:13.412652+00:00",
+        "actual_result": {
+          "argv": [
+            "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\metadata_worker.py",
+            "SOFTWARE_FIX_DIAG",
+            "--admission",
+            "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_PREPARE.json",
+            "--admission-sha256",
+            "1a56d05bed07308efb5845cfa036eb25dd54e48848e703afd7bbe5e10e107354"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "cap_seconds": 60,
+          "started_utc": "2026-10-18T09:59:13.075008+00:00",
+          "exit_code": 0,
+          "job_handle_closed": true,
+          "root_process_handle_closed": true,
+          "job_zero_observed_before_job_close": true,
+          "samples": [
+            {
+              "active": 1,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 163149.562
+            },
+            {
+              "active": 0,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 163149.578
+            }
+          ],
+          "pid": 61156,
+          "exit_class": "NATURAL",
+          "process_exit_code": 0,
+          "peak_working_set": {
+            "metric": "Windows PROCESS_MEMORY_COUNTERS.PeakWorkingSetSize (PeakWorkingSet64)",
+            "bytes": 35434496,
+            "pointer_bits": 64
+          },
+          "before_root_handle_close": {
+            "active": 1,
+            "total": 2,
+            "terminated": 0,
+            "returned_bytes": 48,
+            "monotonic": 163149.562
+          },
+          "elapsed_seconds": 0.2970000000204891,
+          "ended_utc": "2026-10-18T09:59:13.379339+00:00",
+          "within_cap": true
+        }
+      },
+      "S1_FIX_DIAG": {
+        "state": "PASS",
+        "charged_seconds": 60,
+        "attempts": 1,
+        "cap_seconds": 60,
+        "started_utc": "2026-10-18T09:19:39.427327+00:00",
+        "actual_result": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\S1_FIX_DIAG\\RESULT.json"
+      },
+      "S1_SUCCESSOR": {
+        "state": "PASS",
+        "charged_seconds": 60,
+        "attempts": 1,
+        "cap_seconds": 60,
+        "started_utc": "2026-10-18T11:35:51.356447+00:00",
+        "admission": {
+          "path": "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_SEAL.json",
+          "sha256": "410cb5f47071c308defd7b9add2fc304af28605ac09af54a78dd60c6cf650e63"
+        },
+        "output": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\S1_SUCCESSOR",
+        "ended_utc": "2026-10-18T11:35:56.871322+00:00",
+        "actual_result": {
+          "argv": [
+            "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\metadata_worker.py",
+            "S1_SUCCESSOR",
+            "--admission",
+            "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_SEAL.json",
+            "--admission-sha256",
+            "410cb5f47071c308defd7b9add2fc304af28605ac09af54a78dd60c6cf650e63"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "cap_seconds": 60,
+          "started_utc": "2026-10-18T11:35:51.402070+00:00",
+          "exit_code": 0,
+          "job_handle_closed": true,
+          "root_process_handle_closed": true,
+          "job_zero_observed_before_job_close": true,
+          "samples": [
+            {
+              "active": 0,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 2444.515
+            }
+          ],
+          "pid": 11324,
+          "exit_class": "NATURAL",
+          "process_exit_code": 0,
+          "peak_working_set": {
+            "metric": "Windows PROCESS_MEMORY_COUNTERS.PeakWorkingSetSize (PeakWorkingSet64)",
+            "bytes": 31494144,
+            "pointer_bits": 64
+          },
+          "before_root_handle_close": {
+            "active": 0,
+            "total": 2,
+            "terminated": 0,
+            "returned_bytes": 48,
+            "monotonic": 2444.515
+          },
+          "elapsed_seconds": 5.4529999999999745,
+          "ended_utc": "2026-10-18T11:35:56.844274+00:00",
+          "within_cap": true
+        }
+      }
+    },
+    "formal_original_slots": {
+      "P0": {
+        "state": "PASS",
+        "charged_seconds": 60,
+        "cap_seconds": 60,
+        "attempts": 1,
+        "started_utc": "2026-10-18T10:00:33.757726+00:00",
+        "admission": {
+          "path": "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_RUN.json",
+          "sha256": "1e2879ea52b9c2dbd7a752b1252a8ad93f0b04f651ef63f60d7dd6dc340791dc"
+        },
+        "output": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\P0",
+        "ended_utc": "2026-10-18T10:00:34.080975+00:00",
+        "actual_result": {
+          "argv": [
+            "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\night_r10_20261017\\frontend_close_r12_20261018\\selftest.py",
+            "--worker",
+            "--group",
+            "P0",
+            "--admission",
+            "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_RUN.json",
+            "--admission-sha256",
+            "1e2879ea52b9c2dbd7a752b1252a8ad93f0b04f651ef63f60d7dd6dc340791dc",
+            "--output",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\P0\\worker"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "cap_seconds": 60,
+          "started_utc": "2026-10-18T10:00:33.793604+00:00",
+          "exit_code": 0,
+          "job_handle_closed": true,
+          "root_process_handle_closed": true,
+          "job_zero_observed_before_job_close": true,
+          "samples": [
+            {
+              "active": 1,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 163230.234
+            },
+            {
+              "active": 0,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 163230.265
+            }
+          ],
+          "pid": 61696,
+          "exit_class": "NATURAL",
+          "process_exit_code": 0,
+          "peak_working_set": {
+            "metric": "Windows PROCESS_MEMORY_COUNTERS.PeakWorkingSetSize (PeakWorkingSet64)",
+            "bytes": 39301120,
+            "pointer_bits": 64
+          },
+          "before_root_handle_close": {
+            "active": 1,
+            "total": 2,
+            "terminated": 0,
+            "returned_bytes": 48,
+            "monotonic": 163230.234
+          },
+          "elapsed_seconds": 0.26500000001396984,
+          "ended_utc": "2026-10-18T10:00:34.055625+00:00",
+          "within_cap": true
+        }
+      },
+      "J": {
+        "state": "PASS",
+        "charged_seconds": 60,
+        "cap_seconds": 60,
+        "attempts": 1,
+        "started_utc": "2026-10-18T10:00:48.136165+00:00",
+        "admission": {
+          "path": "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_RUN.json",
+          "sha256": "1e2879ea52b9c2dbd7a752b1252a8ad93f0b04f651ef63f60d7dd6dc340791dc"
+        },
+        "output": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\J",
+        "ended_utc": "2026-10-18T10:00:49.815664+00:00",
+        "actual_result": {
+          "argv": [
+            "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\night_r10_20261017\\frontend_close_r12_20261018\\selftest.py",
+            "--worker",
+            "--group",
+            "J",
+            "--admission",
+            "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_RUN.json",
+            "--admission-sha256",
+            "1e2879ea52b9c2dbd7a752b1252a8ad93f0b04f651ef63f60d7dd6dc340791dc",
+            "--output",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\J\\worker"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "cap_seconds": 60,
+          "started_utc": "2026-10-18T10:00:48.173245+00:00",
+          "exit_code": 0,
+          "job_handle_closed": true,
+          "root_process_handle_closed": true,
+          "job_zero_observed_before_job_close": true,
+          "samples": [
+            {
+              "active": 1,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 163245.968
+            },
+            {
+              "active": 0,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 163246.0
+            }
+          ],
+          "pid": 41680,
+          "exit_class": "NATURAL",
+          "process_exit_code": 0,
+          "peak_working_set": {
+            "metric": "Windows PROCESS_MEMORY_COUNTERS.PeakWorkingSetSize (PeakWorkingSet64)",
+            "bytes": 41537536,
+            "pointer_bits": 64
+          },
+          "before_root_handle_close": {
+            "active": 1,
+            "total": 2,
+            "terminated": 0,
+            "returned_bytes": 48,
+            "monotonic": 163245.968
+          },
+          "elapsed_seconds": 1.625,
+          "ended_utc": "2026-10-18T10:00:49.791628+00:00",
+          "within_cap": true
+        }
+      },
+      "G": {
+        "state": "FAILED_STOP",
+        "charged_seconds": 60,
+        "cap_seconds": 60,
+        "attempts": 1,
+        "started_utc": "2026-10-18T10:01:08.248802+00:00",
+        "admission": {
+          "path": "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_RUN.json",
+          "sha256": "1e2879ea52b9c2dbd7a752b1252a8ad93f0b04f651ef63f60d7dd6dc340791dc"
+        },
+        "output": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\G",
+        "ended_utc": "2026-10-18T10:01:15.397447+00:00",
+        "actual_result": {
+          "argv": [
+            "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\night_r10_20261017\\frontend_close_r12_20261018\\selftest.py",
+            "--worker",
+            "--group",
+            "G",
+            "--admission",
+            "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_RUN.json",
+            "--admission-sha256",
+            "1e2879ea52b9c2dbd7a752b1252a8ad93f0b04f651ef63f60d7dd6dc340791dc",
+            "--output",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\G\\worker"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "cap_seconds": 60,
+          "started_utc": "2026-10-18T10:01:08.284933+00:00",
+          "exit_code": 1,
+          "job_handle_closed": true,
+          "root_process_handle_closed": true,
+          "job_zero_observed_before_job_close": true,
+          "samples": [
+            {
+              "active": 1,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 163271.546
+            },
+            {
+              "active": 0,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 163271.578
+            }
+          ],
+          "pid": 57972,
+          "exit_class": "NATURAL",
+          "process_exit_code": 1,
+          "peak_working_set": {
+            "metric": "Windows PROCESS_MEMORY_COUNTERS.PeakWorkingSetSize (PeakWorkingSet64)",
+            "bytes": 41127936,
+            "pointer_bits": 64
+          },
+          "before_root_handle_close": {
+            "active": 1,
+            "total": 2,
+            "terminated": 0,
+            "returned_bytes": 48,
+            "monotonic": 163271.546
+          },
+          "elapsed_seconds": 7.094000000011874,
+          "ended_utc": "2026-10-18T10:01:15.373873+00:00",
+          "within_cap": true
+        },
+        "repaired_by": "R",
+        "effective_acceptance": "PASS_BY_R",
+        "original_failure_preserved": true
+      },
+      "C": {
+        "state": "PASS",
+        "charged_seconds": 120,
+        "cap_seconds": 120,
+        "attempts": 1,
+        "started_utc": "2026-10-18T10:03:56.528480+00:00",
+        "admission": {
+          "path": "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_REPAIRED.json",
+          "sha256": "273d3fdef4df9cc50ce985fc8150171044a0c0494705ee0de7099bba2980c2c5"
+        },
+        "output": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\C",
+        "ended_utc": "2026-10-18T10:05:06.579225+00:00",
+        "actual_result": {
+          "argv": [
+            "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\night_r10_20261017\\frontend_close_r12_20261018\\selftest.py",
+            "--worker",
+            "--group",
+            "C",
+            "--admission",
+            "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_REPAIRED.json",
+            "--admission-sha256",
+            "273d3fdef4df9cc50ce985fc8150171044a0c0494705ee0de7099bba2980c2c5",
+            "--output",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\C\\worker"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "cap_seconds": 120,
+          "started_utc": "2026-10-18T10:03:56.588467+00:00",
+          "exit_code": 0,
+          "job_handle_closed": true,
+          "root_process_handle_closed": true,
+          "job_zero_observed_before_job_close": true,
+          "samples": [
+            {
+              "active": 1,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 163502.734
+            },
+            {
+              "active": 0,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 163502.75
+            }
+          ],
+          "pid": 30952,
+          "exit_class": "NATURAL",
+          "process_exit_code": 0,
+          "peak_working_set": {
+            "metric": "Windows PROCESS_MEMORY_COUNTERS.PeakWorkingSetSize (PeakWorkingSet64)",
+            "bytes": 96935936,
+            "pointer_bits": 64
+          },
+          "before_root_handle_close": {
+            "active": 1,
+            "total": 2,
+            "terminated": 0,
+            "returned_bytes": 48,
+            "monotonic": 163502.734
+          },
+          "elapsed_seconds": 69.9539999999979,
+          "ended_utc": "2026-10-18T10:05:06.554161+00:00",
+          "within_cap": true
+        }
+      },
+      "W": {
+        "state": "PASS",
+        "charged_seconds": 240,
+        "cap_seconds": 240,
+        "attempts": 1,
+        "started_utc": "2026-10-18T10:05:37.487426+00:00",
+        "admission": {
+          "path": "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_REPAIRED.json",
+          "sha256": "273d3fdef4df9cc50ce985fc8150171044a0c0494705ee0de7099bba2980c2c5"
+        },
+        "output": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\W",
+        "ended_utc": "2026-10-18T10:05:59.613492+00:00",
+        "actual_result": {
+          "argv": [
+            "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\night_r10_20261017\\frontend_close_r12_20261018\\selftest.py",
+            "--worker",
+            "--group",
+            "W",
+            "--admission",
+            "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_REPAIRED.json",
+            "--admission-sha256",
+            "273d3fdef4df9cc50ce985fc8150171044a0c0494705ee0de7099bba2980c2c5",
+            "--output",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\W\\worker"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "cap_seconds": 240,
+          "started_utc": "2026-10-18T10:05:37.523662+00:00",
+          "exit_code": 0,
+          "job_handle_closed": true,
+          "root_process_handle_closed": true,
+          "job_zero_observed_before_job_close": true,
+          "samples": [
+            {
+              "active": 1,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 163555.765
+            },
+            {
+              "active": 0,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 163555.796
+            }
+          ],
+          "pid": 43088,
+          "exit_class": "NATURAL",
+          "process_exit_code": 0,
+          "peak_working_set": {
+            "metric": "Windows PROCESS_MEMORY_COUNTERS.PeakWorkingSetSize (PeakWorkingSet64)",
+            "bytes": 39153664,
+            "pointer_bits": 64
+          },
+          "before_root_handle_close": {
+            "active": 1,
+            "total": 2,
+            "terminated": 0,
+            "returned_bytes": 48,
+            "monotonic": 163555.765
+          },
+          "elapsed_seconds": 22.062000000005355,
+          "ended_utc": "2026-10-18T10:05:59.589986+00:00",
+          "within_cap": true
+        }
+      },
+      "R": {
+        "state": "PASS",
+        "charged_seconds": 240,
+        "cap_seconds": 240,
+        "attempts": 1,
+        "started_utc": "2026-10-18T10:03:33.135769+00:00",
+        "admission": {
+          "path": "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_REPAIRED.json",
+          "sha256": "273d3fdef4df9cc50ce985fc8150171044a0c0494705ee0de7099bba2980c2c5"
+        },
+        "output": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\R",
+        "ended_utc": "2026-10-18T10:03:40.883706+00:00",
+        "actual_result": {
+          "argv": [
+            "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\night_r10_20261017\\frontend_close_r12_20261018\\selftest.py",
+            "--worker",
+            "--group",
+            "R",
+            "--admission",
+            "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_REPAIRED.json",
+            "--admission-sha256",
+            "273d3fdef4df9cc50ce985fc8150171044a0c0494705ee0de7099bba2980c2c5",
+            "--output",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\R\\worker"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "cap_seconds": 240,
+          "started_utc": "2026-10-18T10:03:33.170398+00:00",
+          "exit_code": 0,
+          "job_handle_closed": true,
+          "root_process_handle_closed": true,
+          "job_zero_observed_before_job_close": true,
+          "samples": [
+            {
+              "active": 1,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 163417.031
+            },
+            {
+              "active": 0,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 163417.062
+            }
+          ],
+          "pid": 55408,
+          "exit_class": "NATURAL",
+          "process_exit_code": 0,
+          "peak_working_set": {
+            "metric": "Windows PROCESS_MEMORY_COUNTERS.PeakWorkingSetSize (PeakWorkingSet64)",
+            "bytes": 39768064,
+            "pointer_bits": 64
+          },
+          "before_root_handle_close": {
+            "active": 1,
+            "total": 2,
+            "terminated": 0,
+            "returned_bytes": 48,
+            "monotonic": 163417.031
+          },
+          "elapsed_seconds": 7.687000000005355,
+          "ended_utc": "2026-10-18T10:03:40.860179+00:00",
+          "within_cap": true
+        }
+      },
+      "GATE_01": {
+        "state": "FAILED_STOP",
+        "charged_seconds": 900,
+        "cap_seconds": 900,
+        "attempts": 1,
+        "started_utc": "2026-10-18T10:08:28.397936+00:00",
+        "admission": {
+          "path": "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_REPAIRED.json",
+          "sha256": "273d3fdef4df9cc50ce985fc8150171044a0c0494705ee0de7099bba2980c2c5"
+        },
+        "output": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\GATE_01",
+        "ended_utc": "2026-10-18T10:09:00.341598+00:00",
+        "actual_result": {
+          "argv": [
+            "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe",
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\scripts\\check_repo.ps1"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "cap_seconds": 900,
+          "started_utc": "2026-10-18T10:08:28.449443+00:00",
+          "exit_code": 1,
+          "job_handle_closed": true,
+          "root_process_handle_closed": true,
+          "job_zero_observed_before_job_close": true,
+          "samples": [
+            {
+              "active": 0,
+              "total": 44,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 163736.5
+            }
+          ],
+          "pid": 42920,
+          "exit_class": "NATURAL",
+          "process_exit_code": 1,
+          "peak_working_set": {
+            "metric": "Windows PROCESS_MEMORY_COUNTERS.PeakWorkingSetSize (PeakWorkingSet64)",
+            "bytes": 182370304,
+            "pointer_bits": 64
+          },
+          "before_root_handle_close": {
+            "active": 0,
+            "total": 44,
+            "terminated": 0,
+            "returned_bytes": 48,
+            "monotonic": 163736.5
+          },
+          "elapsed_seconds": 31.844000000011874,
+          "ended_utc": "2026-10-18T10:09:00.301682+00:00",
+          "within_cap": true
+        }
+      },
+      "GATE_02": {
+        "state": "NOT_STARTED",
+        "charged_seconds": 0,
+        "cap_seconds": 900
+      },
+      "S2": {
+        "state": "PASS",
+        "charged_seconds": 60,
+        "cap_seconds": 60,
+        "attempts": 1,
+        "started_utc": "2026-10-18T11:37:13.174785+00:00",
+        "admission": {
+          "path": "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_SEAL.json",
+          "sha256": "410cb5f47071c308defd7b9add2fc304af28605ac09af54a78dd60c6cf650e63"
+        },
+        "output": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\S2",
+        "ended_utc": "2026-10-18T11:37:13.516116+00:00",
+        "actual_result": {
+          "argv": [
+            "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\metadata_worker.py",
+            "S2",
+            "--admission",
+            "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_SEAL.json",
+            "--admission-sha256",
+            "410cb5f47071c308defd7b9add2fc304af28605ac09af54a78dd60c6cf650e63"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "cap_seconds": 60,
+          "started_utc": "2026-10-18T11:37:13.209396+00:00",
+          "exit_code": 0,
+          "job_handle_closed": true,
+          "root_process_handle_closed": true,
+          "job_zero_observed_before_job_close": true,
+          "samples": [
+            {
+              "active": 1,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 2521.125
+            },
+            {
+              "active": 0,
+              "total": 2,
+              "terminated": 0,
+              "returned_bytes": 48,
+              "monotonic": 2521.156
+            }
+          ],
+          "pid": 36136,
+          "exit_class": "NATURAL",
+          "process_exit_code": 0,
+          "peak_working_set": {
+            "metric": "Windows PROCESS_MEMORY_COUNTERS.PeakWorkingSetSize (PeakWorkingSet64)",
+            "bytes": 25305088,
+            "pointer_bits": 64
+          },
+          "before_root_handle_close": {
+            "active": 1,
+            "total": 2,
+            "terminated": 0,
+            "returned_bytes": 48,
+            "monotonic": 2521.125
+          },
+          "elapsed_seconds": 0.28099999999994907,
+          "ended_utc": "2026-10-18T11:37:13.492564+00:00",
+          "within_cap": true
+        }
+      }
+    },
+    "network": {
+      "ops_max": 12,
+      "seconds_max": 720,
+      "operations": [
+        {
+          "operation_id": "r12_r01_checkpoint_fetch_01",
+          "kind": "fetch",
+          "state": "OK",
+          "charged_seconds": 60,
+          "started_utc": "2026-10-18T09:34:14.300230+00:00",
+          "cap_seconds": 30,
+          "old_consumption_restored": false,
+          "result": {
+            "kind": "fetch",
+            "operation_id": "r12_r01_checkpoint_fetch_01",
+            "attempt": 1,
+            "retry_basis": null,
+            "argv": [
+              "C:/Program Files/Git/cmd/git.exe",
+              "-c",
+              "http.proxy=http://127.0.0.1:7892",
+              "-c",
+              "http.version=HTTP/1.1",
+              "-c",
+              "credential.interactive=false",
+              "fetch",
+              "origin"
+            ],
+            "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+            "utc": "2026-10-18T09:34:14.325122+00:00",
+            "timeout_seconds": 30,
+            "process_wait_seconds": 28,
+            "status": "OK",
+            "pid": 37548,
+            "exit_code": 0,
+            "elapsed_seconds": 3.2030000000086147,
+            "process_exit_code": 0,
+            "within_30_seconds": true
+          }
+        },
+        {
+          "operation_id": "r12_r01_software_handoff_fetch_02",
+          "kind": "fetch",
+          "state": "OK",
+          "charged_seconds": 60,
+          "started_utc": "2026-10-18T10:07:53.001376+00:00",
+          "cap_seconds": 30,
+          "old_consumption_restored": false,
+          "result": {
+            "kind": "fetch",
+            "operation_id": "r12_r01_software_handoff_fetch_02",
+            "attempt": 1,
+            "retry_basis": null,
+            "argv": [
+              "C:/Program Files/Git/cmd/git.exe",
+              "-c",
+              "http.proxy=http://127.0.0.1:7892",
+              "-c",
+              "http.version=HTTP/1.1",
+              "-c",
+              "credential.interactive=false",
+              "fetch",
+              "origin"
+            ],
+            "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+            "utc": "2026-10-18T10:07:53.016684+00:00",
+            "timeout_seconds": 30,
+            "process_wait_seconds": 28,
+            "status": "OK",
+            "pid": 42460,
+            "exit_code": 0,
+            "elapsed_seconds": 2.860000000015134,
+            "process_exit_code": 0,
+            "within_30_seconds": true
+          }
+        },
+        {
+          "operation_id": "r12_r01_day3_intake_fetch_03",
+          "kind": "fetch",
+          "state": "OK",
+          "charged_seconds": 60,
+          "started_utc": "2026-10-18T11:14:16.702739+00:00",
+          "cap_seconds": 30,
+          "old_consumption_restored": false,
+          "result": {
+            "kind": "fetch",
+            "operation_id": "r12_r01_day3_intake_fetch_03",
+            "attempt": 1,
+            "retry_basis": null,
+            "argv": [
+              "C:/Program Files/Git/cmd/git.exe",
+              "-c",
+              "http.proxy=http://127.0.0.1:7892",
+              "-c",
+              "http.version=HTTP/1.1",
+              "-c",
+              "credential.interactive=false",
+              "fetch",
+              "origin"
+            ],
+            "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+            "utc": "2026-10-18T11:14:16.731634+00:00",
+            "timeout_seconds": 30,
+            "process_wait_seconds": 28,
+            "status": "OK",
+            "pid": 8408,
+            "exit_code": 0,
+            "elapsed_seconds": 3.6400000000001,
+            "process_exit_code": 0,
+            "within_30_seconds": true
+          }
+        },
+        {
+          "operation_id": "r12_r01_partial_handoff_remote_04",
+          "kind": "remote",
+          "state": "OK",
+          "charged_seconds": 60,
+          "started_utc": "2026-10-18T11:32:41.965117+00:00",
+          "cap_seconds": 30,
+          "old_consumption_restored": false,
+          "result": {
+            "kind": "remote",
+            "operation_id": "r12_r01_partial_handoff_remote_04",
+            "attempt": 1,
+            "retry_basis": null,
+            "argv": [
+              "C:/Program Files/Git/cmd/git.exe",
+              "-c",
+              "http.proxy=http://127.0.0.1:7892",
+              "-c",
+              "http.version=HTTP/1.1",
+              "-c",
+              "credential.interactive=false",
+              "ls-remote",
+              "--exit-code",
+              "origin",
+              "refs/heads/develop"
+            ],
+            "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+            "utc": "2026-10-18T11:32:41.984472+00:00",
+            "timeout_seconds": 30,
+            "process_wait_seconds": 28,
+            "status": "OK",
+            "pid": 13204,
+            "exit_code": 0,
+            "elapsed_seconds": 2.280999999999949,
+            "process_exit_code": 0,
+            "within_30_seconds": true
+          }
+        },
+        {
+          "operation_id": "r12_r01_user_resume_remote_05",
+          "kind": "remote",
+          "state": "OK",
+          "charged_seconds": 60,
+          "started_utc": "2026-10-18T11:47:05.621042+00:00",
+          "cap_seconds": 30,
+          "old_consumption_restored": false,
+          "result": {
+            "kind": "remote",
+            "operation_id": "r12_r01_user_resume_remote_05",
+            "attempt": 1,
+            "retry_basis": null,
+            "argv": [
+              "C:/Program Files/Git/cmd/git.exe",
+              "-c",
+              "http.proxy=http://127.0.0.1:7892",
+              "-c",
+              "http.version=HTTP/1.1",
+              "-c",
+              "credential.interactive=false",
+              "ls-remote",
+              "--exit-code",
+              "origin",
+              "refs/heads/develop"
+            ],
+            "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+            "utc": "2026-10-18T11:47:05.633058+00:00",
+            "timeout_seconds": 30,
+            "process_wait_seconds": 28,
+            "status": "OK",
+            "pid": 45708,
+            "exit_code": 0,
+            "elapsed_seconds": 2.375,
+            "process_exit_code": 0,
+            "within_30_seconds": true
+          }
+        }
+      ]
+    },
+    "old_slots_reopened": false
+  },
+  "snapshot": "CurrentS1 charged before launch; actual final gate/publication/S2 evidence is ignored output only"
+}
