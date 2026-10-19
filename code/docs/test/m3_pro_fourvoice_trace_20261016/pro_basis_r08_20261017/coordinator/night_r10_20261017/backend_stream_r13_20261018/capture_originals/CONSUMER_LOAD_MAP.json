@@ -1,0 +1,626 @@
+{
+  "schema": "M3_R13_CONSUMER_LOAD_MAP_V1",
+  "package": "R13-B",
+  "revision": "B_STATIC_20261019_02_M1_R13_INTAKE",
+  "snapshot_utc": "2026-10-18T16:42:38.313Z",
+  "role": "night3_B_writer",
+  "task_original": "r13_task_original",
+  "baseline_result_commit": "e39b36b9b7f956659f7fd5e3ca6dd57e5a34735b",
+  "actual_level": "L0 static source/metadata/archive bytes; existing L1 producer evidence indexed, no rerun",
+  "target_execution_by_this_role": false,
+  "real_verified": false,
+  "math_verified": false,
+  "board_release_allowed": false,
+  "entry": "ORIGINALS_INDEX.json",
+  "registry": "ORIGINALS_INDEX.json#/objects",
+  "reader_scope": "Read-only consumer instructions. No target import/test/CLI/HDL execution was performed by this role.",
+  "capture_selector": {
+    "id": "R12_R02_CD_CASE01",
+    "container": "r12_publication",
+    "member_prefix": "output_originals/RECOVERY_R02_20261018/RUNS/CD/worker/CASE01_ACTUAL/",
+    "capture_id": "C9_SYNTHETIC_NOT_REAL",
+    "row_count": 7,
+    "select_whole_cohort": true,
+    "never_mix_different_case_outputs_even_with_equal_empty_file_SHA": true
+  },
+  "locator_resolution": [
+    {
+      "kind": "repository_file",
+      "rule": "Open exact repo-relative path under chosen checkout; verify bytes and SHA before parse. Baseline commit is provenance, not a fresh remote membership proof."
+    },
+    {
+      "kind": "zip_member",
+      "rule": "Verify outer container bytes/SHA first. Open exact case-sensitive member with forward slashes, reject duplicate/unsafe paths and verify decoded member bytes/SHA against registry. Do not need ignored code/output tree.",
+      "containers": [
+        "r12_publication",
+        "r12_final_outer"
+      ]
+    },
+    {
+      "kind": "nested_zip_member",
+      "rule": "Resolve container_object to exact outer archive, verify each nested layer, then read specified member; never compare inner MANIFEST SHA to external manifest SHA."
+    },
+    {
+      "kind": "nested_zip",
+      "rule": "SOURCE_APPLICATION resolves from source_closure inside r12_publication; verify archive SHA, then members in containers.source_application.members. Exact member bodies include source/ROM/include/driver/observer/TB originals."
+    },
+    {
+      "kind": "user_forwarded_package_file",
+      "rule": "Local external package has actual verified bytes; source package relative member and SHA are explicit. Coordinator must include these exact bytes and record final archive member before cross-PC delivery can be asserted."
+    },
+    {
+      "kind": "local_original_pending_transfer",
+      "rule": "A known existing local ignored file is not delivered. Resolve via final coordinator archive mapping after the actual bytes are packed and transferred; reject generator-only or hash-only substitutes."
+    },
+    {
+      "kind": "local_control_file",
+      "rule": "DELIVERY_CHANNEL_CONFIRMED records user-approved transport. Include its body in final package; it does not prove W readiness or recipient receipt."
+    }
+  ],
+  "exact_old_path_mapping": {
+    "from_prefix": "code/output/m3_frontend_close_r12_20261018/",
+    "to_container": "r12_publication",
+    "to_member_prefix": "output_originals/",
+    "preserve_original_descriptors": true,
+    "overrides": "Use each object.locator exact member. Some original source/contract refs resolve to repository files and some original absolute source paths map by immutable descriptor to verified a/inputs members.",
+    "no_editing_hashed_originals": "Stage byte-identical originals in a fresh consumer tree or use an explicitly supported resolver outside original data; do not rewrite signed descriptor paths or JSON bytes."
+  },
+  "M1": {
+    "seven_roles": [
+      {
+        "role": "mechanical_index",
+        "source_objects": [
+          "math_math_input_bundle",
+          "math_math_row_index",
+          "math_fx_history",
+          "math_advance_history",
+          "math_input_and_apply_history"
+        ],
+        "producer": "d4_math_producer",
+        "actual_schema": "M3_D4_C9_MATH_INPUT_BUNDLE_V1 manifest plus unchanged JSONL streams; no per-record schema on four streams",
+        "current_M1_expected": "M3_R7C_C9_MECHANICAL_INDEX_V1 single JSON object rows[]",
+        "current_consumer": "c9_inputs.load_job -> validate_index",
+        "state": "ADAPTER_REQUIRED_EXISTING_DECISION_FIXED",
+        "decision": "m1_compatibility",
+        "not_equivalent_to_old_descriptor": true
+      },
+      {
+        "role": "public_rows",
+        "source_objects": [
+          "public_rows"
+        ],
+        "producer": "c9_stream.convert_files",
+        "actual_schema": "M3_R7A_C9_PUBLIC_ROW_V1",
+        "format": "JSONL",
+        "current_consumer": "c9_inputs.verify_original_rows",
+        "state": "ORIGINAL_PRESENT_SCHEMA_SUPPORTED_WITH_OTHER_ROLE_PREREQUISITES"
+      },
+      {
+        "role": "raw_capture",
+        "source_objects": [
+          "raw_capture"
+        ],
+        "producer": "same-run capture producer; existing cohort explicitly synthetic",
+        "actual_schema": "M3_R7A_C9_RAW_CORE_ROW_V1",
+        "format": "JSONL",
+        "current_consumer": "c9_inputs.verify_original_rows raw identity check",
+        "state": "SYNTHETIC_ORIGINAL_PRESENT_REAL_PENDING"
+      },
+      {
+        "role": "independent_plan",
+        "source_objects": [
+          "midi_plan",
+          "independent_scenario",
+          "frame_input"
+        ],
+        "producer": "independent stimulus/scenario producer; not observed trace",
+        "actual_schema": "M3_D4_SYNTHETIC_EMPTY_INPUT_PLAN_V1",
+        "format": "JSON",
+        "current_consumer": "c9_inputs.validate_plan; ClockedMath plan/config association",
+        "state": "D4_PLAN_PRESENT_M1_PLAN_MAPPING_AND_SHAPE_PENDING",
+        "note": "Original independent stimulus plan is not automatically the M1 required events/config_events object; verify independent_of_trace plus event_seq/hex/arrival windows under M1 scope."
+      },
+      {
+        "role": "frame_plan",
+        "source_objects": [
+          "frame_plan",
+          "frame_input",
+          "frame_rules"
+        ],
+        "producer": "sole frame generator generate from frozen input/rules",
+        "actual_schema": "M3_R06_UNIQUE_FRAME_PLAN_V1",
+        "format": "JSON",
+        "current_consumer": "c9_inputs.verify_frames_and_resets",
+        "state": "ORIGINAL_PRESENT_FRAME_PROJECTION_ADAPTER_REQUIRED",
+        "gap": "D4 epochs[].cycles vs old M1 epochs[].frame_cycles; finish identity must be preserved. No trace-derived replacement."
+      },
+      {
+        "role": "reset_edges",
+        "source_objects": [
+          "reset_edges",
+          "capture_receipt"
+        ],
+        "producer": "same-run asynchronous reset observer; current cohort synthetic",
+        "actual_schema": "M3_R7A_RESET_SNAPSHOT_V1",
+        "format": "JSONL",
+        "current_consumer": "c9_inputs.verify_frames_and_resets",
+        "state": "RESET_PROJECTION_ADAPTER_REQUIRED",
+        "current_M1_expected": {
+          "format": "one bounded JSON object",
+          "sampling_phase": "POSEDGE_PRE_NBA",
+          "independent_of_trace": true,
+          "profile": "ASSERT_OBSERVED_LOW_BEFORE_RELEASE_V1",
+          "fields": [
+            "low_ranges",
+            "raw_edges"
+          ],
+          "initial_sample_rst_n": 0
+        },
+        "gap": "Current synthetic cohort first sampled rst_n=1 after subcycle initial low/release; cannot invent sampled-low rows or replace original asynchronous edges with reset.drv."
+      },
+      {
+        "role": "provenance",
+        "source_objects": [
+          "provenance",
+          "execution_receipt",
+          "source_manifest",
+          "capture_rom_closure",
+          "capture_tool_closure"
+        ],
+        "producer": "D4 provenance.validate_capture",
+        "actual_schema": "M3_C9_CHAIN_PROVENANCE_V1",
+        "format": "JSON",
+        "current_consumer": "c9_inputs.load_job; exact admitted_real_provenance_sha256 for REAL",
+        "state": "SYNTHETIC_ORIGINAL_PRESENT_REAL_ADMISSION_PENDING",
+        "note": "D4 provenance validity/declared bindings do not establish trusted native execution or M1 acceptance."
+      }
+    ],
+    "contract_template_object": "m1_job_template",
+    "consumer_source_objects": [
+      "m1_c9_inputs",
+      "m1_c9_math",
+      "m1_run_math",
+      "m1_source_bindings"
+    ],
+    "existing_CLI_source": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/run_math.py",
+    "CLI_argument_contract": [
+      "--job",
+      "--output"
+    ],
+    "CLI_ran_here": false,
+    "current_consumer_support": {
+      "job_schema": "M1_C9_MATH_JOB_V1",
+      "profile": "C9_PIANO_TRIANGLE_NOTES_DELAY_CLOCKED_V1",
+      "per_artifact_limit_bytes": 536870912,
+      "whole_file_reads": true,
+      "whole_index_rows_list": true,
+      "whole_public_rows_list": true,
+      "direct_D4_stream_bundle": false,
+      "volume_API_implemented": false,
+      "full_window_capacity": "NOT_VALIDATED",
+      "REAL": "Requires exact provenance SHA on M2 admitted list and separate permission",
+      "consumer_generation": "Unchanged R10 signed consumer; new R13 L0 successor is described separately below"
+    },
+    "signed_compatibility_decision": "m1_compatibility",
+    "future_target_already_decided": "Existing M3_D4_C9_MATH_INPUT_BUNDLE_V1 manifest plus unchanged MATH_ROW_INDEX.jsonl, FX_HISTORY.jsonl, ADVANCE_HISTORY.jsonl, INPUT_AND_APPLY_HISTORY.jsonl; no second math format",
+    "current_job_not_ready_reasons": [
+      "mechanical_index expects single JSON rows[]; D4 streams must be read by future versioned adapter, not reassembled/relabelled as the old schema",
+      "reset_edges JSONL is not current bounded reset projection; sampled low/reset/epoch semantics need explicit same-source M1/M2 handling",
+      "frame_plan epochs[].cycles differ from current M1 frame_cycles; preserve unique FRAME and finish identities",
+      "present midi_plan is a clearly synthetic empty D4 plan and lacks the M1 independent_of_trace/event/config shape; cannot pretend independent real plan mapping is complete",
+      "current synthetic provenance and declared argv are not exact REAL admission"
+    ],
+    "consumer_state": "NEW_R13_L0_CANDIDATE_SOURCE_PRESENT_RUNTIME_AND_CAPACITY_PENDING",
+    "retention": [
+      "all canonical rows, unknown/null values and raw bits",
+      "sparse histories keyed by global source, not aligned by file position",
+      "all accepted advance rows including later cancelled/unpublished values",
+      "router_apply_seq kept separate from independent event_seq; repeated stage records not deduplicated",
+      "Python arbitrary-precision integers: reject bool-as-int, duplicate keys, floats/non-finite; do not parse 64/62/128-bit values through IEEE754 numbers",
+      "actual PCM compared against independently reconstructed golden; actual FX input is never golden"
+    ],
+    "new_candidate": {
+      "state": "SOURCE_PRESENT_L0_NOT_RUNTIME_VALIDATED",
+      "intake_event": "M1_R13_STATIC_36_RECEIVED",
+      "receipt_object": "m1_r13_M3_receipt",
+      "handoff_object": "m1_r13_36_handoff_json",
+      "manifest_A": "m1_r13_18_manifest_a_json",
+      "manifest_B": "m1_r13_26_manifest_b_json",
+      "source_manifest": "m1_r13_35_source_manifest_json",
+      "source_bindings": "m1_r13_13_source_bindings_r13_json",
+      "reader_object": "m1_r13_07_run_stream_math_py",
+      "semantics_object": "m1_r13_10_independent_plan_py",
+      "worker_object": "m1_r13_09_worker_group_py",
+      "entry_function": "run_stream_math.evaluate(job, root, output, bindings, tick, group_budget=None)",
+      "entry_admission": "Only worker_group admits candidate; B does not call/import it. New job/control wrapper is not a replacement math-data schema.",
+      "job_schema": "M1_R13_STREAM_JOB_V1",
+      "profile": "C9_PIANO_TRIANGLE_NOTES_DELAY_CLOCKED_V1",
+      "mode_accepted_by_candidate_source": "SYNTHETIC only; REAL rejects PENDING_REAL_ADMISSION",
+      "seven_stream_roles": [
+        "raw_capture",
+        "public_rows",
+        "line_index",
+        "row_index",
+        "fx_history",
+        "advance_history",
+        "input_apply_history"
+      ],
+      "metadata_roles": [
+        "independent_plan",
+        "frame_plan",
+        "reset_edges",
+        "provenance",
+        "end"
+      ],
+      "D4_stream_mapping": {
+        "raw_capture": "raw_capture",
+        "public_rows": "public_rows",
+        "line_index": "raw_public_line_index",
+        "row_index": "math_math_row_index",
+        "fx_history": "math_fx_history",
+        "advance_history": "math_advance_history",
+        "input_apply_history": "math_input_and_apply_history"
+      },
+      "mapping_scope": "These object names identify the unchanged historical cohort bodies, not a ready-to-run new job or a conversion of their control metadata.",
+      "current_cohort_direct_compatibility": "NOT_PROVED; original raw reset JSONL, FRAME epochs[].cycles, synthetic empty plan and END finish_cycle are not silently relabelled as candidate reset/frame/independent-plan/end metadata.",
+      "software54": {
+        "proposed": 54,
+        "positive": 8,
+        "negative": 46,
+        "actual": 0
+      },
+      "capacity": {
+        "actual_measurement": false,
+        "actual_M3_geometry": null,
+        "status": "PROPOSED_FULL_GEOMETRY_NOT_MEASURED",
+        "worker_CAP01": "CAPACITY_GENERATOR_BINDING_PENDING",
+        "required_successor": "Responsible M1 wires the fixed generator after M3 exact geometry/volume contract closes; all generation stays inside separately admitted CAP01 clock."
+      },
+      "grant_boundary": "M1 static publication permission is distinct from target SW120/CAP600/FIX60 proposal; no target execution grant, M3 budget borrowing or M3 deadline reset.",
+      "accepted_runtime_or_math": false,
+      "REAL_admitted": false
+    }
+  },
+  "M2": {
+    "baseline_acceptance_object": "authority_m2_receipt",
+    "baseline_result_commit": "e39b36b9b7f956659f7fd5e3ca6dd57e5a34735b",
+    "baseline_state": "REMOTE_VERIFIED/RECEIVED/ACCEPTED limited R12 frontend; INTEGRATED=false",
+    "review_first": [
+      "POSITIVE_NEGATIVE_HISTORY.json",
+      "CAPTURE_IDENTITY_BINDING.json",
+      "MISSING_ORIGINALS.json"
+    ],
+    "producer_terminal_originals": [
+      "r12_terminal_final_delivery_receipt",
+      "r12_terminal_publication_actual",
+      "r12_terminal_GATE_02_RESULT_json",
+      "r12_terminal_S2_R02_RESULT_json"
+    ],
+    "missing_manifest_recovery": {
+      "external_object": "r12_terminal_final_handoff_manifest",
+      "outer_object": "r12_final_outer_archive",
+      "inner_object": "r12_inner_manifest",
+      "prior_M2_receipt_missing_external_preserved": true,
+      "new_transfer_pending": true
+    },
+    "R13_acceptance": "Use coordinator final exact result commit, actual EOF/resource/Gate/S2/publication/volume manifest and per-recipient receipts. This B snapshot alone cannot sign R13 software, math, real capture, timing or board."
+  },
+  "historical_large_stream": {
+    "manifest_object": "r12_large_parts",
+    "format": "21 separate gzip members; concatenate decoded bytes in sequence, not compressed streams unless reader explicitly supports every gzip member",
+    "logical_original": {
+      "path": "code/output/m3_frontend_close_r12_20261018/RESUME_R01_20261018/RUNS/W/worker/LARGE_SYNTHETIC_STDERR.bin",
+      "bytes": 1398627657,
+      "sha256": "bf14f893cdc16e9007c4bd70b36aa43990abfbf9b70b751f68221fc540682ceb"
+    },
+    "decoded_part_limit_bytes": 67108864,
+    "part_count": 21,
+    "global_order_complete_in_original_receipt": true,
+    "parts": [
+      {
+        "sequence": 0,
+        "logical_offset": 0,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "75658341a8a4b95dfe608857af1032d07ebca247c9543e023a3d319481935148",
+        "compressed_object": "r12_large_part_0000",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 1,
+        "logical_offset": 67108864,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "263123c9e6155df90b754242fca35bd9b6cb1c40e44421cb531153ed161b62d4",
+        "compressed_object": "r12_large_part_0001",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 2,
+        "logical_offset": 134217728,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "7dcf6a8415d5ea6199e19c4992738319075e0992b6f038b80c8e272b8e9bac2b",
+        "compressed_object": "r12_large_part_0002",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 3,
+        "logical_offset": 201326592,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "9c976af7e27264f790e6b1c96ea3e825ab3e08ca9844fe89f6588c5cea6e103f",
+        "compressed_object": "r12_large_part_0003",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 4,
+        "logical_offset": 268435456,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "8fc618f5157da8113491bdbc2817902de108a6dff247b4e5959c8ee42382808d",
+        "compressed_object": "r12_large_part_0004",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 5,
+        "logical_offset": 335544320,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "1c2ec212ee80d6e4d0923dada89839caff88b6261302044fa9749da9d13fd881",
+        "compressed_object": "r12_large_part_0005",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 6,
+        "logical_offset": 402653184,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "a73d7145e5380eb72ee8ca2db2ed6f4230e5d4c0b941ac0a194ac6e7a7000176",
+        "compressed_object": "r12_large_part_0006",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 7,
+        "logical_offset": 469762048,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "1e74af99cd8cdad34a5f0148cea0b1f53877ff2a974407a51f6e08e34ab1eac3",
+        "compressed_object": "r12_large_part_0007",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 8,
+        "logical_offset": 536870912,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "fa788cf19a1558a49a2c8547fa70360e1cd770ca60508084abb7925dd351dedf",
+        "compressed_object": "r12_large_part_0008",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 9,
+        "logical_offset": 603979776,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "195b994d4183b6a246d88d3663c28293c115eb78876dd339959c8a887cce2ab4",
+        "compressed_object": "r12_large_part_0009",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 10,
+        "logical_offset": 671088640,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "44e8725edf94e018ead4559799f6c8158af406cc1e7d50731b4ecb4b0b2fc75f",
+        "compressed_object": "r12_large_part_0010",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 11,
+        "logical_offset": 738197504,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "1aedb10d8d9abcf573609b8a7e6dda052b8d90ac5ed35bafccffa333da45264d",
+        "compressed_object": "r12_large_part_0011",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 12,
+        "logical_offset": 805306368,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "ac624cbd242bccb5754206419d747cc70464a38d29a86888d29bdef77220bad5",
+        "compressed_object": "r12_large_part_0012",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 13,
+        "logical_offset": 872415232,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "dcedc3f2b774a1544f5f47e2d5e416b8275a2977bbb0ef0f09563b69466b3afb",
+        "compressed_object": "r12_large_part_0013",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 14,
+        "logical_offset": 939524096,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "4afaa3b4172bbf86f36ca431cb945488d345eefe787393ed648129546e286393",
+        "compressed_object": "r12_large_part_0014",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 15,
+        "logical_offset": 1006632960,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "0dfb5b04583849d7848c3753a84321688e578b130590b3d47568bd12741ffb07",
+        "compressed_object": "r12_large_part_0015",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 16,
+        "logical_offset": 1073741824,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "0f84129c5b9e3e329d83a4b7ed709be5327a7ee5123d41e274549c392ce38a67",
+        "compressed_object": "r12_large_part_0016",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 17,
+        "logical_offset": 1140850688,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "721c1b373ba9a73b5d4fbe9abc9690f28fe4ee2bb57fab3f8549b4843b550265",
+        "compressed_object": "r12_large_part_0017",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 18,
+        "logical_offset": 1207959552,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "0cd2e1d0ade682c641ad741d53bdb0b672b83127243a9f607363832625707da6",
+        "compressed_object": "r12_large_part_0018",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 19,
+        "logical_offset": 1275068416,
+        "decoded_bytes": 67108864,
+        "decoded_sha256": "9a199e2936cee78acb3b9c574c9033e2f3a53fe9f37b46bf8bb94ff3c4a594cb",
+        "compressed_object": "r12_large_part_0019",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      },
+      {
+        "sequence": 20,
+        "logical_offset": 1342177280,
+        "decoded_bytes": 56450377,
+        "decoded_sha256": "7af13a263e8db865be8d3bb0ae0cd0a244f980a12acfc06cadefd99eede55a2e",
+        "compressed_object": "r12_large_part_0020",
+        "compressed_bytes_verified_here": true,
+        "decoded_bytes_verified_here": false
+      }
+    ],
+    "read_algorithm": [
+      "Verify manifest and every compressed part bytes/SHA; require exact sequence0..20 and contiguous logical offsets starting0.",
+      "Stream-decompress each gzip part with bounded physical reads; verify decoded length/SHA, append byte-exact bytes to one logical destination while updating a single total digest.",
+      "At logical EOF require total1398627657 bytes and exact original SHA. Reject omitted/reordered/duplicate/truncated/extra bytes, decoder errors or any digest mismatch.",
+      "No added LF, transcoding, JSON parse/stringify or row cutting. UTF-8/line boundaries may cross a transport part; parser and partial-byte state continue.",
+      "Decoded EOF/SHA validation done in old producer evidence; this role rechecked compressed21 bodies and offset/length metadata only, without a new1.4GB decode run."
+    ],
+    "scope": "Synthetic frontend capacity stderr stream only. It is not R13 raw capture or actual D4 full-window proof."
+  },
+  "R13_delivery": {
+    "confirmation_object": "r13_channel",
+    "state": "USER_FORWARD_ALL_LOSSLESS_VOLUMES_CONFIRMED",
+    "local_root": "code/output/m3_backend_stream_r13_20261018/DELIVERY",
+    "transfer_method": "User forwards the entire directory, actual manifest and every numbered lossless volume to M2.",
+    "repository_index_archive_limit_bytes": 33554432,
+    "repository_archive_scope": "small originals and index references; no claim that all large original bytes fit inside",
+    "actual_final_manifest": null,
+    "actual_volume_list": null,
+    "actual_originals_bytes_shas": "Pending actual archive freeze by coordinator; do not fabricate names/sizes/SHAs before W or replace original bodies with generators.",
+    "logical_stream_requirements": [
+      "sequence and transport part order explicit",
+      "logical offsets contiguous",
+      "each decoded length/SHA and compressed descriptor verified",
+      "total logical bytes/SHA at EOF",
+      "global row/source/cycle/time/epoch and continuous parser/algorithm state across volumes",
+      "same-capture/source/reset/plan/finish identities retained"
+    ],
+    "rejection": [
+      "missing any volume or manifest",
+      "path alias/escape/case-unicode collision or duplicate member",
+      "wrong order, gaps, overlap, duplicate sequence or extra data",
+      "any compressed/decoded/logical length or SHA mismatch",
+      "truncated UTF-8 or JSONL at final EOF",
+      "late identity changes or missing unique terminal marker",
+      "asserted RECEIVED/ACCEPTED without actual recipient receipt"
+    ],
+    "state_transitions": [
+      "LOCAL_COMMITTED",
+      "REMOTE_VERIFIED",
+      "RECEIVED",
+      "ACCEPTED",
+      "INTEGRATED"
+    ],
+    "per_recipient_state": {
+      "M1": "PENDING_R13_DELIVERY",
+      "M2": "PENDING_R13_DELIVERY"
+    },
+    "W_GO": false,
+    "unchanged_resource_requirements": {
+      "worker_peak_bytes": 536870912,
+      "chunk_bytes": 1048576,
+      "workspace_peak_bytes": 25769803776,
+      "start_free_bytes": 34359738368,
+      "reserve_free_bytes": 8589934592,
+      "worker_descendants": "must prove none, otherwise measure concurrent process-tree total"
+    },
+    "old_START_deadline_budget_not_reset": true
+  },
+  "previous_revision": {
+    "revision": "B_STATIC_20261019_01",
+    "handoff_path": "code/output/m3_backend_stream_r13_20261018/roles/night3/HANDOFF.json",
+    "handoff_sha256": "847968872d2cab35389a22f852286df3cc3aa1bf41e456abec9b99ef2cf94cd4",
+    "original_docs_snapshot": "code/output/m3_backend_stream_r13_20261018/roles/night3/B_STATIC_01_BEFORE_M1_R13",
+    "superseded_for_new_intake_only": true,
+    "old_evidence_and_failure_history_preserved": true
+  },
+  "source_tree_checkpoint": "544f5af23fa427db0a931df719dc6135c75a180f",
+  "new_intake": {
+    "event_id": "M1_R13_STATIC_36_RECEIVED",
+    "receipt_object": "m1_r13_M3_receipt",
+    "objects": [
+      "m1_r13_01_stream_io_py",
+      "m1_r13_02_identity_guard_py",
+      "m1_r13_03_history_join_py",
+      "m1_r13_04_lifecycle_store_py",
+      "m1_r13_05_clocked_math_stream_py",
+      "m1_r13_06_results_stream_py",
+      "m1_r13_07_run_stream_math_py",
+      "m1_r13_08_measure_group_py",
+      "m1_r13_09_worker_group_py",
+      "m1_r13_10_independent_plan_py",
+      "m1_r13_11_fixture_recipe_py",
+      "m1_r13_12_test_new_seams_py",
+      "m1_r13_13_source_bindings_r13_json",
+      "m1_r13_14_input_dependency_bindings_json",
+      "m1_r13_15_resource_time_limits_json",
+      "m1_r13_16_bounds_and_pending_json",
+      "m1_r13_17_static_receipt_a_json",
+      "m1_r13_18_manifest_a_json",
+      "m1_r13_19_05_capacity_limits_and_measurement_r13_json",
+      "m1_r13_20_08_time_and_stop_r13_json",
+      "m1_r13_21_event_source_diagnostic_matrix_json",
+      "m1_r13_22_double_clip_mutation_spec_json",
+      "m1_r13_23_first_difference_spec_json",
+      "m1_r13_24_bounds_and_pending_json",
+      "m1_r13_25_static_receipt_b_json",
+      "m1_r13_26_manifest_b_json",
+      "m1_r13_27_04_capacity_schedule_r13_json",
+      "m1_r13_28_06_case_matrix_r13_json",
+      "m1_r13_29_plan_r13_json",
+      "m1_r13_30_authorization_state_json",
+      "m1_r13_31_start_and_deadline_json",
+      "m1_r13_32_09_budget_and_native_call_request_r13_json",
+      "m1_r13_33_intake_dedup_json",
+      "m1_r13_34_outbox_reference_json",
+      "m1_r13_35_source_manifest_json",
+      "m1_r13_36_handoff_json",
+      "m1_r13_M3_receipt",
+      "m1_r13_safe_FF_receipt",
+      "m1_r13_first_read_failure"
+    ],
+    "direct_git_originals": "Exact repository paths at source_tree_checkpoint544f5af23fa427db0a931df719dc6135c75a180f; per-file bytes/SHA in ORIGINALS_INDEX objects. No upstream local STATIC_HANDOFF.zip delivery is assumed.",
+    "M3_received_static_only": true,
+    "M1_runtime_accepted": false,
+    "old_loader_notes": "Old seven INPUT role mapping and old whole-file R10 consumer facts remain historical facts, not claims that new candidate code is absent."
+  }
+}

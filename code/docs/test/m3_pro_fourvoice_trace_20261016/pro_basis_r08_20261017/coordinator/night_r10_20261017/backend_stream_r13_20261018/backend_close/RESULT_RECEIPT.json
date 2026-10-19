@@ -1,0 +1,51 @@
+{
+  "schema": "M3_R13_FINAL_SOFTWARE_RESULT_REFERENCE_V3",
+  "status": "SOFTWARE_EXECUTION_COMPLETE_FINAL_GATES_PUBLICATION_PENDING_AT_TRACKED_FREEZE",
+  "R13_SW_COMPLETE": false,
+  "software_checks": {
+    "status": "PASS_SOFTWARE_L1_SYNTHETIC_ONLY",
+    "K": "PASS8",
+    "V": "PASS12",
+    "B": "B_FILES_R01_PASS12_CURRENT_RUNTIME_SOURCES",
+    "codec": "C_CODEC_08_PASS15",
+    "W": "W_HOUR_10_PASS1_FULL_ACTUAL_D4",
+    "rows": 1130662,
+    "input_generation_origin": "Original failed W generated exact full raw. Current successor rehashed it, reused no old backend outputs.",
+    "worker": {
+      "path": "code/output/m3_backend_stream_r13_20261018/RUNS/W_HOUR_10/inner/worker/WORKER_COMPLETE.json",
+      "bytes": 3902036,
+      "sha256": "28362c9a791ab20b328c3a1504db5e210b6b0fbc117e3be09aba4e9b760d3809"
+    },
+    "bridge": {
+      "path": "code/output/m3_backend_stream_r13_20261018/RUNS/W_HOUR_10/inner/GROUP_COMPLETE.json",
+      "bytes": 6971,
+      "sha256": "53d6204074279c2fc9721c063689fa48c4acba8622d6c61e451739d2354ce89e"
+    },
+    "full_transport_freeze_receipt": {
+      "path": "code/output/m3_backend_stream_r13_20261018/RECOVERY_TASK0_20261019/W_TRANSFER_RECEIPT.json",
+      "bytes": 1689,
+      "sha256": "0a510572af30607237a609fe2a7b4e61f4542005d27064be9887d539441d4358"
+    },
+    "old_failures_preserved": true,
+    "real_verified": false,
+    "math_verified": false,
+    "board_release_allowed": false
+  },
+  "original_START": "2026-10-19T00:00:26+08:00",
+  "effective_deadline": "2026-10-19T12:00:00+08:00",
+  "source_files": 13,
+  "evidence_files": 36,
+  "result_commit": null,
+  "final_actual_receipt": "code/output/m3_backend_stream_r13_20261018/PUBLICATION_ACTUAL.json",
+  "final_handoff": "code/output/m3_backend_stream_r13_20261018/FINAL_HANDOFF_R13.zip",
+  "M2_RECEIVED": false,
+  "M2_ACCEPTED": false,
+  "real_verified": false,
+  "math_verified": false,
+  "board_release_allowed": false,
+  "unfinished_at_freeze": [
+    "Gate01/S1/Gate02/publication/S2: consume only original still-unused slots; final ignored receipts determine completion",
+    "M2 limited review",
+    "Real Pro, mathematical/HDL/physical/hardware verification remains separate"
+  ]
+}

@@ -1,0 +1,1513 @@
+{
+  "schema": "M3_R13_PROFILE_AND_CAPACITY_V1",
+  "bundle_id": "M3_R13_CONTRACT_20261019_R01",
+  "task": "R13_A2",
+  "status": "STATIC_CONTRACT_CAPACITY_PENDING_CHANNEL_METHOD_CONFIRMED",
+  "validation_level": "L0_STATIC_DATA_AND_SOURCE_INSPECTION_ONLY",
+  "target_execution": "NOT_RUN",
+  "baseline_commit": "e39b36b9b7f956659f7fd5e3ca6dd57e5a34735b",
+  "scope": "Contract only. No target import, compile, tests, native tools, device, network or Git actions. No claim of a valid complete synthetic capture or backend execution.",
+  "authority": {
+    "task_original": "E:/FPGA/GAOYUNFPGA/night_task/10.19/FORWARD_TO_M3_R13_APPROVED_20261018/code/docs/M3_Pro完整窗口软件生产与交付夜间任务单_R13_2026-10-18.md",
+    "plan_sha256": "729cb21bd4b759f7d5738bdc14964bee1eaf5da053eee20b4a278acf651357d3",
+    "resource_numbers_are_approved_limits_not_observed_results": true,
+    "W_only_root_may_admit_and_execute": true
+  },
+  "units": {
+    "MiB": 1048576,
+    "GiB": 1073741824,
+    "byte_includes_LF": true
+  },
+  "limits": {
+    "minimum_rows": 1130662,
+    "minimum_raw_bytes": 1398627657,
+    "worker_peak_working_set_bytes": 536870912,
+    "actual_physical_read_request_bytes": 1048576,
+    "workspace_peak_bytes": 25769803776,
+    "minimum_start_free_bytes": 34359738368,
+    "minimum_reserve_free_bytes": 8589934592,
+    "execution_originals_zip_bytes": 33554432,
+    "W_wall_seconds_including_generation_hashing_chain_and_cleanup": 900,
+    "worker_child_policy": "Prove no subprocess in processing worker, else measure simultaneous live process-tree total; supervisor peak recorded separately. Root-only peak does not prove tree limit.",
+    "disk_policy": "All own inputs, all chain outputs, volumes, source ZIPs, extracted source/ROM, snapshots, temporary writes, failure originals, copies and package-at-build-time count simultaneously. Count pre-existing own retained K/V/B/R outputs. No deleting required artifacts to lower measured peak. Record logical and allocated lengths separately; sparse extents do not satisfy raw-byte generation evidence."
+  },
+  "profiles": [
+    {
+      "profile": "C9_FULL_PUBLIC_74_MECHANICAL",
+      "raw_schema": "M3_R7A_C9_RAW_CORE_ROW_V1",
+      "public_schema": "M3_R7A_C9_PUBLIC_ROW_V1",
+      "raw_ports": 72,
+      "normalized_fields": 74,
+      "sampling_phase": "POSEDGE_PRE_NBA",
+      "supported_role": "Software mechanical capture/projections/CSV/intake/calendar/serial/math-input histories/provenance; full raw bits and public rows retained.",
+      "independent_apply_mapping": "PENDING",
+      "math": "PENDING_M1_MODEL_AND_INDEPENDENT_PLAN",
+      "source_authenticity": "NOT_AUTHENTICATED",
+      "board_release_allowed": false
+    },
+    {
+      "profile": "LEGACY_D3_61_TX_PROJECTION",
+      "schema": "M3_R63_R07_INTAKE_REPORT_V1",
+      "role": "Derived input to existing intake analyzer, never replacement authority for canonical 74-field rows. Sidecar retains extra fields, raw ports and semantics.",
+      "legacy_d3_projection_status": "PENDING_UNSUPPORTED_PROFILE"
+    },
+    {
+      "profile": "M1_LEGACY_B0",
+      "role": "Only already-signed settled four-lane simultaneous-advance window; does not accept C split transactions or full R07 F/A/HOLD/startup/TX semantics.",
+      "status": "PENDING_UNSUPPORTED_PROFILE",
+      "prohibited_adaptations": [
+        "drop rows",
+        "shift cycles",
+        "replace actual accept A with frame F",
+        "merge per-lane requests into nonexistent stereo commit",
+        "observed PCM as golden"
+      ]
+    }
+  ],
+  "reachable_call_chain": [
+    "R12 capture_entry -> R11 strict declaration and R10 capture link -> actual D4 chain.process(PROCESS_CAPTURE)",
+    "assembler.build_application: validates source/base ZIP and emits application/source/extracted files",
+    "frame_generator.generate: independent UNIQUE_FRAME_PLAN plus calendar and TX projections",
+    "c9_stream.convert_files: raw43/public/raw-public index, whole-window identity checks",
+    "c9_codec.encode_file/decode_file: full envelope and 74 fields; D4 compares every roundtrip row",
+    "intake_adapter.project_intake_files -> existing analyze with append-only preserved-row sink; transaction algorithm retained",
+    "calendar.analyze and serial.analyze_files: plan/transaction/serial consistency with pending authority retained",
+    "math_bundle.build_bundle: row index contains canonical public row; three conditionally populated histories; source and role manifest",
+    "provenance.validate_capture: raw/public/source/independent window/frame plan/MONITOR_END EOF checks; D4 terminal input rechecks"
+  ],
+  "sample": {
+    "case_root": "code/output/m3_c9_complete_d4_20261017/R03/cases/009",
+    "rows": 7,
+    "finish_cycle": 6,
+    "first_core_ps": 25000,
+    "core_period_ps": 25000,
+    "origin": "SYNTHETIC_SCHEMA_FIXTURE",
+    "geometry_only": true,
+    "does_not_freeze_R13_input": true,
+    "important_difference": "Old case uses EXAMPLE_APPLICATION_SEPARATE_FROM_SYNTHETIC_CAPTURE_WINDOW; R13 must bind its own exact application/input/window and cannot inherit old exemption or SHA.",
+    "measurement_method": "Read only these already accessible small data files as UTF-8, count bytes plus LF per physical line, independent SHA256 and stat. No target module loaded. CSV header excluded from data line minima/maxima.",
+    "selected_stream_bytes_including_raw_and_csv_header": 214906,
+    "chain_directory_files": 136,
+    "chain_directory_total_bytes": 1151734,
+    "history_counts": {
+      "fx": 0,
+      "advance": 0,
+      "input_and_apply": 0
+    },
+    "seven_rows_do_not_bound_nonzero_history_profile": true
+  },
+  "geometry": {
+    "symbols": {
+      "N": "raw/public physical row count, N >= 1130662",
+      "Hfx": "count(effect_input_valid != 0 OR config_take != 0), 0 <= Hfx <= N; X/Z or None also differs from zero in existing source",
+      "Ha": "count(advance_mask != 0), 0 <= Ha <= N; includes cancel/unpublished observations",
+      "He": "count(event_valid != 0 OR apply_valid != 0), 0 <= He <= N",
+      "E": "sum over rows of frame_tick/req_valid/result_valid/commit/cancel/tx_sample_valid !=0; 0 <= E <= 6*N; old intake rejects E > 1000000",
+      "F": "independently planned frame entries, not inferred from observed trace; serial requires total <=200000",
+      "Q": "distinct accepted/seen request IDs, serial explicit bound must be frozen; not only currently live ledger entries",
+      "Z": "reset edges / epoch entries",
+      "K": "ceil(total logical bytes / decoded_volume_bound) for each logical stream, no UTF-8/newline assumptions",
+      "Lx": "frozen maximum serialized physical line bytes for role x, including LF",
+      "Cx": "serialized fixed/header bytes for role x with descriptors/path-length and source-count bounds frozen"
+    },
+    "complete_streams": [
+      {
+        "role": "raw72",
+        "path": "RAW.jsonl",
+        "formula": "N*Lraw",
+        "rows": "N",
+        "source": "input retained; D4 stream and provenance reread"
+      },
+      {
+        "role": "derived_raw43",
+        "path": "capture/DERIVED_RAW_43.jsonl",
+        "formula": "N*Lraw43",
+        "rows": "N",
+        "source": "c9_stream.convert_files projected sink"
+      },
+      {
+        "role": "public74",
+        "path": "capture/PUBLIC_ROWS_C9.jsonl",
+        "formula": "N*Lpublic",
+        "rows": "N",
+        "source": "c9_stream.convert_files normalized sink"
+      },
+      {
+        "role": "raw_public_line_index",
+        "path": "capture/RAW_PUBLIC_LINE_INDEX.jsonl",
+        "formula": "N*Lrawindex",
+        "rows": "N",
+        "source": "raw/public line SHA, line/cycle/epoch"
+      },
+      {
+        "role": "csv",
+        "path": "public_rows.csv",
+        "formula": "Ccsv_header + N*Lcsv",
+        "rows": "N + one header",
+        "source": "74 JSON field cells plus 8 outer cells; quote escaping must count; actual codec <=2MiB physical row bound"
+      },
+      {
+        "role": "csv_roundtrip",
+        "path": "csv_roundtrip.jsonl",
+        "formula": "N*Lroundtrip",
+        "rows": "N",
+        "source": "all rows compared as objects; byte order need not equal public file"
+      },
+      {
+        "role": "intake61",
+        "path": "intake/DERIVED_PUBLIC_ROWS_61_TX.jsonl",
+        "formula": "N*Lintake61",
+        "rows": "N",
+        "source": "explicit derived projection"
+      },
+      {
+        "role": "c9_sidecar",
+        "path": "intake/C9_COMPLETE_SIDECAR.jsonl",
+        "formula": "N*Lsidecar",
+        "rows": "N",
+        "source": "all extra C9 fields, raw ports, semantics retained"
+      },
+      {
+        "role": "preserved_legacy",
+        "path": "intake/LEGACY_PRESERVED_ROWS.jsonl",
+        "formula": "N*Lpreserved",
+        "rows": "N",
+        "source": "old analyze append sink; no list of all rows"
+      },
+      {
+        "role": "math_row_index",
+        "path": "math/MATH_ROW_INDEX.jsonl",
+        "formula": "N*Lmathindex",
+        "rows": "N",
+        "source": "canonical_row is full public envelope plus source/handshakes/lane/apply status; cannot count as small index"
+      },
+      {
+        "role": "math_fx",
+        "path": "math/FX_HISTORY.jsonl",
+        "formula": "Hfx*Lfx",
+        "rows": "Hfx",
+        "source": "effect/config condition; actual observations only"
+      },
+      {
+        "role": "math_advance",
+        "path": "math/ADVANCE_HISTORY.jsonl",
+        "formula": "Ha*Ladvance",
+        "rows": "Ha",
+        "source": "includes cancel and unpublished advance; cannot prune"
+      },
+      {
+        "role": "math_input_apply",
+        "path": "math/INPUT_AND_APPLY_HISTORY.jsonl",
+        "formula": "He*Linput_apply",
+        "rows": "He",
+        "source": "actual input/stage and PENDING independent mapping"
+      },
+      {
+        "role": "serial_row_index",
+        "path": "serial/ROW_INDEX.jsonl",
+        "formula": "N*Lserialindex",
+        "rows": "N",
+        "source": "coordinate for each public row"
+      },
+      {
+        "role": "serial_frames",
+        "path": "serial/SERIAL_FRAMES.jsonl",
+        "formula": "Sframes*Lserialframe",
+        "rows": "measured complete decoded frames; <=N",
+        "source": "PinDecoder output, cannot assume zero for full window"
+      },
+      {
+        "role": "serial_halves",
+        "path": "serial/SERIAL_HALVES.jsonl",
+        "formula": "Shalves*Lserialhalf",
+        "rows": "measured halves; <=N",
+        "source": "PinDecoder output, incomplete tails retained as pending"
+      },
+      {
+        "role": "serial_transactions",
+        "path": "serial/TRANSACTIONS.jsonl",
+        "formula": "Stransactions*Lserialtransaction",
+        "rows": "emit count from actual serial branches; safe provisional <=16*N until exact branch cap frozen",
+        "source": "commit/cancel/adoption/accept etc output; freeze actual line bound before W"
+      }
+    ],
+    "retained_controls_and_other_outputs": [
+      {
+        "paths": "R13 raw/reset edges/end/stdout/stderr/window/MIDI plan/frame input/frame rules/application request/declared receipt/source and tool closures/module bindings",
+        "formula": "raw counted in streams; all other input bytes + fixture construction staging + any retained original and derived ZIPs",
+        "note": "Keep complete dual streams; stdout marker and stderr are inputs, not just worker logs. Derive window/end from independently frozen producer plan, not from observed trace. Pin all roles before admission; exact R13 input identities PENDING."
+      },
+      {
+        "paths": "APPLICATION.json, INPUT.json, GUARD.json, RESERVATION_INPUT.json, RESERVATION.json, DEPENDENCY_GRAPH.json, TOOLS.json, BOUND_PLAN.json, RESULT.json, coordinator claim/reservation state",
+        "formula": "Capplication + O(source member count + tool/dependency count + argv/path string bytes + stimulus plan size)",
+        "note": "Do not multiply a sample control byte size by N without its producer count formula."
+      },
+      {
+        "paths": "SOURCE_APPLICATION_C9.zip, a/inputs/** (75 source units, includes, 9 ROMs, 4 stimuli and compile lists)",
+        "formula": "source archives + extracted member bytes + emitted source ZIP + original ZIP snapshots + temporary ZIP output",
+        "note": "assembler.read_archive retains two decompressed member dictionaries; per archive declared member<=16MiB, total<=64MiB; payload dict shares byte values, but zip.read temporaries and Python object overhead also count."
+      },
+      {
+        "paths": "UNIQUE_FRAME_PLAN.json, FRAME_PLAN.json, TX_FRAME_PLAN.json and producer receipt",
+        "formula": "Cplans + O(Z) + O(F*(digits(N)+serialized per-frame metadata)) across THREE plan documents",
+        "note": "Exact producer generates cycles list independently; F=0 in seven-row original does not prove constant control JSON for full window."
+      },
+      {
+        "paths": "INTAKE_LEDGER.json",
+        "formula": "Cledger + bytes(frames[F], transactions[Q], tx_samples, raw_frame_cancels, advance_observations and finish)",
+        "note": "Only preserved_rows is externalized. Frames/transactions/tx_samples/cancels remain whole Python collections and serialized JSON. E<=1000000 is an event count cap, not a 512MiB RAM proof."
+      },
+      {
+        "paths": "CALENDAR_REPORT.json",
+        "formula": "Ccalendar + bytes(frame_results[F], ledger.transactions, ledger.tx_samples, raw_frame_cancels, business_cancels)",
+        "note": "Duplicates several growing ledger lists on disk; analyze also allocates per-epoch frames and result lists."
+      },
+      {
+        "paths": "serial/INPUTS.json, serial/REPORT.json, SERIAL_REPORT.json",
+        "formula": "Cserial_controls + bytes(pending/unknown categories + descriptors + independent plan/expectation metadata)",
+        "note": "REPORT content is duplicated at chain root; serial reads full plan and optional scenario. seen IDs and planned frame arrays also occupy RAM; ledger purging alone insufficient."
+      },
+      {
+        "paths": "ROM_MANIFEST.json, math/MATH_INPUT_BUNDLE.json, math/RECEIPT.json",
+        "formula": "Crom + Cmathrole_manifest + descriptor/path bytes",
+        "note": "Keep required roles missing as missing; execution receipt/independent golden not synthesized. math receipt repeats bundle descriptor data."
+      },
+      {
+        "paths": "capture/RECEIPT.json, intake/RECEIPT.json, provenance/PROVENANCE.json, HANDOFF.json, strict-front-end receipts",
+        "formula": "Creceipts + descriptor/source-ref count*descriptor bound + trace/context metadata",
+        "note": "No whole-row arrays expected here, but source/tool/role descriptor cardinalities and max path length must be frozen."
+      },
+      {
+        "paths": "all FAILURE.json and partial outputs, root/worker stdout/stderr, admissions/source manifests, K/V/B/R originals",
+        "formula": "Cfailure + retained earlier own artifacts + bounded log bytes",
+        "note": "Failure propagation keeps originals; reserve is not a license to delete them."
+      },
+      {
+        "paths": "private_archive_snapshots/**, temp output writers, gzip/ZIP volumes, PARTS or VOLUME manifests, decoded-copy candidates, EXECUTION_ORIGINALS.zip and package staging",
+        "formula": "Ctemporary + concurrent copies of each logical byte stream + all encoded-volume bytes + package staging + manifest bytes",
+        "note": "At every transition include both old and new copies until actual close/delete. Reversible volumes are artifacts; whole-file extraction is an additional copy, not free."
+      }
+    ],
+    "whole_workspace_formula": "Ppeak = max_t[sum of every retained actual artifact bytes at t + every live temporary/copy/snapshot/package bytes at t]; use volume-encoded physical lengths where logical-stream consumer is actually supported, but report logical lengths/SHA separately. If both decoded and encoded forms retained, add BOTH. No compression ratio may be assumed.",
+    "same_shape_plaintext_lower_bound": {
+      "profile_condition": "Geometry counterexample only: preserve sample capture_id, UTF-8 compact JSON serializers, fixed observed port bits/qualifiers and envelope shapes; change only monotone coordinates/finish; no shortening fields/IDs/semantics. Actual validity of full-window frame/reset plan is NOT established by this extrapolation.",
+      "per_row_minimum_bytes": 30467,
+      "csv_header_bytes": 1533,
+      "formula": "30467*N + 1533; sums independent minima of 11 mandatory streams, including retained raw72 and two indexes; excludes all histories, serial events, controls, sources, snapshots, packages and temporary copies",
+      "at_minimum_N_bytes": 34447880687,
+      "at_minimum_N_GiB_approx": 32.08208893146366,
+      "minimum_raw72_bytes_for_same_shape": 3040350118,
+      "raw_threshold_met_by_geometry": true,
+      "plaintext_24GiB_maximum_N_before_other_artifacts": 845826.0,
+      "disk_limit_satisfied": false,
+      "conclusion": "The sample-shaped plaintext-all-retained layout is NO_GO before W. This is not a universal bound for any future encoding/profile, and is not permission to alter canonical fields or omit outputs."
+    },
+    "line_bound_derivation": {
+      "current_source_caps": "c9_stream output JSONL<=1MiB/line and<=512GiB/file; common generic JSONL<=8MiB; CSV decoder physical row<=2MiB; serial total output<=16GiB, input<=64GiB. These are rejection bounds, far too loose to establish workspace<=24GiB.",
+      "frozen_candidate_requirement": "For every output role freeze actual serializer, finite value ranges, capture_id/path length, event/unknown/state variants and maximum rows. For a fixed byte-template, Lx(N)=fixed_UTF8_key_and_punctuation_bytes + sum_j(max serialized scalar bytes_j(N)) + LF; decimal coordinate term digits(N), time term digits(first_ps+(N-1)*period_ps); raw vectors use exact bit width. Repeated canonical_row/source inside MATH_ROW_INDEX count every occurrence. CSV escaping counts each embedded quote twice and delimiters. General capture IDs and paths have no global finite bound until frozen.",
+      "history_upper_bound": "Before W supply finite Lfx/Ladvance/Linput_apply and Hfx/Ha/He from frozen stimulus/source contract or use N for each. Seven-row zero histories are no evidence those counts remain zero.",
+      "metadata_upper_bound": "Use explicit cardinality+serialized entry bounds for all plan/ledger/calendar arrays. Reject before execution if growing control document could exceed actual consumer identity/parser cap (R12 control cap8MiB, D4 legacy default16MiB; effective reachable cap=min of all readers) or 512MiB memory budget. Do not silently raise frozen limits or replace algorithm.",
+      "candidate_Lx_values": "PENDING_R13_FIXTURE_AND_CANDIDATE_FREEZE",
+      "full_artifact_disk_upper_bound": null
+    }
+  },
+  "memory_and_IO": {
+    "status": "PENDING_CONTROL_CARDINALITIES_AND_ACTUAL_MEASUREMENT",
+    "formula": "peak simultaneous resident private modules/stdlib+ZIP member byte dictionaries+decompression buffers+bounded physical IO and current parsed rows+serialized row buffers+all live control/plan/ledger/serial/python collections+compression state+finalization/manifest state <=536870912 bytes",
+    "why_chunk_only_is_insufficient": "Physical read <=1MiB can still accumulate an entire16MiB/64MiB file or grow ledger lists to O(N); the bound concerns each actual pull, not merely a requested logical read length. Stream bytes and control objects must be separately bounded.",
+    "specific_existing_paths": [
+      "assembler.read_archive archive.read(member) and two member dictionaries; injected R12 snapshot path retains compressed copy",
+      "frame generator cycles list plus unique/calendar/TX plan projections",
+      "intake old analyze frames/transactions/tx_samples/raw_frame_cancels/advance_observations; preserved sink only removes full row list",
+      "calendar.analyze observed/by_epoch/frame_results and ledger list references",
+      "serial full plan/optional expected-scenario; frame arrays and seen-ID set; current transaction ledger is pruned",
+      "R12/json_identity MAX_JSON=8MiB; c9_stream metadata logical max16MiB; m3r08_common checked_file may buffer64MiB through adapter"
+    ],
+    "IO_acceptance": "Instrument actual file/ZIP-member/volume decompressor physical reads and hash passes, maximum request <=1048576; do not count only wrapper advertised chunk. Reassemble records across chunks; reject oversized line/control under existing effective caps. read() unrestricted must reject streaming roles. Logical bounded metadata read may span many physical chunks.",
+    "process_evidence": "Natural worker exit code, actual elapsed and OS PeakWorkingSet64/Job accounting, process child-creation proof or simultaneous process tree sampling, root-handle closed then activeJobProcesses=0, and supervisor peak separately; no target execution in this contract task.",
+    "observed_worker_peak": null,
+    "observed_process_tree_peak": null,
+    "observed_workspace_peak": null,
+    "observed_actual_max_read_request": null
+  },
+  "reversible_delivery": {
+    "status": "USER_FORWARD_ALL_LOSSLESS_VOLUMES_CONFIRMED_FINAL_MANIFEST_PENDING",
+    "pre_W": true,
+    "permitted_primary": "Same already allowed repository path; EXECUTION_ORIGINALS.zip<=33554432 bytes and includes reversible logical originals/volumes plus manifest. Exact consumer access and reconstruction must be frozen before W.",
+    "permitted_fallback": "Only an already allowed and M2-accessible user-forwarded original archive/volumes with exact locations and retrieval method. No new cloud service, credentials or upload authorization. Local ignored-only originals are insufficient.",
+    "required_manifest": [
+      "logical artifact role/path and media/encoding",
+      "whole logical decoded bytes/SHA256",
+      "ordered volume numbers",
+      "decoded offset/length/SHA256 for each volume",
+      "encoded path/length/SHA256",
+      "codec/version/parameters",
+      "byte-exact reassembly rule with no separators/BOM/newline conversion",
+      "global row order and EOF/finish identity",
+      "M2 consumer and confirmed accessible entry"
+    ],
+    "boundaries": "Volumes may split UTF-8 code points, quoted CSV cells and JSONL lines. Decompress then concatenate exact bytes by manifest offset; decode UTF-8/parse logical records only afterward or with stateful incremental decoder. Missing/repeated/overlapping/out-of-order volumes, truncated stream, decoded overflow, byte/SHA mismatch and extra tails reject before completion.",
+    "compression_ratio": "UNKNOWN_NOT_ASSUMED",
+    "zip_measured_bytes": null,
+    "channel_access_verified": false,
+    "not_a_solution": [
+      "old R12 W stderr stress as proof of new full backend",
+      "retain raw only and drop public/CSV/math/index",
+      "generator plus SHA without original or reversible volumes",
+      "take seven-row measured compression ratio as full-window upper bound",
+      "use observed PCM as expected or empty model/receipt to fill missing role"
+    ],
+    "minimum_required_decision": "Channel choice is resolved. Root/C must still freeze <=24GiB simultaneous physical storage geometry and measured resource plan; final actual manifest and every volume must be handed off. No change to budgets/deadline or real-execution scope.",
+    "selected_channel": "Entire code/output/m3_backend_stream_r13_20261018/DELIVERY directory; user forwards all numbered lossless volumes and manifest to M2 for independent receipt/SHA verification",
+    "channel_confirmation_ref": {
+      "path": "code/output/m3_backend_stream_r13_20261018/DELIVERY_CHANNEL_CONFIRMED.json",
+      "bytes": 2104,
+      "sha256": "b5df1c2e57f142c17eb5eaaaf088f8041d9c7467502eda84c631fa8e29048ef9"
+    },
+    "channel_method_confirmed": true,
+    "M2_RECEIVED": false,
+    "M2_ACCEPTED": false,
+    "channel_access_verification_scope": "Actual artifact retrieval is not yet performed; human-confirmed forwarding method closes the standalone missing-channel item. Actual names/sizes/SHAs follow production before handoff.",
+    "git_zip_scope": "EXECUTION_ORIGINALS.zip remains <=33554432 bytes for indexes and small originals; all larger reversible volumes use the confirmed forwarding channel, not required to fit inside this ZIP"
+  },
+  "W_admission": {
+    "allowed_by_this_document": false,
+    "status": "NO_GO_UNTIL_PRECONDITIONS_FROZEN",
+    "blockers": [
+      {
+        "id": "A2_CAPACITY_01",
+        "fact": "Sample-shaped plain all-retained geometry alone is32.08GiB >24GiB",
+        "owner": "M3 root + C candidate owner",
+        "minimum_recovery": "Freeze byte-exact reversible storage/streaming consumption and all live-copy bound<=24GiB; otherwise request resource amendment. Do not truncate window/delete outputs."
+      },
+      {
+        "id": "A2_CAPACITY_02",
+        "fact": "Actual R13 line maxima, conditional histories, plan/ledger/cardinality bounds and effective control JSON cap not yet frozen",
+        "owner": "M3 root + C fixture/candidate owner; M1 only for algorithm definitions",
+        "minimum_recovery": "Publish actual profile geometry and every role formula/source pin; reject unsupported profile before W, with independent plan/finish/reset checks intact."
+      },
+      {
+        "id": "A2_CAPACITY_03",
+        "fact": "Actual process tree/OS memory/disk high-water/read-request metrics not run here",
+        "owner": "M3 sole execution owner",
+        "minimum_recovery": "Static upper bounds first, then approved-slot instrumentation and full retained output chain; no extra test slot inferred."
+      }
+    ],
+    "other_required_checks": [
+      "START/deadline and full remaining time budget",
+      "new source/tool/Job identity freeze and P0",
+      "independent pre-observation plan/input/epoch/reset/finish binding",
+      ">=1130662 actual raw rows and>=1398627657 actual non-sparse logical raw bytes through actual D4 backend without replacement",
+      "startfree>=32GiB, preserve>=8GiB, peak all own paths<=24GiB",
+      "all EOF SHA/length/row order/unique finish/MONITOR_END checks and atomic completion after every substage",
+      "ordinary software permission remains separate from true capture/M1 math/physical/board permission"
+    ],
+    "resolved_preconditions": [
+      {
+        "id": "A2_CHANNEL_01",
+        "status": "METHOD_CONFIRMED_NOT_M2_RECEIVED",
+        "reference": {
+          "path": "code/output/m3_backend_stream_r13_20261018/DELIVERY_CHANNEL_CONFIRMED.json",
+          "bytes": 2104,
+          "sha256": "b5df1c2e57f142c17eb5eaaaf088f8041d9c7467502eda84c631fa8e29048ef9"
+        },
+        "note": "Do not continue to report absent transport choice as a W blocker; final produced volume integrity/completeness remains required before handoff"
+      }
+    ]
+  },
+  "cross_bundle_references": [
+    "CONTRACT_INDEX.json",
+    "FIELD_ROUTE_TABLE.json",
+    "PLAN_IDENTITY_MAP.json",
+    "EPOCH_RESET_FINISH_CONTRACT.json",
+    "SOURCE_PROVENANCE.json",
+    "OPEN_DECISIONS.json",
+    "M2_DECISION_SHEET.md"
+  ],
+  "claims": {
+    "execution_allowed": false,
+    "math_verified": false,
+    "real_verified": false,
+    "board_release_allowed": false,
+    "new_capacity_test_passed": false
+  },
+  "source_references": [
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/chain.py",
+      "bytes": 12667,
+      "sha256": "64bfdf4787aa9dd1ddab30a30ed7cf4fb05be763b9303ec965061005430f1c44"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/provenance.py",
+      "bytes": 11138,
+      "sha256": "f76c9538adeb5f96fa4e240f8786d5bc181a6506aa0a4ef638aa1c630b7eabe0"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/common.py",
+      "bytes": 6144,
+      "sha256": "55cb7481fe9c0870247a7d8b2453dea859f0f2e81879795cc0e34ffe8c996dca"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/public_capture_tb/c9_completion_r01/c9_stream.py",
+      "bytes": 16848,
+      "sha256": "5584ab7201544a8d30bfdd7603a51483d1c5340ccc219e853df0d146d042ebef"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/capture_csv_codec/c9_completion_r01/c9_codec.py",
+      "bytes": 6260,
+      "sha256": "9cc466db9324bb8d770af02e0b11a40ab3bc67f5febc46d044449d7a656832af"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/normalized_intake/c9_completion_r01/intake_adapter.py",
+      "bytes": 8784,
+      "sha256": "7cfaba5c19cefa408f30911f5a69b440302e7bca24d6a2352fce1e48ba2456c0"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/normalized_intake/r07_fix/intake_r07_fix_candidate.py",
+      "bytes": 23304,
+      "sha256": "d8bae7b015e1fd19a9e7af917c3b238f828833abaf0b227db25407faa534831d"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/frame_plan_generator_candidate.py",
+      "bytes": 10359,
+      "sha256": "38592faebeeeb0a2022668785453760a5b58babd24af6ff18a96f15790597191"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/r07_fix/calendar_r07_fix_candidate.py",
+      "bytes": 14768,
+      "sha256": "9af7022b0a228e0f8e180fd6a3c58646757cb407dfb132726c8ae0ace28413a5"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/tx_clock_reset_checker/c9_completion_r01/serial.py",
+      "bytes": 31061,
+      "sha256": "c576a5c79169eb5e91d796775aec820260a5df0e47b5c4472acf8630f5dcc5b7"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/math_bundle.py",
+      "bytes": 9608,
+      "sha256": "83659169c25e5d77621e1649eeda25697b7f0eb4767d8321599144a19ceb3854"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/build_admission_bundle/c9_completion_r01/assembler.py",
+      "bytes": 22940,
+      "sha256": "ae4ad0f3fefa1bc28e099a2aabcb827f733358d9bd93988af31e5de20a824ccf"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/capture_link_successor.py",
+      "bytes": 20407,
+      "sha256": "369b6f5b4f692ea86013ce02c92bf411e7469175a3b8671f1ba2abcdcd551328"
+    },
+    {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/frontend_close_r12_20261018/json_identity.py",
+      "bytes": 6234,
+      "sha256": "d601d68bb2ee5d4ba4c4a435bdf3709dc943f05bb4858d516b854c507c9e6ae4"
+    },
+    {
+      "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/NEXT_INPUT_CONTRACT.md",
+      "bytes": 2485,
+      "sha256": "b9cd60d3df2184e318b03e6d973f3ebf319ae73614f6e7deb51f771159a52373"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/HANDOFF.json",
+      "bytes": 10450,
+      "sha256": "b835a0a884911dbf6ecaaf89a58549181c9ca70e5effa35520ce62e08129ed76"
+    }
+  ],
+  "sample_stream_measurements": [
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/RAW.jsonl",
+      "bytes": 18827,
+      "data_rows": 7,
+      "header_bytes": 0,
+      "minimum_data_line_bytes": 2689.0,
+      "maximum_data_line_bytes": 2690.0,
+      "sha256": "2188b80bbe4561c44a1728fabc50dbb0bd9b6101582700799d537f0443631882"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/capture/DERIVED_RAW_43.jsonl",
+      "bytes": 10224,
+      "data_rows": 7,
+      "header_bytes": 0,
+      "minimum_data_line_bytes": 1460.0,
+      "maximum_data_line_bytes": 1461.0,
+      "sha256": "47ca43b8abd44af031fd536ba806d3bf09f0a30f871483a58a9cf3ca941bc02e"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/capture/PUBLIC_ROWS_C9.jsonl",
+      "bytes": 32464,
+      "data_rows": 7,
+      "header_bytes": 0,
+      "minimum_data_line_bytes": 4636.0,
+      "maximum_data_line_bytes": 4645.0,
+      "sha256": "e75cd132f0dd6b717fab74b0133fee7481a1c830cc2153dda65f6a7b3d57c2b0"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/capture/RAW_PUBLIC_LINE_INDEX.jsonl",
+      "bytes": 1428,
+      "data_rows": 7,
+      "header_bytes": 0,
+      "minimum_data_line_bytes": 204.0,
+      "maximum_data_line_bytes": 204.0,
+      "sha256": "0c3934164ec770b5d9bd7bb3e00cdafee2b4dd7b62cf36a7c4c5150d8a28e1aa"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/public_rows.csv",
+      "bytes": 28163,
+      "data_rows": 7,
+      "header_bytes": 1533,
+      "minimum_data_line_bytes": 3802.0,
+      "maximum_data_line_bytes": 3815.0,
+      "sha256": "9cdbb86bdb2ea0660d63e3a5191455b9e71a040c6cb30be72c8d55212ba213bf"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/csv_roundtrip.jsonl",
+      "bytes": 32464,
+      "data_rows": 7,
+      "header_bytes": 0,
+      "minimum_data_line_bytes": 4636.0,
+      "maximum_data_line_bytes": 4645.0,
+      "sha256": "2fc90a865bcc1d5895c8bf7af22eade50faaa53f787fb6bfddeef7c7b1c8c594"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/intake/DERIVED_PUBLIC_ROWS_61_TX.jsonl",
+      "bytes": 13144,
+      "data_rows": 7,
+      "header_bytes": 0,
+      "minimum_data_line_bytes": 1876.0,
+      "maximum_data_line_bytes": 1885.0,
+      "sha256": "b6d31c3120cf25f783642db2d15067ab01719a1303f4940131f7edfd58325a56"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/intake/C9_COMPLETE_SIDECAR.jsonl",
+      "bytes": 25275,
+      "data_rows": 7,
+      "header_bytes": 0,
+      "minimum_data_line_bytes": 3609.0,
+      "maximum_data_line_bytes": 3618.0,
+      "sha256": "328c0a03126d6d61fb6f3ca09165142b18d38f19f46031cf2078d7ff95207918"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/intake/LEGACY_PRESERVED_ROWS.jsonl",
+      "bytes": 13557,
+      "data_rows": 7,
+      "header_bytes": 0,
+      "minimum_data_line_bytes": 1935.0,
+      "maximum_data_line_bytes": 1944.0,
+      "sha256": "d390202517727efc19434d8aeecba618088235cfdce06801844c7864bed4c253"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/math/MATH_ROW_INDEX.jsonl",
+      "bytes": 37669,
+      "data_rows": 7,
+      "header_bytes": 0,
+      "minimum_data_line_bytes": 5379.0,
+      "maximum_data_line_bytes": 5389.0,
+      "sha256": "41739ece9a39d0c6d37993ef9f8c29926bd0d6b15eb95679b6a13a9a22fcd526"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/math/FX_HISTORY.jsonl",
+      "bytes": 0,
+      "data_rows": 0,
+      "header_bytes": 0,
+      "minimum_data_line_bytes": null,
+      "maximum_data_line_bytes": null,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/math/ADVANCE_HISTORY.jsonl",
+      "bytes": 0,
+      "data_rows": 0,
+      "header_bytes": 0,
+      "minimum_data_line_bytes": null,
+      "maximum_data_line_bytes": null,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/math/INPUT_AND_APPLY_HISTORY.jsonl",
+      "bytes": 0,
+      "data_rows": 0,
+      "header_bytes": 0,
+      "minimum_data_line_bytes": null,
+      "maximum_data_line_bytes": null,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/serial/ROW_INDEX.jsonl",
+      "bytes": 1691,
+      "data_rows": 7,
+      "header_bytes": 0,
+      "minimum_data_line_bytes": 241.0,
+      "maximum_data_line_bytes": 242.0,
+      "sha256": "fab10639c4604a88a804732bbbb86a1802ef0f89e9dbc1e919fdfb71973e2927"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/serial/SERIAL_FRAMES.jsonl",
+      "bytes": 0,
+      "data_rows": 0,
+      "header_bytes": 0,
+      "minimum_data_line_bytes": null,
+      "maximum_data_line_bytes": null,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/serial/SERIAL_HALVES.jsonl",
+      "bytes": 0,
+      "data_rows": 0,
+      "header_bytes": 0,
+      "minimum_data_line_bytes": null,
+      "maximum_data_line_bytes": null,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/serial/TRANSACTIONS.jsonl",
+      "bytes": 0,
+      "data_rows": 0,
+      "header_bytes": 0,
+      "minimum_data_line_bytes": null,
+      "maximum_data_line_bytes": null,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "sample_retained_directory_inventory": [
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/APPLICATION.json",
+      "bytes": 25064,
+      "sha256": "857182562f38ee52822db899a833f052ede0067f259758f2d93a5e3bfb22213d"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/BOUND_PLAN.json",
+      "bytes": 10450,
+      "sha256": "30a076aaa28b23c3c6f49a7be15e1c4d61a6045f2f2e4e0d347fd2a69c0114be"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/DEPENDENCY_GRAPH.json",
+      "bytes": 29713,
+      "sha256": "3f293f01cb31bdb82f64526e7b5d295a1fb87ed86225ca4824b4a21392c8b959"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/GUARD.json",
+      "bytes": 2963,
+      "sha256": "dae7ed483e7e6b74dad062090dc1876e7bd77fd64c0a1c275647d39b530aef75"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/INPUT.json",
+      "bytes": 20293,
+      "sha256": "a30cb2045453db4b3394926d2f1d7c804f780683acdeec64f5910dd1ca481a34"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/bytes.drv",
+      "bytes": 810,
+      "sha256": "43bd347b7cc5082b10c5cef55e7adeac071fe6b9dfdb0b38437b5bddaa99ad9d"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/compile_c9_capture.f",
+      "bytes": 2469,
+      "sha256": "02efbf370f71d943a20b40d4c9e1dd27c5bde5ff4924f93b800e1cfb6daf1f39"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/compile.f",
+      "bytes": 2369,
+      "sha256": "a99b460f4694ae9eb654f9497ca59451a4b4c1f0892be9780c3bba2a03ef5200"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/include/sine_table.svh",
+      "bytes": 5648,
+      "sha256": "969fc7d1036e359fc55c3b0ca18eaf3c8a123a146ed95c32a81e52ee10519cca"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/include/sustain_controller_ports.svh",
+      "bytes": 827,
+      "sha256": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/m3_c9/midi_public_port_driver.sv",
+      "bytes": 3417,
+      "sha256": "99e40266a46f1606409fa6ef270dd0c6b056dcb511363ae90dfbaf67653df89a"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/m3_c9/r7a_c9_public_observer.sv",
+      "bytes": 11677,
+      "sha256": "ed4c51834773e411c67cde4743c188f4e719c32f823a969f7ba4b8dea83cc7cd"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/m3_c9/tb_r7a_c9_public_capture.sv",
+      "bytes": 11007,
+      "sha256": "a31ae010d835d62b83096ba7604f8517793401eac90e928bbefeb2f024c89a4d"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/plan.json",
+      "bytes": 28378,
+      "sha256": "d07c428162dbccefa8215ac629840058c3a8edd809e3f077dd695813133ad918"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/ready.drv",
+      "bytes": 22,
+      "sha256": "ee3f97b4a0780c0a851a46c4fe8689c4518921dad3c79e5e52474d7757195d25"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/reset.drv",
+      "bytes": 30,
+      "sha256": "c255e20fafbd47d3591a9166ef736e1766ff1a8b93378afd4ef895ad693c1a52"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/rom/lfo_sine_q15.mem",
+      "bytes": 6144,
+      "sha256": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/rom/oct_ratio_q16.mem",
+      "bytes": 350,
+      "sha256": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/rom/piano_band_4x256_8191.mem",
+      "bytes": 5120,
+      "sha256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/rom/sine_1024_32767.mem",
+      "bytes": 5120,
+      "sha256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/rom/sine_1024_8192.mem",
+      "bytes": 5120,
+      "sha256": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/rom/sine_wavetable.hex",
+      "bytes": 5206,
+      "sha256": "1abfd5c47759cd4089f4b39069b3ff0ab388838502b325d9ef7d9e01549ec7f4"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/rom/sub_ratio_q16.mem",
+      "bytes": 7168,
+      "sha256": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/rom/triangle_wavetable.hex",
+      "bytes": 5210,
+      "sha256": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/rom/velocity_gain_rom.mem",
+      "bytes": 5120,
+      "sha256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/selected/dds_oscillator_leaf.sv",
+      "bytes": 1241,
+      "sha256": "303e3a9927e743d4149ceae4bb8754ebb8abdfb14638d407254b8e555dfcd3bd"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/selected/m2_138k_pro_fourvoice_observer_top_r06c9.sv",
+      "bytes": 7726,
+      "sha256": "bf212311352573d929e7f7b5c29e3959c760d935270165463e94ce532cbb6727"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/selected/m2_fourvoice_timbre_delay_board_top_r06c9.sv",
+      "bytes": 45887,
+      "sha256": "b8b03da91c6e6f24f3dc76f83ccd67c3126e085bc1807287d82c74aeb5e704bc"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/selected/m2_fourvoice_timbre_delay_frame_core_r06c9.sv",
+      "bytes": 9660,
+      "sha256": "73b90af7dfff87cb87e12da947bf70385fbbb7b2209ef4e7f81fe35b215aff41"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/selected/m2_r06_raw_cancel_reason.sv",
+      "bytes": 439,
+      "sha256": "f926e65c44a07a6d08e5e42c88a20e73b9a5c21dbfc91ccefc7e85ca8c204043"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/selected/m2_r06_tx_identity_sidecar.sv",
+      "bytes": 8510,
+      "sha256": "40fd5145a9d80bae36ead96b8e1144be84acdf3669aa5c47a26fcef305a54d1e"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sine_wavetable.hex",
+      "bytes": 5206,
+      "sha256": "1abfd5c47759cd4089f4b39069b3ff0ab388838502b325d9ef7d9e01549ec7f4"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/adsr_piano_envelope.sv",
+      "bytes": 9174,
+      "sha256": "48a732cdcca86fe30a7c48d1fe665f01fa3dd32fd6000ef3010101b11c1d9b51"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/audio_defs_pkg.sv",
+      "bytes": 12334,
+      "sha256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/audio_visual_display_probe.sv",
+      "bytes": 7018,
+      "sha256": "df1f05b4a6a06deddd9d3a2244106ec29bb0d15e5dd808fc9bef9436d710a5cf"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/button_debouncer.sv",
+      "bytes": 6376,
+      "sha256": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/button_event_converter.sv",
+      "bytes": 10529,
+      "sha256": "04a584b546d155107ad86cc5a21714ab68e2d9cd0e92b2c6ff0b97760515bce1"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/clock_plan_sim.v",
+      "bytes": 402,
+      "sha256": "99c28744febfb6f39557e6034e79b69190d5c9a8b777a569e2b61cc10f932ecb"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/dvi_sim_stub.v",
+      "bytes": 505,
+      "sha256": "b06d15e1de1ed1d86e59719c44a1a36ef4bbbc63f802fef538b22f4c268b086a"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/i2s_tx.sv",
+      "bytes": 17021,
+      "sha256": "6c703e31064e5943df4e310b3baddd8935362a1c028828d8e11f8f3c016267ad"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_adsr_piano_envelope.sv",
+      "bytes": 9179,
+      "sha256": "fd43aa6044b094d64f053c136092b767e1d3f8c384a0548c9c66fb602905a4af"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_audio_candidate.sv",
+      "bytes": 4493,
+      "sha256": "193bc5cd9c7675b7f97564223ce39c7ba8d488f2028dfbadbbb033887ab82f63"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_dds_oscillator.sv",
+      "bytes": 2751,
+      "sha256": "b6e7ab7e33442fd288ea95c407a76033b822e7b4ffdf3fab791429629b26308b"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_delay_effect.sv",
+      "bytes": 6160,
+      "sha256": "07bcc6f4d0a448e029b5349a43fa8bcaa4afac32323bffb21fdc0e7c6a9633ac"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_note_pitch.sv",
+      "bytes": 8117,
+      "sha256": "3dde1ca9d72da29030e03940504abe758856fffbaf9a637867a2ebf27f3194d6"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_pcm_clip_counter.sv",
+      "bytes": 1020,
+      "sha256": "49c812edd27f0ac1dc33f59f902037c5ee92b9d6e56fcedbdaf1fbe82f8f4f8d"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_pcm_frame_buffer.sv",
+      "bytes": 3801,
+      "sha256": "a576073d2d5f7b095531aa3fb758a243a49eb5eb577d85dc5d620b85103e592e"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_pcm_mixer_4voice.sv",
+      "bytes": 2073,
+      "sha256": "e3a91180581d434204c6e6f1c5022a4a1447a1810fdd19e505ca0c892fa4553a"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_performance_control_snapshot.sv",
+      "bytes": 5054,
+      "sha256": "4c108c889a548656ebcdd8d645530a97ddacdce6be200cd92f9e8b750d0fed60"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_piano_dds_oscillator.sv",
+      "bytes": 6174,
+      "sha256": "0b84662d535756e1560ee848202d33be2dc429a1f81768be5cdb615f03e004d5"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_piano_triangle_voice.sv",
+      "bytes": 2130,
+      "sha256": "ef196fa0a89b3612ea7c2aa7751351b3fa6ccaec1f1e9a48d5c9da2014193f06"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_pitch_mod_fcw_pipeline.sv",
+      "bytes": 5697,
+      "sha256": "d53f8467c04fcd1c5c69113f73f56bff3fe126ba30d2fb9654d3c4f266973655"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_pitch_mod_snapshot_pipeline.sv",
+      "bytes": 3527,
+      "sha256": "9f801ac5016d0d38e743610a7faeb717cd2a54ce34bf183fa904c5fe61b3c21e"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_polyphonic_envelope_bank.sv",
+      "bytes": 12530,
+      "sha256": "31c25b7e6eb22714d01c7d0f0ceb7131b3fb301d1aab54bebd041dace2fb4502"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_polyphonic_event_router.sv",
+      "bytes": 14340,
+      "sha256": "ec69d5d63cf9bd79abe794f95a92338a32a702d56422bdcbb3079dd200eea4c4"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_sustain_controller.sv",
+      "bytes": 6115,
+      "sha256": "26a801c2e80653b8a9206b8c25f27d32d61610339c2641b669451ae815dc11a3"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_timbre_delay_chain.sv",
+      "bytes": 5454,
+      "sha256": "076da7f76d641d0e9a8c2a0d910a1ff929ed923639877d36e320887fe095c995"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_timbre_oscillator.sv",
+      "bytes": 5241,
+      "sha256": "3bdbacceba4779a910ace9a508e5e6dbc849d94441c9f7f6e27a3d09329cdac2"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_voice_allocator_4.sv",
+      "bytes": 4897,
+      "sha256": "76154c355e1cc17a78707b618909395fcf539bcbc158a887a4572f142ea24eae"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m1td_voice_gain_q15_candidate.sv",
+      "bytes": 902,
+      "sha256": "771ac92ef2ff2de11c61832bf09fb11f761e1dcd617f84cb22bd63f8b7570e14"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/m3_visualizer.sv",
+      "bytes": 6897,
+      "sha256": "c3940203be5616d3cb923552267d7485d494bfd0e6a5410d7a7f3651e1fd0d2a"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/midi_event_parser.sv",
+      "bytes": 23632,
+      "sha256": "336d867856a7b3956d524105137c035ec2637fea936538979182669987212071"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/midi_input.sv",
+      "bytes": 3331,
+      "sha256": "648762fa082718cde6520996437935be659cd35ca8e047e0cd3bee7907c30710"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/note_pitch.sv",
+      "bytes": 8092,
+      "sha256": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/pcm_clip_counter.sv",
+      "bytes": 1015,
+      "sha256": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/pcm_frame_buffer.sv",
+      "bytes": 3796,
+      "sha256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/pcm_mixer_4voice.sv",
+      "bytes": 2068,
+      "sha256": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/pcm_result_hold.sv",
+      "bytes": 2658,
+      "sha256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/performance_control_snapshot.sv",
+      "bytes": 5049,
+      "sha256": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/performance_event_fifo.sv",
+      "bytes": 2538,
+      "sha256": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/piano_dds_oscillator.sv",
+      "bytes": 6159,
+      "sha256": "bc14310149e8bccd4e71ae239d73b64b23fbbe5da5855bff95c69d22072936de"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/pitch_mod_fcw_pipeline.sv",
+      "bytes": 5692,
+      "sha256": "48ec3fda81cf286517278e24f962430b48c8a2c035b76745c96d8f37dffbfadc"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/pitch_mod_snapshot_pipeline.sv",
+      "bytes": 3517,
+      "sha256": "c6724b4b3728aa0e4cc9234e73c394267cc1ebfd4c19c704ebd91c580585b8f7"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/polyphonic_audio_core.sv",
+      "bytes": 3050,
+      "sha256": "2ca43e80cd18d46f7a83fce5d0dd2d2c9c05fa272f9338e79bf9f23cc9933b80"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/polyphonic_envelope_bank.sv",
+      "bytes": 10776,
+      "sha256": "54d6db2ec1b9aebb07924e2095f4203306c351e7123a8152ca13d9b3aef1fcd6"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/polyphonic_event_router.sv",
+      "bytes": 9875,
+      "sha256": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/polyphonic_pcm_commit.sv",
+      "bytes": 2587,
+      "sha256": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/premixed_frame_adapter.sv",
+      "bytes": 3940,
+      "sha256": "d7952a5f986eb8b609cbe657907e418cfe751c6492d6e49469b5e37c390bb56c"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/reset_sync.sv",
+      "bytes": 1713,
+      "sha256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/simple_voice.sv",
+      "bytes": 9455,
+      "sha256": "eab4974b0315c75a8076b21afea1dade122fecbcc672eb0802ba0e358a1bf274"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/sustain_control_contract_pkg.sv",
+      "bytes": 846,
+      "sha256": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/sustain_controller.sv",
+      "bytes": 6110,
+      "sha256": "dd244b99b06eaa2ed7e7deda1c08aeb119f002bff939ce5941e5e81a559cbc4e"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/system_status_counters.sv",
+      "bytes": 1948,
+      "sha256": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/uart_rx.sv",
+      "bytes": 10342,
+      "sha256": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/uart_status_reporter.sv",
+      "bytes": 5476,
+      "sha256": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/uart_tx.sv",
+      "bytes": 8233,
+      "sha256": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/vendor_GSR_pROM.v",
+      "bytes": 10683,
+      "sha256": "7d4e1ac9a983b0eb3260273fea01789df2c0fb60b01c9c486b2f8a3670298448"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/video_scan_timing.sv",
+      "bytes": 1953,
+      "sha256": "0b7b3def84043ddd40ed2c1e237bb2d528a117e4fc15195d40b33b0fe78b2069"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/visual_control_bridge.sv",
+      "bytes": 3172,
+      "sha256": "723a9d9779a13f87478cfc68969163cc19f304212e60a1d2de307ec690fce428"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/visual_event_bridge.sv",
+      "bytes": 5118,
+      "sha256": "e05df6131ade002653ce101dd944f9b96c53f57b6e843f231529259c9249782c"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/visual_hit_flash.sv",
+      "bytes": 1862,
+      "sha256": "1cd4cc1e3459a41ee26122bee014afd552b697e80c1900f658cc03a73ebe03e3"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/visual_live_state.sv",
+      "bytes": 6534,
+      "sha256": "ad5c124a1f621ef95524f998efc4ca7ed0d7840d8297af8a97cd1460f88f5938"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/visual_mailbox_cdc.sv",
+      "bytes": 2786,
+      "sha256": "df5ef71f0d0b9856cc769023d40b1a62c5ac8b24c5adb7ea60fee42603b5838c"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/visual_scene_renderer.sv",
+      "bytes": 11242,
+      "sha256": "8062253766925a3c6fce11aad820f51dfcf7444501164d53e95d817c3e62a8d1"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/visual_score_tracker.sv",
+      "bytes": 22348,
+      "sha256": "7e5c630fddf3da60f5fe6bd67721736ee7624817355822dadc4a09dc4cffe0dc"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/voice_allocator_4.sv",
+      "bytes": 4892,
+      "sha256": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/sources/voice_gain_q15_candidate.sv",
+      "bytes": 897,
+      "sha256": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/inputs/triangle_wavetable.hex",
+      "bytes": 5210,
+      "sha256": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/r/coordinator/claims/74b6ad2e6415a8b86149a997d9aa78c0e43877a2b506f15d6bee881c7c5b40a7.claim.json",
+      "bytes": 579,
+      "sha256": "fb0f6baa278180884f4f0d7862516868807b809aa9e1505ed7cb67a3d43ed61b"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/RESERVATION_INPUT.json",
+      "bytes": 582,
+      "sha256": "3cbf74a64348d7a531c86858f225a96a41566b8378e98bd259f05cfd6f2b0d86"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/RESERVATION.json",
+      "bytes": 704,
+      "sha256": "1f78a2fe4be64e5a2d3a98bab7a15e41ab1bd41a60f06ca6eaa3c635768e4ad6"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/RESULT.json",
+      "bytes": 2499,
+      "sha256": "1f438033cbdc87aca4d1c282dbfdd4c380a5a60da15fbbf51d7d71f83488f193"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/SOURCE_APPLICATION_C9.zip",
+      "bytes": 199075,
+      "sha256": "b23c65d58e50da089bc78645cf9ec65b5a3be5149f242fbe59d9891c3e44d1a2"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/a/TOOLS.json",
+      "bytes": 13928,
+      "sha256": "312bb642daf4764a9e572856d9a3076f38deebfd522e610de63dbdd843330481"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/CALENDAR_REPORT.json",
+      "bytes": 534,
+      "sha256": "5f81e311c14876ae8b9566db88df6006f5b04826dc70925a88c960094c7ab217"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/capture/DERIVED_RAW_43.jsonl",
+      "bytes": 10224,
+      "sha256": "47ca43b8abd44af031fd536ba806d3bf09f0a30f871483a58a9cf3ca941bc02e"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/capture/PUBLIC_ROWS_C9.jsonl",
+      "bytes": 32464,
+      "sha256": "e75cd132f0dd6b717fab74b0133fee7481a1c830cc2153dda65f6a7b3d57c2b0"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/capture/RAW_PUBLIC_LINE_INDEX.jsonl",
+      "bytes": 1428,
+      "sha256": "0c3934164ec770b5d9bd7bb3e00cdafee2b4dd7b62cf36a7c4c5150d8a28e1aa"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/capture/RECEIPT.json",
+      "bytes": 5081,
+      "sha256": "ec0ea8d5c9ed75d432c8da6692d62c934d6f266976b319603745d7cfbe12a01a"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/csv_roundtrip.jsonl",
+      "bytes": 32464,
+      "sha256": "2fc90a865bcc1d5895c8bf7af22eade50faaa53f787fb6bfddeef7c7b1c8c594"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/frame_plan/FRAME_PLAN.json",
+      "bytes": 693,
+      "sha256": "c0cdef1415e2a68f3b7b7c4ae368b0a6efd6239014a3ac1a831e1d624c9aef46"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/frame_plan/TX_FRAME_PLAN.json",
+      "bytes": 678,
+      "sha256": "45137b1d0012933bfb2a6626e0109493631c147f2d6bd447494d6a3722a62776"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/frame_plan/UNIQUE_FRAME_PLAN.json",
+      "bytes": 1314,
+      "sha256": "2458adc55bb4252b022ef85f1d860ae19c7b564f26877f820a15d905f2ccf2d5"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/HANDOFF.json",
+      "bytes": 10450,
+      "sha256": "b835a0a884911dbf6ecaaf89a58549181c9ca70e5effa35520ce62e08129ed76"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/intake/C9_COMPLETE_SIDECAR.jsonl",
+      "bytes": 25275,
+      "sha256": "328c0a03126d6d61fb6f3ca09165142b18d38f19f46031cf2078d7ff95207918"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/intake/DERIVED_PUBLIC_ROWS_61_TX.jsonl",
+      "bytes": 13144,
+      "sha256": "b6d31c3120cf25f783642db2d15067ab01719a1303f4940131f7edfd58325a56"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/intake/INTAKE_LEDGER.json",
+      "bytes": 2290,
+      "sha256": "bbd3b059401965837bacbb981878d73ebf8f50903ab52e422947e5b4c7df0cad"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/intake/LEGACY_PRESERVED_ROWS.jsonl",
+      "bytes": 13557,
+      "sha256": "d390202517727efc19434d8aeecba618088235cfdce06801844c7864bed4c253"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/intake/RECEIPT.json",
+      "bytes": 1588,
+      "sha256": "9bf5eef0c040131f96b44c32411f434810b8c375ea0709a9106e22dae67606f6"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/math/ADVANCE_HISTORY.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/math/FX_HISTORY.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/math/INPUT_AND_APPLY_HISTORY.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/math/MATH_INPUT_BUNDLE.json",
+      "bytes": 6753,
+      "sha256": "6b3a5c96d7194fc46dd16e692d256c68e06db2ec39d597d461f5b1a517451842"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/math/MATH_ROW_INDEX.jsonl",
+      "bytes": 37669,
+      "sha256": "41739ece9a39d0c6d37993ef9f8c29926bd0d6b15eb95679b6a13a9a22fcd526"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/math/RECEIPT.json",
+      "bytes": 6995,
+      "sha256": "efd5a0b512e264ffdb72e3f2036689a87104901ad41453e7c09df912339804fd"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/provenance/PROVENANCE.json",
+      "bytes": 9892,
+      "sha256": "12b8f0d054b8116b71bbc90fbff44390bfb83192cc5cc025ee1122e099614a4f"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/public_rows.csv",
+      "bytes": 28163,
+      "sha256": "9cdbb86bdb2ea0660d63e3a5191455b9e71a040c6cb30be72c8d55212ba213bf"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/ROM_MANIFEST.json",
+      "bytes": 2856,
+      "sha256": "e76a9f8a3ee252a85154d69f2a112549f8cdea20aa8a1d3d16c10f5165751bde"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/SERIAL_REPORT.json",
+      "bytes": 3252,
+      "sha256": "efb92bc24098d203a1faa322321b224ab505461150205e1f8e8700055d841fbd"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/serial/INPUTS.json",
+      "bytes": 462,
+      "sha256": "07dd3fd9a09e5666dc9a301247252c85f937eb2265279c2df7df7e6948a70de6"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/serial/REPORT.json",
+      "bytes": 3030,
+      "sha256": "934a7438c546196a909080c7952aa31e4091521442925ce605d586261751211d"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/serial/ROW_INDEX.jsonl",
+      "bytes": 1691,
+      "sha256": "fab10639c4604a88a804732bbbb86a1802ef0f89e9dbc1e919fdfb71973e2927"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/serial/SERIAL_FRAMES.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/serial/SERIAL_HALVES.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/serial/TRANSACTIONS.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "contract_index": "CONTRACT_INDEX.json",
+  "M1_consumer_capacity_binding": {
+    "compatibility_decision": {
+      "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/CONSUMER_COMPATIBILITY_R11_20261018.json",
+      "bytes": 5688,
+      "sha256": "6983eb4d96f81974490e98e2806a4657d423cd581bc37b62b792913a8f98c0e1"
+    },
+    "profile": "C9_PIANO_TRIANGLE_NOTES_DELAY_CLOCKED_V1",
+    "current_IO": "artifact() reads whole files; index/public rows materialize lists; per-artifact guard512MiB is not total/full-window capacity",
+    "full_window_capacity": "NOT_VALIDATED",
+    "new_volume_API": "R13_L0_LOGICAL_STREAM_CANDIDATE_PRESENT_NOT_CAPACITY_VALIDATED; historical R10 has no volume API",
+    "future_target": "Already selected existing D4 manifest and unchanged four JSONL streams; no seventh naming gap and no repeated direction decision",
+    "pending": "M1 candidate admission and actual full-window/tree/memory/volume validation; CAP01 generator binding still pending. M1 proposed disk limits are not M3 allowed workspace24GiB and do not expand it."
+  },
+  "M1_R13_static_arrival": {
+    "status": "M1_R13_L0_CANDIDATES_RECEIVED_PENDING_M1_ADMISSION_AND_EXECUTED_VALIDATION",
+    "handoff_id": "M1-R13-R02-STATIC-20261018-01",
+    "result_commit": "86cd5975f5679ad2db9da7b0d20d2892e76e76b1",
+    "binding_commit": "7319fe670d3524252ac299e11f00d00ae52c9953",
+    "receipt": {
+      "path": "code/output/m3_backend_stream_r13_20261018/INTAKE/M1_R13_NEW/M3_RECEIPT.json",
+      "bytes": 31716,
+      "sha256": "9eada974d6a36f6376df5c74380f1bbd63ee9faca20d4e127e3c872fc294fbe1"
+    },
+    "original_refs": {
+      "upstream_handoff": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/HANDOFF.json",
+        "bytes": 4102,
+        "sha256": "6ebce312f8f92a1c612a29b717c4034e20348c8cb5399756c5973ed7378fb29a"
+      },
+      "source_manifest": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/SOURCE_MANIFEST.json",
+        "bytes": 8936,
+        "sha256": "8b0bb766ac5b45b5a7c0150d2c63245f2dd7514bd5ebb74995a5aa0ed8523384"
+      },
+      "bounded_manifest": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/MANIFEST_A.json",
+        "bytes": 4287,
+        "sha256": "3b8d462b0c7636772a55629c1fca095b18588f0a8b9a5c113e4c05753b812c3f"
+      },
+      "semantics_manifest": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/MANIFEST_B.json",
+        "bytes": 2996,
+        "sha256": "c7e888ab339f894e35e084c9b528daab6ecd62a0475ded2f3e1bc235ce040239"
+      },
+      "bounded_static_receipt": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/STATIC_RECEIPT_A.json",
+        "bytes": 7041,
+        "sha256": "b155fbc55032f9bcf78b35317d5532c5b6d5dd0571541f7a211271e59bc219b4"
+      },
+      "semantics_static_receipt": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/STATIC_RECEIPT_B.json",
+        "bytes": 3291,
+        "sha256": "a21a133e41009a0dd308c6ba8aad06f8e60f2594bfc4b352dc6ff50ea721f02d"
+      },
+      "bounded_entry": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/run_stream_math.py",
+        "bytes": 6123,
+        "sha256": "5203b5998a3f0b70329599636c3e2e2cf931335599e70574285678a68c5cc326"
+      },
+      "bounded_worker": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/worker_group.py",
+        "bytes": 7527,
+        "sha256": "e0809e03cfc4bfef0bbd4a3ab336d7cf4d1ca590f9ac690aa10a3483dfef6b63"
+      },
+      "logical_volume_reader": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/stream_io.py",
+        "bytes": 4573,
+        "sha256": "6d92da3d9225f9276c667aef69e45f1c9ba28759cde2f83f70f5b4a38ef44288"
+      },
+      "history_join": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/history_join.py",
+        "bytes": 6942,
+        "sha256": "b2266eb9efb7152d8dfcc279c8b01555e0ef780cb969d83705095369ace2be4b"
+      },
+      "independent_semantics": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/independent_plan.py",
+        "bytes": 6944,
+        "sha256": "070f35d39ffdc26b1aa79b5e91e1cc5f3171a7330331754bce84a55aa2e848c4"
+      },
+      "bounded_limits": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/BOUNDS_AND_PENDING.json",
+        "bytes": 1370,
+        "sha256": "ccca8808c4f8f78c629712edc3de1c9fc9d6ab0a6fcfb4a94f07f02f3134266b"
+      },
+      "semantics_limits": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/BOUNDS_AND_PENDING.json",
+        "bytes": 1287,
+        "sha256": "7699668c1e01473eda5dc5d23cee1a4fe50424e010b990143328abc4fd2f7271"
+      },
+      "capacity_plan": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/05_CAPACITY_LIMITS_AND_MEASUREMENT_R13.json",
+        "bytes": 11711,
+        "sha256": "f505adbd96be1d923f9ab7803ef1b22d39e874cd763b863e77eda9972f524467"
+      },
+      "cases54": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/06_CASE_MATRIX_R13.json",
+        "bytes": 40181,
+        "sha256": "dc49a13870cb780b1e8815745c6e6df59d2acdb40b546e1cc0d2b4f7d8353914"
+      }
+    },
+    "level": "L0_STATIC_RECEIVED_ONLY",
+    "actual_target_runs": 0,
+    "capacity_and_math": "NOT_EXECUTED_NOT_ACCEPTED",
+    "CAP01": "CAPACITY_GENERATOR_BINDING_PENDING remains explicit in worker_group CAP01 branch; actual fixture generation/volume geometry must bind the M3 contract in the M1 owned successor and original group cap, not be generated outside the clock",
+    "direction_reopened": false,
+    "baseline_START_old_consumption_unchanged": true
+  },
+  "root_R04_all_artifact_prewrite_profile": {
+    "status": "FROZEN_STATIC_DESIGN_NOT_W_PASS",
+    "scope": "one shared budget over whole O, every payload/temp/failure/copy and funded parent logs",
+    "buckets_bytes": {
+      "gzip_payload": 8589934592,
+      "delivery_copy": 8589934592,
+      "plain_raw": 4631191552,
+      "baseline": 536870912,
+      "plain_aux": 2684354560,
+      "control": 503316480,
+      "failure": 33554432,
+      "fs_allowance": 200646656
+    },
+    "whole_upper_bytes": 25769803776,
+    "max_cumulative_files": 8192,
+    "max_payload_parts": 2048,
+    "max_delivery_parts": 2048,
+    "max_ordinary_files": 4096,
+    "failure_files_within_ordinary": 128,
+    "max_directories": 4096,
+    "physical_IO_max_bytes": 1048576,
+    "allocation_unit": "actual P0; None only P0 bootstrap; W freezes actual positive result",
+    "allocation_scope": "own regular artifact AllocationSize, bounded tail rounding; full-volume MFT/journal separate actual volume free observations",
+    "old_plaintext_lower_scope": "conditional old same-shape plain layout, not universal compressed lower bound",
+    "compression_success_preproof_required": false,
+    "quota_failure": "actual W failure, no retry and no deletion of original payloads",
+    "W_proof_required": [
+      "P0/K/V/B pass",
+      "finite coverage all IO writers",
+      "actual no-descendant Job + worker64bit peak<=512MiB",
+      "actual W startfree>=32GiB/write-before/terminalfree>=8GiB",
+      "all input construction/D4/EOF/terminal/hash/DELIVERY complete inside once900s"
+    ],
+    "DELIVERY_channel": "user forwards entire O/DELIVERY directory with all manifests/parts; not yet M2 received",
+    "sources": [
+      {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/resources.py",
+        "bytes": 54042,
+        "sha256": "e110c141349673650f6e837475026c4b738fad604b27ba6062300a48558fe344"
+      },
+      {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/volume_io.py",
+        "bytes": 20382,
+        "sha256": "0d651cdd68d4a20b2d51b70cdd9369479c91868ba1ea97f82f996f1ddb51da91"
+      },
+      {
+        "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/selftest.py",
+        "bytes": 99604,
+        "sha256": "3381cd096f693defa806439e6cac7fe53fb4c22c19117c92d3ae45f21cac074c"
+      }
+    ]
+  }
+}

@@ -1,0 +1,580 @@
+{
+  "schema": "M3_R13_CONTRACT_INDEX_V1",
+  "bundle_id": "M3_R13_CONTRACT_20261019_R01",
+  "task": "R13_A1_A2_A3_A4",
+  "status": "L0_STATIC_ASSEMBLY_WITH_EXPLICIT_PENDING",
+  "producer": "M3/night2 A writer; disjoint static subagents inside A write set",
+  "consumer": [
+    "M3 root final integrator",
+    "M1 named math/consumer decisions",
+    "M2 final review and controlled decisions"
+  ],
+  "baseline_commit": "e39b36b9b7f956659f7fd5e3ca6dd57e5a34735b",
+  "baseline_basis": "Root dispatch and M2 limited R12 receipt; no Git query/write by this A role",
+  "authority": {
+    "approved_plan_sha256": "729cb21bd4b759f7d5738bdc14964bee1eaf5da053eee20b4a278acf651357d3",
+    "proposal_approved_false": "Historical formation state, superseded by explicit AUTHORIZATION_R13 approved=true",
+    "root_START": "2026-10-19T00:00:26+08:00",
+    "earliest_deadline": "2026-10-19T05:00:26+08:00",
+    "this_role": "Only contract_bundle nine files plus private output/roles/night2 static work notes; no target execution, Git/network, shared states or timers",
+    "original_refs": {
+      "task": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/TASK_ORIGINAL.md",
+        "bytes": 17306,
+        "sha256": "39f80e3816cece0e360d60ee4fac9757cbc25775cc5888812b5c03b386315e8f"
+      },
+      "approval": {
+        "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/AUTHORIZATION.json",
+        "bytes": 1042,
+        "sha256": "f6db0a87ca66d6dd30a21203ac2210db6260c91aea875d2fac4534ac53bf98e5"
+      },
+      "collaboration": {
+        "path": "code/output/m3_backend_stream_r13_20261018/COLLABORATION_PLAN.json",
+        "bytes": 9390,
+        "sha256": "654f7d7a8472eb9612a21a06a6cf5efe734fe20b8111cacc26e4a9b1aade99ee"
+      },
+      "M2_R12_review": {
+        "path": "E:/FPGA/GAOYUNFPGA/night_task/10.19/FORWARD_TO_M3_R13_APPROVED_20261018/code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_public_chain_20261017/night_r10_20261017/intake_resume_20261018/m3_r12_e39b36b9_20261018/M2_REVIEW_AND_NEXT_ACTION.md",
+        "bytes": 3755,
+        "sha256": "822ebcdf1d30da7392e38287792f763eef8177aee63c0db648f4babe1d082072"
+      },
+      "delivery_channel_confirmation": {
+        "path": "code/output/m3_backend_stream_r13_20261018/DELIVERY_CHANNEL_CONFIRMED.json",
+        "bytes": 2104,
+        "sha256": "b5df1c2e57f142c17eb5eaaaf088f8041d9c7467502eda84c631fa8e29048ef9"
+      }
+    }
+  },
+  "objects": [
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/contract_bundle/FIELD_ROUTE_TABLE.json",
+      "bytes": 385199,
+      "sha256": "c0f06243892611730d15c4f66dad12c99076642d9970146491862f4bfdf21899"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/contract_bundle/PROFILE_AND_CAPACITY.json",
+      "bytes": 77627,
+      "sha256": "6a5c8d5251f7414983caa764cc0b5848a2c482158b919a0efd22b61af33a77af"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/contract_bundle/PLAN_IDENTITY_MAP.json",
+      "bytes": 29642,
+      "sha256": "1362ddacc190340ca7917561f7282443b3f024c2f2a78db778e294ceb1180ada"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/contract_bundle/EPOCH_RESET_FINISH_CONTRACT.json",
+      "bytes": 18050,
+      "sha256": "8b3a4b8ccfb1552624a6ab5caef757fcd0d6d7190bd7a9d8d6201049e1dcf1b6"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/contract_bundle/SOURCE_PROVENANCE.json",
+      "bytes": 107204,
+      "sha256": "0ab51c803bb7e14865ac5340c607526381865427f8102f2ee8a0ae611b30fc04"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/contract_bundle/OPEN_DECISIONS.json",
+      "bytes": 23227,
+      "sha256": "0053977451b05146b1fee8dd243b7a97a119b3d7a07b1c9fa21158e1195ae85a"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/contract_bundle/M2_DECISION_SHEET.md",
+      "bytes": 4274,
+      "sha256": "04709f770b7ef066c895c5a0866fb11c06b930d4f31be1c682acc9d394cdb160"
+    },
+    {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/contract_bundle/README.md",
+      "bytes": 5189,
+      "sha256": "ef1a6f55f68f7d48228f34b716f34f00e77b842c2b9632b6a11f8fc0d767d1d4"
+    }
+  ],
+  "index_identity_rule": "This file binds eight other files by exact path/bytes/SHA; they reference this index by filename and common bundle_id. Root freezes this index externally, avoiding a self-hash cycle.",
+  "routes": {
+    "A1": "FIELD_ROUTE_TABLE.json:74 fields, seven signed M1 job input roles, six D4 math output objects and17 required dependencies, with current reader incompatibilities and already decided future target separated",
+    "A2": "PROFILE_AND_CAPACITY.json: all retained D4 artifacts, variable cardinalities, memory/physical IO, workspace/storage/32MiB channel conditions; unmeasured pending values remain null",
+    "A3": "PLAN_IDENTITY_MAP.json: independent63 bytes/23 event IDs and unknown actual joins; EPOCH_RESET_FINISH_CONTRACT.json: raw resets, global coordinates, unique end/marker and preserved D/D+1 candidates",
+    "A4": "SOURCE_PROVENANCE.json: actual sources/ROM/includes/proposed tools/execution identity gaps; OPEN_DECISIONS.json and M2_DECISION_SHEET.md: minimum owner-return table",
+    "B": "../capture_originals/ORIGINALS_INDEX.json and CONSUMER_LOAD_MAP.json are independently owned original-load entry points, not generated or signed by A",
+    "C": "New backend_stream_r13_20261018 software candidate owned by main3; A does not freeze that concurrent candidate or certify its runtime",
+    "root": "../backend_close/ is root-only for admission, actual source/input freezes, budget, cases, resources, final result/gates/publication"
+  },
+  "mathematical_mechanical_objects": {
+    "producer": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r07_20261017/oracle_bundle_bridge/c9_completion_r01/math_bundle.py#build_bundle",
+    "consumer_contract": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/NEXT_INPUT_CONTRACT.md",
+    "request_schema": "M3_D4_C9_MATH_BUNDLE_REQUEST_V1",
+    "bundle_and_receipt_schema": "M3_D4_C9_MATH_INPUT_BUNDLE_V1",
+    "actual_produced_files": 6,
+    "original_examples": [
+      {
+        "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/math/MATH_ROW_INDEX.jsonl",
+        "bytes": 37669,
+        "sha256": "41739ece9a39d0c6d37993ef9f8c29926bd0d6b15eb95679b6a13a9a22fcd526"
+      },
+      {
+        "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/math/FX_HISTORY.jsonl",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/math/ADVANCE_HISTORY.jsonl",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/math/INPUT_AND_APPLY_HISTORY.jsonl",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/math/MATH_INPUT_BUNDLE.json",
+        "bytes": 6753,
+        "sha256": "6b3a5c96d7194fc46dd16e692d256c68e06db2ec39d597d461f5b1a517451842"
+      },
+      {
+        "path": "code/output/m3_c9_complete_d4_20261017/R03/cases/009/chain/math/RECEIPT.json",
+        "bytes": 6995,
+        "sha256": "efd5a0b512e264ffdb72e3f2036689a87104901ad41453e7c09df912339804fd"
+      }
+    ],
+    "examples_scope": "Actual accessible small D4 synthetic files, not R13 full-window results or true M1 input acceptance; three histories may be valid empty streams",
+    "four_stream_schema_rule": "No newly invented per-record schema: row_index embeds the unchanged canonical row plus source/handshake/lane/apply/status keys; history key sets are transcribed in FIELD_ROUTE_TABLE.json#mechanical_bundle",
+    "required_input_roles": 17,
+    "required_input_role_note": "Dependencies are not a product count; absent role stays missing. expected_math=null, actual_PCM_used_as_expected=false and unsupported B0 profile remain pending.",
+    "M1_seven_input_contract": {
+      "status": "SEVEN_INPUT_ROLE_NAMES_DEFINED_BY_SIGNED_M1_CONTRACT",
+      "job_template": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/MATH_INPUT_JOB_TEMPLATE.json",
+        "bytes": 367,
+        "sha256": "d473350a15ec72c0a6c050dbb7012c71db02b0376065019ee64adfea7b3a55fc"
+      },
+      "consumer_source": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/c9_inputs.py",
+        "bytes": 16822,
+        "sha256": "a9e1a4a96e75a40463d5a7daa71743741eee6890f52d871ef6e98e1c89022f36"
+      },
+      "compatibility_decision": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/CONSUMER_COMPATIBILITY_R11_20261018.json",
+        "bytes": 5688,
+        "sha256": "6983eb4d96f81974490e98e2806a4657d423cd581bc37b62b792913a8f98c0e1"
+      },
+      "job_schema": "M1_C9_MATH_JOB_V1",
+      "profile": "C9_PIANO_TRIANGLE_NOTES_DELAY_CLOCKED_V1",
+      "CLI": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/run_math.py",
+      "count": 7,
+      "role_names": [
+        "mechanical_index",
+        "public_rows",
+        "raw_capture",
+        "independent_plan",
+        "frame_plan",
+        "reset_edges",
+        "provenance"
+      ],
+      "input_roles_are_not_D4_output_count": true,
+      "current_consumer_direct_stream_bundle_supported": false,
+      "future_adapter_target_already_decided": "Use existing M3_D4_C9_MATH_INPUT_BUNDLE_V1 manifest and byte-identical MATH_ROW_INDEX/FX/ADVANCE/INPUT_AND_APPLY JSONL streams as sole future adapter target; do not reopen this direction or invent a second schema",
+      "M1_implementation_modified": false,
+      "routes": [
+        {
+          "role": "mechanical_index",
+          "source_producer": "D4 math_bundle.build_bundle",
+          "actual_source_objects": [
+            "math/MATH_INPUT_BUNDLE.json",
+            "math/MATH_ROW_INDEX.jsonl",
+            "math/FX_HISTORY.jsonl",
+            "math/ADVANCE_HISTORY.jsonl",
+            "math/INPUT_AND_APPLY_HISTORY.jsonl"
+          ],
+          "producer_schema": "M3_D4_C9_MATH_INPUT_BUNDLE_V1 plus unchanged streaming records",
+          "current_consumer_shape": "c9_inputs.validate_index: one M3_R7C_C9_MECHANICAL_INDEX_V1 object with nonempty rows[] list, fields/apply/source/upstream evidence; legacy producer c9_oracle_bridge produces that bounded object",
+          "status": "M1_R13_L0_STREAM_READER_PRESENT_PENDING_M1_ADMISSION_AND_VALIDATION",
+          "gap": "Current c9_inputs loads whole files and lists; D4 streaming records contain canonical_row and source content hash, not the old rows[] object; preserve per-row physical/source/content identity via agreed adapter",
+          "R13_candidate_status": "L0_CANDIDATE_PRESENT_PENDING_ADMISSION_AND_EXECUTED_EQUIVALENCE"
+        },
+        {
+          "role": "public_rows",
+          "source_producer": "c9_stream.convert_files",
+          "actual_source_objects": [
+            "capture/PUBLIC_ROWS_C9.jsonl"
+          ],
+          "producer_schema": "M3_R7A_C9_PUBLIC_ROW_V1 per line",
+          "current_consumer_shape": "verify_original_rows compares exact74 fields, original raw_ports/source/missing/events/semantics, global line and physical line SHA",
+          "status": "ORIGINAL_ROLE_DEFINED_FUTURE_STREAM_READER_REQUIRED",
+          "gap": "Current artifact() whole-file512MiB guard and list splitting are not full-window or volume capacity proof",
+          "R13_candidate_status": "L0_CANDIDATE_PRESENT_PENDING_ADMISSION_AND_EXECUTED_EQUIVALENCE"
+        },
+        {
+          "role": "raw_capture",
+          "source_producer": "same-run capture observer, or explicitly independent synthetic fixture for software only",
+          "actual_source_objects": [
+            "request.inputs.raw / RAW_CAPTURE.jsonl"
+          ],
+          "producer_schema": "M3_R7A_C9_RAW_CORE_ROW_V1 per line",
+          "current_consumer_shape": "Raw original bytes bound by SHA; never reconstructed from public rows",
+          "status": "ORIGINAL_ROLE_DEFINED_REAL_ORIGINAL_PENDING",
+          "gap": "Read byte-identical logical stream across volumes; no whole-file512MiB substitution for full-window proof",
+          "R13_candidate_status": "L0_CANDIDATE_PRESENT_PENDING_ADMISSION_AND_EXECUTED_EQUIVALENCE"
+        },
+        {
+          "role": "independent_plan",
+          "source_producer": "midi_stimulus.generate from parameters/cases before DUT observation",
+          "actual_source_objects": [
+            "request.inputs.midi_plan / plan.json"
+          ],
+          "producer_schema": "M3_R06_MIDI_STIMULUS_PLAN_V1",
+          "current_consumer_shape": "validate_plan requires events[], independent_of_trace=true, event_seq, full expected_event_hex, arrival_window and optional config_events/epoch",
+          "status": "PENDING_M1_SAME_CONTRACT_INPUT_ADAPTER",
+          "gap": "Frozen R06 plan has independent generator provenance but does not carry every current-consumer field; do not edit immutable plan or infer missing association from trace",
+          "R13_candidate_status": "L0_CANDIDATE_PRESENT_PENDING_ADMISSION_AND_EXECUTED_EQUIVALENCE"
+        },
+        {
+          "role": "frame_plan",
+          "source_producer": "frame_plan_generator_candidate.generate",
+          "actual_source_objects": [
+            "frame_plan/UNIQUE_FRAME_PLAN.json",
+            "frame_plan/FRAME_PLAN.json",
+            "frame_plan/TX_FRAME_PLAN.json"
+          ],
+          "producer_schema": "M3_R06_UNIQUE_FRAME_PLAN_V1 with canonical epoch.cycles plus existing calendar/TX projections",
+          "current_consumer_shape": "verify_frames_and_resets expects independent_of_trace=true and epoch.frame_cycles lists plus finish",
+          "status": "PENDING_VERSIONED_PROJECTION_BINDING_NOT_NEW_FRAME_GENERATOR",
+          "gap": "Bind existing calendar projection FRAME_PLAN.json to the same canonical ID/input/rules/finish; do not rename canonical cycles as old frame_cycles without explicit adapter checks",
+          "R13_candidate_status": "L0_CANDIDATE_PRESENT_PENDING_ADMISSION_AND_EXECUTED_EQUIVALENCE"
+        },
+        {
+          "role": "reset_edges",
+          "source_producer": "same-run observer INITIAL/CHANGE asynchronous snapshots",
+          "actual_source_objects": [
+            "request.inputs.resets / RESET_EDGES.jsonl"
+          ],
+          "producer_schema": "M3_R7A_RESET_SNAPSHOT_V1 per line",
+          "current_consumer_shape": "verify_frames_and_resets expects a bounded object: sampling_phase=POSEDGE_PRE_NBA, independent_of_trace=true, profile=ASSERT_OBSERVED_LOW_BEFORE_RELEASE_V1, low_ranges[] and raw_edges[] assertion/release pairs with time_ps/value/epoch/first_sampled_cycle",
+          "status": "M1_R13_L0_SEMANTICS_PRESENT_PENDING_EXACT_RESET_BINDING_AND_VALIDATION",
+          "gap": "Current load_job parses reset role as one JSON object, while D4 binds raw asynchronous JSONL bytes; preserve original SHA plus explicit source-to-projection binding. Never derive real edges from public rows/driver plan or silently reuse projection SHA as raw-reset SHA",
+          "R13_candidate_status": "L0_CANDIDATE_PRESENT_PENDING_ADMISSION_AND_EXECUTED_EQUIVALENCE"
+        },
+        {
+          "role": "provenance",
+          "source_producer": "D4 provenance.validate_capture",
+          "actual_source_objects": [
+            "provenance/PROVENANCE.json"
+          ],
+          "producer_schema": "M3_C9_CHAIN_PROVENANCE_V1",
+          "current_consumer_shape": "load_job checks capture ID; REAL requires exact M2 admitted provenance SHA; SYNTHETIC expects SYNTHETIC_FIXTURE_NOT_RTL marker",
+          "status": "PENDING_EQUIVALENT_STRICT_ORIGIN_AND_PROVENANCE_ADAPTER",
+          "gap": "D4 origin SYNTHETIC_SCHEMA_FIXTURE or HDL_PUBLIC_CAPTURE_UNVERIFIED does not grant current M1 REAL admission; accepted adapter must preserve equivalently strict scope rather than change original markers",
+          "R13_candidate_status": "L0_CANDIDATE_PRESENT_PENDING_ADMISSION_AND_EXECUTED_EQUIVALENCE"
+        }
+      ],
+      "current_capacity": {
+        "per_artifact_guard_bytes": 536870912,
+        "whole_files_and_index_public_lists": true,
+        "full_window_validated": false,
+        "volume_API_implemented": false
+      },
+      "remaining_scope": "Seven names and sole future direction already decided. New R13 bounded reader/semantics L0 candidates are present; exact envelope/reset/projection compatibility, M1 admission,54 executed cases and full-window capacity remain pending. Do not equate source arrival with compatibility/REAL/math PASS.",
+      "new_R13_candidate_arrival": {
+        "status": "M1_R13_L0_CANDIDATES_RECEIVED_PENDING_M1_ADMISSION_AND_EXECUTED_VALIDATION",
+        "handoff_id": "M1-R13-R02-STATIC-20261018-01",
+        "result_commit": "86cd5975f5679ad2db9da7b0d20d2892e76e76b1",
+        "binding_commit": "7319fe670d3524252ac299e11f00d00ae52c9953",
+        "current_tree_checkpoint": "544f5af23fa427db0a931df719dc6135c75a180f",
+        "tree_basis": "Root safe-FF/receipt observation; no Git operation by A",
+        "M3_R13_approved_functional_baseline": "e39b36b9b7f956659f7fd5e3ca6dd57e5a34735b",
+        "baseline_START_deadline_old_consumption_reset": false,
+        "M3_receipt": {
+          "path": "code/output/m3_backend_stream_r13_20261018/INTAKE/M1_R13_NEW/M3_RECEIPT.json",
+          "bytes": 31716,
+          "sha256": "9eada974d6a36f6376df5c74380f1bbd63ee9faca20d4e127e3c872fc294fbe1"
+        },
+        "dedup_key": "M1-R13-R02-STATIC-20261018-01|86cd5975f5679ad2db9da7b0d20d2892e76e76b1|M3",
+        "root_recorded_manifest_references_verified": 30,
+        "root_recorded_declared_originals_accessible": 36,
+        "source_payload": "Published Git path originals and receipt FILES aliases; upstream private STATIC_HANDOFF.zip was not retrieved/assumed",
+        "refs": {
+          "upstream_handoff": {
+            "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/HANDOFF.json",
+            "bytes": 4102,
+            "sha256": "6ebce312f8f92a1c612a29b717c4034e20348c8cb5399756c5973ed7378fb29a"
+          },
+          "source_manifest": {
+            "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/SOURCE_MANIFEST.json",
+            "bytes": 8936,
+            "sha256": "8b0bb766ac5b45b5a7c0150d2c63245f2dd7514bd5ebb74995a5aa0ed8523384"
+          },
+          "bounded_manifest": {
+            "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/MANIFEST_A.json",
+            "bytes": 4287,
+            "sha256": "3b8d462b0c7636772a55629c1fca095b18588f0a8b9a5c113e4c05753b812c3f"
+          },
+          "semantics_manifest": {
+            "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/MANIFEST_B.json",
+            "bytes": 2996,
+            "sha256": "c7e888ab339f894e35e084c9b528daab6ecd62a0475ded2f3e1bc235ce040239"
+          },
+          "bounded_static_receipt": {
+            "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/STATIC_RECEIPT_A.json",
+            "bytes": 7041,
+            "sha256": "b155fbc55032f9bcf78b35317d5532c5b6d5dd0571541f7a211271e59bc219b4"
+          },
+          "semantics_static_receipt": {
+            "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/STATIC_RECEIPT_B.json",
+            "bytes": 3291,
+            "sha256": "a21a133e41009a0dd308c6ba8aad06f8e60f2594bfc4b352dc6ff50ea721f02d"
+          },
+          "bounded_entry": {
+            "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/run_stream_math.py",
+            "bytes": 6123,
+            "sha256": "5203b5998a3f0b70329599636c3e2e2cf931335599e70574285678a68c5cc326"
+          },
+          "bounded_worker": {
+            "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/worker_group.py",
+            "bytes": 7527,
+            "sha256": "e0809e03cfc4bfef0bbd4a3ab336d7cf4d1ca590f9ac690aa10a3483dfef6b63"
+          },
+          "logical_volume_reader": {
+            "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/stream_io.py",
+            "bytes": 4573,
+            "sha256": "6d92da3d9225f9276c667aef69e45f1c9ba28759cde2f83f70f5b4a38ef44288"
+          },
+          "history_join": {
+            "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/history_join.py",
+            "bytes": 6942,
+            "sha256": "b2266eb9efb7152d8dfcc279c8b01555e0ef780cb969d83705095369ace2be4b"
+          },
+          "independent_semantics": {
+            "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/independent_plan.py",
+            "bytes": 6944,
+            "sha256": "070f35d39ffdc26b1aa79b5e91e1cc5f3171a7330331754bce84a55aa2e848c4"
+          },
+          "bounded_limits": {
+            "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/BOUNDS_AND_PENDING.json",
+            "bytes": 1370,
+            "sha256": "ccca8808c4f8f78c629712edc3de1c9fc9d6ab0a6fcfb4a94f07f02f3134266b"
+          },
+          "semantics_limits": {
+            "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/BOUNDS_AND_PENDING.json",
+            "bytes": 1287,
+            "sha256": "7699668c1e01473eda5dc5d23cee1a4fe50424e010b990143328abc4fd2f7271"
+          },
+          "capacity_plan": {
+            "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/05_CAPACITY_LIMITS_AND_MEASUREMENT_R13.json",
+            "bytes": 11711,
+            "sha256": "f505adbd96be1d923f9ab7803ef1b22d39e874cd763b863e77eda9972f524467"
+          },
+          "cases54": {
+            "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/06_CASE_MATRIX_R13.json",
+            "bytes": 40181,
+            "sha256": "dc49a13870cb780b1e8815745c6e6df59d2acdb40b546e1cc0d2b4f7d8353914"
+          }
+        },
+        "candidate_entry_schema": "M1_R13_STREAM_JOB_V1",
+        "candidate_entry_scope": "run_stream_math.evaluate is a bounded streaming synthetic candidate with explicit LogicalStream/history join/lifecycle storage; current code rejects non-SYNTHETIC via M2_EXACT_PROVENANCE_REQUIRED. It is not a proven drop-in adapter for every old seven-role job.",
+        "signed_future_direction_reopened": false,
+        "old_signed_R10_consumer": "c9_inputs.py remains unchanged and materialized; its old incompatibilities are historical/current-R10 facts, not a claim no R13 candidate exists",
+        "actual_target_cases": 0,
+        "cases54_not_run": true,
+        "capacity_not_measured": true,
+        "math_not_validated": true,
+        "runtime_or_math_accepted": false,
+        "integrated": false,
+        "CAP01": "CAPACITY_GENERATOR_BINDING_PENDING remains explicit in worker_group CAP01 branch; actual fixture generation/volume geometry must bind the M3 contract in the M1 owned successor and original group cap, not be generated outside the clock",
+        "remaining": [
+          "M1 exact RUN_GO input/source/tool/time/resource/admission and executed54 case/capacity evidence",
+          "actual same-source producer-original/consumer-envelope and reset/FRAME/plan/provenance binding, not assumed compatible by source arrival",
+          "CAP01 generator/volume binding to exact M3 geometry; no pre-generated fixture bypass",
+          "real C9/math/physical admission remains separate"
+        ],
+        "cross_budget": "M1 SW/CAP/FIX and publication permissions do not become M3 slots; M3 R13 original budget/time remain unchanged"
+      }
+    }
+  },
+  "ready_for": [
+    "Root source/data freeze and authorized K contract checks",
+    "B exact original indexing and consumer load references",
+    "C static supported-profile/resource/volume integration",
+    "M2/M1 targeted decisions identified by OPEN_DECISIONS"
+  ],
+  "not_granted_or_claimed": [
+    "R13_SW_COMPLETE",
+    "new execution/admission slots",
+    "W capacity PASS",
+    "M1 consumer acceptance or independent math",
+    "real/native/HDL/C9/physical/board acceptance",
+    "M2 ACCEPTED/INTEGRATED",
+    "GitHub publication or actual timer deployment"
+  ],
+  "self_review": {
+    "method": "Static source/data/JSON/reference and integer-preservation reading, exact metadata hashes and pure arithmetic; no target module import/compile/AST, tests or candidate runtime",
+    "scope": "A nine files and necessary immutable source/old evidence only; no comprehensive R12 package rerun",
+    "target_checks_run": 0,
+    "new_HDL_EDA_devices": 0,
+    "new_network_or_Git": 0,
+    "old_results_failures_consumption_modified": false,
+    "root_final_checks_not_substituted": true,
+    "pending_conditions_are_visible": true
+  },
+  "real_verified": false,
+  "math_verified": false,
+  "board_release_allowed": false,
+  "delivery_channel": {
+    "status": "USER_FORWARD_ALL_LOSSLESS_VOLUMES_CONFIRMED",
+    "transfer_unit": "entire output/m3_backend_stream_r13_20261018/DELIVERY including all lossless volumes and manifest",
+    "git_zip_scope": "<=33554432B indexes/small originals; large volumes use selected forwarding channel",
+    "M2_RECEIVED": false,
+    "M2_ACCEPTED": false,
+    "physical_24GiB_geometry": "PENDING_C_SCHEME_NOT_W_GO"
+  },
+  "correction_history": {
+    "id": "A_R02_SEVEN_INPUT_VS_SIX_OUTPUT",
+    "fact": "R01 mistakenly compared six D4 outputs to seven M1 inputs and reported a naming gap",
+    "basis": [
+      {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/MATH_INPUT_JOB_TEMPLATE.json",
+        "bytes": 367,
+        "sha256": "d473350a15ec72c0a6c050dbb7012c71db02b0376065019ee64adfea7b3a55fc"
+      },
+      {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/CONSUMER_COMPATIBILITY_R11_20261018.json",
+        "bytes": 5688,
+        "sha256": "6983eb4d96f81974490e98e2806a4657d423cd581bc37b62b792913a8f98c0e1"
+      },
+      {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/c9_inputs.py",
+        "bytes": 16822,
+        "sha256": "a9e1a4a96e75a40463d5a7daa71743741eee6890f52d871ef6e98e1c89022f36"
+      }
+    ],
+    "resolution": "All seven input roles now indexed by actual producer/schema/current consumer; nonexistent seventh-naming gap removed; only reader/reset/projection/capacity implementation remains pending",
+    "old_private_handoff_retained": "code/output/m3_backend_stream_r13_20261018/roles/night2/HANDOFF.json is superseded by HANDOFF_R02.json, retained as history",
+    "preserved_R01_directory": "code/output/m3_backend_stream_r13_20261018/roles/night2/R01_A_CONTRACT_ORIGINALS",
+    "all_nine_R01_bytes_match_original_handoff_pins": true
+  },
+  "current_tree_checkpoint": {
+    "commit": "544f5af23fa427db0a931df719dc6135c75a180f",
+    "basis": "Root safe-FF receipt; independent M1 new roots, no M3 R13 path overlap",
+    "R12_original_sources_unchanged": true,
+    "approved_functional_baseline_unchanged": "e39b36b9b7f956659f7fd5e3ca6dd57e5a34735b",
+    "START_and_consumption_unchanged": true
+  },
+  "M1_R13_arrival": {
+    "status": "M1_R13_L0_CANDIDATES_RECEIVED_PENDING_M1_ADMISSION_AND_EXECUTED_VALIDATION",
+    "handoff_id": "M1-R13-R02-STATIC-20261018-01",
+    "result_commit": "86cd5975f5679ad2db9da7b0d20d2892e76e76b1",
+    "binding_commit": "7319fe670d3524252ac299e11f00d00ae52c9953",
+    "current_tree_checkpoint": "544f5af23fa427db0a931df719dc6135c75a180f",
+    "tree_basis": "Root safe-FF/receipt observation; no Git operation by A",
+    "M3_R13_approved_functional_baseline": "e39b36b9b7f956659f7fd5e3ca6dd57e5a34735b",
+    "baseline_START_deadline_old_consumption_reset": false,
+    "M3_receipt": {
+      "path": "code/output/m3_backend_stream_r13_20261018/INTAKE/M1_R13_NEW/M3_RECEIPT.json",
+      "bytes": 31716,
+      "sha256": "9eada974d6a36f6376df5c74380f1bbd63ee9faca20d4e127e3c872fc294fbe1"
+    },
+    "dedup_key": "M1-R13-R02-STATIC-20261018-01|86cd5975f5679ad2db9da7b0d20d2892e76e76b1|M3",
+    "root_recorded_manifest_references_verified": 30,
+    "root_recorded_declared_originals_accessible": 36,
+    "source_payload": "Published Git path originals and receipt FILES aliases; upstream private STATIC_HANDOFF.zip was not retrieved/assumed",
+    "refs": {
+      "upstream_handoff": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/HANDOFF.json",
+        "bytes": 4102,
+        "sha256": "6ebce312f8f92a1c612a29b717c4034e20348c8cb5399756c5973ed7378fb29a"
+      },
+      "source_manifest": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/SOURCE_MANIFEST.json",
+        "bytes": 8936,
+        "sha256": "8b0bb766ac5b45b5a7c0150d2c63245f2dd7514bd5ebb74995a5aa0ed8523384"
+      },
+      "bounded_manifest": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/MANIFEST_A.json",
+        "bytes": 4287,
+        "sha256": "3b8d462b0c7636772a55629c1fca095b18588f0a8b9a5c113e4c05753b812c3f"
+      },
+      "semantics_manifest": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/MANIFEST_B.json",
+        "bytes": 2996,
+        "sha256": "c7e888ab339f894e35e084c9b528daab6ecd62a0475ded2f3e1bc235ce040239"
+      },
+      "bounded_static_receipt": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/STATIC_RECEIPT_A.json",
+        "bytes": 7041,
+        "sha256": "b155fbc55032f9bcf78b35317d5532c5b6d5dd0571541f7a211271e59bc219b4"
+      },
+      "semantics_static_receipt": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/STATIC_RECEIPT_B.json",
+        "bytes": 3291,
+        "sha256": "a21a133e41009a0dd308c6ba8aad06f8e60f2594bfc4b352dc6ff50ea721f02d"
+      },
+      "bounded_entry": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/run_stream_math.py",
+        "bytes": 6123,
+        "sha256": "5203b5998a3f0b70329599636c3e2e2cf931335599e70574285678a68c5cc326"
+      },
+      "bounded_worker": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/worker_group.py",
+        "bytes": 7527,
+        "sha256": "e0809e03cfc4bfef0bbd4a3ab336d7cf4d1ca590f9ac690aa10a3483dfef6b63"
+      },
+      "logical_volume_reader": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/stream_io.py",
+        "bytes": 4573,
+        "sha256": "6d92da3d9225f9276c667aef69e45f1c9ba28759cde2f83f70f5b4a38ef44288"
+      },
+      "history_join": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/history_join.py",
+        "bytes": 6942,
+        "sha256": "b2266eb9efb7152d8dfcc279c8b01555e0ef780cb969d83705095369ace2be4b"
+      },
+      "independent_semantics": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/independent_plan.py",
+        "bytes": 6944,
+        "sha256": "070f35d39ffdc26b1aa79b5e91e1cc5f3171a7330331754bce84a55aa2e848c4"
+      },
+      "bounded_limits": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/BOUNDS_AND_PENDING.json",
+        "bytes": 1370,
+        "sha256": "ccca8808c4f8f78c629712edc3de1c9fc9d6ab0a6fcfb4a94f07f02f3134266b"
+      },
+      "semantics_limits": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/BOUNDS_AND_PENDING.json",
+        "bytes": 1287,
+        "sha256": "7699668c1e01473eda5dc5d23cee1a4fe50424e010b990143328abc4fd2f7271"
+      },
+      "capacity_plan": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/05_CAPACITY_LIMITS_AND_MEASUREMENT_R13.json",
+        "bytes": 11711,
+        "sha256": "f505adbd96be1d923f9ab7803ef1b22d39e874cd763b863e77eda9972f524467"
+      },
+      "cases54": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/06_CASE_MATRIX_R13.json",
+        "bytes": 40181,
+        "sha256": "dc49a13870cb780b1e8815745c6e6df59d2acdb40b546e1cc0d2b4f7d8353914"
+      }
+    },
+    "candidate_entry_schema": "M1_R13_STREAM_JOB_V1",
+    "candidate_entry_scope": "run_stream_math.evaluate is a bounded streaming synthetic candidate with explicit LogicalStream/history join/lifecycle storage; current code rejects non-SYNTHETIC via M2_EXACT_PROVENANCE_REQUIRED. It is not a proven drop-in adapter for every old seven-role job.",
+    "signed_future_direction_reopened": false,
+    "old_signed_R10_consumer": "c9_inputs.py remains unchanged and materialized; its old incompatibilities are historical/current-R10 facts, not a claim no R13 candidate exists",
+    "actual_target_cases": 0,
+    "cases54_not_run": true,
+    "capacity_not_measured": true,
+    "math_not_validated": true,
+    "runtime_or_math_accepted": false,
+    "integrated": false,
+    "CAP01": "CAPACITY_GENERATOR_BINDING_PENDING remains explicit in worker_group CAP01 branch; actual fixture generation/volume geometry must bind the M3 contract in the M1 owned successor and original group cap, not be generated outside the clock",
+    "remaining": [
+      "M1 exact RUN_GO input/source/tool/time/resource/admission and executed54 case/capacity evidence",
+      "actual same-source producer-original/consumer-envelope and reset/FRAME/plan/provenance binding, not assumed compatible by source arrival",
+      "CAP01 generator/volume binding to exact M3 geometry; no pre-generated fixture bypass",
+      "real C9/math/physical admission remains separate"
+    ],
+    "cross_budget": "M1 SW/CAP/FIX and publication permissions do not become M3 slots; M3 R13 original budget/time remain unchanged"
+  },
+  "R03_update_scope": "Only M1 static bounded-reader/semantics arrival and accurate pending status; preserve R02 originals, no wholesale A rebuild or target run",
+  "root_integration": {
+    "revision": "R04",
+    "A_writer_original_preserved": "code/output/m3_backend_stream_r13_20261018/ROOT_A_BEFORE_FINAL_INTEGRATION",
+    "change": "Current collaboration descriptor refreshed; A2 bounded shared accounting interpretation, no schema/algorithm/profile/finish changes",
+    "target_runs": 0
+  }
+}

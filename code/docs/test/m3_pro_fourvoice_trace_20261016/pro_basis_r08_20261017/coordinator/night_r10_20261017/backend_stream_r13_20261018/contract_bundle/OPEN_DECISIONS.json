@@ -1,0 +1,392 @@
+{
+  "schema": "M3_R13_OPEN_DECISIONS_V1",
+  "bundle_id": "M3_R13_CONTRACT_20261019_R01",
+  "contract_index": "CONTRACT_INDEX.json",
+  "status": "FACT_BASED_SCOPE_SEPARATED_PENDING_ITEMS",
+  "authority": "A records existing facts and minimum missing decisions; it cannot approve controlled changes, math definitions or test admission",
+  "already_decided_do_not_reapply": [
+    {
+      "item": "R13 software/gates/publication plan",
+      "status": "USER_APPROVED",
+      "approved_plan_sha256": "729cb21bd4b759f7d5738bdc14964bee1eaf5da053eee20b4a278acf651357d3",
+      "rule": "Proposal approved=false is historical; AUTHORIZATION_R13.json prevails. Only root executes under fresh freeze, time and resource preconditions."
+    },
+    {
+      "item": "M1 NoteOn wording",
+      "status": "M2_ACCEPTED_L0_SOURCE_DOCUMENT_SEMANTICS",
+      "evidence": "code/docs/test/m2_m1_noteon_erratum_20261017/SEMANTICS_BINDING.json + ACCEPTANCE.json",
+      "rule": "E allocation; H first later CTRL_ON&&cmd_ready; C=H+1, earliest E+2 absent reset. Do not ask again or upgrade it to measured timing."
+    },
+    {
+      "item": "R12 frontend",
+      "status": "M2_LIMITED_ACCEPTANCE_NOT_INTEGRATED",
+      "result_commit": "e39b36b9b7f956659f7fd5e3ca6dd57e5a34735b",
+      "rule": "Reuse40 plus2 new evidence; no replay42 and no conversion to full backend/native/board proof."
+    },
+    {
+      "item": "R13 original delivery channel",
+      "status": "USER_FORWARD_ALL_LOSSLESS_VOLUMES_CONFIRMED",
+      "reference": {
+        "path": "code/output/m3_backend_stream_r13_20261018/DELIVERY_CHANNEL_CONFIRMED.json",
+        "bytes": 2104,
+        "sha256": "b5df1c2e57f142c17eb5eaaaf088f8041d9c7467502eda84c631fa8e29048ef9"
+      },
+      "method": "user forwards all artifacts to M2, who independently verifies receipt and all SHAs",
+      "transfer_unit": "entire DELIVERY directory including all numbered lossless volumes and manifest",
+      "M2_RECEIVED": false,
+      "note": "Standalone missing-channel choice resolved; does not waive24GiB physical workspace/resource/integrity or any admission condition"
+    },
+    {
+      "item": "Seven M1 job input names and sole future adapter target",
+      "status": "SIGNED_M1_CONSUMER_DIRECTION_DO_NOT_REASK",
+      "references": [
+        {
+          "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/MATH_INPUT_JOB_TEMPLATE.json",
+          "bytes": 367,
+          "sha256": "d473350a15ec72c0a6c050dbb7012c71db02b0376065019ee64adfea7b3a55fc"
+        },
+        {
+          "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/CONSUMER_COMPATIBILITY_R11_20261018.json",
+          "bytes": 5688,
+          "sha256": "6983eb4d96f81974490e98e2806a4657d423cd581bc37b62b792913a8f98c0e1"
+        },
+        {
+          "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/c9_inputs.py",
+          "bytes": 16822,
+          "sha256": "a9e1a4a96e75a40463d5a7daa71743741eee6890f52d871ef6e98e1c89022f36"
+        }
+      ],
+      "names": [
+        "mechanical_index",
+        "public_rows",
+        "raw_capture",
+        "independent_plan",
+        "frame_plan",
+        "reset_edges",
+        "provenance"
+      ],
+      "target": "Use existing M3_D4_C9_MATH_INPUT_BUNDLE_V1 manifest and byte-identical MATH_ROW_INDEX/FX/ADVANCE/INPUT_AND_APPLY JSONL streams as sole future adapter target; do not reopen this direction or invent a second schema",
+      "not_equivalent_to_D4_output_count": true
+    }
+  ],
+  "items": [
+    {
+      "id": "R13-D01",
+      "owner": "M2",
+      "status": "PENDING_REAL_FINISH_PHASE_DECISION",
+      "fact": "Current TB waits coincident driver/core negative edges. Under nominal same-phase model historical D=1130660 and D+1=1130661 samples remain unapproved alternatives.",
+      "evidence": [
+        "EPOCH_RESET_FINISH_CONTRACT.json#real_finish_candidates_preserved",
+        "SOURCE_PROVENANCE.json"
+      ],
+      "minimum_options": [
+        "Approve a new exact TB path/diff/SHA using explicit core-positive-edge barrier then core negative edge, plus fixed clock/reset/window/argv; nominal result D+1",
+        "Specify another deterministic exact schedule/source identity; keep original candidates and failed originals"
+      ],
+      "required_return": [
+        "chosen schedule",
+        "approved path/diff/SHA",
+        "independent window and reset phase",
+        "observer/driver/source references"
+      ],
+      "effect_if_missing": "Real HDL finish/window route remains pending; no TB changes in R13",
+      "blocks": [
+        "real C9/HDL capture and its real FRAME authority"
+      ],
+      "independent_synthetic_software_profile_blocked_by_this_alone": false
+    },
+    {
+      "id": "R13-D02",
+      "owner": "M2",
+      "status": "PENDING_AUDIO_STABLE_AND_REAL_BACKPRESSURE_SCOPE",
+      "fact": "audio_stable has no approved public policy. Current ready.drv drives a diagnostic wire rather than a DUT ready control; file content does not prove actual backpressure.",
+      "minimum_options": [
+        "Keep audio_stable null with explicit reason and backpressure coverage PENDING",
+        "Supply exact public policy/controlled successor and evidence requirements under separate scope; never force private ready"
+      ],
+      "required_return": [
+        "audio_stable policy/source if changing null",
+        "real backpressure observation/scope if coverage claimed"
+      ],
+      "effect_if_missing": "No real stability or achieved-backpressure claim; preserve X/Z and null",
+      "blocks": [
+        "corresponding real stability/backpressure acceptance"
+      ],
+      "independent_synthetic_software_profile_blocked_by_this_alone": false
+    },
+    {
+      "id": "R13-D03",
+      "owner": "M1 with M2 controlled-interface confirmation only if a change is requested",
+      "status": "PENDING_INDEPENDENT_PLAN_TO_ACCEPT_APPLY_MAPPING",
+      "fact": "63-byte/23-event independent plan is available. It defines input seq/data/windows but no actual capture join; router_apply_seq is not proven equivalent to independent event_seq.",
+      "evidence": [
+        "PLAN_IDENTITY_MAP.json#independent_input.events",
+        "FIELD_ROUTE_TABLE.json"
+      ],
+      "minimum_options": [
+        "Return source-defined join for event_seq->actual full64-bit public handshake->all applicable stages, with reset/cancellation/autonomous cause handling",
+        "Retain apply_event_seq null and reasons; mark actual causality/math comparison PENDING"
+      ],
+      "required_return": [
+        "mapping rule and source identity",
+        "ambiguous/missing event rejection rule",
+        "stage/epoch/generation join",
+        "actual same-source evidence when available"
+      ],
+      "effect_if_missing": "Mechanical rows/history remain available without an independent causal sequence or golden PCM",
+      "blocks": [
+        "real independent per-event mapping",
+        "M1 real mathematical comparison"
+      ],
+      "independent_synthetic_software_profile_blocked_by_this_alone": false,
+      "new_candidate_state": "M1_R13_L0_independent_plan.py and source diagnostics available, including event16/event20 L0 reasoning; actual trace timing and per-event mapped execution still pending"
+    },
+    {
+      "id": "R13-D04",
+      "owner": "M1 consumer implementation; M2 exact scope, reset/projection agreement and fresh capacity/admission",
+      "status": "M1_R13_L0_STREAMING_AND_SEMANTICS_CANDIDATES_RECEIVED_PENDING_ADMISSION_AND_EXECUTED_COMPATIBILITY",
+      "fact": "Signed seven input names and D4 manifest/fourJSONL direction remain unchanged. M1 R13 bounded reader and independent semantics L0 candidates are now accessible; old c9_inputs.rows[] compatibility gap is no longer described as no implementation candidate. No54 cases, capacity or math executed/accepted; CAP01 generator binding remains pending.",
+      "minimum_options": [
+        "M1 owns exact source/input/envelope/reset/FRAME/provenance binding, CAP01 generator successor and fresh admission, then executes its authorized cases/capacity; use existing candidate and signed target rather than request the direction again",
+        "Until original M1 admission and executed evidence exist, retain L0 candidate received and current direct-consumption compatibility unverified; do not rewrite M1/producer originals or borrow M3 budgets"
+      ],
+      "required_return": [
+        "M1 candidate exact RUN_GO/source/input/tool/resource/time admission",
+        "executed compatibility and54-case/capacity results or explicit not-run evidence",
+        "same-source reset/plan/FRAME/origin/provenance binding and M3 geometry-aligned CAP01 generator binding"
+      ],
+      "forbidden_substitution": [
+        "ask for a nonexistent unnamed seventh output",
+        "rename or rewrite D4 streaming originals into the old materialized index without the agreed adapter",
+        "treat reset projection bytes/SHA as original raw-reset bytes/SHA",
+        "change M1 source from R13 A or reopen signed future target direction"
+      ],
+      "effect_if_missing": "Candidate original files are received at L0. Actual consumer compatibility, full-window capacity, real-mode and mathematical acceptance remain pending; source arrival is not runtime completion.",
+      "blocks": [
+        "claim that current M1 consumer accepts D4 streaming bundle directly",
+        "M1 real mathematical/capacity acceptance without its own exact input/implementation/admission"
+      ],
+      "R13_SW_COMPLETE_decision_owner": "M3 root evaluates original mandatory completion conditions; this A record neither waives them nor automatically blocks unrelated synthetic checks",
+      "evidence": [
+        {
+          "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/MATH_INPUT_JOB_TEMPLATE.json",
+          "bytes": 367,
+          "sha256": "d473350a15ec72c0a6c050dbb7012c71db02b0376065019ee64adfea7b3a55fc"
+        },
+        {
+          "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/CONSUMER_COMPATIBILITY_R11_20261018.json",
+          "bytes": 5688,
+          "sha256": "6983eb4d96f81974490e98e2806a4657d423cd581bc37b62b792913a8f98c0e1"
+        },
+        {
+          "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/c9_inputs.py",
+          "bytes": 16822,
+          "sha256": "a9e1a4a96e75a40463d5a7daa71743741eee6890f52d871ef6e98e1c89022f36"
+        }
+      ]
+    },
+    {
+      "id": "R13-D05",
+      "owner": "M1",
+      "status": "PENDING_SUPPORTED_MATH_PROFILE_AND_INDEPENDENT_GOLDEN",
+      "fact": "Old B0 supports settled simultaneous four-lane advancement, not the full staggered F/A/HOLD/startup/TX run. Actual PCM/effect inputs are observations, never expected golden values.",
+      "minimum_options": [
+        "M1 provides supported exact same-source profile/adapter and independent golden with IDs/clip/reset/effect histories",
+        "Keep PENDING_UNSUPPORTED_PROFILE and expected_math=null; preserve all mechanical rows"
+      ],
+      "required_return": [
+        "consumer profile/version/source SHA",
+        "same-source/ROM input bindings",
+        "independent math definition and result evidence"
+      ],
+      "blocks": [
+        "M1 mathematical acceptance"
+      ],
+      "independent_synthetic_software_profile_blocked_by_this_alone": false,
+      "new_candidate_state": "M1_R13_L0_BOUNDED_CLOCKED_MATH_AND_SEMANTICS_PRESENT; no executed arithmetic/capacity proof"
+    },
+    {
+      "id": "R13-D06",
+      "owner": "M3 root resource/channel freeze; M2 confirms retrieval when using an already allowed user-forwarded channel",
+      "status": "PENDING_ALL_ARTIFACT_CAPACITY_CHANNEL_METHOD_CONFIRMED",
+      "fact": "W requires>=1130662 rows and raw>=1398627657B through the actual complete D4 chain, not an enlarged stderr with stub. All retained outputs, growing control JSON, temporary/snapshot/reconstruction files and archives count toward24GiB.",
+      "evidence": [
+        "PROFILE_AND_CAPACITY.json",
+        "../capture_originals/CONSUMER_LOAD_MAP.json",
+        "../capture_originals/MISSING_ORIGINALS.json"
+      ],
+      "minimum_options": [
+        "Freeze an exact supported synthetic geometry and reversible direct-volume storage/processing scheme that satisfies512MiB worker/tree,1MiB reads,24GiB workspace,32GiB free and8GiB reserve without deleting logical products or comparisons",
+        "Keep W NO_GO and deliver honest static/other admitted results; retain exact capacity expansion or input/channel request"
+      ],
+      "channel_options": [
+        "Same already approved repository route; actual EXECUTION_ORIGINALS.zip<=33554432B and every logical original losslessly recoverable",
+        "Already allowed user-forwarded archive/volumes, exact accessible paths/ordered manifests/retrieval confirmed before W"
+      ],
+      "required_return": [
+        "full product/storage geometry",
+        "source/input/profile pins",
+        "process-tree and memory measurement scope",
+        "frozen route and lossless recovery contract",
+        "actual admission by root"
+      ],
+      "unknown_compression_ratio_is_GO": false,
+      "local_ignored_path_only_is_delivery": false,
+      "blocks": [
+        "W admission until physical geometry/resource/source/time conditions GO",
+        "complete R13 software delivery if actual produced originals/manifest remain missing"
+      ],
+      "adds_new_external_storage_credentials_or_runtime_permission": false,
+      "channel_resolution": {
+        "status": "USER_FORWARD_ALL_LOSSLESS_VOLUMES_CONFIRMED",
+        "reference": {
+          "path": "code/output/m3_backend_stream_r13_20261018/DELIVERY_CHANNEL_CONFIRMED.json",
+          "bytes": 2104,
+          "sha256": "b5df1c2e57f142c17eb5eaaaf088f8041d9c7467502eda84c631fa8e29048ef9"
+        },
+        "M2_RECEIVED": false,
+        "precise_actual_manifest": "Freeze produced names/sizes/SHAs before handoff; no fabricated pre-W values",
+        "git_zip": "<=32MiB indexes/small originals; large volumes through confirmed channel"
+      }
+    },
+    {
+      "id": "R13-D07",
+      "owner": "M2 actual execution/physical admission; M3 actual original capture producer",
+      "status": "PENDING_REAL_ORIGINALS_DYNAMIC_TOOLS_AND_PHYSICAL_IDENTITY",
+      "fact": "Known declared tool identities/argv/env and synthetic receipt are not actual native provenance or dynamically loaded dependency proof. Full Pro part/revision/Bank/licence/physical/board evidence are separate.",
+      "minimum_options": [
+        "Keep real execution held and explicit missing original identities",
+        "Under a separate future exact admission provide trustworthy same-run raw/reset/END/dual-stream/exit/cleanup receipts and dynamic tool/runtime closure"
+      ],
+      "required_return": [
+        "same-run actual receipt and original streams",
+        "source/ROM/include/driver/observer/TB/tool/dynamic dependencies",
+        "actual cwd/argv and permitted environment summary",
+        "new physical proof only when that stage is authorized"
+      ],
+      "blocks": [
+        "real native/C9/digital/physical/board acceptance"
+      ],
+      "independent_synthetic_software_profile_blocked_by_this_alone": false,
+      "R13_real_execution_permission_requested_by_this_document": false
+    }
+  ],
+  "completion_rule": "A1-A4 static candidate completeness, R13_SW_COMPLETE, M1 consumer acceptance, M2 final acceptance and real/board verification are distinct. Root maintains final R13 gate/consumption/publication decisions; no state is advanced here.",
+  "real_verified": false,
+  "math_verified": false,
+  "board_release_allowed": false,
+  "M1_R13_arrival": {
+    "status": "M1_R13_L0_CANDIDATES_RECEIVED_PENDING_M1_ADMISSION_AND_EXECUTED_VALIDATION",
+    "handoff_id": "M1-R13-R02-STATIC-20261018-01",
+    "result_commit": "86cd5975f5679ad2db9da7b0d20d2892e76e76b1",
+    "binding_commit": "7319fe670d3524252ac299e11f00d00ae52c9953",
+    "current_tree_checkpoint": "544f5af23fa427db0a931df719dc6135c75a180f",
+    "tree_basis": "Root safe-FF/receipt observation; no Git operation by A",
+    "M3_R13_approved_functional_baseline": "e39b36b9b7f956659f7fd5e3ca6dd57e5a34735b",
+    "baseline_START_deadline_old_consumption_reset": false,
+    "M3_receipt": {
+      "path": "code/output/m3_backend_stream_r13_20261018/INTAKE/M1_R13_NEW/M3_RECEIPT.json",
+      "bytes": 31716,
+      "sha256": "9eada974d6a36f6376df5c74380f1bbd63ee9faca20d4e127e3c872fc294fbe1"
+    },
+    "dedup_key": "M1-R13-R02-STATIC-20261018-01|86cd5975f5679ad2db9da7b0d20d2892e76e76b1|M3",
+    "root_recorded_manifest_references_verified": 30,
+    "root_recorded_declared_originals_accessible": 36,
+    "source_payload": "Published Git path originals and receipt FILES aliases; upstream private STATIC_HANDOFF.zip was not retrieved/assumed",
+    "refs": {
+      "upstream_handoff": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/HANDOFF.json",
+        "bytes": 4102,
+        "sha256": "6ebce312f8f92a1c612a29b717c4034e20348c8cb5399756c5973ed7378fb29a"
+      },
+      "source_manifest": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/SOURCE_MANIFEST.json",
+        "bytes": 8936,
+        "sha256": "8b0bb766ac5b45b5a7c0150d2c63245f2dd7514bd5ebb74995a5aa0ed8523384"
+      },
+      "bounded_manifest": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/MANIFEST_A.json",
+        "bytes": 4287,
+        "sha256": "3b8d462b0c7636772a55629c1fca095b18588f0a8b9a5c113e4c05753b812c3f"
+      },
+      "semantics_manifest": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/MANIFEST_B.json",
+        "bytes": 2996,
+        "sha256": "c7e888ab339f894e35e084c9b528daab6ecd62a0475ded2f3e1bc235ce040239"
+      },
+      "bounded_static_receipt": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/STATIC_RECEIPT_A.json",
+        "bytes": 7041,
+        "sha256": "b155fbc55032f9bcf78b35317d5532c5b6d5dd0571541f7a211271e59bc219b4"
+      },
+      "semantics_static_receipt": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/STATIC_RECEIPT_B.json",
+        "bytes": 3291,
+        "sha256": "a21a133e41009a0dd308c6ba8aad06f8e60f2594bfc4b352dc6ff50ea721f02d"
+      },
+      "bounded_entry": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/run_stream_math.py",
+        "bytes": 6123,
+        "sha256": "5203b5998a3f0b70329599636c3e2e2cf931335599e70574285678a68c5cc326"
+      },
+      "bounded_worker": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/worker_group.py",
+        "bytes": 7527,
+        "sha256": "e0809e03cfc4bfef0bbd4a3ab336d7cf4d1ca590f9ac690aa10a3483dfef6b63"
+      },
+      "logical_volume_reader": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/stream_io.py",
+        "bytes": 4573,
+        "sha256": "6d92da3d9225f9276c667aef69e45f1c9ba28759cde2f83f70f5b4a38ef44288"
+      },
+      "history_join": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/history_join.py",
+        "bytes": 6942,
+        "sha256": "b2266eb9efb7152d8dfcc279c8b01555e0ef780cb969d83705095369ace2be4b"
+      },
+      "independent_semantics": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/independent_plan.py",
+        "bytes": 6944,
+        "sha256": "070f35d39ffdc26b1aa79b5e91e1cc5f3171a7330331754bce84a55aa2e848c4"
+      },
+      "bounded_limits": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/BOUNDS_AND_PENDING.json",
+        "bytes": 1370,
+        "sha256": "ccca8808c4f8f78c629712edc3de1c9fc9d6ab0a6fcfb4a94f07f02f3134266b"
+      },
+      "semantics_limits": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/BOUNDS_AND_PENDING.json",
+        "bytes": 1287,
+        "sha256": "7699668c1e01473eda5dc5d23cee1a4fe50424e010b990143328abc4fd2f7271"
+      },
+      "capacity_plan": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/05_CAPACITY_LIMITS_AND_MEASUREMENT_R13.json",
+        "bytes": 11711,
+        "sha256": "f505adbd96be1d923f9ab7803ef1b22d39e874cd763b863e77eda9972f524467"
+      },
+      "cases54": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/06_CASE_MATRIX_R13.json",
+        "bytes": 40181,
+        "sha256": "dc49a13870cb780b1e8815745c6e6df59d2acdb40b546e1cc0d2b4f7d8353914"
+      }
+    },
+    "candidate_entry_schema": "M1_R13_STREAM_JOB_V1",
+    "candidate_entry_scope": "run_stream_math.evaluate is a bounded streaming synthetic candidate with explicit LogicalStream/history join/lifecycle storage; current code rejects non-SYNTHETIC via M2_EXACT_PROVENANCE_REQUIRED. It is not a proven drop-in adapter for every old seven-role job.",
+    "signed_future_direction_reopened": false,
+    "old_signed_R10_consumer": "c9_inputs.py remains unchanged and materialized; its old incompatibilities are historical/current-R10 facts, not a claim no R13 candidate exists",
+    "actual_target_cases": 0,
+    "cases54_not_run": true,
+    "capacity_not_measured": true,
+    "math_not_validated": true,
+    "runtime_or_math_accepted": false,
+    "integrated": false,
+    "CAP01": "CAPACITY_GENERATOR_BINDING_PENDING remains explicit in worker_group CAP01 branch; actual fixture generation/volume geometry must bind the M3 contract in the M1 owned successor and original group cap, not be generated outside the clock",
+    "remaining": [
+      "M1 exact RUN_GO input/source/tool/time/resource/admission and executed54 case/capacity evidence",
+      "actual same-source producer-original/consumer-envelope and reset/FRAME/plan/provenance binding, not assumed compatible by source arrival",
+      "CAP01 generator/volume binding to exact M3 geometry; no pre-generated fixture bypass",
+      "real C9/math/physical admission remains separate"
+    ],
+    "cross_budget": "M1 SW/CAP/FIX and publication permissions do not become M3 slots; M3 R13 original budget/time remain unchanged"
+  }
+}

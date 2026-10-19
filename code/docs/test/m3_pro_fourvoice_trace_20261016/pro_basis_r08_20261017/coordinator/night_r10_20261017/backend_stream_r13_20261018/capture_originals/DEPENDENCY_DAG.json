@@ -1,0 +1,1666 @@
+{
+  "schema": "M3_R13_DEPENDENCY_DAG_V1",
+  "package": "R13-B",
+  "revision": "B_STATIC_20261019_02_M1_R13_INTAKE",
+  "snapshot_utc": "2026-10-18T16:42:38.313Z",
+  "role": "night3_B_writer",
+  "task_original": "r13_task_original",
+  "baseline_result_commit": "e39b36b9b7f956659f7fd5e3ca6dd57e5a34735b",
+  "actual_level": "L0 static source/metadata/archive bytes; existing L1 producer evidence indexed, no rerun",
+  "target_execution_by_this_role": false,
+  "real_verified": false,
+  "math_verified": false,
+  "board_release_allowed": false,
+  "registry": "ORIGINALS_INDEX.json#/objects",
+  "nodes": [
+    {
+      "id": "execution_receipt",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/execution_receipt"
+    },
+    {
+      "id": "source_closure",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/source_closure"
+    },
+    {
+      "id": "base_source_closure",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/base_source_closure"
+    },
+    {
+      "id": "source_decision",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/source_decision"
+    },
+    {
+      "id": "rom_manifest",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/rom_manifest"
+    },
+    {
+      "id": "observer",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/observer"
+    },
+    {
+      "id": "driver",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/driver"
+    },
+    {
+      "id": "tb",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/tb"
+    },
+    {
+      "id": "tool_identity",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/tool_identity"
+    },
+    {
+      "id": "capture_contract",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/capture_contract"
+    },
+    {
+      "id": "public_rows",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/public_rows"
+    },
+    {
+      "id": "raw_capture",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/raw_capture"
+    },
+    {
+      "id": "reset_edges",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/reset_edges"
+    },
+    {
+      "id": "end",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/end"
+    },
+    {
+      "id": "stdout",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/stdout"
+    },
+    {
+      "id": "midi_plan",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/midi_plan"
+    },
+    {
+      "id": "frame_plan",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/frame_plan"
+    },
+    {
+      "id": "ledger",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/ledger"
+    },
+    {
+      "id": "tx_report",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/tx_report"
+    },
+    {
+      "id": "noteon_semantics_binding",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/noteon_semantics_binding"
+    },
+    {
+      "id": "noteon_semantics_acceptance",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/noteon_semantics_acceptance"
+    },
+    {
+      "id": "math_math_input_bundle",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/math_math_input_bundle"
+    },
+    {
+      "id": "math_receipt",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/math_receipt"
+    },
+    {
+      "id": "math_math_row_index",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/math_math_row_index"
+    },
+    {
+      "id": "math_fx_history",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/math_fx_history"
+    },
+    {
+      "id": "math_advance_history",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/math_advance_history"
+    },
+    {
+      "id": "math_input_and_apply_history",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/math_input_and_apply_history"
+    },
+    {
+      "id": "capture_receipt",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/capture_receipt"
+    },
+    {
+      "id": "derived_raw_43",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/derived_raw_43"
+    },
+    {
+      "id": "raw_public_line_index",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/raw_public_line_index"
+    },
+    {
+      "id": "application",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/application"
+    },
+    {
+      "id": "bound_plan",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/bound_plan"
+    },
+    {
+      "id": "application_graph",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/application_graph"
+    },
+    {
+      "id": "calendar_report",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/calendar_report"
+    },
+    {
+      "id": "handoff",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/handoff"
+    },
+    {
+      "id": "r11_handoff",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r11_handoff"
+    },
+    {
+      "id": "stderr",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/stderr"
+    },
+    {
+      "id": "source_manifest",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/source_manifest"
+    },
+    {
+      "id": "capture_rom_closure",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/capture_rom_closure"
+    },
+    {
+      "id": "capture_tool_closure",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/capture_tool_closure"
+    },
+    {
+      "id": "window_plan",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/window_plan"
+    },
+    {
+      "id": "frame_input",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/frame_input"
+    },
+    {
+      "id": "capture_request",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/capture_request"
+    },
+    {
+      "id": "fixture_origin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/fixture_origin"
+    },
+    {
+      "id": "independent_scenario",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/independent_scenario"
+    },
+    {
+      "id": "frame_rules",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/frame_rules"
+    },
+    {
+      "id": "r12_originals_manifest",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_originals_manifest"
+    },
+    {
+      "id": "r12_source_manifest",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_source_manifest"
+    },
+    {
+      "id": "r12_consumption",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_consumption"
+    },
+    {
+      "id": "r12_failure_history",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_failure_history"
+    },
+    {
+      "id": "r12_result_receipt",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_result_receipt"
+    },
+    {
+      "id": "r12_case_matrix",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_case_matrix"
+    },
+    {
+      "id": "r12_authorization",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_authorization"
+    },
+    {
+      "id": "r12_publication_receipt",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_publication_receipt"
+    },
+    {
+      "id": "r12_gate_01",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_gate_01"
+    },
+    {
+      "id": "r12_gate_02",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_gate_02"
+    },
+    {
+      "id": "r12_baseline",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_baseline"
+    },
+    {
+      "id": "r12_plan",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_plan"
+    },
+    {
+      "id": "r12_source_payload",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_source_payload"
+    },
+    {
+      "id": "next_input_contract",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/next_input_contract"
+    },
+    {
+      "id": "d4_math_producer",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/d4_math_producer"
+    },
+    {
+      "id": "d4_chain",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/d4_chain"
+    },
+    {
+      "id": "c9_stream",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/c9_stream"
+    },
+    {
+      "id": "history_R01_J_RESULT_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R01_J_RESULT_json"
+    },
+    {
+      "id": "history_R01_J_stdout_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R01_J_stdout_bin"
+    },
+    {
+      "id": "history_R01_J_stderr_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R01_J_stderr_bin"
+    },
+    {
+      "id": "history_R01_G_failed_RESULT_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R01_G_failed_RESULT_json"
+    },
+    {
+      "id": "history_R01_G_failed_stdout_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R01_G_failed_stdout_bin"
+    },
+    {
+      "id": "history_R01_G_failed_stderr_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R01_G_failed_stderr_bin"
+    },
+    {
+      "id": "history_R01_R_RESULT_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R01_R_RESULT_json"
+    },
+    {
+      "id": "history_R01_R_stdout_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R01_R_stdout_bin"
+    },
+    {
+      "id": "history_R01_R_stderr_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R01_R_stderr_bin"
+    },
+    {
+      "id": "history_R01_C_RESULT_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R01_C_RESULT_json"
+    },
+    {
+      "id": "history_R01_C_stdout_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R01_C_stdout_bin"
+    },
+    {
+      "id": "history_R01_C_stderr_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R01_C_stderr_bin"
+    },
+    {
+      "id": "history_R01_W_RESULT_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R01_W_RESULT_json"
+    },
+    {
+      "id": "history_R01_W_stdout_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R01_W_stdout_bin"
+    },
+    {
+      "id": "history_R01_W_stderr_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R01_W_stderr_bin"
+    },
+    {
+      "id": "history_R02_CD_RESULT_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R02_CD_RESULT_json"
+    },
+    {
+      "id": "history_R02_CD_stdout_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R02_CD_stdout_bin"
+    },
+    {
+      "id": "history_R02_CD_stderr_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R02_CD_stderr_bin"
+    },
+    {
+      "id": "history_R02_preflight_failed_RESULT_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R02_preflight_failed_RESULT_json"
+    },
+    {
+      "id": "history_R02_preflight_failed_stdout_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R02_preflight_failed_stdout_bin"
+    },
+    {
+      "id": "history_R02_preflight_failed_stderr_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R02_preflight_failed_stderr_bin"
+    },
+    {
+      "id": "history_R02_gate_actual_RESULT_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R02_gate_actual_RESULT_json"
+    },
+    {
+      "id": "history_R02_gate_actual_stdout_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R02_gate_actual_stdout_bin"
+    },
+    {
+      "id": "history_R02_gate_actual_stderr_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R02_gate_actual_stderr_bin"
+    },
+    {
+      "id": "history_R02_diag_RESULT_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R02_diag_RESULT_json"
+    },
+    {
+      "id": "history_R02_diag_stdout_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R02_diag_stdout_bin"
+    },
+    {
+      "id": "history_R02_diag_stderr_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_R02_diag_stderr_bin"
+    },
+    {
+      "id": "history_old_S1_RESULT_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_old_S1_RESULT_json"
+    },
+    {
+      "id": "history_old_S1_stdout_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_old_S1_stdout_bin"
+    },
+    {
+      "id": "history_old_S1_stderr_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_old_S1_stderr_bin"
+    },
+    {
+      "id": "history_S1_fix_diag_RESULT_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/history_S1_fix_diag_RESULT_json"
+    },
+    {
+      "id": "cd_group",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/cd_group"
+    },
+    {
+      "id": "cd_call_trace",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/cd_call_trace"
+    },
+    {
+      "id": "cd_active_exception",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/cd_active_exception"
+    },
+    {
+      "id": "r12_large_parts",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_parts"
+    },
+    {
+      "id": "r12_large_part_0000",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0000"
+    },
+    {
+      "id": "r12_large_part_0001",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0001"
+    },
+    {
+      "id": "r12_large_part_0002",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0002"
+    },
+    {
+      "id": "r12_large_part_0003",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0003"
+    },
+    {
+      "id": "r12_large_part_0004",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0004"
+    },
+    {
+      "id": "r12_large_part_0005",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0005"
+    },
+    {
+      "id": "r12_large_part_0006",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0006"
+    },
+    {
+      "id": "r12_large_part_0007",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0007"
+    },
+    {
+      "id": "r12_large_part_0008",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0008"
+    },
+    {
+      "id": "r12_large_part_0009",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0009"
+    },
+    {
+      "id": "r12_large_part_0010",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0010"
+    },
+    {
+      "id": "r12_large_part_0011",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0011"
+    },
+    {
+      "id": "r12_large_part_0012",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0012"
+    },
+    {
+      "id": "r12_large_part_0013",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0013"
+    },
+    {
+      "id": "r12_large_part_0014",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0014"
+    },
+    {
+      "id": "r12_large_part_0015",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0015"
+    },
+    {
+      "id": "r12_large_part_0016",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0016"
+    },
+    {
+      "id": "r12_large_part_0017",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0017"
+    },
+    {
+      "id": "r12_large_part_0018",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0018"
+    },
+    {
+      "id": "r12_large_part_0019",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0019"
+    },
+    {
+      "id": "r12_large_part_0020",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_large_part_0020"
+    },
+    {
+      "id": "authority_authorization_r13",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/authority_authorization_r13"
+    },
+    {
+      "id": "authority_software_publish_plan_r13",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/authority_software_publish_plan_r13"
+    },
+    {
+      "id": "authority_m2_receipt",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/authority_m2_receipt"
+    },
+    {
+      "id": "authority_m2_review_and_next_action",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/authority_m2_review_and_next_action"
+    },
+    {
+      "id": "authority_integrity_receipt",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/authority_integrity_receipt"
+    },
+    {
+      "id": "authority_inner_manifest_verified",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/authority_inner_manifest_verified"
+    },
+    {
+      "id": "r13_task_original",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r13_task_original"
+    },
+    {
+      "id": "r13_authorization",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r13_authorization"
+    },
+    {
+      "id": "r13_plan",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r13_plan"
+    },
+    {
+      "id": "r13_start",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r13_start"
+    },
+    {
+      "id": "r13_channel",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r13_channel"
+    },
+    {
+      "id": "m1_job_template",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_job_template"
+    },
+    {
+      "id": "m1_compatibility",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_compatibility"
+    },
+    {
+      "id": "m1_c9_inputs",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_c9_inputs"
+    },
+    {
+      "id": "m1_c9_math",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_c9_math"
+    },
+    {
+      "id": "m1_run_math",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_run_math"
+    },
+    {
+      "id": "m1_source_bindings",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_source_bindings"
+    },
+    {
+      "id": "provenance",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/provenance"
+    },
+    {
+      "id": "r12_terminal_final_handoff_manifest",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_terminal_final_handoff_manifest"
+    },
+    {
+      "id": "r12_terminal_final_delivery_receipt",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_terminal_final_delivery_receipt"
+    },
+    {
+      "id": "r12_terminal_publication_actual",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_terminal_publication_actual"
+    },
+    {
+      "id": "r12_terminal_publication_archive_manifest",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_terminal_publication_archive_manifest"
+    },
+    {
+      "id": "r12_terminal_published_tree_verification",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_terminal_published_tree_verification"
+    },
+    {
+      "id": "r12_terminal_pre_s2_receipt",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_terminal_pre_s2_receipt"
+    },
+    {
+      "id": "r12_terminal_consumption",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_terminal_consumption"
+    },
+    {
+      "id": "r12_terminal_GATE_02_RESULT_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_terminal_GATE_02_RESULT_json"
+    },
+    {
+      "id": "r12_terminal_GATE_02_stdout_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_terminal_GATE_02_stdout_bin"
+    },
+    {
+      "id": "r12_terminal_GATE_02_stderr_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_terminal_GATE_02_stderr_bin"
+    },
+    {
+      "id": "r12_terminal_S1_R02_RESULT_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_terminal_S1_R02_RESULT_json"
+    },
+    {
+      "id": "r12_terminal_S1_R02_stdout_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_terminal_S1_R02_stdout_bin"
+    },
+    {
+      "id": "r12_terminal_S1_R02_stderr_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_terminal_S1_R02_stderr_bin"
+    },
+    {
+      "id": "r12_terminal_S2_R02_RESULT_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_terminal_S2_R02_RESULT_json"
+    },
+    {
+      "id": "r12_terminal_S2_R02_stdout_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_terminal_S2_R02_stdout_bin"
+    },
+    {
+      "id": "r12_terminal_S2_R02_stderr_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_terminal_S2_R02_stderr_bin"
+    },
+    {
+      "id": "r12_group_J",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_group_J"
+    },
+    {
+      "id": "r12_group_R",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_group_R"
+    },
+    {
+      "id": "r12_group_C",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_group_C"
+    },
+    {
+      "id": "r12_group_W",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_group_W"
+    },
+    {
+      "id": "r12_failed_gate01_RESULT_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_failed_gate01_RESULT_json"
+    },
+    {
+      "id": "r12_failed_gate01_stdout_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_failed_gate01_stdout_bin"
+    },
+    {
+      "id": "r12_failed_gate01_stderr_bin",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_failed_gate01_stderr_bin"
+    },
+    {
+      "id": "r12_failed_gate01_NINE_CHECKS_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_failed_gate01_NINE_CHECKS_json"
+    },
+    {
+      "id": "r12_final_outer_archive",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_final_outer_archive"
+    },
+    {
+      "id": "r12_inner_manifest",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/r12_inner_manifest"
+    },
+    {
+      "id": "m1_r13_01_stream_io_py",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_01_stream_io_py"
+    },
+    {
+      "id": "m1_r13_02_identity_guard_py",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_02_identity_guard_py"
+    },
+    {
+      "id": "m1_r13_03_history_join_py",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_03_history_join_py"
+    },
+    {
+      "id": "m1_r13_04_lifecycle_store_py",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_04_lifecycle_store_py"
+    },
+    {
+      "id": "m1_r13_05_clocked_math_stream_py",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_05_clocked_math_stream_py"
+    },
+    {
+      "id": "m1_r13_06_results_stream_py",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_06_results_stream_py"
+    },
+    {
+      "id": "m1_r13_07_run_stream_math_py",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_07_run_stream_math_py"
+    },
+    {
+      "id": "m1_r13_08_measure_group_py",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_08_measure_group_py"
+    },
+    {
+      "id": "m1_r13_09_worker_group_py",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_09_worker_group_py"
+    },
+    {
+      "id": "m1_r13_10_independent_plan_py",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_10_independent_plan_py"
+    },
+    {
+      "id": "m1_r13_11_fixture_recipe_py",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_11_fixture_recipe_py"
+    },
+    {
+      "id": "m1_r13_12_test_new_seams_py",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_12_test_new_seams_py"
+    },
+    {
+      "id": "m1_r13_13_source_bindings_r13_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_13_source_bindings_r13_json"
+    },
+    {
+      "id": "m1_r13_14_input_dependency_bindings_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_14_input_dependency_bindings_json"
+    },
+    {
+      "id": "m1_r13_15_resource_time_limits_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_15_resource_time_limits_json"
+    },
+    {
+      "id": "m1_r13_16_bounds_and_pending_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_16_bounds_and_pending_json"
+    },
+    {
+      "id": "m1_r13_17_static_receipt_a_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_17_static_receipt_a_json"
+    },
+    {
+      "id": "m1_r13_18_manifest_a_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_18_manifest_a_json"
+    },
+    {
+      "id": "m1_r13_19_05_capacity_limits_and_measurement_r13_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_19_05_capacity_limits_and_measurement_r13_json"
+    },
+    {
+      "id": "m1_r13_20_08_time_and_stop_r13_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_20_08_time_and_stop_r13_json"
+    },
+    {
+      "id": "m1_r13_21_event_source_diagnostic_matrix_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_21_event_source_diagnostic_matrix_json"
+    },
+    {
+      "id": "m1_r13_22_double_clip_mutation_spec_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_22_double_clip_mutation_spec_json"
+    },
+    {
+      "id": "m1_r13_23_first_difference_spec_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_23_first_difference_spec_json"
+    },
+    {
+      "id": "m1_r13_24_bounds_and_pending_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_24_bounds_and_pending_json"
+    },
+    {
+      "id": "m1_r13_25_static_receipt_b_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_25_static_receipt_b_json"
+    },
+    {
+      "id": "m1_r13_26_manifest_b_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_26_manifest_b_json"
+    },
+    {
+      "id": "m1_r13_27_04_capacity_schedule_r13_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_27_04_capacity_schedule_r13_json"
+    },
+    {
+      "id": "m1_r13_28_06_case_matrix_r13_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_28_06_case_matrix_r13_json"
+    },
+    {
+      "id": "m1_r13_29_plan_r13_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_29_plan_r13_json"
+    },
+    {
+      "id": "m1_r13_30_authorization_state_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_30_authorization_state_json"
+    },
+    {
+      "id": "m1_r13_31_start_and_deadline_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_31_start_and_deadline_json"
+    },
+    {
+      "id": "m1_r13_32_09_budget_and_native_call_request_r13_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_32_09_budget_and_native_call_request_r13_json"
+    },
+    {
+      "id": "m1_r13_33_intake_dedup_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_33_intake_dedup_json"
+    },
+    {
+      "id": "m1_r13_34_outbox_reference_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_34_outbox_reference_json"
+    },
+    {
+      "id": "m1_r13_35_source_manifest_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_35_source_manifest_json"
+    },
+    {
+      "id": "m1_r13_36_handoff_json",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_36_handoff_json"
+    },
+    {
+      "id": "m1_r13_M3_receipt",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_M3_receipt"
+    },
+    {
+      "id": "m1_r13_safe_FF_receipt",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_safe_FF_receipt"
+    },
+    {
+      "id": "m1_r13_first_read_failure",
+      "object_ref": "ORIGINALS_INDEX.json#/objects/m1_r13_first_read_failure"
+    }
+  ],
+  "edges": [
+    {
+      "from": "base_source_closure",
+      "to": "application",
+      "meaning": "Frozen application source/input/tool contract dependency; not an execution admission"
+    },
+    {
+      "from": "source_decision",
+      "to": "application",
+      "meaning": "Frozen application source/input/tool contract dependency; not an execution admission"
+    },
+    {
+      "from": "observer",
+      "to": "application",
+      "meaning": "Frozen application source/input/tool contract dependency; not an execution admission"
+    },
+    {
+      "from": "driver",
+      "to": "application",
+      "meaning": "Frozen application source/input/tool contract dependency; not an execution admission"
+    },
+    {
+      "from": "tb",
+      "to": "application",
+      "meaning": "Frozen application source/input/tool contract dependency; not an execution admission"
+    },
+    {
+      "from": "midi_plan",
+      "to": "application",
+      "meaning": "Frozen application source/input/tool contract dependency; not an execution admission"
+    },
+    {
+      "from": "tool_identity",
+      "to": "application",
+      "meaning": "Frozen application source/input/tool contract dependency; not an execution admission"
+    },
+    {
+      "from": "capture_contract",
+      "to": "application",
+      "meaning": "Frozen application source/input/tool contract dependency; not an execution admission"
+    },
+    {
+      "from": "application",
+      "to": "source_closure",
+      "meaning": "Application source archive includes 75 source units, 9 ROMs, 2 headers and aliases"
+    },
+    {
+      "from": "independent_scenario",
+      "to": "frame_input",
+      "meaning": "Independent scenario/rules provenance; rules also separately consumed by frame generator"
+    },
+    {
+      "from": "frame_input",
+      "to": "frame_plan",
+      "meaning": "Unique FRAME plan input, not inferred from trace"
+    },
+    {
+      "from": "frame_rules",
+      "to": "frame_plan",
+      "meaning": "Sole frozen frame generator rules"
+    },
+    {
+      "from": "raw_capture",
+      "to": "public_rows",
+      "meaning": "Frozen C9 conversion/identity dependence"
+    },
+    {
+      "from": "reset_edges",
+      "to": "public_rows",
+      "meaning": "Frozen C9 conversion/identity dependence"
+    },
+    {
+      "from": "end",
+      "to": "public_rows",
+      "meaning": "Frozen C9 conversion/identity dependence"
+    },
+    {
+      "from": "stdout",
+      "to": "public_rows",
+      "meaning": "Frozen C9 conversion/identity dependence"
+    },
+    {
+      "from": "base_source_closure",
+      "to": "public_rows",
+      "meaning": "Frozen C9 conversion/identity dependence"
+    },
+    {
+      "from": "source_decision",
+      "to": "public_rows",
+      "meaning": "Frozen C9 conversion/identity dependence"
+    },
+    {
+      "from": "capture_contract",
+      "to": "public_rows",
+      "meaning": "Frozen C9 conversion/identity dependence"
+    },
+    {
+      "from": "raw_capture",
+      "to": "raw_public_line_index",
+      "meaning": "Physical JSONL byte-line SHA pairing"
+    },
+    {
+      "from": "public_rows",
+      "to": "raw_public_line_index",
+      "meaning": "Physical JSONL byte-line SHA pairing"
+    },
+    {
+      "from": "public_rows",
+      "to": "ledger",
+      "meaning": "Intake with canonical preserved rows and separate complete sidecar"
+    },
+    {
+      "from": "frame_plan",
+      "to": "ledger",
+      "meaning": "Intake with canonical preserved rows and separate complete sidecar"
+    },
+    {
+      "from": "ledger",
+      "to": "calendar_report",
+      "meaning": "Actual calendar checks"
+    },
+    {
+      "from": "frame_plan",
+      "to": "calendar_report",
+      "meaning": "Actual calendar checks"
+    },
+    {
+      "from": "public_rows",
+      "to": "tx_report",
+      "meaning": "Actual request/result/commit/TX/serial lineage checks"
+    },
+    {
+      "from": "frame_plan",
+      "to": "tx_report",
+      "meaning": "Actual request/result/commit/TX/serial lineage checks"
+    },
+    {
+      "from": "calendar_report",
+      "to": "tx_report",
+      "meaning": "Actual request/result/commit/TX/serial lineage checks"
+    },
+    {
+      "from": "source_closure",
+      "to": "rom_manifest",
+      "meaning": "Actual archive ROM members, never reconstructed from sampled PCM"
+    },
+    {
+      "from": "public_rows",
+      "to": "math_math_row_index",
+      "meaning": "Math mechanical projection retains all canonical and selected sparse history rows"
+    },
+    {
+      "from": "public_rows",
+      "to": "math_fx_history",
+      "meaning": "Math mechanical projection retains all canonical and selected sparse history rows"
+    },
+    {
+      "from": "public_rows",
+      "to": "math_advance_history",
+      "meaning": "Math mechanical projection retains all canonical and selected sparse history rows"
+    },
+    {
+      "from": "public_rows",
+      "to": "math_input_and_apply_history",
+      "meaning": "Math mechanical projection retains all canonical and selected sparse history rows"
+    },
+    {
+      "from": "execution_receipt",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "source_closure",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "base_source_closure",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "source_decision",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "rom_manifest",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "observer",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "driver",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "tb",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "tool_identity",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "capture_contract",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "public_rows",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "raw_capture",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "reset_edges",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "end",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "stdout",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "midi_plan",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "frame_plan",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "ledger",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "tx_report",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "noteon_semantics_binding",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "noteon_semantics_acceptance",
+      "to": "math_math_input_bundle",
+      "meaning": "Byte descriptor retained as bundle input"
+    },
+    {
+      "from": "math_math_row_index",
+      "to": "math_math_input_bundle",
+      "meaning": "Written output descriptor in manifest"
+    },
+    {
+      "from": "math_fx_history",
+      "to": "math_math_input_bundle",
+      "meaning": "Written output descriptor in manifest"
+    },
+    {
+      "from": "math_advance_history",
+      "to": "math_math_input_bundle",
+      "meaning": "Written output descriptor in manifest"
+    },
+    {
+      "from": "math_input_and_apply_history",
+      "to": "math_math_input_bundle",
+      "meaning": "Written output descriptor in manifest"
+    },
+    {
+      "from": "math_math_input_bundle",
+      "to": "math_receipt",
+      "meaning": "Receipt adds manifest descriptor; no execution or acceptance claim"
+    },
+    {
+      "from": "raw_capture",
+      "to": "provenance",
+      "meaning": "Same-capture provenance audit dependency, not native execution authentication"
+    },
+    {
+      "from": "public_rows",
+      "to": "provenance",
+      "meaning": "Same-capture provenance audit dependency, not native execution authentication"
+    },
+    {
+      "from": "reset_edges",
+      "to": "provenance",
+      "meaning": "Same-capture provenance audit dependency, not native execution authentication"
+    },
+    {
+      "from": "end",
+      "to": "provenance",
+      "meaning": "Same-capture provenance audit dependency, not native execution authentication"
+    },
+    {
+      "from": "stdout",
+      "to": "provenance",
+      "meaning": "Same-capture provenance audit dependency, not native execution authentication"
+    },
+    {
+      "from": "frame_plan",
+      "to": "provenance",
+      "meaning": "Same-capture provenance audit dependency, not native execution authentication"
+    },
+    {
+      "from": "raw_capture",
+      "to": "derived_raw_43",
+      "meaning": "First raw pass creates the legacy43-port raw projection"
+    },
+    {
+      "from": "derived_raw_43",
+      "to": "public_rows",
+      "meaning": "Legacy normalizer plus second original raw pass rebuild canonical74-field rows without dropping original72 raw ports"
+    },
+    {
+      "from": "m1_r13_01_stream_io_py",
+      "to": "m1_r13_18_manifest_a_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_02_identity_guard_py",
+      "to": "m1_r13_18_manifest_a_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_03_history_join_py",
+      "to": "m1_r13_18_manifest_a_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_04_lifecycle_store_py",
+      "to": "m1_r13_18_manifest_a_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_05_clocked_math_stream_py",
+      "to": "m1_r13_18_manifest_a_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_06_results_stream_py",
+      "to": "m1_r13_18_manifest_a_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_07_run_stream_math_py",
+      "to": "m1_r13_18_manifest_a_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_08_measure_group_py",
+      "to": "m1_r13_18_manifest_a_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_09_worker_group_py",
+      "to": "m1_r13_18_manifest_a_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_14_input_dependency_bindings_json",
+      "to": "m1_r13_18_manifest_a_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_15_resource_time_limits_json",
+      "to": "m1_r13_18_manifest_a_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_16_bounds_and_pending_json",
+      "to": "m1_r13_18_manifest_a_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_17_static_receipt_a_json",
+      "to": "m1_r13_18_manifest_a_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_19_05_capacity_limits_and_measurement_r13_json",
+      "to": "m1_r13_18_manifest_a_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_20_08_time_and_stop_r13_json",
+      "to": "m1_r13_18_manifest_a_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_10_independent_plan_py",
+      "to": "m1_r13_26_manifest_b_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_11_fixture_recipe_py",
+      "to": "m1_r13_26_manifest_b_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_12_test_new_seams_py",
+      "to": "m1_r13_26_manifest_b_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_21_event_source_diagnostic_matrix_json",
+      "to": "m1_r13_26_manifest_b_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_22_double_clip_mutation_spec_json",
+      "to": "m1_r13_26_manifest_b_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_23_first_difference_spec_json",
+      "to": "m1_r13_26_manifest_b_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_24_bounds_and_pending_json",
+      "to": "m1_r13_26_manifest_b_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_25_static_receipt_b_json",
+      "to": "m1_r13_26_manifest_b_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_27_04_capacity_schedule_r13_json",
+      "to": "m1_r13_26_manifest_b_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    },
+    {
+      "from": "m1_r13_28_06_case_matrix_r13_json",
+      "to": "m1_r13_26_manifest_b_json",
+      "meaning": "Static package-manifest byte descriptor association only; not an executed dataflow or semantic validation",
+      "relationship": "static_declared_identity"
+    }
+  ],
+  "processing_order": [
+    "application source assembly",
+    "unique FRAME from independent input/rules",
+    "raw -> canonical + derived43 + raw/public physical-line index",
+    "CSV encode -> CSV decode -> each canonical row equality",
+    "intake projection + complete sidecar + ledger/preserved rows",
+    "calendar",
+    "serial/TX",
+    "actual ROM manifest then math row index + sparse histories + manifest",
+    "provenance then D4 intermediate HANDOFF",
+    "R13 coordinator EOF/resource/atomic-completion checks: actual results pending at this B snapshot"
+  ],
+  "source_archive_closure": {
+    "container": "source_application",
+    "source_counts": {
+      "base_units": 72,
+      "with_capture_units": 75,
+      "ROMs": 9,
+      "headers": 2,
+      "aliases": 2
+    },
+    "member_manifest": "ORIGINALS_INDEX.json#/containers/source_application/members",
+    "archive_dependency_graph_object": "application_graph",
+    "all_97_member_bodies_hashed_here": true,
+    "does_not_prove_tool_or_native_execution": true
+  },
+  "standalone_inputs": [
+    {
+      "role": "execution_receipt",
+      "object": "execution_receipt"
+    },
+    {
+      "role": "source_closure",
+      "object": "source_closure"
+    },
+    {
+      "role": "base_source_closure",
+      "object": "base_source_closure"
+    },
+    {
+      "role": "source_decision",
+      "object": "source_decision"
+    },
+    {
+      "role": "rom_manifest",
+      "object": "rom_manifest"
+    },
+    {
+      "role": "observer",
+      "object": "observer"
+    },
+    {
+      "role": "driver",
+      "object": "driver"
+    },
+    {
+      "role": "tb",
+      "object": "tb"
+    },
+    {
+      "role": "tool_identity",
+      "object": "tool_identity"
+    },
+    {
+      "role": "capture_contract",
+      "object": "capture_contract"
+    },
+    {
+      "role": "public_rows",
+      "object": "public_rows"
+    },
+    {
+      "role": "raw_capture",
+      "object": "raw_capture"
+    },
+    {
+      "role": "reset_edges",
+      "object": "reset_edges"
+    },
+    {
+      "role": "end",
+      "object": "end"
+    },
+    {
+      "role": "stdout",
+      "object": "stdout"
+    },
+    {
+      "role": "midi_plan",
+      "object": "midi_plan"
+    },
+    {
+      "role": "frame_plan",
+      "object": "frame_plan"
+    },
+    {
+      "role": "ledger",
+      "object": "ledger"
+    },
+    {
+      "role": "tx_report",
+      "object": "tx_report"
+    },
+    {
+      "role": "noteon_semantics_binding",
+      "object": "noteon_semantics_binding"
+    },
+    {
+      "role": "noteon_semantics_acceptance",
+      "object": "noteon_semantics_acceptance"
+    }
+  ],
+  "M1_consumer_dependencies": {
+    "seven_INPUT_roles": "ORIGINALS_INDEX.json#/mechanical_inputs",
+    "six_D4_OUTPUT_files": "ORIGINALS_INDEX.json#/mechanical_outputs",
+    "signed_target_decision": "m1_compatibility",
+    "direct_readiness": false,
+    "reason": "R10 signed consumer remains unchanged; new R13 reader/semantics sources are now accessible L0 candidates, with actual job controls, geometry, source/contract grant, runtime54 and capacity still pending.",
+    "new_candidate": {
+      "state": "SOURCE_PRESENT_L0_NOT_RUNTIME_VALIDATED",
+      "intake_event": "M1_R13_STATIC_36_RECEIVED",
+      "receipt_object": "m1_r13_M3_receipt",
+      "handoff_object": "m1_r13_36_handoff_json",
+      "manifest_A": "m1_r13_18_manifest_a_json",
+      "manifest_B": "m1_r13_26_manifest_b_json",
+      "source_manifest": "m1_r13_35_source_manifest_json",
+      "source_bindings": "m1_r13_13_source_bindings_r13_json",
+      "reader_object": "m1_r13_07_run_stream_math_py",
+      "semantics_object": "m1_r13_10_independent_plan_py",
+      "worker_object": "m1_r13_09_worker_group_py",
+      "entry_function": "run_stream_math.evaluate(job, root, output, bindings, tick, group_budget=None)",
+      "entry_admission": "Only worker_group admits candidate; B does not call/import it. New job/control wrapper is not a replacement math-data schema.",
+      "job_schema": "M1_R13_STREAM_JOB_V1",
+      "profile": "C9_PIANO_TRIANGLE_NOTES_DELAY_CLOCKED_V1",
+      "mode_accepted_by_candidate_source": "SYNTHETIC only; REAL rejects PENDING_REAL_ADMISSION",
+      "seven_stream_roles": [
+        "raw_capture",
+        "public_rows",
+        "line_index",
+        "row_index",
+        "fx_history",
+        "advance_history",
+        "input_apply_history"
+      ],
+      "metadata_roles": [
+        "independent_plan",
+        "frame_plan",
+        "reset_edges",
+        "provenance",
+        "end"
+      ],
+      "D4_stream_mapping": {
+        "raw_capture": "raw_capture",
+        "public_rows": "public_rows",
+        "line_index": "raw_public_line_index",
+        "row_index": "math_math_row_index",
+        "fx_history": "math_fx_history",
+        "advance_history": "math_advance_history",
+        "input_apply_history": "math_input_and_apply_history"
+      },
+      "mapping_scope": "These object names identify the unchanged historical cohort bodies, not a ready-to-run new job or a conversion of their control metadata.",
+      "current_cohort_direct_compatibility": "NOT_PROVED; original raw reset JSONL, FRAME epochs[].cycles, synthetic empty plan and END finish_cycle are not silently relabelled as candidate reset/frame/independent-plan/end metadata.",
+      "software54": {
+        "proposed": 54,
+        "positive": 8,
+        "negative": 46,
+        "actual": 0
+      },
+      "capacity": {
+        "actual_measurement": false,
+        "actual_M3_geometry": null,
+        "status": "PROPOSED_FULL_GEOMETRY_NOT_MEASURED",
+        "worker_CAP01": "CAPACITY_GENERATOR_BINDING_PENDING",
+        "required_successor": "Responsible M1 wires the fixed generator after M3 exact geometry/volume contract closes; all generation stays inside separately admitted CAP01 clock."
+      },
+      "grant_boundary": "M1 static publication permission is distinct from target SW120/CAP600/FIX60 proposal; no target execution grant, M3 budget borrowing or M3 deadline reset.",
+      "accepted_runtime_or_math": false,
+      "REAL_admitted": false
+    }
+  },
+  "boundaries": {
+    "identity_vs_authenticity": "File hashes and application closure verify exact bytes, not that the declared simulator argv ran.",
+    "independence": "independent_plan and FRAME derive from predeclared scenario/rules; expected arithmetic never derives from actual PCM.",
+    "transport": "Volumes preserve a continuous logical stream and do not create reset/epoch/row events.",
+    "new_R13_results": "Coordinator owns backend_close and final DELIVERY manifest. This DAG does not imply those executions occurred."
+  },
+  "math_dataflow_boundary": {
+    "parsed_stream": "public_rows only",
+    "identity_only_inputs": [
+      "frame_plan",
+      "midi_plan",
+      "ledger",
+      "tx_report"
+    ],
+    "meaning": "These inputs are byte/SHA checked and retained as bundle descriptors; math_bundle does not parse them to produce the four streams or establish their semantic consistency with the rows.",
+    "real_mathematics": false
+  },
+  "previous_revision": {
+    "revision": "B_STATIC_20261019_01",
+    "handoff_path": "code/output/m3_backend_stream_r13_20261018/roles/night3/HANDOFF.json",
+    "handoff_sha256": "847968872d2cab35389a22f852286df3cc3aa1bf41e456abec9b99ef2cf94cd4",
+    "original_docs_snapshot": "code/output/m3_backend_stream_r13_20261018/roles/night3/B_STATIC_01_BEFORE_M1_R13",
+    "superseded_for_new_intake_only": true,
+    "old_evidence_and_failure_history_preserved": true
+  },
+  "source_tree_checkpoint": "544f5af23fa427db0a931df719dc6135c75a180f",
+  "new_static_intake": {
+    "id": "M1_R13_STATIC_36_RECEIVED",
+    "handoff_id": "M1-R13-R02-STATIC-20261018-01",
+    "result_commit": "86cd5975f5679ad2db9da7b0d20d2892e76e76b1",
+    "binding_commit": "7319fe670d3524252ac299e11f00d00ae52c9953",
+    "source_tree_checkpoint": "544f5af23fa427db0a931df719dc6135c75a180f",
+    "dedup_key": "M1-R13-R02-STATIC-20261018-01|86cd5975f5679ad2db9da7b0d20d2892e76e76b1|M3",
+    "received_utc": "2026-10-18T16:36:45.310014+00:00",
+    "M3_receipt_object": "m1_r13_M3_receipt",
+    "safe_FF_object": "m1_r13_safe_FF_receipt",
+    "first_metadata_read_failure": "m1_r13_first_read_failure",
+    "state": "RECEIVED_STATIC_ORIGINALS_ONLY",
+    "originals_rechecked_here": 36,
+    "coordinator_manifest_refs_verified": 30,
+    "role_local_candidate_imports": 0,
+    "role_local_target_tests": 0,
+    "producer_reported_target_cases": 0,
+    "producer_reported_workers": 0,
+    "producer_reported_capacity_measurements": 0,
+    "runtime_compatibility_accepted": false,
+    "math_accepted": false,
+    "REAL_admitted": false,
+    "M3_W_authorization_changed": false,
+    "old_R12_functional_baseline_unchanged": "e39b36b9b7f956659f7fd5e3ca6dd57e5a34735b",
+    "old_consumption_and_original_START_deadline_unchanged": true,
+    "original_cohort_unchanged": "R12_R02_CD_CASE01",
+    "old_163_originals_not_reaudited_or_replaced": true,
+    "archive_body_rule": "Original Git path files are accessible and SHA verified; upstream local STATIC_HANDOFF.zip was not retrieved and is not assumed delivered.",
+    "candidate_progress": "Versioned bounded reader and independent semantics source are now present as L0 candidates; current R10 consumer remains unchanged. Source arrival is not runtime/capacity/math acceptance.",
+    "CAP01": "CAPACITY_GENERATOR_BINDING_PENDING; precise source successor and M3 actual geometry/volume generator binding required before responsible M1 run; no pre-generated fixture bypass.",
+    "job_profile": "M1_R13_STREAM_JOB_V1 / C9_PIANO_TRIANGLE_NOTES_DELAY_CLOCKED_V1",
+    "seven_old_job_INPUT_roles": "mechanical_index/public_rows/raw_capture/independent_plan/frame_plan/reset_edges/provenance",
+    "seven_candidate_stream_roles": [
+      "raw_capture",
+      "public_rows",
+      "line_index",
+      "row_index",
+      "fx_history",
+      "advance_history",
+      "input_apply_history"
+    ],
+    "stream_role_set_is_not_old_seven_INPUT_role_set": true,
+    "new_object_ids": [
+      "m1_r13_01_stream_io_py",
+      "m1_r13_02_identity_guard_py",
+      "m1_r13_03_history_join_py",
+      "m1_r13_04_lifecycle_store_py",
+      "m1_r13_05_clocked_math_stream_py",
+      "m1_r13_06_results_stream_py",
+      "m1_r13_07_run_stream_math_py",
+      "m1_r13_08_measure_group_py",
+      "m1_r13_09_worker_group_py",
+      "m1_r13_10_independent_plan_py",
+      "m1_r13_11_fixture_recipe_py",
+      "m1_r13_12_test_new_seams_py",
+      "m1_r13_13_source_bindings_r13_json",
+      "m1_r13_14_input_dependency_bindings_json",
+      "m1_r13_15_resource_time_limits_json",
+      "m1_r13_16_bounds_and_pending_json",
+      "m1_r13_17_static_receipt_a_json",
+      "m1_r13_18_manifest_a_json",
+      "m1_r13_19_05_capacity_limits_and_measurement_r13_json",
+      "m1_r13_20_08_time_and_stop_r13_json",
+      "m1_r13_21_event_source_diagnostic_matrix_json",
+      "m1_r13_22_double_clip_mutation_spec_json",
+      "m1_r13_23_first_difference_spec_json",
+      "m1_r13_24_bounds_and_pending_json",
+      "m1_r13_25_static_receipt_b_json",
+      "m1_r13_26_manifest_b_json",
+      "m1_r13_27_04_capacity_schedule_r13_json",
+      "m1_r13_28_06_case_matrix_r13_json",
+      "m1_r13_29_plan_r13_json",
+      "m1_r13_30_authorization_state_json",
+      "m1_r13_31_start_and_deadline_json",
+      "m1_r13_32_09_budget_and_native_call_request_r13_json",
+      "m1_r13_33_intake_dedup_json",
+      "m1_r13_34_outbox_reference_json",
+      "m1_r13_35_source_manifest_json",
+      "m1_r13_36_handoff_json",
+      "m1_r13_M3_receipt",
+      "m1_r13_safe_FF_receipt",
+      "m1_r13_first_read_failure"
+    ],
+    "candidate": {
+      "state": "SOURCE_PRESENT_L0_NOT_RUNTIME_VALIDATED",
+      "intake_event": "M1_R13_STATIC_36_RECEIVED",
+      "receipt_object": "m1_r13_M3_receipt",
+      "handoff_object": "m1_r13_36_handoff_json",
+      "manifest_A": "m1_r13_18_manifest_a_json",
+      "manifest_B": "m1_r13_26_manifest_b_json",
+      "source_manifest": "m1_r13_35_source_manifest_json",
+      "source_bindings": "m1_r13_13_source_bindings_r13_json",
+      "reader_object": "m1_r13_07_run_stream_math_py",
+      "semantics_object": "m1_r13_10_independent_plan_py",
+      "worker_object": "m1_r13_09_worker_group_py",
+      "entry_function": "run_stream_math.evaluate(job, root, output, bindings, tick, group_budget=None)",
+      "entry_admission": "Only worker_group admits candidate; B does not call/import it. New job/control wrapper is not a replacement math-data schema.",
+      "job_schema": "M1_R13_STREAM_JOB_V1",
+      "profile": "C9_PIANO_TRIANGLE_NOTES_DELAY_CLOCKED_V1",
+      "mode_accepted_by_candidate_source": "SYNTHETIC only; REAL rejects PENDING_REAL_ADMISSION",
+      "seven_stream_roles": [
+        "raw_capture",
+        "public_rows",
+        "line_index",
+        "row_index",
+        "fx_history",
+        "advance_history",
+        "input_apply_history"
+      ],
+      "metadata_roles": [
+        "independent_plan",
+        "frame_plan",
+        "reset_edges",
+        "provenance",
+        "end"
+      ],
+      "D4_stream_mapping": {
+        "raw_capture": "raw_capture",
+        "public_rows": "public_rows",
+        "line_index": "raw_public_line_index",
+        "row_index": "math_math_row_index",
+        "fx_history": "math_fx_history",
+        "advance_history": "math_advance_history",
+        "input_apply_history": "math_input_and_apply_history"
+      },
+      "mapping_scope": "These object names identify the unchanged historical cohort bodies, not a ready-to-run new job or a conversion of their control metadata.",
+      "current_cohort_direct_compatibility": "NOT_PROVED; original raw reset JSONL, FRAME epochs[].cycles, synthetic empty plan and END finish_cycle are not silently relabelled as candidate reset/frame/independent-plan/end metadata.",
+      "software54": {
+        "proposed": 54,
+        "positive": 8,
+        "negative": 46,
+        "actual": 0
+      },
+      "capacity": {
+        "actual_measurement": false,
+        "actual_M3_geometry": null,
+        "status": "PROPOSED_FULL_GEOMETRY_NOT_MEASURED",
+        "worker_CAP01": "CAPACITY_GENERATOR_BINDING_PENDING",
+        "required_successor": "Responsible M1 wires the fixed generator after M3 exact geometry/volume contract closes; all generation stays inside separately admitted CAP01 clock."
+      },
+      "grant_boundary": "M1 static publication permission is distinct from target SW120/CAP600/FIX60 proposal; no target execution grant, M3 budget borrowing or M3 deadline reset.",
+      "accepted_runtime_or_math": false,
+      "REAL_admitted": false
+    },
+    "catalog_edge_count": 25,
+    "old_163_nodes_and_67_edges_unchanged": true,
+    "original_capture_DAG_unchanged": true
+  }
+}

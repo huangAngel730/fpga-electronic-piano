@@ -1,0 +1,53 @@
+{
+  "schema": "M3_R13_CALL_CHAIN_BINDINGS_V1",
+  "status": "STATIC_CANDIDATE_NOT_RUN",
+  "successor_call_chain": [
+    "entry.run",
+    "binding.run_frozen_chain",
+    "R12 capture_entry.process",
+    "R12 DependencyContext.complete",
+    "R11 process/declared_binding",
+    "R10 process/capture_preflight",
+    "actual D4 task_day4_completion_20261017/chain.py::process",
+    "application/frame/stream/codec/intake/calendar/serial/math/provenance"
+  ],
+  "actual_D4": {
+    "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/task_day4_completion_20261017/chain.py",
+    "bytes": 12667,
+    "sha256": "64bfdf4787aa9dd1ddab30a30ed7cf4fb05be763b9303ec965061005430f1c44"
+  },
+  "module_bindings": {
+    "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/intake_20261018/CAPTURE_MODULE_BINDINGS.json",
+    "bytes": 2746,
+    "sha256": "dc66002f2a14017ae7abb439ea683b9b2dc1dfca18a35c6b07b43e6a37d661f8"
+  },
+  "private_output_injection_order": [
+    "json_identity OUTPUT",
+    "capture_identity with private json_identity",
+    "capture_link_successor with private json_identity/capture_identity",
+    "capture_entry with private json_identity/capture_link_successor"
+  ],
+  "D4_substitute": false,
+  "D4_called_once_per_complete_logical_window": true,
+  "stream_storage": "transparent lossless gzip volumes, <=1MiB physical requests",
+  "D4_math_outputs": [
+    "MATH_INPUT_BUNDLE.json",
+    "RECEIPT.json",
+    "MATH_ROW_INDEX.jsonl",
+    "FX_HISTORY.jsonl",
+    "ADVANCE_HISTORY.jsonl",
+    "INPUT_AND_APPLY_HISTORY.jsonl"
+  ],
+  "M1_math_input_roles": [
+    "mechanical_index",
+    "public_rows",
+    "raw_capture",
+    "independent_plan",
+    "frame_plan",
+    "reset_edges",
+    "provenance"
+  ],
+  "consumer_compatibility": "M1_SELECTED_D4_BUNDLE_PLUS_FOUR_JSONL; new R13 candidate received L0 only; runtime/reset projection compatibility PENDING",
+  "all_authority_flags_false": true,
+  "resource_accounting": "One shared prewrite artifact budget; owned allocation/rounding plus current free observations; finite refusal is W FAIL, never capacity PASS"
+}

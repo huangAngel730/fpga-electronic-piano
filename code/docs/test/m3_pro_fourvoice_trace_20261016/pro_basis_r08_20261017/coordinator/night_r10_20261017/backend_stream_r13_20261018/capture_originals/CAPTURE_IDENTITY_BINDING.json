@@ -1,0 +1,255 @@
+{
+  "schema": "M3_R13_CAPTURE_IDENTITY_BINDING_V1",
+  "package": "R13-B",
+  "revision": "B_STATIC_20261019_02_M1_R13_INTAKE",
+  "snapshot_utc": "2026-10-18T16:42:38.313Z",
+  "role": "night3_B_writer",
+  "task_original": "r13_task_original",
+  "baseline_result_commit": "e39b36b9b7f956659f7fd5e3ca6dd57e5a34735b",
+  "actual_level": "L0 static source/metadata/archive bytes; existing L1 producer evidence indexed, no rerun",
+  "target_execution_by_this_role": false,
+  "real_verified": false,
+  "math_verified": false,
+  "board_release_allowed": false,
+  "cohort": "R12_R02_CD_CASE01",
+  "capture_id": "C9_SYNTHETIC_NOT_REAL",
+  "origin": "SYNTHETIC_SCHEMA_FIXTURE",
+  "not_real_simulator_capture": true,
+  "core_originals": {
+    "raw": "raw_capture",
+    "resets": "reset_edges",
+    "end": "end",
+    "stdout": "stdout",
+    "stderr": "stderr",
+    "declared_receipt": "execution_receipt",
+    "request": "capture_request",
+    "window": "window_plan",
+    "independent_stimulus": "midi_plan",
+    "unique_frame": "frame_plan",
+    "application": "application",
+    "source": "source_closure",
+    "ROM": "rom_manifest",
+    "tools": "tool_identity"
+  },
+  "declared_execution_receipt": {
+    "schema": "M3_R7D_DECLARED_EXECUTION_V1",
+    "argv": [
+      "E:\\FPGA\\Bpan\\modelsim\\modelsim1\\win64\\vsim.exe",
+      "-c",
+      "-gCAPTURE_ID=C9_SYNTHETIC_NOT_REAL",
+      "-gPLAN_STOP_ID=D4_IDLE_STOP",
+      "-gSTOP_DRIVER_CYCLE=5",
+      "-gEXPECTED_FINISH_CORE_CYCLE=6",
+      "-gMAX_CORE_SAMPLES=16",
+      "-gMAX_SIM_TIME_PS=1000000",
+      "work.tb_r7a_c9_public_capture",
+      "-do",
+      "run -all; quit -f"
+    ],
+    "cwd": "inputs",
+    "origin_group": "R12_SYNTHETIC_FIXTURE_NOT_NATIVE",
+    "exit_code_in_synthetic_declaration": 0,
+    "timeout_in_synthetic_declaration": false,
+    "cleanup_in_synthetic_declaration": true,
+    "declared_bindings": [
+      {
+        "binding": "source_manifest",
+        "object": "source_manifest",
+        "declared_sha256": "1932f7730236ab41c22c92524b63043014e26ebf740cc9c17eb208d3663e9ca3",
+        "bytes": 1890,
+        "actual_sha256": "1932f7730236ab41c22c92524b63043014e26ebf740cc9c17eb208d3663e9ca3",
+        "match": true
+      },
+      {
+        "binding": "rom_manifest",
+        "object": "capture_rom_closure",
+        "declared_sha256": "f38062fe9f0e2bd82ebfbc9d83cd35720675a261cea08b87ca829b69c094166d",
+        "bytes": 2490,
+        "actual_sha256": "f38062fe9f0e2bd82ebfbc9d83cd35720675a261cea08b87ca829b69c094166d",
+        "match": true
+      },
+      {
+        "binding": "tool_manifest",
+        "object": "capture_tool_closure",
+        "declared_sha256": "89446bb20319258b81a38f4496125e37b0ea91f538a01663512367a724deaab1",
+        "bytes": 1684,
+        "actual_sha256": "89446bb20319258b81a38f4496125e37b0ea91f538a01663512367a724deaab1",
+        "match": true
+      },
+      {
+        "binding": "input_plan",
+        "object": "midi_plan",
+        "declared_sha256": "35a723e210a2cce83bdb5b346855beb0fca3fe3a5c806c247cdd8ffc8bc0a59a",
+        "bytes": 187,
+        "actual_sha256": "35a723e210a2cce83bdb5b346855beb0fca3fe3a5c806c247cdd8ffc8bc0a59a",
+        "match": true
+      },
+      {
+        "binding": "window_plan",
+        "object": "window_plan",
+        "declared_sha256": "aead7731e122a3b8126fc36a8fda9ec88bef5ee35c57c499498ac589ef4eb03f",
+        "bytes": 566,
+        "actual_sha256": "aead7731e122a3b8126fc36a8fda9ec88bef5ee35c57c499498ac589ef4eb03f",
+        "match": true
+      },
+      {
+        "binding": "raw_stdout",
+        "object": "stdout",
+        "declared_sha256": "56a100507f186fe21aa0595c92f953cfb05e691bbc30075cd0ede98e9d9c2bb6",
+        "bytes": 101,
+        "actual_sha256": "56a100507f186fe21aa0595c92f953cfb05e691bbc30075cd0ede98e9d9c2bb6",
+        "match": true
+      },
+      {
+        "binding": "raw_stderr",
+        "object": "stderr",
+        "declared_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "match": true
+      },
+      {
+        "binding": "raw_trace",
+        "object": "raw_capture",
+        "declared_sha256": "2188b80bbe4561c44a1728fabc50dbb0bd9b6101582700799d537f0443631882",
+        "bytes": 18827,
+        "actual_sha256": "2188b80bbe4561c44a1728fabc50dbb0bd9b6101582700799d537f0443631882",
+        "match": true
+      },
+      {
+        "binding": "reset_edges",
+        "object": "reset_edges",
+        "declared_sha256": "f57c3a9fe8454d12f90b8ea2ac03c4ac1b51bad2dec4bd5e7e21e659ed03b129",
+        "bytes": 365,
+        "actual_sha256": "f57c3a9fe8454d12f90b8ea2ac03c4ac1b51bad2dec4bd5e7e21e659ed03b129",
+        "match": true
+      },
+      {
+        "binding": "finish_receipt",
+        "object": "end",
+        "declared_sha256": "369259e1e2aeee9289721b2dbcc1f6393ff0044ef8874c24f094e489003a593d",
+        "bytes": 298,
+        "actual_sha256": "369259e1e2aeee9289721b2dbcc1f6393ff0044ef8874c24f094e489003a593d",
+        "match": true
+      },
+      {
+        "binding": "driver",
+        "object": "driver",
+        "declared_sha256": "99e40266a46f1606409fa6ef270dd0c6b056dcb511363ae90dfbaf67653df89a",
+        "bytes": 3417,
+        "actual_sha256": "99e40266a46f1606409fa6ef270dd0c6b056dcb511363ae90dfbaf67653df89a",
+        "match": true
+      },
+      {
+        "binding": "observer",
+        "object": "observer",
+        "declared_sha256": "ed4c51834773e411c67cde4743c188f4e719c32f823a969f7ba4b8dea83cc7cd",
+        "bytes": 11677,
+        "actual_sha256": "ed4c51834773e411c67cde4743c188f4e719c32f823a969f7ba4b8dea83cc7cd",
+        "match": true
+      }
+    ],
+    "execution_authenticity": "NOT_ESTABLISHED; synthetic declaration is not an actual vsim launch receipt",
+    "R12_python_controller_actual": "history_R02_CD_RESULT_json"
+  },
+  "canonical_binding": {
+    "schema": "M3_R7A_C9_PUBLIC_ROW_V1",
+    "object": "public_rows",
+    "row_count": 7,
+    "field_count": 74,
+    "raw_port_count": 72,
+    "first_source": {
+      "raw_sha256": "2188b80bbe4561c44a1728fabc50dbb0bd9b6101582700799d537f0443631882",
+      "reset_edges_sha256": "f57c3a9fe8454d12f90b8ea2ac03c4ac1b51bad2dec4bd5e7e21e659ed03b129",
+      "line": 1,
+      "cycle": 0,
+      "epoch": 0,
+      "time_ps": 25000,
+      "sampling_phase": "POSEDGE_PRE_NBA"
+    },
+    "last_source": {
+      "raw_sha256": "2188b80bbe4561c44a1728fabc50dbb0bd9b6101582700799d537f0443631882",
+      "reset_edges_sha256": "f57c3a9fe8454d12f90b8ea2ac03c4ac1b51bad2dec4bd5e7e21e659ed03b129",
+      "line": 7,
+      "cycle": 6,
+      "epoch": 0,
+      "time_ps": 175000,
+      "sampling_phase": "POSEDGE_PRE_NBA"
+    },
+    "global_source_line": "1-based; never restarts at epoch or volume",
+    "global_cycle": "0-based contiguous core sampling coordinate; never derived from FRAME/request identifiers",
+    "sampling_phase": "POSEDGE_PRE_NBA",
+    "shared_raw_sha256": "2188b80bbe4561c44a1728fabc50dbb0bd9b6101582700799d537f0443631882",
+    "shared_reset_sha256": "f57c3a9fe8454d12f90b8ea2ac03c4ac1b51bad2dec4bd5e7e21e659ed03b129",
+    "origin_retained": true,
+    "physical_line_hash_index": "raw_public_line_index",
+    "semantic_row_hash_source": "d4_math_producer canonical sorted JSON UTF-8 bytes without LF; separate from physical line digest"
+  },
+  "finish_and_reset": {
+    "row_count": 7,
+    "finish_cycle": 6,
+    "finish_time_ps": 175000,
+    "stdout_monitor_end": "MONITOR_END capture_id=C9_SYNTHETIC_NOT_REAL cycle=6 time_ps=175000 rows=7 reason=PLANNED_WINDOW_END",
+    "end_object": "end",
+    "reset_count": 2,
+    "reset_times_ps": [
+      0,
+      10000
+    ],
+    "first_sample_time_ps": 25000,
+    "first_sample_rst_n": 1,
+    "reset_plan_is_not_reset_observation": true,
+    "real_full_window_D_or_D_plus_1": "PENDING_M2_FROZEN_CONTRACT; do not infer from this 7-row synthetic fixture"
+  },
+  "M1_association": {
+    "roles": "ORIGINALS_INDEX.json#/mechanical_inputs/roles",
+    "signed_decision": "m1_compatibility",
+    "accepted_note_on_semantics": "Reuse E -> H -> C; C=H+1, earliest E+2 absent interrupting reset. Already accepted; no fresh wording decision.",
+    "independent_apply_event_seq": null,
+    "router_apply_seq_is_independent_event_seq": false,
+    "FRAME_F_is_request_id": false,
+    "actual_PCM_is_golden": false,
+    "audio_stable": null,
+    "actual_DUT_backpressure_authority": "PENDING; driver-ready labels alone insufficient"
+  },
+  "real_capture": {
+    "capture_id": null,
+    "raw": null,
+    "resets": null,
+    "stdout": null,
+    "stderr": null,
+    "executed_argv": null,
+    "actual_exit_cleanup": null,
+    "provenance_admitted": false,
+    "status": "PENDING_NEW_EXACT_CAPTURE_ADMISSION_AND_SAME_RUN_ORIGINALS",
+    "new_real_execution_permission": false
+  },
+  "actual_static_work_this_role": {
+    "target_imports": 0,
+    "compile_or_tests": 0,
+    "HDL_EDA_devices": 0,
+    "git_writes": 0,
+    "network": 0,
+    "metadata_and_archive_bytes_only": true
+  },
+  "previous_revision": {
+    "revision": "B_STATIC_20261019_01",
+    "handoff_path": "code/output/m3_backend_stream_r13_20261018/roles/night3/HANDOFF.json",
+    "handoff_sha256": "847968872d2cab35389a22f852286df3cc3aa1bf41e456abec9b99ef2cf94cd4",
+    "original_docs_snapshot": "code/output/m3_backend_stream_r13_20261018/roles/night3/B_STATIC_01_BEFORE_M1_R13",
+    "superseded_for_new_intake_only": true,
+    "old_evidence_and_failure_history_preserved": true
+  },
+  "source_tree_checkpoint": "544f5af23fa427db0a931df719dc6135c75a180f",
+  "new_M1_intake": {
+    "event_id": "M1_R13_STATIC_36_RECEIVED",
+    "receipt_object": "m1_r13_M3_receipt",
+    "same_capture_originals_replaced": false,
+    "new_candidate_sources_are_capture_originals": false,
+    "new_geometry_adopted_for_old_cohort": false,
+    "source_checkpoint_only": "544f5af23fa427db0a931df719dc6135c75a180f",
+    "R12_source_bytes_unchanged_per_coordinator": true,
+    "actual_real_capture_or_M1_math": false,
+    "candidate_state": "SOURCE_PRESENT_L0_NOT_RUNTIME_VALIDATED"
+  }
+}

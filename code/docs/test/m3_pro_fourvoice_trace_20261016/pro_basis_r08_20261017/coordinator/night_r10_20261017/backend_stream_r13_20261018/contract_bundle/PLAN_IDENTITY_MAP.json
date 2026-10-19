@@ -1,0 +1,776 @@
+{
+  "schema": "M3_R13_PLAN_IDENTITY_MAP_V1",
+  "bundle_id": "M3_R13_CONTRACT_20261019_R01",
+  "contract_index": "CONTRACT_INDEX.json",
+  "status": "INDEPENDENT_INPUT_AVAILABLE_ACTUAL_MAPPING_PENDING",
+  "level": "L0_STATIC_ORIGINALS_AND_SOURCE_ONLY",
+  "purpose": "Metadata route over unchanged independent stimulus and FRAME schemas; not a new DUT event format or a generated FRAME_PLAN",
+  "producer": "M3 midi_stimulus/generate.py from parameters.json and cases.json, before observing DUT output",
+  "input_schema": "M3_R06_MIDI_STIMULUS_PLAN_V1",
+  "sources": {
+    "generator": {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/generate.py",
+      "bytes": 7928,
+      "sha256": "8d1d32f322ef62b06c90b2fe0eb205dd65e37ebb3b812f0f48f4861be47febf8"
+    },
+    "parameters": {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/parameters.json",
+      "bytes": 1099,
+      "sha256": "4c45b09bd8126c2b82d4f8b77eab39ded35fdc1ca8dd0515754b0240255383b4"
+    },
+    "cases": {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/cases.json",
+      "bytes": 4186,
+      "sha256": "c21c2a4bcaa2e1837ec55ac1b0a193ac841d9dc31db8fef6200b869e735053c7"
+    },
+    "plan": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/RUN_02/products/plan.json",
+      "bytes": 28378,
+      "sha256": "d07c428162dbccefa8215ac629840058c3a8edd809e3f077dd695813133ad918"
+    },
+    "bytes": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/RUN_02/products/bytes.drv",
+      "bytes": 810,
+      "sha256": "43bd347b7cc5082b10c5cef55e7adeac071fe6b9dfdb0b38437b5bddaa99ad9d"
+    },
+    "reset": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/RUN_02/products/reset.drv",
+      "bytes": 30,
+      "sha256": "c255e20fafbd47d3591a9166ef736e1766ff1a8b93378afd4ef895ad693c1a52"
+    },
+    "ready": {
+      "path": "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/RUN_02/products/ready.drv",
+      "bytes": 22,
+      "sha256": "ee3f97b4a0780c0a851a46c4fe8689c4518921dad3c79e5e52474d7757195d25"
+    },
+    "driver": {
+      "path": "code/tb/board/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/midi_stimulus/midi_public_port_driver.sv",
+      "bytes": 3417,
+      "sha256": "99e40266a46f1606409fa6ef270dd0c6b056dcb511363ae90dfbaf67653df89a"
+    },
+    "frame_generator": {
+      "path": "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r06_20261017/event_calendar/frame_plan_generator_candidate.py",
+      "bytes": 10359,
+      "sha256": "38592faebeeeb0a2022668785453760a5b58babd24af6ff18a96f15790597191"
+    },
+    "frame_rules": {
+      "path": "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_observer_20261017/FRAME_PLAN_RULES.json",
+      "bytes": 1139,
+      "sha256": "3c968a151b0b5369f9dd95465761b2d87449c29975b1fca914f81fc5cfd01560"
+    }
+  },
+  "independent_input": {
+    "total_cycles": 1122320,
+    "byte_count": 63,
+    "event_count": 23,
+    "clock_hz": 40000000,
+    "baud": 31250,
+    "bit_cycles": 1280,
+    "byte_cycles": 12800,
+    "event_packing": "((type&7)<<61)|((source&15)<<57)|((channel&15)<<53)|((note&127)<<46)|((velocity10&1023)<<36)",
+    "velocity_rule": "velocity10=(velocity7<<3)|(velocity7>>4); NoteOn velocity0 becomes NoteOff and velocity10=0",
+    "integer_transport": "expected_event_hex is the exact sixteen-digit hex string; parse 64-bit event/config62/generation128 losslessly, never via floating-point JSON Number",
+    "bytes_source": "/bytes, including running status and interleaved realtime byte_seq whose event_seq may be null",
+    "events_source": "/events, exact event_seq and timing windows copied as independent input metadata",
+    "reset_plan": [
+      {
+        "cycle": 0,
+        "level": 0,
+        "label": "initial_reset_assert"
+      },
+      {
+        "cycle": 800,
+        "level": 1,
+        "label": "initial_reset_release"
+      },
+      {
+        "cycle": 1000480,
+        "level": 0,
+        "label": "mid_plan_reset_assert"
+      },
+      {
+        "cycle": 1002480,
+        "level": 1,
+        "label": "mid_plan_reset_release"
+      }
+    ],
+    "ready_plan": [
+      {
+        "cycle": 0,
+        "level": 1,
+        "label": "downstream_ready"
+      },
+      {
+        "cycle": 927520,
+        "level": 0,
+        "label": "public_event_backpressure_assert"
+      },
+      {
+        "cycle": 988480,
+        "level": 1,
+        "label": "public_event_backpressure_release"
+      }
+    ],
+    "events": [
+      {
+        "event_seq": 1,
+        "scenario": "solo_c4",
+        "normalized_kind": "note_on",
+        "channel": 0,
+        "note": 60,
+        "velocity7": 72,
+        "velocity10": 580,
+        "source_byte_seq_first": 1,
+        "source_byte_seq_final": 3,
+        "arrival_window": {
+          "min_cycle": 44320,
+          "max_cycle": 46880
+        },
+        "expected_event_hex": "000f244000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 2,
+        "scenario": "solo_c4",
+        "normalized_kind": "note_off",
+        "channel": 0,
+        "note": 60,
+        "velocity7": 32,
+        "velocity10": 0,
+        "source_byte_seq_first": 4,
+        "source_byte_seq_final": 6,
+        "arrival_window": {
+          "min_cycle": 97280,
+          "max_cycle": 99840
+        },
+        "expected_event_hex": "200f000000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 3,
+        "scenario": "solo_e4",
+        "normalized_kind": "note_on",
+        "channel": 0,
+        "note": 64,
+        "velocity7": 48,
+        "velocity10": 387,
+        "source_byte_seq_first": 7,
+        "source_byte_seq_final": 9,
+        "arrival_window": {
+          "min_cycle": 144240,
+          "max_cycle": 146800
+        },
+        "expected_event_hex": "0010183000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 4,
+        "scenario": "solo_e4",
+        "normalized_kind": "note_off",
+        "channel": 0,
+        "note": 64,
+        "velocity7": 20,
+        "velocity10": 0,
+        "source_byte_seq_first": 10,
+        "source_byte_seq_final": 12,
+        "arrival_window": {
+          "min_cycle": 197200,
+          "max_cycle": 199760
+        },
+        "expected_event_hex": "2010000000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 5,
+        "scenario": "solo_g4",
+        "normalized_kind": "note_on",
+        "channel": 0,
+        "note": 67,
+        "velocity7": 96,
+        "velocity10": 774,
+        "source_byte_seq_first": 13,
+        "source_byte_seq_final": 16,
+        "arrival_window": {
+          "min_cycle": 256960,
+          "max_cycle": 259520
+        },
+        "expected_event_hex": "0010f06000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 6,
+        "scenario": "solo_g4",
+        "normalized_kind": "note_off",
+        "channel": 0,
+        "note": 67,
+        "velocity7": 24,
+        "velocity10": 0,
+        "source_byte_seq_first": 17,
+        "source_byte_seq_final": 19,
+        "arrival_window": {
+          "min_cycle": 309920,
+          "max_cycle": 312480
+        },
+        "expected_event_hex": "2010c00000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 7,
+        "scenario": "solo_c5",
+        "normalized_kind": "note_on",
+        "channel": 0,
+        "note": 72,
+        "velocity7": 120,
+        "velocity10": 967,
+        "source_byte_seq_first": 20,
+        "source_byte_seq_final": 22,
+        "arrival_window": {
+          "min_cycle": 356880,
+          "max_cycle": 359440
+        },
+        "expected_event_hex": "00123c7000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 8,
+        "scenario": "solo_c5",
+        "normalized_kind": "note_off",
+        "channel": 0,
+        "note": 72,
+        "velocity7": 28,
+        "velocity10": 0,
+        "source_byte_seq_first": 23,
+        "source_byte_seq_final": 25,
+        "arrival_window": {
+          "min_cycle": 409840,
+          "max_cycle": 412400
+        },
+        "expected_event_hex": "2012000000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 9,
+        "scenario": "four_hold",
+        "normalized_kind": "note_on",
+        "channel": 0,
+        "note": 60,
+        "velocity7": 24,
+        "velocity10": 193,
+        "source_byte_seq_first": 26,
+        "source_byte_seq_final": 28,
+        "arrival_window": {
+          "min_cycle": 462800,
+          "max_cycle": 465360
+        },
+        "expected_event_hex": "000f0c1000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 10,
+        "scenario": "four_hold",
+        "normalized_kind": "note_on",
+        "channel": 0,
+        "note": 64,
+        "velocity7": 52,
+        "velocity10": 419,
+        "source_byte_seq_first": 29,
+        "source_byte_seq_final": 30,
+        "arrival_window": {
+          "min_cycle": 490960,
+          "max_cycle": 493520
+        },
+        "expected_event_hex": "00101a3000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 11,
+        "scenario": "four_hold",
+        "normalized_kind": "note_on",
+        "channel": 0,
+        "note": 67,
+        "velocity7": 88,
+        "velocity10": 709,
+        "source_byte_seq_first": 31,
+        "source_byte_seq_final": 33,
+        "arrival_window": {
+          "min_cycle": 531920,
+          "max_cycle": 534480
+        },
+        "expected_event_hex": "0010ec5000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 12,
+        "scenario": "four_hold",
+        "normalized_kind": "note_on",
+        "channel": 0,
+        "note": 72,
+        "velocity7": 120,
+        "velocity10": 967,
+        "source_byte_seq_first": 34,
+        "source_byte_seq_final": 35,
+        "arrival_window": {
+          "min_cycle": 560080,
+          "max_cycle": 562640
+        },
+        "expected_event_hex": "00123c7000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 13,
+        "scenario": "retrigger_boundary",
+        "normalized_kind": "note_on",
+        "channel": 0,
+        "note": 60,
+        "velocity7": 104,
+        "velocity10": 838,
+        "source_byte_seq_first": 36,
+        "source_byte_seq_final": 37,
+        "arrival_window": {
+          "min_cycle": 628240,
+          "max_cycle": 630800
+        },
+        "expected_event_hex": "000f346000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 14,
+        "scenario": "fifth_note_boundary",
+        "normalized_kind": "note_on",
+        "channel": 0,
+        "note": 76,
+        "velocity7": 64,
+        "velocity10": 516,
+        "source_byte_seq_first": 38,
+        "source_byte_seq_final": 39,
+        "arrival_window": {
+          "min_cycle": 656400,
+          "max_cycle": 658960
+        },
+        "expected_event_hex": "0013204000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 15,
+        "scenario": "release_one_by_one",
+        "normalized_kind": "note_off",
+        "channel": 0,
+        "note": 60,
+        "velocity7": 16,
+        "velocity10": 0,
+        "source_byte_seq_first": 40,
+        "source_byte_seq_final": 42,
+        "arrival_window": {
+          "min_cycle": 717360,
+          "max_cycle": 719920
+        },
+        "expected_event_hex": "200f000000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 16,
+        "scenario": "release_one_by_one",
+        "normalized_kind": "note_off",
+        "channel": 0,
+        "note": 64,
+        "velocity7": 16,
+        "velocity10": 0,
+        "source_byte_seq_first": 43,
+        "source_byte_seq_final": 44,
+        "arrival_window": {
+          "min_cycle": 755520,
+          "max_cycle": 758080
+        },
+        "expected_event_hex": "2010000000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 17,
+        "scenario": "release_one_by_one",
+        "normalized_kind": "note_off",
+        "channel": 0,
+        "note": 67,
+        "velocity7": 16,
+        "velocity10": 0,
+        "source_byte_seq_first": 45,
+        "source_byte_seq_final": 46,
+        "arrival_window": {
+          "min_cycle": 793680,
+          "max_cycle": 796240
+        },
+        "expected_event_hex": "2010c00000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 18,
+        "scenario": "release_one_by_one",
+        "normalized_kind": "note_off",
+        "channel": 0,
+        "note": 72,
+        "velocity7": 16,
+        "velocity10": 0,
+        "source_byte_seq_first": 47,
+        "source_byte_seq_final": 48,
+        "arrival_window": {
+          "min_cycle": 831840,
+          "max_cycle": 834400
+        },
+        "expected_event_hex": "2012000000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 19,
+        "scenario": "release_fifth",
+        "normalized_kind": "note_off",
+        "channel": 0,
+        "note": 76,
+        "velocity7": 16,
+        "velocity10": 0,
+        "source_byte_seq_first": 49,
+        "source_byte_seq_final": 50,
+        "arrival_window": {
+          "min_cycle": 860000,
+          "max_cycle": 862560
+        },
+        "expected_event_hex": "2013000000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 20,
+        "scenario": "velocity_zero",
+        "normalized_kind": "note_off",
+        "channel": 0,
+        "note": 74,
+        "velocity7": 0,
+        "velocity10": 0,
+        "source_byte_seq_first": 51,
+        "source_byte_seq_final": 53,
+        "arrival_window": {
+          "min_cycle": 912960,
+          "max_cycle": 915520
+        },
+        "expected_event_hex": "2012800000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 21,
+        "scenario": "backpressure",
+        "normalized_kind": "note_on",
+        "channel": 0,
+        "note": 55,
+        "velocity7": 80,
+        "velocity10": 645,
+        "source_byte_seq_first": 54,
+        "source_byte_seq_final": 56,
+        "arrival_window": {
+          "min_cycle": 965920,
+          "max_cycle": 968480
+        },
+        "expected_event_hex": "000de85000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 22,
+        "scenario": "post_reset_recovery",
+        "normalized_kind": "note_on",
+        "channel": 0,
+        "note": 69,
+        "velocity7": 100,
+        "velocity10": 806,
+        "source_byte_seq_first": 57,
+        "source_byte_seq_final": 60,
+        "arrival_window": {
+          "min_cycle": 1058800,
+          "max_cycle": 1061360
+        },
+        "expected_event_hex": "0011726000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      },
+      {
+        "event_seq": 23,
+        "scenario": "post_reset_recovery",
+        "normalized_kind": "note_off",
+        "channel": 0,
+        "note": 69,
+        "velocity7": 40,
+        "velocity10": 0,
+        "source_byte_seq_first": 61,
+        "source_byte_seq_final": 63,
+        "arrival_window": {
+          "min_cycle": 1111760,
+          "max_cycle": 1114320
+        },
+        "expected_event_hex": "2011400000000000",
+        "actual_acceptance": null,
+        "actual_apply_stages": null,
+        "status": "PLANNED_INDEPENDENT_INPUT_NOT_ACTUAL_CAUSALITY"
+      }
+    ]
+  },
+  "causal_route": [
+    {
+      "from": "plan event_seq/source_byte_seq and expected_event_hex",
+      "to": "driver external MIDI waveform",
+      "evidence": "bytes.drv + frozen driver source; no DUT internal force",
+      "status": "PLANNED_NOT_OBSERVED"
+    },
+    {
+      "from": "MIDI external waveform",
+      "to": "actual event_valid && event_ready with complete event_data",
+      "join": "capture/source/reset identities + epoch/global cycle + independently bounded arrival_window + complete64-bit data + sequence disambiguation",
+      "status": "PENDING_ACTUAL_PUBLIC_ACCEPTANCE",
+      "actual_ref": null
+    },
+    {
+      "from": "actual router acceptance",
+      "to": "apply_kind/apply_mask/router_apply_seq/router_apply_seq_valid and all relevant stages",
+      "join": "M1 source semantics; do not equate router sequence with plan sequence",
+      "status": "PENDING_M1_MAPPING_AND_REAL_TRACE",
+      "actual_ref": null
+    },
+    {
+      "from": "public apply and four-lane advance/effect/config history",
+      "to": "independent math adapter",
+      "join": "source identity + source.line/global cycle/epoch + ID/generation; retain accepted-unpublished and cancelled advances",
+      "status": "MECHANICAL_ROUTE_ONLY_NOT_GOLDEN"
+    }
+  ],
+  "unresolved_event_policy": {
+    "actual_acceptance": null,
+    "actual_apply": null,
+    "apply_event_seq": null,
+    "reason": "PENDING_INDEPENDENT_PLAN_TO_PUBLIC_ACCEPTANCE_MAPPING",
+    "owner": "M1 mapping semantics; M3 actual independent input/capture packaging; M2 controlled public interface",
+    "forbidden": [
+      "reverse-engineer independent expected events from actual trace",
+      "match by PCM equality or fixed latency",
+      "reuse held stale event_data for autonomous retirement",
+      "deduplicate different stages sharing router seq",
+      "zero-fill an unknown causal sequence"
+    ]
+  },
+  "ready_plan_boundary": {
+    "actual_driver_plan_cycles": [
+      0,
+      927520,
+      988480
+    ],
+    "levels": [
+      1,
+      0,
+      1
+    ],
+    "TB_connection": "midi_public_port_driver.event_ready -> diagnostic driver_event_ready wire; DUT's own public acceptance remains authoritative",
+    "conclusion": "Plan requests backpressure but current C9 TB does not wire this ready control to DUT; no achieved backpressure claim or force fix",
+    "decision": "OPEN_DECISIONS.json#R13-D02"
+  },
+  "independent_FRAME_route": {
+    "producer": "frame_plan_generator_candidate.py.generate(input_path,rules_path,output_dir)",
+    "input_schema": "M3_R06_FRAME_PLAN_GENERATOR_INPUT_V1",
+    "required_input_fields": [
+      "status=FROZEN_INDEPENDENT_INPUT",
+      "independent_of_observed_trace=true",
+      "source_identities",
+      "epochs",
+      "finish"
+    ],
+    "source_identity_fields": [
+      "path",
+      "sha256"
+    ],
+    "source_identity_note": "Generator validates path/sha256; old calendar callers require this two-key identity representation. Do not copy a full bytes descriptor into that slot without an approved adapter.",
+    "rules_schema": "M2_R06_INDEPENDENT_FRAME_RULES_V1",
+    "rules_sha256": "3c968a151b0b5369f9dd95465761b2d87449c29975b1fca914f81fc5cfd01560",
+    "formula": "n_k=ceil(128*k*2**32/659706977); cycle_k=release_cycle+n_k-1; k>=1; include every F <= epoch.stop_cycle",
+    "outputs": [
+      "UNIQUE_FRAME_PLAN.json",
+      "FRAME_PLAN.json",
+      "TX_FRAME_PLAN.json"
+    ],
+    "canonical_schema": "M3_R06_UNIQUE_FRAME_PLAN_V1",
+    "calendar_schema": "M3_R06_INDEPENDENT_FRAME_PLAN_V1",
+    "tx_schema": "M3_R06_TX_FRAME_PLAN_V1",
+    "identity_payload": [
+      "schema",
+      "formula",
+      "rules_sha256",
+      "input_sha256",
+      "source_identities",
+      "parameters",
+      "epochs",
+      "finish"
+    ],
+    "canonical_id": "sha256: + SHA256(UTF8(json.dumps(identity_payload,sort_keys=True,separators=(comma,colon),ensure_ascii=False)+LF))",
+    "authority": "CANDIDATE_INDEPENDENT_PLAN_NOT_M2_ADMITTED",
+    "not_generated_in_this_task": true,
+    "forbidden_inputs": [
+      "trace",
+      "trace_path",
+      "observed_frames",
+      "observed_frame_rows",
+      "cancellation/last transaction as a shortened stop bound"
+    ],
+    "finish_contract": "EPOCH_RESET_FINISH_CONTRACT.json"
+  },
+  "software_fixture_boundary": "An explicitly SYNTHETIC_SCHEMA_FIXTURE plan may independently define its own empty/events/reset/finish geometry before processing. It does not approve the unresolved real1130660/1130661 TB schedule or supply real plan/apply mapping.",
+  "actual_real_plan_mapping_verified": false,
+  "math_verified": false,
+  "real_verified": false,
+  "board_release_allowed": false,
+  "M1_input_role_binding": {
+    "role": "independent_plan",
+    "job_template": {
+      "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/MATH_INPUT_JOB_TEMPLATE.json",
+      "bytes": 367,
+      "sha256": "d473350a15ec72c0a6c050dbb7012c71db02b0376065019ee64adfea7b3a55fc"
+    },
+    "compatibility_decision": {
+      "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/CONSUMER_COMPATIBILITY_R11_20261018.json",
+      "bytes": 5688,
+      "sha256": "6983eb4d96f81974490e98e2806a4657d423cd581bc37b62b792913a8f98c0e1"
+    },
+    "source_schema": "M3_R06_MIDI_STIMULUS_PLAN_V1",
+    "current_consumer": "c9_inputs.validate_plan requires independent_of_trace=true, events[] and event/config epoch/arrival fields; R06 original generator provenance is independent but its document fields are not silently rewritten",
+    "frame_role": "M1 frame_plan currently expects epoch.frame_cycles; bind existing FRAME_PLAN calendar projection to unchanged canonical UNIQUE_FRAME_PLAN ID/input/rules/finish in the already agreed versioned adapter",
+    "direction": "Already signed same-contract streaming target; implementation/equivalent checks pending, names/direction not reopened",
+    "R13_candidate_state": "independent_plan.py L0 candidate available; frozen actual scenario/envelope/mapping and admitted54 executions pending. Original23-event metadata and actual-null joins unchanged."
+  },
+  "M1_R13_static_arrival": {
+    "status": "M1_R13_L0_CANDIDATES_RECEIVED_PENDING_M1_ADMISSION_AND_EXECUTED_VALIDATION",
+    "handoff_id": "M1-R13-R02-STATIC-20261018-01",
+    "result_commit": "86cd5975f5679ad2db9da7b0d20d2892e76e76b1",
+    "binding_commit": "7319fe670d3524252ac299e11f00d00ae52c9953",
+    "receipt": {
+      "path": "code/output/m3_backend_stream_r13_20261018/INTAKE/M1_R13_NEW/M3_RECEIPT.json",
+      "bytes": 31716,
+      "sha256": "9eada974d6a36f6376df5c74380f1bbd63ee9faca20d4e127e3c872fc294fbe1"
+    },
+    "original_refs": {
+      "upstream_handoff": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/HANDOFF.json",
+        "bytes": 4102,
+        "sha256": "6ebce312f8f92a1c612a29b717c4034e20348c8cb5399756c5973ed7378fb29a"
+      },
+      "source_manifest": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/SOURCE_MANIFEST.json",
+        "bytes": 8936,
+        "sha256": "8b0bb766ac5b45b5a7c0150d2c63245f2dd7514bd5ebb74995a5aa0ed8523384"
+      },
+      "bounded_manifest": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/MANIFEST_A.json",
+        "bytes": 4287,
+        "sha256": "3b8d462b0c7636772a55629c1fca095b18588f0a8b9a5c113e4c05753b812c3f"
+      },
+      "semantics_manifest": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/MANIFEST_B.json",
+        "bytes": 2996,
+        "sha256": "c7e888ab339f894e35e084c9b528daab6ecd62a0475ded2f3e1bc235ce040239"
+      },
+      "bounded_static_receipt": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/STATIC_RECEIPT_A.json",
+        "bytes": 7041,
+        "sha256": "b155fbc55032f9bcf78b35317d5532c5b6d5dd0571541f7a211271e59bc219b4"
+      },
+      "semantics_static_receipt": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/STATIC_RECEIPT_B.json",
+        "bytes": 3291,
+        "sha256": "a21a133e41009a0dd308c6ba8aad06f8e60f2594bfc4b352dc6ff50ea721f02d"
+      },
+      "bounded_entry": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/run_stream_math.py",
+        "bytes": 6123,
+        "sha256": "5203b5998a3f0b70329599636c3e2e2cf931335599e70574285678a68c5cc326"
+      },
+      "bounded_worker": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/worker_group.py",
+        "bytes": 7527,
+        "sha256": "e0809e03cfc4bfef0bbd4a3ab336d7cf4d1ca590f9ac690aa10a3483dfef6b63"
+      },
+      "logical_volume_reader": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/stream_io.py",
+        "bytes": 4573,
+        "sha256": "6d92da3d9225f9276c667aef69e45f1c9ba28759cde2f83f70f5b4a38ef44288"
+      },
+      "history_join": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/history_join.py",
+        "bytes": 6942,
+        "sha256": "b2266eb9efb7152d8dfcc279c8b01555e0ef780cb969d83705095369ace2be4b"
+      },
+      "independent_semantics": {
+        "path": "code/model/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/independent_plan.py",
+        "bytes": 6944,
+        "sha256": "070f35d39ffdc26b1aa79b5e91e1cc5f3171a7330331754bce84a55aa2e848c4"
+      },
+      "bounded_limits": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/BOUNDS_AND_PENDING.json",
+        "bytes": 1370,
+        "sha256": "ccca8808c4f8f78c629712edc3de1c9fc9d6ab0a6fcfb4a94f07f02f3134266b"
+      },
+      "semantics_limits": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/BOUNDS_AND_PENDING.json",
+        "bytes": 1287,
+        "sha256": "7699668c1e01473eda5dc5d23cee1a4fe50424e010b990143328abc4fd2f7271"
+      },
+      "capacity_plan": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_bounded_consumer_20261018/05_CAPACITY_LIMITS_AND_MEASUREMENT_R13.json",
+        "bytes": 11711,
+        "sha256": "f505adbd96be1d923f9ab7803ef1b22d39e874cd763b863e77eda9972f524467"
+      },
+      "cases54": {
+        "path": "code/docs/test/m1_r05_pcm_oracle_20261016/pro_r06_20261017/oracle_adapter/night_r10_20261017/r13_independent_semantics_20261018/06_CASE_MATRIX_R13.json",
+        "bytes": 40181,
+        "sha256": "dc49a13870cb780b1e8815745c6e6df59d2acdb40b546e1cc0d2b4f7d8353914"
+      }
+    },
+    "level": "L0_STATIC_RECEIVED_ONLY",
+    "actual_target_runs": 0,
+    "capacity_and_math": "NOT_EXECUTED_NOT_ACCEPTED",
+    "CAP01": "CAPACITY_GENERATOR_BINDING_PENDING remains explicit in worker_group CAP01 branch; actual fixture generation/volume geometry must bind the M3 contract in the M1 owned successor and original group cap, not be generated outside the clock",
+    "direction_reopened": false,
+    "baseline_START_old_consumption_unchanged": true
+  }
+}

@@ -1,0 +1,566 @@
+{
+  "schema": "M3_R13_POSITIVE_NEGATIVE_HISTORY_V1",
+  "package": "R13-B",
+  "revision": "B_STATIC_20261019_02_M1_R13_INTAKE",
+  "snapshot_utc": "2026-10-18T16:42:38.313Z",
+  "role": "night3_B_writer",
+  "task_original": "r13_task_original",
+  "baseline_result_commit": "e39b36b9b7f956659f7fd5e3ca6dd57e5a34735b",
+  "actual_level": "L0 static source/metadata/archive bytes; existing L1 producer evidence indexed, no rerun",
+  "target_execution_by_this_role": false,
+  "real_verified": false,
+  "math_verified": false,
+  "board_release_allowed": false,
+  "immutable_originals": {
+    "consumption": "r12_consumption",
+    "failure_history": "r12_failure_history",
+    "case_matrix": "r12_case_matrix",
+    "source_payload": "r12_source_payload",
+    "result_before_final_gate": "r12_result_receipt",
+    "terminal_consumption": "r12_terminal_consumption",
+    "terminal_delivery_receipt": "r12_terminal_final_delivery_receipt",
+    "M2_later_receipt": "authority_m2_receipt",
+    "M2_later_review": "authority_m2_review_and_next_action"
+  },
+  "reused_old_40": {
+    "rerun_this_role": false,
+    "total": 40,
+    "case_groups": [
+      {
+        "group": "J",
+        "assertions": 12,
+        "result": "r12_group_J"
+      },
+      {
+        "group": "G_effective_R",
+        "assertions": 12,
+        "result": "r12_group_R",
+        "initial_G_failure_preserved": true
+      },
+      {
+        "group": "C",
+        "assertions": 12,
+        "result": "r12_group_C",
+        "scope": "seven-row actual D4 synthetic checks; no full-window backend capacity claim"
+      },
+      {
+        "group": "W",
+        "assertions": 4,
+        "result": "r12_group_W",
+        "scope": "frontend capacity and private D4 stub; cannot substitute R13 W"
+      }
+    ],
+    "original_group_receipts": [
+      {
+        "group": "P0",
+        "state": "PASS",
+        "effective_acceptance": "PASS",
+        "charged_seconds": 60,
+        "attempts": 1,
+        "actual_result": {
+          "note": "P0 recorded in original immutable consumption/history"
+        },
+        "original_result_ref": null
+      },
+      {
+        "group": "J",
+        "state": "PASS",
+        "effective_acceptance": "PASS",
+        "charged_seconds": 60,
+        "attempts": 1,
+        "actual_result": {
+          "object": "history_R01_J_RESULT_json",
+          "argv": [
+            "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\night_r10_20261017\\frontend_close_r12_20261018\\selftest.py",
+            "--worker",
+            "--group",
+            "J",
+            "--admission",
+            "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_RUN.json",
+            "--admission-sha256",
+            "1e2879ea52b9c2dbd7a752b1252a8ad93f0b04f651ef63f60d7dd6dc340791dc",
+            "--output",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\J\\worker"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "exit_code": 0,
+          "process_exit_code": 0,
+          "exit_class": "NATURAL",
+          "elapsed_seconds": 1.625,
+          "cap_seconds": 60,
+          "job_zero_observed_before_job_close": true
+        },
+        "original_result_ref": {
+          "RESULT.json": "history_R01_J_RESULT_json",
+          "stdout.bin": "history_R01_J_stdout_bin",
+          "stderr.bin": "history_R01_J_stderr_bin"
+        }
+      },
+      {
+        "group": "G",
+        "state": "FAILED_STOP",
+        "effective_acceptance": "PASS_BY_R",
+        "charged_seconds": 60,
+        "attempts": 1,
+        "actual_result": {
+          "object": "history_R01_G_failed_RESULT_json",
+          "argv": [
+            "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\night_r10_20261017\\frontend_close_r12_20261018\\selftest.py",
+            "--worker",
+            "--group",
+            "G",
+            "--admission",
+            "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_RUN.json",
+            "--admission-sha256",
+            "1e2879ea52b9c2dbd7a752b1252a8ad93f0b04f651ef63f60d7dd6dc340791dc",
+            "--output",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\G\\worker"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "exit_code": 1,
+          "process_exit_code": 1,
+          "exit_class": "NATURAL",
+          "elapsed_seconds": 7.094000000011874,
+          "cap_seconds": 60,
+          "job_zero_observed_before_job_close": true
+        },
+        "original_result_ref": {
+          "RESULT.json": "history_R01_G_failed_RESULT_json",
+          "stdout.bin": "history_R01_G_failed_stdout_bin",
+          "stderr.bin": "history_R01_G_failed_stderr_bin"
+        }
+      },
+      {
+        "group": "C",
+        "state": "PASS",
+        "effective_acceptance": "PASS",
+        "charged_seconds": 120,
+        "attempts": 1,
+        "actual_result": {
+          "object": "history_R01_C_RESULT_json",
+          "argv": [
+            "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\night_r10_20261017\\frontend_close_r12_20261018\\selftest.py",
+            "--worker",
+            "--group",
+            "C",
+            "--admission",
+            "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_REPAIRED.json",
+            "--admission-sha256",
+            "273d3fdef4df9cc50ce985fc8150171044a0c0494705ee0de7099bba2980c2c5",
+            "--output",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\C\\worker"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "exit_code": 0,
+          "process_exit_code": 0,
+          "exit_class": "NATURAL",
+          "elapsed_seconds": 69.9539999999979,
+          "cap_seconds": 120,
+          "job_zero_observed_before_job_close": true
+        },
+        "original_result_ref": {
+          "RESULT.json": "history_R01_C_RESULT_json",
+          "stdout.bin": "history_R01_C_stdout_bin",
+          "stderr.bin": "history_R01_C_stderr_bin"
+        }
+      },
+      {
+        "group": "W",
+        "state": "PASS",
+        "effective_acceptance": "PASS",
+        "charged_seconds": 240,
+        "attempts": 1,
+        "actual_result": {
+          "object": "history_R01_W_RESULT_json",
+          "argv": [
+            "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\night_r10_20261017\\frontend_close_r12_20261018\\selftest.py",
+            "--worker",
+            "--group",
+            "W",
+            "--admission",
+            "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_REPAIRED.json",
+            "--admission-sha256",
+            "273d3fdef4df9cc50ce985fc8150171044a0c0494705ee0de7099bba2980c2c5",
+            "--output",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\W\\worker"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "exit_code": 0,
+          "process_exit_code": 0,
+          "exit_class": "NATURAL",
+          "elapsed_seconds": 22.062000000005355,
+          "cap_seconds": 240,
+          "job_zero_observed_before_job_close": true
+        },
+        "original_result_ref": {
+          "RESULT.json": "history_R01_W_RESULT_json",
+          "stdout.bin": "history_R01_W_stdout_bin",
+          "stderr.bin": "history_R01_W_stderr_bin"
+        }
+      },
+      {
+        "group": "R",
+        "state": "PASS",
+        "effective_acceptance": "PASS",
+        "charged_seconds": 240,
+        "attempts": 1,
+        "actual_result": {
+          "object": "history_R01_R_RESULT_json",
+          "argv": [
+            "C:\\Users\\songdongkuan\\miniconda3\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\software\\m3_pro_fourvoice_trace_20261016\\pro_basis_r08_20261017\\coordinator\\night_r10_20261017\\frontend_close_r12_20261018\\selftest.py",
+            "--worker",
+            "--group",
+            "R",
+            "--admission",
+            "code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\ADMISSION_REPAIRED.json",
+            "--admission-sha256",
+            "273d3fdef4df9cc50ce985fc8150171044a0c0494705ee0de7099bba2980c2c5",
+            "--output",
+            "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano\\code\\output\\m3_frontend_close_r12_20261018\\RESUME_R01_20261018\\RUNS\\R\\worker"
+          ],
+          "cwd": "E:\\FPGA\\GAOYUNFPGA\\team\\fpga-electronic-piano",
+          "exit_code": 0,
+          "process_exit_code": 0,
+          "exit_class": "NATURAL",
+          "elapsed_seconds": 7.687000000005355,
+          "cap_seconds": 240,
+          "job_zero_observed_before_job_close": true
+        },
+        "original_result_ref": {
+          "RESULT.json": "history_R01_R_RESULT_json",
+          "stdout.bin": "history_R01_R_stdout_bin",
+          "stderr.bin": "history_R01_R_stderr_bin"
+        }
+      }
+    ]
+  },
+  "R12_new_2": {
+    "rerun_this_role": false,
+    "case_count": 2,
+    "group_result": "cd_group",
+    "controller_result": "history_R02_CD_RESULT_json",
+    "stdout": "history_R02_CD_stdout_bin",
+    "stderr": "history_R02_CD_stderr_bin",
+    "source_and_admission_descriptors": {
+      "path": "code/output/m3_frontend_close_r12_20261018/RECOVERY_R02_20261018/ADMISSION_DELTA.json",
+      "bytes": 24509,
+      "sha256": "836d517d2ab6affc4815d973f859229fed7298933c0306b2adc79071a0fc5c47"
+    },
+    "worker_descriptor": {
+      "path": "code/output/m3_frontend_close_r12_20261018/RECOVERY_R02_20261018/capture_evidence_delta.py",
+      "bytes": 22567,
+      "sha256": "d9e0fbe20c6a1d22bdc1eb693a6be4eae27323805b4aceb9db5ccf00de987e9a"
+    },
+    "charged_seconds": 120,
+    "actual_parent_seconds": 27.07800000000043,
+    "natural_exit_code": 0,
+    "Job0": true,
+    "cases": [
+      {
+        "id": "DYNAMIC_PINNED_CAPTURE_CHAIN",
+        "original": "cd_call_trace",
+        "python_call_pairs": 4163,
+        "ordered_events": 8326,
+        "scope": "R12 -> R11 -> R10 -> actual D4 on 7-row declared synthetic input",
+        "result": "PASS_RECORDED_L1"
+      },
+      {
+        "id": "ACTIVE_VERIFIED_TEXT_READ_EXCEPTION",
+        "original": "cd_active_exception",
+        "scope": "private verified text reader reads one byte/character before next underlying read raises same injected exception; cleanup evidence retained",
+        "result": "PASS_RECORDED_L1"
+      }
+    ],
+    "neither_is_real_capture": true
+  },
+  "failures_preserved": [
+    {
+      "id": "OLD_S1_HANDLE_ACCOUNTING",
+      "originals": {
+        "RESULT.json": "history_old_S1_RESULT_json",
+        "stdout.bin": "history_old_S1_stdout_bin",
+        "stderr.bin": "history_old_S1_stderr_bin"
+      },
+      "worker_exit": 0,
+      "parent_exit": 125,
+      "active_observed_before_handle_release": 1,
+      "charged_seconds": 60,
+      "repair_evidence": {
+        "RESULT.json": "history_S1_fix_diag_RESULT_json"
+      },
+      "repair_elapsed_seconds": 0.844,
+      "scope": "Later natural/descendant/timeout diagnosis; cannot retroactively prove old closed Job was zero",
+      "not_refunded": true
+    },
+    {
+      "id": "R01_G_INITIAL_FAILURE",
+      "originals": {
+        "RESULT.json": "history_R01_G_failed_RESULT_json",
+        "stdout.bin": "history_R01_G_failed_stdout_bin",
+        "stderr.bin": "history_R01_G_failed_stderr_bin"
+      },
+      "exit_code": 1,
+      "charged_seconds": 60,
+      "repair": "R01_R exact original result and failure_history; not an unrecorded retry",
+      "not_refunded": true
+    },
+    {
+      "id": "R01_CANDIDATE_GATE_FAILED",
+      "result": "r12_failed_gate01_RESULT_json",
+      "stdout": "r12_failed_gate01_stdout_bin",
+      "stderr": "r12_failed_gate01_stderr_bin",
+      "nine_checks": "r12_failed_gate01_NINE_CHECKS_json",
+      "exit_code": 1,
+      "passed_checks": 6,
+      "cause": "Bare python resolved WindowsApps alias; Python commands exit9009",
+      "charged_seconds": 900,
+      "native_per_tool_counts": "UNKNOWN; preserve original cap and failure",
+      "not_refunded": true
+    },
+    {
+      "id": "R02_PRELAUNCH_EXIT97",
+      "originals": {
+        "RESULT.json": "history_R02_preflight_failed_RESULT_json",
+        "stdout.bin": "history_R02_preflight_failed_stdout_bin",
+        "stderr.bin": "history_R02_preflight_failed_stderr_bin"
+      },
+      "exit_code": 97,
+      "actual_check_repo_started": false,
+      "charged_seconds": 900,
+      "located_repair_and_diagnostic": {
+        "RESULT.json": "history_R02_diag_RESULT_json",
+        "stdout.bin": "history_R02_diag_stdout_bin",
+        "stderr.bin": "history_R02_diag_stderr_bin"
+      },
+      "diagnostic_charged_seconds": 60,
+      "diagnostic_actual_seconds": 1.139999999999418,
+      "new_admitted_candidate_gate": {
+        "RESULT.json": "history_R02_gate_actual_RESULT_json",
+        "stdout.bin": "history_R02_gate_actual_stdout_bin",
+        "stderr.bin": "history_R02_gate_actual_stderr_bin"
+      },
+      "not_refunded": true
+    },
+    {
+      "id": "M2_EXTERNAL_MANIFEST_NOT_RECEIVED_R12",
+      "upstream_record": "authority_m2_review_and_next_action",
+      "upstream_state": "M2 previously received inner MANIFEST.json80488B, not separate FINAL_HANDOFF_MANIFEST.json80791B; first mismatched comparison retained",
+      "now_recovered_original": "r12_terminal_final_handoff_manifest",
+      "recovered_outer_original": "r12_final_outer_archive",
+      "inner_original": "r12_inner_manifest",
+      "state": "RECOVERED_LOCAL_BYTES_TRANSFER_PENDING",
+      "does_not_rewrite_previous_failure_or_receipt": true
+    }
+  ],
+  "terminal_originals": {
+    "R12_outer_archive": "r12_final_outer_archive",
+    "external_manifest": "r12_terminal_final_handoff_manifest",
+    "terminal_results": {
+      "GATE_02": {
+        "refs": {
+          "RESULT.json": "r12_terminal_GATE_02_RESULT_json",
+          "stdout.bin": "r12_terminal_GATE_02_stdout_bin",
+          "stderr.bin": "r12_terminal_GATE_02_stderr_bin"
+        },
+        "exit_code": 0,
+        "exit_class": "NATURAL",
+        "process_exit_code": 0,
+        "elapsed_seconds": 143.09400000000005,
+        "cap_seconds": 900,
+        "job_zero_observed_before_job_close": true
+      },
+      "S1_R02": {
+        "refs": {
+          "RESULT.json": "r12_terminal_S1_R02_RESULT_json",
+          "stdout.bin": "r12_terminal_S1_R02_stdout_bin",
+          "stderr.bin": "r12_terminal_S1_R02_stderr_bin"
+        },
+        "exit_code": 0,
+        "exit_class": "NATURAL",
+        "process_exit_code": 0,
+        "elapsed_seconds": 6.75,
+        "cap_seconds": 60,
+        "job_zero_observed_before_job_close": true
+      },
+      "S2_R02": {
+        "refs": {
+          "RESULT.json": "r12_terminal_S2_R02_RESULT_json",
+          "stdout.bin": "r12_terminal_S2_R02_stdout_bin",
+          "stderr.bin": "r12_terminal_S2_R02_stderr_bin"
+        },
+        "exit_code": 0,
+        "exit_class": "NATURAL",
+        "process_exit_code": 0,
+        "elapsed_seconds": 3.9219999999995707,
+        "cap_seconds": 60,
+        "job_zero_observed_before_job_close": true
+      }
+    },
+    "terminal_members_available_in_outer": [
+      "r12_terminal_publication_actual",
+      "r12_terminal_published_tree_verification",
+      "r12_terminal_pre_s2_receipt",
+      "r12_terminal_GATE_02_RESULT_json",
+      "r12_terminal_GATE_02_stdout_bin",
+      "r12_terminal_GATE_02_stderr_bin",
+      "r12_terminal_S1_R02_RESULT_json",
+      "r12_terminal_S1_R02_stdout_bin",
+      "r12_terminal_S1_R02_stderr_bin",
+      "r12_terminal_S2_R02_stderr_bin"
+    ],
+    "push_success": "see r12_terminal_publication_actual and r12_terminal_final_delivery_receipt; raw original argv/exit/wallclock preserved",
+    "latest_M2_state": {
+      "REMOTE_VERIFIED": true,
+      "RECEIVED": true,
+      "ACCEPTED": true,
+      "scope": "R12 frontend software only",
+      "INTEGRATED": false
+    },
+    "stale_status_rule": "Tracked R12 Gate02/publication/result and consumption were frozen before final steps. PENDING/false there is not a current failure; final actuals and later M2 receipt provide temporal completion. Earlier producer M2_RECEIVED=false is superseded only for R12 by later M2 original."
+  },
+  "consumption_inheritance": {
+    "old_charged_seconds": 6540,
+    "refund": false,
+    "old_originals_unmodified": true,
+    "R13_new_plan_seconds": 5040,
+    "R13_plan_sha256": "729cb21bd4b759f7d5738bdc14964bee1eaf5da053eee20b4a278acf651357d3",
+    "R13_approval": "authority_authorization_r13",
+    "proposal_approved_false": "Historical proposal, not a revocation of exact same-SHA later approval",
+    "upstream_permission_transcripts": "R12 source originals/authority metadata only; cannot grant new execution",
+    "R13_live_consumption_owner": "night1 coordinator only; no ledger writes by B role",
+    "original_deadline": "2026-10-19T05:00:26+08:00"
+  },
+  "current_R13_results": {
+    "state": "NOT_EXECUTED_BY_THIS_ROLE; consult coordinator current backend_close and final actuals",
+    "old40plus2_cannot_satisfy_R13_W": true,
+    "new_real_capture_math_timing_board": "PENDING_NOT_GRANTED_BY_SOFTWARE_PLAN"
+  },
+  "previous_revision": {
+    "revision": "B_STATIC_20261019_01",
+    "handoff_path": "code/output/m3_backend_stream_r13_20261018/roles/night3/HANDOFF.json",
+    "handoff_sha256": "847968872d2cab35389a22f852286df3cc3aa1bf41e456abec9b99ef2cf94cd4",
+    "original_docs_snapshot": "code/output/m3_backend_stream_r13_20261018/roles/night3/B_STATIC_01_BEFORE_M1_R13",
+    "superseded_for_new_intake_only": true,
+    "old_evidence_and_failure_history_preserved": true
+  },
+  "source_tree_checkpoint": "544f5af23fa427db0a931df719dc6135c75a180f",
+  "new_upstream_intakes": [
+    {
+      "id": "M1_R13_STATIC_36_RECEIVED",
+      "handoff_id": "M1-R13-R02-STATIC-20261018-01",
+      "result_commit": "86cd5975f5679ad2db9da7b0d20d2892e76e76b1",
+      "binding_commit": "7319fe670d3524252ac299e11f00d00ae52c9953",
+      "source_tree_checkpoint": "544f5af23fa427db0a931df719dc6135c75a180f",
+      "dedup_key": "M1-R13-R02-STATIC-20261018-01|86cd5975f5679ad2db9da7b0d20d2892e76e76b1|M3",
+      "received_utc": "2026-10-18T16:36:45.310014+00:00",
+      "M3_receipt_object": "m1_r13_M3_receipt",
+      "safe_FF_object": "m1_r13_safe_FF_receipt",
+      "first_metadata_read_failure": "m1_r13_first_read_failure",
+      "state": "RECEIVED_STATIC_ORIGINALS_ONLY",
+      "originals_rechecked_here": 36,
+      "coordinator_manifest_refs_verified": 30,
+      "role_local_candidate_imports": 0,
+      "role_local_target_tests": 0,
+      "producer_reported_target_cases": 0,
+      "producer_reported_workers": 0,
+      "producer_reported_capacity_measurements": 0,
+      "runtime_compatibility_accepted": false,
+      "math_accepted": false,
+      "REAL_admitted": false,
+      "M3_W_authorization_changed": false,
+      "old_R12_functional_baseline_unchanged": "e39b36b9b7f956659f7fd5e3ca6dd57e5a34735b",
+      "old_consumption_and_original_START_deadline_unchanged": true,
+      "original_cohort_unchanged": "R12_R02_CD_CASE01",
+      "old_163_originals_not_reaudited_or_replaced": true,
+      "archive_body_rule": "Original Git path files are accessible and SHA verified; upstream local STATIC_HANDOFF.zip was not retrieved and is not assumed delivered.",
+      "candidate_progress": "Versioned bounded reader and independent semantics source are now present as L0 candidates; current R10 consumer remains unchanged. Source arrival is not runtime/capacity/math acceptance.",
+      "CAP01": "CAPACITY_GENERATOR_BINDING_PENDING; precise source successor and M3 actual geometry/volume generator binding required before responsible M1 run; no pre-generated fixture bypass.",
+      "job_profile": "M1_R13_STREAM_JOB_V1 / C9_PIANO_TRIANGLE_NOTES_DELAY_CLOCKED_V1",
+      "seven_old_job_INPUT_roles": "mechanical_index/public_rows/raw_capture/independent_plan/frame_plan/reset_edges/provenance",
+      "seven_candidate_stream_roles": [
+        "raw_capture",
+        "public_rows",
+        "line_index",
+        "row_index",
+        "fx_history",
+        "advance_history",
+        "input_apply_history"
+      ],
+      "stream_role_set_is_not_old_seven_INPUT_role_set": true,
+      "new_object_ids": [
+        "m1_r13_01_stream_io_py",
+        "m1_r13_02_identity_guard_py",
+        "m1_r13_03_history_join_py",
+        "m1_r13_04_lifecycle_store_py",
+        "m1_r13_05_clocked_math_stream_py",
+        "m1_r13_06_results_stream_py",
+        "m1_r13_07_run_stream_math_py",
+        "m1_r13_08_measure_group_py",
+        "m1_r13_09_worker_group_py",
+        "m1_r13_10_independent_plan_py",
+        "m1_r13_11_fixture_recipe_py",
+        "m1_r13_12_test_new_seams_py",
+        "m1_r13_13_source_bindings_r13_json",
+        "m1_r13_14_input_dependency_bindings_json",
+        "m1_r13_15_resource_time_limits_json",
+        "m1_r13_16_bounds_and_pending_json",
+        "m1_r13_17_static_receipt_a_json",
+        "m1_r13_18_manifest_a_json",
+        "m1_r13_19_05_capacity_limits_and_measurement_r13_json",
+        "m1_r13_20_08_time_and_stop_r13_json",
+        "m1_r13_21_event_source_diagnostic_matrix_json",
+        "m1_r13_22_double_clip_mutation_spec_json",
+        "m1_r13_23_first_difference_spec_json",
+        "m1_r13_24_bounds_and_pending_json",
+        "m1_r13_25_static_receipt_b_json",
+        "m1_r13_26_manifest_b_json",
+        "m1_r13_27_04_capacity_schedule_r13_json",
+        "m1_r13_28_06_case_matrix_r13_json",
+        "m1_r13_29_plan_r13_json",
+        "m1_r13_30_authorization_state_json",
+        "m1_r13_31_start_and_deadline_json",
+        "m1_r13_32_09_budget_and_native_call_request_r13_json",
+        "m1_r13_33_intake_dedup_json",
+        "m1_r13_34_outbox_reference_json",
+        "m1_r13_35_source_manifest_json",
+        "m1_r13_36_handoff_json",
+        "m1_r13_M3_receipt",
+        "m1_r13_safe_FF_receipt",
+        "m1_r13_first_read_failure"
+      ]
+    }
+  ],
+  "new_upstream_validation": {
+    "functional_commit": "86cd5975f5679ad2db9da7b0d20d2892e76e76b1",
+    "binding_commit": "7319fe670d3524252ac299e11f00d00ae52c9953",
+    "current_checkpoint": "544f5af23fa427db0a931df719dc6135c75a180f",
+    "recorded_intake_L0_only": true,
+    "new_target_cases": 0,
+    "new_capacity_measurements": 0,
+    "new_math_results": 0,
+    "first_metadata_read_failure_object": "m1_r13_first_read_failure",
+    "old_consumption_and_failures_preserved": true,
+    "publication_only_grant_not_target_budget": true,
+    "producer_frozen_PENDING_publication_fields": "Producer HANDOFF frozen before its final publication; coordinator receipt and current checkpoint establish static originals received, not runtime acceptance."
+  }
+}

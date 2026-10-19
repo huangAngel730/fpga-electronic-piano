@@ -1,0 +1,260 @@
+{
+  "schema": "M3_R13_NIGHT_PACKAGE_PROPOSAL_V1",
+  "created_utc": "2026-10-18T14:24:26.914144+00:00",
+  "task": "code/docs/M3_Pro完整窗口软件生产与交付夜间任务单_R13_2026-10-18.md",
+  "status": "STATIC_PREPARATION_ASSIGNED_EXECUTION_PACKAGE_NOT_APPROVED",
+  "authorization_source": "User asks M2 to update M3 tasks and prepare a larger night queue after new delivery. This authorizes planning/static preparation, not new test/native/network/write execution quotas.",
+  "baseline_commit": "e39b36b9b7f956659f7fd5e3ca6dd57e5a34735b",
+  "prior_consumption": {
+    "charged_cap_seconds": 6540,
+    "status": "HISTORICAL_CONSUMED_NOT_AVAILABLE",
+    "native_historical_total": "UNKNOWN",
+    "old_failures_preserved": true
+  },
+  "time_window": {
+    "actual_START": null,
+    "timezone": "Asia/Shanghai",
+    "max_hours_from_new_actual_START": 5,
+    "deadline": "min(actual_START+5h, current-night explicit earlier cutoff, member actual availability end)",
+    "old_cutoffs_apply": false,
+    "starts_only_after_explicit_new_execution_package_authorization": true,
+    "no_goal_or_timer_started_by_task_preparation": true
+  },
+  "write_set": {
+    "source_files": [
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/entry.py",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/binding.py",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/stream_bridge.py",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/volume_io.py",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/finalize.py",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/resources.py",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/selftest.py",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/run_plan.py",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/job_bridge.py",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/DEPENDENCIES.json",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/CALL_CHAIN_BINDINGS.json",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/CASE_MATRIX.json",
+      "code/software/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/README.md"
+    ],
+    "evidence_files": [
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/contract_bundle/CONTRACT_INDEX.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/contract_bundle/FIELD_ROUTE_TABLE.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/contract_bundle/PROFILE_AND_CAPACITY.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/contract_bundle/PLAN_IDENTITY_MAP.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/contract_bundle/EPOCH_RESET_FINISH_CONTRACT.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/contract_bundle/SOURCE_PROVENANCE.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/contract_bundle/OPEN_DECISIONS.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/contract_bundle/M2_DECISION_SHEET.md",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/contract_bundle/README.md",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/capture_originals/ORIGINALS_INDEX.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/capture_originals/DEPENDENCY_DAG.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/capture_originals/CAPTURE_IDENTITY_BINDING.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/capture_originals/POSITIVE_NEGATIVE_HISTORY.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/capture_originals/CONSUMER_LOAD_MAP.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/capture_originals/MISSING_ORIGINALS.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/capture_originals/README_FOR_M1_M2.md",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/PLAN.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/AUTHORIZATION.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/START_AND_DEADLINE.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/BASELINE.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/SOURCE_MANIFEST.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/RESULT_RECEIPT.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/CASE_RESULTS.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/RESOURCE_RECEIPT.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/CONSUMPTION.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/FAILURE_HISTORY.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/SELF_REVIEW.md",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/GATE_01.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/GATE_02.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/PUBLISH_ALLOWLIST.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/PUBLICATION_RECEIPT.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/OUTBOX_REFERENCE.json",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/TASK_ORIGINAL.md",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/SOURCE_PAYLOAD.zip",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/EXECUTION_ORIGINALS.zip",
+      "code/docs/test/m3_pro_fourvoice_trace_20261016/pro_basis_r08_20261017/coordinator/night_r10_20261017/backend_stream_r13_20261018/backend_close/INTEGRATION_HANDOFF.json"
+    ],
+    "ignored_output_root": "code/output/m3_backend_stream_r13_20261018/",
+    "source_roots_created_now": false
+  },
+  "queue": [
+    "A_CONTRACT_ASSEMBLY",
+    "B_BUSINESS_ORIGINALS_READY",
+    "C_ACTUAL_BACKEND_SOFTWARE_SUCCESSOR"
+  ],
+  "verification_groups_proposed": {
+    "P0": {
+      "cap_seconds": 60,
+      "runs": 1,
+      "purpose": "frozen inputs/tools/runtime Job ownership proof+availability+disk preflight; unknown blocks dependent software only"
+    },
+    "K": {
+      "cap_seconds": 120,
+      "cases_max": 16,
+      "runs": 1,
+      "purpose": "new contract routes, plan/epoch/finish/provenance refusal increment"
+    },
+    "V": {
+      "cap_seconds": 120,
+      "cases_max": 16,
+      "runs": 1,
+      "purpose": "lossless split/reassembly same-buffer control JSON and EOF/order/hash/refusal increment"
+    },
+    "B": {
+      "cap_seconds": 120,
+      "cases_max": 16,
+      "runs": 1,
+      "purpose": "real backend small synthetic process, final verification, failure propagation, resource/accounting; no D4 stub"
+    },
+    "W": {
+      "cap_seconds": 900,
+      "cases_max": 1,
+      "runs": 1,
+      "purpose": "one full-window synthetic actual-backend case: >=1130662 rows and raw >=1398627657B; includes preparation/read/write/hash/finalize/cleanup within cap; no actual HDL capture"
+    },
+    "R": {
+      "cap_seconds": 120,
+      "cases_max": 16,
+      "runs": 1,
+      "purpose": "one located software-only defect across K/V/B, changed successor plus all affected cases; cannot retry W, P0, gate, seal or native failure"
+    },
+    "P1": {
+      "cap_seconds": 60,
+      "runs_max": 1,
+      "conditional": "only after approved R changed own sources, fresh freeze and original identity retained; not retry failed P0"
+    },
+    "S1": {
+      "cap_seconds": 60,
+      "runs": 1
+    },
+    "S2": {
+      "cap_seconds": 60,
+      "runs": 1
+    },
+    "GATE_01": {
+      "cap_seconds": 900,
+      "runs": 1,
+      "purpose": "candidate complete nine gates"
+    },
+    "GATE_02": {
+      "cap_seconds": 900,
+      "runs": 1,
+      "purpose": "exact final tracked tree complete nine gates; not retry GATE_01"
+    }
+  },
+  "network_proposed": {
+    "operations_max": 20,
+    "charged_cap_seconds_max": 1260,
+    "query_seconds_each": 30,
+    "fetch_seconds_each": 60,
+    "push_seconds_each": 300,
+    "temporary_retry_max": 1,
+    "uncertain_result_requires_containment_query_first": true,
+    "successful_R12_reference_wall_seconds": 246.422,
+    "postBuffer_effect_causality": "UNKNOWN",
+    "no_repository_config_changes": true,
+    "same_frozen_successful_process_only_route_required": true
+  },
+  "local_git_proposed": {
+    "charged_cap_seconds_max": 360,
+    "single_file_direct_add": true,
+    "independent_simple_write_calls": true,
+    "trace2": "only per-process native host injection preserving direct command matching; otherwise internal Git time UNKNOWN"
+  },
+  "totals_proposed": {
+    "software_K_V_B_W_R_seconds": 1380,
+    "admission_P0_P1_seconds": 120,
+    "seal_seconds": 120,
+    "two_gate_seconds": 1800,
+    "network_seconds": 1260,
+    "local_git_seconds": 360,
+    "all_seconds": 5040,
+    "all_minutes": 84
+  },
+  "native_caps_only_inside_two_gates": {
+    "Yosys_read_slang": 6,
+    "iverilog_driver": 18,
+    "ivlpp": 18,
+    "ivl": 18,
+    "VVP": 18,
+    "standalone_C9_HDL_EDA_device": 0
+  },
+  "resources_proposed": {
+    "worker_peak_working_set_bytes": 536870912,
+    "read_chunk_bytes": 1048576,
+    "aggregate_own_workspace_peak_bytes": 25769803776,
+    "minimum_unallocated_reserve_bytes": 8589934592,
+    "minimum_free_bytes_at_W_admission": 34359738368,
+    "scope": "all raw/public/CSV/row-index/history/temporary/archives; derive exact geometry before W; unknown or cap exceeded NO_GO, never remove comparisons or rows",
+    "tree_memory": "single processing worker with no descendants must be proven; otherwise measure concurrent process-tree total or no capacity PASS; record supervisor separately"
+  },
+  "stop": [
+    "first failure stops group and dependents; R only under its explicit conditions",
+    "W, native, gate, P0, seal failures terminal for their chain",
+    "no old slot reopened; no unchanged command retry",
+    "before each group reserve full cap + mandatory unfinished seal/publication steps + margin within earliest deadline",
+    "unknown source/semantics keeps PENDING; no fabricated real input",
+    "no permission rejection bypass; temporary network failure at most one retry"
+  ],
+  "forbidden": [
+    "RTL",
+    "TB",
+    "M1 mathematics or golden implementation",
+    "controlled interfaces/schema/finish behavior without decision",
+    "M2 runtime/runner/catalog/shared PS/check_repo",
+    "tool installation",
+    "code/scripts/delivery_tool/",
+    "shared current state/board by M3",
+    "old source modifications",
+    "real capture/C9/extra EDA/devices"
+  ],
+  "publication": "one predeclared complete R13 software delivery unit; M3 unique publisher, exact final tree gates; M2 final review, main integration separately. Static-only stopping pack may be delivered as PARTIAL locally; no implicit gate or push grant.",
+  "real_execution": "STILL_HELD",
+  "approved": false,
+  "execution_order": [
+    "P0_INITIAL_FREEZE_PASS",
+    "K_V_B_in_order_or_stop",
+    "if_one_located_software_defect: save failure+basis+diff+new_SHA -> P1_NEW_FREEZE_PASS -> one_R_affected_regression_PASS -> only_unrun_unaffected_groups",
+    "W_single_full_window_after_contract_source_resource_delivery_channel_GO",
+    "GATE_01_PASS",
+    "S1_FREEZE_ALL_TRACKED_BYTES",
+    "GATE_02_EXACT_FINAL_TREE_PASS",
+    "DIRECT_SINGLE_FILE_STAGE_COMMIT_NORMAL_PUSH_CONTAINMENT",
+    "S2_FINAL_EXTERNAL_RECEIPT"
+  ],
+  "deadline_margin_seconds": 60,
+  "next_group_admission": "now + complete group cap + all unconsumed mandatory downstream sealing/gates/local Git/push/containment caps +60s <= earliest deadline; cannot count actual shorter duration as refund",
+  "delivery_channel": {
+    "state": "PENDING_FREEZE_BEFORE_W",
+    "allowed_choices": [
+      "same preapproved repository route with EXECUTION_ORIGINALS.zip <=33554432 bytes and every logical original losslessly recoverable",
+      "already allowed user-forwarded archive/volume channel with exact accessible location and M2 retrieval method confirmed before W"
+    ],
+    "tracked_archive_max_bytes": 33554432,
+    "no_new_external_storage_credentials_or_upload_permission": true,
+    "volume_index": "logical role, number, offset, decoded bytes/SHA, encoded bytes/SHA, full stream bytes/SHA, original end marker, location and fetch method",
+    "missing_channel": "DELIVERY_CHANNEL_PENDING blocks W and B/overall completion; static A/B/C preparation continues",
+    "M2_reception_separate": true
+  },
+  "collaboration_ownership": {
+    "A_optional_implementation_role": "contract_bundle/* only",
+    "B_optional_implementation_role": "capture_originals/* only",
+    "C_optional_implementation_role": "13 allowed source files only, including README/CASE_MATRIX for static findings; no backend_close main ledgers",
+    "M3_MAIN_ONLY": [
+      "AUTHORIZATION",
+      "START_AND_DEADLINE",
+      "CONSUMPTION",
+      "final RESULT_RECEIPT",
+      "INTEGRATION_HANDOFF",
+      "OUTBOX total binding",
+      "all target tests/gates/Git publication"
+    ],
+    "state": "planning only, no helper created or messaged by this taskcard"
+  },
+  "case_matrix": {
+    "path": "code/docs/test/m2_138k_pro_fourvoice_candidate_20261016/r06_public_chain_20261017/night_r10_20261017/intake_resume_20261018/m3_night_r13_dispatch_20261018/CASE_MATRIX_PROPOSED.json",
+    "bytes": 3527,
+    "sha256": "ed8863f28b419219674b90572b427098451d77ac07da515fe57724d5aa40394f",
+    "fixed_initial_cases": 33
+  }
+}

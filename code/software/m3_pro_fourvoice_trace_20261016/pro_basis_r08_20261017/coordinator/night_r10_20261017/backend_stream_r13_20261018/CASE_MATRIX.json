@@ -1,0 +1,95 @@
+{
+  "schema": "M3_R13_CASE_MATRIX_V1",
+  "status": "IMPLEMENTED_CANDIDATE_NOT_RUN",
+  "old_R12_40_plus_2_reused_not_replayed": true,
+  "groups": {
+    "K": [
+      "K01_CURRENT_CONTRACT",
+      "K02_MISSING_SOURCE",
+      "K03_PROFILE_CONFLICT",
+      "K04_PLAN_IDENTITY_REPLACED",
+      "K05_PLAN_DERIVED_FROM_TRACE",
+      "K06_RESET_EPOCH_WRONG_SOURCE",
+      "K07_FINISH_D_D1_PENDING",
+      "K08_AUTHENTICITY_STAYS_PENDING"
+    ],
+    "V": [
+      "V01_REVERSIBLE",
+      "V02_UTF8_BOUNDARY",
+      "V03_CRLF_LF_BYTES",
+      "V04_MISSING_PART",
+      "V05_DUPLICATE_PART",
+      "V06_WRONG_SEQUENCE",
+      "V07_WRONG_OFFSET",
+      "V08_DECODED_SHA",
+      "V09_WHOLE_SHA",
+      "V10_TRUNCATED_LAST_PART",
+      "V11_SAME_BUFFER_AND_MUTATION_GUARD",
+      "V12_LOCAL_PATH_IS_NOT_DELIVERY"
+    ],
+    "B": [
+      "B01_REAL_R12_TO_D4_SMALL",
+      "B02_PARENT_NATURAL_EXIT_JOB0",
+      "B03_PARENT_DESCENDANT_OBSERVATION",
+      "B04_PARENT_TIMEOUT_CLEANUP",
+      "B05_READER_EXCEPTION_PROPAGATION",
+      "B06_EOF_LENGTH_SHA",
+      "B07_RAW_PUBLIC_CSV_INDEX",
+      "B08_CANCEL_ADVANCE_RETAINED",
+      "B09_MONITOR_END",
+      "B10_ROW_FINISH_SOURCE",
+      "B11_ALL_ARTIFACT_RESOURCE_ACCOUNT",
+      "B12_TERMINAL_TAMPER_NO_COMPLETE"
+    ],
+    "W": [
+      "W01_FULL_SOFTWARE_WINDOW_1130662_ROWS_1398627657_RAW_BYTES"
+    ]
+  },
+  "initial_case_count": 33,
+  "P0_final_judgment": "local pins plus parent Job/native-close receipt; not worker-only",
+  "B02_B03_B04_final_judgment": "job_bridge parent receipt only; natural, real descendant and timeout fixtures implemented but not run",
+  "B08_fixture": "837 rows: FRAME833, accept+advance834, cancel835, finish836; static spec f74e26b6...9be, materialization/runtime pending in same B slot",
+  "W01_current_admission": "RESOURCE_PROFILE_PENDING",
+  "R_optional": "at most 16 frozen affected cases after one located own software defect",
+  "counts_are_not_results": true,
+  "execution_receipts": "PENDING_COORDINATOR",
+  "continuation_actual_evidence": {
+    "K": "PASS8",
+    "V": "PASS12",
+    "B": "12 reconciled actual previous sources + current B01 +60328 scalar equivalence; whole current B replay timed out",
+    "W": "FAILED_STOP",
+    "input_reused": "Exact immutable full input generated in first failed W; generation not re-claimed in successor",
+    "R13_SW_COMPLETE": false,
+    "final_status": "M2_LIMITED_REVIEW_PENDING"
+  },
+  "latest_actual_evidence": {
+    "status": "PASS_SOFTWARE_L1_SYNTHETIC_ONLY",
+    "K": "PASS8",
+    "V": "PASS12",
+    "B": "B_FILES_R01_PASS12_CURRENT_RUNTIME_SOURCES",
+    "codec": "C_CODEC_08_PASS15",
+    "W": "W_HOUR_10_PASS1_FULL_ACTUAL_D4",
+    "rows": 1130662,
+    "input_generation_origin": "Original failed W generated exact full raw. Current successor rehashed it, reused no old backend outputs.",
+    "worker": {
+      "path": "code/output/m3_backend_stream_r13_20261018/RUNS/W_HOUR_10/inner/worker/WORKER_COMPLETE.json",
+      "bytes": 3902036,
+      "sha256": "28362c9a791ab20b328c3a1504db5e210b6b0fbc117e3be09aba4e9b760d3809"
+    },
+    "bridge": {
+      "path": "code/output/m3_backend_stream_r13_20261018/RUNS/W_HOUR_10/inner/GROUP_COMPLETE.json",
+      "bytes": 6971,
+      "sha256": "53d6204074279c2fc9721c063689fa48c4acba8622d6c61e451739d2354ce89e"
+    },
+    "full_transport_freeze_receipt": {
+      "path": "code/output/m3_backend_stream_r13_20261018/RECOVERY_TASK0_20261019/W_TRANSFER_RECEIPT.json",
+      "bytes": 1689,
+      "sha256": "0a510572af30607237a609fe2a7b4e61f4542005d27064be9887d539441d4358"
+    },
+    "old_failures_preserved": true,
+    "real_verified": false,
+    "math_verified": false,
+    "board_release_allowed": false
+  },
+  "old_continuation_evidence_is_historical": true
+}
