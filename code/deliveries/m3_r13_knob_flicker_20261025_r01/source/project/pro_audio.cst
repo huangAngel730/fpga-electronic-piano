@@ -1,0 +1,85 @@
+// Pro C audio-only successor. Reset is Dock S0/K16 active low.
+IO_LOC "sys_clk_50m" P16;
+IO_PORT "sys_clk_50m" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF BANK_VCCIO=3.3;
+IO_LOC "sys_rst_n" K16;
+IO_PORT "sys_rst_n" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=OFF BANK_VCCIO=3.3;
+IO_LOC "key_n[0]" F15;
+IO_PORT "key_n[0]" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=OFF BANK_VCCIO=3.3;
+IO_LOC "key_n[1]" G15;
+IO_PORT "key_n[1]" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=OFF BANK_VCCIO=3.3;
+IO_LOC "midi_rx" R17;
+IO_PORT "midi_rx" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=OFF BANK_VCCIO=3.3;
+IO_LOC "i2s_bclk" E22;
+IO_PORT "i2s_bclk" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;
+IO_LOC "i2s_lrck" F24;
+IO_PORT "i2s_lrck" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;
+IO_LOC "i2s_din" G24;
+IO_PORT "i2s_din" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;
+IO_LOC "pa_en" H17;
+IO_PORT "pa_en" IO_TYPE=LVCMOS33 PULL_MODE=DOWN DRIVE=8 BANK_VCCIO=3.3;
+IO_LOC "uart_tx" P15;
+IO_PORT "uart_tx" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;
+
+// ESP32-C3-Zero-M UART1. Dock 4071f3 p16 J26 (PMOD2).
+// ESP GPIO4 TX -> J26 pin11 PMOD2_IO0/C21 -> ble_uart_rx.
+// ESP GPIO5 RX <- J26 pin9  PMOD2_IO1/B20 <- ble_uart_tx.
+// Common ground J26 pin3/4; power ESP independently by USB initially.
+IO_LOC "ble_uart_rx" C21;
+IO_PORT "ble_uart_rx" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=OFF BANK_VCCIO=3.3;
+IO_LOC "ble_uart_tx" B20;
+IO_PORT "ble_uart_tx" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;
+
+// Dock DVI_TX_A/J11, official Pro CST HDMI port0 pairs (P,N).
+IO_LOC "tmds_data_p[0]" AB24,AC24;
+IO_LOC "tmds_data_p[1]" V24,W24;
+IO_LOC "tmds_data_p[2]" AA22,AA23;
+IO_LOC "tmds_clk_p" Y22,Y23;
+IO_PORT "tmds_data_p[0]" IO_TYPE=LVDS25 PULL_MODE=NONE DRIVE=6 BANK_VCCIO=3.3;
+IO_PORT "tmds_data_p[1]" IO_TYPE=LVDS25 PULL_MODE=NONE DRIVE=6 BANK_VCCIO=3.3;
+IO_PORT "tmds_data_p[2]" IO_TYPE=LVDS25 PULL_MODE=NONE DRIVE=6 BANK_VCCIO=3.3;
+IO_PORT "tmds_clk_p" IO_TYPE=LVDS25 PULL_MODE=NONE DRIVE=6 BANK_VCCIO=3.3;
+
+// R07: dedicate the pixel-clock DVI release FF near its actual serializer
+// loads. This exact legal FF site was used in GOWIN_05_R04 with77 loads
+// and0.347..1.123ns routes to the same four RESET endpoints. New pixel
+// clock/data/recovery/removal timing still requires a full implementation.
+INS_LOC "u_score_visual/u_display/dvi_rst_n_s1" R36C180[0][A];
+
+// EXPERIMENTAL R03 DVI FF physical relocation delta; NOT PNR VALIDATED.
+// Append to a NEW root-owned CST only after source/test freeze checks.
+// All five destinations are witnessed actual TMDS dout FF sites in BUILD_02.
+// No logic/IP/netlist/clock/uncertainty/false-path/serializer phase changes.
+// Existing occupants are not fixed; fresh placer must resolve control/packing.
+// Syntax per local SUG1541-1.0E PDF17-18; endpoint resolution UNKNOWN until run.
+
+// Native witness: u_score_visual/u_display/u_dvi/rgb2dvi_inst/TMDS8b10b_inst_r/dout_1_s0
+INS_LOC "u_score_visual/u_display/u_dvi/rgb2dvi_inst/TMDS8b10b_inst_g/dout_3_s0" R50C153[1][B];
+
+// Native witness: u_score_visual/u_display/u_dvi/rgb2dvi_inst/TMDS8b10b_inst_r/dout_2_s0
+INS_LOC "u_score_visual/u_display/u_dvi/rgb2dvi_inst/TMDS8b10b_inst_g/dout_7_s0" R50C153[1][A];
+
+// Native witness: u_score_visual/u_display/u_dvi/rgb2dvi_inst/TMDS8b10b_inst_r/dout_4_s0
+INS_LOC "u_score_visual/u_display/u_dvi/rgb2dvi_inst/TMDS8b10b_inst_g/dout_4_s0" R51C153[2][B];
+
+// Native witness: u_score_visual/u_display/u_dvi/rgb2dvi_inst/TMDS8b10b_inst_r/dout_5_s0
+INS_LOC "u_score_visual/u_display/u_dvi/rgb2dvi_inst/TMDS8b10b_inst_g/dout_0_s0" R51C154[2][A];
+
+// Native witness: u_score_visual/u_display/u_dvi/rgb2dvi_inst/TMDS8b10b_inst_r/dout_9_s0
+INS_LOC "u_score_visual/u_display/u_dvi/rgb2dvi_inst/TMDS8b10b_inst_r/dout_6_s0" R51C154[2][B];
+
+// R04 EXPERIMENTAL additional two-FF physical trial. NOT PNR/TIMING VALIDATED.
+// Append to a NEW CST retaining all R03 bytes (five prior data FFs + reset site).
+// Targets are real same-channel TMDS FF sites in exact BUILD_03 TR.
+// Displaced blue6/red5 remain unfixed and must be checked after fresh placement.
+// No source/IP/netlist, FF count, phase, SDC, clock or uncertainty changes.
+
+// Native same-channel witness: u_score_visual/u_display/u_dvi/rgb2dvi_inst/TMDS8b10b_inst_b/dout_6_s0
+INS_LOC "u_score_visual/u_display/u_dvi/rgb2dvi_inst/TMDS8b10b_inst_b/dout_0_s0" R58C154[3][A];
+
+// Native same-channel witness: u_score_visual/u_display/u_dvi/rgb2dvi_inst/TMDS8b10b_inst_r/dout_5_s0
+INS_LOC "u_score_visual/u_display/u_dvi/rgb2dvi_inst/TMDS8b10b_inst_r/dout_8_s0" R56C154[1][A];
+
+// R13 R03 hold repair: preserve serializer registers and phase.
+// Exact red dout4 FF site witnessed in successful R10_BUILD_02 TR.
+// R02_BUILD_01 placed it at R53C156[1][B], hold -0.064 ns.
+INS_LOC "u_score_visual/u_display/u_dvi/rgb2dvi_inst/TMDS8b10b_inst_r/dout_4_s0" R52C155[0][B];

@@ -1,0 +1,37 @@
+{
+  "status": "FAILED_HOLD_NO_BOARD_RELEASE",
+  "utc": "2026-10-24T16:30:59.430989+00:00",
+  "source_gate_sha256": "80bcf7218ac38f003e111d700182c0ab9536801a35964c24e7ce9b8a3052ebef",
+  "native_run": "E:\\FPGA\\GAOYUNFPGA\\extra _life\\basic\\project\\r13_knob_controls_flicker_20261024\\integration_r02\\evidence\\R13_R02_BUILD_01",
+  "tool_exit": 0,
+  "Setup_ns": 1.774,
+  "Hold_ns": -0.064,
+  "violated_endpoints": {
+    "setup": 0,
+    "hold": 3
+  },
+  "negative_paths": [
+    "TMDS r dout4 Q -> OSER10_r D4 -.064",
+    "trace selected1 Q ->mux_data3 D -.046",
+    "trace selected1 Q ->mux_data4 D -.046"
+  ],
+  "files": {
+    "pro_audio.fs": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\extra _life\\basic\\bitstreams\\20261025_R13_FAILED_CANDIDATES\\R02_BUILD01_NOT_FOR_BOARD\\pro_audio.fs",
+      "bytes": 40494168,
+      "sha256": "f614aca9159be2b4dd4f8531337db6a7aca9c95166cf3b15cd8d46a5daddafd6"
+    },
+    "pro_audio.tr": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\extra _life\\basic\\bitstreams\\20261025_R13_FAILED_CANDIDATES\\R02_BUILD01_NOT_FOR_BOARD\\pro_audio.tr",
+      "bytes": 7806207,
+      "sha256": "b1ad7b32b9b292f302dff1fba35ea5159d9d997d7eab207dbd5240b289dce1d9"
+    },
+    "pro_audio.rpt.txt": {
+      "path": "E:\\FPGA\\GAOYUNFPGA\\extra _life\\basic\\bitstreams\\20261025_R13_FAILED_CANDIDATES\\R02_BUILD01_NOT_FOR_BOARD\\pro_audio.rpt.txt",
+      "bytes": 98792,
+      "sha256": "286d6e10432edea3c26e0b96b16f942cb6de7fca99ccfe4d11f795def5f50fbf"
+    }
+  },
+  "review_tool_failures": "displaychecker stale removedwave hierarchy; closure output path outside checker write-set. Both are reader invocation/schema issues, not extra RTL defects; preserve originaloutputs and rerun only corrected readers.",
+  "board_release_allowed": false
+}

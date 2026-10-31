@@ -1,0 +1,439 @@
+{
+  "status": "PASS_NATIVE_SNAPSHOT_ID_MAPPING_ONLY",
+  "bits": 32,
+  "LUT1_INIT2_count": 64,
+  "branches": [
+    {
+      "bit": 0,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_0_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[0].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[0].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_0_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 1,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_1_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[1].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[1].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_1_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 2,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_2_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[2].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[2].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_2_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 3,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_3_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[3].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[3].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_3_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 4,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_4_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[4].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[4].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_4_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 5,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_5_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[5].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[5].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_5_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 6,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_6_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[6].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[6].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_6_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 7,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_7_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[7].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[7].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_7_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 8,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_8_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[8].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[8].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_8_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 9,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_9_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[9].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[9].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_9_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 10,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_10_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[10].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[10].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_10_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 11,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_11_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[11].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[11].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_11_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 12,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_12_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[12].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[12].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_12_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 13,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_13_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[13].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[13].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_13_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 14,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_14_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[14].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[14].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_14_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 15,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_15_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[15].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[15].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_15_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 16,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_16_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[16].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[16].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_16_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 17,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_17_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[17].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[17].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_17_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 18,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_18_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[18].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[18].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_18_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 19,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_19_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[19].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[19].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_19_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 20,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_20_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[20].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[20].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_20_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 21,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_21_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[21].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[21].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_21_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 22,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_22_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[22].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[22].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_22_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 23,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_23_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[23].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[23].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_23_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 24,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_24_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[24].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[24].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_24_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 25,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_25_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[25].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[25].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_25_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 26,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_26_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[26].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[26].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_26_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 27,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_27_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[27].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[27].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_27_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 28,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_28_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[28].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[28].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_28_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 29,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_29_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[29].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[29].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_29_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 30,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_30_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[30].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[30].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_30_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    },
+    {
+      "bit": 31,
+      "source_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/pending_req_id_31_s0",
+      "cells": [
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[31].u_hold1",
+        "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/g_request_id_hold[31].u_hold2"
+      ],
+      "destination_FF": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls/snapshot_id_31_s0",
+      "CLK_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::core_clk",
+      "CLEAR_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::n153_6",
+      "CE_root": "u_audio/g_polyphonic.u_audio_core/u_chain/u_audio/u_bank/u_controls::frozen_base_127_4",
+      "only_buffer_sinks": "u_hold2.I0 then existing snapshot_id.D"
+    }
+  ],
+  "parser_warnings": [],
+  "limit": "Structural32-bit branch/FF pin mapping only; CE Boolean function, timing and complete sequential semantics rely on source review and separate HDL/STA.",
+  "source": "E:\\FPGA\\GAOYUNFPGA\\extra _life\\basic\\project\\r13_knob_controls_flicker_20261024\\integration_r03",
+  "gate": "E:\\FPGA\\GAOYUNFPGA\\extra _life\\basic\\project\\r13_knob_controls_flicker_20261024\\integration_r03\\docs\\SOURCE_READY.json",
+  "run": "E:\\FPGA\\GAOYUNFPGA\\extra _life\\basic\\project\\r13_knob_controls_flicker_20261024\\integration_r03\\evidence\\R13_R03_BUILD_01",
+  "gate_sha256": "3567f711bbb2a45ae5d433f906205995d83e83c240b4fe781c92730529f181d4",
+  "source_sha256": "41288e71607c1712f41179ef47060ac1eb34026f782b9ac7d427f54166fbc648",
+  "VG_sha256": "5c2b617c14d3df3045787efecfcf47756dfe266b4366ce8c176b80a2ea64f4b4",
+  "script_sha256": "d87251785c709195a389a0e2416d493b7529c6d14977249cc3a5dc51071fe85f",
+  "parser_sha256": "776c378534f17f7f2dd817314c0140816a7de6dae93eb7a33acf8bee95c0c12b",
+  "gate_reverified_at_close": true,
+  "archived_native_inputs": 112,
+  "run_receipt_sha256": "3b5350f61445ba6d016da76df4b97b7a41b36de47720649db7bbe2760f207aac",
+  "HDL": 0,
+  "EDA": 0,
+  "device": 0
+}

@@ -1,0 +1,77 @@
+{
+  "status": "SAVED_SAME_SOURCE_SIMULATION_AND_NATIVE_STA_PASS_NOT_BOARD_TESTED",
+  "utc": "2026-10-24T17:03:15.148951+00:00",
+  "source_root": "E:\\FPGA\\GAOYUNFPGA\\extra _life\\basic\\project\\r13_knob_controls_flicker_20261024\\integration_r03",
+  "project_entry": "E:\\FPGA\\GAOYUNFPGA\\extra _life\\basic\\project\\r13_knob_controls_flicker_20261024\\integration_r03\\project\\pro_audio.gprj",
+  "rebuild_entry": "E:\\FPGA\\GAOYUNFPGA\\extra _life\\basic\\project\\r13_knob_controls_flicker_20261024\\integration_r03\\rebuild.tcl",
+  "source_gate_sha256": "3567f711bbb2a45ae5d433f906205995d83e83c240b4fe781c92730529f181d4",
+  "native_run": "E:\\FPGA\\GAOYUNFPGA\\extra _life\\basic\\project\\r13_knob_controls_flicker_20261024\\integration_r03\\evidence\\R13_R03_BUILD_01",
+  "build_receipt_sha256": "3b5350f61445ba6d016da76df4b97b7a41b36de47720649db7bbe2760f207aac",
+  "native_VG_sha256": "5c2b617c14d3df3045787efecfcf47756dfe266b4366ce8c176b80a2ea64f4b4",
+  "tool": "D:\\program\\Gowin_work\\Gowin\\Gowin_V1.9.12.04_x64\\IDE\\bin\\gw_sh.exe",
+  "tool_sha256": "585c12968550a960d1021287742672ff9d6bbeaee5623f6811dfc1f907a4af41",
+  "tool_version": "Gowin commercial V1.9.12.04 build2743",
+  "device": "GW5AST-LV138FPG676AC1/I0",
+  "stepping": "C",
+  "clocks_MHz": {
+    "reference": 50,
+    "audio_core": 40,
+    "pixel": 25,
+    "serial": 125
+  },
+  "timing_ns": {
+    "setup": 0.741,
+    "hold": 0.0,
+    "recovery": 1.881,
+    "removal": 0.064,
+    "pulse": 6.847
+  },
+  "violated_endpoints": {
+    "setup": 0,
+    "hold": 0
+  },
+  "active_SDC_commands": 51,
+  "frequency_or_uncertainty_relaxed": false,
+  "fix": "R02->R03 only: six transparent kept LUT1 selected consumer cells in diagnostic UART; one actual R10 red4 encoder FF location constraint appended. No added functional cycle or encrypted DVI IP change.",
+  "functional_evidence": {
+    "R02_system": "85787018 pixels,124 natural frames,32live+32score,knobs/4pendingpage-tone combos,PCM/I2S/BLEvisual-only; accepted source identity reused for unchanged non-trace HDL",
+    "R03_trace": "4 profiles,5400000 cycles,448 complete packets same-cycle miter; exact selected/header/index native identity verified",
+    "root_intakes": {
+      "R02_TASK4_SYSTEM_INTAKE.json": "06a1b15ae80fc897d45dc5befc47336cc8dc8d7e84c4d7456882d0bfd7b6c5b5",
+      "R03_TRACE_INTAKE.json": "266d1c142abbc07161107f9593c51522eb0c1c05aa2786af6bdab3a988ee5986"
+    }
+  },
+  "independent_native_reads": {
+    "task2_controls\\native_reader_r03\\evidence\\FINAL_R03_BUILD01.json": "b33fc47bf53048ba3385e0507ac50c95f91204754357ac7003524528e923cfbd",
+    "native\\R03_BUILD_01\\RESULT.json": "6ecb51716d86602efbdc22f9ee4fc4ab6f407706d288d6a90d1b0b5b053ecdd5",
+    "native_display\\R13_R03_BUILD01_display.json": "a7e0afbe8f25fe566b07e1fd1d5c85a0d11781be7244b597645d895228ace037",
+    "native_nco\\R13_R03_BUILD01_nco.json": "acec705e25bb9d70b7969ff44f74584cdbd620a38d4cca310afcd8d15c50bffd",
+    "native_captures\\R13_R03_BUILD01_snapshot_id.json": "09d56214a2002832b7e71053d323ddd4a03604b74610a883c1e5f5cab251042a",
+    "native_captures\\R13_R03_BUILD01_flush.json": "d7597254c5a23ecb1e72e692e6cec3313265f37fc3ae1c54541450096f2d88ab",
+    "native\\R03_BUILD_01\\timbres.json": "1f674f0f3af9b8ce719d5204ecd984919d3981c5b1dce7653a36b52e5056634f",
+    "native\\R03_BUILD_01\\volume.json": "0516ec08cb1628983f638a470f4d680b8ff2a413e67d81271d6166895cc72e17",
+    "native\\R03_BUILD_01\\DVI.json": "80c30119ca0f8e6fe14226761fa46edc19bfdbed406708d7ebcfd85728172d7c"
+  },
+  "saved_files": {
+    "09_pro_audio_knobs_flicker_R13.fs": {
+      "bytes": 40366680,
+      "sha256": "e2e26fae9a8e239b6909e9f4a6eb19199576b4eec8f5ea281a5fab8e42864780"
+    },
+    "pro_audio.tr": {
+      "bytes": 8657171,
+      "sha256": "3dcb45d5d8f70cbab9edf6a606246c6a294ffbf831fb7f410ed7cb436a26d1e0"
+    },
+    "pro_audio.rpt.txt": {
+      "bytes": 98806,
+      "sha256": "cd8f2eb79b101454b7a0a620835eb505b15abadf71bf2910ea8ff4a89d016973"
+    }
+  },
+  "byte_for_byte_copy_verified": true,
+  "failed_R02_preserved": "E:\\FPGA\\GAOYUNFPGA\\extra _life\\basic\\bitstreams\\20261025_R13_FAILED_CANDIDATES\\R02_BUILD01_NOT_FOR_BOARD",
+  "hardware": "NOT_RUN",
+  "full_CDC_or_C9_signoff": false,
+  "board_release_allowed": false,
+  "device_operations": 0,
+  "Git_operations": 0,
+  "further_source_edits": "STOPPED_AFTER_PASS"
+}

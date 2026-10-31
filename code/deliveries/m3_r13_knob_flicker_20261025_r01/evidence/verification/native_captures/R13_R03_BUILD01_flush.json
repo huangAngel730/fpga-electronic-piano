@@ -1,0 +1,68 @@
+{
+  "status": "PASS_NATIVE_FOUR_LUT_FLUSH_BRANCH_MAPPING_ONLY",
+  "source_FF": "u_score_visual/u_scheduler/flush_req_s1",
+  "four_LUTs": [
+    "u_score_visual/u_display/u_flush_target_hold1",
+    "u_score_visual/u_display/u_flush_target_hold2",
+    "u_score_visual/u_display/u_flush_target_hold3",
+    "u_score_visual/u_display/u_flush_target_hold4"
+  ],
+  "destination_FF": "u_score_visual/u_display/flush_target_s0",
+  "capture_controls": {
+    "CLK": "u_score_visual/u_display::core_clk",
+    "CLEAR": "u_score_visual/u_display::n153_6",
+    "CE": "u_score_visual/u_display::flush_target_10"
+  },
+  "buffer_stage_sinks": [
+    [
+      {
+        "cell": "u_score_visual/u_display/u_flush_target_hold2",
+        "kind": "LUT1",
+        "port": "I0",
+        "bit": 0
+      }
+    ],
+    [
+      {
+        "cell": "u_score_visual/u_display/u_flush_target_hold3",
+        "kind": "LUT1",
+        "port": "I0",
+        "bit": 0
+      }
+    ],
+    [
+      {
+        "cell": "u_score_visual/u_display/u_flush_target_hold4",
+        "kind": "LUT1",
+        "port": "I0",
+        "bit": 0
+      }
+    ],
+    [
+      {
+        "cell": "u_score_visual/u_display/flush_target_s0",
+        "kind": "DFFCE",
+        "port": "D",
+        "bit": 0
+      }
+    ]
+  ],
+  "LUT1_INIT2_count": 4,
+  "added_FF_on_branch": 0,
+  "parser_warnings": [],
+  "limit": "Four exact adjacent INIT2 cells, sole original D consumer and original register capture primitive/pins/shared clock/reset/nonconstant CE. CE Boolean function and all raw source consumers require frozen source review and independent HDL. No STA/electrical/CDC signoff.",
+  "source": "E:\\FPGA\\GAOYUNFPGA\\extra _life\\basic\\project\\r13_knob_controls_flicker_20261024\\integration_r03",
+  "gate": "E:\\FPGA\\GAOYUNFPGA\\extra _life\\basic\\project\\r13_knob_controls_flicker_20261024\\integration_r03\\docs\\SOURCE_READY.json",
+  "run": "E:\\FPGA\\GAOYUNFPGA\\extra _life\\basic\\project\\r13_knob_controls_flicker_20261024\\integration_r03\\evidence\\R13_R03_BUILD_01",
+  "gate_sha256": "3567f711bbb2a45ae5d433f906205995d83e83c240b4fe781c92730529f181d4",
+  "source_sha256": "5b7253089a783e025c652c8d54be1dad2d128f0795b207426ef9fa073c135e25",
+  "VG_sha256": "5c2b617c14d3df3045787efecfcf47756dfe266b4366ce8c176b80a2ea64f4b4",
+  "script_sha256": "769847276fea1880b1cf265d417e28dc691b917316451cd8215c2f607db8f61e",
+  "parser_sha256": "776c378534f17f7f2dd817314c0140816a7de6dae93eb7a33acf8bee95c0c12b",
+  "gate_reverified_at_close": true,
+  "archived_native_inputs": 112,
+  "run_receipt_sha256": "3b5350f61445ba6d016da76df4b97b7a41b36de47720649db7bbe2760f207aac",
+  "HDL": 0,
+  "EDA": 0,
+  "device": 0
+}

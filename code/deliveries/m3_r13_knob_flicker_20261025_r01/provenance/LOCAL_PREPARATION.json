@@ -1,0 +1,72 @@
+{
+  "status": "PACKAGE_VERIFIED_PREPARED_NO_DEVICE_OPERATION",
+  "utc": "2026-10-25T01:46:36.280961+00:00",
+  "user_request": "这是最新代码，准备烧录，同时让git窗口提交到github",
+  "authorization_scope": "Verify and prepare selected archive; fixed Git chat handles GitHub publication. No download requested or performed.",
+  "archive": {
+    "path": "D:\\Cmove\\CUsersAngel17move\\Downloads\\R13_KNOB_FLICKER_TIMING_PASS_20261025_R01.zip",
+    "bytes": 10340752,
+    "sha256": "39e0a44621c51bfecec958276cbba809a00f668aad791ad4896f5ebd4cbefb9e"
+  },
+  "package_root": "D:\\17\\project_17\\fpga_gowin\\code\\output\\r13_prepare_20261025_r01\\original\\R13_KNOB_FLICKER_TIMING_PASS_20261025_R01",
+  "verification_level": "LOCAL_STATIC_IDENTITY_AND_INTEGRITY_ONLY",
+  "local_checks": {
+    "crc": "PASS",
+    "safe_paths_and_unique_windows_names": "PASS",
+    "archive_members": 819,
+    "manifest_payloads": 818,
+    "complete_manifest_membership": "PASS",
+    "all_payload_sizes_and_sha256": "PASS",
+    "extracted_payloads_readback": "PASS",
+    "project_registered_inputs": 90,
+    "all_project_inputs_resolved": "PASS",
+    "device_and_C_stepping": "PASS",
+    "release_report_netlist_and_receipt_identity": "PASS"
+  },
+  "bitstream": {
+    "path": "D:\\17\\project_17\\fpga_gowin\\code\\output\\r13_prepare_20261025_r01\\original\\R13_KNOB_FLICKER_TIMING_PASS_20261025_R01\\bitstream\\09_pro_audio_knobs_flicker_R13.fs",
+    "bytes": 40366680,
+    "sha256": "e2e26fae9a8e239b6909e9f4a6eb19199576b4eec8f5ea281a5fab8e42864780"
+  },
+  "device": "GW5AST-LV138FPG676AC1/I0",
+  "device_key": "gw5ast138c-003",
+  "top": "pro_audio_minimal_top",
+  "stepping": "C",
+  "upstream_reported_timing_ns": {
+    "setup": 0.741,
+    "hold": 0.0,
+    "recovery": 1.881,
+    "removal": 0.064,
+    "pulse": 6.847
+  },
+  "upstream_reported_violated_endpoints": {
+    "setup": 0,
+    "hold": 0
+  },
+  "upstream_status": "SAVED_SAME_SOURCE_SIMULATION_AND_NATIVE_STA_PASS_NOT_BOARD_TESTED",
+  "upstream_board_release_allowed": false,
+  "upstream_full_CDC_or_C9_signoff": false,
+  "local_EDA_runs": 0,
+  "local_simulation_runs": 0,
+  "programmer": {
+    "documented_path": "D:\\program\\Gowin_work\\Gowin\\Gowin_V1.9.12.04_x64\\Programmer\\bin\\programmer_cli.exe",
+    "exists": false,
+    "expected_sha256": "ca28fe178b04fd99780267787f61b0e0ec3729d579fe237ff454c1a0353e8ef6"
+  },
+  "download_mode_if_later_authorized": "SRAM Program only",
+  "device_enumerations": 0,
+  "JTAG_scans": 0,
+  "SRAM_program_attempts": 0,
+  "flash_operations": 0,
+  "hardware_readback": "NOT_RUN",
+  "board_observations": "NOT_RUN",
+  "burn_ready": false,
+  "remaining_before_actual_download": [
+    "Locate and verify the documented commercial programmer on this computer",
+    "Same-SHA M2 technical admission and current user authorization to execute SRAM download",
+    "Confirm current Pro C board, power, JTAG/UART USB, safe existing wiring and low volume",
+    "Fresh cable enumeration and JTAG identity check, in a new logged session"
+  ],
+  "git_chat": "01a1539b-2c78-7e20-b8ac-d7dfda122c75",
+  "git_status": "REQUEST_SENT_RESULT_PENDING"
+}

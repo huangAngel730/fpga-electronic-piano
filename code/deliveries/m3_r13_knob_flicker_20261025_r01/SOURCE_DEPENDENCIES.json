@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "level": "L0_STATIC_ONLY",
+  "source_archive": {
+    "filename": "R13_KNOB_FLICKER_TIMING_PASS_20261025_R01.zip",
+    "bytes": 10340752,
+    "sha256": "39e0a44621c51bfecec958276cbba809a00f668aad791ad4896f5ebd4cbefb9e"
+  },
+  "complete_source": {
+    "files": 126,
+    "bytes": 913402
+  },
+  "production_rebuild": {
+    "gprj_registered_inputs": 90,
+    "tcl_gui_set_equal": true,
+    "registered_inputs_resolved": true,
+    "include_occurrences_resolved": 7,
+    "unique_include_headers": 6,
+    "production_rom_literals_resolved": true,
+    "device": "GW5AST-LV138FPG676AC1/I0",
+    "stepping": "C",
+    "top": "pro_audio_minimal_top",
+    "recommended_entry": "REBUILD_ON_TEAM_PC.ps1 -> source/rebuild.tcl + source/options.tcl",
+    "output": "source/REBUILD/pro_audio",
+    "existing_output": "STOP_PRESERVE_OLD_OUTPUT",
+    "external_source_dependency_found": false
+  },
+  "required_gui_configuration": "source/project/impl/pro_audio_process_config.json",
+  "historical_auxiliary_limitations": [
+    {
+      "file": "source/tools/build_candidate.py",
+      "line": 15,
+      "reason": "Gowin executable uses the original machine absolute installation path."
+    },
+    {
+      "file": "source/project/extension_tools/run_checks.py",
+      "lines": [
+        18,
+        19
+      ],
+      "reason": "ModelSim and Gowin executable paths are absolute paths from the original machine."
+    },
+    {
+      "file": "source/project/extension_tools/run_checks.py",
+      "line": 56,
+      "reason": "Path(entry.attrib[\"path\"]).resolve() depends on caller CWD."
+    }
+  ],
+  "missing_auxiliary_inputs": [
+    "source/verify_backup.py",
+    "source/baseline/A08/project/src/m3_pro_audio_core_r10.sv",
+    "source/project/extension_tools/check_project.py",
+    "source/project/extension_docs/demo_a4_c5.records.bin",
+    "source/project/tb/extension_visual/display/dvi_sim_boundary.sv"
+  ],
+  "consequence": "Production Tcl/GPRJ rebuild is statically closed; historical auxiliary regression scripts are not an independently rerunnable suite. Frozen source files are unchanged.",
+  "local_simulation_runs": 0,
+  "local_EDA_runs": 0,
+  "device_operations": 0,
+  "board_release_allowed": false,
+  "hardware": "NOT_RUN",
+  "full_CDC_or_C9_signoff": false
+}
