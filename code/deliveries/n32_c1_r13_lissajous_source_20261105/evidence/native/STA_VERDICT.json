@@ -1,0 +1,187 @@
+{
+  "Setup": {
+    "rows": 714,
+    "negative": 0,
+    "worst": 0.032,
+    "tns": 0.0,
+    "status": "PASS",
+    "margin": 0.0
+  },
+  "Hold": {
+    "rows": 970,
+    "negative": 0,
+    "worst": 0.069,
+    "tns": 0.0,
+    "status": "PASS",
+    "margin": 0.05
+  },
+  "Recovery": {
+    "rows": 424,
+    "negative": 0,
+    "worst": 2.878,
+    "tns": 0.0,
+    "status": "PASS",
+    "margin": 0.05
+  },
+  "Removal": {
+    "rows": 424,
+    "negative": 0,
+    "worst": 0.08,
+    "tns": 0.0,
+    "status": "PASS",
+    "margin": 0.05
+  },
+  "MinPulseWidth": {
+    "rows": 10,
+    "worst": 6.815,
+    "status": "PASS",
+    "margin": 0.05
+  },
+  "reported_tns": [
+    {
+      "Clock": "ref_clk",
+      "Type": "Setup",
+      "TNS": 0.0,
+      "Endpoints": "0"
+    },
+    {
+      "Clock": "ref_clk",
+      "Type": "Hold",
+      "TNS": 0.0,
+      "Endpoints": "0"
+    },
+    {
+      "Clock": "core_clk",
+      "Type": "Setup",
+      "TNS": 0.0,
+      "Endpoints": "0"
+    },
+    {
+      "Clock": "core_clk",
+      "Type": "Hold",
+      "TNS": 0.0,
+      "Endpoints": "0"
+    },
+    {
+      "Clock": "serial_clk",
+      "Type": "Setup",
+      "TNS": 0.0,
+      "Endpoints": "0"
+    },
+    {
+      "Clock": "serial_clk",
+      "Type": "Hold",
+      "TNS": 0.0,
+      "Endpoints": "0"
+    },
+    {
+      "Clock": "pixel_clk",
+      "Type": "Setup",
+      "TNS": 0.0,
+      "Endpoints": "0"
+    },
+    {
+      "Clock": "pixel_clk",
+      "Type": "Hold",
+      "TNS": 0.0,
+      "Endpoints": "0"
+    }
+  ],
+  "worst_paths": [
+    {
+      "Type": "Hold",
+      "Slack": 0.069,
+      "From": "u_audio/g_polyphonic.u_audio_core/u_n8_core/scheduler/req_tag_52_s0/Q",
+      "To": "u_audio/g_polyphonic.u_audio_core/u_n8_core/scheduler/issued_tags_issued_tags_0_13_s/DI[0]",
+      "Data": "0.218"
+    },
+    {
+      "Type": "Hold",
+      "Slack": 0.069,
+      "From": "u_audio/g_polyphonic.u_audio_core/u_n8_core/scheduler/req_tag_52_s0/Q",
+      "To": "u_audio/g_polyphonic.u_audio_core/u_n8_core/scheduler/issued_tags_issued_tags_0_13_s/DI[0]",
+      "Data": "0.218"
+    },
+    {
+      "Type": "Hold",
+      "Slack": 0.072,
+      "From": "u_audio/g_polyphonic.u_audio_core/u_n8_core/scheduler/req_tag_14_s0/Q",
+      "To": "u_audio/g_polyphonic.u_audio_core/u_n8_core/scheduler/issued_tags_issued_tags_1_3_s/DI[2]",
+      "Data": "0.219"
+    },
+    {
+      "Type": "Recovery",
+      "Slack": 2.878,
+      "From": "u_score_visual/u_display/dvi_rst_n_s1/Q",
+      "To": "u_score_visual/u_display/u_dvi/rgb2dvi_inst/u_OSER10_g/RESET",
+      "Data": "1.506"
+    },
+    {
+      "Type": "Recovery",
+      "Slack": 2.878,
+      "From": "u_score_visual/u_display/dvi_rst_n_s1/Q",
+      "To": "u_score_visual/u_display/u_dvi/rgb2dvi_inst/u_OSER10_g/RESET",
+      "Data": "1.506"
+    },
+    {
+      "Type": "Recovery",
+      "Slack": 2.878,
+      "From": "u_score_visual/u_display/dvi_rst_n_s1/Q",
+      "To": "u_score_visual/u_display/u_dvi/rgb2dvi_inst/u_OSER10_g/RESET",
+      "Data": "1.506"
+    },
+    {
+      "Type": "Removal",
+      "Slack": 0.08,
+      "From": "u_score_visual/u_display/dvi_rst_n_s1/Q",
+      "To": "u_score_visual/u_display/u_dvi/rgb2dvi_inst/u_OSER10_b/RESET",
+      "Data": "0.320"
+    },
+    {
+      "Type": "Removal",
+      "Slack": 0.08,
+      "From": "u_score_visual/u_display/dvi_rst_n_s1/Q",
+      "To": "u_score_visual/u_display/u_dvi/rgb2dvi_inst/u_OSER10_b/RESET",
+      "Data": "0.320"
+    },
+    {
+      "Type": "Removal",
+      "Slack": 0.08,
+      "From": "u_score_visual/u_display/dvi_rst_n_s1/Q",
+      "To": "u_score_visual/u_display/u_dvi/rgb2dvi_inst/u_OSER10_b/RESET",
+      "Data": "0.320"
+    },
+    {
+      "Type": "Setup",
+      "Slack": 0.032,
+      "From": "u_audio/g_polyphonic.u_audio_core/u_n8_core/router/u_sustain/pending_pedal_down_s0/Q",
+      "To": "u_audio/g_polyphonic.u_audio_core/u_n8_core/router/u_sustain/deferred_20_s0/CE",
+      "Data": "23.714"
+    },
+    {
+      "Type": "Setup",
+      "Slack": 0.043,
+      "From": "u_audio/g_polyphonic.u_extra_voices/u_snare/wire_product_17_s0/Q",
+      "To": "u_audio/g_polyphonic.u_extra_voices/u_snare/combined_62_s0/D",
+      "Data": "24.020"
+    },
+    {
+      "Type": "Setup",
+      "Slack": 0.13,
+      "From": "u_audio/g_polyphonic.u_audio_core/u_n8_core/router/u_sustain/pending_pedal_down_s0/Q",
+      "To": "u_audio/g_polyphonic.u_audio_core/u_n8_core/router/u_sustain/pending_generations_256_s1/CE",
+      "Data": "23.623"
+    }
+  ],
+  "overall": "PASS_ALL_CRITERIA",
+  "run_dir": "E:\\FPGA\\GAOYUNFPGA\\_run\\R13VIS02",
+  "margin_rule_setup": 0.0,
+  "margin_rule_other": 0.05,
+  "margin_rule": {
+    "setup": 0.0,
+    "other": 0.05,
+    "setup_rule": "worst slack > 0 (any positive slack passes)"
+  },
+  "paths_below_0.050": 2,
+  "margin_0.050_cleared": false
+}

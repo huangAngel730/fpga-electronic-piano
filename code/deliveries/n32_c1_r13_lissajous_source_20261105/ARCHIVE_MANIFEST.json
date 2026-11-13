@@ -1,0 +1,1820 @@
+{
+  "schema": "n32.c1.r13.lissajous.source_archive.v1",
+  "variant": "N32_C1_R13_LISSAJOUS",
+  "upstream_archive": {
+    "name": "N32_C1_R13_李萨如放大与标题_转发包_20261105.zip",
+    "bytes": 6196768,
+    "sha256": "f659555efc082d932e3bd76a4b4dc6d9435a6bc50c06c21939fe6325ef0cf188",
+    "payload_count": 262
+  },
+  "historical_bitstream_sha256": "0b994492ecd4ac4a6e504568e2a71ed9f048ef572ceea56ac03193f4bd26363c",
+  "historical_flash_evidence_commit": "e7ff6f27d6d1018a801f12b27d6c0bc19c2a9534",
+  "project": {
+    "registered_inputs": 131,
+    "archived_project_files": 183,
+    "device": "GW5AST-LV138FPG676AC1/I0",
+    "stepping": "C",
+    "top": "pro_audio_minimal_top",
+    "entry": "project/rebuild.tcl",
+    "omitted_unreferenced_fixture": "project/extension_docs/demo_a4_c5.records.bin"
+  },
+  "excluded": "Bitstreams, nested ZIPs, historical logs/netlists and bulky run evidence remain in the original delivery.",
+  "payload_count": 194,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 4074,
+      "sha256": "cc32f78b1588f40db6dbb94b61a765159edba7011e67a6b5a14e54bcdeefd79e",
+      "origin": "repository archive documentation and verifier"
+    },
+    {
+      "path": "README_FIRST.md",
+      "bytes": 1768,
+      "sha256": "14136404a675b1c2c6eb007110035decc62e10d2d7c8edf268c382182568e44f",
+      "upstream_path": "README_FIRST.md",
+      "upstream_bytes": 1770,
+      "upstream_sha256": "c6a43fe03e26ad6bc34b8f5ca8655988011fbde9281e6b1d9ea8bc181ad851df",
+      "normalization": [
+        "LF"
+      ]
+    },
+    {
+      "path": "SHA256SUMS.txt",
+      "bytes": 27674,
+      "sha256": "0880e93ed2a45bf70b7ddd9a753829f0640a2359fc896e4cd7248a4d4cefa698",
+      "upstream_path": "SHA256SUMS.txt",
+      "upstream_bytes": 27674,
+      "upstream_sha256": "0880e93ed2a45bf70b7ddd9a753829f0640a2359fc896e4cd7248a4d4cefa698",
+      "normalization": []
+    },
+    {
+      "path": "controls_evidence/tb_c1_fx_controls.sv",
+      "bytes": 5737,
+      "sha256": "03576440069d6154c903f1d78dbd2cb1778f810c1f28619a14298ebe32e7aa93",
+      "upstream_path": "controls_evidence/tb_c1_fx_controls.sv",
+      "upstream_bytes": 5737,
+      "upstream_sha256": "03576440069d6154c903f1d78dbd2cb1778f810c1f28619a14298ebe32e7aa93",
+      "normalization": []
+    },
+    {
+      "path": "evidence/native/SOURCE_SHA256.json",
+      "bytes": 19793,
+      "sha256": "e56bf48d3a86afd9c5787e0b491eefafef9bf0463f7cce3dd4965dda36ab9fb2",
+      "upstream_path": "evidence/native/SOURCE_SHA256.json",
+      "upstream_bytes": 19979,
+      "upstream_sha256": "1a59d96b90244553849ac97b2c70f814bb02d81df63ec377afd4a09478a3f6b1",
+      "normalization": [
+        "LF"
+      ]
+    },
+    {
+      "path": "evidence/native/STA_VERDICT.json",
+      "bytes": 4748,
+      "sha256": "076577d73895dd7c7911dce33305001689e297f21e8db4e6bebdffb636e90394",
+      "upstream_path": "evidence/native/STA_VERDICT.json",
+      "upstream_bytes": 4933,
+      "upstream_sha256": "e26073f6d65211d882b8a793b0211173cffc61644f62eac3c961381e679546bc",
+      "normalization": [
+        "LF",
+        "line_tail_or_EOF_whitespace"
+      ]
+    },
+    {
+      "path": "evidence/native/receipt.json",
+      "bytes": 1733,
+      "sha256": "6e0e7c80adc227d4eae1ac5e38582484b3e5d03682dd774546dd49b28d8e2263",
+      "upstream_path": "evidence/native/receipt.json",
+      "upstream_bytes": 1773,
+      "upstream_sha256": "9dbc7edadd579f7cba30964ea9b4a6ea072a809568913d3e7f1b7bfe0a35e81f",
+      "normalization": [
+        "LF"
+      ]
+    },
+    {
+      "path": "extra_evidence/tb_c1_extra_voices.sv",
+      "bytes": 6883,
+      "sha256": "2413238ae1f5d73f3ed9cedb8a97911f726a6717c139a2986a4561b8a74b7f27",
+      "upstream_path": "extra_evidence/tb_c1_extra_voices.sv",
+      "upstream_bytes": 6883,
+      "upstream_sha256": "2413238ae1f5d73f3ed9cedb8a97911f726a6717c139a2986a4561b8a74b7f27",
+      "normalization": []
+    },
+    {
+      "path": "project/include/physical_key_layout.svh",
+      "bytes": 10776,
+      "sha256": "dc627b759f1076c511cd9bde551764686e5198e73f68bd60d37efbc60500598e",
+      "upstream_path": "project/include/physical_key_layout.svh",
+      "upstream_bytes": 10776,
+      "upstream_sha256": "dc627b759f1076c511cd9bde551764686e5198e73f68bd60d37efbc60500598e",
+      "normalization": []
+    },
+    {
+      "path": "project/include/sine_table.svh",
+      "bytes": 5648,
+      "sha256": "969fc7d1036e359fc55c3b0ca18eaf3c8a123a146ed95c32a81e52ee10519cca",
+      "upstream_path": "project/include/sine_table.svh",
+      "upstream_bytes": 5648,
+      "upstream_sha256": "969fc7d1036e359fc55c3b0ca18eaf3c8a123a146ed95c32a81e52ee10519cca",
+      "normalization": []
+    },
+    {
+      "path": "project/include/sustain_controller_ports.svh",
+      "bytes": 827,
+      "sha256": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d",
+      "upstream_path": "project/include/sustain_controller_ports.svh",
+      "upstream_bytes": 827,
+      "upstream_sha256": "8c51459cd47a7e21609cc02780a93af7d6be0fd5bf2d2278edda92e8a7ef486d",
+      "normalization": []
+    },
+    {
+      "path": "project/ip/TMDS_PLL.v",
+      "bytes": 812,
+      "sha256": "78b0c4b8a07baf34f04ec9941374b3c6d051af5e129477cccf13d65eae6cc083",
+      "upstream_path": "project/ip/TMDS_PLL.v",
+      "upstream_bytes": 861,
+      "upstream_sha256": "c5f353571433e9bd0bcfb6c5685d79b7594922e4db813a1c7f07d787594e1d3c",
+      "normalization": [
+        "LF"
+      ]
+    },
+    {
+      "path": "project/ip/TMDS_PLL_mod.v",
+      "bytes": 6011,
+      "sha256": "997ce822f8b28012dab8b78f7924910669eb617379aed352dbe65111c8da21b8",
+      "upstream_path": "project/ip/TMDS_PLL_mod.v",
+      "upstream_bytes": 6191,
+      "upstream_sha256": "58d21212de2310625c2dd7f570180c1a9bdf78bae10309e18510b6d0e0a8bc81",
+      "normalization": [
+        "LF"
+      ]
+    },
+    {
+      "path": "project/ip/extension_visual/dvi/DVI_TX_Top.v",
+      "bytes": 3122,
+      "sha256": "10916d07899fba4aac7254b5d0ce754ecf0ac29453a5e902b48a04099defd949",
+      "upstream_path": "project/ip/extension_visual/dvi/DVI_TX_Top.v",
+      "upstream_bytes": 3214,
+      "upstream_sha256": "cfb34c30996cb19439ff75c0c79583724d3ef59c90b0cb2a28bb740a5cf46a04",
+      "normalization": [
+        "LF",
+        "line_tail_or_EOF_whitespace"
+      ]
+    },
+    {
+      "path": "project/ip/extension_visual/dvi/dvi_tx_defines.v",
+      "bytes": 91,
+      "sha256": "86d1fd13b3aa142da83c07a53842cd142a05889c79404b23581c4f011e30ca6e",
+      "upstream_path": "project/ip/extension_visual/dvi/dvi_tx_defines.v",
+      "upstream_bytes": 91,
+      "upstream_sha256": "86d1fd13b3aa142da83c07a53842cd142a05889c79404b23581c4f011e30ca6e",
+      "normalization": []
+    },
+    {
+      "path": "project/ip/extension_visual/dvi/rgb2dvi.v",
+      "bytes": 13761,
+      "sha256": "562af70c5b6946f2cf48b5d257f88b8bda53d8b64c8844c87e1af199ffc8ab8f",
+      "upstream_path": "project/ip/extension_visual/dvi/rgb2dvi.v",
+      "upstream_bytes": 13949,
+      "upstream_sha256": "d59c7f51c58d45e27a44c25cd06243cafb17c35478ad254a3234e7db2dc65792",
+      "normalization": [
+        "LF"
+      ]
+    },
+    {
+      "path": "project/ip/extension_visual/dvi/static_macro_define.v",
+      "bytes": 118,
+      "sha256": "6e121a886d51ce8608ab41fcbd4e0a573476b20923b1b123d0d0938b8ffff902",
+      "upstream_path": "project/ip/extension_visual/dvi/static_macro_define.v",
+      "upstream_bytes": 127,
+      "upstream_sha256": "65e510ff7bf511032aad62c089ce938b652ee3639976769e0f745ad0b425009f",
+      "normalization": [
+        "LF",
+        "line_tail_or_EOF_whitespace"
+      ]
+    },
+    {
+      "path": "project/ip/extension_visual/dvi/top_define.v",
+      "bytes": 35,
+      "sha256": "cc4372770f019b7b6f64d1b3aa27696ee10cc506d2444ef12a15e0722e7ded9f",
+      "upstream_path": "project/ip/extension_visual/dvi/top_define.v",
+      "upstream_bytes": 35,
+      "upstream_sha256": "cc4372770f019b7b6f64d1b3aa27696ee10cc506d2444ef12a15e0722e7ded9f",
+      "normalization": []
+    },
+    {
+      "path": "project/ip/pll_init.v",
+      "bytes": 6240,
+      "sha256": "8219c1353c6c6465b545050f7592e99772e63cc1aa8d1f9c0126002acd781a16",
+      "upstream_path": "project/ip/pll_init.v",
+      "upstream_bytes": 6449,
+      "upstream_sha256": "3ef05a1ba92157d73e3c54ed9d589645508a4ae332d8bcf133a0457cc3e866c8",
+      "normalization": [
+        "line_tail_or_EOF_whitespace"
+      ]
+    },
+    {
+      "path": "project/options.tcl",
+      "bytes": 2964,
+      "sha256": "ace19b94783d955279799de14d9e7d1d55eb234f35b9068cf35394bb8dac6a1d",
+      "upstream_path": "project/options.tcl",
+      "upstream_bytes": 2964,
+      "upstream_sha256": "ace19b94783d955279799de14d9e7d1d55eb234f35b9068cf35394bb8dac6a1d",
+      "normalization": []
+    },
+    {
+      "path": "project/pro_audio.cst",
+      "bytes": 6156,
+      "sha256": "555d4e823dc4c71dff5dec86b817b05f137ff40f5a88321390d6afad2213f336",
+      "upstream_path": "project/pro_audio.cst",
+      "upstream_bytes": 6156,
+      "upstream_sha256": "555d4e823dc4c71dff5dec86b817b05f137ff40f5a88321390d6afad2213f336",
+      "normalization": []
+    },
+    {
+      "path": "project/pro_audio.gprj",
+      "bytes": 12138,
+      "sha256": "df7f0053ee1ccac8db7756bc0f004dc9a6ffc510f92f4715e36af3bf2328f34c",
+      "upstream_path": "project/pro_audio.gprj",
+      "upstream_bytes": 12138,
+      "upstream_sha256": "df7f0053ee1ccac8db7756bc0f004dc9a6ffc510f92f4715e36af3bf2328f34c",
+      "normalization": []
+    },
+    {
+      "path": "project/pro_audio.sdc",
+      "bytes": 20935,
+      "sha256": "7457a4f4b8a2851fae7b67b698ff5794aa2387deeb636796f16653a2b65c42e5",
+      "upstream_path": "project/pro_audio.sdc",
+      "upstream_bytes": 21111,
+      "upstream_sha256": "2f5fe22ae6e979e05777a4cad014ead99952e988cc7288fdbf5143b708f69821",
+      "normalization": [
+        "LF"
+      ]
+    },
+    {
+      "path": "project/rebuild.tcl",
+      "bytes": 14035,
+      "sha256": "ff00984a8f9dcb22a8ff99c20aec6c8bc312edb69ea2213b7b1b56f78b7d20f3",
+      "upstream_path": "project/rebuild.tcl",
+      "upstream_bytes": 14035,
+      "upstream_sha256": "ff00984a8f9dcb22a8ff99c20aec6c8bc312edb69ea2213b7b1b56f78b7d20f3",
+      "normalization": []
+    },
+    {
+      "path": "project/rom/bright_octave_4x256_8191.mem",
+      "bytes": 5120,
+      "sha256": "24bed932235a719bd9d21351ae6e7d47e747aca855eaf03564813ecf180ed3a5",
+      "upstream_path": "project/rom/bright_octave_4x256_8191.mem",
+      "upstream_bytes": 5120,
+      "upstream_sha256": "24bed932235a719bd9d21351ae6e7d47e747aca855eaf03564813ecf180ed3a5",
+      "normalization": []
+    },
+    {
+      "path": "project/rom/c1_fx/noise_levels.hex",
+      "bytes": 18,
+      "sha256": "b16c7cad7b50f3602e74da90f86144eafc7f45bb1261de4bb6df21b76b5e9ad0",
+      "upstream_path": "project/rom/c1_fx/noise_levels.hex",
+      "upstream_bytes": 18,
+      "upstream_sha256": "b16c7cad7b50f3602e74da90f86144eafc7f45bb1261de4bb6df21b76b5e9ad0",
+      "normalization": []
+    },
+    {
+      "path": "project/rom/c1_fx/sax_hard.hex",
+      "bytes": 122880,
+      "sha256": "a7a2de791013aefa549e9f25e07cd04c20332cba8d31ba8ca4697cf924dc8331",
+      "upstream_path": "project/rom/c1_fx/sax_hard.hex",
+      "upstream_bytes": 122880,
+      "upstream_sha256": "a7a2de791013aefa549e9f25e07cd04c20332cba8d31ba8ca4697cf924dc8331",
+      "normalization": []
+    },
+    {
+      "path": "project/rom/c1_fx/sax_hard.hex.hi",
+      "bytes": 40960,
+      "sha256": "afb53189e8137516133dbcdb9fd2bfdaeca446eaf1b782c7af9fc3bdecee78e7",
+      "upstream_path": "project/rom/c1_fx/sax_hard.hex.hi",
+      "upstream_bytes": 40960,
+      "upstream_sha256": "afb53189e8137516133dbcdb9fd2bfdaeca446eaf1b782c7af9fc3bdecee78e7",
+      "normalization": []
+    },
+    {
+      "path": "project/rom/c1_fx/sax_hard.hex.lo",
+      "bytes": 81920,
+      "sha256": "4cf66f0468d2a40bce5e32426eec3afb55ec07aac40ef2396cb504d85fbea0d5",
+      "upstream_path": "project/rom/c1_fx/sax_hard.hex.lo",
+      "upstream_bytes": 81920,
+      "upstream_sha256": "4cf66f0468d2a40bce5e32426eec3afb55ec07aac40ef2396cb504d85fbea0d5",
+      "normalization": []
+    },
+    {
+      "path": "project/rom/c1_fx/sax_soft.hex",
+      "bytes": 122880,
+      "sha256": "2b437203d920ea52d29f731b5a48e2ccc6d6651f5b21c6e24dca54bbb059c614",
+      "upstream_path": "project/rom/c1_fx/sax_soft.hex",
+      "upstream_bytes": 122880,
+      "upstream_sha256": "2b437203d920ea52d29f731b5a48e2ccc6d6651f5b21c6e24dca54bbb059c614",
+      "normalization": []
+    },
+    {
+      "path": "project/rom/c1_fx/sax_soft.hex.hi",
+      "bytes": 40960,
+      "sha256": "984adc253b7438faeb253ac7addb2c0739d729cd65c0cdb78c3a1b7678632417",
+      "upstream_path": "project/rom/c1_fx/sax_soft.hex.hi",
+      "upstream_bytes": 40960,
+      "upstream_sha256": "984adc253b7438faeb253ac7addb2c0739d729cd65c0cdb78c3a1b7678632417",
+      "normalization": []
+    },
+    {
+      "path": "project/rom/c1_fx/sax_soft.hex.lo",
+      "bytes": 81920,
+      "sha256": "4213dbec84527db76ef4092aae957aef4fbe4e4bdb12e0199f96a6e1153ce1d2",
+      "upstream_path": "project/rom/c1_fx/sax_soft.hex.lo",
+      "upstream_bytes": 81920,
+      "upstream_sha256": "4213dbec84527db76ef4092aae957aef4fbe4e4bdb12e0199f96a6e1153ce1d2",
+      "normalization": []
+    },
+    {
+      "path": "project/rom/k4_spectrum_hann_q17.mem",
+      "bytes": 12288,
+      "sha256": "e9785eca3512c69d3b0b49369d343073060ace88f77ed0364c5ec53cff4a9f76",
+      "upstream_path": "project/rom/k4_spectrum_hann_q17.mem",
+      "upstream_bytes": 12288,
+      "upstream_sha256": "e9785eca3512c69d3b0b49369d343073060ace88f77ed0364c5ec53cff4a9f76",
+      "normalization": []
+    },
+    {
+      "path": "project/rom/k4_spectrum_twiddle_im_q17.mem",
+      "bytes": 6144,
+      "sha256": "3e8e11bc38a987db0af6dca61e577aba4feeb1fccf4fbf840f1af3d91fd5e00e",
+      "upstream_path": "project/rom/k4_spectrum_twiddle_im_q17.mem",
+      "upstream_bytes": 6144,
+      "upstream_sha256": "3e8e11bc38a987db0af6dca61e577aba4feeb1fccf4fbf840f1af3d91fd5e00e",
+      "normalization": []
+    },
+    {
+      "path": "project/rom/k4_spectrum_twiddle_re_q17.mem",
+      "bytes": 6144,
+      "sha256": "7d8453bf9cf91be94d547f731b538200d399d00a679c892d90badc8257806efd",
+      "upstream_path": "project/rom/k4_spectrum_twiddle_re_q17.mem",
+      "upstream_bytes": 6144,
+      "upstream_sha256": "7d8453bf9cf91be94d547f731b538200d399d00a679c892d90badc8257806efd",
+      "normalization": []
+    },
+    {
+      "path": "project/rom/lfo_sine_q15.mem",
+      "bytes": 5120,
+      "sha256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060",
+      "upstream_path": "project/rom/lfo_sine_q15.mem",
+      "upstream_bytes": 6144,
+      "upstream_sha256": "99a7d0a335cd1fe5a62ade4188773927f226e86149a7cc1d923230c53ffc40a4",
+      "normalization": [
+        "LF"
+      ]
+    },
+    {
+      "path": "project/rom/oct_ratio_q16.mem",
+      "bytes": 300,
+      "sha256": "65185caf2722c98cd5406ecff0819f8b011cbbe6a5b9ae1974d3a03f4cf15fbd",
+      "upstream_path": "project/rom/oct_ratio_q16.mem",
+      "upstream_bytes": 350,
+      "upstream_sha256": "e507ef9b0d58a67077e50b4a0459a0a4f91ff6c35786132a62a13e62712fea3d",
+      "normalization": [
+        "LF"
+      ]
+    },
+    {
+      "path": "project/rom/organ_velocity_gain_1024.mem",
+      "bytes": 5120,
+      "sha256": "0e1409ca8416c8f7a3f8312e666d100d64151415af3eae30b071b3fa306f9bc2",
+      "upstream_path": "project/rom/organ_velocity_gain_1024.mem",
+      "upstream_bytes": 5120,
+      "upstream_sha256": "0e1409ca8416c8f7a3f8312e666d100d64151415af3eae30b071b3fa306f9bc2",
+      "normalization": []
+    },
+    {
+      "path": "project/rom/piano_band_4x256_8191.mem",
+      "bytes": 5120,
+      "sha256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+      "upstream_path": "project/rom/piano_band_4x256_8191.mem",
+      "upstream_bytes": 5120,
+      "upstream_sha256": "c117230f43c7efce36be445f851140d3155aa2a35e71ea8a41f529ea2b5d32a1",
+      "normalization": []
+    },
+    {
+      "path": "project/rom/sine_1024_32767.mem",
+      "bytes": 5120,
+      "sha256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060",
+      "upstream_path": "project/rom/sine_1024_32767.mem",
+      "upstream_bytes": 5120,
+      "upstream_sha256": "6f68f32afdf43cb8cbe6ff7bf4db155282d8ebf8783b94ebf690a5cd0d137060",
+      "normalization": []
+    },
+    {
+      "path": "project/rom/sine_1024_8192.mem",
+      "bytes": 5120,
+      "sha256": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2",
+      "upstream_path": "project/rom/sine_1024_8192.mem",
+      "upstream_bytes": 5120,
+      "upstream_sha256": "5e1dbd3797f353686f5e567831b56d6dcf9bee55c423097b471ade93203e84b2",
+      "normalization": []
+    },
+    {
+      "path": "project/rom/sine_wavetable.hex",
+      "bytes": 5206,
+      "sha256": "1abfd5c47759cd4089f4b39069b3ff0ab388838502b325d9ef7d9e01549ec7f4",
+      "upstream_path": "project/rom/sine_wavetable.hex",
+      "upstream_bytes": 5206,
+      "upstream_sha256": "1abfd5c47759cd4089f4b39069b3ff0ab388838502b325d9ef7d9e01549ec7f4",
+      "normalization": []
+    },
+    {
+      "path": "project/rom/sub_ratio_q16.mem",
+      "bytes": 6144,
+      "sha256": "9530577dfbc9b901d83abaa1a6f1c929241f7c092b5fc556b106b0c8bffc984e",
+      "upstream_path": "project/rom/sub_ratio_q16.mem",
+      "upstream_bytes": 7168,
+      "upstream_sha256": "27d1fefcf374d6d917732b6b569fda3e8081a2a74c15ea01c3114f70a1b441d9",
+      "normalization": [
+        "LF"
+      ]
+    },
+    {
+      "path": "project/rom/triangle_wavetable.hex",
+      "bytes": 5210,
+      "sha256": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+      "upstream_path": "project/rom/triangle_wavetable.hex",
+      "upstream_bytes": 5210,
+      "upstream_sha256": "a6ee3195ad3a3310de5102531aac9d7773eebc6c31633d72c01b72a7d2461e3c",
+      "normalization": []
+    },
+    {
+      "path": "project/rom/velocity_gain_rom.mem",
+      "bytes": 5120,
+      "sha256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+      "upstream_path": "project/rom/velocity_gain_rom.mem",
+      "upstream_bytes": 5120,
+      "upstream_sha256": "1bc0fd4430884604224a20620368afa50805b4efbf57d9703cae7a09132ffe64",
+      "normalization": []
+    },
+    {
+      "path": "project/src/adsr_piano_envelope.sv",
+      "bytes": 9174,
+      "sha256": "48a732cdcca86fe30a7c48d1fe665f01fa3dd32fd6000ef3010101b11c1d9b51",
+      "upstream_path": "project/src/adsr_piano_envelope.sv",
+      "upstream_bytes": 9174,
+      "upstream_sha256": "48a732cdcca86fe30a7c48d1fe665f01fa3dd32fd6000ef3010101b11c1d9b51",
+      "normalization": []
+    },
+    {
+      "path": "project/src/audio_defs_pkg.sv",
+      "bytes": 12334,
+      "sha256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+      "upstream_path": "project/src/audio_defs_pkg.sv",
+      "upstream_bytes": 12334,
+      "upstream_sha256": "833076283882bae79af3f54c40e6cd6ae4a9ff5638a90e4f0afc3e2b3861d064",
+      "normalization": []
+    },
+    {
+      "path": "project/src/button_debouncer.sv",
+      "bytes": 6376,
+      "sha256": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+      "upstream_path": "project/src/button_debouncer.sv",
+      "upstream_bytes": 6376,
+      "upstream_sha256": "3f4d55e5c393935d12384c0599e0565acd1585faf490c5344c64072e41854c32",
+      "normalization": []
+    },
+    {
+      "path": "project/src/button_event_converter.sv",
+      "bytes": 12575,
+      "sha256": "21c2de0b6ab30e800e10ff82c1bbfe4c1d24c390618818b566da44b8227bfb87",
+      "upstream_path": "project/src/button_event_converter.sv",
+      "upstream_bytes": 12575,
+      "upstream_sha256": "21c2de0b6ab30e800e10ff82c1bbfe4c1d24c390618818b566da44b8227bfb87",
+      "normalization": []
+    },
+    {
+      "path": "project/src/c1_extra/c1_extra_voices.sv",
+      "bytes": 7312,
+      "sha256": "d912b03efb56b59b2156a9cbfe9847f17ecfee9e04a78cda9cd1cc2a8e71324a",
+      "upstream_path": "project/src/c1_extra/c1_extra_voices.sv",
+      "upstream_bytes": 7312,
+      "upstream_sha256": "d912b03efb56b59b2156a9cbfe9847f17ecfee9e04a78cda9cd1cc2a8e71324a",
+      "normalization": []
+    },
+    {
+      "path": "project/src/c1_extra/guitar_voice.sv",
+      "bytes": 12612,
+      "sha256": "94f8d2a6dc805f934fe208eaa53a39084753e85e9f2ea8d8e859022c806364c1",
+      "upstream_path": "project/src/c1_extra/guitar_voice.sv",
+      "upstream_bytes": 12612,
+      "upstream_sha256": "94f8d2a6dc805f934fe208eaa53a39084753e85e9f2ea8d8e859022c806364c1",
+      "normalization": []
+    },
+    {
+      "path": "project/src/c1_extra/rom/noise_levels.hex",
+      "bytes": 18,
+      "sha256": "b16c7cad7b50f3602e74da90f86144eafc7f45bb1261de4bb6df21b76b5e9ad0",
+      "upstream_path": "project/src/c1_extra/rom/noise_levels.hex",
+      "upstream_bytes": 18,
+      "upstream_sha256": "b16c7cad7b50f3602e74da90f86144eafc7f45bb1261de4bb6df21b76b5e9ad0",
+      "normalization": []
+    },
+    {
+      "path": "project/src/c1_extra/rom/sax_hard.hex",
+      "bytes": 122880,
+      "sha256": "a7a2de791013aefa549e9f25e07cd04c20332cba8d31ba8ca4697cf924dc8331",
+      "upstream_path": "project/src/c1_extra/rom/sax_hard.hex",
+      "upstream_bytes": 122880,
+      "upstream_sha256": "a7a2de791013aefa549e9f25e07cd04c20332cba8d31ba8ca4697cf924dc8331",
+      "normalization": []
+    },
+    {
+      "path": "project/src/c1_extra/rom/sax_soft.hex",
+      "bytes": 122880,
+      "sha256": "2b437203d920ea52d29f731b5a48e2ccc6d6651f5b21c6e24dca54bbb059c614",
+      "upstream_path": "project/src/c1_extra/rom/sax_soft.hex",
+      "upstream_bytes": 122880,
+      "upstream_sha256": "2b437203d920ea52d29f731b5a48e2ccc6d6651f5b21c6e24dca54bbb059c614",
+      "normalization": []
+    },
+    {
+      "path": "project/src/c1_extra/sax_voice_r05.sv",
+      "bytes": 16014,
+      "sha256": "e1c64c0f54219da79da1bccc5005579e36f821d879c4e8b8e5b04ab735aa20b1",
+      "upstream_path": "project/src/c1_extra/sax_voice_r05.sv",
+      "upstream_bytes": 16014,
+      "upstream_sha256": "e1c64c0f54219da79da1bccc5005579e36f821d879c4e8b8e5b04ab735aa20b1",
+      "normalization": []
+    },
+    {
+      "path": "project/src/c1_extra/snare_voice.sv",
+      "bytes": 5657,
+      "sha256": "5b95d46324baecf90b626cb8852f45f85ba42d10c839feafca35fb44a18eedc0",
+      "upstream_path": "project/src/c1_extra/snare_voice.sv",
+      "upstream_bytes": 5657,
+      "upstream_sha256": "5b95d46324baecf90b626cb8852f45f85ba42d10c839feafca35fb44a18eedc0",
+      "normalization": []
+    },
+    {
+      "path": "project/src/c1_fx/c1_pcm_effects.sv",
+      "bytes": 10285,
+      "sha256": "35e80084c4d365e63545d670787410aed7fd097ab9a604a026b19219e3669f9f",
+      "upstream_path": "project/src/c1_fx/c1_pcm_effects.sv",
+      "upstream_bytes": 10286,
+      "upstream_sha256": "163218bba2b772deb1febaf553fd5e1c79b3650ce61a060b4d6bfd59ab16d5a6",
+      "normalization": [
+        "line_tail_or_EOF_whitespace"
+      ]
+    },
+    {
+      "path": "project/src/c1_fx/fx_chorus.sv",
+      "bytes": 7583,
+      "sha256": "3097939b4595161fc157a6f210df888b7f3d75c97ee67365a5795b755abd91d3",
+      "upstream_path": "project/src/c1_fx/fx_chorus.sv",
+      "upstream_bytes": 7583,
+      "upstream_sha256": "3097939b4595161fc157a6f210df888b7f3d75c97ee67365a5795b755abd91d3",
+      "normalization": []
+    },
+    {
+      "path": "project/src/c1_fx/fx_reverb.sv",
+      "bytes": 11032,
+      "sha256": "7323177480831c3b41911db8ad4e98adff3df97575673e1866f022c1b91d93ac",
+      "upstream_path": "project/src/c1_fx/fx_reverb.sv",
+      "upstream_bytes": 11032,
+      "upstream_sha256": "7323177480831c3b41911db8ad4e98adff3df97575673e1866f022c1b91d93ac",
+      "normalization": []
+    },
+    {
+      "path": "project/src/dds_oscillator_leaf.sv",
+      "bytes": 1241,
+      "sha256": "303e3a9927e743d4149ceae4bb8754ebb8abdfb14638d407254b8e555dfcd3bd",
+      "upstream_path": "project/src/dds_oscillator_leaf.sv",
+      "upstream_bytes": 1241,
+      "upstream_sha256": "303e3a9927e743d4149ceae4bb8754ebb8abdfb14638d407254b8e555dfcd3bd",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_analysis/analysis_graph_overlay.sv",
+      "bytes": 13254,
+      "sha256": "1ee0bbbc1a8bfad120d5f575a2ac52071dd82e81bebb59b15028f874511495ef",
+      "upstream_path": "project/src/extension_analysis/analysis_graph_overlay.sv",
+      "upstream_bytes": 13254,
+      "upstream_sha256": "1ee0bbbc1a8bfad120d5f575a2ac52071dd82e81bebb59b15028f874511495ef",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_analysis/spectrum/k4_spectrum_engine.sv",
+      "bytes": 6040,
+      "sha256": "18105ecca99205b8459c1efb8de88a30c58cbc8e0e3e2f58373a74971ee8eea2",
+      "upstream_path": "project/src/extension_analysis/spectrum/k4_spectrum_engine.sv",
+      "upstream_bytes": 6040,
+      "upstream_sha256": "18105ecca99205b8459c1efb8de88a30c58cbc8e0e3e2f58373a74971ee8eea2",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_analysis/spectrum/k4_spectrum_reset_sync.sv",
+      "bytes": 369,
+      "sha256": "4275004b36fa2ca449840f4eb891b9b7ead327c2b6dda37ab8532ace6a0be392",
+      "upstream_path": "project/src/extension_analysis/spectrum/k4_spectrum_reset_sync.sv",
+      "upstream_bytes": 369,
+      "upstream_sha256": "4275004b36fa2ca449840f4eb891b9b7ead327c2b6dda37ab8532ace6a0be392",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_analysis/spectrum/pro_spectrum_candidate.sv",
+      "bytes": 18074,
+      "sha256": "21af256f45ef6e54fe1b3cc940e9cddd522255dcccdddd7ae46e38ef45480bba",
+      "upstream_path": "project/src/extension_analysis/spectrum/pro_spectrum_candidate.sv",
+      "upstream_bytes": 18074,
+      "upstream_sha256": "21af256f45ef6e54fe1b3cc940e9cddd522255dcccdddd7ae46e38ef45480bba",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_analysis/spectrum/radix2_fft_2048.sv",
+      "bytes": 18036,
+      "sha256": "2e76ecaa4aef4709c67554ee2e4fb2fba23b3a6b680428b1f441da8dcb01dcb4",
+      "upstream_path": "project/src/extension_analysis/spectrum/radix2_fft_2048.sv",
+      "upstream_bytes": 18036,
+      "upstream_sha256": "2e76ecaa4aef4709c67554ee2e4fb2fba23b3a6b680428b1f441da8dcb01dcb4",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_analysis/spectrum/spectrum_power_stream.sv",
+      "bytes": 8821,
+      "sha256": "4762476d54468940b2449551a31a7a96777f064c0fdbe974f2a914c452f5ff48",
+      "upstream_path": "project/src/extension_analysis/spectrum/spectrum_power_stream.sv",
+      "upstream_bytes": 8821,
+      "upstream_sha256": "4762476d54468940b2449551a31a7a96777f064c0fdbe974f2a914c452f5ff48",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_analysis/spectrum/spectrum_renderer.sv",
+      "bytes": 24552,
+      "sha256": "e1e6345c988e545256e63af7a9cf048bdcd7f24d32b81756884047c7a8992b0d",
+      "upstream_path": "project/src/extension_analysis/spectrum/spectrum_renderer.sv",
+      "upstream_bytes": 24552,
+      "upstream_sha256": "e1e6345c988e545256e63af7a9cf048bdcd7f24d32b81756884047c7a8992b0d",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_analysis/spectrum/spectrum_snapshot_cdc.sv",
+      "bytes": 19541,
+      "sha256": "8af2eff812a784319eb924704fa6212d29557ba03f5dcc0359de71225232cf96",
+      "upstream_path": "project/src/extension_analysis/spectrum/spectrum_snapshot_cdc.sv",
+      "upstream_bytes": 19541,
+      "upstream_sha256": "8af2eff812a784319eb924704fa6212d29557ba03f5dcc0359de71225232cf96",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_analysis/spectrum/spectrum_window_capture.sv",
+      "bytes": 13915,
+      "sha256": "cf866376072e676304a63c5698b1d65664a34365b2dc35a4341ee93e98c7920c",
+      "upstream_path": "project/src/extension_analysis/spectrum/spectrum_window_capture.sv",
+      "upstream_bytes": 13915,
+      "upstream_sha256": "cf866376072e676304a63c5698b1d65664a34365b2dc35a4341ee93e98c7920c",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_analysis/waveform/k4_pcm_frame_observer.sv",
+      "bytes": 1362,
+      "sha256": "a9aae400a478c23306d88e939812d785a490e256cdf637eaafa5ddc0c8e8686b",
+      "upstream_path": "project/src/extension_analysis/waveform/k4_pcm_frame_observer.sv",
+      "upstream_bytes": 1362,
+      "upstream_sha256": "a9aae400a478c23306d88e939812d785a490e256cdf637eaafa5ddc0c8e8686b",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_analysis/waveform/k4_pcm_waveform_candidate.sv",
+      "bytes": 9873,
+      "sha256": "6d8651c5687a7c76cd6f0d894e96194ce42c15627b4b89c55b4fe5b93406ed6c",
+      "upstream_path": "project/src/extension_analysis/waveform/k4_pcm_waveform_candidate.sv",
+      "upstream_bytes": 10090,
+      "upstream_sha256": "26395684f61386e18029ba2912955e5c4cf852132a25f12ae05c96cc2cd75ccf",
+      "normalization": [
+        "LF"
+      ]
+    },
+    {
+      "path": "project/src/extension_analysis/waveform/k4_pcm_waveform_observer_bridge.sv",
+      "bytes": 5930,
+      "sha256": "75585c8f25dd21a482cd17d8829412b80f45e2c5d0f9930ab2006559328dc28b",
+      "upstream_path": "project/src/extension_analysis/waveform/k4_pcm_waveform_observer_bridge.sv",
+      "upstream_bytes": 5930,
+      "upstream_sha256": "75585c8f25dd21a482cd17d8829412b80f45e2c5d0f9930ab2006559328dc28b",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_analysis/waveform/k4_reset_sync.sv",
+      "bytes": 1728,
+      "sha256": "f1a1199ceb2a52ea57f19a54b64b89cbd9ccfd2c124486efcc97c66f3ed02e28",
+      "upstream_path": "project/src/extension_analysis/waveform/k4_reset_sync.sv",
+      "upstream_bytes": 1728,
+      "upstream_sha256": "f1a1199ceb2a52ea57f19a54b64b89cbd9ccfd2c124486efcc97c66f3ed02e28",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_analysis/waveform/k4_visual_mailbox_cdc.sv",
+      "bytes": 2798,
+      "sha256": "2525b1eed956b4c5862860839967f4d37839d32183dd05b91035bc77d4f8742b",
+      "upstream_path": "project/src/extension_analysis/waveform/k4_visual_mailbox_cdc.sv",
+      "upstream_bytes": 2798,
+      "upstream_sha256": "2525b1eed956b4c5862860839967f4d37839d32183dd05b91035bc77d4f8742b",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_analysis/waveform/k4_waveform_engine.sv",
+      "bytes": 3135,
+      "sha256": "2341f59839b74c94e6ebb61eaf6679d17d64ba3ccfd13731e68b7e8ab7a16120",
+      "upstream_path": "project/src/extension_analysis/waveform/k4_waveform_engine.sv",
+      "upstream_bytes": 3135,
+      "upstream_sha256": "2341f59839b74c94e6ebb61eaf6679d17d64ba3ccfd13731e68b7e8ab7a16120",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_controls/pro_master_volume.sv",
+      "bytes": 4051,
+      "sha256": "bb1f218fcce495d092b66c48700e9ddbcb73073d3c81f992af69ebbeb2ee896e",
+      "upstream_path": "project/src/extension_controls/pro_master_volume.sv",
+      "upstream_bytes": 4051,
+      "upstream_sha256": "bb1f218fcce495d092b66c48700e9ddbcb73073d3c81f992af69ebbeb2ee896e",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_controls/pro_midi_page_controls.sv",
+      "bytes": 3665,
+      "sha256": "73601adb46f485230a2a7938f29da49027ee4af61e1fa70b8702f9ecd2344751",
+      "upstream_path": "project/src/extension_controls/pro_midi_page_controls.sv",
+      "upstream_bytes": 3665,
+      "upstream_sha256": "73601adb46f485230a2a7938f29da49027ee4af61e1fa70b8702f9ecd2344751",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_lissajous/lissajous_plotter.sv",
+      "bytes": 10543,
+      "sha256": "03bf4179415f4c0f30952e3635248625d4e47d2a00e09f0f6b4d3132b665b1d1",
+      "upstream_path": "project/src/extension_lissajous/lissajous_plotter.sv",
+      "upstream_bytes": 10543,
+      "upstream_sha256": "03bf4179415f4c0f30952e3635248625d4e47d2a00e09f0f6b4d3132b665b1d1",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_lissajous/lissajous_xy_frontend.sv",
+      "bytes": 7749,
+      "sha256": "909f31eb044d2665ff705ffd6cca02c3e4cafdae86b4bc2963d3ca0cff478da7",
+      "upstream_path": "project/src/extension_lissajous/lissajous_xy_frontend.sv",
+      "upstream_bytes": 7749,
+      "upstream_sha256": "909f31eb044d2665ff705ffd6cca02c3e4cafdae86b4bc2963d3ca0cff478da7",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_lissajous/piano_lissajous_candidate.sv",
+      "bytes": 2774,
+      "sha256": "222d275e0e4b88aef4614abd3d3c6f37605660aac96cc36a6c087ed86f036646",
+      "upstream_path": "project/src/extension_lissajous/piano_lissajous_candidate.sv",
+      "upstream_bytes": 2774,
+      "upstream_sha256": "222d275e0e4b88aef4614abd3d3c6f37605660aac96cc36a6c087ed86f036646",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_transfer/pro_score_byte_lane.sv",
+      "bytes": 2435,
+      "sha256": "b46718722b4608c00016f412ed96da14d15febb051cd9c9990bb08013ec9b658",
+      "upstream_path": "project/src/extension_transfer/pro_score_byte_lane.sv",
+      "upstream_bytes": 2435,
+      "upstream_sha256": "b46718722b4608c00016f412ed96da14d15febb051cd9c9990bb08013ec9b658",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_transfer/pro_score_transport.sv",
+      "bytes": 30392,
+      "sha256": "2b7020fa94d83151fbbe999dfdb0c77ac24c142b4e429f164da0874d1af91aa7",
+      "upstream_path": "project/src/extension_transfer/pro_score_transport.sv",
+      "upstream_bytes": 30392,
+      "upstream_sha256": "2b7020fa94d83151fbbe999dfdb0c77ac24c142b4e429f164da0874d1af91aa7",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_visual/display/pro_reserved_analysis_page.sv",
+      "bytes": 13290,
+      "sha256": "cb0960387bd0e67e058471865e3cf427ebf202cf08c2685a132a44a04ea5f4e1",
+      "upstream_path": "project/src/extension_visual/display/pro_reserved_analysis_page.sv",
+      "upstream_bytes": 13290,
+      "upstream_sha256": "cb0960387bd0e67e058471865e3cf427ebf202cf08c2685a132a44a04ea5f4e1",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_visual/display/pro_score_display.sv",
+      "bytes": 21761,
+      "sha256": "d66eb8f3215761a4c83bbbc19bd1a0301296074c9e59e664ee31966968af114b",
+      "upstream_path": "project/src/extension_visual/display/pro_score_display.sv",
+      "upstream_bytes": 21761,
+      "upstream_sha256": "d66eb8f3215761a4c83bbbc19bd1a0301296074c9e59e664ee31966968af114b",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_visual/display/pro_visual_live_state.sv",
+      "bytes": 17143,
+      "sha256": "edf6dee812690e4a2660b3412979b56573d77e26ef7c9a488f754db9bc9140d6",
+      "upstream_path": "project/src/extension_visual/display/pro_visual_live_state.sv",
+      "upstream_bytes": 17151,
+      "upstream_sha256": "b115ceda7ab9081cf3e2c8cd63bd336d6d98bf0acdf4283eed7bb98e36c347e3",
+      "normalization": [
+        "line_tail_or_EOF_whitespace"
+      ]
+    },
+    {
+      "path": "project/src/extension_visual/display/pro_visual_scan.sv",
+      "bytes": 2058,
+      "sha256": "5fe84364f537f53293f4ac32600ad9f7f93eec4c824497863a6232e3c751bf45",
+      "upstream_path": "project/src/extension_visual/display/pro_visual_scan.sv",
+      "upstream_bytes": 2058,
+      "upstream_sha256": "5fe84364f537f53293f4ac32600ad9f7f93eec4c824497863a6232e3c751bf45",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_visual/display/pro_visual_scene_renderer.sv",
+      "bytes": 12405,
+      "sha256": "b11b182eb0d9451ca35a25a5ce9c491b047604996bd10f73438b5e96a00a1f02",
+      "upstream_path": "project/src/extension_visual/display/pro_visual_scene_renderer.sv",
+      "upstream_bytes": 12405,
+      "upstream_sha256": "b11b182eb0d9451ca35a25a5ce9c491b047604996bd10f73438b5e96a00a1f02",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_visual/display/pro_visual_scene_renderer_pipe.sv",
+      "bytes": 19151,
+      "sha256": "89a67061926e8176d951fc4f9d6c3d088e0ca8da72a5f583bc56a261e9a15394",
+      "upstream_path": "project/src/extension_visual/display/pro_visual_scene_renderer_pipe.sv",
+      "upstream_bytes": 19151,
+      "upstream_sha256": "89a67061926e8176d951fc4f9d6c3d088e0ca8da72a5f583bc56a261e9a15394",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_visual/display/pro_visual_score_tracker.sv",
+      "bytes": 40542,
+      "sha256": "3ace602d48fff8784aba62b89231e2d98f75ef5fa4f1969c7e97b644a95c58bd",
+      "upstream_path": "project/src/extension_visual/display/pro_visual_score_tracker.sv",
+      "upstream_bytes": 40542,
+      "upstream_sha256": "3ace602d48fff8784aba62b89231e2d98f75ef5fa4f1969c7e97b644a95c58bd",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_visual/display/visual_event_bridge.sv",
+      "bytes": 6305,
+      "sha256": "ceb882e9ad4bab5bba7fe38ce70f08cb6766a70283d170dc1529801592e8eee5",
+      "upstream_path": "project/src/extension_visual/display/visual_event_bridge.sv",
+      "upstream_bytes": 6305,
+      "upstream_sha256": "ceb882e9ad4bab5bba7fe38ce70f08cb6766a70283d170dc1529801592e8eee5",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_visual/display/visual_mailbox_cdc.sv",
+      "bytes": 3504,
+      "sha256": "c32104b56302a07812ec7eb34813eed1fe60943e156c56f15d7b313399a1bf8d",
+      "upstream_path": "project/src/extension_visual/display/visual_mailbox_cdc.sv",
+      "upstream_bytes": 3504,
+      "upstream_sha256": "c32104b56302a07812ec7eb34813eed1fe60943e156c56f15d7b313399a1bf8d",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_visual/pro_score_visual.sv",
+      "bytes": 5963,
+      "sha256": "48e2b6cc07e7e7e3c53e222bc6393f325fb629b01d7173e6f8e61df540b352b9",
+      "upstream_path": "project/src/extension_visual/pro_score_visual.sv",
+      "upstream_bytes": 5963,
+      "upstream_sha256": "48e2b6cc07e7e7e3c53e222bc6393f325fb629b01d7173e6f8e61df540b352b9",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_visual/pro_visual_anchor.sv",
+      "bytes": 3245,
+      "sha256": "bcaae377fa6d9d1206d6f891e3514749911cdd72d411ac343287501ca7da7c7f",
+      "upstream_path": "project/src/extension_visual/pro_visual_anchor.sv",
+      "upstream_bytes": 3245,
+      "upstream_sha256": "bcaae377fa6d9d1206d6f891e3514749911cdd72d411ac343287501ca7da7c7f",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_visual/scheduler/pro_score_scheduler.sv",
+      "bytes": 25258,
+      "sha256": "ddcadcc30fec531116a62a5c55de4106752818456df9137e96168f5f7d37f2bb",
+      "upstream_path": "project/src/extension_visual/scheduler/pro_score_scheduler.sv",
+      "upstream_bytes": 25258,
+      "upstream_sha256": "ddcadcc30fec531116a62a5c55de4106752818456df9137e96168f5f7d37f2bb",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_waveform/m3_pro_fixed_left_waveform.sv",
+      "bytes": 3270,
+      "sha256": "6034d06fa255f1f4f84c13e632fe0d070a9850aa5e49a8cd9c48aa611c6069ca",
+      "upstream_path": "project/src/extension_waveform/m3_pro_fixed_left_waveform.sv",
+      "upstream_bytes": 3270,
+      "upstream_sha256": "6034d06fa255f1f4f84c13e632fe0d070a9850aa5e49a8cd9c48aa611c6069ca",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_waveform/pcm_frame_observer.sv",
+      "bytes": 1118,
+      "sha256": "f0f755558fbd40a103c1d7d6c73c102eb4f83bf54cc41b09a78fd65609fe13a8",
+      "upstream_path": "project/src/extension_waveform/pcm_frame_observer.sv",
+      "upstream_bytes": 1118,
+      "upstream_sha256": "f0f755558fbd40a103c1d7d6c73c102eb4f83bf54cc41b09a78fd65609fe13a8",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_waveform/pcm_waveform_candidate.sv",
+      "bytes": 6386,
+      "sha256": "052c4e79095152410bdd42e4d5c3cd47a00b91ad7bdf848a3c0914ab9aec0160",
+      "upstream_path": "project/src/extension_waveform/pcm_waveform_candidate.sv",
+      "upstream_bytes": 6386,
+      "upstream_sha256": "052c4e79095152410bdd42e4d5c3cd47a00b91ad7bdf848a3c0914ab9aec0160",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_waveform/pcm_waveform_observer_bridge.sv",
+      "bytes": 5577,
+      "sha256": "5b72895233346334fde99e7f9d0b751f7ea7eb1741f729cedc21d45c1209e08b",
+      "upstream_path": "project/src/extension_waveform/pcm_waveform_observer_bridge.sv",
+      "upstream_bytes": 5577,
+      "upstream_sha256": "5b72895233346334fde99e7f9d0b751f7ea7eb1741f729cedc21d45c1209e08b",
+      "normalization": []
+    },
+    {
+      "path": "project/src/extension_waveform/r08_waveform_page_overlay.sv",
+      "bytes": 16139,
+      "sha256": "8232b25559a3f9514c0afd9f120bb9f3abe4be9a057021bae2ea815c862eaf7f",
+      "upstream_path": "project/src/extension_waveform/r08_waveform_page_overlay.sv",
+      "upstream_bytes": 16139,
+      "upstream_sha256": "8232b25559a3f9514c0afd9f120bb9f3abe4be9a057021bae2ea815c862eaf7f",
+      "normalization": []
+    },
+    {
+      "path": "project/src/i2s_tx.sv",
+      "bytes": 19546,
+      "sha256": "45af7ab2accd70113c45833cd4f8441eaeccf60d9106752b670546c0f262c8f4",
+      "upstream_path": "project/src/i2s_tx.sv",
+      "upstream_bytes": 19546,
+      "upstream_sha256": "45af7ab2accd70113c45833cd4f8441eaeccf60d9106752b670546c0f262c8f4",
+      "normalization": []
+    },
+    {
+      "path": "project/src/lean_trace_capture.sv",
+      "bytes": 3189,
+      "sha256": "417d2e0a2c4dda05d33139cc13ee20b4d8382c98878f7ae026d849b30e8494f2",
+      "upstream_path": "project/src/lean_trace_capture.sv",
+      "upstream_bytes": 3189,
+      "upstream_sha256": "417d2e0a2c4dda05d33139cc13ee20b4d8382c98878f7ae026d849b30e8494f2",
+      "normalization": []
+    },
+    {
+      "path": "project/src/lean_trace_uart.sv",
+      "bytes": 14092,
+      "sha256": "1f7e300b35a0116f3bf03960c076e9a50d0950ea71a9702cebfa063b80455abc",
+      "upstream_path": "project/src/lean_trace_uart.sv",
+      "upstream_bytes": 14092,
+      "upstream_sha256": "1f7e300b35a0116f3bf03960c076e9a50d0950ea71a9702cebfa063b80455abc",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_adsr_piano_envelope.sv",
+      "bytes": 9179,
+      "sha256": "fd43aa6044b094d64f053c136092b767e1d3f8c384a0548c9c66fb602905a4af",
+      "upstream_path": "project/src/m1td_adsr_piano_envelope.sv",
+      "upstream_bytes": 9179,
+      "upstream_sha256": "fd43aa6044b094d64f053c136092b767e1d3f8c384a0548c9c66fb602905a4af",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_audio_candidate.sv",
+      "bytes": 5019,
+      "sha256": "710efe7ee8a822894a33e684fbfe8aa0951f341d52a26d2965f34713b43d0f80",
+      "upstream_path": "project/src/m1td_audio_candidate.sv",
+      "upstream_bytes": 5019,
+      "upstream_sha256": "710efe7ee8a822894a33e684fbfe8aa0951f341d52a26d2965f34713b43d0f80",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_dds_oscillator.sv",
+      "bytes": 2751,
+      "sha256": "b6e7ab7e33442fd288ea95c407a76033b822e7b4ffdf3fab791429629b26308b",
+      "upstream_path": "project/src/m1td_dds_oscillator.sv",
+      "upstream_bytes": 2751,
+      "upstream_sha256": "b6e7ab7e33442fd288ea95c407a76033b822e7b4ffdf3fab791429629b26308b",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_delay_effect.sv",
+      "bytes": 6716,
+      "sha256": "1f35962edb622e9d7979bebdee8e2fc75b6496b80222e53c3f557dabf16fa039",
+      "upstream_path": "project/src/m1td_delay_effect.sv",
+      "upstream_bytes": 6716,
+      "upstream_sha256": "1f35962edb622e9d7979bebdee8e2fc75b6496b80222e53c3f557dabf16fa039",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_note_pitch.sv",
+      "bytes": 8117,
+      "sha256": "3dde1ca9d72da29030e03940504abe758856fffbaf9a637867a2ebf27f3194d6",
+      "upstream_path": "project/src/m1td_note_pitch.sv",
+      "upstream_bytes": 8117,
+      "upstream_sha256": "3dde1ca9d72da29030e03940504abe758856fffbaf9a637867a2ebf27f3194d6",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_pcm_clip_counter.sv",
+      "bytes": 1020,
+      "sha256": "49c812edd27f0ac1dc33f59f902037c5ee92b9d6e56fcedbdaf1fbe82f8f4f8d",
+      "upstream_path": "project/src/m1td_pcm_clip_counter.sv",
+      "upstream_bytes": 1020,
+      "upstream_sha256": "49c812edd27f0ac1dc33f59f902037c5ee92b9d6e56fcedbdaf1fbe82f8f4f8d",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_pcm_frame_buffer.sv",
+      "bytes": 3801,
+      "sha256": "a576073d2d5f7b095531aa3fb758a243a49eb5eb577d85dc5d620b85103e592e",
+      "upstream_path": "project/src/m1td_pcm_frame_buffer.sv",
+      "upstream_bytes": 3801,
+      "upstream_sha256": "a576073d2d5f7b095531aa3fb758a243a49eb5eb577d85dc5d620b85103e592e",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_pcm_mixer_4voice.sv",
+      "bytes": 2073,
+      "sha256": "e3a91180581d434204c6e6f1c5022a4a1447a1810fdd19e505ca0c892fa4553a",
+      "upstream_path": "project/src/m1td_pcm_mixer_4voice.sv",
+      "upstream_bytes": 2073,
+      "upstream_sha256": "e3a91180581d434204c6e6f1c5022a4a1447a1810fdd19e505ca0c892fa4553a",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_performance_control_snapshot.sv",
+      "bytes": 5782,
+      "sha256": "41288e71607c1712f41179ef47060ac1eb34026f782b9ac7d427f54166fbc648",
+      "upstream_path": "project/src/m1td_performance_control_snapshot.sv",
+      "upstream_bytes": 5782,
+      "upstream_sha256": "41288e71607c1712f41179ef47060ac1eb34026f782b9ac7d427f54166fbc648",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_piano_dds_oscillator.sv",
+      "bytes": 6173,
+      "sha256": "3a2ec50ebba83a71529d78f6845b60ddc21a018fc130d8bc99b668f6ad4953ee",
+      "upstream_path": "project/src/m1td_piano_dds_oscillator.sv",
+      "upstream_bytes": 6174,
+      "upstream_sha256": "0b84662d535756e1560ee848202d33be2dc429a1f81768be5cdb615f03e004d5",
+      "normalization": [
+        "line_tail_or_EOF_whitespace"
+      ]
+    },
+    {
+      "path": "project/src/m1td_piano_triangle_voice.sv",
+      "bytes": 2130,
+      "sha256": "ef196fa0a89b3612ea7c2aa7751351b3fa6ccaec1f1e9a48d5c9da2014193f06",
+      "upstream_path": "project/src/m1td_piano_triangle_voice.sv",
+      "upstream_bytes": 2130,
+      "upstream_sha256": "ef196fa0a89b3612ea7c2aa7751351b3fa6ccaec1f1e9a48d5c9da2014193f06",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_pitch_mod_fcw_pipeline.sv",
+      "bytes": 9708,
+      "sha256": "9bbc92014e712bce562e10ac19214d374814bcd31379d82fbae2b645e12bdfff",
+      "upstream_path": "project/src/m1td_pitch_mod_fcw_pipeline.sv",
+      "upstream_bytes": 9708,
+      "upstream_sha256": "9bbc92014e712bce562e10ac19214d374814bcd31379d82fbae2b645e12bdfff",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_pitch_mod_snapshot_pipeline.sv",
+      "bytes": 3527,
+      "sha256": "9f801ac5016d0d38e743610a7faeb717cd2a54ce34bf183fa904c5fe61b3c21e",
+      "upstream_path": "project/src/m1td_pitch_mod_snapshot_pipeline.sv",
+      "upstream_bytes": 3527,
+      "upstream_sha256": "9f801ac5016d0d38e743610a7faeb717cd2a54ce34bf183fa904c5fe61b3c21e",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_polyphonic_envelope_bank.sv",
+      "bytes": 17512,
+      "sha256": "c78d843f5091d021dc4b9482b1959c45524a5c722af9f4c78ca7a2525f510a30",
+      "upstream_path": "project/src/m1td_polyphonic_envelope_bank.sv",
+      "upstream_bytes": 17512,
+      "upstream_sha256": "c78d843f5091d021dc4b9482b1959c45524a5c722af9f4c78ca7a2525f510a30",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_polyphonic_event_router.sv",
+      "bytes": 16031,
+      "sha256": "f5a0b8ff186050e3e00db73db7846fa8c2531ee180fc307aac8967c0b8670ece",
+      "upstream_path": "project/src/m1td_polyphonic_event_router.sv",
+      "upstream_bytes": 16312,
+      "upstream_sha256": "04ec88ff7756b8d09ade5c9c7e119d17f04ab46a9fbb70aeae230a1da366b4fa",
+      "normalization": [
+        "LF"
+      ]
+    },
+    {
+      "path": "project/src/m1td_stereo_delay.sv",
+      "bytes": 5550,
+      "sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a",
+      "upstream_path": "project/src/m1td_stereo_delay.sv",
+      "upstream_bytes": 5550,
+      "upstream_sha256": "afba156c187520b03a9b422c3074d6fde48bfeceb590cafa5883b7037626da2a",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_sustain_controller.sv",
+      "bytes": 6115,
+      "sha256": "26a801c2e80653b8a9206b8c25f27d32d61610339c2641b669451ae815dc11a3",
+      "upstream_path": "project/src/m1td_sustain_controller.sv",
+      "upstream_bytes": 6115,
+      "upstream_sha256": "26a801c2e80653b8a9206b8c25f27d32d61610339c2641b669451ae815dc11a3",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_timbre_delay_chain.sv",
+      "bytes": 9134,
+      "sha256": "29910cdcb08fb9881ff60e2ce5395ad96a158a5453d2d588c4e133782956a8b9",
+      "upstream_path": "project/src/m1td_timbre_delay_chain.sv",
+      "upstream_bytes": 9134,
+      "upstream_sha256": "29910cdcb08fb9881ff60e2ce5395ad96a158a5453d2d588c4e133782956a8b9",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_timbre_oscillator.sv",
+      "bytes": 6071,
+      "sha256": "416023ee431b1105e5ece7157650eb44a0166d50be50c07bbda13b1ed16eb5b7",
+      "upstream_path": "project/src/m1td_timbre_oscillator.sv",
+      "upstream_bytes": 6071,
+      "upstream_sha256": "416023ee431b1105e5ece7157650eb44a0166d50be50c07bbda13b1ed16eb5b7",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_voice_allocator_4.sv",
+      "bytes": 4897,
+      "sha256": "76154c355e1cc17a78707b618909395fcf539bcbc158a887a4572f142ea24eae",
+      "upstream_path": "project/src/m1td_voice_allocator_4.sv",
+      "upstream_bytes": 4897,
+      "upstream_sha256": "76154c355e1cc17a78707b618909395fcf539bcbc158a887a4572f142ea24eae",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m1td_voice_gain_q15_candidate.sv",
+      "bytes": 903,
+      "sha256": "59882f83449cd29ae6f0bb26be2f8b6ad9609f63b07677803df880720cbb55ce",
+      "upstream_path": "project/src/m1td_voice_gain_q15_candidate.sv",
+      "upstream_bytes": 902,
+      "upstream_sha256": "771ac92ef2ff2de11c61832bf09fb11f761e1dcd617f84cb22bd63f8b7570e14",
+      "normalization": [
+        "line_tail_or_EOF_whitespace"
+      ]
+    },
+    {
+      "path": "project/src/m2_eightvoice_bright_frame_core.sv",
+      "bytes": 11337,
+      "sha256": "4b58b8123f9f15f2538449950648b52d1ce60e55d02ab8f7932f86dda070d7aa",
+      "upstream_path": "project/src/m2_eightvoice_bright_frame_core.sv",
+      "upstream_bytes": 11337,
+      "upstream_sha256": "4b58b8123f9f15f2538449950648b52d1ce60e55d02ab8f7932f86dda070d7aa",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m2_fourvoice_timbre_delay_frame_core_r06c9.sv",
+      "bytes": 10187,
+      "sha256": "187a2188722fce432a84916d5dd14fa1e1ef32b0ef11401a54a58ad31ac374a2",
+      "upstream_path": "project/src/m2_fourvoice_timbre_delay_frame_core_r06c9.sv",
+      "upstream_bytes": 10186,
+      "upstream_sha256": "1dfa7af14f21bd8be7f05b6d073c63a69371d19c380c8d0bc7226ac63432c6dc",
+      "normalization": [
+        "line_tail_or_EOF_whitespace"
+      ]
+    },
+    {
+      "path": "project/src/m2_r06_raw_cancel_reason.sv",
+      "bytes": 439,
+      "sha256": "f926e65c44a07a6d08e5e42c88a20e73b9a5c21dbfc91ccefc7e85ca8c204043",
+      "upstream_path": "project/src/m2_r06_raw_cancel_reason.sv",
+      "upstream_bytes": 439,
+      "upstream_sha256": "f926e65c44a07a6d08e5e42c88a20e73b9a5c21dbfc91ccefc7e85ca8c204043",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m2_r06_tx_identity_sidecar.sv",
+      "bytes": 8510,
+      "sha256": "40fd5145a9d80bae36ead96b8e1144be84acdf3669aa5c47a26fcef305a54d1e",
+      "upstream_path": "project/src/m2_r06_tx_identity_sidecar.sv",
+      "upstream_bytes": 8510,
+      "upstream_sha256": "40fd5145a9d80bae36ead96b8e1144be84acdf3669aa5c47a26fcef305a54d1e",
+      "normalization": []
+    },
+    {
+      "path": "project/src/m3_pro_audio_core_r10.sv",
+      "bytes": 53443,
+      "sha256": "44b07104c53e9dd30e05f9885e8140c4bc5bbf75feffa8b6c898b88dfac38566",
+      "upstream_path": "project/src/m3_pro_audio_core_r10.sv",
+      "upstream_bytes": 53443,
+      "upstream_sha256": "44b07104c53e9dd30e05f9885e8140c4bc5bbf75feffa8b6c898b88dfac38566",
+      "normalization": []
+    },
+    {
+      "path": "project/src/midi_event_parser.sv",
+      "bytes": 28066,
+      "sha256": "c7a46d6e69f2287405c5a2b6519064b442cf075bad190d1a76ad064b871eaf9c",
+      "upstream_path": "project/src/midi_event_parser.sv",
+      "upstream_bytes": 28066,
+      "upstream_sha256": "c7a46d6e69f2287405c5a2b6519064b442cf075bad190d1a76ad064b871eaf9c",
+      "normalization": []
+    },
+    {
+      "path": "project/src/midi_input.sv",
+      "bytes": 3531,
+      "sha256": "e77cf30377b860b2bd76a52c373ebaa22ecb46e3a54060c611493071aabcc41e",
+      "upstream_path": "project/src/midi_input.sv",
+      "upstream_bytes": 3531,
+      "upstream_sha256": "e77cf30377b860b2bd76a52c373ebaa22ecb46e3a54060c611493071aabcc41e",
+      "normalization": []
+    },
+    {
+      "path": "project/src/n8/m2_polyphony_audio_backend.sv",
+      "bytes": 18158,
+      "sha256": "b73a334ba07d874c5c340296a11785b4da3ad0954914a05746670db15f10cdc1",
+      "upstream_path": "project/src/n8/m2_polyphony_audio_backend.sv",
+      "upstream_bytes": 18158,
+      "upstream_sha256": "b73a334ba07d874c5c340296a11785b4da3ad0954914a05746670db15f10cdc1",
+      "normalization": []
+    },
+    {
+      "path": "project/src/n8/m2_polyphony_control_snapshot.sv",
+      "bytes": 6819,
+      "sha256": "9f1f43aefe4b16057655d8bff01d7a553a7c617b03de1d76f69a195eaffc5f65",
+      "upstream_path": "project/src/n8/m2_polyphony_control_snapshot.sv",
+      "upstream_bytes": 6819,
+      "upstream_sha256": "9f1f43aefe4b16057655d8bff01d7a553a7c617b03de1d76f69a195eaffc5f65",
+      "normalization": []
+    },
+    {
+      "path": "project/src/n8/m2_polyphony_envelope_engine.sv",
+      "bytes": 21685,
+      "sha256": "a9be59c87450ecef365b4ad13a72ee378abd7f7882d221e7a4531dd476baa940",
+      "upstream_path": "project/src/n8/m2_polyphony_envelope_engine.sv",
+      "upstream_bytes": 21685,
+      "upstream_sha256": "a9be59c87450ecef365b4ad13a72ee378abd7f7882d221e7a4531dd476baa940",
+      "normalization": []
+    },
+    {
+      "path": "project/src/n8/m2_polyphony_event_router.sv",
+      "bytes": 14401,
+      "sha256": "791e5f4ce8dddfd43698ea41e32ba9ea207543880ead8e1092bbd3ef993de3f6",
+      "upstream_path": "project/src/n8/m2_polyphony_event_router.sv",
+      "upstream_bytes": 14401,
+      "upstream_sha256": "791e5f4ce8dddfd43698ea41e32ba9ea207543880ead8e1092bbd3ef993de3f6",
+      "normalization": []
+    },
+    {
+      "path": "project/src/n8/m2_polyphony_pcm_adapter.sv",
+      "bytes": 2208,
+      "sha256": "633a4bb16d50811733003ab8bf6fa8f84ebeec5330f793c32305137d5d03d612",
+      "upstream_path": "project/src/n8/m2_polyphony_pcm_adapter.sv",
+      "upstream_bytes": 2208,
+      "upstream_sha256": "633a4bb16d50811733003ab8bf6fa8f84ebeec5330f793c32305137d5d03d612",
+      "normalization": []
+    },
+    {
+      "path": "project/src/n8/m2_polyphony_pitch_engine.sv",
+      "bytes": 11061,
+      "sha256": "5a74c92daa8ceb371e5ccde10b7f2402ec30db28485b751f3f4356908bee9062",
+      "upstream_path": "project/src/n8/m2_polyphony_pitch_engine.sv",
+      "upstream_bytes": 11061,
+      "upstream_sha256": "5a74c92daa8ceb371e5ccde10b7f2402ec30db28485b751f3f4356908bee9062",
+      "normalization": []
+    },
+    {
+      "path": "project/src/n8/m2_polyphony_rom.sv",
+      "bytes": 1414,
+      "sha256": "261214ac443d6c3002667e40d9135cdedaa86b5bf2646820d6f38579963d907f",
+      "upstream_path": "project/src/n8/m2_polyphony_rom.sv",
+      "upstream_bytes": 1414,
+      "upstream_sha256": "261214ac443d6c3002667e40d9135cdedaa86b5bf2646820d6f38579963d907f",
+      "normalization": []
+    },
+    {
+      "path": "project/src/n8/m2_polyphony_scheduler.sv",
+      "bytes": 7629,
+      "sha256": "871b916fa5ab85002f3e3ce9b666271fcba08f1269aafdc4a9b6a3cbc894b044",
+      "upstream_path": "project/src/n8/m2_polyphony_scheduler.sv",
+      "upstream_bytes": 7629,
+      "upstream_sha256": "871b916fa5ab85002f3e3ce9b666271fcba08f1269aafdc4a9b6a3cbc894b044",
+      "normalization": []
+    },
+    {
+      "path": "project/src/n8/m2_polyphony_statebank.sv",
+      "bytes": 3635,
+      "sha256": "356cedd2d73af2f6dd8310ac7987167259d8c797d694728ced03522d244265bc",
+      "upstream_path": "project/src/n8/m2_polyphony_statebank.sv",
+      "upstream_bytes": 3635,
+      "upstream_sha256": "356cedd2d73af2f6dd8310ac7987167259d8c797d694728ced03522d244265bc",
+      "normalization": []
+    },
+    {
+      "path": "project/src/n8/m2_polyphony_sustain_controller.sv",
+      "bytes": 10354,
+      "sha256": "7f676160286d31369c79460acc40af02a8023feb319dbc84636a87134a85e29a",
+      "upstream_path": "project/src/n8/m2_polyphony_sustain_controller.sv",
+      "upstream_bytes": 10354,
+      "upstream_sha256": "7f676160286d31369c79460acc40af02a8023feb319dbc84636a87134a85e29a",
+      "normalization": []
+    },
+    {
+      "path": "project/src/n8/m2_polyphony_timbre_core.sv",
+      "bytes": 23956,
+      "sha256": "8557bb9d7889b862f381bf93a25d03cd10075b73ae3164fc05abd6e3cb239c63",
+      "upstream_path": "project/src/n8/m2_polyphony_timbre_core.sv",
+      "upstream_bytes": 23956,
+      "upstream_sha256": "8557bb9d7889b862f381bf93a25d03cd10075b73ae3164fc05abd6e3cb239c63",
+      "normalization": []
+    },
+    {
+      "path": "project/src/n8/m2_polyphony_voice_allocator.sv",
+      "bytes": 9349,
+      "sha256": "997b8a2bf035d9504fa135d622b2c10c735a0713f58e590410a2e90a4d43263a",
+      "upstream_path": "project/src/n8/m2_polyphony_voice_allocator.sv",
+      "upstream_bytes": 9349,
+      "upstream_sha256": "997b8a2bf035d9504fa135d622b2c10c735a0713f58e590410a2e90a4d43263a",
+      "normalization": []
+    },
+    {
+      "path": "project/src/note_pitch.sv",
+      "bytes": 8092,
+      "sha256": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+      "upstream_path": "project/src/note_pitch.sv",
+      "upstream_bytes": 8092,
+      "upstream_sha256": "9a86ebea3041f73d8624c0dc9a32844ef13c448b46d911d39f94ebb39ee88e69",
+      "normalization": []
+    },
+    {
+      "path": "project/src/organ_dds_oscillator.sv",
+      "bytes": 3693,
+      "sha256": "95b208ca1ba6ca6d957441356ddbcc910b21994078278d3e6dcaf238a319d129",
+      "upstream_path": "project/src/organ_dds_oscillator.sv",
+      "upstream_bytes": 3693,
+      "upstream_sha256": "95b208ca1ba6ca6d957441356ddbcc910b21994078278d3e6dcaf238a319d129",
+      "normalization": []
+    },
+    {
+      "path": "project/src/organ_envelope.sv",
+      "bytes": 8386,
+      "sha256": "3790c8f24d2f627645197cf3ae3199ee7a45888e913622937fc6e05c6edaa498",
+      "upstream_path": "project/src/organ_envelope.sv",
+      "upstream_bytes": 8386,
+      "upstream_sha256": "3790c8f24d2f627645197cf3ae3199ee7a45888e913622937fc6e05c6edaa498",
+      "normalization": []
+    },
+    {
+      "path": "project/src/pcm_clip_counter.sv",
+      "bytes": 1015,
+      "sha256": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+      "upstream_path": "project/src/pcm_clip_counter.sv",
+      "upstream_bytes": 1015,
+      "upstream_sha256": "ff530dcba528160459c57e6e0098d0f96ee89b84e5aa0c34f2e85c43891facca",
+      "normalization": []
+    },
+    {
+      "path": "project/src/pcm_frame_buffer.sv",
+      "bytes": 3796,
+      "sha256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+      "upstream_path": "project/src/pcm_frame_buffer.sv",
+      "upstream_bytes": 3796,
+      "upstream_sha256": "f8bc454a2e627809c2f9f9029c1e5128acf2fd543d7fcc2d3d83b50685f40997",
+      "normalization": []
+    },
+    {
+      "path": "project/src/pcm_mixer_4voice.sv",
+      "bytes": 2068,
+      "sha256": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+      "upstream_path": "project/src/pcm_mixer_4voice.sv",
+      "upstream_bytes": 2068,
+      "upstream_sha256": "93fb6e88e55ea84f2e322b0cf8b94a1a2c2e13618e302e7d24ec8657c92bb99a",
+      "normalization": []
+    },
+    {
+      "path": "project/src/pcm_result_hold.sv",
+      "bytes": 2658,
+      "sha256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+      "upstream_path": "project/src/pcm_result_hold.sv",
+      "upstream_bytes": 2658,
+      "upstream_sha256": "7656fd0089efd140de784352d1e7809169240e6a09263c8ce9428298b424d52f",
+      "normalization": []
+    },
+    {
+      "path": "project/src/performance_control_snapshot.sv",
+      "bytes": 5049,
+      "sha256": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+      "upstream_path": "project/src/performance_control_snapshot.sv",
+      "upstream_bytes": 5049,
+      "upstream_sha256": "87739da98cc13a36c6561100285cefbb509c872392dcbe34c0e318f1b59c8f87",
+      "normalization": []
+    },
+    {
+      "path": "project/src/performance_event_fifo.sv",
+      "bytes": 2538,
+      "sha256": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+      "upstream_path": "project/src/performance_event_fifo.sv",
+      "upstream_bytes": 2538,
+      "upstream_sha256": "294e48277b125d8a42aa5ec581529ad2b85d173568a5a9997a57d7571e799671",
+      "normalization": []
+    },
+    {
+      "path": "project/src/piano_dds_oscillator.sv",
+      "bytes": 6158,
+      "sha256": "2ba0bdf2dec018ba0a6b5cd84a3d5ad2ea34d9d915ba3211a7448761eb88d834",
+      "upstream_path": "project/src/piano_dds_oscillator.sv",
+      "upstream_bytes": 6159,
+      "upstream_sha256": "bc14310149e8bccd4e71ae239d73b64b23fbbe5da5855bff95c69d22072936de",
+      "normalization": [
+        "line_tail_or_EOF_whitespace"
+      ]
+    },
+    {
+      "path": "project/src/piano_organ_voice.sv",
+      "bytes": 2820,
+      "sha256": "27eef64a088966f40d2a61c2a2405a116122c978b98d5e94a67b6866f94805af",
+      "upstream_path": "project/src/piano_organ_voice.sv",
+      "upstream_bytes": 2820,
+      "upstream_sha256": "27eef64a088966f40d2a61c2a2405a116122c978b98d5e94a67b6866f94805af",
+      "normalization": []
+    },
+    {
+      "path": "project/src/pitch_mod_fcw_pipeline.sv",
+      "bytes": 5692,
+      "sha256": "48ec3fda81cf286517278e24f962430b48c8a2c035b76745c96d8f37dffbfadc",
+      "upstream_path": "project/src/pitch_mod_fcw_pipeline.sv",
+      "upstream_bytes": 5692,
+      "upstream_sha256": "48ec3fda81cf286517278e24f962430b48c8a2c035b76745c96d8f37dffbfadc",
+      "normalization": []
+    },
+    {
+      "path": "project/src/pitch_mod_snapshot_pipeline.sv",
+      "bytes": 3517,
+      "sha256": "c6724b4b3728aa0e4cc9234e73c394267cc1ebfd4c19c704ebd91c580585b8f7",
+      "upstream_path": "project/src/pitch_mod_snapshot_pipeline.sv",
+      "upstream_bytes": 3517,
+      "upstream_sha256": "c6724b4b3728aa0e4cc9234e73c394267cc1ebfd4c19c704ebd91c580585b8f7",
+      "normalization": []
+    },
+    {
+      "path": "project/src/polyphonic_audio_core.sv",
+      "bytes": 3051,
+      "sha256": "90bb13326beecc45e1d32fbfe86c353545eda21a3d350f463ded9a7892360842",
+      "upstream_path": "project/src/polyphonic_audio_core.sv",
+      "upstream_bytes": 3050,
+      "upstream_sha256": "2ca43e80cd18d46f7a83fce5d0dd2d2c9c05fa272f9338e79bf9f23cc9933b80",
+      "normalization": [
+        "line_tail_or_EOF_whitespace"
+      ]
+    },
+    {
+      "path": "project/src/polyphonic_envelope_bank.sv",
+      "bytes": 10776,
+      "sha256": "54d6db2ec1b9aebb07924e2095f4203306c351e7123a8152ca13d9b3aef1fcd6",
+      "upstream_path": "project/src/polyphonic_envelope_bank.sv",
+      "upstream_bytes": 10776,
+      "upstream_sha256": "54d6db2ec1b9aebb07924e2095f4203306c351e7123a8152ca13d9b3aef1fcd6",
+      "normalization": []
+    },
+    {
+      "path": "project/src/polyphonic_event_router.sv",
+      "bytes": 9875,
+      "sha256": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+      "upstream_path": "project/src/polyphonic_event_router.sv",
+      "upstream_bytes": 9875,
+      "upstream_sha256": "e358c6d0275e1b4d05bdf9bf77dfb3e2cbe971a2d72cfb807786848f8206c240",
+      "normalization": []
+    },
+    {
+      "path": "project/src/polyphonic_pcm_commit.sv",
+      "bytes": 2588,
+      "sha256": "5d840ccf41b76749ee158de35c17c35fdbef072c14e54ef632b11fc7c4370e2b",
+      "upstream_path": "project/src/polyphonic_pcm_commit.sv",
+      "upstream_bytes": 2587,
+      "upstream_sha256": "47b796d4eb41234b40a73f0aa84febcfdf2f2a8b3acca45d7e89971862000a0a",
+      "normalization": [
+        "line_tail_or_EOF_whitespace"
+      ]
+    },
+    {
+      "path": "project/src/premixed_frame_adapter.sv",
+      "bytes": 5673,
+      "sha256": "43ba59bff3019dd6456de893b9f8c3253aa8775042ba747af71c7e5b067b8352",
+      "upstream_path": "project/src/premixed_frame_adapter.sv",
+      "upstream_bytes": 5673,
+      "upstream_sha256": "43ba59bff3019dd6456de893b9f8c3253aa8775042ba747af71c7e5b067b8352",
+      "normalization": []
+    },
+    {
+      "path": "project/src/pro_audio_minimal_top.sv",
+      "bytes": 6443,
+      "sha256": "522360163f81a3a9ea73941f489616185d938f5daf7f12682bd1b3400d5d0c7f",
+      "upstream_path": "project/src/pro_audio_minimal_top.sv",
+      "upstream_bytes": 6443,
+      "upstream_sha256": "522360163f81a3a9ea73941f489616185d938f5daf7f12682bd1b3400d5d0c7f",
+      "normalization": []
+    },
+    {
+      "path": "project/src/pro_score_audio_adapter.sv",
+      "bytes": 2987,
+      "sha256": "261b07c296bdaf1e1cbb68b5fbf67b6cd73b01945959e3c37d45d41f7f5109aa",
+      "upstream_path": "project/src/pro_score_audio_adapter.sv",
+      "upstream_bytes": 2987,
+      "upstream_sha256": "261b07c296bdaf1e1cbb68b5fbf67b6cd73b01945959e3c37d45d41f7f5109aa",
+      "normalization": []
+    },
+    {
+      "path": "project/src/reset_sync.sv",
+      "bytes": 1713,
+      "sha256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+      "upstream_path": "project/src/reset_sync.sv",
+      "upstream_bytes": 1713,
+      "upstream_sha256": "59b63cd109428bc4c245d7020e348b76abb4e01ced2306844c28d5f403bb2777",
+      "normalization": []
+    },
+    {
+      "path": "project/src/simple_voice.sv",
+      "bytes": 9455,
+      "sha256": "eab4974b0315c75a8076b21afea1dade122fecbcc672eb0802ba0e358a1bf274",
+      "upstream_path": "project/src/simple_voice.sv",
+      "upstream_bytes": 9455,
+      "upstream_sha256": "eab4974b0315c75a8076b21afea1dade122fecbcc672eb0802ba0e358a1bf274",
+      "normalization": []
+    },
+    {
+      "path": "project/src/sustain_control_contract_pkg.sv",
+      "bytes": 846,
+      "sha256": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+      "upstream_path": "project/src/sustain_control_contract_pkg.sv",
+      "upstream_bytes": 846,
+      "upstream_sha256": "329d855dea5885cbcd97e5c8ab75c5283bbb15db33cab3460bde637be7b207a2",
+      "normalization": []
+    },
+    {
+      "path": "project/src/sustain_controller.sv",
+      "bytes": 6110,
+      "sha256": "dd244b99b06eaa2ed7e7deda1c08aeb119f002bff939ce5941e5e81a559cbc4e",
+      "upstream_path": "project/src/sustain_controller.sv",
+      "upstream_bytes": 6110,
+      "upstream_sha256": "dd244b99b06eaa2ed7e7deda1c08aeb119f002bff939ce5941e5e81a559cbc4e",
+      "normalization": []
+    },
+    {
+      "path": "project/src/system_status_counters.sv",
+      "bytes": 1948,
+      "sha256": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+      "upstream_path": "project/src/system_status_counters.sv",
+      "upstream_bytes": 1948,
+      "upstream_sha256": "1315c418cd65ba792c9e983ecd4a29a42f8bd1c1c3288036accca00c8819c085",
+      "normalization": []
+    },
+    {
+      "path": "project/src/uart_rx.sv",
+      "bytes": 10342,
+      "sha256": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+      "upstream_path": "project/src/uart_rx.sv",
+      "upstream_bytes": 10342,
+      "upstream_sha256": "9a614ece9e02f3c1876ddb256511e1eb1cf3949cdd4251d24afdef07b2e9e4cd",
+      "normalization": []
+    },
+    {
+      "path": "project/src/uart_status_reporter.sv",
+      "bytes": 5476,
+      "sha256": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+      "upstream_path": "project/src/uart_status_reporter.sv",
+      "upstream_bytes": 5476,
+      "upstream_sha256": "bdf42cbdeb1f50cd978efa973030676194a63891eed939ae89ff080543279342",
+      "normalization": []
+    },
+    {
+      "path": "project/src/uart_tx.sv",
+      "bytes": 8233,
+      "sha256": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+      "upstream_path": "project/src/uart_tx.sv",
+      "upstream_bytes": 8233,
+      "upstream_sha256": "fcf088f455cfb52d0cd89ed45c7e78ac95ba87f6fc7399a1c150f04cf63f0925",
+      "normalization": []
+    },
+    {
+      "path": "project/src/voice_allocator_4.sv",
+      "bytes": 4892,
+      "sha256": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+      "upstream_path": "project/src/voice_allocator_4.sv",
+      "upstream_bytes": 4892,
+      "upstream_sha256": "50eacff2ddff3f66bc85deca4610659ae7ed6e2e768a2c908c59c99bc665cdb9",
+      "normalization": []
+    },
+    {
+      "path": "project/src/voice_gain_q15_candidate.sv",
+      "bytes": 898,
+      "sha256": "7c8f3816449771f1e9f917af300430123630e20870089148b5d5eb2ca9ad5999",
+      "upstream_path": "project/src/voice_gain_q15_candidate.sv",
+      "upstream_bytes": 897,
+      "upstream_sha256": "b036818a508decb74a3859fdcd0b2b7dae3adfb8e0486558ac1b5b874cad50c3",
+      "normalization": [
+        "line_tail_or_EOF_whitespace"
+      ]
+    },
+    {
+      "path": "project/tb/bright_octave/tb_bright_octave_bank.sv",
+      "bytes": 7832,
+      "sha256": "02ac5de5fa51fbdc915634ff2790eebd39153e55391fda0b04e4a7a10082f308",
+      "upstream_path": "project/tb/bright_octave/tb_bright_octave_bank.sv",
+      "upstream_bytes": 7832,
+      "upstream_sha256": "02ac5de5fa51fbdc915634ff2790eebd39153e55391fda0b04e4a7a10082f308",
+      "normalization": []
+    },
+    {
+      "path": "project/tb/bright_octave/tb_bright_octave_voice.sv",
+      "bytes": 6466,
+      "sha256": "9226245f1ddd490c2d24bc178897e86b59d7971e71b6ed0d16ee4030cf510ff4",
+      "upstream_path": "project/tb/bright_octave/tb_bright_octave_voice.sv",
+      "upstream_bytes": 6466,
+      "upstream_sha256": "9226245f1ddd490c2d24bc178897e86b59d7971e71b6ed0d16ee4030cf510ff4",
+      "normalization": []
+    },
+    {
+      "path": "project/tb/extension_integration/clock_model.sv",
+      "bytes": 400,
+      "sha256": "3c02dc4f688ab8bc73855a69db90f19c2aa81ed4acf4eb2dcbd5bf405474c1c8",
+      "upstream_path": "project/tb/extension_integration/clock_model.sv",
+      "upstream_bytes": 400,
+      "upstream_sha256": "3c02dc4f688ab8bc73855a69db90f19c2aa81ed4acf4eb2dcbd5bf405474c1c8",
+      "normalization": []
+    },
+    {
+      "path": "project/tb/extension_integration/gw5a_lut1_model.sv",
+      "bytes": 705,
+      "sha256": "baee0e96fb715e08ba9f20907b8911d0268a3df72bf63058789720a7d3278ded",
+      "upstream_path": "project/tb/extension_integration/gw5a_lut1_model.sv",
+      "upstream_bytes": 705,
+      "upstream_sha256": "baee0e96fb715e08ba9f20907b8911d0268a3df72bf63058789720a7d3278ded",
+      "normalization": []
+    },
+    {
+      "path": "project/tb/extension_integration/tb_audio_extension.sv",
+      "bytes": 6460,
+      "sha256": "cea3d137dee05ca8d37f78de4f28d5e50fc211d64e81cb17d3595b176e4d659d",
+      "upstream_path": "project/tb/extension_integration/tb_audio_extension.sv",
+      "upstream_bytes": 6460,
+      "upstream_sha256": "cea3d137dee05ca8d37f78de4f28d5e50fc211d64e81cb17d3595b176e4d659d",
+      "normalization": []
+    },
+    {
+      "path": "project/tb/extension_integration/tb_delay_identity_miter.sv",
+      "bytes": 3046,
+      "sha256": "e31f29301873f0643b5ec8690148265f17ec001e71cb88457457a22622026972",
+      "upstream_path": "project/tb/extension_integration/tb_delay_identity_miter.sv",
+      "upstream_bytes": 3046,
+      "upstream_sha256": "e31f29301873f0643b5ec8690148265f17ec001e71cb88457457a22622026972",
+      "normalization": []
+    },
+    {
+      "path": "project/tb/extension_integration/tb_fcw_identity_miter.sv",
+      "bytes": 2137,
+      "sha256": "e49f471e786e3c995e8d420167bbc6cdd70aacdcaf1873155319dadf13ad8461",
+      "upstream_path": "project/tb/extension_integration/tb_fcw_identity_miter.sv",
+      "upstream_bytes": 2137,
+      "upstream_sha256": "e49f471e786e3c995e8d420167bbc6cdd70aacdcaf1873155319dadf13ad8461",
+      "normalization": []
+    },
+    {
+      "path": "project/tb/extension_integration/tb_pro_extension.sv",
+      "bytes": 11797,
+      "sha256": "8f2ed5729b7895a814d3da89f70bf3229783dfa2b38b7cc9b6c58cca43741927",
+      "upstream_path": "project/tb/extension_integration/tb_pro_extension.sv",
+      "upstream_bytes": 11797,
+      "upstream_sha256": "8f2ed5729b7895a814d3da89f70bf3229783dfa2b38b7cc9b6c58cca43741927",
+      "normalization": []
+    },
+    {
+      "path": "project/tb/extension_visual/display/dvi_sim_boundary.sv",
+      "bytes": 481,
+      "sha256": "e9a2737ef0414d6db33d2a8c036ef20c5636904cd0b9d17c09c54e2230ecfa46",
+      "upstream_path": "project/tb/extension_visual/display/dvi_sim_boundary.sv",
+      "upstream_bytes": 481,
+      "upstream_sha256": "e9a2737ef0414d6db33d2a8c036ef20c5636904cd0b9d17c09c54e2230ecfa46",
+      "normalization": []
+    },
+    {
+      "path": "project/tb/tb_c1_fx.sv",
+      "bytes": 9189,
+      "sha256": "36c6fe2cc458fbfb9e22be9e19cb05ad3ca1708972cceb0aa77256180b02ed5f",
+      "upstream_path": "project/tb/tb_c1_fx.sv",
+      "upstream_bytes": 9189,
+      "upstream_sha256": "36c6fe2cc458fbfb9e22be9e19cb05ad3ca1708972cceb0aa77256180b02ed5f",
+      "normalization": []
+    },
+    {
+      "path": "project/tb/tb_c1_top.sv",
+      "bytes": 11232,
+      "sha256": "7f6333f3ab3daa93737e11d04d5c20e7b618df860b40c6b8b80a96fb40b7c1fa",
+      "upstream_path": "project/tb/tb_c1_top.sv",
+      "upstream_bytes": 11232,
+      "upstream_sha256": "7f6333f3ab3daa93737e11d04d5c20e7b618df860b40c6b8b80a96fb40b7c1fa",
+      "normalization": []
+    },
+    {
+      "path": "project/tb/tb_m2_n8_allocator.sv",
+      "bytes": 1586,
+      "sha256": "2cf44b1781f889584a3bbe30f6452e07fd22d09860ac5b0229c36adee937cbd9",
+      "upstream_path": "project/tb/tb_m2_n8_allocator.sv",
+      "upstream_bytes": 1586,
+      "upstream_sha256": "2cf44b1781f889584a3bbe30f6452e07fd22d09860ac5b0229c36adee937cbd9",
+      "normalization": []
+    },
+    {
+      "path": "project/tb/tb_n32_bright_frame_transport.sv",
+      "bytes": 4095,
+      "sha256": "3ca5f137e57c2f67146e296a13a4da022ed90ae52907eedcd2dc4238dd9cf7af",
+      "upstream_path": "project/tb/tb_n32_bright_frame_transport.sv",
+      "upstream_bytes": 4095,
+      "upstream_sha256": "3ca5f137e57c2f67146e296a13a4da022ed90ae52907eedcd2dc4238dd9cf7af",
+      "normalization": []
+    },
+    {
+      "path": "project/tb/tb_pro_score_audio_adapter_n8.sv",
+      "bytes": 2259,
+      "sha256": "5e09406bed71c67013df884b02d3e4b56077ec901f30a184d9c1e7dc00eb5d18",
+      "upstream_path": "project/tb/tb_pro_score_audio_adapter_n8.sv",
+      "upstream_bytes": 2259,
+      "upstream_sha256": "5e09406bed71c67013df884b02d3e4b56077ec901f30a184d9c1e7dc00eb5d18",
+      "normalization": []
+    },
+    {
+      "path": "project/tb/tb_r08_control_forwarding.sv",
+      "bytes": 2290,
+      "sha256": "23c9a534c99ab455c0dfeb1aa28c307b980b56ac177b74d14deafcd952e5a59a",
+      "upstream_path": "project/tb/tb_r08_control_forwarding.sv",
+      "upstream_bytes": 2290,
+      "upstream_sha256": "23c9a534c99ab455c0dfeb1aa28c307b980b56ac177b74d14deafcd952e5a59a",
+      "normalization": []
+    },
+    {
+      "path": "project/tb/tb_r12_falling_repeat_gap.sv",
+      "bytes": 3594,
+      "sha256": "571570d9340d56a6279e6017436bcbdd76e161ecd8b2c9135c4136bef1672643",
+      "upstream_path": "project/tb/tb_r12_falling_repeat_gap.sv",
+      "upstream_bytes": 3595,
+      "upstream_sha256": "30b814328b4911c00ade9a7068ee7d5cc7bc0764c8073ab1a1b85d89ebc6b29c",
+      "normalization": [
+        "LF"
+      ]
+    },
+    {
+      "path": "project/tb/tb_shared_envelope_equivalence.sv",
+      "bytes": 4376,
+      "sha256": "4e1789f7a2cbfb78bf780a319606115c0cd36945b76a441a13913a930831a065",
+      "upstream_path": "project/tb/tb_shared_envelope_equivalence.sv",
+      "upstream_bytes": 4376,
+      "upstream_sha256": "4e1789f7a2cbfb78bf780a319606115c0cd36945b76a441a13913a930831a065",
+      "normalization": []
+    },
+    {
+      "path": "project/tb/tb_shared_pitch_equivalence.sv",
+      "bytes": 3635,
+      "sha256": "23ceda90b528478d80cc3ab335cc3d7cf18b9874aa2109dd28a0d9f6fdf07aad",
+      "upstream_path": "project/tb/tb_shared_pitch_equivalence.sv",
+      "upstream_bytes": 3635,
+      "upstream_sha256": "23ceda90b528478d80cc3ab335cc3d7cf18b9874aa2109dd28a0d9f6fdf07aad",
+      "normalization": []
+    },
+    {
+      "path": "project/tb/tb_visual_gap_hit200.sv",
+      "bytes": 3827,
+      "sha256": "65b3268a31fa5d9c18bf3e71f9066f6583abcb6aa4c3ba7c65ceb33ff46e42e0",
+      "upstream_path": "project/tb/tb_visual_gap_hit200.sv",
+      "upstream_bytes": 3827,
+      "upstream_sha256": "65b3268a31fa5d9c18bf3e71f9066f6583abcb6aa4c3ba7c65ceb33ff46e42e0",
+      "normalization": []
+    },
+    {
+      "path": "run_c1_sim.py",
+      "bytes": 6570,
+      "sha256": "35fd7cfa93e135812adaa785102d485e2e17bb11c5c428b35f18cd4b78e42110",
+      "upstream_path": "run_c1_sim.py",
+      "upstream_bytes": 6570,
+      "upstream_sha256": "35fd7cfa93e135812adaa785102d485e2e17bb11c5c428b35f18cd4b78e42110",
+      "normalization": []
+    },
+    {
+      "path": "verify_archive.py",
+      "bytes": 2641,
+      "sha256": "67479216a273df0b9ae82f1af94c334091635ff01dd2a74e49a9bccb440cb71b",
+      "origin": "repository archive documentation and verifier"
+    },
+    {
+      "path": "visual_evidence/c1_pcm_checker.sv",
+      "bytes": 7027,
+      "sha256": "8eae05cfee2abe7d5f628082934ca6fdd23550e3286a57449b3b13207efc551b",
+      "upstream_path": "visual_evidence/c1_pcm_checker.sv",
+      "upstream_bytes": 7027,
+      "upstream_sha256": "8eae05cfee2abe7d5f628082934ca6fdd23550e3286a57449b3b13207efc551b",
+      "normalization": []
+    }
+  ]
+}

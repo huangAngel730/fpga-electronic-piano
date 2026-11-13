@@ -1,0 +1,84 @@
+set_option -synthesis_tool gowinsynthesis
+set_option -output_base_name pro_audio
+set_option -global_freq default
+set_option -top_module pro_audio_minimal_top
+set_option -include_path "[file join $package_root project include];[file join $package_root project ip extension_visual dvi]"
+set_option -verilog_std sysv2017
+set_option -vhdl_std vhd1993
+set_option -print_all_synthesis_warning 0
+set_option -disable_io_insertion 0
+set_option -looplimit 2000
+set_option -rw_check_on_ram 0
+set_option -gen_sdf 1
+set_option -gen_io_cst 0
+set_option -gen_ibis 0
+set_option -gen_posp 0
+set_option -gen_verilog_sim_netlist 1
+set_option -gen_vhdl_sim_netlist 0
+set_option -show_init_in_vo 1
+set_option -show_all_warn 0
+set_option -timing_driven 1
+set_option -ireg_in_iob 0
+set_option -oreg_in_iob 0
+set_option -ioreg_in_iob 0
+set_option -opt_goal area
+set_option -replicate_resources 0
+set_option -cst_warn_to_error 1
+set_option -rpt_auto_place_io_info 0
+set_option -convert_sdp32_36_to_sdp16_18 1
+set_option -correct_hold_violation 1
+set_option -set_route_vcc 1
+# N32 R13: serial score admission/frame maintenance removed the replicated
+# 32-slot combinational cones.  The final synthesis gate reduced total LUTs
+# from R11's 63603 to 57046.  Use a fresh Place3/Route2 implementation so the
+# router sees the reduced netlist without reusing any congested placement.
+set_option -place_option 3
+set_option -route_option 2
+# SUG1220 2.1 p47: Tcl enum is lowercase; GUI stores capitalized None.
+set_option -retiming_resource none
+set_option -clock_route_order 0
+set_option -route_maxfan 23
+set_option -use_jtag_as_gpio 0
+set_option -use_sspi_as_gpio 1
+set_option -use_mspi_as_gpio 0
+set_option -use_ready_as_gpio 0
+set_option -use_done_as_gpio 0
+set_option -use_mode_as_gpio 0
+set_option -use_i2c_as_gpio 0
+set_option -use_cpu_as_gpio 1
+set_option -power_on_reset_monitor 1
+set_option -bit_format bin
+set_option -bit_crc_check 1
+set_option -bit_compress 0
+set_option -bit_encrypt 0
+set_option -bit_encrypt_key 00000000000000000000000000000000
+set_option -bit_security 1
+set_option -bit_incl_bsram_init 1
+set_option -hotboot 0
+set_option -i2c_slave_addr 00
+set_option -secure_mode 0
+set_option -loading_rate default
+set_option -program_done_bypass 0
+set_option -wakeup_mode 0
+set_option -user_code default
+set_option -unused_pin default
+set_option -multi_boot 0
+set_option -mspi_jump 0
+set_option -turn_off_bg 0
+set_option -vccx 1.8
+set_option -vcc 0.9
+set_option -seu_handler 0
+set_option -seu_handler_checksum 0
+set_option -seu_handler_mode auto
+# SUG1220 uses numeric booleans. A literal false enabled ext_cclk in the
+# generated device.cfg, contrary to the retained GUI configuration.
+set_option -error_detection 0
+set_option -error_detection_correction 0
+set_option -stop_seu_handler 0
+set_option -error_injection 0
+set_option -ext_cclk 0
+set_option -ext_cclk_div 1
+set_option -inc_place 0
+set_option -inc_pnr 0
+set_option -serdesRetiming 0
+set_option -co-place_io_registers 0
